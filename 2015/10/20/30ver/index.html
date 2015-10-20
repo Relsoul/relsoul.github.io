@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jquery源码分析-仅github更新 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="github地址Jquery学习笔记一jquery挂载形成一个局部的环境，防止与其他代码冲突(function(window,undefined){}(window)//对外提供接口如window.$=$(21-94)定义了一些变量与函数jquery=function(){}(8826) $挂载到window上if ( typeof window === “object” &amp;amp;&amp;amp; t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery源码分析-仅github更新">
+<meta property="og:url" content="http://emufan.com/2015/10/20/30ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="github地址Jquery学习笔记一jquery挂载形成一个局部的环境，防止与其他代码冲突(function(window,undefined){}(window)//对外提供接口如window.$=$(21-94)定义了一些变量与函数jquery=function(){}(8826) $挂载到window上if ( typeof window === “object” &amp;amp;&amp;amp; t">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery源码分析-仅github更新">
+<meta name="twitter:description" content="github地址Jquery学习笔记一jquery挂载形成一个局部的环境，防止与其他代码冲突(function(window,undefined){}(window)//对外提供接口如window.$=$(21-94)定义了一些变量与函数jquery=function(){}(8826) $挂载到window上if ( typeof window === “object” &amp;amp;&amp;amp; t">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-30ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/30ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.447Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jquery源码分析-仅github更新
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/Relsoul/readbook/tree/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90" target="_blank" rel="external">github地址</a></p><br><h1>Jquery学习笔记一</h1><br><h3><a id="user-content-jquery挂载" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery挂载" target="_blank" rel="external"></a>jquery挂载</h3><br><p>形成一个局部的环境，防止与其他代码冲突</p><br><pre><code>(function(window,undefined){}(window)<br>//对外提供接口如<br>window.$=$<br></code></pre><br><p>(21-94)定义了一些变量与函数</p><br><pre><code>jquery=function(){}<br></code></pre><br><p>(8826) $挂载到window上</p><br><pre><code>if ( typeof window === “object” &amp;&amp; typeof window.document === “object” ) {<br>    window.jQuery = window.$ = jQuery;<br>}<br></code></pre><br><h3><a id="user-content-jquery原型" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery原型" target="_blank" rel="external"></a>jquery原型</h3><br><p>(96-283) 给Jquery对象添加一些方法与属性</p><br><h3><a id="user-content-jqueryextend" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryextend" target="_blank" rel="external"></a>jquery.extend</h3><br><p>(285-347) jquery的继承方法</p><br><h3><a id="user-content-jquery的工具方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的工具方法" target="_blank" rel="external"></a>jquery的工具方法</h3><br><p>(349-817)jQuery.extend():扩展一些工具方法</p><br><pre><code>//两种方法<br>//$()返回的是一个实例 也就是为实例的方法<br>//仅仅为jquery用<br>$().css();<br>$().html();<br>//$的静态方法 可以给jquery用和原生的js用<br>$.trim();<br>$.proxy;<br><br>//静态方法为jquery的最底层的，实例方法为上一层，<br>//实例方法调用底层的静态方法<br></code></pre><br><h3><a id="user-content-jquery的选择器" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的选择器" target="_blank" rel="external"></a>jquery的选择器</h3><br><p>(877-2856):jquery的选择器 Sizzle:复杂选择器的实现</p><br><pre><code>$(“ul li + p input.class”).css();<br></code></pre><br><h3><a id="user-content-jquery回调对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery回调对象" target="_blank" rel="external"></a>jquery回调对象</h3><br><p>(2880-3042) ：Callbacks:回调对象:对函数的一个统一管理</p><br><pre><code>//jquery的函数统一管理 Callbacks<br>    function fn1(){console.log(1)}<br>    function fn2(){console.log(2)}<br>    var cb=$.Callbacks();//<br>    cb.add(fn1)<br>    cb.add(fn2)<br>    console.log(cb)<br>    cb.fire()//1 2<br>    cb.remove(fn2)<br>    cb.fire()//1<br></code></pre><br><h3><a id="user-content-jquery的延迟对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的延迟对象" target="_blank" rel="external"></a>jquery的延迟对象</h3><br><p>(3043-3183):jquery的延迟对象：对异步的一个统一管理 如:定义器，dom加载等等。</p><br><pre><code>//jquery的延迟对象：对异步的一个统一管理<br>            //先会弹出2 后弹出“异步管理”<br>/<em>          setTimeout(function(){<br>                console.log(“异步管理”)<br>            },1000)<br>            console.log(2)</em>/<br><br>            //加上延迟对象，先弹出异步管理 后弹出2<br>            var dfd=$.Deferred()<br>            setTimeout(function(){<br>                console.log(“异步管理”)<br>                dfd.resolve()<br>            },1000)<br>            dfd.done(function(){<br>                console.log(2)<br>            })<br></code></pre><br><h3><a id="user-content-jquery功能检测" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery功能检测" target="_blank" rel="external"></a>jquery功能检测</h3><br><p>(3184-3295):support：功能检测 比如根据浏览器功能判断浏览器版本</p><br><pre><code>// Support: Safari 5.1, iOS 5.1, Android 4.x, Android 2.3<br>    // Check the default checkbox/radio value (“” on old WebKit; “on” elsewhere)<br>    //老版本WEBKIT默认的checkbox/radio value 为””<br>    //新版本返回的为true  老版本返回为false<br>    support.checkOn = input.value !== “”;<br></code></pre><br><h3><a id="user-content-jquery的data方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的data方法" target="_blank" rel="external"></a>jquery的data()方法</h3><br><p>(3308-3652):jquery的data()方法:数据缓存</p><br><pre><code>//jquery的data()方法:数据缓存<br>            $(“#div1”).data(‘name’,”hello”);<br>            console.log($(“#div1”).data(“name”))//hello<br></code></pre><br><h3><a id="user-content-jquery队列管理" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery队列管理" target="_blank" rel="external"></a>jquery队列管理</h3><br><p>(3653-3797)：queue():队列管理 dequeue():出队</p><br><pre><code>//jquery队列管理<br>            //先走left值-top-width<br>            $(“#div1”).animate({left:100});<br>            $(“#div1”).animate({top:100});<br>            $(“#div1”).animate({width:300});<br></code></pre><br><h3><a id="user-content-jquery的属性操作方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的属性操作方法" target="_blank" rel="external"></a>jquery的属性操作方法</h3><br><p>(3803-4299):attr(),prop(),val(),addClass():对元素属性操作</p><br><h3><a id="user-content-jquery事件操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery事件操作" target="_blank" rel="external"></a>jquery事件操作</h3><br><p>(4300-5128):on(),trigger():事件操作相关方法</p><br><h3><a id="user-content-jquerydom操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquerydom操作" target="_blank" rel="external"></a>jqueryDOM操作</h3><br><p>(5140-6057):DOM操作方法:添加，删除，获取，包装，DOM筛选</p><br><h3><a id="user-content-jquery样式操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery样式操作" target="_blank" rel="external"></a>jquery样式操作</h3><br><p>(6058-6620):css()：样式操作</p><br><h3><a id="user-content-jqueryajax" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryajax" target="_blank" rel="external"></a>jqueryAjax</h3><br><p>(6621-7854):提交的数据与ajax(); 如:ajax();load();getJson();</p><br><h3><a id="user-content-jquery运动" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery运动" target="_blank" rel="external"></a>jquery运动</h3><br><p>(7855-8584):animate():运动的方法</p><br><h3><a id="user-content-jquery位置与尺寸" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery位置与尺寸" target="_blank" rel="external"></a>jquery位置与尺寸</h3><br><p>(8585-8792):offset():位置与尺寸的方法</p><br><h3><a id="user-content-jquery模块化" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery模块化" target="_blank" rel="external"></a>jquery模块化</h3><br><p>(8804-8821):jquery支持模块化的模式</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/31ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          知道你们不想撸代码写PPT之可视化页面做一款炫酷的WEB PPT
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/9ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一个石头剪刀布的小游戏</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="30ver" data-title="jquery源码分析-仅github更新" data-url="http://emufan.com/2015/10/20/30ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

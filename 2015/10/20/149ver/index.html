@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript:深入浅出-数组 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习视频来自 http://www.imooc.com/video/6162&amp;nbsp;构造数组&amp;nbsp;//数组是弱类型的,每个数组可以有不同的元素，如对象 其他数组    var arr=[1,true,null,undefined,{x:1},[1,2,3]];    arr[0]//1    arr[4].x//1    arr[5][0]//1    var students=[{na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript:深入浅出-数组">
+<meta property="og:url" content="http://emufan.com/2015/10/20/149ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="学习视频来自 http://www.imooc.com/video/6162&amp;nbsp;构造数组&amp;nbsp;//数组是弱类型的,每个数组可以有不同的元素，如对象 其他数组    var arr=[1,true,null,undefined,{x:1},[1,2,3]];    arr[0]//1    arr[4].x//1    arr[5][0]//1    var students=[{na">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-04.png">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript:深入浅出-数组">
+<meta name="twitter:description" content="学习视频来自 http://www.imooc.com/video/6162&amp;nbsp;构造数组&amp;nbsp;//数组是弱类型的,每个数组可以有不同的元素，如对象 其他数组    var arr=[1,true,null,undefined,{x:1},[1,2,3]];    arr[0]//1    arr[4].x//1    arr[5][0]//1    var students=[{na">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-149ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/149ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript:深入浅出-数组
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习视频来自 <a href="http://www.imooc.com/video/6162" target="_blank" rel="external">http://www.imooc.com/video/6162</a></p><br><p>&nbsp;</p><br><p>构造数组</p><br><p><a href="/mm/imgs/2015-10-20-04.png"><img class=" size-medium wp-image-347 alignnone" src="/mm/imgs/2015-10-20-04.png" data-original="http://www.old.com/wp-content/uploads/2015/04/数组-300x153.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="数组" width="300" height="153"></a></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组是弱类型的,每个数组可以有不同的元素，如对象 其他数组<br>    var arr=[1,true,null,undefined,{x:1},[1,2,3]];<br><br>    arr[0]//1<br>    arr[4].x//1<br>    arr[5][0]//1<br>    var students=[{name:’soul’,age:27},{name:’test’}]<br>    var conArr1=[1,,2]//1,undefined,2<br>    var conArr2=[,,]//undefined,undefined,<br><br><br>    //对象构造器创建数组<br>    var arr1=new Array();<br>    var arrWithLength=new Array(100)//undefined*100<br>    var arrLinkesLiteral=new Array(true,false,null,1,2,’hi’)<br>    //等价[true,false,null,1,2,’hi’]</pre><br><p>&nbsp;</p><br><p>数组元素读写删减</p><br><pre class="lang:default decode:true ">//数组元素读写<br>    var arr3=[1,2,3];<br>    arr3[1]//2<br>    arr3.length//3<br><br>    delete arr[0];<br>    arr3[0]//undefined<br>    //delete 删除后数组长度不变 delete只相当于赋值了一个 undefined值<br><br>    //数组元素增删<br>    var arr4=[];<br>    arr4[0]=1;<br>    arr4[1]=2;<br>    arr4.push(3);<br>    //向数组末尾添加一个元素<br>    arr4;//[1,2,3];<br><br>    arr4[arr4.length]=4//相当于arr4.push(4)<br>    console.log(arr4);//[1,2,3,4]<br><br>    arr4.unshift(0);<br>    //在数组前面添加个元素<br>    arr4;//[0,1,2,3,4];<br><br>    delete arr4[2];<br>    arr4;//[0,1,undefined,3,4]<br>    arr4.length//5<br>    2 in arr4//false<br><br>    arr4.length -=1;<br>    //更改数组长度<br>    arr4;//[0,1,undefined,3]//4已经移除<br><br>    arr4.pop()//3 returned by pop<br>    //移除最后一个元素<br>    arr4//[0,1,undefined]//3已经移除<br><br>    arr4.shift()//0已经移除<br>    //移除最前面的元素<br>    arr4//[1,undefined]</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组迭代</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组迭代<br>    var i = 0;<br>    for (; i &lt; arr4.length; i++) {<br>        console.log(arr4[i]);//1,2,3,4,5<br>    };<br>    for(i in arr4){<br>        console.log(arr4[i])//1,2,3,4,5<br>    }<br><br><br>    Array.prototype.x=’inherited’<br><br>    for(i in arr4){<br>        //for in 会输出原型链上的属性<br>        console.log(arr4[i])//1,2,3,4,5,inherited<br>    }<br><br>    console.log(Array.prototype)<br><br>    for(i in arr4){<br>        if(arr4.hasOwnProperty(i)){<br>            //i是否是arr4本身对象<br>            console.log(arr[i])//1,2,3,4,5<br>        }<br>    }</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>二维数组与稀疏数组</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//二维数组<br><br>    var arr5=[[0,1],[2,3],[4,5]];<br><br>    var i=0,j=0;<br><br>    var row;<br>    for(; i&lt;arr5.length;i++){<br>        row=arr5[i];<br>        console.log(‘row’+i)<br>        for(j=0;j&lt;row.length;j++){<br>            //这里设置j=0,因为有好几个row,每次循环row都要重新设置j=0<br>            console.log(row[j])<br>        }<br><br>    }<br><br>    //稀疏数组<br><br>    //稀疏数组并不含有从0开始的连续索引一般length属性值比实际元素个数大<br><br>    var arr6=[undefined];<br>    var arr7=new Array(1);<br>    console.log(arr7)<br>    0 in arr6;//true;<br>    0 in arr7;//false<br>    arr6.length=100;<br>    arr6[99]=123<br>    99 in arr6//true<br>    98 in arr6//false<br><br>    var arr8=[,,];<br>    0 in arr8 //false</pre><br><p>&nbsp;</p><br><p>数组方法之转字符串</p><br><pre class="lang:default decode:true ">//数组方法<br><br>    //{}=&gt;Object.prototype<br>    //[]=&gt;Array.prototype<br><br>    //举例一些方法<br>    //Array.protorype.join<br>    //Array.prototype.foEach(Ec5)//ie9以上支持<br><br><br>    //将数组转化为字符串<br><br>    var arr9=[1,2,3];<br>    arr9.join();//‘1,2,3’<br>    arr9.join(‘_’)//‘1_2<em>3’<br><br>    function repeatString(str,n){<br>        return new Array(n+1).join(str);<br>        //n+1是数组长度<br>    }<br>    repeatString(‘a’,3);//‘aaa<br>    repeatString(‘HI’,5)//‘HIHIHIHIHI’</em></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组方法之排序</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//将数组逆序<br><br>    var arr10=[1,2,3];<br>    arr10.reverse();//[3,2,1]<br>    //会对原数组进行修改<br>    arr10//[3,2,1]<br><br>    //数组排序<br>    var arr11=[‘a’,’d’,’c’,’b’];<br>    arr11.sort();//[‘a’,’b’,’c’,’d’]<br><br>    arr11=[13,24,51,3]<br>    arr11.sort()[13,24,3,51]<br>    arr11//[13,24,3,51]<br>    //原数组会被修改<br><br>    //sort会转化为字符串后再进行排序<br>    //[开头数组是1,2,3,5]<br><br><br>    arr11.sort(function(a,b){<br>        return a-b;<br>        //左边元素小于右边元素 返回负数<br>        //升序<br>    })//[3,13,24,51]<br><br><br><br>    arr11=[{age:25},{age:39},{age:99}];<br><br>    arr11.sort(function(a,b){<br>        return a.age-b.age<br>        //排序对象<br><br>    })<br><br>    arr11.forEach(function(item){<br>        console.log(‘age’,item.age)<br>        //forEach遍历<br>    })<br><br>    //age 25<br>    //age 39<br>    //age 99</pre><br><p>&nbsp;</p><br><p>数组方法之数组合并</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组合并<br><br>    var arr12=[1,2,3];<br>    arr12.concat(4,5)//[1.2.3.4.5]<br>    arr12;//[1,2,3]<br>    //并不会对原数组进行修改<br><br>    arr12.concat([10,11],13)<br>    //[1,2,3,10,11,13]<br>    //创建二维数组需要在方括号中再包裹一个方括号<br><br>    arr12.concat([1,[2,3]])<br>    //[1,2,3,1[2,3]]<br><br><br>    //返回部分数组<br><br>    var arr13=[1,2,3,4,5];<br>    arr13.slice(1,3)//[2,3]<br>    arr13.slice(1)//[2,3,4,5]<br>    arr13.slice(1,-1)//[2,3,4]<br>    arr13.slice(-4,-3)//[2]</pre><br><p>&nbsp;</p><br><p>数组拼接</p><br><pre class="lang:default decode:true ">//数组拼接<br>    //可以删除数组元素 也可以拼接<br><br>    var arr14=[1,2,3,4,5];<br>    arr14.splice(2)//returns [3,4,5]<br>    //从第三个元素删除<br>    arr14//[1,2]<br><br>    arr14=[1,2,3,4,5]<br>    arr14.splice(2,2)//returns [3,4]<br>    //从索引2开始 删除两个元素<br>    arr14;//[1,2,5];<br><br>    arr14=[1,2,3,4,5];<br>    arr14.splice(1,1,’a’,’b’)//return[2]<br>    //从第二个元素开始 删除掉一个元素<br>    arr14;//[1,’a’,’b’,3,4,5]</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组遍历</p><br><pre class="lang:default decode:true ">//数组遍历<br><br>    var arr15=[1,2,3,4,5];<br>    arr15.forEach(function(x,index,a){<br>        console.log(x+”|”+index+’|’+(a===arr15))<br>    });<br>    //1|0|true<br>    //2|1|true<br>    //3|2|true<br>    //4|3|true<br>    //5|4|true<br>    //a指向数组本身<br>    //ie9以上支持这个方法<br></pre><br><p>&nbsp;</p><br><p>数组映射与数组过滤</p><br><pre class="lang:default decode:true ">//数组映射<br><br>    var arr16=[1,2,3];<br>    arr16.map(function(x){<br>        return x+10;<br>    });//[11,12,13]<br>    arr16//[1,2,3]<br>    //原数组未被修改<br><br><br>    //数组过滤<br><br><br>    arr17=[1,2,3,4,5,6,7,8,9,10];<br>    arr17.filter(function(x,index){<br>        return index % 3 ===0||x&gt;=8;<br>    })//return[1,4,7,8,9,10]<br>    //同样未对原数组进行修改</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组判断</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组判断<br><br><br>    var arr18=[1,2,3,4,5];<br>    arr18.every(function(x){<br>        return x&lt;10;<br>    })//true<br><br>    arr18.every(function(x){<br>        return x&lt;3<br>    })//false<br><br>    //every会对数组每个元素进行判断,只要有一个不符合就返回false<br><br><br>    arr18.some(function(x){<br>        return x===3<br>    })//true<br>    //some元素只要数组中存在一个匹配的元素就会返回true<br><br>    var arr19=[1,2,3];<br>    var sum=arr19.reduce(function(x,y){<br>        return x+y<br>    },0)//6<br>    arr19//[1,2,3]<br>    //0这个参数第一次的时候把0传进来.<br>    //相加后1作为x<br><br><br>    arr20=[3,6,9];<br>    var max=arr20.reduce(function(x,y){<br>        console.log(x+”|”+y);<br>        return x&gt;y?x:y<br>    })<br><br>    //3|9<br>    //9|6<br>    max;//9</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组检索</p><br><pre class="lang:default decode:true ">//数组检索<br><br>    var arr21=[1,2,3,2,1];<br>    arr21.indexOf(2)//1<br>    //查找元素2在位置<br>    arr21.indexOf(99)//-1<br>    //没有返回-1<br>    arr21.indexOf(1,1)//4<br>    //查找1,从第二个元素查找<br>    arr21.indexOf(1,-3)//4<br>    //从右到左查找<br>    arr21.indexOf(2,-1)//-1<br><br>    arr21.lastIndexOf(2)//3<br>    //从右到左查找<br>    arr21.lastIndexOf(2,-2)//3<br>    //<br>    arr21.lastIndexOf(2,-3)//1<br><br>    //判断是否为数组<br><br>    Array.isArray([]);//true<br><br>    [].instanceof Array//true<br>    ({}).toString.apply([])===’[object Array]’//true<br>    //调用对象的toString方法并且呼叫数组中的toString来处理<br>    [].constructor===Array//true<br>    //constructor 可以被修改<br><br>    //call<br>    var str=”soul”<br>    Array.prototype.join.call(str,’‘)</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/150ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript:深入浅出-对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/148ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">零基础学bootstrap:起步</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="149ver" data-title="JavaScript:深入浅出-数组" data-url="http://emufan.com/2015/10/20/149ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript操作符详解-1:你对操作符真的了解嘛？ | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释操作符前置型递增/递减 后置型递增/递减布尔操作符 逻辑非 逻辑与 逻辑或运算操作符条件操作符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript操作符详解-1:你对操作符真的了解嘛？">
+<meta property="og:url" content="http://emufan.com/2015/10/20/213ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释操作符前置型递增/递减 后置型递增/递减布尔操作符 逻辑非 逻辑与 逻辑或运算操作符条件操作符">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript操作符详解-1:你对操作符真的了解嘛？">
+<meta name="twitter:description" content="PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释操作符前置型递增/递减 后置型递增/递减布尔操作符 逻辑非 逻辑与 逻辑或运算操作符条件操作符">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-213ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/213ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript操作符详解-1:你对操作符真的了解嘛？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下</p><br><p>想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释</p><br><blockquote><p>操作符</p><br><ol><br><li>前置型递增/递减 后置型递增/递减</li><br><li>布尔操作符 逻辑非 逻辑与 逻辑或</li><br><li>运算操作符</li><br><li>条件操作符</li><br><li>赋值操作符</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作符详解-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function test0(){<br>        //前置型递增/递减 后置型递增/递减<br><br>        //前置型<br>        var bl0=10;//设置变量bl0等于10<br>        ++bl0;//++bl0相当于 bl0=bl0+1;<br>        // alert(bl0);//弹出11<br>        var bl1 =10;<br>        –bl1;//–bl1相当于bl1=bl1-1;<br>        // alert(bl1);//弹出9;<br><br>        //后置型<br>        var bl3=10;<br>        bl3++;//bl3++相当于 bl3=bl3+1;<br>        // alert(bl3);//弹出11<br>        var bl4 =10;<br>        bl4–;//bl4–相当于 bl0=bl4-1;<br>        // alert(bl4);//弹出9<br><br>        //那么这两个有什么区别呢？<br>        var bl5 =10;<br>        var bl6 = ++bl5 +10;<br>        // alert(bl6);//弹出的是21<br><br>        var bl7=10;<br>        var bl8 =bl7++ +10;<br>        // alert(bl8);//奇怪 弹出的是20 怎么回事呢？<br>        // alert(bl7);//再来看看经过相加后的bl17是多少 弹出的是11<br>        var bl9 =bl7 + 10;<br>        // alert(bl9)//再来运算下 弹出的是21<br>        //可以得出结论 前置的++是在运算符(+-<em>/)之前运行的 也就说优先级高于运算符<br>        //后置的是在运算符之后运行的 所以第二次运行弹出的是21<br><br>        //递增递减运算的对象是数字<br>        var bl10 =”jm”;<br>        bl10 ++;<br>        // alert(bl10);//这样弹出Nan<br>        var bl11 =”10”;<br>        bl11 ++<br>        // alert(bl11+typeof bl11);//这样弹出的是11 如果字符串里有数字会把字符中数字转换成数字类型<br>        var bl12 =”11mm”;<br>        bl12++<br>        // alert(bl12);//这样弹出的会是Nan 因为不能包含字符<br><br>        //布尔操作符<br>        //布尔操作符只有true和false两个属性<br><br>        //逻辑非<br>        var bl13=”hello”;<br>        // alert(!bl13);//!就是逻辑非 ！..逻辑非会拉入你进入反世界 比如bl13存在字符串对吧<br>        // alert(bl13);//如果bl13非空字符串 那么就会弹出ture 但是加了！号 一切都反了 !bl13会返回false<br>        var bl14=0;<br>        // alert(!bl14);//本来数字为0 会弹出false 加了!就会弹出false…好好体会吧.<br><br>        //逻辑与<br>        var bl15 =true;<br>        //var bl16 =(bl15&amp;&amp;nud);//直接会报错,逻辑与在第一个元素是true然后会判断第二个元素 这里第二个元素不存在<br>        //所以会报错<br>        var bl17 =false;<br>        var bl18 =(bl17&amp;&amp;nud);// 变量1等于false 变量2无论是true还是false，最后结果都是false<br>        // alert(bl18);//会直接弹出false<br><br>        //逻辑或<br>        var bl19=true;<br>        var bl20=false;<br>        // alert(bl19||bl20);//会弹出true ||是逻辑或的符号 逻辑或只要有一个是true 那么都会返回true<br>        //如果两个都是false 那么就会返回false<br>        var bl19=false;<br>        // alert(bl19||und)//und没有定义 再加上第一个元素是false 所以会报错<br><br><br><br>    }<br><br>    function test1(){<br>        //乘法<br>        var bl0=2</em>77;//这就是乘法<br>        var bl1=”24”;<br>        var bl2 =bl0*parseInt(bl1);//还记得parseInt函数吗？乘法要把字符串转为数值哦<br>        // alert(bl2);<br><br>        //除法<br>        var bl3 =-20/0;//任何非零的有限数除以0都是Infinity/-Infinity 取决于符号<br>        // alert(bl3);//因为是负号所以会弹出-Infinity<br><br>        //余数<br>        var bl4 =3%2;//2除以3取余数<br>        // alert(bl4);//弹出的是1<br>        //除法和余数要把字符串转为数值哦<br><br>        //加法<br>        var bl5=”213”;<br>        var bl6=24;<br>        var bl7=parseInt(bl5)+bl6;//parseInt变量已经讲过咯<br>        // alert(bl7+”bl7类型:”+typeof bl7);//弹出237 类型是数字类型<br>        var bl8 =bl5+bl6;//如果不经过转换那么是多少呢？<br>        // alert(bl8+”bl8类型:”+typeof bl8);//弹出21324 加号单纯变成字符串拼接了 把bl6转换为字符串然后拼接起来<br>        var bl9 =22;<br>        var bl10=33;<br>        var bl11 =”相加获得：”+bl9+bl10//<br>        // alert(bl11)//因为加法是从左到又的 这里会弹出”相加获得：2233”； 要解决很简单<br>        var bl12=”相加获得”+(bl9+bl10);//这样就正确了<br><br>        //减法<br>        var bl13 =”-214”;//这个是字符串<br>        var bl14 =17;<br>        var bl15= parseInt(bl13)+bl14;<br>        // alert(bl15);//弹出-197 如果我想把这个变为正数 那么应该怎么办呢？ 简单，跟数学一样<br>        var bl16= -parseInt(bl13)+bl14//仅仅在parseInt前面加一个-号就ok了<br>        // alert(bl16)//弹出正数<br>        var bl7=true;<br>        var bl8=10-bl7;//<br>        // alert(bl8);//弹出9 因为bl7被转换成了1 false就是0<br>        var bl9=”2015”;<br>        var bl10=bl9-“1000”;<br>        // alert(bl10);//会弹出1015 因为会在后台强制用 Number()转换成数字再进行相减<br><br>        //大于,小于，小于等于，大于等于<br>        var bl11 = “hello”;<br>        var bl12 = “soul”;<br>        var bl13 = bl11 &gt; bl12;<br>        // alert(bl13);//字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl4=”23”;<br>        var bl5=”3”;<br>        var bl6=bl5&lt;bl4;<br>        // alert(bl6);//明明是正确的啊？ 还是那句话 字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl7=”24”;<br>        var bl8=3;<br>        var bl9= bl7&gt;bl8;<br>        // alert(bl9);//字符串与数字比较 会把字符串转换为数字类型再进行比较 返回true<br><br>        var bl10=”a”;<br>        var bl12=3;<br>        // alert(bl10&gt;bl12);//返回Nan 因为a转为数字Nan Nan与数字比较都是会返回Nan<br><br>        //相等 不等 全等 不全等<br>        //对于对象来说 相等不相等 先转换再比较 全等不全等 仅比较不转换<br><br>        var bl10=undefined;<br>        var bl11=null;<br>        // alert(bl10==bl11);//会弹出相等 因为在JavaScript定义里 undefined和null是相等的<br>        var bl12=”12”;<br>        var bl13=12;<br>        var bl13= bl12==bl13;<br>        // alert(bl13);//将字符串转换后还是相等的.<br>        var bl14=”12”;<br>        var bl15=14;<br>        var bl16= bl14!=bl15;<br>        // alert(bl16);//返回true 因为转换成数字后 他们两个不相等<br><br>        //全等 不等 不全等<br><br>        var bl17=”13”;<br>        var bl18=13;<br>        var bl19= bl17==bl18;<br>        // alert(bl19);//转换后相等<br>        var bl20 = bl17===bl18//全等是三个等号 不会转换<br>        // alert(bl20);//返回false;<br>        var bl21=”33”;<br>        var bl22=33;<br>        var bl23= bl21!=bl22;//!=是不等于<br>        // alert(bl23);//转换后33等于33 所以返回false<br>        var bl24 =bl21!==bl22//!==是全不等<br>        // alert(bl24);//弹出true 因为他们是不等的 为什么呢？ 因为没有转换成整数比较 字符串等于整数吗？<br>         var bl25 =undefined;<br>         var bl26=null;<br>         // alert(bl25===bl26);//没有转换 会弹出false<br><br>    }<br><br>    function test2(){<br>        //条件操作符(三目操作符)<br>        var bl0=10;<br>        var bl2=”20”;<br>        var bl3= bl0&gt;bl2?bl0:bl2//bl0是否大于bl2？ 如果是则bl3=bl0；如果不是bl3=bl2；<br>        // alert(bl3+ typeof bl3);//因为bl0不大于bl2 所以bl3=bl2 弹出20<br><br>        //赋值操作符<br>        var bl4=10;//赋值10给bl4<br>        bl4 +=bl4;//bl4=bl4+bl4<br>        // alert(bl4);//等于20<br>        bl4 /=bl4//bl4=bl4/bl4;<br>        bl4 %=bl4//bl4%=bl4;<br><br><br>    }<br><br><br><br><br><br>    window.onload=function(){<br>        test0();<br>        test1();<br>        test2();<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/212ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          将sublime编辑器加入鼠标右键
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/214ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript变量详解-1:不来再学下变量吗？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="213ver" data-title="JavaScript操作符详解-1:你对操作符真的了解嘛？" data-url="http://emufan.com/2015/10/20/213ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

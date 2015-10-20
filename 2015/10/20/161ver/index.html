@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>闲聊CSS之关于clearfix&amp;#8211;清除浮动 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="文本转自http://www.imooc.com/wenda/detail/11605
+闲聊CSS之关于clearfix–清除浮动
+一，什么是.clearfix你只要到Google或者Baidu随便一搜”css清除浮动”，就会发现很多网站都讲到”盒子清除内部浮动时可以用到.clearfix”。.clearfix:after {content: “ “;display: block;clear: b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闲聊CSS之关于clearfix&#8211;清除浮动">
+<meta property="og:url" content="http://emufan.com/2015/10/20/161ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="文本转自http://www.imooc.com/wenda/detail/11605
+闲聊CSS之关于clearfix–清除浮动
+一，什么是.clearfix你只要到Google或者Baidu随便一搜”css清除浮动”，就会发现很多网站都讲到”盒子清除内部浮动时可以用到.clearfix”。.clearfix:after {content: “ “;display: block;clear: b">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="闲聊CSS之关于clearfix&#8211;清除浮动">
+<meta name="twitter:description" content="文本转自http://www.imooc.com/wenda/detail/11605
+闲聊CSS之关于clearfix–清除浮动
+一，什么是.clearfix你只要到Google或者Baidu随便一搜”css清除浮动”，就会发现很多网站都讲到”盒子清除内部浮动时可以用到.clearfix”。.clearfix:after {content: “ “;display: block;clear: b">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-161ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/161ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      闲聊CSS之关于clearfix&amp;#8211;清除浮动
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>文本转自<a href="http://www.imooc.com/wenda/detail/11605" target="_blank" rel="external">http://www.imooc.com/wenda/detail/11605</a></p><p></p>
+<p></p><h3 class="js-qa-wenda-title qa-wenda-title">闲聊CSS之关于clearfix–清除浮动</h3><p></p>
+<div id="js-qa-wenda" class="qa-wenda imgPreview rich-text"><br><p>一，什么是.clearfix</p><br><p>你只要到Google或者Baidu随便一搜”css清除浮动”，就会发现很多网站都讲到”盒子清除内部浮动时可以用到.clearfix”。</p><br><p>.clearfix:after {<br><br>content: “ “;<br><br>display: block;<br><br>clear: both;<br><br>height: 0;<br><br>}<br><br>.clearfix {<br><br>zoom: 1;<br><br>}</p><br><p>&lt;div class=”clearfix”&gt;<br><br>&lt;div class=”floated”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;</p><br><p>上面的代码就是.clearfix的定义和应用，简单的说下.clearfix的原理：</p><br><p>1、在IE6, 7下zoom: 1会触发hasLayout，从而使元素闭合内部的浮动。</p><br><p>2、在标准浏览器下，.clearfix:after这个伪类会在应用到.clearfix的元素后面插入一个clear: both的块级元素，从而达到清除浮动的作用。</p><br><p>&lt;div&gt;<br><br>&lt;div class=”floated”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;<br><br>&lt;div style=”clear: both”&gt;&lt;/div&gt;</p><br><p>二，.clearfix的弊端</p><br><p>在上面的代码中可以看到，抛开IE6, 7不谈，.clearfix在标准浏览器下插入了一个clear: both的元素，这样很可能清除掉不必要的浮动。举例来说明：</p><br><p>&lt;!DOCTYPE html&gt;<br><br>&lt;html&gt;<br><br>&lt;head&gt;<br><br>&lt;title&gt;Demo&lt;/title&gt;<br><br>&lt;style type=”text/css”&gt;<br><br>html, body { padding: 0; margin: 0; }<br><br>ul { margin: 0; padding: 0; }</p><br><p>.clearfix:after {<br><br>content: “ “;<br><br>display: block;<br><br>clear: both;<br><br>height: 0;<br><br>}<br><br>.clearfix {<br><br>zoom: 1;<br><br>}</p><br><p>.left-col {<br><br>background: red;<br><br>float: left;<br><br>width: 100px;<br><br>height: 300px;<br><br>}<br><br>.right-col {<br><br>margin-left: 100px;<br><br>}<br><br>.menu {<br><br>border: 1px solid #000;<br><br>}<br><br>.menu li {<br><br>float: left;<br><br>display: block;<br><br>padding: 0 1em;<br><br>margin: 0 1em 0 0;<br><br>background: #ccc;<br><br>}<br><br>.placeholder {<br><br>background: yellow;<br><br>height: 400px;<br><br>}<br><br>&lt;/style&gt;<br><br>&lt;/head&gt;<br><br>&lt;body&gt;<br><br>&lt;div class=”left-col”&gt;<br><br>&lt;/div&gt;<br><br>&lt;div class=”right-col”&gt;<br><br>&lt;ul class=”menu”&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;/ul&gt;<br><br>&lt;div class=”placeholder”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;<br><br>&lt;/body&gt;<br><br>&lt;/html&gt;</p><br><p>上面的代码构成一个两列布局的页面。注意.menu这个菜单设置了边框，但是由于.menu的li元素是左浮动的，导致.menu没有高度，于是可以用.clearfix来清除.menu内部的浮动。代码如下：</p><br><p>&lt;ul class=”menu clearfix”&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;/ul&gt;</p><br><p>但是应用完.clearfix后，在标准浏览器下页面变得很乱，这是因为.clearfix:after把.left-col的浮动也给清除掉了。</p><br><p>三，重构.clearfix</p><br><p>在遭遇到上面的错误之后，分析一下除了.clearfix:after这种方式之外还有没有别的方法清除元素内部的浮动。答案是有的，在白话Block Formatting Contexts这篇文章中提到过构成Block Formatting Context的元素可以清除内部元素的浮动。那么只要使.clearfix形成Block Formatting Context就好了。构成Block Formatting Context的方法有下面几种：</p><br><p>float的值不为none。overflow的值不为visible。display的值为table-cell, table-caption, inline-block中的任何一个。position的值不为relative和static。</p><br><p>很明显，float和position不合适我们的需求。那只能从overflow或者display中选取一个。因为是应用了.clearfix和.menu的菜单极有可能是多级的，所以overflow: hidden或overflow: auto也不满足需求（会把下拉的菜单隐藏掉或者出滚动条），那么只能从display下手。</p><br><p>我们可以将.clearfix的display值设为table-cell, table-caption, inline-block中的任何一个，但是display: inline-block会产生多余空白，所以也排除掉。剩下的只有table-cell, table-caption，为了保证兼容可以用display: table来使.clearfix形成一个Block Formatting Context，因为display: table会产生一些匿名盒子，这些匿名盒子的其中一个（display值为table-cell）会形成Block Formatting Context。这样我们新的.clearfix就会闭合内部元素的浮动。下面是重构之后的.clearfix。</p><br><p>.clearfix {<br><br>zoom: 1;<br><br>display: table;<br><br>}</p><br><p>四，总结</p><br><p>在IE6, 7下面只要是触发了hasLayout的元素就可以清除内部浮动了。而在标准浏览器下面清除元素内部浮动的方法有很多，除了.clearfix:after这种方式，其余的方法无非就是产生新的Block Formatting Context以达到目的。如果可以做到在什么条件下用哪种方法，我认为这样就足够了……</p><br><p>本文转自：<a href="http://www.missage.com/1220.html" target="_blank" rel="external">http://www.missage.com/1220.html</a></p><br><p>原文連結：<a href="http://www.45eggs.com/xhtml-css/2011/css-clearfix.html" target="_blank" rel="external">http://www.45eggs.com/xhtml-css/2011/css-clearfix.html</a></p><br></div>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/162ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript-焦点轮播图效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/160ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS:清除浮动与盒子模型</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="161ver" data-title="闲聊CSS之关于clearfix&amp;#8211;清除浮动" data-url="http://emufan.com/2015/10/20/161ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

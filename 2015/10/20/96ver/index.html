@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>php自学笔记之运算符 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="运算符1,PHP中的算术运算符算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：$english=110;//英语成绩哪有这么好- -$math=118;//向前移一个小数点就差不多了$biological=80;//生物$physical=90;//物理$sum=$english+$math+$biological+$phys">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php自学笔记之运算符">
+<meta property="og:url" content="http://emufan.com/2015/10/20/96ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="运算符1,PHP中的算术运算符算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：$english=110;//英语成绩哪有这么好- -$math=118;//向前移一个小数点就差不多了$biological=80;//生物$physical=90;//物理$sum=$english+$math+$biological+$phys">
+<meta property="og:image" content="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg">
+<meta property="og:image" content="http://img.mukewang.com/533a0af30001e75c06600409.jpg">
+<meta property="og:image" content="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.450Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php自学笔记之运算符">
+<meta name="twitter:description" content="运算符1,PHP中的算术运算符算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：$english=110;//英语成绩哪有这么好- -$math=118;//向前移一个小数点就差不多了$biological=80;//生物$physical=90;//物理$sum=$english+$math+$biological+$phys">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-96ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/96ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.450Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php自学笔记之运算符
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>运算符</strong></span></h1><br><p><span style="color: #993366;"><strong>1,PHP中的算术运算符</strong></span></p><br><p align="left">算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：</p><br><p align="left"><a href="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" target="_blank" rel="external"><img class=" alignleft" src="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" data-original="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">$english=110;//英语成绩哪有这么好- -</p><br><p>$math=118;//向前移一个小数点就差不多了<br><br>$biological=80;//生物<br><br>$physical=90;//物理</p><br><p>$sum=$english+$math+$biological+$physical;<br><br>$avg=$sum/4;<br><br>$x=$math-$english;<br><br>$x2=$english*$english;<br><br>echo “总分:”.$sum.”&lt;br&gt;”;<br><br>echo “平均分:”.$avg.”&lt;br&gt;”;<br><br>echo “数学比英语高多少分:”.$x.”&lt;br&gt;”;<br><br>echo “英语平方:”.$x2.”&lt;br&gt;”;</p><br><p>&nbsp;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>2,赋值运算符</strong></span></p><br><p align="left">PHP的赋值运算符有两种，分别是：</p><br><p align="left">(1)“=”：把右边表达式的值赋给左边的运算数。它将右边表达式值复制一份，交给左边的运算数。换而言之，首先给左边的运算数申请了一块内存，然后把复制的值放到这个内存中。</p><br><p align="left">(2)“&amp;”：引用赋值，意味着两个变量都指向同一个数据。它将使两个变量共享一块内存，如果这个内存存储的数据变了，那么两个变量的值都会发生变化。</p><br><p> //现在开始赋值运算符<br><br>$word1=”soul”;<br><br>$s_word1=$word1;<br><br>$c_word1=&amp;$word1;//$符号只相当于一个指针,当数据发生变化后赋值一样会发生变化<br><br>$word1=”soulseeker”;<br><br>echo $s_word1.”&lt;br&gt;”;<br><br>echo $c_word1.”&lt;br&gt;”</p><br><hr><br><p><span style="color: #993366;"><strong>3,比较运算符</strong></span></p><br><p>比较运算符主要是用于进行比较运算的，例如：等于、全等、不等、大于、小于。在PHP中常用的比较运算符如下表：</p><br><p><a href="http://img.mukewang.com/533a0af30001e75c06600409.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533a0af30001e75c06600409.jpg" data-original="http://img.mukewang.com/533a0af30001e75c06600409.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>$t1=1;<br><br>$t2=”1”;</p><br><p>var_dump( $t1==$t2);//普通=，只会比较值是否一样<br><br>br();<br><br>var_dump($t1===$t2);//严格等于,会连类型都判断<br><br>br();<br><br>var_dump($t1!=$t2);//普通不等<br><br>br();<br><br>var_dump($t1!==$t2);//如果t1不等于t2,或者他们类型不同返回true<br><br>br();<br><br>var_dump($t1&lt;&gt;$t2);//不等 同等于!=<br><br>br();<br><br>var_dump($t1&gt;=$t2);//大于等于，小于等于都不会去判断数据类型<br><br>br();<br><br>var_dump($t1&lt;=$t2);//<br><br>br();<br><br>var_dump($t1&gt;$t2);//大于，小于会严格判断数据和数据类型</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><span style="color: #993366;"><strong>4,三元运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>(“?:”)三元运算符也是一个比较运算符，对于表达式(expr1)?(expr2):(expr3)，如果expr1的值为true，则此表达式的值为expr2，否则为expr3。</p><br></div><br></div><br><p>$t3=78;</p><br><p>$t4=$t3&gt;60?”我及格了”:”我没及格”;<br><br>echo $t4;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>5,逻辑运算符 </strong></span></p><br><p align="left">逻辑运算符主用是进行逻辑运算的，例如：逻辑与、逻辑或、逻辑异或、逻辑非等，在PHP中常用的逻辑运算符如下表：（点击看大图）</p><br><p align="left"><a href="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" data-original="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">我们可以从投票的角度来理解逻辑运算：</p><br><p align="left"><strong>1、逻辑与：</strong>要求所有人都投票同意，才会通过某协议；</p><br><p align="left"><strong>2、逻辑或：</strong>只要求一个人投票同意就行；</p><br><p align="left"><strong>3、逻辑异或：</strong>只能有且只能有一个人投票同意；</p><br><p align="left"><strong>4、逻辑非：</strong>某个人要反对，但是通过逻辑非，使其反对无效；</p><br><p align="left">“与”和“或”有两种不同形式运算符的原因是它们运算的优先级（就是运算的有限顺序，比如我们小学的时候学习四则运算，加减乘除混合在一起啦，优先计算乘除，再计算加减）不同。</p><br><p align="left">//现在开始逻辑运算符<br><br>$a = TRUE; //A同意<br><br>$b = TRUE; //B同意<br><br>$c = FALSE; //C反对<br><br>$d = FALSE; //D反对<br><br>//咱顺便复习下三元运算符<br><br>echo ($a and $b)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a or $c)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a xor $c xor $d)?”通过”:”不通过”;//a或者b只有一个为true返回true<br><br>echo “&lt;br /&gt;”;<br><br>echo !$c?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a&amp;&amp;$d)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo($a||$b||$c)?”通过”:”不通过”;</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><strong><span style="color: #993366;">6,字符串连接运算符</span></strong></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">字符串连接运算符是为了将两个字符串进行连接，PHP中提供的字符串连接运算符有：</p><br><p align="left">（1）连接运算符(“.”)：它返回将右参数附加到左参数后面所得的字符串。</p><br><p align="left">（2）连接赋值运算符(“.=”)：它将右边参数附加到左边的参数后。</p><br></div><br></div><br><p>//现在开始字符串连接符<br><br>$a = “张先生”;<br><br>$tip=$a.”,欢迎您在慕课网学习PHP”;</p><br><p>$b = “东边日出西边雨”;<br><br>$b.=”,道是无晴却有晴”;//等同于$c=$c.”,道是无晴却有晴”;</p><br><p>$c = “东边日出西边雨”;<br><br>$c=$c.”,道是无晴却有晴”;</p><br><p>echo $tip.”&lt;br /&gt;”;<br><br>echo $b.”&lt;br /&gt;”;<br><br>echo $c.”&lt;br /&gt;”;</p><br><hr><br><p><span style="color: #993366;"><strong>7，错误控制运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">PHP中提供了一个错误控制运算符“@”，对于一些可能会在运行过程中出错的表达式时，我们不希望出错的时候给客户显示错误信息，这样对用户不友好。于是，可以将@放置在一个PHP表达式之前，该表达式可能产生的任何错误信息都被忽略掉；</p><br><p align="left">如果激活了track_error（这个玩意在php.ini中设置）特性，表达式所产生的任何错误信息都被存放在变量$php_errormsg中，此变量在每次出错时都会被覆盖，所以如果想用它的话必须尽早检查。</p><br><p align="left">需要注意的是：错误控制前缀“@”不会屏蔽解析错误的信息，不能把它放在函数或类的定义之前，也不能用于条件结构例如if和foreach等。</p><br></div><br></div><br><p>$conn=@mysql_connect(“localhost”,”username”,”password”);//@只能放在表达式中,不能放在foreach等循环中<br><br>echo “出错了，错误原因是：”.$php_errormsg;</p><br><hr><br><p>&nbsp;</p><br><p>8,运算符2</p><br><p>$maxLine = 4; //每排人数<br><br>$no = 17;//学生编号<br><br>$line=ceil($no/$maxLine);//判断座位<br><br>$row=$no%$maxLine?$no%$maxLine:$maxLine;//是否除尽？ 否取余数 是取$maxLine</p><br><p>echo “编号&lt;b&gt;”.$no.”&lt;/b&gt;的座位在第&lt;b&gt;”.$line.”&lt;/b&gt;排第&lt;b&gt;”.$row.”&lt;/b&gt;个位置”;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/97ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          PHP自学笔记之常量
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/99ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">十个JavaScript中易犯的小错误，你中了几枪？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="96ver" data-title="php自学笔记之运算符" data-url="http://emufan.com/2015/10/20/96ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

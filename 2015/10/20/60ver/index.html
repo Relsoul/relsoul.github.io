@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>纯CSS3编写一个渐变效果的进度条 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="做成的效果就是如上图所示的效果,那么要做到这种效果需要了解哪些相关的知识点呢？CSS3之linear-gradientCSS3之animationCSS3之border-radius linear-gradient 线性渐变linear-gradient(to bottom, #fff 0%, #333 100%); &amp;nbsp;“to bottom” 从上至下渐变,也有to left从左至右,t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯CSS3编写一个渐变效果的进度条">
+<meta property="og:url" content="http://emufan.com/2015/10/20/60ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="做成的效果就是如上图所示的效果,那么要做到这种效果需要了解哪些相关的知识点呢？CSS3之linear-gradientCSS3之animationCSS3之border-radius linear-gradient 线性渐变linear-gradient(to bottom, #fff 0%, #333 100%); &amp;nbsp;“to bottom” 从上至下渐变,也有to left从左至右,t">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯CSS3编写一个渐变效果的进度条">
+<meta name="twitter:description" content="做成的效果就是如上图所示的效果,那么要做到这种效果需要了解哪些相关的知识点呢？CSS3之linear-gradientCSS3之animationCSS3之border-radius linear-gradient 线性渐变linear-gradient(to bottom, #fff 0%, #333 100%); &amp;nbsp;“to bottom” 从上至下渐变,也有to left从左至右,t">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-60ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/60ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.448Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      纯CSS3编写一个渐变效果的进度条
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div id="blogentry" class=""></div></p>
+<p>做成的效果就是如上图所示的效果,那么要做到这种效果需要了解哪些相关的知识点呢？</p><br><ul><br><li>CSS3之linear-gradient</li><br><li>CSS3之animation</li><br><li>CSS3之border-radius</li><br></ul><br><div><strong> </strong></div><br><h2><strong>linear-gradient 线性渐变</strong></h2><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">linear</span><span class="pun">-</span><span class="pln">gradient</span><span class="pun">(</span><span class="pln">to bottom</span><span class="pun">,</span> <span class="com">#fff 0%, #333 100%); </span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br></div><br><div><br><ul><br><li>“to bottom” 从上至下渐变,也有to left从左至右,to right  to top</li><br><li>#ff 0% 从顶部开始(案例为to bottom) 上面一部分是白色的</li><br><li>#333 100% 然后渐变到#333的效果</li><br></ul><br><p>举例:</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">linear</span><span class="pun">-</span><span class="pln">gradient</span><span class="pun">(-</span><span class="lit">45deg</span><span class="pun">,</span><span class="pln"> rgba</span><span class="pun">(</span><span class="lit">255</span><span class="pun">,</span><span class="lit">255</span><span class="pun">,</span><span class="lit">255</span><span class="pun">,</span><span class="lit">0.5</span><span class="pun">)</span><span class="lit">0</span><span class="pun">%,</span> <span class="com">#324512 60%,#333 100%);</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>角度可以用deg的形式, 颜色也可以用rgba rgb transparent  后面的百分比是用来规划渐变区域 中间通过英文半角逗号分隔</p><br><h2><strong>animation 动画</strong></h2><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">animation</span><span class="pun">:</span><span class="pln">soul </span><span class="lit">2s</span><span class="pln"> ease</span><span class="pun">-</span><span class="kwd">out</span><span class="pln"> infinite</span><span class="pun">;</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="pun">@-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">keyframes soul</span><span class="pun">{</span></li><br><li class="L3"><span class="lit">0</span><span class="pun">%{</span></li><br><li class="L4"><span class="pln">width</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="lit">100</span><span class="pun">%{</span></li><br><li class="L8"><span class="pln">width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><ul><br><li>soul 动画的名字 利用@keyframes来规定名字</li><br><li>2s 动画持续时间</li><br><li>ease-out 动画过渡效果</li><br><li>infinite 动画反复播放</li><br></ul><br></div><br><div>举例:  如上例子 更多的属性可以参照本社区：<a href="http://www.gbtags.com/gb/gbliblist/29.htm" target="_blank" rel="external">http://www.gbtags.com/gb/gbliblist/29.htm</a></div><br><h2>border-radius<strong> 圆角</strong></h2><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="lit">10px</span> <span class="lit">20px</span> <span class="lit">30px</span> <span class="lit">40px</span><span class="pun">/</span><span class="lit">5px</span> <span class="lit">10px</span> <span class="lit">15px</span> <span class="lit">20px</span><span class="pun">;</span></li><br></ol><br></div><br></div><br></div><br><div><br><ul><br><li>10px(左上角水平半径) 20px(右上角水平半径) 30px(右下角水平半径) 40px(左下角水平半径)</li><br><li>/5px(左上角垂直半径) 10px(右上角垂直半径)  15px(右下角垂直半径)  20px(左下角垂直半径)</li><br><li>中间通过/分隔</li><br></ul><br></div><br><div></div><br><div>举例:<br></div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span><span class="lit">8px</span></li><br></ol><br></div><br></div><br><p>实际上我们一般不会深究这些属性，除非是必须要用到的时候</p><br></div><br><div>OK,了解以上技术点后开始学习制作吧！</div><br><div></div><br><div>学习地址:</div><br><div></div><br><div><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtreplayerpreview/987.htm"></iframe>&nbsp;<p></p><br><p>了解代码编写过程，请点击如下地址：</p><br><blockquote><p><a href="http://www.gbtags.com/gb/rtreplayer/987.htm" target="_blank">http://www.gbtags.com/gb/rtreplayer/987.htm</a></p></blockquote><br></div><br><div class="clear"></div><br><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/55ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          前端攻城狮文档手册-干货分享
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/52ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS程序设计之面向对象原型链</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="60ver" data-title="纯CSS3编写一个渐变效果的进度条" data-url="http://emufan.com/2015/10/20/60ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

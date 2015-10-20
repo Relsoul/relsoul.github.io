@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript-焦点轮播图效果 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习代码以及文章来自：http://www.imooc.com/code/3605&amp;nbsp;学习经验CSS这块..一直是个坑也就没分析了这次主要是通过控制pic.style.top距离来判断是哪个li170是div的高度 ，因为我们是通过一个div来显示的.1702=第二章图片..这块没怎么写好.希望各位大神能够指点一下&amp;nbsp;首先这个JS有几个函数或者方法呢？if (timer) {//如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-焦点轮播图效果">
+<meta property="og:url" content="http://emufan.com/2015/10/20/162ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="学习代码以及文章来自：http://www.imooc.com/code/3605&amp;nbsp;学习经验CSS这块..一直是个坑也就没分析了这次主要是通过控制pic.style.top距离来判断是哪个li170是div的高度 ，因为我们是通过一个div来显示的.1702=第二章图片..这块没怎么写好.希望各位大神能够指点一下&amp;nbsp;首先这个JS有几个函数或者方法呢？if (timer) {//如">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-焦点轮播图效果">
+<meta name="twitter:description" content="学习代码以及文章来自：http://www.imooc.com/code/3605&amp;nbsp;学习经验CSS这块..一直是个坑也就没分析了这次主要是通过控制pic.style.top距离来判断是哪个li170是div的高度 ，因为我们是通过一个div来显示的.1702=第二章图片..这块没怎么写好.希望各位大神能够指点一下&amp;nbsp;首先这个JS有几个函数或者方法呢？if (timer) {//如">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-162ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/162ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript-焦点轮播图效果
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码以及文章来自：<a href="http://www.imooc.com/code/3605" target="_blank" rel="external">http://www.imooc.com/code/3605</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">CSS这块..一直是个坑也就没分析了</span></p><br><p><span style="color: #ff0000;">这次主要是通过控制pic.style.top距离来判断是哪个li</span></p><br><p><span style="color: #ff0000;">170是div的高度 ，因为我们是通过一个div来显示的.</span></p><br><p><span style="color: #ff0000;">170<em>2=第二章图片</em></span></p><br><p><span style="color: #ff0000;">..这块没怎么写好.希望各位大神能够指点一下</span></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">首先这个JS有几个函数或者方法呢？</span></p><br><p><span style="color: #ff0000;">if (timer) {//如果原来就有了这个定时器</span><br><br><span style="color: #ff0000;"> //先清除原来的定时器</span><br><br><span style="color: #ff0000;"> clearInterval(timer);</span><br><br><span style="color: #ff0000;"> timer=null;</span><br><br><span style="color: #ff0000;"> };</span></p><br><p><span style="color: #ff0000;">这是第一个方法 用来清除原来的定时器</span></p><br><p><span style="color: #ff0000;"> timer=setInterval(autoPlay,2000)</span></p><br><p><span style="color: #ff0000;">这是第二个 用来自动播放</span></p><br><pre class="lang:default decode:true"><span style="color: #ff0000;"> function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //</span></pre><br><p><span style="color: #ff0000;"> 这是第三个 自动播放该怎么播放的函数.默认是从1开始的.为什么不是0？ ..你默认显示的不就是0吗?</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;"> function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }</span></pre><br><p><span style="color: #ff0000;"> 这是第四个函数 你自动播放的时候肯定要去怎么切换这个图片吧</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;">stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br></span></pre><br><p><span style="color: #ff0000;"> </span></p><br><p><span style="color: #ff0000;">这是第五个函数 鼠标移入的时候调用切换图片的函数 移出后重新开始设置定时器 也就是第二个方法</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style&gt;<br>  <em>{margin:0;<br>    padding:0;<br>    list-style:none;}<br>  .wrap{height:170px;<br>        width:490px;<br>        margin:60px auto;<br>        overflow: hidden;<br>        position: relative;<br>        margin:100px auto;}<br>  .wrap ul{position:absolute;}<br>  .wrap ul li{height:170px;}<br>  .wrap ol{position:absolute;<br>           right:5px;<br>           bottom:10px;}<br>  .wrap ol li{height:20px; width: 20px;<br>              background:#ccc;<br>              border:solid 1px #666;<br>              margin-left:5px;<br>              color:#000;<br>              float:left;<br>              line-height:center;<br>              text-align:center;<br>              cursor:pointer;}<br>  .wrap ol .on{background:#E97305;<br>               color:#fff;}<br><br>  &lt;/style&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  window.onload=function(){//网页加载完毕<br>    var wrap=document.getElementById(‘wrap’),<br>        pic=document.getElementById(‘pic’),<br>        //获取list列表<br>        list=document.getElementById(‘list’).getElementsByTagName(‘li’),<br>        //建立索引<br>        index=0,<br>        //设置定时器<br>        timer=null;<br><br><br>      //自动播放图片<br>      //在自动播放图片前加一个判断<br>      if (timer) {//如果原来就有了这个定时器<br>        //先清除原来的定时器<br>        clearInterval(timer);<br>        timer=null;<br>      };<br>      //再进行播放<br>      timer=setInterval(autoPlay,2000)<br><br>      function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //<br><br><br>      // 定义图片切换函数<br>      function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex</em>170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }<br><br><br>     //建立停止自动播放以及鼠标移入移出事件函数<br>     stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br><br><br>   }<br><br>  &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;div class=”wrap” id=’wrap’&gt;<br>    &lt;ul id=”pic”&gt;<br>      &lt;li&gt;&lt;img  height=470 src=”<a href="http://img.mukewang.com/54111cd9000174cd04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111cd9000174cd04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111dac000118af04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111dac000118af04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d9c0001998204900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d9c0001998204900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d8a0001f41704900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d8a0001f41704900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d7d00018ba604900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d7d00018ba604900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>    &lt;/ul&gt;<br>    &lt;ol id=”list”&gt;<br>      &lt;li class=”on”&gt;1&lt;/li&gt;<br>      &lt;li&gt;2&lt;/li&gt;<br>      &lt;li&gt;3&lt;/li&gt;<br>      &lt;li&gt;4&lt;/li&gt;<br>      &lt;li&gt;5&lt;/li&gt;<br>    &lt;/ol&gt;<br>  &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/163ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript:发送验证码60秒限制的效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/161ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">闲聊CSS之关于clearfix&amp;#8211;清除浮动</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="162ver" data-title="JavaScript-焦点轮播图效果" data-url="http://emufan.com/2015/10/20/162ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

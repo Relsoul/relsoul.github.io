@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM编程艺术之事件分类 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一:Event        -load        -unload        -error        -select        -abort
+二:UIEvent
+    -resize
+    -scroll;
+
+三:FocusEvent
+    -blur
+    -focus
+    -focusin
+    -focusout
+
+四:InputEvent
+    -befor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM编程艺术之事件分类">
+<meta property="og:url" content="http://emufan.com/2015/10/20/40ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="一:Event        -load        -unload        -error        -select        -abort
+二:UIEvent
+    -resize
+    -scroll;
+
+三:FocusEvent
+    -blur
+    -focus
+    -focusin
+    -focusout
+
+四:InputEvent
+    -befor">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-DocusEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-WheelEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-UIEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-MouseEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-KeyboardEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-InputEvent.png">
+<meta property="og:image" content="http://emufan.com/mm/imgs/2015-10-20-Event.png">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM编程艺术之事件分类">
+<meta name="twitter:description" content="一:Event        -load        -unload        -error        -select        -abort
+二:UIEvent
+    -resize
+    -scroll;
+
+三:FocusEvent
+    -blur
+    -focus
+    -focusin
+    -focusout
+
+四:InputEvent
+    -befor">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-40ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/40ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.448Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM编程艺术之事件分类
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true">一:Event<br>        -load<br>        -unload<br>        -error<br>        -select<br>        -abort</pre></p>
+<pre><code>二:UIEvent
+    -<span class="ruby">resize
+</span>    -<span class="ruby">scroll;
+</span>
+三:FocusEvent
+    -<span class="ruby">blur
+</span>    -<span class="ruby">focus
+</span>    -<span class="ruby">focusin
+</span>    -<span class="ruby">focusout
+</span>
+四:InputEvent
+    -<span class="ruby">beforeinput
+</span>    -<span class="ruby">input
+</span>
+五:KeyboardEvent
+    -<span class="ruby">keydown
+</span>    -<span class="ruby">keyup
+</span>
+六:MouseEvent
+    -<span class="ruby">click
+</span>    -<span class="ruby">dbclick
+</span>    -<span class="ruby">mousedown
+</span>    -<span class="ruby">mouseenter;
+</span>    -<span class="ruby">mouseleave
+</span>    -<span class="ruby">mousemoved 
+</span>    -<span class="ruby">mouseout
+</span>    -<span class="ruby">mouseover
+</span>    -<span class="ruby">mouseup
+</span>
+七:WheelEvent
+    -<span class="ruby">wheel
+</span>
+八:MouseEvent对象
+    -<span class="ruby">属性
+</span>        -<span class="ruby">clientX,clientY /<span class="regexp">/页面
+</span></span>        -<span class="ruby"><span class="regexp">screenX,screenY /</span><span class="regexp">/系统的屏幕
+</span></span>        -<span class="ruby"><span class="regexp">ctrlKey,shiftKey,altKey /</span><span class="regexp">/按下去玩 true
+</span></span>        -<span class="ruby"><span class="regexp">button(0,1,2) /</span><span class="regexp">/鼠标 左键，中间，右键
+</span></span>
+九:MouseEvent顺序
+    -<span class="ruby"><span class="regexp">从元素A上方移过
+</span></span>        -<span class="ruby"><span class="regexp">mousemove-mouseover(A)-mouseenter(A)-mousemove(A)-mouseout(A)-mouseleave(A)
+</span></span>    -<span class="ruby"><span class="regexp">点击元素
+</span></span>        -<span class="ruby"><span class="regexp">mousedown-[mousemove]-mouseup-click
+</span></span>
+十:例子-拖拽div
+    -<span class="ruby"><span class="regexp">HTML
+</span></span>        -<span class="ruby"><span class="regexp">&amp;lt;div id="div1"&amp;gt;&amp;lt;/div</span>&amp;gt;
+</span>    -<span class="ruby"><span class="constant">CSS</span>
+</span><span class="comment">        -#div1{</span>
+            position:absolute;
+<span class="comment">            ///</span>
+        }
+    -<span class="ruby">js
+</span>        -<span class="ruby">var elem=document.getElementById(<span class="string">"div1"</span>)
+</span>        -<span class="ruby">var clientX,clientY,moving;
+</span>        -<span class="ruby">var mouseDownHandler=function(event){
+</span>            event=event||window.event
+            clientX=event.clientX;
+            clientY=event.clientY;
+            moving=!0;
+        }
+        -<span class="ruby">var mouseMoveHandler=function(event){
+</span>            if(!moving) return;
+            event=event||window.event
+            var newClientX=event.clientX
+            var newClientY=event.clientY
+            var left=parseInt(elem.style.left)||0,
+                   top=parseInt(elem.style.top)||0
+            elem.style.left=left+(newClientX-clientX)+"px";
+            elem.style.top=top+(newClientY-clientY)+"px";
+            clientX=newClientX;
+            clientY=newClientY;
+        }
+        -<span class="ruby">var mouseUpHandler=function(event){
+</span>            moving=!1;
+        }
+        addEvent(elem,'mousedown',mouseDownHandler)
+        addEvent(elem,"mousemove",mouseMoveHandler)
+        addEvent(elem,"mouseup",mouseUpHandler)
+
+
+十一:WheelEvent对象
+    -<span class="ruby">属性
+</span>        -<span class="ruby">daltaMode
+</span>        -<span class="ruby">daltaX
+</span>        -<span class="ruby">daltaY
+</span>        -<span class="ruby">daltaZ
+</span>
+十二:FocusEvent
+    -<span class="ruby">属性
+</span>        -<span class="ruby">relatedTarget/<span class="regexp">/失去焦点的元素
+</span></span>
+十三:InputEvent
+    -<span class="ruby"><span class="regexp">onpropertychange(IE)
+</span></span>
+十四:KeyboardEvent
+    -<span class="ruby"><span class="regexp">属性
+</span></span>        -<span class="ruby"><span class="regexp">key /</span><span class="regexp">/按下的什么键
+</span></span>        -<span class="ruby"><span class="regexp">code/</span><span class="regexp">/按键码
+</span></span>        -<span class="ruby"><span class="regexp">ctrlKey,shiftKey...
+</span></span>        -<span class="ruby"><span class="regexp">repeat/</span><span class="regexp">/按住不动的键 持续按键
+</span></span>        -<span class="ruby"><span class="regexp">keyCode 
+</span></span>        -<span class="ruby"><span class="regexp">charsetCode
+</span></span>        -<span class="ruby"><span class="regexp">which
+</span></span>
+十五:window
+    -<span class="ruby"><span class="regexp">load
+</span></span>    -<span class="ruby"><span class="regexp">unload
+</span></span>    -<span class="ruby"><span class="regexp">error
+</span></span>    -<span class="ruby"><span class="regexp">abort
+</span></span>
+十六:Image
+    -<span class="ruby"><span class="regexp">load
+</span></span>    -<span class="ruby"><span class="regexp">error
+</span></span>    -<span class="ruby"><span class="regexp">abort
+</span></span>    -<span class="ruby"><span class="regexp">&amp;lt;img src="xxx" onerror="this.scr='http:/</span><span class="regexp">/xxx.png"&amp;gt;
+</span></span>
+十七:UIEvent&lt;/pre&gt;
+</code></pre><p><a href="/mm/imgs/2015-10-20-DocusEvent.png"><img class="alignleft size-medium wp-image-661" src="/mm/imgs/2015-10-20-DocusEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/DocusEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="DocusEvent" width="300" height="168"></a> <a href="/mm/imgs/2015-10-20-WheelEvent.png"><img class="alignleft size-medium wp-image-667" src="/mm/imgs/2015-10-20-WheelEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/WheelEvent-300x172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WheelEvent" width="300" height="172"></a> <a href="/mm/imgs/2015-10-20-UIEvent.png"><img class="alignleft size-medium wp-image-666" src="/mm/imgs/2015-10-20-UIEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/UIEvent-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="UIEvent" width="300" height="169"></a> <a href="/mm/imgs/2015-10-20-MouseEvent.png"><img class="alignleft size-medium wp-image-665" src="/mm/imgs/2015-10-20-MouseEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/MouseEvent-300x171.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="MouseEvent" width="300" height="171"></a> <a href="/mm/imgs/2015-10-20-KeyboardEvent.png"><img class="alignleft size-medium wp-image-664" src="/mm/imgs/2015-10-20-KeyboardEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/KeyboardEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="KeyboardEvent" width="300" height="168"></a> <a href="/mm/imgs/2015-10-20-InputEvent.png"><img class="alignleft size-medium wp-image-663" src="/mm/imgs/2015-10-20-InputEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/InputEvent-300x170.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="InputEvent" width="300" height="170"></a> <a href="/mm/imgs/2015-10-20-Event.png"><img class=" size-medium wp-image-662 alignnone" src="/mm/imgs/2015-10-20-Event.png" data-original="http://www.old.com/wp-content/uploads/2015/06/Event-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="Event" width="300" height="169"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>图片打包下载:<a href="http://www.old.com/wp-content/uploads/2015/07/事件.zip" target="_blank" rel="external">事件</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/41ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          DOM编程艺术之事件注册
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/39ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【进度条&amp;#038;勋章】花了一小时你就找到这个东西?</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="40ver" data-title="DOM编程艺术之事件分类" data-url="http://emufan.com/2015/10/20/40ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

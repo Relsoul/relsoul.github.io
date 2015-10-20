@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>内置对象之boole,string,number,array,function | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="boolean一:构造器说明-值:true,false-出现场景-条件语句导致系统执行的隐式类型转换-显示定义:var a=true;二:构造器对象属性方法-prototype…三:原型对象属性,方法-constructor,toString,valueof…四:其他类型像布尔类型转换数字-布尔:0,NaN=false字符串-布尔:”空字符串”=falseundefined-布尔:falsenul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内置对象之boole,string,number,array,function">
+<meta property="og:url" content="http://emufan.com/2015/10/20/70ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="boolean一:构造器说明-值:true,false-出现场景-条件语句导致系统执行的隐式类型转换-显示定义:var a=true;二:构造器对象属性方法-prototype…三:原型对象属性,方法-constructor,toString,valueof…四:其他类型像布尔类型转换数字-布尔:0,NaN=false字符串-布尔:”空字符串”=falseundefined-布尔:falsenul">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内置对象之boole,string,number,array,function">
+<meta name="twitter:description" content="boolean一:构造器说明-值:true,false-出现场景-条件语句导致系统执行的隐式类型转换-显示定义:var a=true;二:构造器对象属性方法-prototype…三:原型对象属性,方法-constructor,toString,valueof…四:其他类型像布尔类型转换数字-布尔:0,NaN=false字符串-布尔:”空字符串”=falseundefined-布尔:falsenul">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-70ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/70ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.448Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内置对象之boole,string,number,array,function
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code class="brush:js;toolbar:false">boolean</code></p><br><p>一:构造器说明<br><br>-值:true,false<br><br>-出现场景<br><br>-条件语句导致系统执行的隐式类型转换<br><br>-显示定义:var a=true;</p><br><p>二:构造器对象属性方法<br><br>-prototype…</p><br><p>三:原型对象属性,方法<br><br>-constructor,toString,valueof…</p><br><p>四:其他类型像布尔类型转换<br><br>数字-布尔:0,NaN=false<br><br>字符串-布尔:”空字符串”=false<br><br>undefined-布尔:false<br><br>null-布尔:false<br><br>对象-布尔：true</p><br><p>// ————————————————–</p><br><p>string</p><br><p>一:构造器说明<br><br>-由单引号或者双引号括起来的字符序列</p><br><p>二:字符串使用：”hello”</p><br><p>三:构造器对象属性方法<br><br>-constructor,replace,slice..</p><br><p>四:String.prototype.indexOf<br><br>-功能<br><br>-获取子字符串在字符串中位置索引<br><br>-语法<br><br>-StringObj.indexOf(searchValue)<br><br>-范例<br><br>var str=”hello”<br><br>var ind=str.indexOf(“he”)//从字符串头部开始查找返回0<br><br>str.indexOf(“he”,ind+1)//从上一次位置开始向后查找<br><br>str.indexOf(“12131”)//不存在字符串返回-1</p><br><p>五:string.prototype.replace<br><br>-功能<br><br>-查找字符串替换目标字符<br><br>-语法<br><br>-strObj.replace(reg.”字符串”)<br><br>-范例<br><br>var my=”soul”<br><br>var resmy=my.replace(“o”,”mm”)//把o替换为mm</p><br><p>六:str.split<br><br>-功能<br><br>-按分割符将字符串分割成字符串数组<br><br>-语法<br><br>-strObj.split(分隔符/正则,数组长度)<br><br>-实例<br><br>var str1=”h e l l o”<br><br>str1.split(“ “)//[h,e,l,l,o]<br><br>str1.split(“ “,3)//[h,e,l]</p><br><p>// ———————————————-<br><br>number</p><br><p>一:构造器说明<br><br>-整形直接量/八进制/十六进制…</p><br><p>二:数字使用<br><br>var count=0x10//16进账<br><br>var pi=new Number(3.14)</p><br><p>三:构造器属性，方法<br><br>-prototype,Number.MAX_VALUE,</p><br><p>四:原型对象属性方法<br><br>-constructor,toFixed(digits)..</p><br><p>五:Number.prototype.toFixed<br><br>-功能:把Number四舍五入为指定小数位数数字<br><br>-语法<br><br>-number.prototype.toFixed(digits)<br><br>-范例<br><br>var num=13.37<br><br>num.toFixed(1)//13.4</p><br><p>// ———————————————–</p><br><p>array</p><br><p>一:构造器说明<br><br>-用于定义数组对象</p><br><p>二:创建数组<br><br>var a=[1,2,3]</p><br><p>三:构造器对象属性方法<br><br>-prototype,isArray….</p><br><p>四:原型对象属性方法<br><br>-constructor,splice,forEach…</p><br><p>五:实例化对象属性方法<br><br>-length</p><br><p>六:Array.prototype.splice<br><br>-功能:从数组中删除或添加元素，返回被删除的元素<br><br>-语法<br><br>-arrayObj.splice(start,deletecount)<br><br>-范例<br><br>var arr=[1,2,”a”,”b”,6]<br><br>var ret=arr.splice(2,2,3,4,5)//“a”,”b” arr数组为//1,2,3,4,5,6</p><br><p>七:array.prototype.forEach<br><br>-功能<br><br>-遍历数组元素并调用回调函数<br><br>-语法<br><br>-arrobj.forEach(callback…)<br><br>-范例<br><br>function logArr(value,index,array){<br><br>console.log(value)<br><br>console.log(value==array[index])//true<br><br>}<br><br>[2,5,9].forEach(logArr)</p><br><p>// ———————————————</p><br><p>function</p><br><p>一:构造器说明<br><br>-用于定义函数或新对象构造器</p><br><p>二:实例化函数方法<br><br>-对象实例化:var fuc=new Function()<br><br>-函数关键字语句 function fuc1(){}<br><br>-函数表达式 var add=function(){}</p><br><p>三:属性方法<br><br>-prototype</p><br><p>四:原型对象属性方法<br><br>-constructor,apply,call,</p><br><p>五:实例化对象属性方法<br><br>-length,prototype,arguments</p><br><p>六:自定义对象构造<br><br>function point(x,y){<br><br>this.x=x;<br><br>this.y=y;<br><br>}<br><br>point.prototype.move=function(x,y){<br><br>this.x+=x;<br><br>this.y+=y;<br><br>}<br><br>-对象实例化<br><br>var p=new point(0,1)</p><br><p>七:function.prototype.apply<br><br>-功能:通过参数指定函数调用者和函数参数并执行该函数<br><br>-语法<br><br>functionObj.apply(thisArg,[]);<br><br>-范例<br><br>Object.prototype.toString.apply(“123”)//[object object]<br><br>var circle={x:1,y:1,r:1}<br><br>p.move.apply(circle,[2,1])//传参并且调用move</p><br><p>八:function.prototype.bind<br><br>-功能:通过参数指定函数调用者和函数参数并返回该函数引用<br><br>-语法:<br><br>functionObj.bind(thisArg)<br><br>var circlimove=p.move.bind(circle,[2,1])//跟apply差不多<br><br>setTimeout(circlemove,1000)</p><br><p>九:子类构造器<br><br>function circle(x,y,z){<br><br>point.apply(this,[x,y])<br><br>this.radius=r<br><br>}<br><br>//继承point原型链属性<br><br>circle.prototype=Object.create(point.prototype)<br><br>circle.prototype.constructor=circle;</p><br><p>十:函数调用<br><br>-()<br><br>-apply,call</p><br><p>十一:函数参数<br><br>-形参个数不一定等于实参个数<br><br>-值传递<br><br>-通过参数类型检查实现函数重载</p><br><p>十二:arguments<br><br>-arguments对象常用属性<br><br>-length:实参个数<br><br>-0….arguments.length-1:实参属性名称(key-value中key)<br><br>-callee:函数本身<br><br>-范例<br><br>-比较不定数字大小并返回大数<br><br>function maxNum (a,b) {<br><br>if(maxNum.length==arguments.length){<br><br>return a&gt;b?a:b<br><br>}else{<br><br>var _max=arguments[0];<br><br>for (var i = 1; i &lt; arguments.length; i++) {<br><br>if(arguments[i]&gt;_max){<br><br>_max=arguments[i]<br><br>}<br><br>};</p><br><p>return _max<br><br>}<br><br>// body…<br><br>}</p><br><p>console.log(maxNum(10,20,40))</p><br><p>十三:值传递<br><br>传递进去的仅仅是对象的地址,而不是对象的堆内存..原来是这样,重写对象相当于重写地址,重新引用了一个堆内存的值<br><br>-范例<br><br>function setname(obj){<br><br>obj.name=”setname”,obj={name:”new name”}<br><br>}</p><br><p>var nameobj={name:”soul”}</p><br><p>setname(nameobj)</p><br><p>nameobj//setname</p><br><p>十四:函数重载<br><br>–<br><br>​</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/69ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          页面制作之CSS慨念
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/71ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">内置对象之regexp，date，json，全局对象</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="70ver" data-title="内置对象之boole,string,number,array,function" data-url="http://emufan.com/2015/10/20/70ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS3:阴影 box-shadow（一） | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习代码来自http://www.imooc.com/code/382
+阴影 box-shadow（一）
+box-shadow是向盒子添加阴影。支持添加一个或者多个。很简单的一段代码，就实现了投影效果，酷毙了。我们来看下语法：box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];参数介绍：注意：inset 可以写在参数的第一个或最后一个，其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3:阴影 box-shadow（一）">
+<meta property="og:url" content="http://emufan.com/2015/10/20/192ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="学习代码来自http://www.imooc.com/code/382
+阴影 box-shadow（一）
+box-shadow是向盒子添加阴影。支持添加一个或者多个。很简单的一段代码，就实现了投影效果，酷毙了。我们来看下语法：box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];参数介绍：注意：inset 可以写在参数的第一个或最后一个，其">
+<meta property="og:image" content="http://img.mukewang.com/54292d620001ffb107080250.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52e21c9000013c8f01180117.jpg">
+<meta property="og:image" content="http://img.mukewang.com/54292b990001ebea01290115.jpg">
+<meta property="og:image" content="http://img.mukewang.com/52e21d210001356d01170116.jpg">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3:阴影 box-shadow（一）">
+<meta name="twitter:description" content="学习代码来自http://www.imooc.com/code/382
+阴影 box-shadow（一）
+box-shadow是向盒子添加阴影。支持添加一个或者多个。很简单的一段代码，就实现了投影效果，酷毙了。我们来看下语法：box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];参数介绍：注意：inset 可以写在参数的第一个或最后一个，其">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-192ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/192ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3:阴影 box-shadow（一）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码来自<a href="http://www.imooc.com/code/382" target="_blank" rel="external">http://www.imooc.com/code/382</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">阴影 box-shadow（一）</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p><span lang="EN-US">box-shadow</span>是向盒子添加阴影。支持添加一个或者多个。</p><br><p>很简单的一段代码，就实现了投影效果，酷毙了。我们来看下语法：</p><br><pre class="code">box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</pre><br><pre>参数介绍：<br></pre><br><p><a href="http://img.mukewang.com/54292d620001ffb107080250.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/54292d620001ffb107080250.jpg" data-original="http://img.mukewang.com/54292d620001ffb107080250.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>注意：inset 可以写在参数的第一个或最后一个，其它位置是无效的。</p><br><p><strong>为元素设置外阴影：</strong></p><br><p>示例代码：</p><br><pre class="code"><span class="before"><span lang="EN-US">.</span></span><span class="css-class"><span lang="EN-US">box_shadow</span></span><span class="paren"><span lang="EN-US">{</span></span><br><span lang="EN-US"><span class="builtin">  box-shadow</span><span class="after">:</span><span class="css-length">4</span><span class="after">px</span> <span class="css-length">2</span><span class="after">px</span> <span class="css-length">6</span><span class="after">px</span> <span class="before">#</span><span class="css-color-spec">333333</span>; </span><br><span class="paren"><span lang="EN-US">}</span></span></pre><br><pre><span class="paren">效果：</span></pre><br><pre><span class="paren"><a href="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" data-original="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></span></pre><br><p><strong>为元素设置内阴影：</strong></p><br><p>示例代码：</p><br><pre class="code"><span class="before"><span lang="EN-US">.</span></span><span class="css-class"><span lang="EN-US">box_shadow</span></span><span class="paren"><span lang="EN-US">{</span></span><br><span lang="EN-US"><span class="builtin">  box-shadow</span><span class="after">:</span><span class="css-length">4</span><span class="after">px</span> <span class="css-length">2</span><span class="after">px</span> <span class="css-length">6</span><span class="after">px</span> <span class="before">#</span><span class="css-color-spec">333333</span> </span>inset<span lang="EN-US">; </span><br><span class="paren"><span lang="EN-US">}</span></span></pre><br><pre><span class="paren">效果：</span></pre><br><pre><span class="paren"><a href="http://img.mukewang.com/54292b990001ebea01290115.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/54292b990001ebea01290115.jpg" data-original="http://img.mukewang.com/54292b990001ebea01290115.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br></span></pre><br><pre><strong>添加多个阴影：</strong></pre><br><p>以上的语法的介绍，就这么简单，如果添加多个阴影，只需用逗号隔开即可。如：</p><br><pre class="code">.box_shadow{<br>    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;<br>}</pre><br><pre><span class="paren">效果：</span></pre><br><p><a href="http://img.mukewang.com/52e21d210001356d01170116.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21d210001356d01170116.jpg" data-original="http://img.mukewang.com/52e21d210001356d01170116.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p align="left">在右侧编辑器中的第10行，为div添加两个不同的阴影，一个外部阴影，一个内部阴影。</p><br><p align="left"><span style="color: #ff0000;">根据添加多阴影的办法 直接用逗号隔开添加即可</span></p><br><p align="left"><span style="color: #ff0000;"> </span></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;boxshadow&lt;/title&gt;<br>&lt;style&gt;<br>.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 4px 6px #666,4px 4px 6px #324 inset;<br>}<br>.boxshadow-inset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 4px 6px #666 inset;<br>}<br>.boxshadow-multi{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;<br>}<br><br>&lt;/style&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>&lt;h2&gt;外阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-outset”&gt;<br>&lt;/div&gt;<br>&lt;br /&gt;<br>&lt;h2&gt;内阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-inset”&gt;<br>&lt;/div&gt;<br>&lt;br /&gt;<br>&lt;h2&gt;多阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-multi”&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/193ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CSS3:圆角效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/191ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Css3:阴影 box-shadow（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="192ver" data-title="CSS3:阴影 box-shadow（一）" data-url="http://emufan.com/2015/10/20/192ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM-编程艺术第二版（5.4）-JavaScript弹窗 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="window.open(url,name,style)
+&amp;nbsp;
+这就是JavaScript弹窗代码, 写一个函数然后再编写个a标签然后设置好href添加上onclick后就变成了这样
+function tc(){window.open(“http://www.baidu.com&amp;quot;,&amp;quot;hello soul”,”width=300,height=300”);}&amp;lt;a hr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM-编程艺术第二版（5.4）-JavaScript弹窗">
+<meta property="og:url" content="http://emufan.com/2015/10/20/234ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="window.open(url,name,style)
+&amp;nbsp;
+这就是JavaScript弹窗代码, 写一个函数然后再编写个a标签然后设置好href添加上onclick后就变成了这样
+function tc(){window.open(“http://www.baidu.com&amp;quot;,&amp;quot;hello soul”,”width=300,height=300”);}&amp;lt;a hr">
+<meta property="og:updated_time" content="2015-10-20T14:15:38.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM-编程艺术第二版（5.4）-JavaScript弹窗">
+<meta name="twitter:description" content="window.open(url,name,style)
+&amp;nbsp;
+这就是JavaScript弹窗代码, 写一个函数然后再编写个a标签然后设置好href添加上onclick后就变成了这样
+function tc(){window.open(“http://www.baidu.com&amp;quot;,&amp;quot;hello soul”,”width=300,height=300”);}&amp;lt;a hr">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-234ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/234ver/" class="article-date">
+  	<time datetime="2015-10-20T14:15:38.454Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM-编程艺术第二版（5.4）-JavaScript弹窗
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p><code>window.open(url,name,style)</code></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>这就是JavaScript弹窗代码, 写一个函数然后再编写个a标签然后设置好href添加上onclick后就变成了这样</p><p></p>
+<blockquote><p><code>function tc(){</code></p><br><p><code>window.open(“<a href="http://www.baidu.com&quot;,&quot;hello" target="_blank" rel="external">http://www.baidu.com&quot;,&quot;hello</a> soul”,”width=300,height=300”);</code></p><br><p><code>}</code></p><br><p><code>&lt;a href=”” onclick=”tc()”&gt;弹窗测试&lt;/a&gt;</code></p></blockquote><br><p>测试后没问题 ,然后我想要tc这个函数自己获取到a标签的href属性这样就方便很多了。于是稍微修改了下代码</p><br><blockquote><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">&lt;a href=”<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a>“ onclick=”tc(this)”&gt;&lt;/a&gt;//this的意思我理解为返回当前a标签中的href,然后传递给link于是代码意思就变成了window.open(“<a href="http://www.old.com&quot;,&quot;hello" target="_blank" rel="external">http://www.old.com&quot;,&quot;hello</a> soul”,”width=300,height=300”)</span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">function tc(link){  </span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;"> window.open(link,”hello soul”,”width=300,height=300”)</span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">}</span></span></code></p></blockquote><br><p>差不多了,但是我写了好几个a标签 我只想要一个属性fh=”soul”的a标签可以弹窗 于是我这么写了.</p><br><blockquote><br><pre class="lang:default decode:true ">function aTest() {<br><br>    var alink = document.getElementsByTagName(“a”); //获取全部的a标签<br>    for (var i = 0; i &lt; alink.length; i++) { //递归a标签<br>        if (alink[i].getAttribute(“fh”) == “test”) { //检测fh=“test”的a标签<br>            var tz_titile =[];//设置变量tz_title等于数组<br>            var tz =[];//设置变量tz等于数组<br>            tz_titile[i] = alink[i].getAttribute(“title”); //设置tz_title[i]=a标签的标题<br>            tz[i] = alink[i].getAttribute(“href”); //设置tz[i]=a标签的href(PS:这里的a标签指的是fh=soul的a标签<br>            alink[i].onclick = function() { //给fh属性=soul的a标签加个onclick函数，等同 onlick= testcl(tz[i],tz_title[i]);return false)<br>                testck(tz[i], tz_titile[i]); //返回tz[i],tz_title[i]<br>                return false; //阻止a标签跳转<br>            }<br>        }<br>    };<br>}<br><br>window.onload = aTest; //页面加载完毕后加载aTest函数<br><br>function tc(a, b) {<br><br>    window.open(a, b, “width=300,height=300”); //name属性设置无效. 窗口标题根本就不是设置的那样啊喂！<br><br>}<br><br>    &lt;/script&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/20/243ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          First Soul Seeker Page
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/20/235ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">After Effects错误：调用增效工具“AEDynamicLinkServer出错</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="234ver" data-title="DOM-编程艺术第二版（5.4）-JavaScript弹窗" data-url="http://emufan.com/2015/10/20/234ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
