@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>深入理解Javascript之this关键字 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="转自http://www.laruence.com/2009/09/08/1076.html08 Sep 09 深入理解Javascript之this关键字作者: Laruence(   )本文地址: http://www.laruence.com/2009/09/08/1076.html转载请注明出处Javascript是一种很灵活的语言, 而This关键字又是灵活中的灵活, 但是因为它的灵活,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解Javascript之this关键字">
+<meta property="og:url" content="http://emufan.com/2015/10/21/106ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="转自http://www.laruence.com/2009/09/08/1076.html08 Sep 09 深入理解Javascript之this关键字作者: Laruence(   )本文地址: http://www.laruence.com/2009/09/08/1076.html转载请注明出处Javascript是一种很灵活的语言, 而This关键字又是灵活中的灵活, 但是因为它的灵活,">
+<meta property="og:image" content="http://www.laruence.com/images/ico-twitter.png">
+<meta property="og:image" content="http://www.laruence.com/images/ico-sina.png">
+<meta property="og:image" content="http://www.laruence.com/images/ico-google.png">
+<meta property="og:image" content="http://www.laruence.com/images/ico-mail.png">
+<meta property="og:updated_time" content="2015-10-21T14:57:05.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入理解Javascript之this关键字">
+<meta name="twitter:description" content="转自http://www.laruence.com/2009/09/08/1076.html08 Sep 09 深入理解Javascript之this关键字作者: Laruence(   )本文地址: http://www.laruence.com/2009/09/08/1076.html转载请注明出处Javascript是一种很灵活的语言, 而This关键字又是灵活中的灵活, 但是因为它的灵活,">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-106ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/106ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深入理解Javascript之this关键字
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自<a href="http://www.laruence.com/2009/09/08/1076.html" target="_blank" rel="external">http://www.laruence.com/2009/09/08/1076.html</a></p><br><h1>08 Sep 09 <a title="Permanent Link to 深入理解Javascript之this关键字" href="http://www.laruence.com/2009/09/08/1076.html" rel="external" target="_blank">深入理解Javascript之this关键字</a></h1><br><div class="copyright"><br><ul><br><li>作者: <a href="http://www.laruence.com/" target="_blank" rel="external">Laruence</a>(<a title="Twitter" href="http://www.twitter.com/laruence" target="meme"><img src="http://www.laruence.com/images/ico-twitter.png" data-original="http://www.laruence.com/images/ico-twitter.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a> <a title="新浪微博" href="http://t.sina.com/laruence" target="meme"><img src="http://www.laruence.com/images/ico-sina.png" data-original="http://www.laruence.com/images/ico-sina.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a> <a title="Google阅读器" href="http://fusion.google.com/add?feedurl=http://www.laruence.com/feed" target="meme"><img src="http://www.laruence.com/images/ico-google.png" data-original="http://www.laruence.com/images/ico-google.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a> <a title="邮件" href="mailto:laruence@yahoo.com.cn" target="meme"><img src="http://www.laruence.com/images/ico-mail.png" data-original="http://www.laruence.com/images/ico-mail.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a>)</li><br><li>本文地址: <a title="Permanet Link to 深入理解Javascript之this关键字" href="http://www.laruence.com/2009/09/08/1076.html" target="_blank" rel="external">http://www.laruence.com/2009/09/08/1076.html</a></li><br><li>转载请注明出处</li><br></ul><br></div><br><p>Javascript是一种很灵活的语言, 而This关键字又是灵活中的灵活, 但是因为它的灵活, 也注定了它的难用.</p><br><p>以前我用this的时候, 都会觉得不踏实, 老是担心它不知道怎么地就会指到另外的什么地方.</p><br><p>其实, 这都是因为, 我们对它的不了解.</p><br><p>刚好最近再给百度学院做《Javascript高级-作用域/原型链》的ppt, 而swit1983网友也刚好提这个问题, 索性就把这部分内容独立总结出来, 与大家分享.</p><br><p>首先, 我先抛出一个定论:”在Javascript中,This关键字永远都指向函数(方法)的所有者”.</p><br><h3>函数</h3><br><p>首先,让我们看看”函数”:</p><br><ol><br><li><span class="sh_keyword">function</span> <span class="sh_function">introduce</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_string">“Hello, I am Laruence</span><span class="sh_specialchar">\r\n</span><span class="sh_string">“</span><span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br></ol><br><p>对于,这个函数, this关键字指向谁呢?</p><br><p>如我之前的文章所述(<a href="http://www.laruence.com/2009/05/28/863.html" target="_blank">Javascript作用域</a>), 定义在全局的函数, 函数的所有者就是当前页面, 也就是window对象.</p><br><p>这也就是为什么, 我把函数用引号引起来. 因为定义在全局的函数, 其实也就是window对象的一个方法.</p><br><p>所以,我们即可用通过函数名直接调用, 也可用通过window.方法名来调用, 这个时候, 方法中的this关键字指向它的所有者:window对象.</p><br><p>如果, 我们查看window的introduce属性, 就会得到:</p><br><ol><br><li><span class="sh_keyword">var</span> name <span class="sh_symbol">=</span> <span class="sh_string">“I am Laruence”</span><span class="sh_symbol">;</span></li><br><li><span class="sh_keyword">function</span> <span class="sh_function">introduce</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>name<span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br><li><span class="sh_function">alert</span><span class="sh_symbol">(</span>window<span class="sh_symbol">.</span>introduce<span class="sh_symbol">);</span></li><br><li><span class="sh_comment">/<strong></strong></span></li><br><li><span class="sh_comment"><em> output:</em></span></li><br><li><span class="sh_comment"> function introduce() {</span></li><br><li><span class="sh_comment"><em> alert(this.name);</em></span></li><br><li><span class="sh_comment"> }</span></li><br><li><span class="sh_comment">*/</span></li><br></ol><br><p>看了上面的代码, 也许你就会想到既然, 全局函数是window对象的方法, 全局变量是window对象的属性(Javasript作用域中已有述及), 那么,在全局函数中就可用通过this关键字来访问全局变量吧?</p><br><p>答案是肯定的, 如果调用introduce函数, 你就会认识我是Laruence.</p><br><h3>事件处理函数</h3><br><p>也许, 对于this关键字的迷惑, 绝大部分原因是来自把函数(方法)用在事件处理的时候.</p><br><ol><br><li><span class="sh_keyword">&lt;input</span> <span class="sh_type">id</span><span class="sh_symbol">=</span><span class="sh_string">“name”</span> <span class="sh_type">type</span><span class="sh_symbol">=</span><span class="sh_string">“text”</span> <span class="sh_type">name</span><span class="sh_symbol">=</span><span class="sh_string">“name”</span> <span class="sh_type">value</span><span class="sh_symbol">=</span><span class="sh_string">“Laruence”</span> <span class="sh_keyword">/&gt;</span></li><br></ol><br><p>比如, 我们现在需要在点击”name”输入框的时候, 显示出name输入框的value. 那么, 可用写下如下代码:</p><br><ol><br><li><span class="sh_keyword">function</span> <span class="sh_function">showValue</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>value<span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br><li>document<span class="sh_symbol">.</span><span class="sh_function">getElementById</span><span class="sh_symbol">(</span><span class="sh_string">‘name’</span><span class="sh_symbol">).</span>onclick <span class="sh_symbol">=</span> showValue<span class="sh_symbol">;</span></li><br></ol><br><p>上面的代码, 运行正常, 但是why? 不是说函数的this指针永远指向函数所有者么? 不是说全局变量的所有者是window对象么?</p><br><p>呵呵, 如果你能想到这个问题, 那说明你在认真的看我的文章, 否则,,我建议你从头看起, 否则看完了,你还是迷糊~</p><br><p>恩, 对, 对于上面的代码, showValue是定义在了全局对象, 那么看来问题只能发生在onclick事件绑定的时候了.</p><br><p>我们知道, 在Js中一切都是对象, 函数和方法也都是对象的属性, 只不过函数有可执行的内部属性. 所以, 对于上面的代码, 在对onclick绑定处理器的时候, 其实是对id为name的输入框Dom对象的onclick属性赋值.</p><br><p>也就是说, 我们把函数showValue Copy 给了name输入框对象的onclick属性. 如果我们查看此时的onclick:</p><br><ol><br><li><span class="sh_keyword">function</span> <span class="sh_function">showValue</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>value<span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br><li>document<span class="sh_symbol">.</span><span class="sh_function">getElementById</span><span class="sh_symbol">(</span><span class="sh_string">‘name’</span><span class="sh_symbol">).</span>onclick <span class="sh_symbol">=</span> showValue<span class="sh_symbol">;</span></li><br><li><span class="sh_function">alert</span><span class="sh_symbol">(</span>document<span class="sh_symbol">.</span><span class="sh_function">getElementById</span><span class="sh_symbol">(</span><span class="sh_string">‘name’</span><span class="sh_symbol">).</span>onclick<span class="sh_symbol">);</span></li><br><li><span class="sh_comment">/</span></li><br><li><span class="sh_comment"><em> output</em></span></li><br><li><span class="sh_comment"> function showValue() {</span></li><br><li><span class="sh_comment"><em> alert(this.value);</em></span></li><br><li><span class="sh_comment"> }</span></li><br><li><span class="sh_comment"><em>/</em></span></li><br></ol><br><p>所以, 当事件触发的时候, 就会去调用name输入框的onclick方法, 这个时候,this关键字自然就指向的是name输入框了.</p><br><p>但是, 迷惑的事情就来了, 比如下面这种写法:</p><br><ol><br><li><span class="sh_keyword">function</span> <span class="sh_function">showValue</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>value<span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br><li><span class="sh_symbol">&lt;</span>input id<span class="sh_symbol">=</span><span class="sh_string">“name”</span> type<span class="sh_symbol">=</span><span class="sh_string">“text”</span> name<span class="sh_symbol">=</span><span class="sh_string">“name”</span> value<span class="sh_symbol">=</span><span class="sh_string">“Laruence”</span> onclick<span class="sh_symbol">=</span><span class="sh_string">“showValue()”</span><span class="sh_symbol">/&gt;</span></li><br></ol><br><p>就无法正常运行, 这又是为什么呢?</p><br><p>恩, 因为这个时候, 并不是赋值, 而是引用.</p><br><p>如果我们注意俩种onclick的写法, 你会发现, 对于之前的方法, 我们使用的是:</p><br><ol><br><li>dom<span class="sh_symbol">.</span>onclick <span class="sh_symbol">=</span> showvalue<span class="sh_symbol">;</span> <span class="sh_comment">//没有调用符</span></li><br></ol><br><p>而对于刚才的方法:</p><br><ol><br><li>onclick <span class="sh_symbol">=</span> <span class="sh_string">“showvalue()”</span> <span class="sh_comment">//有调用符</span></li><br></ol><br><p>这个也能侧面的反映出俩者的区别:对于前者,是赋值, 而对于后者是引用. 如果我们这个时候查看输入框的onclick属性,我们得到:</p><br><ol><br><li><span class="sh_function">alert</span><span class="sh_symbol">(</span>dom<span class="sh_symbol">.</span>onclick<span class="sh_symbol">);</span></li><br><li><span class="sh_comment">/**</span></li><br><li><span class="sh_comment"> output:</span></li><br><li><span class="sh_comment"><em> function onclick() {</em></span></li><br><li><span class="sh_comment"> showValue();</span></li><br><li><span class="sh_comment"><em> }</em></span></li><br><li><span class="sh_comment">/</span></li><br></ol><br><p>看到区别了么? 也就懂得为什么了吧?</p><br><p>讲到这里, 有一个很有趣的例子 ,大家可以在IE下试试:</p><br><ol><br><li><span class="sh_symbol">&lt;</span>img src<span class="sh_symbol">=</span><span class="sh_string">“xxx”</span> onerror<span class="sh_symbol">=</span><span class="sh_string">“alert(1);} function hi() { alert(2); “</span> <span class="sh_symbol">/&gt;</span></li><br></ol><br><h3>改变this的指向</h3><br><p>那, 既然我们已经知道为什么了, 那怎么才能让this指向我们想要指的地方呢?</p><br><p>对于上面的事件处理函数来说, 我们可以有如下几种写法:</p><br><ol><br><li>dom<span class="sh_symbol">.</span>onclick <span class="sh_symbol">=</span> <span class="sh_function">showValue</span><span class="sh_symbol">();</span></li><br><li>dom<span class="sh_symbol">.</span>onclick <span class="sh_symbol">=</span> <span class="sh_keyword">function</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span> <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>value<span class="sh_symbol">)</span> <span class="sh_symbol">;</span><span class="sh_cbracket">}</span></li><br><li><span class="sh_symbol">&lt;</span>input onclick<span class="sh_symbol">=</span><span class="sh_string">“alert(this.value);”</span> <span class="sh_regexp">/&gt; /</span><span class="sh_symbol">/</span>想想刚才我们的引用<span class="sh_symbol">,</span>是如何把这句嵌入的<span class="sh_symbol">.</span></li><br><li>dom<span class="sh_symbol">.</span><span class="sh_function">addEventListener</span><span class="sh_symbol">(</span>dom<span class="sh_symbol">,</span> showValue<span class="sh_symbol">,</span> <span class="sh_keyword">false</span><span class="sh_symbol">);</span> <span class="sh_comment">//ff only</span></li><br></ol><br><p>而对于不是事件处理函数的场合, 我们可以使用apply, 或者call, 来改变this关键字的指向.</p><br><p>比如:</p><br><ol><br><li><span class="sh_keyword">var</span> laruence <span class="sh_symbol">=</span> <span class="sh_cbracket">{</span></li><br><li>     name <span class="sh_symbol">:</span> <span class="sh_string">‘laruence’</span><span class="sh_symbol">,</span></li><br><li>     age <span class="sh_symbol">:</span> <span class="sh_number">26</span><span class="sh_symbol">,</span></li><br><li>     position <span class="sh_symbol">:</span> <span class="sh_string">‘Senior PHP Engineer’</span><span class="sh_symbol">,</span></li><br><li>     company <span class="sh_symbol">:</span> <span class="sh_string">‘Baidu.inc’</span></li><br><li><span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li><br><li></li><br><li><span class="sh_keyword">function</span> <span class="sh_function">introduce</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><br><li>     <span class="sh_function">alert</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span>name<span class="sh_symbol">);</span></li><br><li><span class="sh_cbracket">}</span></li><br><li></li><br><li>introduce<span class="sh_symbol">.</span><span class="sh_function">call</span><span class="sh_symbol">(</span>laruence<span class="sh_symbol">);</span></li><br></ol><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/21/105ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          简化CSS布局元素宽度计算问题 ： box-sizing属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/21/107ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">干货！一步步实现自己的表单验证器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="106ver" data-title="深入理解Javascript之this关键字" data-url="http://emufan.com/2015/10/21/106ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

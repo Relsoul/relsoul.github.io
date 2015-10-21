@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript替换元素节点replaceChild() | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="学习代码以及文章来自http://www.imooc.com/code/1701
+替换元素节点replaceChild()
+replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。语法：node.replaceChild (newnode,oldnew )参数：newnode : 必需，用于替换 oldnew 的对象。oldnew : 必需，被 newnode 替换的对象。我们来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript替换元素节点replaceChild()">
+<meta property="og:url" content="http://emufan.com/2015/10/21/174ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="学习代码以及文章来自http://www.imooc.com/code/1701
+替换元素节点replaceChild()
+replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。语法：node.replaceChild (newnode,oldnew )参数：newnode : 必需，用于替换 oldnew 的对象。oldnew : 必需，被 newnode 替换的对象。我们来">
+<meta property="og:image" content="http://img.mukewang.com/539557d70001c3ee07190429.jpg">
+<meta property="og:updated_time" content="2015-10-21T14:57:05.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript替换元素节点replaceChild()">
+<meta name="twitter:description" content="学习代码以及文章来自http://www.imooc.com/code/1701
+替换元素节点replaceChild()
+replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。语法：node.replaceChild (newnode,oldnew )参数：newnode : 必需，用于替换 oldnew 的对象。oldnew : 必需，被 newnode 替换的对象。我们来">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-174ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/174ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript替换元素节点replaceChild()
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1701" target="_blank" rel="external">http://www.imooc.com/code/1701</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">替换元素节点replaceChild()</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。</p><br><p><strong>语法：</strong></p><br><pre class="code">node.replaceChild (newnode,oldnew )</pre><br><p><strong>参数：</strong></p><br><p>newnode : 必需，用于替换 oldnew 的对象。<br><br>oldnew : 必需，被 newnode 替换的对象。</p><br><p>我们来看看下面的代码:</p><br><p><a href="http://img.mukewang.com/539557d70001c3ee07190429.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/539557d70001c3ee07190429.jpg" data-original="http://img.mukewang.com/539557d70001c3ee07190429.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>效果: 将文档中的 Java 改为 JavaScript。</p><br><p><strong>注意: </strong></p><br><p>1. 当 oldnode 被替换时，所有与之相关的属性内容都将被移除。</p><br><p>2. newnode 必须先被建立。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>试一试，补充函数 replaceMessage() 代码，实现将 b 标签替换成 i 标签。</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><pre class="lang:default decode:true">oldnode.parentNode.replaceChild(new_i,oldnode)</pre><br><p><span style="color: #ff0000;"> oldnode.parentNode //oldnode的父节点就是div</span></p><br><p><span style="color: #ff0000;">如果不写oldnode的父节点的话 …你能把你自己给替换了吗？或者说升职加薪的事情都是上级决定的</span></p><br><p><span style="color: #ff0000;">所以要指引到父节点</span></p><br><pre class="lang:default decode:true">var save_old=oldnode.innerHTML</pre><br><p><span style="color: #ff0000;"> 这个是保存了oldnode的文本节点内容.</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;无标题文档&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br><br>  &lt;div&gt;&lt;b id=”oldnode”&gt;JavaScript&lt;/b&gt;是一个很常用的技术，为网页添加动态效果。&lt;/div&gt;<br>  &lt;a href=”javascript:replaceMessage()”&gt; 将加粗改为斜体&lt;/a&gt;<br><br>    &lt;script type=”text/javascript”&gt;<br>      function replaceMessage(){<br>          var oldnode=document.getElementById(“oldnode”);<br>          var save_old=oldnode.innerHTML<br>          var new_i=document.createElement(“i”);<br>          oldnode.parentNode.replaceChild(new_i,oldnode)<br>         var new_i_txt=document.createTextNode(save_old)<br>         new_i.appendChild(new_i_txt)<br><br><br>       }<br>  &lt;/script&gt;<br><br> &lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/21/162ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript-焦点轮播图效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/21/175ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript访问兄弟节点</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="174ver" data-title="JavaScript替换元素节点replaceChild()" data-url="http://emufan.com/2015/10/21/174ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

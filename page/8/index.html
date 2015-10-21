@@ -192,124 +192,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-172ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/172ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/172ver/">JavaScript编程挑战-做个选项卡</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程挑战</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>现在利用之前我们学过的JavaScript知识，实现选项卡切换的效果。</p><br><p><strong>效果图:</strong></p><br><p><img src="http://img.mukewang.com/53bd0e9e000163d203390200.jpg" data-original="http://img.mukewang.com/53bd0e9e000163d203390200.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><strong>文字素材:</strong></p><br><p>房产：</p><br><p>275万购昌平邻铁三居 总价20万买一居<br><br>200万内购五环三居 140万安家东三环<br><br>北京首现零首付楼盘 53万购东5环50平<br><br>京楼盘直降5000 中信府 公园楼王现房</p><br><p>家居:</p><br><p>40平出租屋大改造 美少女的混搭小窝<br><br>经典清新简欧爱家 90平老房焕发新生<br><br>新中式的酷色温情 66平撞色活泼家居<br><br>瓷砖就像选好老婆 卫生间烟道的设计</p><br><p>二手房：</p><br><p>通州豪华3居260万 二环稀缺2居250w甩<br><br>西3环通透2居290万 130万2居限量抢购<br><br>黄城根小学学区仅260万 121平70万抛!<br><br>独家别墅280万 苏州桥2居优惠价248万</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">实现选项卡的代码有很多种方式 我用的是闭包+子节点的方式 </span></p><br><p><span style="color: #ff0000;">也可以用一个div容器承载文本 然后通过点击输出</span></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;"> 闭包+子节点</span></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-选项卡&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    #uld li{<br>        float: left;<br>        text-align: center;<br>        padding: 10px;<br><br>    }<br>    #uld{<br>        list-style: none;<br><br>    }<br>    #uld div{<br>        padding: 10px;<br>        width: 200px;<br>        height: 200px;<br>        border-top: 4px solid #cfc;<br>        display: none;<br>    }<br><br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function tabs (){<br>        var get_uld=document.getElementById(“uld”)<br>        var get_ul_li=get_uld.getElementsByTagName(“li”)<br>        var save_child;<br>        for (var i = 0; i &lt; get_ul_li.length; i++) {<br><br>            get_ul_li[i].onmouseover=function(num){<br>                return function(){<br>                    save_child=get_ul_li[num].childNodes[1]<br>                    showIntor(save_child)<br>                }<br>            }(i)<br>            get_ul_li[i].onmouseout=function(num){<br>                return function(){<br>                    save_child=get_ul_li[num].childNodes[1]<br>                    hide(save_child)<br>                }<br>            }(i)<br>        };<br><br><br><br>    }<br>    function hide(elem){<br><br>        console.log(elem);<br>        elem.style.display=”none”<br>    }<br>    function showIntor(elem){<br>        elem.style.display=”block”<br><br>    }<br>    window.onload=function(){<br>        tabs()<br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;ul id=”uld”&gt;<br>        &lt;li&gt;房产<br>            &lt;div&gt;275万购昌平邻铁三居 总价20万买一居<br>    200万内购五环三居 140万安家东三环<br>    北京首现零首付楼盘 53万购东5环50平<br>    京楼盘直降5000 中信府 公园楼王现房&lt;/div&gt;<br>        &lt;/li&gt;<br>        &lt;li&gt; 家居<br>            &lt;div&gt;40平出租屋大改造 美少女的混搭小窝<br>     经典清新简欧爱家 90平老房焕发新生<br>     新中式的酷色温情 66平撞色活泼家居<br>     瓷砖就像选好老婆 卫生间烟道的设计<br>&lt;/div&gt;<br><br>        &lt;/li&gt;<br>        &lt;li&gt;<br>            二手房<br>            &lt;div&gt; 通州豪华3居260万 二环稀缺2居250w甩<br>     西3环通透2居290万 130万2居限量抢购<br>     黄城根小学学区仅260万 121平70万抛!<br>     独家别墅280万 苏州桥2居优惠价248万&lt;/div&gt;<br><br>        &lt;/li&gt;<br>    &lt;/ul&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #ff0000;"> 官方</span></p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head lang=”en”&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;实践题 - 选项卡&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>     /<em> CSS样式制作 </em>/<br>     <em>{<br>         margin:0;padding:0;<br>         font:12px normal “microsoft yahei”;}<br>     li{list-style:none;}<br>     #tabs{<br>         width:290px;<br>         padding:5px;<br>         height:150px;<br>         margin:20px;<br>     }<br>     #tabs ul{<br>         display: block;<br>         height:30px;<br>         line-height:30px;<br>         border-bottom:2px saddlebrown solid;<br>    }<br>     #tabs ul li{<br>         background:#fff;<br>         /</em>光标呈现为指示链接的指针（一只手）<em>/<br>         cursor:pointer;<br>         float:left;<br>         list-style:none;<br>         height:28px;<br>         line-height:28px;<br>         margin:0px 3px;<br>         border:1px solid #aaaaaa;<br>         border-bottom:none;<br>         /</em>行内块元素。（CSS2.1 新增的值）*/<br>         display:inline-block;<br>         width:60px;<br>         text-align: center;<br>    }<br>     #tabs ul li.on{<br>         border-top:2px solid saddlebrown;<br>         border-bottom: 2px solid #fff;<br>    }<br>     #tabs div{<br>         height:120px;<br>         line-height: 25px;<br>         border:1px solid #336699;<br>         border-top:none;<br>         padding:5px;<br>    }<br>    .hide{display:none;}<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    // JS实现选项卡切换<br>     window.onload = function(){<br>             var oTab = document.getElementById(“tabs”);<br>             var oUl = oTab.getElementsByTagName(“ul”)[0];<br>             var oLis = oUl.getElementsByTagName(“li”);<br>             var oDivs= oTab.getElementsByTagName(“div”);<br><br>             for(var i= 0,len = oLis.length;i&lt;len;i++){<br>                 oLis[i].index = i;<br>                 oLis[i].onclick = function() {<br>                     for(var n= 0;n&lt;len;n++){<br>                         oLis[n].className = “”;<br>                         oDivs[n].className = “hide”;<br>                     }<br>                     this.className = “on”;<br>                     oDivs[this.index].className = “”;<br>                 }<br>             };<br>         }<br><br>    &lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;!– HTML页面布局 –&gt;<br>&lt;div id=”tabs”&gt;<br>    &lt;ul&gt;<br>        &lt;li class=”on”&gt;房产&lt;/li&gt;<br>        &lt;li&gt;家居&lt;/li&gt;<br>        &lt;li&gt;二手房&lt;/li&gt;<br>    &lt;/ul&gt;<br>    &lt;div&gt;<br>        275万购昌平邻铁三居 总价20万买一居<br>    200万内购五环三居 140万安家东三环<br>    北京首现零首付楼盘 53万购东5环50平<br>    京楼盘直降5000 中信府 公园楼王现房<br>    &lt;/div&gt;<br>    &lt;div class=”hide”&gt;<br>        40平出租屋大改造 美少女的混搭小窝<br>     经典清新简欧爱家 90平老房焕发新生<br>     新中式的酷色温情 66平撞色活泼家居<br>     瓷砖就像选好老婆 卫生间烟道的设计<br>    &lt;/div&gt;<br>    &lt;div class=”hide”&gt;<br>        通州豪华3居260万 二环稀缺2居250w甩<br>     西3环通透2居290万 130万2居限量抢购<br>     黄城根小学学区仅260万 121平70万抛!<br>     独家别墅280万 苏州桥2居优惠价248万<br>    &lt;/div&gt;<br>&lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-171ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/171ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/171ver/">JavaScript：编程练习-动态的添加元素+更改颜色</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1636" target="_blank" rel="external">http://www.imooc.com/code/1636</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>制作一个表格，显示班级的学生信息。</p><br><p><strong>要求：</strong></p><br><p>1. 鼠标移到不同行上时背景色改为色值为 #f2f2f2，移开鼠标时则恢复为原背景色 #fff</p><br><p>2. 点击添加按钮，能动态在最后添加一行</p><br><p>3. 点击删除按钮，则删除当前行</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">基本上没太大的难度 唯一注意的就是 color函数</span></p><br><p><span style="color: #ff0000;">每次创建了一个新的元素都需要调用color函数</span></p><br><p><span style="color: #ff0000;">color函数里的鼠标移入事件和鼠标移出事件可以使用this来指向  <del>也可以使用闭包来指向</del></span></p><br><p><span style="color: #ff0000;">闭包指向会出现问题..还是用this方便简单</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br>  &lt;title&gt; new document &lt;/title&gt;<br>  &lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”/&gt;<br>  &lt;script type=”text/javascript”&gt;<br><br>      window.onload = function(){<br>            color()<br>     // 鼠标移动改变背景,可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。<br><br><br><br><br>     }<br><br>      // 编写一个函数，供添加按钮调用，动态在表格的最后一行添加子节点；<br><br>    function color(){<br>        var get_tr=document.getElementsByTagName(“tr”)<br>        for(var i=0;i&lt;get_tr.length;i++){<br>            get_tr[i].onmouseover=function(num){<br><br>                this.style.background=”#f2f2f2”}<br><br>            get_tr[i].onmouseout=function(num1){<br><br><br>                this.style.background=”#fff”<br><br>            }<br>        }<br>    }<br>       function createB(){<br>           var get_table=document.getElementById(“table”)//获取id<br>           // var get_table_tr=get_table.getElementsByTagName(“tr”)<br>           var last_tr=get_table.lastChild//获取到table最后一个子节点<br>           var new_tr=document.createElement(“tr”)<br>           var new_td_xh=document.createElement(“td”)<br>           var new_td_xm=document.createElement(“td”)<br>           var new_td_cz=document.createElement(“td”)<br>           var new_td_a=document.createElement(“a”)<br>           console.log(last_tr);<br><br>           var save_a_href=”javascript:;”//保存a的href属性<br>           var save_a_onclick=”delElem(this)”//保存a的onclick属性<br>           var save_a_into=”删除”//保存a的内容<br>           //以上三步可以不这样写<br>           //方式有很多种<br>           var new_xuehao=prompt(“please input xuehao”)//创建一个弹出输入框<br>           var new_xingmin=prompt(“please input name”)<br>           last_tr.appendChild(new_tr)//添加tr元素<br>           new_tr.appendChild(new_td_xh)<br>           new_tr.appendChild(new_td_xm)<br>           new_tr.appendChild(new_td_cz)<br>           new_td_cz.appendChild(new_td_a)<br><br><br><br>           new_td_xh.innerHTML=new_xuehao//学号的innerHTML等于弹出框的内容<br>           new_td_xm.innerHTML=new_xingmin<br>           new_td_a.href=save_a_href//设置a标签的href属性<br>           new_td_a.setAttribute(“onclick”, save_a_onclick)//设置a标签的onclick事件<br>           new_td_a.innerHTML=save_a_into//设置a的内容<br>           color()//再次调用color函数…<br><br><br><br><br><br><br>       }<br>     // 创建删除函数<br>    function delElem(elem){//传递一个参数<br>        var parent_tr=elem.parentNode.parentNode//获取到tr节点<br>        console.log(parent_tr)<br>        var parent_table=parent_tr.parentNode<br>        parent_table.removeChild(parent_tr)//在table节点里删除tr节点<br>        console.log(parent_table)<br><br>    }<br><br><br>  &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br>       &lt;table border=”1” width=”50%” id=”table”&gt;<br>       &lt;tr&gt;<br>        &lt;th&gt;学号&lt;/th&gt;<br>        &lt;th&gt;姓名&lt;/th&gt;<br>        &lt;th&gt;操作&lt;/th&gt;<br>       &lt;/tr&gt;<br><br>       &lt;tr&gt;<br>        &lt;td&gt;xh001&lt;/td&gt;<br>        &lt;td&gt;王小明&lt;/td&gt;<br>        &lt;td&gt;&lt;a href=”javascript:;” onclick=”delElem(this)”&gt;删除&lt;/a&gt;&lt;/td&gt;   &lt;!–在删除按钮上添加点击事件  –&gt;<br>       &lt;/tr&gt;<br><br>       &lt;tr&gt;<br>        &lt;td&gt;xh002&lt;/td&gt;<br>        &lt;td&gt;刘小芳&lt;/td&gt;<br>        &lt;td&gt;&lt;a href=”javascript:;” onclick=”delElem(this)”&gt;删除&lt;/a&gt;&lt;/td&gt;   &lt;!–在删除按钮上添加点击事件  –&gt;<br>       &lt;/tr&gt;<br><br>       &lt;/table&gt;<br>       &lt;input type=”button” value=”添加一行” onclick=”createB()” /&gt;   &lt;!–在添加按钮上添加点击事件  –&gt;<br> &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-170ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/170ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/170ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -322,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/170ver/">JavaScript：addClass，removeClass，addLoadEvent</a>
+      <a class="article-title" href="/2015/10/21/170ver/">JavaScript：addClass，removeClass，addLoadEvent</a>
     </h1>
   
 
@@ -360,11 +247,11 @@
 
 
   
-    <article id="post-167ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-125ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/167ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/125ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -377,7 +264,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/167ver/">CSS清除浮动常用方法小结 CSS clear both {overflow:auto;zoom:1;}</a>
+      <a class="article-title" href="/2015/10/21/125ver/">纯CSS绘制三角形（各种角度）</a>
     </h1>
   
 
@@ -386,9 +273,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自 <a href="http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html" target="_blank" rel="external">http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html</a></p><br><p><span style="color: #ff0000;">经验</span></p><br><p><span style="color: #ff0000;">浮动以后不会自动撑开父级的高度</span></p><br><p><strong>常用的清除浮动的方法有以下三种:</strong></p><br><p><strong>此为未清除浮动源代码，运行代码无法查看到父级元素浅黄色背景。</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>三种清除浮动方法如下：</p><br><p><strong>1、使用空标签清除浮动。</strong>我用了很久的一种方法，空标签可以是div标签，也可以是P标签。我习惯用&lt;P&gt;，够简短，也有很多人用&lt;hr&gt;，只是需要另外 为其清除边框，但理论上可以是任何标签。这种方式是在需要清除浮动的父级元素内部的所有浮动元素后添加这样一个标签清除浮动，并为其定义CSS代 码：clear:both。此方法的弊端在于增加了无意义的结构元素。</p><br><p><strong>对于使用额外标签清除浮动（闭合浮动元素），是W3C<span class="t_tag">推荐</span>的 做法。至于使用&lt;br /&gt;元素还是空&lt;div&gt;&lt;/div&gt;可以根据自己的喜好来选（当然你也可以使用其它块级元素）。不过要注意的 是，&lt;br /&gt;本身是有表现的，它会多出一个换行出来，所以要设定它的heigh为0，以隐藏它的表现。所以大多数情况下使用空&lt;div&gt;比较合 适。</strong></p><br><p>&nbsp;</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
-{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>.clr{clear:both;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;p class=”clr”&gt; &lt;/p&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>2、使用overflow属性。</strong>此方法有效地解决了通过空标签元素清除浮动而不得不增加无意代码的弊端。使用该方法是只需在需要清除浮动的元素中定义CSS属性：overflow:auto，即可！”zoom:1″用于兼容IE6,也可以用width:100%。</p><br><p><strong>不过使用overflow的时候，可能会对页面表现带来影响，而且这种影响是不确定的，你最好是能在多个浏览器上测试你的页面；</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;overflow:auto;zoom:1; }/</em> overflow:auto可以换成overflow:hidden，zoom:1可以换成width:100%<em>/<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p><strong>3、使用after伪对象清除浮动。</strong> 该方法只适用于非IE浏览器 。具体写法可参照以下示例。使用中需注意以下几点。一、该方法中必须为需要清除浮动元素的伪对象中设置height:0，否则该元素会比实际高出若干像 素；二、content属性是必须的，但其值可以为空，蓝色理想讨论该方法的时候content属性的值设为”.”，但我发现为空亦是可以的。</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
-{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#layout:after{display:block;clear:both;content:””;visibility:hidden;height:0;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>此三种方法各有利弊，使用时应择优选择，个人习惯于第一种，比较稳定可靠。</strong></p>
+        <p></p><p>转自<a href="http://www.jb51.net/article/42513.htm" target="_blank" rel="external">http://www.jb51.net/article/42513.htm</a></p><p></p>
+<p></p><p>我们的网页因为 CSS 而呈现千变万化的风格。这一看似简单的样式语言在使用中非常灵活，只要你发挥创意就能实现很多比人想象不到的效果。特别是随着 CSS3 的广泛使用，更多新奇的 CSS 作品涌现出来。</p><p></p>
+<p></p><p>今天给大家带来 CSS 三角形绘制方法<br><br><img src="http://files.jb51.net/file_images/article/201310/201310290941121.jpg?201392994443" data-original="http://files.jb51.net/file_images/article/201310/201310290941121.jpg?201392994443" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><p></p>
+<div class="codetitle"><a id="copybut56704" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code56704" class="codebody"><br>#triangle-up {<br><br>width: 0;<br><br>height: 0;<br><br>border-left: 50px solid transparent;<br><br>border-right: 50px solid transparent;<br><br>border-bottom: 100px solid red;<br><br>}</div><br><p><img src="http://files.jb51.net/file_images/article/201310/201310290941322.jpg?201392994757" data-original="http://files.jb51.net/file_images/article/201310/201310290941322.jpg?201392994757" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut48418" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code48418" class="codebody"><br>#triangle-down {<br><br>width: 0;<br><br>height: 0;<br><br>border-left: 50px solid transparent;<br><br>border-right: 50px solid transparent;<br><br>border-top: 100px solid red;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290941433.jpg?201392994835" data-original="http://files.jb51.net/file_images/article/201310/201310290941433.jpg?201392994835" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut26392" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code26392" class="codebody"><br>#triangle-left {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 50px solid transparent;<br><br>border-right: 100px solid red;<br><br>border-bottom: 50px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290941534.jpg?20139299495" data-original="http://files.jb51.net/file_images/article/201310/201310290941534.jpg?20139299495" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut65913" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code65913" class="codebody"><br>#triangle-right {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 50px solid transparent;<br><br>border-left: 100px solid red;<br><br>border-bottom: 50px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942025.jpg?201392994926" data-original="http://files.jb51.net/file_images/article/201310/201310290942025.jpg?201392994926" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut47350" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code47350" class="codebody"><br>#triangle-topleft {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 100px solid red;<br><br>border-right: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942136.jpg?201392994948" data-original="http://files.jb51.net/file_images/article/201310/201310290942136.jpg?201392994948" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut29596" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code29596" class="codebody"><br>#triangle-topright {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 100px solid red;<br><br>border-left: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942227.jpg?20139299509" data-original="http://files.jb51.net/file_images/article/201310/201310290942227.jpg?20139299509" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut56299" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code56299" class="codebody"><br>#triangle-bottomleft {<br><br>width: 0;<br><br>height: 0;<br><br>border-bottom: 100px solid red;<br><br>border-right: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942328.jpg?201392995028" data-original="http://files.jb51.net/file_images/article/201310/201310290942328.jpg?201392995028" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut76189" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code76189" class="codebody"><br>#triangle-bottomright {<br><br>width: 0;<br><br>height: 0;<br><br>border-bottom: 100px solid red;<br><br>border-left: 100px solid transparent;<br><br>}</div>
 
 
 
@@ -417,11 +305,11 @@
 
 
   
-    <article id="post-164ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-145ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/164ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/145ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -434,7 +322,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/164ver/">JavaScript:延迟自动切换的选项卡</a>
+      <a class="article-title" href="/2015/10/21/145ver/">零基础学bootstrap:代码</a>
     </h1>
   
 
@@ -443,7 +331,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;</p><br><p>演示地址：<a href="http://www.old.com/demo/CSS-Tab%20%E8%87%AA%E5%8A%A8%20test.html" target="_blank" rel="external">http://www.old.com/demo/CSS-Tab%20%E8%87%AA%E5%8A%A8%20test.html</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">首先这次学到了代码封装的重要性，在重复调用多次相同代码的时候可以封装下那段代码</span></p><br><p><span style="color: #ff0000;">自动切换时通过setInterval来实现的</span></p><br><p><span style="color: #ff0000;">索引也跟前几次的选项卡大同小异，在此就不多说了</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;tab&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{<br>        margin: 0;<br>        padding: 0;<br>    }<br>    #tab{<br>        width: 400px;<br>        height: 200px;<br>        border: 1px solid #aaa;<br>        margin: 10px;<br>        overflow: hidden;<br>    }<br>    #title{<br>        position: relative;<br>        height: 40px;<br>        text-align:center;<br>        line-height: 40px;<br>        background: #F7F7F7;<br>    }<br>    #title ul{<br>        position: absolute;<br>        width: 401px;<br>        left: -1px;<br>        height: 40px;<br><br><br>    }<br>    #title ul li{<br>        list-style: none;<br>        float: left;<br>        width:75px;<br>        height: 39px;<br>        line-height: 39px;<br>        text-align: center;<br>        background: #fff;<br>        border-bottom:1px solid #eee;<br>        padding: 0 3px;<br>        background: #F7F7F7;<br>    }<br><br><br>    #tab ul li a{<br>        text-decoration: none;<br>        color: black;<br><br>    }<br>    #title ul li.light{<br>        border-right: 1px solid #aaa;<br>        background: #fff;<br>        border-bottom-color: #fff;<br>        border-left: 1px solid #eee;<br>        border-right: 1px solid #eee;<br>        padding: 0px;<br>    }<br>    #tab a:hover{<br>        color: red;<br>    }<br>    .disblock{<br>        display: block;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br><br>function changeCss(){<br>    var tab_li=document.getElementById(“title_ul”).getElementsByTagName(“li”)<br>    //获取li列表<br>    var tab_con=document.getElementById(“tab_con”).getElementsByTagName(“div”)<br>    //获取内容列表<br>    var index=0;<br>    var timer=null;<br>    //创建一个索引<br>    for (var i = 0; i &lt; tab_li.length; i++) {<br>        //建立id索引<br>        tab_li[i].id=i;<br>        //鼠标移入事件<br>        tab_li[i].onmouseover=function(){<br>            //先清除下播放函数<br>            clearInterval(timer)<br>            //传递this.id<br>            changeOp(this.id)<br>        }<br><br>        //鼠标移出事件<br>        tab_li[i].onmouseout=function(){<br>            timer=setInterval(autoPlay,2000)<br>        }<br><br>    };<br><br><br>    //每2秒执行autoPlay函数<br>    //先判断是否存在 存在清空 定时器 这样做有利于性能维护<br>    if (timer) {<br>        clearInterval(timer);<br>        timer=null<br>    };<br>    timer=setInterval(autoPlay,2000)<br><br><br>    function autoPlay(){<br>        //每次index+1<br>        index++;<br>        //如果index大于等于li列表个数了<br>        if (index&gt;=tab_li.length) {<br>            //重新定义li<br>            index=0;<br>        };<br>        //调用changeOp函数 并且传递index<br>        changeOp(index);<br><br>    }<br>    //创建个函数 方便调用<br>    function changeOp(curindex){<br>        for(var j=0;j&lt;tab_li.length;j++){<br>            tab_li[j].className=” “;<br>            tab_con[j].style.display=”none”;<br><br>        }<br>        //接受传递的curindex值<br>        tab_li[curindex].className=”light”<br>        tab_con[curindex].style.display=”block”;<br>        //重置index值<br>        //鼠标移出事件的时候 就会把index值设置成this.id<br>        index=curindex<br>    }<br><br><br>}<br><br>window.onload=function(){<br>    changeCss()<br>}<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”tab”&gt;<br>        &lt;div id=”title”&gt;<br>            &lt;ul id=”title_ul”&gt;<br>                &lt;li class=”light”&gt;&lt;a href=”#” &gt;公告&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;规则&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;论坛&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;安全&lt;/a&gt;&lt;/li&gt;<br>                &lt;li &gt;&lt;a href=”#” &gt;公益&lt;/a&gt;&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>    &lt;div id=”tab_con”&gt;<br>        &lt;div class=”mod” style=”display: block;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;今日装备大优惠&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;快来抢购啊&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;过了这个村可没那个店了&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;严禁抢购装备&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;严禁非法购买&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;守卫24小时守护&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;洞天福地出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;道友极品装备出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;收购大量灵晶&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>&lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;保证探险安全&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;结伴而行&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;不知道写什么了&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display:none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售免费出售免费出售免费出售&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br><br>    &lt;/div&gt;<br><br>    &lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p><span style="color: #993366;"><strong>前文</strong></span></p><br><blockquote><p>这里也只列出一些比较重点的内容,详细的可以去官方参考文档 <a href="http://v3.bootcss.com/css/#code" target="_blank" rel="external">http://v3.bootcss.com/css/#code</a></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;style&gt;<br>    .row{<br>        margin-top: 10px;<br>        background: #b3b3b3;<br>        padding: 10px;<br>    }<br>    [class*=’col-‘]{<br>        border:1px solid #2b2f2f;<br>        padding: 10px;<br>    }<br><br><br>    &lt;/style&gt;<br></pre><br><p>稍微加一点css样式方便区别</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong><span style="color: #993366;">内联代码</span></strong></p><br><blockquote><p> 通过 <code>&lt;code&gt;</code> 标签包裹内联样式的代码片段。 显示是颜色变化.实践一下就知道了</p><br><pre class="lang:default decode:true">&lt;div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-8”&gt;<br>                &lt;p&gt;bootstrap零基础学习-排版,&lt;code&gt;By-Soul&lt;/code&gt;&lt;/p&gt;<br><br>            &lt;/div&gt;<br><br>        &lt;/div&gt;<br><br>    &lt;/div&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-user-input"><span style="color: #993366;"><strong>用户输入</strong></span></p><br><blockquote><p>通过 <code>&lt;kbd&gt;</code> 标签标记用户通过键盘输入的内容。..实际上这只是一个样式罢了不会实际上记录你的键盘</p><br><p>显示样式大家可以实践下</p><br><pre class="lang:default decode:true">&lt;p&gt;我输入了&lt;kbd&gt;ctrl+m&lt;/kbd&gt;&lt;/p&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-block"><span style="color: #993366;"><strong>代码块</strong></span></p><br><blockquote><p>多行代码可以使用 <code>&lt;pre&gt;</code> 标签。为了正确的展示代码，注意将尖括号做转义处理。</p><br><pre class="lang:default decode:true">&lt;pre&gt;&amp;lt;p&amp;gt;Sample text here…&amp;lt;/p&amp;gt;&lt;/pre&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p id="code-variables"><span style="color: #993366;"><strong>变量</strong></span></p><br><blockquote><p>通过 <code>&lt;var&gt;</code> 标签标记变量。实际上这只是一个样式罢了</p><br><pre class="lang:default decode:true">&lt;var&gt;y&lt;/var&gt; = &lt;var&gt;m&lt;/var&gt;&lt;var&gt;x&lt;/var&gt; + &lt;var&gt;b&lt;/var&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-sample-output"><span style="color: #993366;"><strong>程序输出</strong></span></p><br><blockquote><p>通过 <code>&lt;samp&gt;</code> 标签来标记程序输出的内容。</p><br><p>展示效果跟普通的差不多.</p><br><pre><code class="language-html" data-lang="html"><span class="nt">&lt;samp&gt;</span>This text is meant to be treated as sample output from a computer program.<span class="nt">&lt;/samp&gt;</span></code></pre><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
@@ -472,11 +360,11 @@
 
 
   
-    <article id="post-163ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-144ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/163ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/144ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -489,7 +377,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/163ver/">JavaScript:发送验证码60秒限制的效果</a>
+      <a class="article-title" href="/2015/10/21/144ver/">零基础学bootstrap:表格</a>
     </h1>
   
 
@@ -498,7 +386,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">代码都比较简单 在此就不多说了</span></p><br><p><span style="color: #ff0000;">演示的话大家可以复制到本地进行演示</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    window.onload=function(){<br>        var send=document.getElementById(‘send’),<br>            times=60,<br>            timer=null;<br>        send.onclick=function(){<br>          // 计时开始<br>          timer=setInterval(function(){<br>              times–<br>              send.disabled=false<br>              send.value=times+”秒后重试”<br>              if(times&lt;0){<br>              clearInterval(timer);<br>              send.value=”发送验证码”;<br>              timer=60;<br>              send.disabled=””;<br><br>          }<br>          },1000)<br><br><br><br><br><br><br><br><br><br><br><br>        }<br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;input type=”button” id=”send” value=”发送验证码”&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p><span style="font-family: 'book antiqua', palatino;">本文章只列出一些比较常见重要的属性,详细的可以去参考官方文档：<a href="http://v3.bootcss.com/css/#tables" target="_blank" rel="external">http://v3.bootcss.com/css/#tables</a></span></p><br><p>..实际上学到这里，自己可以动手实践各种bootstrap的标签,class了. 读万卷书不如行万里路.所谓 师傅领进门,修行在个人..</p><br><p>实际上我也只是跟你们一样在前端道路上摸索行走罢了</p><br><p>&nbsp;</p><br><h2><span style="color: #800080;"><strong>基本实例</strong></span></h2><br><blockquote><p>为任意 <code>&lt;table&gt;</code> 标签添加 <code>.table</code> 类可以为其赋予基本的样式 — 少量的内补（padding）和水平方向的分隔线。这种方式看起来很多余！？但是我们觉得，表格元素使用的很广泛，如果我们为其赋予默认样式可能会影响例如日历和日期选择之类的插件，所以我们选择将此样式独立出来。</p><br><p>&nbsp;</p><br><p>使用起来跟平时一样,只是显示的样式略有不同</p><br><pre class="lang:default decode:true ">&lt;div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-8”&gt;<br>                &lt;table class=”table”&gt;<br>                    &lt;tr&gt;<br>                        &lt;th&gt;简介&lt;/th&gt;<br>                        &lt;th&gt;说明&lt;/th&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;hello&lt;/td&gt;<br>                        &lt;td&gt;soul&lt;/td&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;你正在学习&lt;/td&gt;<br>                        &lt;td&gt;bootstrap&lt;/td&gt;<br><br>                    &lt;/tr&gt;<br>                &lt;/table&gt;<br><br><br>            &lt;/div&gt;<br><br><br>        &lt;/div&gt;<br><br><br><br>    &lt;/div&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><h2 id="tables-striped"><span style="color: #800080;"><strong>条纹状表格</strong></span></h2><br><blockquote><p>通过 <code>.table-striped</code> 类可以给 <code>&lt;tbody&gt;</code> 之内的每一行增加斑马条纹样式。</p><br><p>&nbsp;</p><br><h4 id="跨浏览器兼容性"><span style="color: #800080;">跨浏览器兼容性</span></h4><br><p>条纹状表格是依赖 <code>:nth-child</code> CSS 选择器实现的，而这一功能不被 Internet Explorer 8 支持。</p><br><pre class="lang:default decode:true">&lt;table class=”table table-striped”&gt;<br>                    &lt;tr&gt;<br>                        &lt;th&gt;简介&lt;/th&gt;<br>                        &lt;th&gt;说明&lt;/th&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;hello&lt;/td&gt;<br>                        &lt;td&gt;soul&lt;/td&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;你正在学习&lt;/td&gt;<br>                        &lt;td&gt;bootstrap&lt;/td&gt;<br><br>                    &lt;/tr&gt;<br>                &lt;/table&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><h2 id="tables-bordered"><span style="color: #800080;"><strong>带边框的表格</strong></span></h2><br><blockquote><p>添加 <code>.table-bordered</code> 类为表格和其中的每个单元格增加边框。</p><br><pre class="lang:default decode:true">&lt;table class=”table table-bordered”&gt;<br>                    &lt;tr&gt;<br>                        &lt;th&gt;简介&lt;/th&gt;<br>                        &lt;th&gt;说明&lt;/th&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;hello&lt;/td&gt;<br>                        &lt;td&gt;soul&lt;/td&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;你正在学习&lt;/td&gt;<br>                        &lt;td&gt;bootstrap&lt;/td&gt;<br><br>                    &lt;/tr&gt;<br>                &lt;/table&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><h2 id="tables-hover-rows"><span style="color: #800080;"><strong>鼠标悬停</strong></span></h2><br><blockquote><p>通过添加 <code>.table-hover</code> 类可以让 <code>&lt;tbody&gt;</code> 中的每一行对鼠标悬停状态作出响应。</p><br><p>每次移动都会高亮鼠标移入的那一行</p><br><pre class="lang:default decode:true ">&lt;table class=”table table-bordered table-hover”&gt;<br>                    &lt;tr&gt;<br>                        &lt;th&gt;简介&lt;/th&gt;<br>                        &lt;th&gt;说明&lt;/th&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;hello&lt;/td&gt;<br>                        &lt;td&gt;soul&lt;/td&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;你正在学习&lt;/td&gt;<br>                        &lt;td&gt;bootstrap&lt;/td&gt;<br><br>                    &lt;/tr&gt;<br>                &lt;/table&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><h2 id="tables-condensed"><span style="color: #800080;"><strong>紧缩表格</strong></span></h2><br><blockquote><p>通过添加 <code>.table-condensed</code> 类可以让表格更加紧凑，单元格中的内补（padding）均会减半。</p></blockquote><br><p>&nbsp;</p><br><h2 id="tables-contextual-classes"><span style="color: #800080;"><strong>状态类</strong></span></h2><br><blockquote><p>通过这些状态类可以为行或单元格设置颜色。</p><br><div class="table-responsive"><br><table class="table table-bordered table-striped"><br><colgroup><br><col class="col-xs-1"><br><col class="col-xs-7"></colgroup><br><thead><br><tr><br><th>Class</th><br><th>描述</th><br></tr><br></thead><br><tbody><br><tr><br><th scope="row"><code>.active</code></th><br><td>鼠标悬停在行或单元格上时所设置的颜色</td><br></tr><br><tr><br><th scope="row"><code>.success</code></th><br><td>标识成功或积极的动作</td><br></tr><br><tr><br><th scope="row"><code>.info</code></th><br><td>标识普通的提示信息或动作</td><br></tr><br><tr><br><th scope="row"><code>.warning</code></th><br><td>标识警告或需要用户注意</td><br></tr><br><tr><br><th scope="row"><code>.danger</code></th><br><td>标识危险或潜在的带来负面影响的动作</td><br></tr><br></tbody><br></table><br></div><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>响应式表格</strong></span></p><br><blockquote><p>将任何 <code>.table</code> 元素包裹在 <code>.table-responsive</code> 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于 768px 宽度时，水平滚动条消失。</p><br><p>使用这样的形式 就可以实现响应式表格布局</p><br><pre class="lang:default decode:true ">&lt;div class=”table-responsive”&gt;<br>  &lt;table class=”table”&gt;<br>    …<br>  &lt;/table&gt;<br>&lt;/div&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;div class=”table-responsive”&gt;<br>            &lt;table class=”table”&gt;<br>                    &lt;tr&gt;<br>                        &lt;th&gt;简介简介简介简介简介简介简介简介简介简介v&lt;/th&gt;<br>                        &lt;th&gt;说明说明说明说明说明说明说明说明v&lt;/th&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;hellohellohellohellohellohellohellohellohello&lt;/td&gt;<br>                        &lt;td&gt;soulsoulsoulsoulsoulsoulsoulsoulsoulsoulsoulsoulsoulsoulsoulv&lt;/td&gt;<br>                    &lt;/tr&gt;<br>                    &lt;tr&gt;<br>                        &lt;td&gt;你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习你正在学习v&lt;/td&gt;<br>                        &lt;td&gt;bootstrapbootstrapbootstrapbootstrapbootstrapbootstrapbootstrapbootstrapbootstrapbootstrapvv&lt;/td&gt;<br><br>                    &lt;/tr&gt;<br>                &lt;/table&gt;<br>            &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>还有一些表格的类可以去官网文档进行查看</p><br><p>&nbsp;</p>
 
 
 
@@ -527,11 +415,11 @@
 
 
   
-    <article id="post-162ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-143ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/162ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/143ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -544,7 +432,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/162ver/">JavaScript-焦点轮播图效果</a>
+      <a class="article-title" href="/2015/10/21/143ver/">零基础学bootstrap:表单</a>
     </h1>
   
 
@@ -553,7 +441,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学习代码以及文章来自：<a href="http://www.imooc.com/code/3605" target="_blank" rel="external">http://www.imooc.com/code/3605</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">CSS这块..一直是个坑也就没分析了</span></p><br><p><span style="color: #ff0000;">这次主要是通过控制pic.style.top距离来判断是哪个li</span></p><br><p><span style="color: #ff0000;">170是div的高度 ，因为我们是通过一个div来显示的.</span></p><br><p><span style="color: #ff0000;">170<em>2=第二章图片</em></span></p><br><p><span style="color: #ff0000;">..这块没怎么写好.希望各位大神能够指点一下</span></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">首先这个JS有几个函数或者方法呢？</span></p><br><p><span style="color: #ff0000;">if (timer) {//如果原来就有了这个定时器</span><br><br><span style="color: #ff0000;"> //先清除原来的定时器</span><br><br><span style="color: #ff0000;"> clearInterval(timer);</span><br><br><span style="color: #ff0000;"> timer=null;</span><br><br><span style="color: #ff0000;"> };</span></p><br><p><span style="color: #ff0000;">这是第一个方法 用来清除原来的定时器</span></p><br><p><span style="color: #ff0000;"> timer=setInterval(autoPlay,2000)</span></p><br><p><span style="color: #ff0000;">这是第二个 用来自动播放</span></p><br><pre class="lang:default decode:true"><span style="color: #ff0000;"> function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //</span></pre><br><p><span style="color: #ff0000;"> 这是第三个 自动播放该怎么播放的函数.默认是从1开始的.为什么不是0？ ..你默认显示的不就是0吗?</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;"> function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }</span></pre><br><p><span style="color: #ff0000;"> 这是第四个函数 你自动播放的时候肯定要去怎么切换这个图片吧</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;">stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br></span></pre><br><p><span style="color: #ff0000;"> </span></p><br><p><span style="color: #ff0000;">这是第五个函数 鼠标移入的时候调用切换图片的函数 移出后重新开始设置定时器 也就是第二个方法</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style&gt;<br>  <em>{margin:0;<br>    padding:0;<br>    list-style:none;}<br>  .wrap{height:170px;<br>        width:490px;<br>        margin:60px auto;<br>        overflow: hidden;<br>        position: relative;<br>        margin:100px auto;}<br>  .wrap ul{position:absolute;}<br>  .wrap ul li{height:170px;}<br>  .wrap ol{position:absolute;<br>           right:5px;<br>           bottom:10px;}<br>  .wrap ol li{height:20px; width: 20px;<br>              background:#ccc;<br>              border:solid 1px #666;<br>              margin-left:5px;<br>              color:#000;<br>              float:left;<br>              line-height:center;<br>              text-align:center;<br>              cursor:pointer;}<br>  .wrap ol .on{background:#E97305;<br>               color:#fff;}<br><br>  &lt;/style&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  window.onload=function(){//网页加载完毕<br>    var wrap=document.getElementById(‘wrap’),<br>        pic=document.getElementById(‘pic’),<br>        //获取list列表<br>        list=document.getElementById(‘list’).getElementsByTagName(‘li’),<br>        //建立索引<br>        index=0,<br>        //设置定时器<br>        timer=null;<br><br><br>      //自动播放图片<br>      //在自动播放图片前加一个判断<br>      if (timer) {//如果原来就有了这个定时器<br>        //先清除原来的定时器<br>        clearInterval(timer);<br>        timer=null;<br>      };<br>      //再进行播放<br>      timer=setInterval(autoPlay,2000)<br><br>      function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //<br><br><br>      // 定义图片切换函数<br>      function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex</em>170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }<br><br><br>     //建立停止自动播放以及鼠标移入移出事件函数<br>     stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br><br><br>   }<br><br>  &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;div class=”wrap” id=’wrap’&gt;<br>    &lt;ul id=”pic”&gt;<br>      &lt;li&gt;&lt;img  height=470 src=”<a href="http://img.mukewang.com/54111cd9000174cd04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111cd9000174cd04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111dac000118af04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111dac000118af04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d9c0001998204900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d9c0001998204900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d8a0001f41704900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d8a0001f41704900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d7d00018ba604900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d7d00018ba604900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>    &lt;/ul&gt;<br>    &lt;ol id=”list”&gt;<br>      &lt;li class=”on”&gt;1&lt;/li&gt;<br>      &lt;li&gt;2&lt;/li&gt;<br>      &lt;li&gt;3&lt;/li&gt;<br>      &lt;li&gt;4&lt;/li&gt;<br>      &lt;li&gt;5&lt;/li&gt;<br>    &lt;/ol&gt;<br>  &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p>还是原话,作为经验一谈不会以上次那样写太多无意义的话..与其在这里看太多无意义的话还不如直接去看官方文档.</p><br><p>多动手+实践=经验</p><br><p>表单官方文档:<a href="http://v3.bootcss.com/css/#forms" target="_blank" rel="external">http://v3.bootcss.com/css/#forms</a></p><br><p>&nbsp;</p><br><h2><span style="color: #800080;"><strong>开始来做个表单</strong></span></h2><br><blockquote><p>先看看官网文档</p><br><p>单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。 将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code> 中可以获得最好的排列。</p></blockquote><br><p>ok既然了解了就可以开始做了</p><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>做个基本的表单</strong></span></p><br><blockquote><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;form&gt;<br>                &lt;div class=”form-group”&gt;<br>                    &lt;label for=”em”&gt;用户名&lt;/label&gt;<br>                    &lt;input  id=”em” type=”email” class=”form-control” placeholder=”请输入Email”&gt;<br>                    &lt;!– 默认是100% –&gt;<br>                    &lt;!– placeholder是默认提示文字 –&gt;<br>                &lt;/div&gt;<br><br>                &lt;div class=”form-group”&gt;<br>                    &lt;label&gt;密码&lt;/label&gt;<br>                    &lt;input type=”password” class=”form-control”&gt;<br>                &lt;/div&gt;<br><br>                &lt;div class=”form-group”&gt;<br>                    &lt;label&gt;选择文件&lt;/label&gt;<br>                    &lt;input type=”file”&gt;<br>                    &lt;p&gt;请选择文件&lt;/p&gt;<br>                &lt;/div&gt;<br><br>                &lt;div class=”checkbox”&gt;<br>                    &lt;label&gt;<br>                     &lt;input type=”checkbox”&gt;男<br>                      &lt;/label&gt;<br>                &lt;/div&gt;<br>                &lt;button type=”submit” class=”btn btn-default”&gt;提交&lt;/button&gt;<br>                &lt;/form&gt;</pre><br><p>&nbsp;</p><br><p>值得一提的是</p><br><pre class="lang:default decode:true">&lt;label for=”em”&gt;用户名&lt;/label&gt;<br>                    &lt;input  id=”em” type=”email” class=”form-control” placeholder=”请输入Email”&gt;</pre><br><p>for=”em”与下面的 id=”em” 这样写两个就联系起来了</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">class=”form-control”</pre><br><p>表单占据宽度为100%</p><br><p>而且每个表单都包裹在一个名为</p><br><pre class="lang:default decode:true">&lt;div class=”form-group”&gt;</pre><br><p>&nbsp;</p><br><p>应该差不多了.关于lable标签下面会解释的</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>来写个内联(并排)表单</strong></span></p><br><blockquote><p>为 <code>&lt;form&gt;</code> 元素添加 <code>.form-inline</code> 类可使其内容左对齐并且表现为 <code>inline-block</code> 级别的控件。<strong>只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。</strong></p><br><div id="callout-inline-form-width" class="bs-callout bs-callout-danger"><br><h4 id="可能需要手动设置宽度">可能需要手动设置宽度</h4><br><p>在 Bootstrap 中，输入框和单选/多选框控件默认被设置为 <code>width: 100%;</code> 宽度。在内联表单，我们将这些元素的宽度设置为 <code>width: auto;</code>，因此，多个控件可以排列在同一行。根据你的布局需求，可能需要一些额外的定制化组件。</p><br></div><br><div id="callout-inline-form-labels" class="bs-callout bs-callout-warning"><br><h4 id="一定要添加-label-标签">一定要添加 <code>label</code> 标签</h4><br><p>如果你没有为每个输入控件设置 <code>label</code> 标签，屏幕阅读器将无法正确识别。对于这些内联表单，你可以通过为<code>label</code> 设置 <code>.sr-only</code> 类将其隐藏。还有一些辅助技术提供label标签的替代方案，比如 <code>aria-label</code>、<code>aria-labelledby</code> 或 <code>title</code> 属性。如果这些都不存在，屏幕阅读器可能会采取使用 <code>placeholder</code> 属性，如果存在的话，使用占位符来替代其他的标记，但要注意，这种方法是不妥当的。</p><br><hr><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>首先要说的就是 内联表单可以响应式的展示.</p><br><pre class="lang:default decode:true ">&lt;form class=”form-inline”&gt;<br>                    &lt;div class=”form-group”&gt;<br>                        &lt;label class=”sr-only”&gt;用户名&lt;/label&gt;<br>                        &lt;input type=”email” class=”form-control” placeholder=”请输入Email”&gt;<br>                    &lt;/div&gt;<br>                    &lt;div class=”form-group”&gt;<br>                        &lt;label class=”sr-only”&gt;密码&lt;/label&gt;<br>                        &lt;input type=”password” class=”form-control”placeholder=”请输入密码”&gt;<br><br><br><br>                    &lt;/div&gt;<br>                    &lt;div class=”form-group”&gt;<br>                        &lt;label class=”sr-only”&gt;金额&lt;/label&gt;<br>                        &lt;div class=”input-group”&gt;<br>                            &lt;div class=”input-group-addon”&gt;$&lt;/div&gt;<br>                            &lt;!– 合并两个div –&gt;<br>                            &lt;input type=”text” class=”form-control”placeholder=”请输入金额”&gt;<br>                            &lt;div class=”input-group-addon”&gt;美刀&lt;/div&gt;<br>                        &lt;/div&gt;<br><br><br><br><br>                    &lt;/div&gt;<br><br><br>                &lt;/form&gt;</pre><br><p>&nbsp;</p><br><p>上文值得一提的有</p><br><pre class="lang:default decode:true ">&lt;form class=”form-inline”&gt;</pre><br><p>为form标签加了个form-inline, 其中间的属性都会是响应式并排显示</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "> &lt;label class=”sr-only”&gt;用户名&lt;/label&gt;</pre><br><p>为什么要加lable标签官方文档已经解释了,就不多说了. sr-only是隐藏lable标签</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;div class=”form-group”&gt;<br>                        &lt;label class=”sr-only”&gt;金额&lt;/label&gt;<br>                        &lt;div class=”input-group”&gt;<br>                            &lt;div class=”input-group-addon”&gt;$&lt;/div&gt;<br>                            &lt;!– 合并两个div –&gt;<br>                            &lt;input type=”text” class=”form-control”placeholder=”请输入金额”&gt;<br>                            &lt;div class=”input-group-addon”&gt;美刀&lt;/div&gt;<br>                        &lt;/div&gt;</pre><br><p>这里显示用一个div class=”input-group” 包裹了input标签</p><br><p>并且在这个div下面又添加了div class=”input-group-addon”在这个div里面写了一个美元符号$</p><br><p>那么input-group-addon是什么意思呢？</p><br><p>首先我们理解input-group是 内联组 然后再内联组类写了一个$ 放在input前面</p><br><p>然后又为这个$加了一个input-group-addon类 这么做就是相当于在input前面添加了一个$符号</p><br><p>..恕我解释能力不够..不够自己动手写应该很快就能理解了</p><br><p>包括在input后面的”美元”也很好理解</p><br><p>&nbsp;</p><br></div><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>通过栅格系统来控制表单显示位置(水平排列)</strong></span></p><br><blockquote><p> 通过为表单添加 <code>.form-horizontal</code> 类，并联合使用 Bootstrap 预置的栅格类，可以将 <code>label</code> 标签和控件组水平并排布局。这样做将改变 <code>.form-group</code> 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 <code>.row</code> 了。</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;form class=”form-horizontal”&gt;<br>                    &lt;div class=”form-group”&gt;<br>                        &lt;label class=”col-md-2 control-lable”&gt;Email&lt;/label&gt;<br>                        &lt;div class=”col-md-4”&gt;<br>                            &lt;input type=”email” class=”form-control”&gt;<br>                        &lt;/div&gt;<br>                    &lt;/div&gt;<br>                &lt;/form&gt;</pre><br><p>&nbsp;</p><br><p>给表单添加了form-horizontal类</p><br><p>然后给lable添加了一个col-md-2 control-lable 意思为lable占据2列. control-lable这个我也不太清楚 写上就是了</p><br><p>用一个div包裹住input 同时给这个div添加上col-md-4意思是这个input标签占据4列. 这个应该比较好理解</p><br><p>至于input的form-control是让这个input标签占据整行</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><h2 id="输入框"><span style="color: #800080;"><strong>来写个下拉菜单</strong></span></h2><br><blockquote><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;form&gt;<br>                    &lt;select class=”form-control”&gt;<br>                        &lt;option value=””&gt;1&lt;/option&gt;<br>                        &lt;option value=””&gt;2&lt;/option&gt;<br>                        &lt;option value=””&gt;3&lt;/option&gt;<br>                        &lt;option value=””&gt;4&lt;/option&gt;<br>                        &lt;option value=””&gt;5&lt;/option&gt;<br><br>                    &lt;/select&gt;<br>                    &lt;br&gt;<br>                    &lt;select  multiple class=”form-control”&gt;<br>                        &lt;!– 全部展开 –&gt;<br>                        &lt;option value=””&gt;1&lt;/option&gt;<br>                        &lt;option value=””&gt;2&lt;/option&gt;<br>                        &lt;option value=””&gt;3&lt;/option&gt;<br>                        &lt;option value=””&gt;4&lt;/option&gt;<br>                        &lt;option value=””&gt;5&lt;/option&gt;<br><br>                    &lt;/select&gt;<br>                &lt;/form&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;select  multiple class=”form-control”&gt;</pre><br><p>multiple属性设置后下拉菜单是展开的</p></blockquote><br><p>&nbsp;</p><br><p>还有一些表单的方法使用都比较简单,这里只列出了比较重要的方法.</p>
 
 
 
@@ -582,11 +470,11 @@
 
 
   
-    <article id="post-161ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-142ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/161ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/142ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -599,7 +487,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/161ver/">闲聊CSS之关于clearfix&amp;#8211;清除浮动</a>
+      <a class="article-title" href="/2015/10/21/142ver/">零基础学bootstrap:表单</a>
     </h1>
   
 
@@ -608,9 +496,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>文本转自<a href="http://www.imooc.com/wenda/detail/11605" target="_blank" rel="external">http://www.imooc.com/wenda/detail/11605</a></p><p></p>
-<p></p><h3 class="js-qa-wenda-title qa-wenda-title">闲聊CSS之关于clearfix–清除浮动</h3><p></p>
-<div id="js-qa-wenda" class="qa-wenda imgPreview rich-text"><br><p>一，什么是.clearfix</p><br><p>你只要到Google或者Baidu随便一搜”css清除浮动”，就会发现很多网站都讲到”盒子清除内部浮动时可以用到.clearfix”。</p><br><p>.clearfix:after {<br><br>content: “ “;<br><br>display: block;<br><br>clear: both;<br><br>height: 0;<br><br>}<br><br>.clearfix {<br><br>zoom: 1;<br><br>}</p><br><p>&lt;div class=”clearfix”&gt;<br><br>&lt;div class=”floated”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;</p><br><p>上面的代码就是.clearfix的定义和应用，简单的说下.clearfix的原理：</p><br><p>1、在IE6, 7下zoom: 1会触发hasLayout，从而使元素闭合内部的浮动。</p><br><p>2、在标准浏览器下，.clearfix:after这个伪类会在应用到.clearfix的元素后面插入一个clear: both的块级元素，从而达到清除浮动的作用。</p><br><p>&lt;div&gt;<br><br>&lt;div class=”floated”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;<br><br>&lt;div style=”clear: both”&gt;&lt;/div&gt;</p><br><p>二，.clearfix的弊端</p><br><p>在上面的代码中可以看到，抛开IE6, 7不谈，.clearfix在标准浏览器下插入了一个clear: both的元素，这样很可能清除掉不必要的浮动。举例来说明：</p><br><p>&lt;!DOCTYPE html&gt;<br><br>&lt;html&gt;<br><br>&lt;head&gt;<br><br>&lt;title&gt;Demo&lt;/title&gt;<br><br>&lt;style type=”text/css”&gt;<br><br>html, body { padding: 0; margin: 0; }<br><br>ul { margin: 0; padding: 0; }</p><br><p>.clearfix:after {<br><br>content: “ “;<br><br>display: block;<br><br>clear: both;<br><br>height: 0;<br><br>}<br><br>.clearfix {<br><br>zoom: 1;<br><br>}</p><br><p>.left-col {<br><br>background: red;<br><br>float: left;<br><br>width: 100px;<br><br>height: 300px;<br><br>}<br><br>.right-col {<br><br>margin-left: 100px;<br><br>}<br><br>.menu {<br><br>border: 1px solid #000;<br><br>}<br><br>.menu li {<br><br>float: left;<br><br>display: block;<br><br>padding: 0 1em;<br><br>margin: 0 1em 0 0;<br><br>background: #ccc;<br><br>}<br><br>.placeholder {<br><br>background: yellow;<br><br>height: 400px;<br><br>}<br><br>&lt;/style&gt;<br><br>&lt;/head&gt;<br><br>&lt;body&gt;<br><br>&lt;div class=”left-col”&gt;<br><br>&lt;/div&gt;<br><br>&lt;div class=”right-col”&gt;<br><br>&lt;ul class=”menu”&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;/ul&gt;<br><br>&lt;div class=”placeholder”&gt;&lt;/div&gt;<br><br>&lt;/div&gt;<br><br>&lt;/body&gt;<br><br>&lt;/html&gt;</p><br><p>上面的代码构成一个两列布局的页面。注意.menu这个菜单设置了边框，但是由于.menu的li元素是左浮动的，导致.menu没有高度，于是可以用.clearfix来清除.menu内部的浮动。代码如下：</p><br><p>&lt;ul class=”menu clearfix”&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;li&gt;Menu Item&lt;/li&gt;<br><br>&lt;/ul&gt;</p><br><p>但是应用完.clearfix后，在标准浏览器下页面变得很乱，这是因为.clearfix:after把.left-col的浮动也给清除掉了。</p><br><p>三，重构.clearfix</p><br><p>在遭遇到上面的错误之后，分析一下除了.clearfix:after这种方式之外还有没有别的方法清除元素内部的浮动。答案是有的，在白话Block Formatting Contexts这篇文章中提到过构成Block Formatting Context的元素可以清除内部元素的浮动。那么只要使.clearfix形成Block Formatting Context就好了。构成Block Formatting Context的方法有下面几种：</p><br><p>float的值不为none。overflow的值不为visible。display的值为table-cell, table-caption, inline-block中的任何一个。position的值不为relative和static。</p><br><p>很明显，float和position不合适我们的需求。那只能从overflow或者display中选取一个。因为是应用了.clearfix和.menu的菜单极有可能是多级的，所以overflow: hidden或overflow: auto也不满足需求（会把下拉的菜单隐藏掉或者出滚动条），那么只能从display下手。</p><br><p>我们可以将.clearfix的display值设为table-cell, table-caption, inline-block中的任何一个，但是display: inline-block会产生多余空白，所以也排除掉。剩下的只有table-cell, table-caption，为了保证兼容可以用display: table来使.clearfix形成一个Block Formatting Context，因为display: table会产生一些匿名盒子，这些匿名盒子的其中一个（display值为table-cell）会形成Block Formatting Context。这样我们新的.clearfix就会闭合内部元素的浮动。下面是重构之后的.clearfix。</p><br><p>.clearfix {<br><br>zoom: 1;<br><br>display: table;<br><br>}</p><br><p>四，总结</p><br><p>在IE6, 7下面只要是触发了hasLayout的元素就可以清除内部浮动了。而在标准浏览器下面清除元素内部浮动的方法有很多，除了.clearfix:after这种方式，其余的方法无非就是产生新的Block Formatting Context以达到目的。如果可以做到在什么条件下用哪种方法，我认为这样就足够了……</p><br><p>本文转自：<a href="http://www.missage.com/1220.html" target="_blank" rel="external">http://www.missage.com/1220.html</a></p><br><p>原文連結：<a href="http://www.45eggs.com/xhtml-css/2011/css-clearfix.html" target="_blank" rel="external">http://www.45eggs.com/xhtml-css/2011/css-clearfix.html</a></p><br></div>
+        <p>官方文档:<a href="http://v3.bootcss.com/css/#buttons" target="_blank" rel="external">http://v3.bootcss.com/css/#buttons</a></p><br><p>&nbsp;</p><br><h2><span style="color: #993366;"><strong>支持按钮属性的标签有</strong></span></h2><br><blockquote><p> <code>&lt;a&gt;</code>、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code></p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #993366;">用a标签和button来做个标准化的bootstrap按钮</span></strong></p><br><blockquote><br><pre class="lang:default decode:true">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-5”&gt;<br>            &lt;a class=”btn btn-default” href=”#” role=”button”&gt;Link&lt;/a&gt;<br>            &lt;button class=”btn btn-default” type=”submit”&gt;Button&lt;/button&gt;<br><br><br>            &lt;/div&gt;<br>        &lt;/div&gt;</pre><br><p>a标签上添加了两个类 but类表示 a标签是按钮 but-default是按钮样式 同时用role来声明a标签为按钮</p></blockquote><br><p>&nbsp;</p><br><h2><span style="color: #993366;">注意事项</span></h2><br><blockquote><br><div id="callout-buttons-context-usage" class="bs-callout bs-callout-warning"><br><h4 id="针对组件的注意事项">针对组件的注意事项</h4><br><p>虽然按钮类可以应用到 <code>&lt;a&gt;</code> 和 <code>&lt;button&gt;</code> 元素上，但是，导航和导航条组件只支持 <code>&lt;button&gt;</code> 元素。</p><br></div><br><div id="callout-buttons-anchor-accessibility" class="bs-callout bs-callout-warning"><br><h4 id="链接被作为按钮使用时的注意事项">链接被作为按钮使用时的注意事项</h4><br><p>如果 <code>&lt;a&gt;</code> 元素被作为按钮使用 – 并用于在当前页面触发某些功能 – 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置 <code>role=”button”</code> 属性。</p><br></div><br><div id="callout-buttons-ff-height" class="bs-callout bs-callout-warning"><br><h4 id="跨浏览器展现">跨浏览器展现</h4><br><p>我们总结的最佳实践是：<strong>强烈建议尽可能使用 <code>&lt;button&gt;</code> 元素</strong>来获得在各个浏览器上获得相匹配的绘制效果。</p><br><p>另外，我们还发现了 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697451" target="_blank" rel="external">Firefox &lt;30 版本的浏览器上出现的一个 bug</a>，其表现是：阻止我们为基于 <code>&lt;input&gt;</code> 元素所创建的按钮设置 <code>line-height</code> 属性，这就导致在 Firefox 浏览器上不能完全和其他按钮保持一致的高度。</p><br></div><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><h2 id="buttons-options">关于button的样式官方文档以及介绍了很多,这里就不谈了</h2><br><p>&nbsp;</p><br><h2 id="buttons-sizes"><span style="color: #993366;"><strong>尺寸与块级button</strong></span></h2><br><blockquote><p>需要让按钮具有不同尺寸吗？使用 <code>.btn-lg</code>、<code>.btn-sm</code> 或 <code>.btn-xs</code> 就可以获得不同尺寸的按钮。</p><br><pre class="lang:default decode:true">&lt;button class=”btn btn-default btn-lg” type=”submit”&gt;Button大&lt;/button&gt;<br></pre><br><p>通过给按钮添加 <code>.btn-block</code> 类可以将其拉伸至父元素100%的宽度，而且按钮也变为了块级（block）元素。</p><br><pre class="lang:default decode:true">&lt;button class=”btn btn-default btn-lg btn-block” type=”submit”&gt;Button大块&lt;/button&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><h2><strong><span style="color: #993366;">Button的激活状态与禁用</span></strong></h2><br><blockquote><p>&nbsp;</p><br><h3 id="button-元素"><span style="color: #993366;"><strong>button 元素</strong></span></h3><br><pre class="lang:default decode:true ">&lt;button type=”button” class=”btn btn-primary btn-lg active”&gt;Primary button&lt;/button&gt;<br>&lt;button type=”button” class=”btn btn-default btn-lg active”&gt;Button&lt;/button&gt;</pre><br><p><span style="color: #993366;"><strong> a标签做按钮</strong></span></p><br><pre class="lang:default decode:true ">&lt;a href=”#” class=”btn btn-primary btn-lg active” role=”button”&gt;Primary link&lt;/a&gt;<br>&lt;a href=”#” class=”btn btn-default btn-lg active” role=”button”&gt;Link&lt;/a&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>为 <code>&lt;button&gt;</code> 元素添加 <code>disabled</code> 属性，使其表现出禁用状态。</p><br><pre class="lang:default decode:true ">&lt;button type=”button” class=”btn btn-lg btn-primary” disabled=”disabled”&gt;Primary button&lt;/button&gt;<br>&lt;button type=”button” class=”btn btn-default btn-lg” disabled=”disabled”&gt;Button&lt;/button&gt;</pre><br><p><span style="color: #993366;"><strong> 如果用a元素来制作按钮则添加disabled类就ok</strong></span></p><br><pre class="lang:default decode:true">&lt;a href=”#” class=”btn btn-primary btn-lg disabled” role=”button”&gt;Primary link&lt;/a&gt;<br>&lt;a href=”#” class=”btn btn-default btn-lg disabled” role=”button”&gt;Link&lt;/a&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p>
 
 
 
@@ -639,11 +525,11 @@
 
 
   
-    <article id="post-160ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-141ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/160ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/141ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -656,7 +542,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/160ver/">CSS:清除浮动与盒子模型</a>
+      <a class="article-title" href="/2015/10/21/141ver/">jquery:鼠标跟随动画</a>
     </h1>
   
 
@@ -665,13 +551,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h2 class="code-head" data-lang="Javascript"></h2><p></p>
-<p></p><h2 class="code-head" data-lang="Javascript">学习代码以及文章来自：<a href="http://www.imooc.com/code/2566" target="_blank" rel="external">http://www.imooc.com/code/2566</a></h2><p></p>
-<p></p><h2 class="code-head" data-lang="Javascript"></h2><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
-<p><div id="J_CodeDescr" class="code-description"></div></p>
-<p><div class="code-desc co"></div></p>
-<p>小伙伴们，根据所学知识，实现如下图所示的简单两列布局，整个页面宽度为960px，背景颜色为#CFF。左侧盒子宽度为740px，背景颜色为#C9F，右侧盒子宽度为210px，背景颜色为#FCF。左侧和右侧盒子的高度均为300px。</p><br><p><strong>效果图:</strong></p><br><p><img src="http://img.mukewang.com/53c61a860001e6cd09690307.jpg" data-original="http://img.mukewang.com/53c61a860001e6cd09690307.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div><br><pre align="left" class="code"><strong>温馨提示</strong><strong>:</strong>完成任务后，请验证是否与实践描述效果一致，如一致，恭喜您，你已经掌握此技能，否则，请重复学习此节内容。</pre><br></div><br><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、在右侧代码的body标签中添加一个div，设置其class属性为mainBox。</p><br><p>二、在mainBox中添加两个div，其class属性分别为leftBox和rightBox。</p><br><p>三、在右侧代码的&lt;/head&gt;之前，分别定义类选择器mainBox、leftBox、rightBox，并按照题目要求定义其CSS样式。</p><br><pre class="code"><strong>提示:</strong><br>  1．根据任务要求设置相关CSS样式<br>  2. leftBox和rightBox需要嵌套在mainBox中</pre><br><p><strong>注意：leftBox和rightBox设置浮动之后脱离了普通的文档流，不再占用原来文档中的位置，因此无法把父div撑开。</strong></p><br><p><strong>解决的方法：</strong></p><br><pre class="code">①可以给父div也设置高度为300px，使页面中的leftBox和rightBox看起来“好像”还在原来的位置；<br>②定义一个类选择器，并设置clear:both；清除浮动，同时为了解决IE6中div有高度的问题可以增加属性height:0;overflow:hidden;<br>其他解决方法可以参照上面的评测题</pre><br></div><br></div><br><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p>清除浮动原来还可以这样</p><br><p>首先 设置了浮动属性 .父节点不会自动撑开 需要自行设置父节点的宽度和高度</p><br><pre class="code">①可以给父div也设置高度为300px，使页面中的leftBox和rightBox看起来“好像”还在原来的位置；</pre><br><p>第二</p><br><pre class="lang:default decode:true ">.clearfix:after {<br>content: “ “;<br>display: block;<br>clear: both;<br>height: 0;<br>}<br>.clearfix {<br>zoom: 1;<br>}</pre><br><p>使用伪类选择器 也就是在mainBox加个 clearfix的class 关于这个的弊处这篇文章有谈</p><br><p><a href="http://www.old.com/soul-get/soul-h5c/306" target="_blank" rel="external">http://www.old.com/soul-get/soul-h5c/306</a></p><br><p>同时在mainBox中加入</p><br><pre class="code">height:0;overflow:hidden;</pre><br><p>这样做是为了避免IE6中div会有高度</p><br><p>&nbsp;</p>
+        <p>好吧,来写一个鼠标跟随事件.虽然网上有很多这样的博文..但是. 代码太多 太长不看.自己参考着网上的写了一篇..多动手很容易就理解了</p><br><p>&nbsp;</p><br><p>本次的任务是:</p><br><ol><br><li><del>获取神器</del></li><br><li><del>拯救世界</del></li><br><li><del>打倒大魔王</del></li><br></ol><br><p><span style="color: #993366;"><strong>真-本次任务</strong></span></p><br><ol><br><li>鼠标跟随的时候读取鼠标移入的那个元素的title属性同时把这个title属性显示出来</li><br></ol><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>首先写html</strong></span></p><br><blockquote><p> 前略-天国的头部君</p><br><p>ok定义了几个P标签</p><br><pre class="lang:default decode:true">&lt;body&gt;<br>    &lt;p title=”hello”&gt;test&lt;/p&gt;<br><br>    &lt;p title=”soul”&gt;test&lt;/p&gt;<br><br>    &lt;p title=”seeker”&gt;test&lt;/p&gt;<br>&lt;/body&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p>二.开始写js文件</p><br><blockquote><p>引入了jquery(版本&gt;1.8)后先写个$(function(){}) 这样做是为了等网页加载完毕后再执行. 以下的内容就不写这个咯</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">var x=20;<br>var y=20;<br>$(‘p’).mouseover(function(event) {<br>            if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}<br>            this.mytitle=this.title;<br>            this.title=””;<br>            var newdiv=”&lt;div id=fllow&gt;”+this.mytitle+”&lt;/div&gt;”;<br>            $(‘body’).append(newdiv);<br>            $(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’},<br>                1000);<br><br>        })</pre><br><p>以上写了鼠标移入P元素事件,来一条一条分析</p><br><pre class="lang:default decode:true ">var x=20;<br>var y=20;</pre><br><p>x,y是为了后面加一点距离而定义的变量</p><br><pre class="lang:default decode:true">if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}</pre><br><p>这两条暂时不管，后面就知道了 先看下面的</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">this.mytitle=this.title;<br>            this.title=””;</pre><br><p>众所周知,浏览器会给默认的title标题一个提示的事件,为了避免这个事件 我们用一个mytitle属性来储存title，同时把title属性设置为空</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">var newdiv=”&lt;div id=fllow&gt;”+this.mytitle+”&lt;/div&gt;”;</pre><br><p>新建个div,把div的id设置为fllow 同时把mytitle</p><br><pre class="lang:default decode:true ">$(‘body’).append(newdiv);</pre><br><p>在body标签中添加上这个div.如果你不想在body中添加上这个标签 你也可以在其他标签里添加</p><br><p>&nbsp;</p><br><p>在这个时候得说一下fllow CSS设置了</p><br><pre class="lang:default decode:true ">#fllow{<br>        position: absolute;<br>        opacity: 1;<br>        display: block;<br>    }</pre><br><p>设置定位为绝对定位,透明度设置1，类型为块级元素</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">$(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’},<br>                1000);</pre><br><p>获取id为fllow的标签, .stop()函数是停止正在执行动画的元素, 然后为这个标签添加上动画</p><br><p>event是传递进来的参数, event.pageX获取到鼠标所在的X位置,event.pageY获取到鼠标所在的y位置.</p><br><p>然后动画执行的时间是1000毫秒也就是10秒</p><br><p><strong>这是鼠标移入事件,再来看鼠标移出事件</strong></p><br><p>&nbsp;</p><br><p>我用的是链式操作，所以前面有个点</p><br><pre class="lang:default decode:true">.mouseout(function(event) {<br>            this.title=this.mytitle;<br>            $(“#fllow”).stop().animate({<br>                opacity:0,<br>                display:’none’<br>            },500);<br>        })</pre><br><p>首先恢复标题内容 this.title=this.mytitle;</p><br><p>然后设置消失动画 透明度从0变为1,隐藏掉fllow元素，动画执行时间是500毫秒</p><br><p>&nbsp;</p><br><p>ok现在可以来分析上方的判断了</p><br><pre class="lang:default decode:true ">if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}</pre><br><p>首先,我们隐藏掉fllow标签,但是没有删除掉,也就是说fllow标签还是在页面上的 我们先判断下鼠标移入的标签上有没有title标题,如果没有就直接跳出函数  然后再判断fllow标签是否存在,存在的话删除他</p><br><p>&nbsp;</p><br><p>现在来分析鼠标在标签上移动事件</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">.mousemove(function(event) {<br>            if(!$(“#fllow”).is(“:animated”)){<br>                $(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’}<br>                ,100);<br>            }<br><br>        });</pre><br><p>&nbsp;</p><br><pre class="lang:default decode:true">if(!$(“#fllow”).is(“:animated”))</pre><br><p>这句话判断 fllow标签没有正在执行动画 是的话则执行函数</p><br><pre class="lang:default decode:true ">$(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’}<br>                ,100);</pre><br><p>鼠标跟随事件,设置fllow标签的x y为鼠标所在的位置 同时加上一点点距离 动画执行时间是1s</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>到此鼠标动画已经写完</p><br><p>&nbsp;</p>
 
 
 
@@ -700,11 +580,11 @@
 
 
   
-    <article id="post-159ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-140ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/159ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.451Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/140ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -717,7 +597,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/159ver/">JavaScript焦点图API库：myFocus</a>
+      <a class="article-title" href="/2015/10/21/140ver/">JavaScript:深入浅出-闭包</a>
     </h1>
   
 
@@ -726,7 +606,117 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>demo和演示请转51job去看哦<a href="http://demo.jb51.net/js/myfocus/demo.html" target="_blank" rel="external">http://demo.jb51.net/js/myfocus/demo.html</a></p><br><p>&nbsp;</p><br><p>我自己上传了一份百度云盘的2.0.1的稳定版库</p><br><div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1mggNjFq" target="_blank">度娘下载</a></div><br><p>&nbsp;</p><br><p>在这里简写一份myFocus的教程吧当然演示页也有教程</p><br><p>地址<a href="http://demo.jb51.net/js/myfocus/tutorials.html" target="_blank" rel="external">http://demo.jb51.net/js/myfocus/tutorials.html</a></p><br><p>&nbsp;</p><br><p>1.先在head标签结束前导入myfocus库</p><br><p>&lt;script type=”text/javascript” src=”js/js/myfocus-2.0.1.min.js”&gt;&lt;/script&gt;<br><br>&lt;script type=”text/javascript” src=”js/js/mf-pattern/mF_YSlider.js”&gt;&lt;/script&gt;</p><br><p>第一个是核心库 第二个则是主题库YSlider</p><br><p>2.再导入主题库的主题文件</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”js/js/mf-pattern/mF_YSlider.css”&gt;</p><br><p>3.开始定义需要焦点图的div</p><br><p>值得注意的是class=”pic” 这个不能随意改动</p><br><p>boxID可以随意改动</p><br><pre><code>&lt;div id=”boxID”&gt;&lt;!–焦点图盒子–&gt;<br>  &lt;div class=”loading”&gt;&lt;img src=”img/loading.gif” alt=”请稍候…” /&gt;&lt;/div&gt;&lt;!–载入画面(可删除)–&gt;<br>  &lt;div class=”pic”&gt;&lt;!–内容列表(li数目可随意增减)–&gt;<br>      &lt;ul&gt;<br>        &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”img/1.jpg” thumb=”” alt=”标题1” text=”详细描述1” /&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”img/2.jpg” thumb=”” alt=”标题2” text=”详细描述2” /&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”img/3.jpg” thumb=”” alt=”标题3” text=”详细描述3” /&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”img/4.jpg” thumb=”” alt=”标题4” text=”详细描述4” /&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”img/5.jpg” thumb=”” alt=”标题5” text=”详细描述5” /&gt;&lt;/a&gt;&lt;/li&gt;<br>      &lt;/ul&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;</code></pre><br><p>4.开始调用库</p><br><pre><code>//你可以简单的调用—只设置它的盒子id，其它参数全部默认设置：<br>&lt;script type=”text/javascript”&gt;<br>myFocus.set({id:’boxID’});<br>&lt;/script&gt;<br><br>//或详细一点的参数调用：<br>&lt;script type=”text/javascript”&gt;<br>myFocus.set({<br>    id:’boxID’,//焦点图盒子ID<br>    pattern:’mF_fancy’,//风格应用的名称<br>    time:3,//切换时间间隔(秒)<br>    trigger:’click’,//触发切换模式:’click’(点击)/‘mouseover’(悬停)<br>    width:450,//设置图片区域宽度(像素)<br>    height:296,//设置图片区域高度(像素)<br>    txtHeight:’default’//文字层高度设置(像素),’default’为默认高度，0为隐藏<br>});<br>&lt;/script&gt;</code></pre><br><p>5.库加载的时候比较慢</p><br><p>可以加一个loading的div</p><br><p>也就是在pic前面加一段</p><br><p>&lt;div class=”loading”&gt;<br><br>&lt;img src=”images/loading.gif” alt=”图片加载中”&gt;<br><br>&lt;/div&gt;</p><br><p>&nbsp;</p>
+        <p>要理解闭包，首先必须理解Javascript特殊的变量作用域。</p><br><p>变量的作用域无非就是两种：全局变量和局部变量。</p><br><p>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</p><br><p>详细也可以参考这篇文章</p><br><p><a href="http://www.old.com/soul-get/soul-js/217" target="_blank" rel="external">http://www.old.com/soul-get/soul-js/217</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function outer(){<br>            var localVal=30;<br>            return localVal;<br>            //返回localVal变量<br>        }<br>        outer();//30<br><br>        //函数可以作为返回值 传参<br>        function outer_1(){<br>            var localVal=30;<br>            return function(){//返回一个匿名函数<br>                return localVal;<br>            }<br>        }<br>        var func=outer();<br>        console.log(func)//30 访问到外层的变量<br><br>        //常见错误之循环闭包<br>        function bo(){<br>            var get_div=document.getElementsByTagName(‘div’)<br>        for (var i = 0; i &lt; get_div.length; i++) {<br>            !function(i){<br>// 叹号后面跟函数!function和加号后面跟函数+function<br>// 都是跟(function(){})();这个函数是一个意思，都是告诉浏览器自动运行这个匿名函数的，因为!+()这些符号的运算符是最高的，所以会先运行它们后面的函数<br>                get_div[i].onclick=function(){<br>                alert(i)<br>                }<br>            }(i);<br>        };<br>    }<br><br>        //闭包之封装<br>        (function(){<br>            var _userId=222;<br>            var _typeId=”item”;<br>            var export1={};<br><br>            function converter(userId){<br>                return +userId;<br>            }<br>            export1.getUserId=function(){<br>                return converter(_userId);<br>            }<br>            export1.getTypeId=function(){<br>                return _typeId;<br>            }<br>            window.export1=export1;<br>            //用window.方式来把想要的输出出去<br><br>        }())<br><br>        export1.getUserId()//222;<br>        export1.getTypeId()//item;<br>        export1._userId;//undefined;<br>        export1._typeId;//undefined<br>        export1.converter;//undefined<br><br><br><br>        window.onload=function(){<br>            bo();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;aaa&lt;/div&gt;<br>    &lt;div&gt;bbb&lt;/div&gt;<br>    &lt;div&gt;ccc&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-139ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/139ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/139ver/">JavaScript:深入浅出-作用域</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript无块级作用域,<br><br>JavaScript作用域环境只有两种 全局与局部</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    var a=10;//全局<br>    (function(){<br>        var b=20;//函数作用域<br>    })();<br><br>    console.log(a);<br>    console.log(b)//error,b 未定义<br><br>    for(var item in{a:1,b:2}){<br>        //item在外级也可以访问到<br>        //JavaScript无块级作用域<br>        console.log(item);<br>    }<br>    console.log(item);//可以访问到<br><br>    eval(“var a=1”)<br><br>    //作用域链<br><br>    function outer2(){<br>        var local2=1;<br>        function outer1(){<br>            var local1=1;<br><br>        }<br>        outer1();<br>    }<br>    var global3=1;<br>    outer2();<br><br>    function outer3(){<br>        var i=1;<br>        var func=new Function(“console.log(typeof i);”);<br>        func();//undefined<br>    }<br>    outer3();<br><br>    //利用函数作用域封装<br>    (function(){<br>        //do sth<br>        var a,b;<br>    })();<br><br>    !function(){<br>        //do sth<br>        var a,b;<br>    }();<br><br>    &lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-138ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/138ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/138ver/">May Be 你应该找到你的Friends</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p style="text-align: center;">May Be You Should Find Your  Friends</p><br><p style="text-align: left;">也许你应该找到你的朋友,YES！ I M Suer, 我是一个金钱主义.</p><br><p style="text-align: left;">我可以为自己的利益付出很多,就像吉米·卡拉翰——定制伴郎.</p><br><p style="text-align: left;">同时我也像道格·哈里森我有很多朋友,同时我也没有朋友.</p><br><p style="text-align: left;">我没有那么刺激的经历,我甚至愿意专注于WORK, 这样可以使原本的内心充实.</p><br><p style="text-align: left;">只有内心强大的人才不会显得懦弱, 玻璃心最容易破碎.</p><br><p style="text-align: left;">也许我应该正视自己,Find My  Friends</p><br><p style="text-align: left;">就像看到这篇文章的,也许你应该正视你自己,去寻找Your Friends</p><br><p>&nbsp;</p>
 
 
 

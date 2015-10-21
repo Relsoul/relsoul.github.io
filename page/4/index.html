@@ -192,11 +192,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-215ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-180ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/215ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/180ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -209,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/215ver/">PPT练成记-1:小试牛刀</a>
+      <a class="article-title" href="/2015/10/21/180ver/">JavaScript-检测用户使用的浏览器</a>
     </h1>
   
 
@@ -218,18 +218,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>最近老师要上台演讲…然后深夜加工出一副还算看的过去的PPT,以我现在的观点来看.还算有很多值得改进的地方.当然这一切多靠了<span style="color: #6236e3;"> 《曹德：PPT练成记》 </span>具体的购买地址请推<a href="http://baidu.com" target="_blank" rel="external">度娘</a>一下哦</p><p></p>
-<p></p><p>下面只稍微放几幅演示图,因为是经验向，所以各位看官就不要太过于较真了</p><p></p>
-<p></p><p>字体什么的自己去替换哦 推荐用”微软雅黑”</p><p></p>
-<p></p><p><a href="/mm/imgs/2015-10-20-23.png"><img class=" size-medium wp-image-161 alignleft" src="/mm/imgs/2015-10-20-23.png" data-original="http://www.old.com/wp-content/uploads/2015/03/23-300x167.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="23" width="300" height="167"></a><a href="/mm/imgs/2015-10-20-25.png"> <img class=" size-medium wp-image-163 alignleft" src="/mm/imgs/2015-10-20-25.png" data-original="http://www.old.com/wp-content/uploads/2015/03/25-300x165.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="25" width="300" height="165"></a></p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>放上演示ppt</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1hqowfVu" target="_blank">百度云下载</a></div>
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1155" target="_blank" rel="external">http://www.imooc.com/code/1155</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">userAgent</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>返回用户代理头的字符串表示(就是包括浏览器版本信息等的字符串)</p><br><p><strong>语法</strong></p><br><pre class="code">navigator.userAgent</pre><br><p>几种浏览的user_agent.，像360的兼容模式用的是IE、极速模式用的是chrom的内核。</p><br><p><a href="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" data-original="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>使用userAgent判断使用的是什么浏览器(假设使用的是IE8浏览器),<strong>代码如下:</strong></p><br><pre class="code">function validB(){<br>  var u_agent = navigator.userAgent;<br>  var B_name=”Failed to identify the browser”;<br>  if(u_agent.indexOf(“Firefox”)&gt;-1){<br>      B_name=”Firefox”;<br>  }else if(u_agent.indexOf(“Chrome”)&gt;-1){<br>      B_name=”Chrome”;<br>  }else if(u_agent.indexOf(“MSIE”)&gt;-1&amp;&amp;u_agent.indexOf(“Trident”)&gt;-1){<br>      B_name=”IE(8-10)”;<br>  }<br>    document.write(“B_name:”+B_name+”&lt;br&gt;”);<br>    document.write(“u_agent:”+u_agent+”&lt;br&gt;”);<br>}</pre><br><p><strong>运行结果:</strong></p><br><p><a href="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" data-original="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>补充右边编辑器第8行，使用userAgent获取浏览器信息，并保存在u_agent中。</p><br><p>补充右边编辑器第24行，点击”查看浏览器”按钮，显示浏览器和浏览器相关信息。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">代码倒是没什么难度. 主要是通过检测字符串中是否包含浏览器的关键字来判定</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;navigator&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  function validB(){<br>    var u_agent =   navigator.userAgent    ;<br>    var B_name=”不是想用的主流浏览器!”;<br>    if(u_agent.indexOf(“Firefox”)&gt;-1){<br>        B_name=”Firefox”;<br>    }else if(u_agent.indexOf(“Chrome”)&gt;-1){<br>        B_name=”Chrome”;<br>    }else if(u_agent.indexOf(“MSIE”)&gt;-1&amp;&amp;u_agent.indexOf(“Trident”)&gt;-1){<br>        B_name=”IE(8-10)”;<br>    }<br>        document.write(“浏览器:”+B_name+”&lt;br&gt;”);<br>        document.write(“u_agent:”+u_agent+”&lt;br&gt;”);<br>  }<br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;form&gt;<br>     &lt;input type=”button” value=”查看浏览器” onclick=”validB()”  &gt;<br>  &lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 
@@ -258,11 +249,11 @@
 
 
   
-    <article id="post-216ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-181ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/216ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/181ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -275,7 +266,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/216ver/">有哪些值得推荐的中文字体？</a>
+      <a class="article-title" href="/2015/10/21/181ver/">JavaScript编程挑战:截取数组指定字符的字符串</a>
     </h1>
   
 
@@ -284,9 +275,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p><span style="font-family: arial, helvetica, sans-serif;">文章来自知乎：<a href="http://www.zhihu.com/question/20727176" target="_blank" rel="external">http://www.zhihu.com/question/20727176</a></span></p><p></p>
-<p></p><p>这里只转载了一部分 详情请跳转到知乎哦</p><p></p>
-<blockquote><p>每一款汉字都是一首诗，下面是一些值得推荐的中文字体。</p><br><p>感谢 <a class="member_mention" href="http://www.zhihu.com/people/5e572617e96bed88fc05e13aad0ae39e" data-hash="5e572617e96bed88fc05e13aad0ae39e" data-editable="true" data-title="@曾浩" data-tip="p$b$5e572617e96bed88fc05e13aad0ae39e" target="_blank" rel="external">@曾浩</a><a class="member_mention" href="http://www.zhihu.com/people/bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-hash="bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-editable="true" data-title="@王拓翔" data-tip="p$t$bcff7cca1e7e687d1ba1ed58a2b3dbf6" target="_blank" rel="external">@王拓翔</a> 等众多知友的提醒，如有需要请务必购买正版。<br><br>感谢@<a class="internal" href="http://www.zhihu.com/people/shesrebel" target="_blank" rel="external">于晏</a>提醒，“方正清刻本宋悦简体”正确的名称是“方正清刻本悦宋简体”。</p><br><p>update（5月22日）<br><br>————————————————————————————<br><br>1 方正正纤黑简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" data-original="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg"><br><br>2 汉仪全唐诗简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" data-original="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg"><br><br>3 微软雅黑</p><br><p><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" data-original="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg"></p><br><p>—————-<br><br>update（3月13日）<br><br>非常感谢各位知友厚爱，今天更新四款字体。</p><br><p>1 方正字迹-吕建德行楷<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" data-original="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg"></p><br><p>2 八大山人字体试用版<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" data-original="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg"><br><br>3 方正清刻本悦宋简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" data-original="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg"></p><br><p>—————-<br><br>update（2月18日）<br><br>1 方正幼线简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" data-original="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg"><br><br>2 方正兰亭刊宋<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" data-original="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg"></p><br><p>—————-<br><br>1方正苏新诗柳楷简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" data-original="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg"></p><br><p>&nbsp;</p><br><p><b>灵动型：</b><br><br>1 书体坊米芾体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" data-original="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg"><br><br>2 祥南行书体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" data-original="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg"><br><br>3 方正黄草<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" data-original="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg"></p><br><p><b>精致型：</b><br><br>1 冬青黑体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" data-original="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg"></p></blockquote><br><blockquote><p><b style="color: #222222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 22.1000003814697px;"> </b></p></blockquote>
+        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1504" target="_blank" rel="external">http://www.imooc.com/code/1504</a></p><br><p>说到底还是思维不行啊.. 惭愧 还是看了别人的代码才知道这个思路</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">var scoreStr = “小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”;</span></p><br><p><span style="color: #ff0000;">var txt=(scoreStr.split(“;”)) //这句话的意思是以分号为分隔符,分隔 scoreStr数组 那么txt[0]就是 小明:87</span></p><br><p><span style="color: #ff0000;">var txt1=txt[i].indexOf(“:”)//indexOf查询:这个符号首次出现的位置 比如小明:87,:就是2</span></p><br><p><span style="color: #ff0000;"> var txt2=txt[i].substr(txt1+1)//substr从indexOf也就是substr(2+1)开始截取.因为截取是从3开始的 不信可以试试</span><br><br><span style="color: #ff0000;"> sum+=parseInt(txt2)//截取出来还是个字符串 用parseInt来转换成整型的</span></p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>某班的成绩出来了，现在老师要把班级的成绩打印出来。</p><br><p><strong>效果图:</strong></p><br><pre class="code">2014年5月9日 星期六–班级总分为:81</pre><br><p><strong>格式要求：</strong></p><br><p>1、显示打印的日期。 格式为类似“2014年03月21日 星期三” 的当前的时间。</p><br><p>2、计算出该班级的平均分（保留整数）。</p><br><p><strong>同学成绩数据如下：</strong></p><br><p>“小明:87; 小花:81; 小红:97; 小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步：可通过javascript的日期对象来得到当前的日期。</p><br><pre class="code">提示:使用Date()日期对象，注意星期返回值为0-6，所以要转成文字”星期X”</pre><br><p>第二步：一长窜的字符串不好弄，找规律后分割放到数组里更好操作哦。</p><br><p>第三步：分割字符串得到分数，然后求和取整。</p><br><pre class="code">提示：parseInt() 字符串类型转成整型。</pre><br></div><br></div><br></div><br><pre class="lang:default decode:true ">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;系好安全带,准备启航&lt;/title&gt;<br><br>&lt;script type=”text/javascript”&gt;<br><br>  //通过javascript的日期对象来得到当前的日期，并输出。<br>  var mydate=new Date()<br>  var mydate_year=mydate.getFullYear();<br>  var mydate_mon=mydate.getMonth();<br>  var mydate_day=mydate.getDate();<br>  var mydate_week=mydate.getDay();<br>  var mydate_arr=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”,]<br>  document.write(mydate_year+”年”+(mydate_mon+1)+”月”+mydate_day+”日”+mydate_arr[mydate_week]+”&lt;br&gt;”)<br><br><br><br><br>  //成绩是一长窜的字符串不好处理，找规律后分割放到数组里更好操作哦<br>  var scoreStr = “小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”;<br> var txt=(scoreStr.split(“;”))<br> document.write(txt+”&lt;br&gt;”);<br>var sum=0;<br><br>  //从数组中将成绩撮出来，然后求和取整，并输出。<br><br>  function getGrades(){<br><br>      for(var i=0;i&lt;txt.length;i++){<br>         var txt1=txt[i].indexOf(“:”)<br>         var txt2=txt[i].substr(txt1+1)<br>         sum+=parseInt(txt2)<br>      }<br><br>      }<br>      getGrades()<br>      document.write(sum);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 
@@ -315,11 +304,11 @@
 
 
   
-    <article id="post-217ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-182ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/217ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/182ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -332,7 +321,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/217ver/">JavaScript-简单动画4:实用的动画</a>
+      <a class="article-title" href="/2015/10/21/182ver/">JavaScript数组排序:来乖乖站好</a>
     </h1>
   
 
@@ -341,7 +330,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>稍微深入一下动画,代码是根据简单动画3而来的 如果没有看过的可以去看看</p><br><blockquote><br><h2 class="post-title"><a title="JavaScript简单动画3-动画与抽象结合" href="http://www.old.com/soul-get/soul-js/149" target="_blank" rel="external">JavaScript简单动画3-动画与抽象结合</a></h2><br></blockquote><br><p>这个动画可以达到快速移动的效果,并且可以清除鼠标快速移动达成的那种反复移动的效果</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    #div_show{<br>        width: 200px;<br>        height: 200px;<br>        overflow: hidden;<br>        position:relative;<br>    }<br><br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_img =document.getElementById(“show”);//设置 get_img等于id属性为show的img元素<br>            get_img.style.position=”absolute”;//设置定位为绝对定位<br>            get_img.style.left=”0px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_img.style.top=”0px”;//要不然下面获取的时候会获取不到<br>            var get_list =document.getElementById(“list”);//设置 get_list等于id为list的ol元素<br>            var get_link =get_list.getElementsByTagName(“a”);//设置get_link等于list下的a元素<br>            get_link[0].onmouseover =function(){//因为数组是从0开始的 设置第一个a元素当鼠标放上去的时候调用函数<br>                CQ(“show”,-400,0,10);//CQ(“需要传递的元素id”,最终大小x为-400,y为0,10毫秒间隔执行);<br>            }<br>            get_link[1].onmouseover =function(){//同上<br>                CQ(“show”,-1900,0,10);//同上<br>            }<br><br><br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_elem=document.getElementById(elem);//设置get_elem等于id为elem参数,比如上面elem传递的是”show”那么就获取id为show的标签<br>             var porx=parseInt(get_elem.style.left);//设置porx为get_elem的左属性 并且只获取整数<br>            var pory=parseInt(get_elem.style.top);//设置porx为get_elem的上属性 并且只获取整数<br>            var dist=0;<br>            if(elem.anmi){//这里的elem.anmi的意思是 elel的anmi的属性存在,变量也可以跟标签一样加属性之类的.<br>                //不好理解可以这样看 假设elem是p标签 那么anmi就是p标签的属性 &lt;p anmi=””&gt;&lt;/p&gt;这样的形式<br>                clearTimeout(elem.anmi);//clearTimeout是清除动画的函数<br><br>            }<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//如果左属性小于最终需要的左属性<br>                dist=Math.ceil((finally_x-porx)/10);//设置dist等于 最终左属性减去当前的左属性然后再除以10 这个10可以自由设置<br>                //加Math.ceil的意思是 如果最后只剩下了 3/10 那么不就是小数点了吗？ 所以Math.ceil的意思是返回一个不小于dist的整数.<br>                porx=porx+dist;//设置porx等于porx+dist 这样就可以快速移动了<br><br>            }<br>            if(porx&gt;finally_x){//如果左属性大于最终需要的属性<br>                dist=Math.ceil((porx-finally_x)/10);//设置dist等于 当前的左属性减去最终需要的左属性再除以10<br>                porx=porx-dist;//设置porx等于porx减去dist 这样就可以快速移动<br>            }<br>            if(pory&lt;finally_y){//原理同上<br>                dist=Math.ceil((finally_y-pory)/10);<br>                pory=pory+dist;<br><br>            }<br>            if(pory&gt;finally_y){//原理同上<br>                dist=Math.ceil((pory-finally_y)/10);<br>                porx=porx-dist;<br><br>            }<br>            get_elem.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_elem.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            elem.anmi=setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数 elem.anmi上文已经解释了<br><br><br>        }<br><br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;ol id=”list”&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_01.jpg”&gt;Soul-1&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_02.jpg”&gt;Soul-2&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_03.jpg”&gt;Soul-3&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_04.jpg”&gt;Soul-4&lt;/a&gt;&lt;/li&gt;<br>    &lt;/ol&gt;<br>    &lt;div id=”div_show”&gt;<br>        &lt;img src=”../img/2048.jpg” id=”show”&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/876" target="_blank" rel="external">http://www.imooc.com/code/876</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">数组排序sort()</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left"><strong>sort()</strong>方法使数组中的元素按照一定的顺序排列。</p><br><p align="left"><strong>语法:</strong></p><br><div><br><pre class="code">arrayObject.sort(方法函数)</pre><br><p><strong>参数说明：</strong></p><br><p><img src="http://img.mukewang.com/53329a2a000127f705170060.jpg" data-original="http://img.mukewang.com/53329a2a000127f705170060.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p align="left">1.如果不指定&lt;方法函数&gt;，则按unicode码顺序排列。</p><br><p align="left">2.如果指定&lt;方法函数&gt;，则按&lt;方法函数&gt;所指定的排序方法排序。</p><br><div><br><pre align="left" class="code">myArray.sort(sortMethod);</pre><br></div><br><p align="left"><strong>注意: </strong>该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：</p><br><p align="left">  <strong><span style="color: #ff0000;">若返回值&lt;=-1，则表示 A 在排序后的序列中出现在 B 之前。</span></strong><br><br><strong><span style="color: #ff0000;">  若返回值&gt;-1 &amp;&amp; &lt;1，则表示 A 和 B 具有相同的排序顺序。</span></strong><br><br><strong><span style="color: #ff0000;">  若返回值&gt;=1，则表示 A 在排序后的序列中出现在 B 之后。</span></strong></p><br><p align="left">1.使用sort()将数组进行排序，代码如下：</p><br><div><br><pre class="code">&lt;script type=”text/javascript”&gt;<br>  var myarr1 = new Array(“Hello”,”John”,”love”,”JavaScript”);<br>  var myarr2 = new Array(“80”,”16”,”50”,”6”,”100”,”1”);<br>  document.write(myarr1.sort()+”&lt;br&gt;”);<br>  document.write(myarr2.sort());<br>&lt;/script&gt;</pre><br></div><br><p><strong>运行结果：</strong></p><br><div><br><pre class="code">Hello,JavaScript,John,love<br>1,100,16,50,6,80</pre><br></div><br><p><strong>注意:上面的代码没有按照数值的大小对数字进行排序。</strong></p><br><p><strong>2.如要实现这一点，就必须使用一个排序函数，代码如下：</strong></p><br><div><br><pre class="code">&lt;script type=”text/javascript”&gt;<br>  function sortNum(a,b) {<br>  return a - b;<br> //升序，如降序，把“a - b”该成“b - a”<br>}<br> var myarr = new Array(“80”,”16”,”50”,”6”,”100”,”1”);<br>  document.write(myarr + “&lt;br&gt;”);<br>  document.write(myarr.sort(sortNum));<br>&lt;/script&gt;</pre><br></div><br><p><strong>运行结果：</strong></p><br><div><br><pre class="code">80,16,50,6,100,1<br>1,6,16,50,80,100</pre><br></div><br></div><br></div><br></div>
 
 
 
@@ -370,11 +361,11 @@
 
 
   
-    <article id="post-218ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-183ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/218ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/183ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -387,7 +378,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/218ver/">JavaScript简单动画3-动画与抽象结合</a>
+      <a class="article-title" href="/2015/10/21/183ver/">JavaScript对象-返回星期方法</a>
     </h1>
   
 
@@ -396,7 +387,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><span style="font-size: 18pt;">不太了解抽象的可以先看看</span></p><br><blockquote><br><h2 class="post-title"><span style="font-size: 12pt;"><a title="JavaScript-抽象:抽个大象出来？" href="http://www.old.com/soul-get/soul-js/145" target="_blank" rel="external">JavaScript-抽象:抽个大象出来？</a></span></h2><br><h2 class="post-title"><a title="JavaScript简单动画-2:初入动画" href="http://www.old.com/soul-get/soul-js/147" target="_blank" rel="external">JavaScript简单动画-2:初入动画</a> 没看过的去看看2</h2><br></blockquote><br><p>不废话,解释全在代码里 直接贴代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br><br>            var get_anmi_t =document.getElementById(“anmi_t”);//设置 get_anmi_t等于id属性为anmi_t的元素<br>            get_anmi_t.style.left=”500px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_t.style.top=”100px”;//要不然下面获取的时候会获取不到<br>            get_anmi_t.style.position=”absolute”;//设置定位为绝对定位<br><br>            CQ(“anmi_o”,200,200,10);//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>            CQ(“anmi_t”,400,200,10)//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_p=document.getElementById(elem);//设置get_p等于id为elem参数,比如上面elem传递的是”anmi_o”那么就获取id为anmi_o的标签<br>             var porx=parseInt(get_p.style.left);//设置porx为get_p的左属性 并且只获取整数<br>            var pory=parseInt(get_p.style.top);//设置porx为get_p的上属性 并且只获取整数<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//前面解释过了就不再解释了<br>                porx++;<br><br>            }<br>            if(porx&gt;finally_x){<br>                porx–;<br><br>            }<br>            if(pory&lt;finally_y){<br>                pory++;<br><br>            }<br>            if(pory&gt;finally_y){<br>                pory–<br><br>            }<br>            get_p.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_p.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数<br><br><br>        }<br>        // function moveAnmi(){//定义移动函数<br>        //     var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>        //     var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>        //     var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>        //     if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>        //         return true;//返回true(停止运行函数)<br><br>        //     }<br>        //     if(xpor&lt;200){//如果左属性小于200<br>        //         xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>        //     }<br>        //     if(xpor&gt;200){//如果左属性大于200<br>        //         xpor–;//每次减一<br>        //     }<br>        //     if(ypor&lt;100){//如果上属性小于100<br>        //         ypor++;//每次加1<br><br>        //     }<br>        //     if(ypor&gt;100){//如果上属性大于100<br>        //         ypor–;//每次减一<br><br>        //     }<br>        //     get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>        //     get_anmi_o.style.left =xpor+”px”;//同上<br>        //     mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        // }<br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>    &lt;p id=”anmi_t”&gt;seeker&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p>在慕课网看到的觉得这个思路有点意思 于是把代码和经验给写下来了</p><br><p><a href="http://www.imooc.com/code/727" target="_blank" rel="external">http://www.imooc.com/code/727</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">先是定义一个数组weekday 存储星期</span></p><br><p><span style="color: #ff0000;">然后再定义一个变量myweek储存mydate.getDay() 这个语句是返回今天是星期几 0就是星期天1星期一</span></p><br><p><span style="color: #ff0000;">然后通过myweek来索引数组中的内容 比如weekday[0]那么输出的就是星期一</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;获得星期&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var mydate=new Date();<br>  var weekday=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”];<br>  var myweek=mydate.getDay()<br>  document.write(“今天是：” + weekday[myweek]);<br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 
@@ -425,11 +416,11 @@
 
 
   
-    <article id="post-219ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-184ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/219ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.453Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/184ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -442,7 +433,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/219ver/">JavaScript简单动画-2:初入动画</a>
+      <a class="article-title" href="/2015/10/21/184ver/">JavaScript编程挑战-写个简单计算器:加减乘除</a>
     </h1>
   
 
@@ -451,7 +442,190 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>因为代码有点偏笔记向，所以没有对每个属性做出详细的解释了, 大家可以推度娘一下</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br>        }<br>        function moveAnmi(){//定义移动函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>            var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>            var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>            if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>                return true;//返回true(停止运行函数)<br><br>            }<br>            if(xpor&lt;200){//如果左属性小于200<br>                xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>            }<br>            if(xpor&gt;200){//如果左属性大于200<br>                xpor–;//每次减一<br>            }<br>            if(ypor&lt;100){//如果上属性小于100<br>                ypor++;//每次加1<br><br>            }<br>            if(ypor&gt;100){//如果上属性大于100<br>                ypor–;//每次减一<br><br>            }<br>            get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_anmi_o.style.left =xpor+”px”;//同上<br>            mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        }<br>        window.onload=function(){//网页加载完毕加载函数<br>            moveAnmi();<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p>学习代码以及文章来自:<a href="http://www.imooc.com/code/1488" target="_blank" rel="external">http://www.imooc.com/code/1488</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>使用JS完成一个简单的计算器功能。实现2个输入框中输入整数后，点击第三个输入框能给出2个整数的加减乘除。</p><br><p>提示：获取元素的值设置和获取方法为：例：赋值：document.getElementById(“id”）.value = 1； 取值：var 啊= document.getElementById(“id”）.value；</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 创建构建运算函数count()。</p><br><p>第二步： 获取两个输入框中的值和获取选择框的值。</p><br><pre class="code">提示：document.getElementById( id名 ).value 获取或设置 id名的值。</pre><br><p>第三步： 获取通过下拉框来选择的值来改变加减乘除的运算法则。</p><br><pre class="code">提示：使用switch判断运算法则。</pre><br><p>第四步：  通过 = 按钮来调用创建的函数，得到结果。</p><br><p><strong>注意:</strong> 使用parseInt()函数可解析一个字符串,并返回一个整数。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">value可以获取到标签的值 然后通过case处理来更改value值</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br>  &lt;title&gt; 事件&lt;/title&gt;<br>  &lt;script type=”text/javascript”&gt;<br>   function count(){<br>       var num1=document.getElementById(“txt1”)<br><br>       var num2=document.getElementById(“txt2”)<br>       var over=document.getElementById(“fruit”)<br>       var run=document.getElementById(“select”)<br>       switch(run.value){<br>           case “-“:over.value=parseInt(num1.value)-parseInt(num2.value);<br>           break;<br>           case “+”:over.value=parseInt(num1.value)+parseInt(num2.value);<br>           break;<br>           case “<em>“:over.value=parseInt(num1.value)</em>parseInt(num2.value);<br>           break;<br>           case “/“:over.value=parseInt(num1.value)/parseInt(num2.value);<br>           break;<br>       }<br><br><br>    //获取第一个输入框的值<br>    //获取第二个输入框的值<br>    //获取选择框的值<br>    //获取通过下拉框来选择的值来改变加减乘除的运算法则<br>    //设置结果输入框的值<br><br>   }<br>  &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br>   &lt;input type=’text’ id=’txt1’ /&gt;<br>   &lt;select id=’select’&gt;<br>        &lt;option value=’+’&gt;+&lt;/option&gt;<br>        &lt;option value=”-“&gt;-&lt;/option&gt;<br>        &lt;option value=”<em>“&gt;</em>&lt;/option&gt;<br>        &lt;option value=”/“&gt;/&lt;/option&gt;<br>   &lt;/select&gt;<br>   &lt;input type=’text’ id=’txt2’ /&gt;<br>   &lt;input type=’button’ value=’ = ‘ onclick=”count()”/&gt; &lt;!–通过 = 按钮来调用创建的函数，得到结果–&gt;<br>   &lt;input type=’text’ id=’fruit’  /&gt;<br> &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-185ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/185ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/185ver/">JavaScript:2维数组+编程挑战:2次元赛高！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码及文章来自<a href="http://www.imooc.com/code/1484" target="_blank" rel="external">http://www.imooc.com/code/1484</a></p><p></p>
+<p></p><p>二维数组一直没弄清楚.现在来详细的弄清楚下</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..三维数组<br>        document.write(ew[1][2]);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p>再来输出二维数组</p><p></p>
+<p></p><p>值得注意的是[i].length因为第二个循环是要输出二维数组中二维的元素 所以先判断二维有多少个元素也就是</p><p></p>
+<p></p><p>[i]的长度 比如ew[1].length 就为3</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..二维数组<br>        document.write(ew[1][2]+”&lt;/br&gt;”);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”<br>        for (var i = 0; i &lt; ew.length; i++) {<br>            for (var j = 0; j &lt;ew[i].length; j++) {<br>                document.write(ew[i][j]+”&lt;/br&gt;”)<br>                //判断ew[i]中有多少个元素然后再输出j<br>                //也就是输出二维数组<br>            };<br>        };</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/186ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/186ver/">JavaScript:编程挑战-1:运算符的那点事</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/187ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/187ver/">JavaScript对象初入-1:如何使用对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><p></p>
+<div class="code-desc co"><br><p>小伙伴们，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、定义”改变颜色”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.color<br>obj.style.backgroundColor</pre><br><p>二、定义”改变宽高”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.width<br>obj.style.height</pre><br><p>三、定义”隐藏内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”none”;</pre><br><p>四、定义”显示内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”block”;</pre><br><p>五、定义”取消设置”的函数</p><br><pre class="code"><strong>提示:<br></strong>使用confirm()确定框，来确认是否取消设置。<br>如是将以上所有的设置恢复原始值,否则不做操作。<br></pre><br><p>六、当点击相应按钮，执行相应操作，为按钮添加相应事件</p><br><p>&nbsp;</p><br><hr><br><p>完成这些任务对小伙伴来说都不是问题. 正好最近学到了对象,于是在想怎么把对象应用进去</p><br><p>根据 构造函数与原型对象混合使用 来构造一个对象</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” Content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;javascript&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{font-size:12px;}<br>#txt{<br>    height:400px;<br>    width:600px;<br>    border:#333 solid 1px;<br>    padding:5px;}<br>p{<br>    line-height:18px;<br>    text-indent:2em;}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;h2 id=”con”&gt;JavaScript课程&lt;/H2&gt;<br>  &lt;div id=”txt”&gt;<br>     &lt;h5&gt;JavaScript为网页添加动态效果并实现与用户交互的功能。&lt;/h5&gt;<br>        &lt;p&gt;1. JavaScript入门篇，让不懂JS的你，快速了解JS。&lt;/p&gt;<br>        &lt;p&gt;2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。&lt;/p&gt;<br>        &lt;p&gt;3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。&lt;/p&gt;<br>  &lt;/div&gt;<br>  &lt;form&gt;<br>  &lt;!–当点击相应按钮，执行相应操作，为按钮添加相应事件–&gt;<br>    &lt;input type=”button” value=”改变颜色” onclick=”changeElem.changeColor()”&gt;<br>    &lt;input type=”button” value=”改变宽高” onclick=”changeElem.changeWH()”&gt;<br>    &lt;input type=”button” value=”隐藏内容” onclick=”changeElem.hidden()”&gt;<br>    &lt;input type=”button” value=”显示内容” onclick=”changeElem.show()” &gt;<br>    &lt;input type=”button” value=”取消设置” onclick=”changeElem.back()”&gt;<br>  &lt;/form&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  function change (name) {<br>    this.elem=document.getElementById(name)<br>  }<br>  var changeElem=new change(“txt”)<br>//定义”改变颜色”的函数<br>change.prototype.changeColor = function(){<br>      this.elem.style.color=”red”;<br>      this.elem.style.backgroundColor=”black”;<br>};<br>//定义”改变宽高”的函数<br>change.prototype.changeWH=function() {<br>  this.elem.style.width=”300px”;<br>  this.elem.style.height=”300px”;<br>}<br>//定义”隐藏内容”的函数<br>change.prototype.hidden=function() {<br> this.elem.style.display=”none”;<br>}<br>//定义”显示内容”的函数<br>change.prototype.show=function() {<br> this.elem.style.display=”block”;<br>}<br><br>//定义”取消设置”的函数<br>change.prototype.back=function() {<br> var back_1=”是否取消设置”<br>    var back_2=confirm(back_1)<br>    if(back_2==true){<br>        this.elem.removeAttribute(“style”)<br>        alert(“System  initialise”)<br>    }<br>    else{<br>        alert(“手贱点了一下”)<br>    }<br>}<br>  &lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
 
 
 
@@ -483,8 +657,8 @@
     <article id="post-188ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/188ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/188ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -497,7 +671,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/188ver/">Html5+Css实现下拉菜单</a>
+      <a class="article-title" href="/2015/10/21/188ver/">Html5+Css实现下拉菜单</a>
     </h1>
   
 
@@ -622,11 +796,11 @@
 
 
   
-    <article id="post-206ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-189ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/206ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/189ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -639,7 +813,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/206ver/">JavaScript:节点-2:再次理解下节点</a>
+      <a class="article-title" href="/2015/10/21/189ver/">CSS3:颜色之RGBA</a>
     </h1>
   
 
@@ -648,172 +822,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本来想写详细点,发现自己理解还不够 先放着 以后再填</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-再次理解childNodes&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function knowChildnodes(){<br>            var get_childnodes=document.body.childNodes;<br>            console.log(get_childnodes);//当前页面有多少元素<br>            var get_childnodes0=document.body.childNodes[0];<br>            console.log(get_childnodes0);//第0个的元素是什么<br>            var get_did=document.getElementById(“did”);//获取div<br>            console.log(get_did.childNodes);//输出div下的元素<br>            console.log(get_did.childNodes[1].nodeName);//从控制台可以看到[0]是一个#text文本 [1]才是元素<br>            console.log(get_did.firstChild.nodeName);//也可以使用firstChild获取到第一个[0]元素的名字<br>            console.log(get_did.childNodes.length.nodeName);//这样是找不到的 因为在childNodes是从0开始 获取到最后一个元素可以使用<br>            console.log(get_did.childNodes[get_did.childNodes.length-2].nodeName)//获取到最后一个元素属性名字 -1是#text文本<br>            console.log(get_did.lastChild.nodeName)//获取到最后一个元素的名字<br><br><br>            //兄弟节点,父级节点<br>            console.log(“我是分隔符,下面开始兄弟节点 父级节点”);<br>            console.log(“第0个元素是#text 那么他的下一个元素应该是p||”+get_did.childNodes[0].nextSibling.nodeName);//<br>            console.log(“第1个元素是p,那么他的下一个元素应该是p的文本||”+get_did.childNodes[1].nextSibling.nodeName);//<br>            console.log(“第2个元素是p的文本 那么他的下一个元素应该是p||”+get_did.childNodes[2].nextSibling.nodeName);<br>            //以上是下级的结构 那么同级的结构是什么呢？<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            console.log(get_h1[0].nextSibling.nodeValue);//文本节点…值是回车符<br>            //坑待理解后再填<br><br>        }<br><br><br>        window.onload=function(){<br>            knowChildnodes();<br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;hello&lt;/h1&gt;<br>    &lt;div id=”did”&gt;<br>        &lt;p&gt;我是soul&lt;/p&gt;<br>        &lt;p&gt;灵魂追逐者&lt;/p&gt;<br>        &lt;p&gt;放荡的灵魂&lt;/p&gt;<br>    &lt;/div&gt;<br>    &lt;h1&gt;第二个soul&lt;h1&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-207ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/207ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/207ver/">JavaScript-简单动画5:闪瞎你狗眼的打字机</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个很简单的打字机..本来想自己不去百度写一个打字机的..但是技术还是不够啊..所以就去网上看了一下 然后理解了思路 自己写了一个出来</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-打字机&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    //思路<br>    //每1秒打一个字,每打一个字更改一下颜色<br>    //1.创建一个P元素<br>    //2.创建一个动画.<br>    //2.5 创建一个文本数组<br>    //3.创建一个颜色数组<br>    //4.把颜色数组应用到文本上<br>    var new_p =document.createElement(“p”);//全局函数 意思是新建一个标签p<br>    var txt=”hello soul next fllow myeles night die”;//创建一个文本数组<br>    var i=0,n=0;//设置i=0,,n=0<br>    var color_1=[“bule”,”green”,”red”,”rgb(100,200,300)”,”black”]//创建一个颜色数组<br>    function test(){//开始打字+闪瞎你狗眼<br>        var p_txt =document.createTextNode(txt.charAt(i));//创建一个文本节点,文本节点内容等于文本数组的第[i]个元素<br>        i++;//i++<br>        new_p.appendChild(p_txt);//在p标签下添加文本节点<br>        new_p.style.color=color_1[n];//设置p标签的颜色等于颜色数组的第[n]个元素颜色<br>        n++;//n++<br>        document.body.appendChild(new_p);//在文档根目录添加p<br>        var anmi=setTimeout(test,500);//每500毫秒执行test函数<br>        if(n==color_1.length){//如果n等于颜色数组的长度<br>            n=0;//重新开始计数<br><br>        }<br>        if(i==txt.length){//如果i等于文本数组的长度<br>            clearTimeout(anmi);//停止动画<br><br>        }<br><br>    }<br><br>    window.onload=function(){<br>        test()<br>    }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-204ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/204ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/204ver/">JavaScript-call:简单理解call</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>理解转自<a href="http://www.jb51.net/article/22963.htm" target="_blank" rel="external">http://www.jb51.net/article/22963.htm</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-apply与call&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function num1(a,b){<br>        alert(a+b);<br>    }<br>    function num2(a,b){<br>        alert(“a<em>b:”+a</em>b);<br>    }<br>    num2.call(num1,10,20)//这个例子中的意思就是用 num2 来替换 num1，num2.call(num1,10,20) == num2(10,20) ，所以运行结果为：alert(200); // 注意：js 中的函数其实是对象，函数名是对 Function 对象的引用。<br><br>    function abb(name){<br>        this.name=name<br>        this.showName=function(){alert(“abb name:”+this.name)}<br>    }<br>    function ann(name){<br>        this.name=name<br>    }<br><br>    var abb1=new abb(“abb1的name”);<br>    var ann1=new ann(“ann的name”);<br><br>    abb1.showName.call(ann1);//首先 ann是没有showName函数 但是我们又让ann1来执行showName函数,于是通过call继承下来了<br>    //showName=function(){alert(“abb name”+this.name)} 这里的this.name指的是 ann的name<br><br>    //以下解释来自<a href="http://www.jb51.net/article/22963.htm" target="_blank" rel="external">http://www.jb51.net/article/22963.htm</a><br>    //注意，call 的意思是把 abb1 的方法放到ann1上执行，原来ann1是没有showName() 方法，现在是把abb1 的showName()方法放到 ann 上来执行，所以this.name 应该是 ann，执行的结果就是 ：alert（”ann name”）;<br>//  怎么样，觉得有意思了吧，可以让a对象来执行b对象的方法，这是java程序员所不敢想的。还有更有趣的，可以用 call 来实现继承<br><br>    function Class1() {<br>        this.showTxt = function(txt) {<br>            alert(txt);<br>        }<br>    }<br><br>    function Class2() {<br>        Class1.call(this);<br>    }<br>    var c2 = new Class2();<br>    c2.showTxt(“cc”);<br>    //这样 Class2 就继承Class1了，Class1.call(this) 的 意思就是使用 Class1 对象代替this对象，那么 Class2 中不就有Class1 的所有属性和方法了吗，c2 对象就能够直接调用Class1 的方法以及属性了，执行结果就是：alert（“cc”）;<br>    function Class10() {<br>        this.showSub = function(a, b) {<br>            alert(a - b);<br>        }<br>    }<br><br>    function Class11() {<br>        this.showAdd = function(a, b) {<br>            alert(a + b);<br>        }<br>    }<br><br>    function Class3() {<br>        Class10.call(this);<br>        Class11.call(this);<br>    }<br>    var c3 =new Class3();<br>    c3.showAdd(10,20)<br><br>    //apply与call区别在于 call 的第二个参数可以是任意类型，而apply的第二个参数必须是数组，也可以是arguments<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-203ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/203ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/203ver/">【转】领悟 JavaScript 中的面向对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文转自<a href="http://www.iteye.com/topic/155109" target="_blank" rel="external">http://www.iteye.com/topic/155109</a></p><br><p>领悟 JavaScript 中的面向对象</p><br><p>&nbsp;</p><br><p>注：读完本文后请务必接着看完所有回复！</p><br><p>JavaScript 是面向对象的。但是不少人对这一点理解得并不全面。</p><br><p>在 JavaScript 中，对象分为两种。一种可以称为“普通对象”，就是我们所普遍理解的那些：数字、日期、用户自定义的对象（如：{}）等等。</p><br><p>还有一种，称为“方法对象”，就是我们通常定义的 function。你可能觉得奇怪：方法就是方法，怎么成了对象了？但是在 JavaScript 中，方法的确是被当成对象来处理的。下面是一个简单的例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> func() {alert(<span class="string">‘Hello!’</span>);}</li><br><li>alert(func.toString());</li><br></ol><br></div><br><p>在这个例子中，func 虽然是作为一个方法定义的，但它自身却包含一个 toString 方法，说明 func 在这里是被当成一个对象来处理的。更准确的说，func 是一个“方法对象”。下面是例子的继续：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func.name = “I am func.”;</li><br><li>alert(func.name);</li><br></ol><br></div><br><p>我们可以任意的为 func 设置属性，这更加证明了 func 就是一个对象。那么方法对象和普通对象的区别在哪里呢？首先方法对象当然是可以执行的，在它后面加上一对括号，就是执行这个方法对象了。</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func();</li><br></ol><br></div><br><p>所以，方法对象具有二重性。一方面它可以被执行，另一方面它完全可以被当成一个普通对象来使用。这意味着什么呢？这意味着方法对象是可以完全独立于其他对象存在的。这一点我们可以同 Java 比较一下。在 Java 中，方法必须在某一个类中定义，而不能单独存在。而 JavaScript 中就不需要。</p><br><p>方法对象独立于其他方法，就意味着它能够被任意的引用和传递。下面是一个例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> invoke(f) {</li><br><li>    f();</li><br><li>}</li><br><li>invoke(func);</li><br></ol><br></div><br><p>将一个方法对象 func 传递给另一个方法对象 invoke，让后者在适当的时候执行 func。这就是所谓的“回调”了。另外，方法对象的这种特殊性，也使得 this 关键字不容易把握。这方面相关文章不少，这里不赘述了。</p><br><p>除了可以被执行以外，方法对象还有一个特殊的功用，就是它可以通过 new 关键字来创建普通对象。</p><br><p>话说每一个方法对象被创建时，都会自动的拥有一个叫 prototype 的属性。这个属性并无什么特别之处，它和其他的属性一样可以访问，可以赋值。不过当我们用 new 关键字来创建一个对象的时候，prototype 就起作用了：它的值（也是一个对象）所包含的所有属性，都会被复制到新创建的那个对象上去。下面是一个例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func.prototype.name=”prototype of func”;</li><br><li><span class="keyword">var</span> f = <span class="keyword">new</span> func();</li><br><li>alert(f.name);</li><br></ol><br></div><br><p>执行的过程中会弹出两个对话框，后一个对话框表示 f 这个新建的对象从 func.prototype 那里拷贝了 name 属性。而前一个对话框则表示 func 被作为方法执行了一遍。你可能会问了，为什么这个时候要还把 func 执行一遍呢？其实这个时候执行 func，就是起“构造函数”的作用。为了形象的说明，我们重新来一遍：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> func() {</li><br><li>    <span class="keyword">this</span>.name=”name has been changed.”</li><br><li>}</li><br><li>func.prototype.name=”prototype of func”;</li><br><li><span class="keyword">var</span> f = <span class="keyword">new</span> func();</li><br><li>alert(f.name);</li><br></ol><br></div><br><p>你就会发现 f 的 name 属性不再是”prototype of func”，而是被替换成了”name has been changed”。这就是 func 这个对象方法所起到的“构造函数”的作用。所以，在 JavaScript 中，用 new 关键字创建对象是执行了下面三个步骤的：</p><br><ol><br><li>创建一个新的普通对象；</li><br><li>将方法对象的 prototype 属性的所有属性复制到新的普通对象中去。</li><br><li>以新的普通对象作为上下文来执行方法对象。</li><br></ol><br><p>对于“new func()”这样的语句，可以描述为“从 func 创建一个新对象”。总之，prototype 这个属性的唯一特殊之处，就是在创建新对象的时候了。<br><br>那么我们就可以利用这一点。比如有两个方法对象 A 和 B，既然从 A 创建的新对象包含了所有 A.prototype 的属性，那么我将它赋给 B.prototype，那么从 B 创建的新对象不也有同样的属性了？写成代码就是这样：</p><br><p>&nbsp;</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>A.prototype.hello = <span class="keyword">function</span>(){alert(<span class="string">‘Hello!’</span>);}</li><br><li>B.prototype = <span class="keyword">new</span> A();</li><br><li><span class="keyword">new</span> B().hello();</li><br></ol><br></div><br><p>这就是 JavaScript 的所谓“继承”了，其实质就是属性的拷贝，这里利用了 prototype 来实现。如果不用 prototype，那就用循环了，效果是一样的。所谓“多重继承”，自然就是到处拷贝了。</p><br><p>JavaScript 中面向对象的原理，就是上面这些了。自始至终我都没提到“类”的概念，因为 JavaScript 本来就没有“类”这个东西。面向对象可以没有类吗？当然可以。先有类，然后再有对象，这本来就不合理，因为类本来是从对象中归纳出来的，先有对象再有类，这才合理。像下面这样的：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">var</span> o = {}; <span class="comment">// 我发现了一个东西。</span></li><br><li>o.eat = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“I am eating.”</span>}  <span class="comment">// 我发现它会吃；</span></li><br><li>o.sleep = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“ZZZzzz…”</span>}  <span class="comment">// 我发现它会睡；</span></li><br><li>o.talk = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“Hi!”</span>} <span class="comment">// 我发现它会说话；</span></li><br><li>o.think = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“Hmmm…”</span>} <span class="comment">// 我发现它还会思考。</span></li><br><li></li><br><li><span class="keyword">var</span> Human = <span class="keyword">new</span> Function(); <span class="comment">// 我决定给它起名叫“人”。</span></li><br><li>Human.prototype = o; <span class="comment">// 这个东西就代表了所有“人”的概念。</span></li><br><li></li><br><li><span class="keyword">var</span> h = <span class="keyword">new</span> Human(); <span class="comment">// 当我发现其他同它一样的东西，</span></li><br><li>alert(h.talk()) <span class="comment">// 我就知道它也是“人”了！</span></li><br></ol><br></div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>————————————————————————————————<br><br>文章出自 yiding-he.iteye.com，转载请注明作者和出处。</p>
+        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/385" target="_blank" rel="external">http://www.imooc.com/code/385</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">颜色之RGBA</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制<strong>alpha</strong>透明度的参数。</p><br><p>语法：</p><br><pre class="code">color：rgba(R,G,B,A)</pre><br><p>以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。</p><br><p>代码示例：</p><br><pre class="code"><span class="builtin css-declaration-kw">background-color<span class="after">:</span></span>rgba(100,120,60,0.5);</pre><br><div class="content"></div><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>在下列代码中的第12行，把文字的背景设置为透明度为<strong>  0.5</strong>的<strong>白色</strong></p><br><p>&nbsp;</p><br><p><strong>任务经验</strong></p><br><p><span style="color: #ff0000;">首先根据RGBA的属性和参数来看</span></p><br><p><span style="color: #ff0000;">RGBA（10,10,10,0.5）</span></p><br><p><span style="color: #ff0000;">10,10,10代表的是Red(红) Green（绿） Blue（蓝）</span></p><br><p><span style="color: #ff0000;">0.5代表的是透明度, 透明度从1-0 </span></p><br><p><span style="color: #ff0000;">1是不透明 0是完全透明 </span></p><br><p><span style="color: #ff0000;">分析后，任务代码应该为</span></p><br><p>PS：RGBA在css记得用小写rgba</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;RGBA colors&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{background:url(<a href="http://static.mukewang.com/static/img/logo_index.png)}" target="_blank" rel="external">http://static.mukewang.com/static/img/logo_index.png)}</a><br>p{<br> font-size:42px;<br> text-align:center;<br> font-weight:bold;<br> background:rgba(255,255,255,0.5);<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p&gt;背景半透明的？&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 

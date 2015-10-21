@@ -192,11 +192,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-192ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-215ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/192ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/215ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -209,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/192ver/">CSS3:阴影 box-shadow（一）</a>
+      <a class="article-title" href="/2015/10/21/215ver/">PPT练成记-1:小试牛刀</a>
     </h1>
   
 
@@ -218,9 +218,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习代码来自<a href="http://www.imooc.com/code/382" target="_blank" rel="external">http://www.imooc.com/code/382</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">阴影 box-shadow（一）</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p><span lang="EN-US">box-shadow</span>是向盒子添加阴影。支持添加一个或者多个。</p><br><p>很简单的一段代码，就实现了投影效果，酷毙了。我们来看下语法：</p><br><pre class="code">box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</pre><br><pre>参数介绍：<br></pre><br><p><a href="http://img.mukewang.com/54292d620001ffb107080250.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/54292d620001ffb107080250.jpg" data-original="http://img.mukewang.com/54292d620001ffb107080250.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>注意：inset 可以写在参数的第一个或最后一个，其它位置是无效的。</p><br><p><strong>为元素设置外阴影：</strong></p><br><p>示例代码：</p><br><pre class="code"><span class="before"><span lang="EN-US">.</span></span><span class="css-class"><span lang="EN-US">box_shadow</span></span><span class="paren"><span lang="EN-US">{</span></span><br><span lang="EN-US"><span class="builtin">  box-shadow</span><span class="after">:</span><span class="css-length">4</span><span class="after">px</span> <span class="css-length">2</span><span class="after">px</span> <span class="css-length">6</span><span class="after">px</span> <span class="before">#</span><span class="css-color-spec">333333</span>; </span><br><span class="paren"><span lang="EN-US">}</span></span></pre><br><pre><span class="paren">效果：</span></pre><br><pre><span class="paren"><a href="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" data-original="http://img.mukewang.com/52e21c9000013c8f01180117.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></span></pre><br><p><strong>为元素设置内阴影：</strong></p><br><p>示例代码：</p><br><pre class="code"><span class="before"><span lang="EN-US">.</span></span><span class="css-class"><span lang="EN-US">box_shadow</span></span><span class="paren"><span lang="EN-US">{</span></span><br><span lang="EN-US"><span class="builtin">  box-shadow</span><span class="after">:</span><span class="css-length">4</span><span class="after">px</span> <span class="css-length">2</span><span class="after">px</span> <span class="css-length">6</span><span class="after">px</span> <span class="before">#</span><span class="css-color-spec">333333</span> </span>inset<span lang="EN-US">; </span><br><span class="paren"><span lang="EN-US">}</span></span></pre><br><pre><span class="paren">效果：</span></pre><br><pre><span class="paren"><a href="http://img.mukewang.com/54292b990001ebea01290115.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/54292b990001ebea01290115.jpg" data-original="http://img.mukewang.com/54292b990001ebea01290115.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br></span></pre><br><pre><strong>添加多个阴影：</strong></pre><br><p>以上的语法的介绍，就这么简单，如果添加多个阴影，只需用逗号隔开即可。如：</p><br><pre class="code">.box_shadow{<br>    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;<br>}</pre><br><pre><span class="paren">效果：</span></pre><br><p><a href="http://img.mukewang.com/52e21d210001356d01170116.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21d210001356d01170116.jpg" data-original="http://img.mukewang.com/52e21d210001356d01170116.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p align="left">在右侧编辑器中的第10行，为div添加两个不同的阴影，一个外部阴影，一个内部阴影。</p><br><p align="left"><span style="color: #ff0000;">根据添加多阴影的办法 直接用逗号隔开添加即可</span></p><br><p align="left"><span style="color: #ff0000;"> </span></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;boxshadow&lt;/title&gt;<br>&lt;style&gt;<br>.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 4px 6px #666,4px 4px 6px #324 inset;<br>}<br>.boxshadow-inset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 4px 6px #666 inset;<br>}<br>.boxshadow-multi{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px 2px 6px #f00, -4px -2px 6px #000, 0px 0px 12px 5px #33CC00 inset;<br>}<br><br>&lt;/style&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>&lt;h2&gt;外阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-outset”&gt;<br>&lt;/div&gt;<br>&lt;br /&gt;<br>&lt;h2&gt;内阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-inset”&gt;<br>&lt;/div&gt;<br>&lt;br /&gt;<br>&lt;h2&gt;多阴影&lt;/h2&gt;<br>&lt;div class=”boxshadow-multi”&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+        <p></p><p>最近老师要上台演讲…然后深夜加工出一副还算看的过去的PPT,以我现在的观点来看.还算有很多值得改进的地方.当然这一切多靠了<span style="color: #6236e3;"> 《曹德：PPT练成记》 </span>具体的购买地址请推<a href="http://baidu.com" target="_blank" rel="external">度娘</a>一下哦</p><p></p>
+<p></p><p>下面只稍微放几幅演示图,因为是经验向，所以各位看官就不要太过于较真了</p><p></p>
+<p></p><p>字体什么的自己去替换哦 推荐用”微软雅黑”</p><p></p>
+<p></p><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-23.png" target="_blank" rel="external"><img class=" size-medium wp-image-161 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-23.png" data-original="http://www.old.com/wp-content/uploads/2015/03/23-300x167.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="23" width="300" height="167"></a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-25.png" target="_blank" rel="external"> <img class=" size-medium wp-image-163 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-25.png" data-original="http://www.old.com/wp-content/uploads/2015/03/25-300x165.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="25" width="300" height="165"></a></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>放上演示ppt</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1hqowfVu" target="_blank">百度云下载</a></div>
 
 
 
@@ -249,11 +258,11 @@
 
 
   
-    <article id="post-191ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-214ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/191ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/214ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -266,7 +275,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/191ver/">Css3:阴影 box-shadow（二）</a>
+      <a class="article-title" href="/2015/10/21/214ver/">JavaScript变量详解-1:不来再学下变量吗？</a>
     </h1>
   
 
@@ -275,9 +284,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章以及代码来自<a href="http://www.imooc.com/code/5413" target="_blank" rel="external">http://www.imooc.com/code/5413</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">阴影 box-shadow（二）</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p><strong>1、阴影模糊半径与阴影扩展半径的区别</strong></p><br><p>阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</p><br><p>阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</p><br><p><strong>2、X轴偏移量和Y轴偏移量值可以设置为负数</strong></p><br><pre class="code">box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</pre><br><p>X轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:-4px 4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd91c000140a901540143.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd91c000140a901540143.jpg" data-original="http://img.mukewang.com/548fd91c000140a901540143.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Y轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px -4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd93e00011dd101570142.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd93e00011dd101570142.jpg" data-original="http://img.mukewang.com/548fd93e00011dd101570142.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br></div><br></div>
+        <p>DOM编程艺术（第二版）书已经看到后面几张了，因为有些函数看的有点困难 所以打算先看一下JavaScript高级程序设计再返回来看看DOM编程艺术</p><br><blockquote><p>本次变量有 需要测试的可以把注释给删除</p><br><ol><br><li>整数型</li><br><li>字符型</li><br><li>布尔型</li><br><li>数组</li><br><li>对象简介</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-变量详解-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>     function test0(){<br>     tet = “soul”;//这样也可以定义 没有加var默认为全局类型的变量.<br>     var soul =”hello”;//这是一个字符型的变量.<br>     alert(typeof soul);//typeof是输出变量的类型 比如这个会输出字符型<br>     var num =1;//这是一个数字型的变量<br>     var bl =true;//这是一个布尔型的变量 他只有两个值 一个是true 一个是false<br>     var arr=[];//这是一个数组，注意[]计算机都是从0开始 也就是说数组第一个元素是arr[0]<br>     arr[0]=”hello”;//给数组第一个添加一个hello字符<br>     alert(arr[0]);//弹出数组第一个元素.<br>     var und;//这样也可以设置一个变量 但是没有赋值<br>     alert(und);//这样弹出的变量值是 undefined<br>     var nu=null;//这样给nu变量赋为一个空值 但是跟undefined不同的是 null可以根据你后续调用的需要可以转为数组<br>     //而vat nu;如果你后续要用nu作为数组 这样就不行..只能先这样理解咯，要专业化的可以推度娘一下<br>     }<br>     function test1(){<br>         //整数类型：Number数值转换，下面只列出一小部分 具体的请推度娘或者查阅相关资料哦<br>         var bl0=Number(“hello”);//会返回NaN 字符串转换成数字..你认为怎么转换？<br>         var bl1=Number(true);//会返回1 如果是false 那么会返回0<br>         var bl2=Number(“”);//会返回一个0<br>         //parseInt(),这个可以获取字符串中的整数(字符串第一个数必须是数字或者是符号 否则会返回Nan) 同时会把8进制 16进制的数转换成10进制<br>         var bl3=parseInt(“10086call”);//这样就只获取到当中的10086并且以数字类型保存起来;<br>         var bl4=parseInt(“70”);//同上<br>         var bl5=parseInt(22.5)//这样会返回22 因为只是获取整数 要获取小数请使用parseFloat<br>         var bl6=parseFloat(22.88)//这样就获取到小数了<br>         var bl7=parseInt(“0xf”);//返回15<br>         var bl8=parseInt(“0xAF”,16);//0xAF是一个16进制的数 后面的16 是要转换的数值类型 当然最终还是会转为为十进制<br>         var bl9=parseInt(“10”,2);//按照2进制来解析 把10(二进制)转为为十进制<br>         var bl10=parseInt(“10”,10);//10进制来解析<br>         //parseFload 浮点数<br>         var bl11=parseFloat(“0xf”);//因为parseFloat没有第二个参数可以写，parseFloat只解释10进制,再加上parseFloat会忽略前面的0,<br>         //所以bl11 弹出的是0 任何16进制的数都会返回成0;<br>     }<br><br>     function test2(){<br>         //字符串类型<br>         var bl0=”hello”;//这样就是一个字符串类型<br>         var bl1=’soul’;//用单引号包裹也是ok的<br>         var bl2= “错误”//左边一个单引号 右边一个双引号 这是奇葩(因为代码编写器原因 就没写引号了 大家把左边的双引号改成单引号)<br>         var bl3= “hello\’soul”;//反斜号是转义符号，如果想要在字符中输出单引号 必须要用转义 包括斜杠啊 双引号之类的<br>         var bl4=”hello\nsoul”;// \n是换行的意思<br>         var bl5=”hello\n soul\’ 我是\”大魔王\” “//大家好好理解这句话<br>         var bl6=”hello\x41”//转义字符 也可以\u 这样 转义字符大家可以在百度上找到<br>         var bl7=”hello soul\x41”;//空格也算一个字符 转义字符也算一个字符<br>         // alert(bl7.length);//.length是输出这个变量的长度 这样会弹出11 原因上一个已经解释了<br>         var bl8=”hello”;<br>         var bl8=bl8+”soul”;//字符串拼接 可以把变量与字符串拼接<br>         var bl9=10;//设置bl9是数字变量<br>         var bl9=bl8+bl9;//bl9等于bl8加上bl9<br>         // alert(bl9+”相加后是整数还是字符串呢”+typeof bl9);//相加后会变成字符串<br>         // 使用to.String 来转换成字符串<br>         var bl10 =999;<br>         var bl10s= bl10.toString();//把bl10转为字符串类型 后面没加参数默认是10<br>         var bl11=10;<br>         var bl11s=bl11.toString(2);//按照2进制的形式转换 得出的结果是 “1010” 可以使用 8 16进制等来转换<br>         //String 把任何类型转为字符串类型<br>         var bl12=10;<br>         var bl12s=String(bl12);//把bl12转换为字符串<br>         alert(bl12s+”转换后类型为”+typeof bl12s);<br>         var bl13;//未赋值的变量默认是 undefined<br>         var bl13s=String(bl13);//这样相当于把undefined转为字符串了 弹出的是”undefined”<br>         var bl14=null;<br>         var bl14s=String(bl14);//转为的是”null”<br>     }<br><br>     function test3(){<br>         //对象简介<br>         var o = new Object();//创建一个对象<br>         var o1 =new Object;//没加括号也是可以的 但是不推荐<br>         //对象类型具体后面再说<br>     }<br><br><br>     function qj(){<br>         alert(“我是全局的变量tet:”+tet);//可以调用到刚刚在函数内部设置的变量tet.<br>     }<br><br><br>     window.onload=function(){//网页加载完毕后加载函数.<br>         // test0();<br>         // qj();<br>         // test1();<br>         // test2();<br>     }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -306,11 +313,11 @@
 
 
   
-    <article id="post-190ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-213ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/190ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/213ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -323,7 +330,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/190ver/">CSS3:为图片应用边框</a>
+      <a class="article-title" href="/2015/10/21/213ver/">JavaScript操作符详解-1:你对操作符真的了解嘛？</a>
     </h1>
   
 
@@ -332,8 +339,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/383" target="_blank" rel="external">http://www.imooc.com/code/383</a></p><p></p>
-<div class="code-desc co"><br><h2 id="J_CodeLang" class="code-head" data-lang="HTML">为边框应用图片 border-image</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>顾名思义就是为边框应用背景图片，它和我们常用的background属性比较相似。例如：</p><br><pre align="center" class="code">background:url(xx.jpg) 10px 20px no-repeat;</pre><br><p align="left">但是又比背景图片复杂一些。</p><br><pre class="code">想象一下：一个矩形，有四个边框。如果应用了边框图片，图片该怎么分布呢？ 图片会自动被切割分成四等分。用于四个边框。<br><br>可以理解为它是一个切片工具，会自动把用做边框的图片切割。怎么切割呢？为了方便理解，做了一张特殊的图片，由9个矩形（70<em>70像素）拼成的一张图（210</em>210像素），并标注好序号，是不是像传说中的九宫图，如下：<br><br><a href="http://img.mukewang.com/52e21fea000127e802100210.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21fea000127e802100210.jpg" data-original="http://img.mukewang.com/52e21fea000127e802100210.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p align="left">我们把上图当作边框图片 来应用一下， 看一看是什么效果</p><br><p align="left">根据border-image的语法：</p><br><p align="left"><a href="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" data-original="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre align="left" class="code">#border-image{<br>   background:#F4FFFA;<br>   width:210px; height:210px; border:70px solid #ddd;<br><strong>   border-image:url(borderimg.png) 70 repeat  </strong><br>}</pre><br><p align="left">效果：</p><br><p align="left"><a href="http://img.mukewang.com/52e220780001091a03530354.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220780001091a03530354.jpg" data-original="http://img.mukewang.com/52e220780001091a03530354.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre class="code">从序号可以看出div的四个角分别对应了背景图片的四个角。而<strong>2,4,6,8 </strong>被重复。<strong>5在哪？</strong>因为是从四周向中心切割图片的所以，5显示不出来。而在chrome浏览器中5是存在的，下图的样子：<br><br><a href="http://img.mukewang.com/52e220be0001cef603560358.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220be0001cef603560358.jpg" data-original="http://img.mukewang.com/52e220be0001cef603560358.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br><br><strong>repeat</strong>的意思就是重复，目前因为是刚好被整除，效果看不出来。如果改下DIV的宽高，再来看重复的效果：<br><br><a href="http://img.mukewang.com/52e2210700016f5603190313.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2210700016f5603190313.jpg" data-original="http://img.mukewang.com/52e2210700016f5603190313.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p>边角部分为裁掉了，可见<strong>repeat</strong>就是一直重复，然后超出部分剪裁掉，而且是居中开始重复。</p><br><p><strong>Round 参数</strong>：Round可以理解为圆满的铺满。为了实现圆满所以会压缩（或拉伸）；</p><br><pre class="code">#border-image {<br><br>     width:170px;<br><br>     height:170px;<br><br>     border:70px solid;<br><br>     border-image:url(borderimg.png) 70 round;<br><br> }</pre><br><p>效果：</p><br><p><a href="http://img.mukewang.com/52e2216700014c4103190312.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2216700014c4103190312.jpg" data-original="http://img.mukewang.com/52e2216700014c4103190312.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>可见图片被压扁了。</p><br><p>Stretch 很好理解就是拉伸，有多长拉多长。有多远“滚”多远。</p><br><pre align="left" class="code">border-image:url(borderimg.png) 70 stretch</pre><br><p>看一下效果：</p><br><p><a href="http://img.mukewang.com/52e2218d0001d45403530366.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2218d0001d45403530366.jpg" data-original="http://img.mukewang.com/52e2218d0001d45403530366.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>2,4,6,8分别被拉伸显示。</p><br><p>注意：Chrome下，中间部分也会被拉伸，webkit浏览器对于round属性和repeat属性似乎没有区分，显示效果是一样的。</p><br><p>Firefox 26.0 下是可以准确区分的。</p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>为DIV应用下面的边框图片。图片绝对路径为：</p><br><pre class="code"><a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a></pre><br><p><img src="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" data-original="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><strong>任务经验</strong></p><br></div><br></div><br></div><br></div><br><div class="code-tips"><br><div class="co"><br><p><span style="color: #ff0000;">根据这个border-image的属性</span></p><br><p><span style="color: #ff0000;"> border-image:url(borderimg.png) 70 repeat</span></p><br><p><span style="color: #ff0000;">url是图片地址 70是图片切割的大小 repeat是重复图片 当然也可以使用 round 等等属性来设置下</span></p><br><p><span style="color: #ff0000;">所以任务答案就是: 见下面代码</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;边框图片&lt;/title&gt;<br>&lt;style&gt;<br>#border_image {<br>    margin:0 auto;<br>    height:100px;<br>    line-height:100px;<br>    text-align:center;<br>    font-size:30px;<br>    width:450px;<br>    border:15px solid #ccc;<br>    border-image:url(<a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a>) 20 repeat;<br><br>    }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”border_image”&gt;<br>请为我镶嵌上漂亮的画框吧<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
+        <p>PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下</p><br><p>想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释</p><br><blockquote><p>操作符</p><br><ol><br><li>前置型递增/递减 后置型递增/递减</li><br><li>布尔操作符 逻辑非 逻辑与 逻辑或</li><br><li>运算操作符</li><br><li>条件操作符</li><br><li>赋值操作符</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作符详解-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function test0(){<br>        //前置型递增/递减 后置型递增/递减<br><br>        //前置型<br>        var bl0=10;//设置变量bl0等于10<br>        ++bl0;//++bl0相当于 bl0=bl0+1;<br>        // alert(bl0);//弹出11<br>        var bl1 =10;<br>        –bl1;//–bl1相当于bl1=bl1-1;<br>        // alert(bl1);//弹出9;<br><br>        //后置型<br>        var bl3=10;<br>        bl3++;//bl3++相当于 bl3=bl3+1;<br>        // alert(bl3);//弹出11<br>        var bl4 =10;<br>        bl4–;//bl4–相当于 bl0=bl4-1;<br>        // alert(bl4);//弹出9<br><br>        //那么这两个有什么区别呢？<br>        var bl5 =10;<br>        var bl6 = ++bl5 +10;<br>        // alert(bl6);//弹出的是21<br><br>        var bl7=10;<br>        var bl8 =bl7++ +10;<br>        // alert(bl8);//奇怪 弹出的是20 怎么回事呢？<br>        // alert(bl7);//再来看看经过相加后的bl17是多少 弹出的是11<br>        var bl9 =bl7 + 10;<br>        // alert(bl9)//再来运算下 弹出的是21<br>        //可以得出结论 前置的++是在运算符(+-<em>/)之前运行的 也就说优先级高于运算符<br>        //后置的是在运算符之后运行的 所以第二次运行弹出的是21<br><br>        //递增递减运算的对象是数字<br>        var bl10 =”jm”;<br>        bl10 ++;<br>        // alert(bl10);//这样弹出Nan<br>        var bl11 =”10”;<br>        bl11 ++<br>        // alert(bl11+typeof bl11);//这样弹出的是11 如果字符串里有数字会把字符中数字转换成数字类型<br>        var bl12 =”11mm”;<br>        bl12++<br>        // alert(bl12);//这样弹出的会是Nan 因为不能包含字符<br><br>        //布尔操作符<br>        //布尔操作符只有true和false两个属性<br><br>        //逻辑非<br>        var bl13=”hello”;<br>        // alert(!bl13);//!就是逻辑非 ！..逻辑非会拉入你进入反世界 比如bl13存在字符串对吧<br>        // alert(bl13);//如果bl13非空字符串 那么就会弹出ture 但是加了！号 一切都反了 !bl13会返回false<br>        var bl14=0;<br>        // alert(!bl14);//本来数字为0 会弹出false 加了!就会弹出false…好好体会吧.<br><br>        //逻辑与<br>        var bl15 =true;<br>        //var bl16 =(bl15&amp;&amp;nud);//直接会报错,逻辑与在第一个元素是true然后会判断第二个元素 这里第二个元素不存在<br>        //所以会报错<br>        var bl17 =false;<br>        var bl18 =(bl17&amp;&amp;nud);// 变量1等于false 变量2无论是true还是false，最后结果都是false<br>        // alert(bl18);//会直接弹出false<br><br>        //逻辑或<br>        var bl19=true;<br>        var bl20=false;<br>        // alert(bl19||bl20);//会弹出true ||是逻辑或的符号 逻辑或只要有一个是true 那么都会返回true<br>        //如果两个都是false 那么就会返回false<br>        var bl19=false;<br>        // alert(bl19||und)//und没有定义 再加上第一个元素是false 所以会报错<br><br><br><br>    }<br><br>    function test1(){<br>        //乘法<br>        var bl0=2</em>77;//这就是乘法<br>        var bl1=”24”;<br>        var bl2 =bl0*parseInt(bl1);//还记得parseInt函数吗？乘法要把字符串转为数值哦<br>        // alert(bl2);<br><br>        //除法<br>        var bl3 =-20/0;//任何非零的有限数除以0都是Infinity/-Infinity 取决于符号<br>        // alert(bl3);//因为是负号所以会弹出-Infinity<br><br>        //余数<br>        var bl4 =3%2;//2除以3取余数<br>        // alert(bl4);//弹出的是1<br>        //除法和余数要把字符串转为数值哦<br><br>        //加法<br>        var bl5=”213”;<br>        var bl6=24;<br>        var bl7=parseInt(bl5)+bl6;//parseInt变量已经讲过咯<br>        // alert(bl7+”bl7类型:”+typeof bl7);//弹出237 类型是数字类型<br>        var bl8 =bl5+bl6;//如果不经过转换那么是多少呢？<br>        // alert(bl8+”bl8类型:”+typeof bl8);//弹出21324 加号单纯变成字符串拼接了 把bl6转换为字符串然后拼接起来<br>        var bl9 =22;<br>        var bl10=33;<br>        var bl11 =”相加获得：”+bl9+bl10//<br>        // alert(bl11)//因为加法是从左到又的 这里会弹出”相加获得：2233”； 要解决很简单<br>        var bl12=”相加获得”+(bl9+bl10);//这样就正确了<br><br>        //减法<br>        var bl13 =”-214”;//这个是字符串<br>        var bl14 =17;<br>        var bl15= parseInt(bl13)+bl14;<br>        // alert(bl15);//弹出-197 如果我想把这个变为正数 那么应该怎么办呢？ 简单，跟数学一样<br>        var bl16= -parseInt(bl13)+bl14//仅仅在parseInt前面加一个-号就ok了<br>        // alert(bl16)//弹出正数<br>        var bl7=true;<br>        var bl8=10-bl7;//<br>        // alert(bl8);//弹出9 因为bl7被转换成了1 false就是0<br>        var bl9=”2015”;<br>        var bl10=bl9-“1000”;<br>        // alert(bl10);//会弹出1015 因为会在后台强制用 Number()转换成数字再进行相减<br><br>        //大于,小于，小于等于，大于等于<br>        var bl11 = “hello”;<br>        var bl12 = “soul”;<br>        var bl13 = bl11 &gt; bl12;<br>        // alert(bl13);//字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl4=”23”;<br>        var bl5=”3”;<br>        var bl6=bl5&lt;bl4;<br>        // alert(bl6);//明明是正确的啊？ 还是那句话 字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl7=”24”;<br>        var bl8=3;<br>        var bl9= bl7&gt;bl8;<br>        // alert(bl9);//字符串与数字比较 会把字符串转换为数字类型再进行比较 返回true<br><br>        var bl10=”a”;<br>        var bl12=3;<br>        // alert(bl10&gt;bl12);//返回Nan 因为a转为数字Nan Nan与数字比较都是会返回Nan<br><br>        //相等 不等 全等 不全等<br>        //对于对象来说 相等不相等 先转换再比较 全等不全等 仅比较不转换<br><br>        var bl10=undefined;<br>        var bl11=null;<br>        // alert(bl10==bl11);//会弹出相等 因为在JavaScript定义里 undefined和null是相等的<br>        var bl12=”12”;<br>        var bl13=12;<br>        var bl13= bl12==bl13;<br>        // alert(bl13);//将字符串转换后还是相等的.<br>        var bl14=”12”;<br>        var bl15=14;<br>        var bl16= bl14!=bl15;<br>        // alert(bl16);//返回true 因为转换成数字后 他们两个不相等<br><br>        //全等 不等 不全等<br><br>        var bl17=”13”;<br>        var bl18=13;<br>        var bl19= bl17==bl18;<br>        // alert(bl19);//转换后相等<br>        var bl20 = bl17===bl18//全等是三个等号 不会转换<br>        // alert(bl20);//返回false;<br>        var bl21=”33”;<br>        var bl22=33;<br>        var bl23= bl21!=bl22;//!=是不等于<br>        // alert(bl23);//转换后33等于33 所以返回false<br>        var bl24 =bl21!==bl22//!==是全不等<br>        // alert(bl24);//弹出true 因为他们是不等的 为什么呢？ 因为没有转换成整数比较 字符串等于整数吗？<br>         var bl25 =undefined;<br>         var bl26=null;<br>         // alert(bl25===bl26);//没有转换 会弹出false<br><br>    }<br><br>    function test2(){<br>        //条件操作符(三目操作符)<br>        var bl0=10;<br>        var bl2=”20”;<br>        var bl3= bl0&gt;bl2?bl0:bl2//bl0是否大于bl2？ 如果是则bl3=bl0；如果不是bl3=bl2；<br>        // alert(bl3+ typeof bl3);//因为bl0不大于bl2 所以bl3=bl2 弹出20<br><br>        //赋值操作符<br>        var bl4=10;//赋值10给bl4<br>        bl4 +=bl4;//bl4=bl4+bl4<br>        // alert(bl4);//等于20<br>        bl4 /=bl4//bl4=bl4/bl4;<br>        bl4 %=bl4//bl4%=bl4;<br><br><br>    }<br><br><br><br><br><br>    window.onload=function(){<br>        test0();<br>        test1();<br>        test2();<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -362,11 +368,11 @@
 
 
   
-    <article id="post-189ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-212ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/189ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/212ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -379,7 +385,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/189ver/">CSS3:颜色之RGBA</a>
+      <a class="article-title" href="/2015/10/21/212ver/">将sublime编辑器加入鼠标右键</a>
     </h1>
   
 
@@ -388,9 +394,172 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/385" target="_blank" rel="external">http://www.imooc.com/code/385</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">颜色之RGBA</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制<strong>alpha</strong>透明度的参数。</p><br><p>语法：</p><br><pre class="code">color：rgba(R,G,B,A)</pre><br><p>以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。</p><br><p>代码示例：</p><br><pre class="code"><span class="builtin css-declaration-kw">background-color<span class="after">:</span></span>rgba(100,120,60,0.5);</pre><br><div class="content"></div><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>在下列代码中的第12行，把文字的背景设置为透明度为<strong>  0.5</strong>的<strong>白色</strong></p><br><p>&nbsp;</p><br><p><strong>任务经验</strong></p><br><p><span style="color: #ff0000;">首先根据RGBA的属性和参数来看</span></p><br><p><span style="color: #ff0000;">RGBA（10,10,10,0.5）</span></p><br><p><span style="color: #ff0000;">10,10,10代表的是Red(红) Green（绿） Blue（蓝）</span></p><br><p><span style="color: #ff0000;">0.5代表的是透明度, 透明度从1-0 </span></p><br><p><span style="color: #ff0000;">1是不透明 0是完全透明 </span></p><br><p><span style="color: #ff0000;">分析后，任务代码应该为</span></p><br><p>PS：RGBA在css记得用小写rgba</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;RGBA colors&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{background:url(<a href="http://static.mukewang.com/static/img/logo_index.png)}" target="_blank" rel="external">http://static.mukewang.com/static/img/logo_index.png)}</a><br>p{<br> font-size:42px;<br> text-align:center;<br> font-weight:bold;<br> background:rgba(255,255,255,0.5);<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p&gt;背景半透明的？&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div><br></div>
+        <p>昨天一怒之下还是重装了系统，然后喜闻乐见了..右键使用 sublime打开不在了 于是推度娘一下.得到了答案</p><br><p>教程参考<a href="http://my.oschina.net/oncereply/blog/72866" target="_blank" rel="external">http://my.oschina.net/oncereply/blog/72866</a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-28.png" target="_blank" rel="external"><br><br></a></p><br><p>一：win+r运行regedit</p><br><p><a href="http://www.old.com/wp-content/uploads/2015/03/28.png" target="_blank" rel="external"><img class=" size-medium wp-image-176 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-28.png" data-original="http://www.old.com/wp-content/uploads/2015/03/28-300x172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="28" width="300" height="172"></a></p><br><p>二:在HKEY_CLASSES_ROOT/*/shell/ 下新建’项’ ,名字自己定义就ok啦 我定义为Sublime2,然后右边默认里更改数值为sublime2打开</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-29.png" target="_blank" rel="external"><img class=" size-medium wp-image-177 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-29.png" data-original="http://www.old.com/wp-content/uploads/2015/03/29-300x160.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="29" width="300" height="160"></a></p><br><p>三：然后在sublime2目录下新建个项名称为Command 在右边默认里更改数值为sublime2所在目录</p><br><p>D:\WORK\Sublime Text 2\SublimeText.exe “%1”</p><br><p>前面是exe的绝对物理地址,          %1 用tab方式打开不同的文档(必须)</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-30.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-178" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-30.png" data-original="http://www.old.com/wp-content/uploads/2015/03/30-300x160.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="30" width="300" height="160"></a></p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-211ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/211ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/211ver/">JavaScript瀑布流:生活就是在挑战中度过</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>花了7天的时间把《DOM编程艺术(第二版)》看了2/3,后面的有点难度,因为前面的知识吸收还不是很好,于是转去看JavaScript高级程序设计,加深一下前面的基础知识. 昨天晚上偶然间看到brain的<a href="http://blog.brain1981.com/829.html" target="_blank" rel="external">浅谈响应式瀑布流的实现方式</a></p><br><p>发现看不懂..看的好吃力，但是生活就需要挑战嘛.于是推度娘后 在网上找到一份 JavaScript瀑布流视频版.</p><br><p>于是自己按照作者的思路,已经配合作者的代码(废话.你小子能写出来嘛？)自己写了一份.不能说是照抄.觉得最重要的还是理解了那份思路,具体的看代码哦.</p><br><p><span style="color: #993366;"><strong>HTML</strong></span></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-瀑布流&lt;/title&gt;<br>    &lt;script src=”app-1.js”&gt;&lt;/script&gt;<br>    &lt;link rel=”stylesheet” type=”text/css” href=”style.css”&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”cont”&gt;<br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-1.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-2.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-3.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-4.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-5.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-6.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-7.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-8.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-9.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-10.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-1.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-2.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-3.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-4.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-5.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-6.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-7.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-8.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-9.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-10.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-1.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-2.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-3.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-4.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-5.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-6.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-7.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-8.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-9.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-10.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-1.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-2.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-3.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-4.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-5.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-6.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-7.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-8.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-9.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>        &lt;div class=”box”&gt;<br>            &lt;div class=”box_img”&gt;&lt;img src=”m-10.jpg” alt=””&gt;&lt;/div&gt;<br>        &lt;/div&gt;<br><br>    &lt;/div&gt;<br><br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p><strong><span style="color: #993366;"> app-1.js</span></strong></p><br><pre class="lang:default decode:true ">window.onload=function(){<br>    getCliwidth(“cont”,”box”);<br>    window.onscroll=function(){<br>        if(checkFlag()){<br>        var imgData={<br>            “data”:[<br>            {“src”:”m-3.jpg”},{“src”:”m-4.jpg”},{“src”:”m-5.jpg”},{“src”:”m-6.jpg”},{“src”:”m-7.jpg”},<br>            {“src”:”m-8.jpg”}<br>            ]<br>        };<br>        var parent=document.getElementById(“cont”);<br>        console.log(imgData.data.length);//输出imgDatajson字符串中data属性的长度<br>        for (var i = 0; i &lt; imgData.data.length; i++) {<br>            var new_box=document.createElement(“div”);<br>            new_box.className=”box”;<br>            parent.appendChild(new_box);<br>            var new_boximg=document.createElement(“div”);<br>            new_boximg.className=”box_img”;<br>            new_box.appendChild(new_boximg);<br>            var new_img =document.createElement(“img”);<br>            new_img.src=imgData.data[i].src;<br>            new_boximg.appendChild(new_img);<br><br>        };<br><br>        getCliwidth(“cont”,”box”);<br><br>        }<br>    }<br>}<br><br>//思路 盒子可以理解为图片<br>//1先获取到cont元素下面的盒子<br>//2在判断一列能够放多少个这样的盒子<br>//3然后获取到第一列当中高度最小的盒子<br>//4然后获取到第一列当中最小高度盒子的位置 也就是数组下标<br>//4.5 设置第二列图片的顶部距离为第一列盒子的最小高度<br>//5把第二列图片的居左属性设置为最小高度盒子的居左属性<br>//6然后把第一列最小盒子的高度加上第二列图片的高度<br>//滚动监听思路<br>//1获取到最后一张图片距离浏览器顶部的距离<br>//2获取滚动条距离浏览器顶部距离<br>//3获取当前页面可见的高度<br>//4如果当前页面的可见高度加上滚动条移动的像素 大于整个页面像素（也就是第一张图片距离浏览器顶部距离）<br>//循环输出思路<br>//1用json字符串来保存需要循环加载的图片src和地址<br>//2遍历json字符串data属性的长度<br>//3然后创建一个&lt;div class=”box”&gt;&lt;div class=”box_img”&gt;&lt;img src=”m-4.jpg” alt=””&gt;&lt;/div&gt;&lt;/div&gt;<br>//因为是遍历循环 所以我们创建一次就ok了<br>//4设置img src等于imgData.data[i].src<br>//5创建后给新创建的元素添加上瀑布流效果getCliwidth(“cont”,”box”);<br>function checkFlag(){<br>    var parent=document.getElementById(“cont”);<br>    var boximglist=saveBox(parent,”box”);<br>    // console.log(boximglist);//页面有多少图片<br>    var last_boximglist=boximglist[boximglist.length-1];<br>    // console.log(last_boximglist);//获取到最后一个图片<br>    var last_boximgtop=last_boximglist.offsetTop;<br>    // console.log(last_boximgtop)//获取到最后一张图片距离页面顶部多长<br>    //开始第二步 获取滚动条滚动了多少像素<br>    var scroll_px =document.documentElement.scrollTop||document.body.scrollTop;<br>    // console.log(scroll_px);//滚动条滚动了多少像素<br>    //第三步 获取当前可见页面的高度<br>    var page_height=document.documentElement.clientHeight||document.body.clientHeight;<br>    console.log(“最后一张图片距离顶部高度:”+last_boximgtop+”|滚动条滚动了:”+scroll_px+”像素|”+”页面可见高度：”+page_height);<br>    if(scroll_px+page_height&gt;last_boximgtop){<br>        return true;<br><br>    }<br><br><br>}<br><br>function getCliwidth(parent,content){<br>    var parent =document.getElementById(parent);//先获取到最高级的父级元素<br>    var allbox=saveBox(parent,content);//现在已经获取到sava_box数组了 所有的盒子全部保存在这里<br>    // console.log(allbox);//控制台展示获取到多少盒子<br>    var firstwidth =allbox[0].offsetWidth;//获取到图片的宽度 因为css已经固定了宽度为200px<br>    var scnwidth = document.documentElement.clientWidth;//然后获取到屏幕的宽度<br>    var cols =Math.floor(scnwidth/firstwidth);//用屏幕总宽度除以图片的宽度 就可以获取到第一列可以放多少个图片了<br>    parent.style.cssText=”width:”+cols<em>firstwidth+”px;margin:0px auto”;//设置cont的宽度为列数乘以图片宽度<br>    var eboxheight=[];//设置个数组来储存盒子的高度<br>    for (var i = 0; i &lt; allbox.length; i++) {<br>        if(i&lt;cols){//只获取第一列的图片高度<br>            eboxheight[i]=allbox[i].offsetHeight;//在数组eboxheight存储第一列每个盒子的高度<br><br>        }else{<br>            var minheightbox=Math.min.apply(null,eboxheight);//设置一个变量来存储高度数组中最小高度的盒子高度 而不是位置<br>            var minheightboxpostion =getMinheight(eboxheight,minheightbox);//获取到高度最小盒子的位置 这才是位置 也就是数组下标<br>            allbox[i].style.position=”absolute”;//设置第二列盒子的定位为绝对定义 这样才可以设置 top left属性<br>            allbox[i].style.top=minheightbox+”px”;//设置第二列图片的顶部距离为 第一列最小图片的高度<br>            allbox[i].style.left=allbox[minheightboxpostion].offsetLeft+”px”;//设置第二列图片的居左为第一列最小图片的居左属性<br>            eboxheight[minheightboxpostion]=eboxheight[minheightboxpostion]+allbox[i].offsetHeight;//把第一列最小盒子的高度加上第二列图片的高度<br><br><br><br>        }<br>    };<br><br>}<br><br>function getMinheight(eboxheight,minheightbox){//获取第一列最小图片高度的位置<br>    var i;//定义个变量i来遍历<br>    for(i in eboxheight){//<br>        if(eboxheight[i]==minheightbox){<br>            //如果盒子高度数组的高度等于最小高度 返回这个图片的下标 也就是位置<br>            return i;<br><br>        }<br><br>    }<br><br>}<br><br>function saveBox(parent,content){<br>    var save_box=[];//创建个保存盒子数组<br>    var parentnum =parent.getElementsByTagName(“</em>“);//获取到cont元素下面有多少个元素<br>    for (var i = 0; i &lt; parentnum.length; i++) {//开始遍历寻找cont元素下有多少个元素<br>        if(parentnum[i].className==content){//因为我们只要盒子所以 所以我们要判断元素的classname等于box就行了<br>            //检测cont下面的div元素的className是否等于content<br>            save_box.push(parentnum[i]);//然后把这些元素全部存储进去<br>        }<br><br>    };<br>    return save_box;<br><br>}</pre><br><p><strong><span style="color: #993366;"> style.css</span></strong></p><br><pre class="lang:default decode:true ">*{<br>    margin: 0px;<br>    padding: 0px;<br>}<br>#con{<br>    position: relative;<br>}<br>.box{<br>    padding: 5px;<br>    float:left;<br><br>}<br>.box_img{<br>    border: 1px solid #cccccc;<br>    padding: 5px;<br>    box-shadow: 0 0 5px #ccc;<br>    border-radius: 5px;<br>}<br>.box_img img{<br>    width: 200px;<br>    height: auto;<br>}</pre><br><p>代码+图片打包下载<br><br><div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1qWDiwgc" target="_blank">度娘下载</a></div></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-210ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/210ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/210ver/">JavaScript之console.log输出</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>console.log，顾名思义即控制台输出.什么又是控制台呢？</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        var soul =new Object();//创建了一个对象 名字是soul<br>        soul.name=”灵魂”;<br>        soul.height =”保密”;<br>        console.log(soul.name);<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>上面是一串很简单的创建对象的代码. 你可以用alert(soul.name)来输出 也可以用document.write(soul.name)来输出，</p><br><p>但是以上两个方法都没有console.log那么好使, alert一但调试的代码量多了,那么会弹很多窗口,甚至有些浏览器会在弹出好几个窗口后禁用弹出, document.write输出会有断点 每一次输出都会刷新浏览器的页面.  所以就有了console.log</p><br><p>console.log的好处需要自己体会用法跟alert是一样的.那么如何查看console.log呢？</p><br><p>按F12然后找到console就行了,上面那串代码调试的结果是</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-311.png" target="_blank" rel="external"><img class="alignnone wp-image-183" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-311.png" data-original="http://www.old.com/wp-content/uploads/2015/03/311-1024x509.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="31" width="500" height="248"></a></p><br><p>&nbsp;</p><br><p>即可以看到console输出了</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-209ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/209ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/209ver/">JavaScript-内置对象-1:我们中出了一个对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>FBI WANNING！ 本文章包含以下内容</p><br><blockquote><br><ol><br><li>字符串对象</li><br><li>日期对象</li><br><li>日期小动画</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function soulObject(){<br>            //对象<br>            var soul =new Object();//创建了一个对象 名字是soul<br>            soul.name=”灵魂”;<br>            soul.height =”保密”;<br>            //对象字面量创建一个对象<br>            var soul_1 ={<br>                sex:”你猜”,//用逗号分隔<br>                “love”:”不是你就对了”,//对象名还可以是字符串<br>                age:”永远19岁”<br>            }<br><br>            console.log(“输出soul对象的name属性是:”+soul.name+”输出sou_1.sex对象:”+soul_1.sex+”输出soul_1.\’love\’对象:”+soul_1.love);<br>            var soul_1age=”age”;//注意记得加引号<br>            console.log(“通过方括号法来输出soul_1.age:”+soul_1[soul_1age]);<br><br><br>            //字符串对象因为是内置对象 并不会影响到字符串本身<br>            var soul_2=”Hello Soul”;//字符串从0开始，空格也算一个字符<br>            console.log(“字符串长度为:”+soul_2.length+”字符串第一次出现的位置\’o\’:”+soul_2.indexOf(“o”)+”|字符串\’o\’最后一次出现的位置”+soul_2.lastIndexOf(“o”));<br>            console.log(“查找字符串并且输出”+soul_2.match(“Hello”))//如果有hello这个字符串那么就输出hello 如果没有就输出null<br>            console.log(“替换soul为soul seeker:”+soul_2.replace(“Soul”, ‘soul seeker’));<br>            console.log(“将字符串转换为大写:”+soul_2.toUpperCase()+”将字符串转换为小写:”+soul_2.toLowerCase());<br>            var soul_2arr=soul_2.split(“ “);//用空格作为分隔符<br>            console.log(“输出soul_2arr数组中第二个元素:”+soul_2arr[1]);<br>        }<br><br><br>        function soulObject1(){<br>            //Date对象<br>            var soul_date= new Date();//创建一个日期对象<br>            console.log(“当前时间是:”+soul_date+”今年是多少年:”+soul_date.getFullYear()+”获取时间的毫秒:”+soul_date.getTime());<br>            soul_date.setFullYear(2014);//设置年份为2014年<br>            console.log(soul_date);<br><br>        }<br>        function soulObject2(){<br>            //Date对象之时钟<br>            //思路<br>            //1 获取到当前时间:小时,分,秒<br>            //2为了不改变长度,给分,秒前面加上一个0<br>            //递归调用函数（动画）<br>            soul_time =new Date();<br>            var soul_time_h=soul_time.getHours();//获取小时<br>            var soul_time_m=soul_time.getMinutes();//获取分钟<br>            var soul_time_s=soul_time.getSeconds();//获取秒<br>            soul_time_m=checkMS(soul_time_m);//把个位数的分钟加上0<br>            soul_time_s=checkMS(soul_time_s);//把个位数秒加上0<br>            var p_txt=createTime();//其实获取到p元素id再写入就ok了 为什么要这么复杂呢? 因为为了复习以前的知识嘛<br>            p_txt.innerHTML=soul_time_h+”:”+soul_time_m+”:”+soul_time_s;//给p元素写入小时，分钟，秒<br>            var anmi =setTimeout(function(){//setTimeout(函数,时间)<br>                soulObject2()//递归重复调用本次函数<br>            },1000);//1000秒调用一次<br><br><br>        }<br>        function createTime(){//获取到fh属性等于show_time的p元素是哪一个<br>            var get_p=document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                if(get_p[i].getAttribute(“fh”)==”show_time”){//如果fh属性等于 show_time<br>                    return get_p[i];//返回这个p元素位置<br>                }<br>            };<br><br>        }//PASS<br>        function checkMS(i){//传递一个参数<br>            if(i&lt;10){//如果这个参数小于10<br>                i=”0”+1;//i=”0”+i;<br>            }<br>            return i;//否则返回i<br>        }<br>        window.onload=function(){<br>            soulObject();<br>            soulObject1();<br>            soulObject2();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p fh=”show_time”&gt;&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -422,8 +591,8 @@
     <article id="post-208ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/208ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/208ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -436,7 +605,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/208ver/">JavaScript-内置对象-2:数组的内置对象是shenmegui?</a>
+      <a class="article-title" href="/2015/10/21/208ver/">JavaScript-内置对象-2:数组的内置对象是shenmegui?</a>
     </h1>
   
 
@@ -474,11 +643,11 @@
 
 
   
-    <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-193ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/187ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/193ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -491,7 +660,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/187ver/">JavaScript对象初入-1:如何使用对象</a>
+      <a class="article-title" href="/2015/10/21/193ver/">CSS3:圆角效果</a>
     </h1>
   
 
@@ -500,8 +669,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><p></p>
-<div class="code-desc co"><br><p>小伙伴们，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、定义”改变颜色”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.color<br>obj.style.backgroundColor</pre><br><p>二、定义”改变宽高”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.width<br>obj.style.height</pre><br><p>三、定义”隐藏内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”none”;</pre><br><p>四、定义”显示内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”block”;</pre><br><p>五、定义”取消设置”的函数</p><br><pre class="code"><strong>提示:<br></strong>使用confirm()确定框，来确认是否取消设置。<br>如是将以上所有的设置恢复原始值,否则不做操作。<br></pre><br><p>六、当点击相应按钮，执行相应操作，为按钮添加相应事件</p><br><p>&nbsp;</p><br><hr><br><p>完成这些任务对小伙伴来说都不是问题. 正好最近学到了对象,于是在想怎么把对象应用进去</p><br><p>根据 构造函数与原型对象混合使用 来构造一个对象</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” Content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;javascript&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{font-size:12px;}<br>#txt{<br>    height:400px;<br>    width:600px;<br>    border:#333 solid 1px;<br>    padding:5px;}<br>p{<br>    line-height:18px;<br>    text-indent:2em;}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;h2 id=”con”&gt;JavaScript课程&lt;/H2&gt;<br>  &lt;div id=”txt”&gt;<br>     &lt;h5&gt;JavaScript为网页添加动态效果并实现与用户交互的功能。&lt;/h5&gt;<br>        &lt;p&gt;1. JavaScript入门篇，让不懂JS的你，快速了解JS。&lt;/p&gt;<br>        &lt;p&gt;2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。&lt;/p&gt;<br>        &lt;p&gt;3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。&lt;/p&gt;<br>  &lt;/div&gt;<br>  &lt;form&gt;<br>  &lt;!–当点击相应按钮，执行相应操作，为按钮添加相应事件–&gt;<br>    &lt;input type=”button” value=”改变颜色” onclick=”changeElem.changeColor()”&gt;<br>    &lt;input type=”button” value=”改变宽高” onclick=”changeElem.changeWH()”&gt;<br>    &lt;input type=”button” value=”隐藏内容” onclick=”changeElem.hidden()”&gt;<br>    &lt;input type=”button” value=”显示内容” onclick=”changeElem.show()” &gt;<br>    &lt;input type=”button” value=”取消设置” onclick=”changeElem.back()”&gt;<br>  &lt;/form&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  function change (name) {<br>    this.elem=document.getElementById(name)<br>  }<br>  var changeElem=new change(“txt”)<br>//定义”改变颜色”的函数<br>change.prototype.changeColor = function(){<br>      this.elem.style.color=”red”;<br>      this.elem.style.backgroundColor=”black”;<br>};<br>//定义”改变宽高”的函数<br>change.prototype.changeWH=function() {<br>  this.elem.style.width=”300px”;<br>  this.elem.style.height=”300px”;<br>}<br>//定义”隐藏内容”的函数<br>change.prototype.hidden=function() {<br> this.elem.style.display=”none”;<br>}<br>//定义”显示内容”的函数<br>change.prototype.show=function() {<br> this.elem.style.display=”block”;<br>}<br><br>//定义”取消设置”的函数<br>change.prototype.back=function() {<br> var back_1=”是否取消设置”<br>    var back_2=confirm(back_1)<br>    if(back_2==true){<br>        this.elem.removeAttribute(“style”)<br>        alert(“System  initialise”)<br>    }<br>    else{<br>        alert(“手贱点了一下”)<br>    }<br>}<br>  &lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
+        <p></p><h2 class="code-head" data-lang="HTML">学习文章自：<a href="http://www.imooc.com/code/380" target="_blank" rel="external">http://www.imooc.com/code/380</a></h2><p></p>
+<p></p><h2 class="code-head" data-lang="HTML"></h2><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">圆角效果 border-radius</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left"><strong> border-radius</strong>是向元素添加圆角边框。</p><br><p align="left"><strong>使用方法：</strong></p><br><p align="left"><strong>border-radius:10px;</strong> /<em> 所有角都使用半径为10px的圆角 </em>/</p><br><p align="left"><a href="http://img.mukewang.com/52e216d2000195ef01110111.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e216d2000195ef01110111.jpg" data-original="http://img.mukewang.com/52e216d2000195ef01110111.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left"><strong>border-radius: 5px 4px 3px 2px;</strong> /<em> 四个半径值分别是左上角、右上角、右下角和左下角，顺时针 </em>/</p><br><p align="left"><a href="http://img.mukewang.com/52e216f9000131a201110111.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e216f9000131a201110111.jpg" data-original="http://img.mukewang.com/52e216f9000131a201110111.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">不要以为border-radius的值只能用<strong>px</strong>单位，你还可以用<strong>百分比</strong>或者<strong>em</strong>，但兼容性目前还不太好。</p><br><p align="left"><strong>实心上半圆：</strong></p><br><p align="left">方法：把高度(height)设为宽度（width）的一半，并且只设置左上角和右上角的半径与元素的高度一致（大于也是可以的）。</p><br><pre align="left" class="code">div{<br>    height:50px;/<em>是width的一半</em>/<br>    width:100px;<br>    background:#9da;<br>    border-radius:50px 50px 0 0;/<em>半径至少设置为height的值</em>/<br>    }</pre><br><p><strong>实心圆：</strong><br><br>方法：把宽度（width）与高度(height)值设置为一致（也就是正方形），并且四个圆角值都设置为它们值的一半。如下代码：</p><br><pre class="code">div{<br>    height:100px;/<em>与width设置一致</em>/<br>    width:100px;<br>    background:#9da;<br>    border-radius:50px;/<em>四个圆角值都设置为宽度或高度值的一半</em>/<br>    }<br><br></pre><br><p>实心左半圆</p><br><p>实行上半圆是把 左上 右上设置为50px 左半园当然是把左上 左下设置为50px</p><br><pre class="lang:default decode:true">div.semi-circle{<br>    height:100px;<br>    width:50px;<br>    background:#9da;<br>    border-radius:50px 0 0 50px;<br>    }<br></pre><br><p>&nbsp;</p><br></div><br></div>
 
 
 
@@ -530,11 +701,11 @@
 
 
   
-    <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-206ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/186ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/206ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -547,7 +718,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/186ver/">JavaScript:编程挑战-1:运算符的那点事</a>
+      <a class="article-title" href="/2015/10/21/206ver/">JavaScript:节点-2:再次理解下节点</a>
     </h1>
   
 
@@ -556,189 +727,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-185ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/185ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/185ver/">JavaScript:2维数组+编程挑战:2次元赛高！</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习代码及文章来自<a href="http://www.imooc.com/code/1484" target="_blank" rel="external">http://www.imooc.com/code/1484</a></p><p></p>
-<p></p><p>二维数组一直没弄清楚.现在来详细的弄清楚下</p><p></p>
-<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..三维数组<br>        document.write(ew[1][2]);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”</pre></p>
-<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
-<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
-<p></p><p>再来输出二维数组</p><p></p>
-<p></p><p>值得注意的是[i].length因为第二个循环是要输出二维数组中二维的元素 所以先判断二维有多少个元素也就是</p><p></p>
-<p></p><p>[i]的长度 比如ew[1].length 就为3</p><p></p>
-<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..二维数组<br>        document.write(ew[1][2]+”&lt;/br&gt;”);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”<br>        for (var i = 0; i &lt; ew.length; i++) {<br>            for (var j = 0; j &lt;ew[i].length; j++) {<br>                document.write(ew[i][j]+”&lt;/br&gt;”)<br>                //判断ew[i]中有多少个元素然后再输出j<br>                //也就是输出二维数组<br>            };<br>        };</pre></p>
-<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
-<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
-<p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-184ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/184ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/184ver/">JavaScript编程挑战-写个简单计算器:加减乘除</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习代码以及文章来自:<a href="http://www.imooc.com/code/1488" target="_blank" rel="external">http://www.imooc.com/code/1488</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>使用JS完成一个简单的计算器功能。实现2个输入框中输入整数后，点击第三个输入框能给出2个整数的加减乘除。</p><br><p>提示：获取元素的值设置和获取方法为：例：赋值：document.getElementById(“id”）.value = 1； 取值：var 啊= document.getElementById(“id”）.value；</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 创建构建运算函数count()。</p><br><p>第二步： 获取两个输入框中的值和获取选择框的值。</p><br><pre class="code">提示：document.getElementById( id名 ).value 获取或设置 id名的值。</pre><br><p>第三步： 获取通过下拉框来选择的值来改变加减乘除的运算法则。</p><br><pre class="code">提示：使用switch判断运算法则。</pre><br><p>第四步：  通过 = 按钮来调用创建的函数，得到结果。</p><br><p><strong>注意:</strong> 使用parseInt()函数可解析一个字符串,并返回一个整数。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">value可以获取到标签的值 然后通过case处理来更改value值</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br>  &lt;title&gt; 事件&lt;/title&gt;<br>  &lt;script type=”text/javascript”&gt;<br>   function count(){<br>       var num1=document.getElementById(“txt1”)<br><br>       var num2=document.getElementById(“txt2”)<br>       var over=document.getElementById(“fruit”)<br>       var run=document.getElementById(“select”)<br>       switch(run.value){<br>           case “-“:over.value=parseInt(num1.value)-parseInt(num2.value);<br>           break;<br>           case “+”:over.value=parseInt(num1.value)+parseInt(num2.value);<br>           break;<br>           case “<em>“:over.value=parseInt(num1.value)</em>parseInt(num2.value);<br>           break;<br>           case “/“:over.value=parseInt(num1.value)/parseInt(num2.value);<br>           break;<br>       }<br><br><br>    //获取第一个输入框的值<br>    //获取第二个输入框的值<br>    //获取选择框的值<br>    //获取通过下拉框来选择的值来改变加减乘除的运算法则<br>    //设置结果输入框的值<br><br>   }<br>  &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br>   &lt;input type=’text’ id=’txt1’ /&gt;<br>   &lt;select id=’select’&gt;<br>        &lt;option value=’+’&gt;+&lt;/option&gt;<br>        &lt;option value=”-“&gt;-&lt;/option&gt;<br>        &lt;option value=”<em>“&gt;</em>&lt;/option&gt;<br>        &lt;option value=”/“&gt;/&lt;/option&gt;<br>   &lt;/select&gt;<br>   &lt;input type=’text’ id=’txt2’ /&gt;<br>   &lt;input type=’button’ value=’ = ‘ onclick=”count()”/&gt; &lt;!–通过 = 按钮来调用创建的函数，得到结果–&gt;<br>   &lt;input type=’text’ id=’fruit’  /&gt;<br> &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-183ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/183ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.452Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/183ver/">JavaScript对象-返回星期方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在慕课网看到的觉得这个思路有点意思 于是把代码和经验给写下来了</p><br><p><a href="http://www.imooc.com/code/727" target="_blank" rel="external">http://www.imooc.com/code/727</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">先是定义一个数组weekday 存储星期</span></p><br><p><span style="color: #ff0000;">然后再定义一个变量myweek储存mydate.getDay() 这个语句是返回今天是星期几 0就是星期天1星期一</span></p><br><p><span style="color: #ff0000;">然后通过myweek来索引数组中的内容 比如weekday[0]那么输出的就是星期一</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;获得星期&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var mydate=new Date();<br>  var weekday=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”];<br>  var myweek=mydate.getDay()<br>  document.write(“今天是：” + weekday[myweek]);<br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
+        <p>本来想写详细点,发现自己理解还不够 先放着 以后再填</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-再次理解childNodes&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function knowChildnodes(){<br>            var get_childnodes=document.body.childNodes;<br>            console.log(get_childnodes);//当前页面有多少元素<br>            var get_childnodes0=document.body.childNodes[0];<br>            console.log(get_childnodes0);//第0个的元素是什么<br>            var get_did=document.getElementById(“did”);//获取div<br>            console.log(get_did.childNodes);//输出div下的元素<br>            console.log(get_did.childNodes[1].nodeName);//从控制台可以看到[0]是一个#text文本 [1]才是元素<br>            console.log(get_did.firstChild.nodeName);//也可以使用firstChild获取到第一个[0]元素的名字<br>            console.log(get_did.childNodes.length.nodeName);//这样是找不到的 因为在childNodes是从0开始 获取到最后一个元素可以使用<br>            console.log(get_did.childNodes[get_did.childNodes.length-2].nodeName)//获取到最后一个元素属性名字 -1是#text文本<br>            console.log(get_did.lastChild.nodeName)//获取到最后一个元素的名字<br><br><br>            //兄弟节点,父级节点<br>            console.log(“我是分隔符,下面开始兄弟节点 父级节点”);<br>            console.log(“第0个元素是#text 那么他的下一个元素应该是p||”+get_did.childNodes[0].nextSibling.nodeName);//<br>            console.log(“第1个元素是p,那么他的下一个元素应该是p的文本||”+get_did.childNodes[1].nextSibling.nodeName);//<br>            console.log(“第2个元素是p的文本 那么他的下一个元素应该是p||”+get_did.childNodes[2].nextSibling.nodeName);<br>            //以上是下级的结构 那么同级的结构是什么呢？<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            console.log(get_h1[0].nextSibling.nodeValue);//文本节点…值是回车符<br>            //坑待理解后再填<br><br>        }<br><br><br>        window.onload=function(){<br>            knowChildnodes();<br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;hello&lt;/h1&gt;<br>    &lt;div id=”did”&gt;<br>        &lt;p&gt;我是soul&lt;/p&gt;<br>        &lt;p&gt;灵魂追逐者&lt;/p&gt;<br>        &lt;p&gt;放荡的灵魂&lt;/p&gt;<br>    &lt;/div&gt;<br>    &lt;h1&gt;第二个soul&lt;h1&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

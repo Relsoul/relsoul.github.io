@@ -192,11 +192,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-27ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-10ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/27ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.447Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/10ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -209,7 +209,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/27ver/">CSS布局之两列布局</a>
+      <a class="article-title" href="/2015/10/21/10ver/">CSS布局之响应式布局</a>
     </h1>
   
 
@@ -218,103 +218,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type=”text/css”&gt;<br>            /<em>一列定宽一列自适应之float+margin
-            </em>{padding: 0;margin: 0;}<br>                .left{<br>                    float: left;<br>                    width: 100px;<br>                    background: red;<br>                }<br>                .right{<br>                    margin-left: 100px; /<em>往右缩进100px; 间距通过margin-left设置<br>                    background: blue;<br>                }</em>/</pre></p>
-<pre><code>            /*二:一列定宽一列自适应之float+margin+fix
-            .left{
-                float: left;
-                width: <span class="number">100</span>px;
-                position: relative;  提高层级
-            }
-            .right{
-                margin-left: <span class="number">120</span>px;
-            }
-            .right-fix{
-                float:right;
-                width: <span class="number">100</span>%
-                margin-left:-<span class="number">100</span>px;
-            }*/
-
-
-        /*三:一列定宽一列自适应之float+overflow
-        .left{
-            float:left;
-            width: <span class="number">100</span>px;
-            margin-right:<span class="number">20</span>px; /*间距设置在left上
-        }
-        .right{
-            overflow: hidden; /*触发bfc模式,里面内容跟外界隔离,实现所需布局
-        }*/
-
-        /*四:一列定宽一列自适应之<span class="keyword">table</span>
-        .parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>; 宽度默认为auto
-            width: <span class="number">100</span>%; 设置宽度为<span class="number">100</span>%
-            <span class="keyword">table</span>-layout: fixed; 加速<span class="keyword">table</span>渲染，实现了布局优先
-        }
-        .left,.right{
-            <span class="keyword">display</span>:<span class="keyword">table</span>-cell; left和right变为表格
-        }
-        .left{
-            width:<span class="number">100</span>px;
-            padding-right: <span class="number">20</span>px;设置间距
-        }*/
-
-
-    /*五:一列定宽一列自适应之flex
-            .parent{
-                <span class="keyword">display</span>: flex;
-            }
-            .left{
-                width: <span class="number">100</span>px;
-                margin-right:<span class="number">20</span>px ;
-            }
-            .right{
-                flex:<span class="number">1</span>;
-            }*/
-
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        一:一列定宽一列自适应之float+margin
-            -优点:容易理解
-            -IE6文字会往右缩进<span class="number">3</span>px 通过在left加margin-right可以解决
-            -在right子元素上清除浮动.会在right元素上空出left高度的一个空白
-
-        二:一列定宽一列自适应之float+margin+fix
-            -不会存在<span class="number">3</span>px问题
-            -不会存在right子元素上清除浮动也不会影响
-            -right-fix会盖在left上面，所以需要提高left层级
-
-        三:一列定宽一列自适应之float+overflow
-            -IE6不支持
-
-        四:一列定宽一列自适应之<span class="keyword">table</span>
-            -代码比较多- -
-
-        五:一列定宽一列自适应之flex
-            -不兼容低版本
-            -性能会有一个问题(flex布局会涉及到计算)
-            -适用于小范围布局
-
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-        &amp;<span class="keyword">lt</span>;div class="left"&amp;<span class="keyword">gt</span>;
-            &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;left&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;&amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;left&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
-        &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-        &amp;<span class="keyword">lt</span>;div class="right-fix"&amp;<span class="keyword">gt</span>;
-            &amp;<span class="keyword">lt</span>;div class="right"&amp;<span class="keyword">gt</span>;
-                &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;right&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
-                &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;right&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
-            &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-        &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
+        <p>#响应式<br><br>##优点<br><br>-不用花更多的时间去做适配<br><br>##缺点<br><br>-不同设备会因设计而缺失一些元素<br><br>##viewport<br><br><code>&lt;br&gt;
+&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no&quot; /&amp;gt;&lt;br&gt;</code><br><br>不会被缩小了<br><br>不同的设备<strong>device-width</strong>不一样<br><br>少用定宽布局模式</p><br><p>##@media<br><br><code>&lt;br&gt;
+@media screen and (max-with:320px){&lt;br&gt;
+/*视窗宽度&amp;lt;=320px*/&lt;br&gt;
+}&lt;br&gt;
+@media screen and (min-with:769px){&lt;br&gt;
+/*视窗宽度&amp;gt;=769px*/&lt;br&gt;
+}&lt;br&gt;
+@media screen and (min-with:769px) and (max-width:1000px){&lt;br&gt;
+/*769px&amp;lt;=视窗宽度&amp;lt;=1000px*/&lt;br&gt;
+}&lt;br&gt;</code><br><br>##简单响应式<br><br><code>&lt;br&gt;
+CSS&lt;br&gt;
+*{&lt;br&gt;
+padding: 0;&lt;br&gt;
+margin: 0;&lt;br&gt;
+}&lt;br&gt;
+.left{&lt;br&gt;
+background: #001E3B;&lt;br&gt;
+float: left;&lt;br&gt;
+width: 100px;&lt;br&gt;
+margin-right: 20px;&lt;br&gt;
+}&lt;br&gt;
+.right{&lt;br&gt;
+background: #0084C7;&lt;br&gt;
+overflow: hidden;&lt;br&gt;
+}&lt;br&gt;
+@media screen and (max-width:320px){&lt;br&gt;
+.left{&lt;br&gt;
+float:none;&lt;br&gt;
+width: auto;&lt;br&gt;
+margin-right: 0;&lt;br&gt;
+margin-bottom:20px;&lt;br&gt;
+}&lt;br&gt;
+}&lt;br&gt;
+HTML&lt;br&gt;
+&amp;lt;div class=&quot;parent&quot;&amp;gt;&lt;br&gt;
+&amp;lt;div class=&quot;left&quot;&amp;gt;&lt;br&gt;
+&amp;lt;p&amp;gt;left&amp;lt;/p&amp;gt;&lt;br&gt;
+&amp;lt;/div&amp;gt;&lt;br&gt;
+&amp;lt;div class=&quot;right&quot;&amp;gt;&lt;br&gt;
+&amp;lt;p&amp;gt;right&amp;lt;/p&amp;gt;&lt;br&gt;
+&amp;lt;p&amp;gt;right&amp;lt;/p&amp;gt;&lt;br&gt;
+&amp;lt;/div&amp;gt;&lt;br&gt;
+&amp;lt;/div&amp;gt;&lt;br&gt;</code></p>
 
 
 
@@ -343,11 +290,11 @@
 
 
   
-    <article id="post-10ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-31ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/10ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.447Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/31ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -360,7 +307,106 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/10ver/">站在巨人的肩膀上——制作酷炫web幻灯片</a>
+      <a class="article-title" href="/2015/10/21/31ver/">DOM编程艺术之表单验证</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:隐式提交<br>                -如:聚焦在输入框时按回车提交表单<br>                -满足以下任一条件<br>                    -表单有非禁用的提交按钮<br>                    -没有提交按钮时,只有一个input元素</pre></p>
+<pre><code>二:提交
+    -<span class="ruby">提交过程
+</span>        -<span class="ruby">根据表单enctype指定的值构建要提交的数据结构
+</span>        -<span class="ruby">使用method指定的方式发送数据到action指定的目标
+</span>    -<span class="ruby">构建提交数据
+</span>        -<span class="ruby">从可提交的元素中提取数据组装成指定的数据结构的过程
+</span>        -<span class="ruby">可提交元素<span class="symbol">:button</span>.input,keygen,object,select,textarea
+</span>    -<span class="ruby">编码方式(enctype)
+</span>        -<span class="ruby">application/x-www-form-urlencoded[默认]
+</span>            -<span class="ruby">a=a&amp;amp;b=b&amp;amp;c=c &amp;amp;分割键值对
+</span>        -<span class="ruby">multipare/form-data
+</span>            -<span class="ruby">数据格式组织成<span class="number">2388</span>文字流
+</span>        -<span class="ruby">text/plain
+</span>            -<span class="ruby">a=a b=b c=c 空格分割的键值对
+</span>    -<span class="ruby">特殊案例
+</span>        -<span class="ruby">name=<span class="string">"isindex"</span>&amp;amp;&amp;amp;type=<span class="string">"text"</span>
+</span>            -<span class="ruby">编码方式为application/x-www-form-urlencoded
+</span>            -<span class="ruby">作为表单的第一个提交元素
+</span>            -<span class="ruby">提交时只发送value值，不包含name
+</span>        -<span class="ruby">name=<span class="string">"_charset_"</span>&amp;amp;&amp;amp;type=<span class="string">"hidden"</span>
+</span>            -<span class="ruby">没有设置value值
+</span>            -<span class="ruby">提交时value自动用当前提交的字符集填充
+</span>    -<span class="ruby">submit()
+</span>        -<span class="ruby">提交表单
+</span>            -<span class="ruby">form.submit()
+</span>    -<span class="ruby">onsubmit
+</span>        -<span class="ruby">表单提交事件
+</span>        -<span class="ruby">提交之前的数据验证
+</span>        -<span class="ruby">阻止事件的默认行为可取消表单提交
+</span>        form.addEventListener("submit",function(event){
+            var noValid=false;
+            var elements=event.target.elements
+<span class="comment">            //TODO 处理自定义的验证规则</span>
+            if(noValid){
+                event.preventDefault()
+            }
+        })
+    -<span class="ruby">无刷新表单提交
+</span>        -<span class="ruby">form
+</span>        -<span class="ruby">target
+</span>        -<span class="ruby">iframe
+</span>        iframe指定一个name
+        form指定一个target指向iframe name&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-30ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/30ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/30ver/">站在巨人的肩膀上——制作酷炫web幻灯片</a>
     </h1>
   
 
@@ -399,122 +445,11 @@
 
 
   
-    <article id="post-18ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/18ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.447Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/18ver/">DOM编程艺术之事件代理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true  ">    一:事件代理<br>        -&lt;ul id=”myUi”&gt;&lt;li&gt;&lt;/ul&gt;<br>        -将事件注册到元素的父节点上<br>        -var myUl=document.getElementById(“myUl”);<br>        myUl.addEventListener(‘click’, function(event){<br>            var e=event||window.event;<br>            var target=e.target||e.srcElemnt<br>        })<br>        -优点<br>            -需要管理的handler更少<br>            -内存分配更少<br>            -增加/删除节点可以不处理事件<br>        -缺点<br>            -事件管理的逻辑更复杂</pre></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-1ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/20/1ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/1ver/">解决IE9、IE10无法加载本地CSS文件的问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>转自<a href="http://wlt436.blog.163.com/blog/static/6464704201472944155390/" target="_blank" rel="external">http://wlt436.blog.163.com/blog/static/6464704201472944155390/</a></strong></p><br><p>从去年三月份开始，我的IE出现了一个很奇怪的现象：在IE9/IE10模式下打开所有本地网页，都不能加载外链CSS样式表，浏览器会报“SEC7113：CSS 因 Mime 类型不匹配而被忽略”的错误；而在IE6/7/8以及chrome、firefox里面就不存在这样的问题，这给我的前端开发造成了很大的麻烦。查阅了微软的官方文档，给出的解释是微软对浏览器的安全机制作了一些修改，会拒绝加载MIME type不匹配的CSS文件，不过我在&lt;link&gt;里面已经正确声明了css type，这个问题仍然存在。当时尝试了各种解决方法，搜遍了百度谷歌，在各种技术论坛发帖询问，都没有效果，至于网上那些所谓修改web.xml的方法，纯属扯淡。</p><br><p>这一年半以来，我都是使用在本地架设一个服务器环境的方法来实现对本地网页的预览，具体的实现步骤不说了，这种方式极其不方便，原来想要浏览一个网页，去到对应的目录双击打开就行，现在还得先用dreamweaver打开，然后发布一下才可以正常浏览。</p><br><p>直到今天，偶然看到了这篇文章：<a href="http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files" target="_blank" rel="nofollow">http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files</a></p><br><p>文章下面的推荐答案经过我的测试，实际上是无效的。但是最后面一个回答，终于解决了这个困扰我一年半的问题。具体的解决步骤非常简单：</p><br><p><b> 1、下载FileTypesMan，百度即可找到，只有60多K</b></p><br><p><b> 2、解压运行FileTypesMan.exe，程序会花一点时间查找所有的文件格式，稍等一下即可</b></p><br><p><b> 3、在列表中找到.css，双击进入到“编辑文件类型”界面</b></p><br><p><b> 4、在MIME类型那里，修改为text/css</b></p><br><p><b> 5、点确定，大功告成~</b></p><br><p>然后再打开本地网页，css文件已经可以正常加载了。</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-2ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/2ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/2ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -527,7 +462,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/2ver/">win8.1 IE11打开网页空白解决办法,无法打开任何网页</a>
+      <a class="article-title" href="/2015/10/21/2ver/">win8.1 IE11打开网页空白解决办法,无法打开任何网页</a>
     </h1>
   
 
@@ -568,11 +503,11 @@
 
 
   
-    <article id="post-5ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-19ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/5ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/19ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -585,7 +520,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/5ver/">第一个练手之作-soul笔记本</a>
+      <a class="article-title" href="/2015/10/21/19ver/">DOM编程艺术之表单提交</a>
     </h1>
   
 
@@ -594,7 +529,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>预览:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/</a></p><br><p>代码写的很渣.目前正在努力学习~</p>
+        <p><pre class="lang:default decode:true  ">一:隐式提交<br>                -如:聚焦在输入框时按回车提交表单<br>                -满足以下任一条件<br>                    -表单有非禁用的提交按钮<br>                    -没有提交按钮时,只有一个input元素</pre></p>
+<pre><code>二:提交
+    -<span class="ruby">提交过程
+</span>        -<span class="ruby">根据表单enctype指定的值构建要提交的数据结构
+</span>        -<span class="ruby">使用method指定的方式发送数据到action指定的目标
+</span>    -<span class="ruby">构建提交数据
+</span>        -<span class="ruby">从可提交的元素中提取数据组装成指定的数据结构的过程
+</span>        -<span class="ruby">可提交元素<span class="symbol">:button</span>.input,keygen,object,select,textarea
+</span>    -<span class="ruby">编码方式(enctype)
+</span>        -<span class="ruby">application/x-www-form-urlencoded[默认]
+</span>            -<span class="ruby">a=a&amp;amp;b=b&amp;amp;c=c &amp;amp;分割键值对
+</span>        -<span class="ruby">multipare/form-data
+</span>            -<span class="ruby">数据格式组织成<span class="number">2388</span>文字流
+</span>        -<span class="ruby">text/plain
+</span>            -<span class="ruby">a=a b=b c=c 空格分割的键值对
+</span>    -<span class="ruby">特殊案例
+</span>        -<span class="ruby">name=<span class="string">"isindex"</span>&amp;amp;&amp;amp;type=<span class="string">"text"</span>
+</span>            -<span class="ruby">编码方式为application/x-www-form-urlencoded
+</span>            -<span class="ruby">作为表单的第一个提交元素
+</span>            -<span class="ruby">提交时只发送value值，不包含name
+</span>        -<span class="ruby">name=<span class="string">"_charset_"</span>&amp;amp;&amp;amp;type=<span class="string">"hidden"</span>
+</span>            -<span class="ruby">没有设置value值
+</span>            -<span class="ruby">提交时value自动用当前提交的字符集填充
+</span>    -<span class="ruby">submit()
+</span>        -<span class="ruby">提交表单
+</span>            -<span class="ruby">form.submit()
+</span>    -<span class="ruby">onsubmit
+</span>        -<span class="ruby">表单提交事件
+</span>        -<span class="ruby">提交之前的数据验证
+</span>        -<span class="ruby">阻止事件的默认行为可取消表单提交
+</span>        form.addEventListener("submit",function(event){
+            var noValid=false;
+            var elements=event.target.elements
+<span class="comment">            //TODO 处理自定义的验证规则</span>
+            if(noValid){
+                event.preventDefault()
+            }
+        })
+    -<span class="ruby">无刷新表单提交
+</span>        -<span class="ruby">form
+</span>        -<span class="ruby">target
+</span>        -<span class="ruby">iframe
+</span>        iframe指定一个name
+        form指定一个target指向iframe name&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -623,11 +602,11 @@
 
 
   
-    <article id="post-6ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-13ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/6ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/13ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -640,7 +619,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/6ver/">angular新手入门必注意的一点！Argument &amp;#8216;xxx&amp;#8217; is not a function, got undefined,初学Angular的第一个坑</a>
+      <a class="article-title" href="/2015/10/21/13ver/">【分享】GET 高清模糊化背景素材*100</a>
     </h1>
   
 
@@ -649,7 +628,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自BLOG：<a href="http://www.cnblogs.com/YikaJ/p/4226313.html" target="_blank" rel="external">http://www.cnblogs.com/YikaJ/p/4226313.html</a></p><br><p>图片加载不出请大家转自原文BLOG进行观看</p><br><p>Angular也是早有听说了啊，一直没闲下功夫研究，趁着放假，学一学。慕课网（www.imooc.com）里有一套教程，还是很不错的。但是真正上手编码的时候就发现，尼玛！例子都跑不起来，全是报错，Argument ‘xxx’ is not a function, got undefined是最显眼的错误。我们先来看看教程中的“错误”代码是怎样的。</p><br><p>来一个最简单的 Hello World 吧！</p><br><p>&nbsp;</p><br><p>我们一般接触到的第一个入门教程都是类似与这样的，代码简单。我们有个<em>ng-app</em>作为Angular的启动口，然后<em>ng-controller=”helloCtrl”</em>控制p标签。View层，则用双花括号出入数据greeting的message值。然后在下面的script定义了一个helloCtrl的函数，并为$scope.greeting赋了值。这一切看起来都是那么自然，想象中，浏览器就该出现，”Hello, World!”。可惜的是，浏览器给了我们这样的回复。</p><br><p>没错，这就是开头所说的那个。于是我弄不懂，为什么老师可以跑通，我却跑不通，大家都是Angular-1.3.0。国内不给力，很难找到答案，最后去StackOverflow找到了。<strong>因为从Angular-1.3.0 beta15开始，Angular不再支持全局的Controller！</strong>那么问题来了，如何在Angular里定义模块呢？</p><br><p>当然这篇blog是为了让大家学习Angular的时候别遇到闭门羹，我大致说一下。AngularJs里，有一个angular.module，模块机制就是靠这个来加载的。我们来看看如何可以重新出现梦寐以求的“Hello World”。</p><br><p>我们看看，改了什么，<em>ng-app=”myApp”</em>首先给入口赋了名字，然后再下面进行模块的初始化。在angular.module(String, moduleArray)函数里，第一个String参数是该模块的名字，第二个参数是所依赖的模块（这里暂时用不着），返回了myApp这个模块，然后再通过模块的controller方法定义helloCtrl控制器即可。</p><br><p>&nbsp;</p><br><p>当然我们要解释依赖模块的话，我们可以看一下稍作修改的第三版Demo</p><br><p>&nbsp;</p><br><p>仅仅是多定义一个helloController模块，这样myApp，就可以仅仅作为启动口，而不会混杂着控制器。我们可以定义多个js文件，清晰明确的通过模块梳理整个项目的结构。</p>
+        <p>某酷扒下来的.具体地址记不太清楚了.</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>下载地址: <a href="http://pan.baidu.com/s/1o61MHey" target="_blank" rel="external">http://pan.baidu.com/s/1o61MHey</a></p>
 
 
 
@@ -678,11 +657,11 @@
 
 
   
-    <article id="post-7ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-29ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/7ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/29ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -695,7 +674,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/7ver/">媒体查询:支持不同的视口</a>
+      <a class="article-title" href="/2015/10/21/29ver/">【进度条&amp;#038;勋章】花了一小时你就找到这个东西?</a>
     </h1>
   
 
@@ -704,9 +683,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h1>媒体查询:支持不同的视口</h1><p></p>
-<p></p><h3><a id="user-content-支持程度" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#支持程度" target="_blank" rel="external"></a>支持程度</h3><p></p>
-<p>IE9+,FF3.6+,Chrome4+,Safari4+,Oprea9.5+,Android2.1+,IOS safari3.2+</p><br><h3><a id="user-content-媒体查询能检测的特效摘选" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询能检测的特效摘选" target="_blank" rel="external"></a>媒体查询能检测的特效(摘选)</h3><br><ul><br><li>width:视口宽度</li><br><li>height:视口高度</li><br><li>device-width:设备屏幕宽度</li><br><li>device-height:设备屏幕高度</li><br><li>orientation:设备处于横向还是纵向</li><br></ul><br><h3><a id="user-content-一个媒体查询" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#一个媒体查询" target="_blank" rel="external"></a>一个媒体查询</h3><br><pre><code>//import 会增加HTTP请求，影响加载速度<br>//屏幕宽度在200px-360px之间<br>import url(“phone.css”) screen and (min-width:200px) and (max-width:360px);<br></code></pre><br><h3><a id="user-content-低版本兼容库" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#低版本兼容库" target="_blank" rel="external"></a>低版本兼容库</h3><br><p>Respond.js为IE8以及更低版本增加媒体查询功能</p><br><h3><a id="user-content-从固定设计着手" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#从固定设计着手" target="_blank" rel="external"></a>从固定设计着手</h3><br><p>从固定的960px设计开始设计window的效果,同时保持设计中图片的精简</p><br><h3><a id="user-content-阻止浏览器自动调整页面大小" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#阻止浏览器自动调整页面大小" target="_blank" rel="external"></a>阻止浏览器自动调整页面大小</h3><br><pre><code>//放大两倍的设备屏幕宽度效果<br>//initial-scale=2.0 放大两倍<br>//width=device-width 设备宽度<br>&lt;meta name=”viewport” content=”initial-scale=2.0,width=device-width”&gt;<br></code></pre><br><p>控制可缩放范围与禁止缩放</p><br><pre><code>//maxinum-scale=3 用户最大调整缩放为3倍<br>//minimun-scale=0.5 用户最小调整缩放为0.5倍<br>//user-scalable=no 禁止用户缩放<br>&lt;meta name=”viewport” content=”maxinum-scale=3,minimun-scale=0.5,width=device-width，user-scalable=no”&gt;<br></code></pre><br><h3><a id="user-content-针对不同的视口宽度修正设计" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#针对不同的视口宽度修正设计" target="_blank" rel="external"></a>针对不同的视口宽度修正设计</h3><br><pre><code>//最大宽度为768px的设备进行调整<br>@media  screen and (max-width: 768px) {<br>                #nav{<br>                //do sth<br>                }<br>            }<br></code></pre><br><h3><a id="user-content-响应式设计中内容始终优先" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#响应式设计中内容始终优先" target="_blank" rel="external"></a>响应式设计中内容始终优先</h3><br><p>多平台多视口的情况下保留尽可能多的内容，而不是使用display:none或者类似的方法来隐藏内容</p><br><h3><a id="user-content-媒体查询只是必要条件之一" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询只是必要条件之一" target="_blank" rel="external"></a>媒体查询只是必要条件之一</h3><br><p>媒体查询只能根据设备特性应用对应的样式.一但超出应用样式的范围，媒体查询将无法生效如上面那段代码 如果屏幕宽度大于768px那么将无法生效</p><br><h3><a id="user-content-我们需要流动布局" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#我们需要流动布局" target="_blank" rel="external"></a>我们需要流动布局</h3><br><p>如果针对已知的特定访问设备，可以单独使用媒体查询来制作理想的设计效果，我们已经见过配适768px有多简单，但是这种策略有严重的缺陷，换句话说，它不能适应未来的变换。 目前的效果更像是一个自适应，而不是我们想要的响应式。我们设计应该在突变之前保持灵动.</p>
+        <p></p><p>发布于<a href="http://www.gbtags.com/gb/share/5762.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5762.htm</a></p><p></p>
+<div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>引文:今天在GitHub上看见了这个东西</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/252da59f-4767-4360-b5cc-99ba06c1d759.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/252da59f-4767-4360-b5cc-99ba06c1d759.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/252da59f-4767-4360-b5cc-99ba06c1d759.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>卧槽！能不能不这么狂拽炫酷吊炸天的好看，不能忍.于是花了一小时找啊找啊找啊找.</p><br><p>终于找到了如何生成和制作的.深夜1点赶来分享</p><br><p>&nbsp;</p></blockquote><br><p>勋章:<a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a></p><br><p>进度条:<a href="https://github.com/fehmicansaglam/progressed.io" target="_blank" rel="external">https://github.com/fehmicansaglam/progressed.io</a></p><br><p>&nbsp;</p><br><p>如何使用？</p><br><p>勋章请找到相应的svg,或者拉到屏幕最下面自定义勋章样式</p><br><p>进度条则采用<a href="http://progressed.io/bar/进度(数字)?title=(标题" target="_blank" rel="external">http://progressed.io/bar/进度(数字)?title=(标题</a>) 如<a href="http://progressed.io/bar/28?title=progress" target="_blank" rel="external">http://progressed.io/bar/28?title=progress</a></p><br><p>支持markdown语法引用</p><br><p>在线演示</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1138.htm"></iframe></p><br><p>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来调试下嘛:<a href="http://www.gbtags.com/gb/rtreplayerpreview/1138.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1138.htm</a></p></blockquote><br></div>
 
 
 
@@ -735,11 +713,11 @@
 
 
   
-    <article id="post-8ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-16ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/8ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.446Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/16ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -752,7 +730,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/8ver/">响应式WEB设计阅读笔记-仅github更新</a>
+      <a class="article-title" href="/2015/10/21/16ver/">CSS之等分布局</a>
     </h1>
   
 
@@ -761,22 +739,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p style="text-align: left;"><a href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8" target="_blank" rel="external">地址</a></p><p></p>
-<p></p><h3>HTML5，CSS3及响应式设计入门</h3><p></p>
-<p></p><h3><a id="user-content-概括" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#概括" target="_blank" rel="external"></a>概括</h3><p></p>
-<p></p><p>针对任意设备对网页内容进行完美布局的一种显示机制,如果需要根据不同设备提供特定的内容和功能，那就需要一个真正的“手机版”网页。</p><p></p>
-<p></p><h3><a id="user-content-html5导航" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#html5导航" target="_blank" rel="external"></a>HTML5导航</h3><p></p>
-<pre><code>&lt;header&gt;
-    &lt;nav&gt;
-        &lt;ul id="nav-list"&gt;
-            &lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/nav&gt;
-&lt;/header&gt;
-</code></pre>
-<h3><a id="user-content-css3" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#css3" target="_blank" rel="external"></a>CSS3</h3>
-<pre><code>background-image:linerar-gradient(red blue);//渐变
-border-radius:8px//圆角</code></pre>
+        <p><pre class="lang:default decode:true  ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type=”text/css”&gt;<br>        /<em>一:float<br>            .parent{<br>                margin-left:-20px 总宽度增加一个G<br>            }<br>            .column{<br>                float: left;<br>                width: 25%;<br>                padding-left: 20px;<br>                box-sizing: border-box; 包含了padding<br>            }</em>/</pre></p>
+<pre><code>        <span class="comment">/*二:table
+        .parent-fix{
+            margin-left: -20px;
+        }
+        .parent{
+            display: table;
+            width: 100%;
+            table-layout: fixed; 一:布局优先,加速渲染,二:单元格未设置宽度单元格则是平分
+        }
+        .column{
+            display: table-cell;
+            padding-left: 20px;
+        }*/</span>
+
+        <span class="comment">/*三:flex
+        .parent{
+            display: flex;
+        }
+        .column{
+            flex: 1; 每一列宽度都会平均分配
+        }
+        .column+.column{
+            margin-left: 20px;
+        }*/</span>
+
+
+
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/style<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+        每列宽度，间距一样
+        总宽度为C,每列宽度为W,每列间距为G,多少列为N
+        则C+G=(W+G)*N 总宽度加上一个G
+
+        一:float
+            <span class="attribute">-IE7</span>以下兼容性不太好
+            -结构与样式有耦合性
+
+        二:table
+            -套一个<span class="keyword">parent</span><span class="attribute">-fix</span>来实现C+G的效果
+            -无耦合性
+
+        三:flex
+            -兼容性是个坑
+
+
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/script<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;/head<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;body<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"parent-fix"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"parent"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">1</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">2</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">3</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
+        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">4</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
+    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
+<span class="subst">&amp;</span><span class="literal">lt</span>;/body<span class="subst">&amp;</span><span class="literal">gt</span>;
+</code></pre><p>&lt;/html&gt;<br></p>
+<p>&nbsp;</p>
 
 
 
@@ -805,11 +835,11 @@ border-radius:8px//圆角</code></pre>
 
 
   
-    <article id="post-4ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-28ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/20/4ver/" class="article-date">
-  	<time datetime="2015-10-20T14:15:38.433Z" itemprop="datePublished">2015-10-20</time>
+      <a href="/2015/10/21/28ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -822,7 +852,7 @@ border-radius:8px//圆角</code></pre>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/20/4ver/">angular学习笔记-个人初步学习感受</a>
+      <a class="article-title" href="/2015/10/21/28ver/">做个简单的本地弹幕播放器</a>
     </h1>
   
 
@@ -831,10 +861,63 @@ border-radius:8px//圆角</code></pre>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h3>argular初始化</h3><p></p>
-<p><pre><code>//创建一个div 并在div上声明一个初始化属性<br>//ng-app:初始化<br>//ng-init:声明初始化的一些属性<br>//通过来输出绑定的属性<br>&lt;div ng-app=”” ng-init=”name=’hello’;data=[‘argular’,’one’]”&gt;<br> &lt;br&gt;<br><br>&lt;/div&gt;<br></code></pre></p>
-<p></p><h3><a id="user-content-argular绑定-ng-model" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#argular绑定-ng-model" target="_blank" rel="external"></a>argular绑定 ng-model</h3><p></p>
-<p>ng-model把相关处理事件绑定到指定标签上， 这样我们就可以不用在手工处理相关事件(比如change等)的条件下完成对数据的展现需求。</p><br><pre><code>//通过ng-model绑定数据 然后再通过输出<br>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;br&gt;<br>你输入的值为:<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-解析后生成数据-ng-bind" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#解析后生成数据-ng-bind" target="_blank" rel="external"></a>解析后生成数据 ng-bind</h3><br><p>在angular未解析完成之前会暴露模板比如这种字符串 所以可以采用ng-bind来实现绑定 ng-bind绑定的是这个值/数据 也就是下文的name, name可以算是一个数据了</p><br><pre><code>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;p&gt;你输入的是&lt;span ng-bind=”name”&gt;&lt;/span&gt;&lt;/p&gt;<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-单击事件-ng-click" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#单击事件-ng-click" target="_blank" rel="external"></a>单击事件 ng-click</h3><br><p>ng-hide=”true”，设置HTML元素不可见。</p><br><pre><code>&lt;div ng-app=”” ng=init=”hide=false”&gt;<br>        &lt;button ng-click=”hide=!hide”&gt;click me&lt;/button&gt;<br>        &lt;div ng-hide=”hide”&gt;<br>            input you name&lt;input ng-model=”inputvalue”&gt;<br>            &lt;br&gt;<br>            &lt;span ng-bind=”inputvalue”&gt;&lt;/span&gt;<br>        &lt;/div&gt;<br>&lt;div&gt;<br></code></pre><br><p>&nbsp;</p>
+        <p></p><h1><strong>推荐跳转至此链接观看<a href="http://www.gbtags.com/gb/share/5769.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5769.htm</a></strong></h1><p></p>
+<p>&nbsp;</p><br><div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/20b7f765-e655-47ee-ab8c-89b04009c00b.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>前言</p><br><ul><br><li>本文仅仅是做一个简单的弹幕播放器</li><br><li>本文弹幕播放器仅仅是演示一下发送弹幕功能</li><br><li>请跳转本文底部的在线调试代码进行调试</li><br></ul><br></blockquote><br><p>最终实现效果如下:</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Okay.首先你得找到一个弹幕开源库就是这个啦:<a href="https://github.com/jabbany/CommentCoreLibrary" target="_blank" rel="external">https://github.com/jabbany/CommentCoreLibrary</a></p><br><p>其次你得准备好一个HTML文件 准备完后lets do it</p><br><p>&nbsp;</p><br><p>引入两个重要的弹幕开源库文件 这里用了我blog的文件</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/CommentCoreLibrary.js" target="_blank" rel="external">http://www.old.com/cdn/CommentCoreLibrary.js</a>“</span> <span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L1"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/style.css" target="_blank" rel="external">http://www.old.com/cdn/style.css</a>“</span><span class="tag">/&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>编写好HTML 结构</p><br><p>这里解释一下这个弹幕开源库必须要一个HTML结构也就是</p><br><p>这两个结构是必须的 且class为abp和container也是不能改变的 这点从开源库的css文件就可以看出</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>添加一些视频元素和一个表单元素 HTML就okay了</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;video</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“abpVideo”</span> <span class="atn">poster</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg" target="_blank" rel="external">http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg</a>“</span> <span class="atn">controls</span><span class="pun">=</span><span class="atv">“none”</span><span class="tag">&gt;</span></li><br><li class="L2"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/mp4”</span><span class="tag">&gt;</span></li><br><li class="L3"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/webm”</span><span class="tag">&gt;</span></li><br><li class="L4"><span class="tag">&lt;p</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“warning”</span><span class="tag">&gt;</span><span class="pln">Your browser does not support HTML5 video.</span><span class="tag">&lt;/p&gt;</span></li><br><li class="L5"><span class="tag">&lt;/video&gt;</span></li><br><li class="L6"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L7"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“controls”</span><span class="tag">&gt;</span></li><br><li class="L8"><span class="tag">&lt;form</span> <span class="atn">action</span><span class="pun">=</span><span class="atv">“”</span><span class="tag">&gt;</span></li><br><li class="L9"><span class="tag">&lt;p&gt;</span><span class="pln">选择颜色:</span><span class="tag">&lt;select</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“chose”</span><span class="tag">&gt;</span></li><br><li class="L0"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xff0000”</span><span class="tag">&gt;</span><span class="pln">红色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L1"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0x7fff00”</span><span class="tag">&gt;</span><span class="pln">绿色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L2"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xffff56”</span><span class="tag">&gt;</span><span class="pln">黄色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L3"><span class="tag">&lt;/select&gt;</span></li><br><li class="L4"><span class="pln"> 输入内容:</span><span class="tag">&lt;input</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“”</span> <span class="tag">/&gt;</span> <span class="tag">&lt;button</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“send”</span><span class="tag">&gt;</span><span class="pln">发送</span><span class="tag">&lt;/button&gt;</span></li><br><li class="L5"><span class="tag">&lt;/p&gt;</span></li><br><li class="L6"><span class="tag">&lt;/form&gt;</span></li><br><li class="L7"><span class="tag">&lt;/div&gt;</span></li><br><li class="L8"></li><br><li class="L9"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p>设置一下CSS达到全屏的效果</p><br><p>这里说我遇到一个坑.在绘制的div也就是id=”commentCanvas” 他的css属性为position:absolute z-index=999 所以会覆盖在视频文件上方导致视频文件进度条无法按 -  -于是这里我采用了设置id=”commentCanvas”的height=80%来达到效果。当然肯定有更好的解决办法，希望大家能够踊跃讨论下。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;style</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> html</span><span class="pun">,</span><span class="pln">body</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L4"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pln"> body</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> overflow</span><span class="pun">-</span><span class="pln">y</span><span class="pun">:</span><span class="pln">scroll</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">container</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">90</span><span class="pun">%;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="com">#abpVideo{</span></li><br><li class="L4"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L5"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="pun">.</span><span class="pln">controls</span><span class="pun">{</span></li><br><li class="L9"><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="tag">&lt;/style&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>设置一些js属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">‘load’</span><span class="pun">,</span> <span class="kwd">function</span> <span class="pun">()</span> <span class="pun">{</span></li><br><li class="L2"><span class="com">// 在窗体载入完毕后再绑定</span></li><br><li class="L3"><span class="kwd">function</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">id</span><span class="pun">){</span></li><br><li class="L4"><span class="kwd">return</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> CM </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">CommentManager</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘commentCanvas’</span><span class="pun">));</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">init</span><span class="pun">();</span></li><br><li class="L8"><span class="com">// 先启用弹幕播放（之后可以停止）</span></li><br><li class="L9"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li><br><li class="L0"><span class="com">// 开放 CM 对象到全局这样就可以在 console 终端里操控</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">CM </span><span class="pun">=</span><span class="pln"> CM</span><span class="pun">;</span></li><br><li class="L2"><span class="com">//创建弹幕列表对象</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> list</span><span class="pun">={</span></li><br><li class="L4"><span class="com">//这些属性都可以在官网文档找到答案 这里就不详细说明了</span></li><br><li class="L5"><span class="str">“dur”</span><span class="pun">:</span> <span class="lit">10000</span><span class="pun">,</span></li><br><li class="L6"><span class="str">“size”</span><span class="pun">:</span> <span class="lit">25</span><span class="pun">,</span></li><br><li class="L7"><span class="str">“stime”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li><br><li class="L8"><span class="str">“mode”</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">,</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pln"> $</span><span class="pun">(</span><span class="str">“send”</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">“click”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li><br><li class="L2"><span class="com">//text属性为弹幕文字</span></li><br><li class="L3"><span class="pln"> list</span><span class="pun">.</span><span class="pln">text</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">“main”</span><span class="pun">).</span><span class="pln">value</span></li><br><li class="L4"><span class="com">//color为弹幕颜色同时转化为10进制</span></li><br><li class="L5"><span class="pln"> list</span><span class="pun">.</span><span class="pln">color</span><span class="pun">=(</span><span class="pln">parseInt</span><span class="pun">((</span><span class="pln">$</span><span class="pun">(</span><span class="str">“chose”</span><span class="pun">).</span><span class="pln">value</span><span class="pun">)));</span></li><br><li class="L6"><span class="com">//这条就是发送弹幕功能了</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">list</span><span class="pun">);</span></li><br><li class="L8"></li><br><li class="L9"><span class="pln"> event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li><br><li class="L0"><span class="pln"> event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li><br><li class="L1"><span class="pun">})</span></li><br><li class="L2"></li><br><li class="L3"><span class="pun">});</span></li><br><li class="L4"><span class="tag">&lt;/script&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1141.htm"></iframe>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来玩一下吗？<a href="http://www.gbtags.com/gb/rtreplayerpreview/1141.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1141.htm</a></p></blockquote><br><p>&nbsp;</p><br></div><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-1ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/1ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.752Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/1ver/">解决IE9、IE10无法加载本地CSS文件的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>转自<a href="http://wlt436.blog.163.com/blog/static/6464704201472944155390/" target="_blank" rel="external">http://wlt436.blog.163.com/blog/static/6464704201472944155390/</a></strong></p><br><p>从去年三月份开始，我的IE出现了一个很奇怪的现象：在IE9/IE10模式下打开所有本地网页，都不能加载外链CSS样式表，浏览器会报“SEC7113：CSS 因 Mime 类型不匹配而被忽略”的错误；而在IE6/7/8以及chrome、firefox里面就不存在这样的问题，这给我的前端开发造成了很大的麻烦。查阅了微软的官方文档，给出的解释是微软对浏览器的安全机制作了一些修改，会拒绝加载MIME type不匹配的CSS文件，不过我在&lt;link&gt;里面已经正确声明了css type，这个问题仍然存在。当时尝试了各种解决方法，搜遍了百度谷歌，在各种技术论坛发帖询问，都没有效果，至于网上那些所谓修改web.xml的方法，纯属扯淡。</p><br><p>这一年半以来，我都是使用在本地架设一个服务器环境的方法来实现对本地网页的预览，具体的实现步骤不说了，这种方式极其不方便，原来想要浏览一个网页，去到对应的目录双击打开就行，现在还得先用dreamweaver打开，然后发布一下才可以正常浏览。</p><br><p>直到今天，偶然看到了这篇文章：<a href="http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files" target="_blank" rel="nofollow">http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files</a></p><br><p>文章下面的推荐答案经过我的测试，实际上是无效的。但是最后面一个回答，终于解决了这个困扰我一年半的问题。具体的解决步骤非常简单：</p><br><p><b> 1、下载FileTypesMan，百度即可找到，只有60多K</b></p><br><p><b> 2、解压运行FileTypesMan.exe，程序会花一点时间查找所有的文件格式，稍等一下即可</b></p><br><p><b> 3、在列表中找到.css，双击进入到“编辑文件类型”界面</b></p><br><p><b> 4、在MIME类型那里，修改为text/css</b></p><br><p><b> 5、点确定，大功告成~</b></p><br><p>然后再打开本地网页，css文件已经可以正常加载了。</p>
 
 
 

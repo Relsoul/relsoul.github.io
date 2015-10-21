@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS之OPP-模拟重载-链式调用 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一:模拟重载                -判断实际传入参数个数来实现重载                function Person(){                    var args=arguments                    if(typeof args[0]===”object”&amp;amp;&amp;amp;args[0]){">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS之OPP-模拟重载-链式调用">
+<meta property="og:url" content="http://emufan.com/2015/10/21/15ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="一:模拟重载                -判断实际传入参数个数来实现重载                function Person(){                    var args=arguments                    if(typeof args[0]===”object”&amp;amp;&amp;amp;args[0]){">
+<meta property="og:updated_time" content="2015-10-21T14:57:05.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS之OPP-模拟重载-链式调用">
+<meta name="twitter:description" content="一:模拟重载                -判断实际传入参数个数来实现重载                function Person(){                    var args=arguments                    if(typeof args[0]===”object”&amp;amp;&amp;amp;args[0]){">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-15ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/15ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS之OPP-模拟重载-链式调用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:模拟重载<br>                -判断实际传入参数个数来实现重载<br>                function Person(){<br>                    var args=arguments<br>                    if(typeof args[0]===”object”&amp;&amp;args[0]){<br>                        if(args[0].name){<br>                            this.name=args[0].name<br>                        }<br>                        if(args[0].age){<br>                            this.age=args[0].age<br>                        }<br>                    }else{<br>                        if(args[0]){<br>                            this.name=args[0]<br>                        }<br>                        if(args[1]){<br>                            this.age=args[1]<br>                        }<br>                    }<br>                }<br>                Person.prototype.toString=function(){<br>                    return ‘name=’+this.name+”,age=”+this.age<br>                }<br>                var bosn=new Person(“Bosn”,27);<br>                bosn.toString()//name=Bosn,age=27<br>                var nunn=new Person({name:”Nunn”,age:38});<br>                nunn.toString()//name=Nunn,age=38</pre></p>
+<pre><code>二:-调用子类模型
+        <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>{<span class="keyword">this</span>.name=name}
+        <span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name,cls</span>)</span>{<span class="keyword">this</span>.className=cls;
+        Person.call(<span class="keyword">this</span>,name)}
+        <span class="keyword">var</span> bosn=<span class="keyword">new</span> Student(<span class="string">"Bosn"</span>,<span class="string">"Network064"</span>);
+        bosn;<span class="comment">//Student{className:"Network64",name:"Bosn"}</span>
+        Person.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}
+        Student.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="comment">// do sth</span>
+            Person.prototype.init.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)
+        }
+
+三:链式调用
+    <span class="function"><span class="keyword">function</span> <span class="title">ClassManager</span>(<span class="params"></span>)</span>{
+        ClassManager.prototype.addClass=<span class="function"><span class="keyword">function</span>(<span class="params">str</span>)</span>{
+            <span class="built_in">console</span>.log(<span class="string">"Class"</span>+str+<span class="string">"added"</span>);
+            <span class="built_in">console</span>.log(<span class="keyword">this</span>.toString())
+            <span class="keyword">return</span> <span class="keyword">this</span> <span class="comment">//返回原函数 也就是 function ClassManager的实例</span>
+        }
+
+    }
+    ClassManager.prototype.toString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="keyword">return</span> <span class="keyword">this</span>
+        }
+    <span class="keyword">var</span> manager=<span class="keyword">new</span> ClassManager();
+
+    manager.addClass(<span class="string">"classA"</span>).addClass(<span class="string">"classB"</span>);
+
+四：抽象类
+    <span class="function"><span class="keyword">function</span> <span class="title">DetectorBase</span>(<span class="params"></span>)</span>{
+        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Abstract class can not not be invoked directly!"</span>)<span class="comment">//防止抽象类直接被调用</span>
+    }
+    DetectorBase.prototype.detect=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">"Detection staring"</span>)};
+    DetectorBase.prototype.stop=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">"Detection stopped"</span>)};
+    DetectorBase.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Error"</span>)};
+    <span class="function"><span class="keyword">function</span> <span class="title">LinkDetector</span>(<span class="params"></span>)</span>{
+        LinkDetector.prototype=<span class="built_in">Object</span>.create(Detector.prototype);
+        LinkDetector.prototype.constructor=LinkDetector
+    }
+
+五:defineProperty(ES5)
+    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>{
+        <span class="comment">//name:name(name变量),是否可枚举:true</span>
+        <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>,<span class="string">"name"</span>,{value:name,enumerable:<span class="literal">true</span>})
+    }
+    <span class="comment">//ARMS_NUM:2,是否可枚举:true</span>
+    <span class="built_in">Object</span>.defineProperty(Person,<span class="string">"ARMS_NUM"</span>,{value:<span class="number">2</span>,enumerable:<span class="literal">true</span>})
+    <span class="built_in">Object</span>.seal(Person.prototype);<span class="comment">//无法再被扩展和配置</span>
+    <span class="built_in">Object</span>.seal(Person);
+    <span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name.className</span>)</span>{
+        <span class="keyword">this</span>.className=className;
+        Person.call(<span class="keyword">this</span>,name)
+    }
+    Student.prototype=<span class="built_in">Object</span>.create(Person.prototype);
+    Student.prototype.constructor=Student
+
+六:模块化
+    <span class="keyword">var</span> moduleA;
+    moduleA=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="keyword">var</span> prop=<span class="number">1</span>;
+        <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>{
+            <span class="keyword">return</span>{
+                func:func
+                prop:prop
+            }
+        }
+    }()
+    <span class="keyword">var</span> moduleA;
+    moduleA=<span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="keyword">var</span> prop=<span class="number">1</span>;
+        <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>{
+            <span class="keyword">this</span>.func=func;
+            <span class="keyword">this</span>.prop=prop;
+        }
+    }&lt;<span class="regexp">/pre&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/21/18ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CSS实现全屏布局的两种方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/21/5ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一个练手之作-soul笔记本</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="15ver" data-title="JS之OPP-模拟重载-链式调用" data-url="http://emufan.com/2015/10/21/15ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
