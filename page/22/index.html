@@ -21,6 +21,17 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body>
   <div id="container">
@@ -112,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/byby/" style="font-size: 10px;">byby</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a>
 					</div>
 				</section>
 				
@@ -121,17 +132,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
 			        
 			        </div>
 				</section>
@@ -191,6 +192,61 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-20ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/20ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/20ver/">jquery源码分析-仅github更新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/Relsoul/readbook/tree/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90" target="_blank" rel="external">github地址</a></p><br><h1>Jquery学习笔记一</h1><br><h3><a id="user-content-jquery挂载" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery挂载" target="_blank" rel="external"></a>jquery挂载</h3><br><p>形成一个局部的环境，防止与其他代码冲突</p><br><pre><code>(function(window,undefined){}(window)<br>//对外提供接口如<br>window.$=$<br></code></pre><br><p>(21-94)定义了一些变量与函数</p><br><pre><code>jquery=function(){}<br></code></pre><br><p>(8826) $挂载到window上</p><br><pre><code>if ( typeof window === “object” &amp;&amp; typeof window.document === “object” ) {<br>    window.jQuery = window.$ = jQuery;<br>}<br></code></pre><br><h3><a id="user-content-jquery原型" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery原型" target="_blank" rel="external"></a>jquery原型</h3><br><p>(96-283) 给Jquery对象添加一些方法与属性</p><br><h3><a id="user-content-jqueryextend" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryextend" target="_blank" rel="external"></a>jquery.extend</h3><br><p>(285-347) jquery的继承方法</p><br><h3><a id="user-content-jquery的工具方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的工具方法" target="_blank" rel="external"></a>jquery的工具方法</h3><br><p>(349-817)jQuery.extend():扩展一些工具方法</p><br><pre><code>//两种方法<br>//$()返回的是一个实例 也就是为实例的方法<br>//仅仅为jquery用<br>$().css();<br>$().html();<br>//$的静态方法 可以给jquery用和原生的js用<br>$.trim();<br>$.proxy;<br><br>//静态方法为jquery的最底层的，实例方法为上一层，<br>//实例方法调用底层的静态方法<br></code></pre><br><h3><a id="user-content-jquery的选择器" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的选择器" target="_blank" rel="external"></a>jquery的选择器</h3><br><p>(877-2856):jquery的选择器 Sizzle:复杂选择器的实现</p><br><pre><code>$(“ul li + p input.class”).css();<br></code></pre><br><h3><a id="user-content-jquery回调对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery回调对象" target="_blank" rel="external"></a>jquery回调对象</h3><br><p>(2880-3042) ：Callbacks:回调对象:对函数的一个统一管理</p><br><pre><code>//jquery的函数统一管理 Callbacks<br>    function fn1(){console.log(1)}<br>    function fn2(){console.log(2)}<br>    var cb=$.Callbacks();//<br>    cb.add(fn1)<br>    cb.add(fn2)<br>    console.log(cb)<br>    cb.fire()//1 2<br>    cb.remove(fn2)<br>    cb.fire()//1<br></code></pre><br><h3><a id="user-content-jquery的延迟对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的延迟对象" target="_blank" rel="external"></a>jquery的延迟对象</h3><br><p>(3043-3183):jquery的延迟对象：对异步的一个统一管理 如:定义器，dom加载等等。</p><br><pre><code>//jquery的延迟对象：对异步的一个统一管理<br>            //先会弹出2 后弹出“异步管理”<br>/<em>          setTimeout(function(){<br>                console.log(“异步管理”)<br>            },1000)<br>            console.log(2)</em>/<br><br>            //加上延迟对象，先弹出异步管理 后弹出2<br>            var dfd=$.Deferred()<br>            setTimeout(function(){<br>                console.log(“异步管理”)<br>                dfd.resolve()<br>            },1000)<br>            dfd.done(function(){<br>                console.log(2)<br>            })<br></code></pre><br><h3><a id="user-content-jquery功能检测" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery功能检测" target="_blank" rel="external"></a>jquery功能检测</h3><br><p>(3184-3295):support：功能检测 比如根据浏览器功能判断浏览器版本</p><br><pre><code>// Support: Safari 5.1, iOS 5.1, Android 4.x, Android 2.3<br>    // Check the default checkbox/radio value (“” on old WebKit; “on” elsewhere)<br>    //老版本WEBKIT默认的checkbox/radio value 为””<br>    //新版本返回的为true  老版本返回为false<br>    support.checkOn = input.value !== “”;<br></code></pre><br><h3><a id="user-content-jquery的data方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的data方法" target="_blank" rel="external"></a>jquery的data()方法</h3><br><p>(3308-3652):jquery的data()方法:数据缓存</p><br><pre><code>//jquery的data()方法:数据缓存<br>            $(“#div1”).data(‘name’,”hello”);<br>            console.log($(“#div1”).data(“name”))//hello<br></code></pre><br><h3><a id="user-content-jquery队列管理" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery队列管理" target="_blank" rel="external"></a>jquery队列管理</h3><br><p>(3653-3797)：queue():队列管理 dequeue():出队</p><br><pre><code>//jquery队列管理<br>            //先走left值-top-width<br>            $(“#div1”).animate({left:100});<br>            $(“#div1”).animate({top:100});<br>            $(“#div1”).animate({width:300});<br></code></pre><br><h3><a id="user-content-jquery的属性操作方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的属性操作方法" target="_blank" rel="external"></a>jquery的属性操作方法</h3><br><p>(3803-4299):attr(),prop(),val(),addClass():对元素属性操作</p><br><h3><a id="user-content-jquery事件操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery事件操作" target="_blank" rel="external"></a>jquery事件操作</h3><br><p>(4300-5128):on(),trigger():事件操作相关方法</p><br><h3><a id="user-content-jquerydom操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquerydom操作" target="_blank" rel="external"></a>jqueryDOM操作</h3><br><p>(5140-6057):DOM操作方法:添加，删除，获取，包装，DOM筛选</p><br><h3><a id="user-content-jquery样式操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery样式操作" target="_blank" rel="external"></a>jquery样式操作</h3><br><p>(6058-6620):css()：样式操作</p><br><h3><a id="user-content-jqueryajax" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryajax" target="_blank" rel="external"></a>jqueryAjax</h3><br><p>(6621-7854):提交的数据与ajax(); 如:ajax();load();getJson();</p><br><h3><a id="user-content-jquery运动" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery运动" target="_blank" rel="external"></a>jquery运动</h3><br><p>(7855-8584):animate():运动的方法</p><br><h3><a id="user-content-jquery位置与尺寸" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery位置与尺寸" target="_blank" rel="external"></a>jquery位置与尺寸</h3><br><p>(8585-8792):offset():位置与尺寸的方法</p><br><h3><a id="user-content-jquery模块化" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery模块化" target="_blank" rel="external"></a>jquery模块化</h3><br><p>(8804-8821):jquery支持模块化的模式</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-18ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -518,10 +574,10 @@
 
 
   
-    <article id="post-5ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-7ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/5ver/" class="article-date">
+      <a href="/2015/10/21/7ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -535,7 +591,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/5ver/">第一个练手之作-soul笔记本</a>
+      <a class="article-title" href="/2015/10/21/7ver/">媒体查询:支持不同的视口</a>
     </h1>
   
 
@@ -544,7 +600,64 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>预览:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/</a></p><br><p>代码写的很渣.目前正在努力学习~</p>
+        <p></p><h1>媒体查询:支持不同的视口</h1><p></p>
+<p></p><h3><a id="user-content-支持程度" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#支持程度" target="_blank" rel="external"></a>支持程度</h3><p></p>
+<p>IE9+,FF3.6+,Chrome4+,Safari4+,Oprea9.5+,Android2.1+,IOS safari3.2+</p><br><h3><a id="user-content-媒体查询能检测的特效摘选" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询能检测的特效摘选" target="_blank" rel="external"></a>媒体查询能检测的特效(摘选)</h3><br><ul><br><li>width:视口宽度</li><br><li>height:视口高度</li><br><li>device-width:设备屏幕宽度</li><br><li>device-height:设备屏幕高度</li><br><li>orientation:设备处于横向还是纵向</li><br></ul><br><h3><a id="user-content-一个媒体查询" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#一个媒体查询" target="_blank" rel="external"></a>一个媒体查询</h3><br><pre><code>//import 会增加HTTP请求，影响加载速度<br>//屏幕宽度在200px-360px之间<br>import url(“phone.css”) screen and (min-width:200px) and (max-width:360px);<br></code></pre><br><h3><a id="user-content-低版本兼容库" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#低版本兼容库" target="_blank" rel="external"></a>低版本兼容库</h3><br><p>Respond.js为IE8以及更低版本增加媒体查询功能</p><br><h3><a id="user-content-从固定设计着手" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#从固定设计着手" target="_blank" rel="external"></a>从固定设计着手</h3><br><p>从固定的960px设计开始设计window的效果,同时保持设计中图片的精简</p><br><h3><a id="user-content-阻止浏览器自动调整页面大小" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#阻止浏览器自动调整页面大小" target="_blank" rel="external"></a>阻止浏览器自动调整页面大小</h3><br><pre><code>//放大两倍的设备屏幕宽度效果<br>//initial-scale=2.0 放大两倍<br>//width=device-width 设备宽度<br>&lt;meta name=”viewport” content=”initial-scale=2.0,width=device-width”&gt;<br></code></pre><br><p>控制可缩放范围与禁止缩放</p><br><pre><code>//maxinum-scale=3 用户最大调整缩放为3倍<br>//minimun-scale=0.5 用户最小调整缩放为0.5倍<br>//user-scalable=no 禁止用户缩放<br>&lt;meta name=”viewport” content=”maxinum-scale=3,minimun-scale=0.5,width=device-width，user-scalable=no”&gt;<br></code></pre><br><h3><a id="user-content-针对不同的视口宽度修正设计" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#针对不同的视口宽度修正设计" target="_blank" rel="external"></a>针对不同的视口宽度修正设计</h3><br><pre><code>//最大宽度为768px的设备进行调整<br>@media  screen and (max-width: 768px) {<br>                #nav{<br>                //do sth<br>                }<br>            }<br></code></pre><br><h3><a id="user-content-响应式设计中内容始终优先" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#响应式设计中内容始终优先" target="_blank" rel="external"></a>响应式设计中内容始终优先</h3><br><p>多平台多视口的情况下保留尽可能多的内容，而不是使用display:none或者类似的方法来隐藏内容</p><br><h3><a id="user-content-媒体查询只是必要条件之一" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询只是必要条件之一" target="_blank" rel="external"></a>媒体查询只是必要条件之一</h3><br><p>媒体查询只能根据设备特性应用对应的样式.一但超出应用样式的范围，媒体查询将无法生效如上面那段代码 如果屏幕宽度大于768px那么将无法生效</p><br><h3><a id="user-content-我们需要流动布局" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#我们需要流动布局" target="_blank" rel="external"></a>我们需要流动布局</h3><br><p>如果针对已知的特定访问设备，可以单独使用媒体查询来制作理想的设计效果，我们已经见过配适768px有多简单，但是这种策略有严重的缺陷，换句话说，它不能适应未来的变换。 目前的效果更像是一个自适应，而不是我们想要的响应式。我们设计应该在突变之前保持灵动.</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-9ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/9ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/9ver/">一个石头剪刀布的小游戏</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>没做太多的CSS效果，只做了一些基本的逻辑判断..新人，写的很渣。大家看看就行了。。</p><br><p>Deom:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p>
 
 
 
@@ -631,10 +744,10 @@
 
 
   
-    <article id="post-20ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-4ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/20ver/" class="article-date">
+      <a href="/2015/10/21/4ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -648,7 +761,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/20ver/">jquery源码分析-仅github更新</a>
+      <a class="article-title" href="/2015/10/21/4ver/">angular学习笔记-个人初步学习感受</a>
     </h1>
   
 
@@ -657,7 +770,80 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/Relsoul/readbook/tree/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90" target="_blank" rel="external">github地址</a></p><br><h1>Jquery学习笔记一</h1><br><h3><a id="user-content-jquery挂载" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery挂载" target="_blank" rel="external"></a>jquery挂载</h3><br><p>形成一个局部的环境，防止与其他代码冲突</p><br><pre><code>(function(window,undefined){}(window)<br>//对外提供接口如<br>window.$=$<br></code></pre><br><p>(21-94)定义了一些变量与函数</p><br><pre><code>jquery=function(){}<br></code></pre><br><p>(8826) $挂载到window上</p><br><pre><code>if ( typeof window === “object” &amp;&amp; typeof window.document === “object” ) {<br>    window.jQuery = window.$ = jQuery;<br>}<br></code></pre><br><h3><a id="user-content-jquery原型" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery原型" target="_blank" rel="external"></a>jquery原型</h3><br><p>(96-283) 给Jquery对象添加一些方法与属性</p><br><h3><a id="user-content-jqueryextend" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryextend" target="_blank" rel="external"></a>jquery.extend</h3><br><p>(285-347) jquery的继承方法</p><br><h3><a id="user-content-jquery的工具方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的工具方法" target="_blank" rel="external"></a>jquery的工具方法</h3><br><p>(349-817)jQuery.extend():扩展一些工具方法</p><br><pre><code>//两种方法<br>//$()返回的是一个实例 也就是为实例的方法<br>//仅仅为jquery用<br>$().css();<br>$().html();<br>//$的静态方法 可以给jquery用和原生的js用<br>$.trim();<br>$.proxy;<br><br>//静态方法为jquery的最底层的，实例方法为上一层，<br>//实例方法调用底层的静态方法<br></code></pre><br><h3><a id="user-content-jquery的选择器" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的选择器" target="_blank" rel="external"></a>jquery的选择器</h3><br><p>(877-2856):jquery的选择器 Sizzle:复杂选择器的实现</p><br><pre><code>$(“ul li + p input.class”).css();<br></code></pre><br><h3><a id="user-content-jquery回调对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery回调对象" target="_blank" rel="external"></a>jquery回调对象</h3><br><p>(2880-3042) ：Callbacks:回调对象:对函数的一个统一管理</p><br><pre><code>//jquery的函数统一管理 Callbacks<br>    function fn1(){console.log(1)}<br>    function fn2(){console.log(2)}<br>    var cb=$.Callbacks();//<br>    cb.add(fn1)<br>    cb.add(fn2)<br>    console.log(cb)<br>    cb.fire()//1 2<br>    cb.remove(fn2)<br>    cb.fire()//1<br></code></pre><br><h3><a id="user-content-jquery的延迟对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的延迟对象" target="_blank" rel="external"></a>jquery的延迟对象</h3><br><p>(3043-3183):jquery的延迟对象：对异步的一个统一管理 如:定义器，dom加载等等。</p><br><pre><code>//jquery的延迟对象：对异步的一个统一管理<br>            //先会弹出2 后弹出“异步管理”<br>/<em>          setTimeout(function(){<br>                console.log(“异步管理”)<br>            },1000)<br>            console.log(2)</em>/<br><br>            //加上延迟对象，先弹出异步管理 后弹出2<br>            var dfd=$.Deferred()<br>            setTimeout(function(){<br>                console.log(“异步管理”)<br>                dfd.resolve()<br>            },1000)<br>            dfd.done(function(){<br>                console.log(2)<br>            })<br></code></pre><br><h3><a id="user-content-jquery功能检测" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery功能检测" target="_blank" rel="external"></a>jquery功能检测</h3><br><p>(3184-3295):support：功能检测 比如根据浏览器功能判断浏览器版本</p><br><pre><code>// Support: Safari 5.1, iOS 5.1, Android 4.x, Android 2.3<br>    // Check the default checkbox/radio value (“” on old WebKit; “on” elsewhere)<br>    //老版本WEBKIT默认的checkbox/radio value 为””<br>    //新版本返回的为true  老版本返回为false<br>    support.checkOn = input.value !== “”;<br></code></pre><br><h3><a id="user-content-jquery的data方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的data方法" target="_blank" rel="external"></a>jquery的data()方法</h3><br><p>(3308-3652):jquery的data()方法:数据缓存</p><br><pre><code>//jquery的data()方法:数据缓存<br>            $(“#div1”).data(‘name’,”hello”);<br>            console.log($(“#div1”).data(“name”))//hello<br></code></pre><br><h3><a id="user-content-jquery队列管理" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery队列管理" target="_blank" rel="external"></a>jquery队列管理</h3><br><p>(3653-3797)：queue():队列管理 dequeue():出队</p><br><pre><code>//jquery队列管理<br>            //先走left值-top-width<br>            $(“#div1”).animate({left:100});<br>            $(“#div1”).animate({top:100});<br>            $(“#div1”).animate({width:300});<br></code></pre><br><h3><a id="user-content-jquery的属性操作方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的属性操作方法" target="_blank" rel="external"></a>jquery的属性操作方法</h3><br><p>(3803-4299):attr(),prop(),val(),addClass():对元素属性操作</p><br><h3><a id="user-content-jquery事件操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery事件操作" target="_blank" rel="external"></a>jquery事件操作</h3><br><p>(4300-5128):on(),trigger():事件操作相关方法</p><br><h3><a id="user-content-jquerydom操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquerydom操作" target="_blank" rel="external"></a>jqueryDOM操作</h3><br><p>(5140-6057):DOM操作方法:添加，删除，获取，包装，DOM筛选</p><br><h3><a id="user-content-jquery样式操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery样式操作" target="_blank" rel="external"></a>jquery样式操作</h3><br><p>(6058-6620):css()：样式操作</p><br><h3><a id="user-content-jqueryajax" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryajax" target="_blank" rel="external"></a>jqueryAjax</h3><br><p>(6621-7854):提交的数据与ajax(); 如:ajax();load();getJson();</p><br><h3><a id="user-content-jquery运动" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery运动" target="_blank" rel="external"></a>jquery运动</h3><br><p>(7855-8584):animate():运动的方法</p><br><h3><a id="user-content-jquery位置与尺寸" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery位置与尺寸" target="_blank" rel="external"></a>jquery位置与尺寸</h3><br><p>(8585-8792):offset():位置与尺寸的方法</p><br><h3><a id="user-content-jquery模块化" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery模块化" target="_blank" rel="external"></a>jquery模块化</h3><br><p>(8804-8821):jquery支持模块化的模式</p>
+        <p></p><h3>argular初始化</h3><p></p>
+<p><pre><code>//创建一个div 并在div上声明一个初始化属性<br>//ng-app:初始化<br>//ng-init:声明初始化的一些属性<br>//通过来输出绑定的属性<br>&lt;div ng-app=”” ng-init=”name=’hello’;data=[‘argular’,’one’]”&gt;<br> &lt;br&gt;<br><br>&lt;/div&gt;<br></code></pre></p>
+<p></p><h3><a id="user-content-argular绑定-ng-model" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#argular绑定-ng-model" target="_blank" rel="external"></a>argular绑定 ng-model</h3><p></p>
+<p>ng-model把相关处理事件绑定到指定标签上， 这样我们就可以不用在手工处理相关事件(比如change等)的条件下完成对数据的展现需求。</p><br><pre><code>//通过ng-model绑定数据 然后再通过输出<br>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;br&gt;<br>你输入的值为:<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-解析后生成数据-ng-bind" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#解析后生成数据-ng-bind" target="_blank" rel="external"></a>解析后生成数据 ng-bind</h3><br><p>在angular未解析完成之前会暴露模板比如这种字符串 所以可以采用ng-bind来实现绑定 ng-bind绑定的是这个值/数据 也就是下文的name, name可以算是一个数据了</p><br><pre><code>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;p&gt;你输入的是&lt;span ng-bind=”name”&gt;&lt;/span&gt;&lt;/p&gt;<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-单击事件-ng-click" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#单击事件-ng-click" target="_blank" rel="external"></a>单击事件 ng-click</h3><br><p>ng-hide=”true”，设置HTML元素不可见。</p><br><pre><code>&lt;div ng-app=”” ng=init=”hide=false”&gt;<br>        &lt;button ng-click=”hide=!hide”&gt;click me&lt;/button&gt;<br>        &lt;div ng-hide=”hide”&gt;<br>            input you name&lt;input ng-model=”inputvalue”&gt;<br>            &lt;br&gt;<br>            &lt;span ng-bind=”inputvalue”&gt;&lt;/span&gt;<br>        &lt;/div&gt;<br>&lt;div&gt;<br></code></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-8ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/8ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/8ver/">响应式WEB设计阅读笔记-仅github更新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p style="text-align: left;"><a href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8" target="_blank" rel="external">地址</a></p><p></p>
+<p></p><h3>HTML5，CSS3及响应式设计入门</h3><p></p>
+<p></p><h3><a id="user-content-概括" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#概括" target="_blank" rel="external"></a>概括</h3><p></p>
+<p></p><p>针对任意设备对网页内容进行完美布局的一种显示机制,如果需要根据不同设备提供特定的内容和功能，那就需要一个真正的“手机版”网页。</p><p></p>
+<p></p><h3><a id="user-content-html5导航" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#html5导航" target="_blank" rel="external"></a>HTML5导航</h3><p></p>
+<pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul id="nav-list"&gt;
+            &lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+<h3><a id="user-content-css3" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#css3" target="_blank" rel="external"></a>CSS3</h3>
+<pre><code>background-image:linerar-gradient(red blue);//渐变
+border-radius:8px//圆角</code></pre>
 
 
 
@@ -888,331 +1074,6 @@
 </span></span>
 十七:UIEvent&lt;/pre&gt;
 </code></pre><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-DocusEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-661" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-DocusEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/DocusEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="DocusEvent" width="300" height="168"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-WheelEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-667" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-WheelEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/WheelEvent-300x172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WheelEvent" width="300" height="172"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-UIEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-666" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-UIEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/UIEvent-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="UIEvent" width="300" height="169"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-MouseEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-665" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-MouseEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/MouseEvent-300x171.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="MouseEvent" width="300" height="171"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-KeyboardEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-664" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-KeyboardEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/KeyboardEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="KeyboardEvent" width="300" height="168"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-InputEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-663" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-InputEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/InputEvent-300x170.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="InputEvent" width="300" height="170"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-Event.png" target="_blank" rel="external"><img class=" size-medium wp-image-662 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-Event.png" data-original="http://www.old.com/wp-content/uploads/2015/06/Event-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="Event" width="300" height="169"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>图片打包下载:<a href="http://www.old.com/wp-content/uploads/2015/07/事件.zip" target="_blank" rel="external">事件</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-39ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/39ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/39ver/">DOM编程艺术之动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:实现方式<br>        -gif<br>        -flash<br>        -CSS3<br>        -JS</pre></p>
-<pre><code>二:三要素
-    -<span class="ruby">对象
-</span>        -<span class="ruby"><span class="constant">DOM</span>
-</span>    -<span class="ruby">属性
-</span>        -<span class="ruby">width
-</span>        -<span class="ruby">height
-</span>        -<span class="ruby"><span class="constant">Left</span>
-</span>        -<span class="ruby">....
-</span>    -<span class="ruby">定时器
-</span>        -<span class="ruby">setInterval
-</span>        -<span class="ruby">setTimeout
-</span>        -<span class="ruby">requestAnimationFrame
-</span>
-三:setInterval
-    -<span class="ruby">var timer=setInterval(func,delay)
-</span>                函数  触发定时器的间隔
-    -<span class="ruby">clearInterval(timer)
-</span>    -<span class="ruby">每隔一段时间执行
-</span>
-
-四:setTimeout
-    -<span class="ruby">var timer=setTimeout(func,delay)
-</span>    -<span class="ruby">clearTimeout(timer)
-</span>    -<span class="ruby">只会执行一次
-</span>
-五:requestAnimationFrame
-    -<span class="ruby">var timer=requestAnimationFrame(func)
-</span>    -<span class="ruby">cancelAnimationFrame(func)
-</span>    -<span class="ruby">间隔时间以显示器的频率决定
-</span>    -<span class="ruby">更流畅
-</span>
-六:常见动画
-    -<span class="ruby">形变
-</span>    -<span class="ruby">位移
-</span>    -<span class="ruby">旋转
-</span>    -<span class="ruby">透明度
-</span>    -<span class="ruby">...
-</span>
-七:动画函数
-    -<span class="ruby">var animation=function(ele,attr,from,to){
-</span>        var distance=Math.abs(to-from);
-        var stepLength=distance/100
-        var sign=(to-from)/distance
-        var offset=0;
-        var step=function(){
-            var tmpOffset=offset+stepLength;
-            if(tmpOffset&amp;lt;distance){
-                ele.style[attr]=from+tmpOffset*sign+'px'
-            }else{
-                ele.style[attr]=from+"px"
-                clearInterval(intervalId)
-            }
-        }
-        ele.style[attr]=from+"px";
-        var intervalId=setInterval(step,10)
-    }
-
-    -<span class="ruby">var process=function(prcsswrap,drtn,intrvl,callback){
-</span>        var width=prcsswrap.clientWidth
-        var prcss=prcsswrap.getElementsByClassName('prcss')[0]
-        var count=drtn/intrvl
-        var offset=Math.floor(width/count)
-        var tmpCurrent=CURRENT
-        var step=function(){
-
-        }
-        var intervalId=setInterval(step,intrvl)
-    }
-</code></pre><p></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-38ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/38ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/38ver/">DOM编程艺术之事件代理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true  ">    一:事件代理<br>        -&lt;ul id=”myUi”&gt;&lt;li&gt;&lt;/ul&gt;<br>        -将事件注册到元素的父节点上<br>        -var myUl=document.getElementById(“myUl”);<br>        myUl.addEventListener(‘click’, function(event){<br>            var e=event||window.event;<br>            var target=e.target||e.srcElemnt<br>        })<br>        -优点<br>            -需要管理的handler更少<br>            -内存分配更少<br>            -增加/删除节点可以不处理事件<br>        -缺点<br>            -事件管理的逻辑更复杂</pre></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-11ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/11ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/11ver/">产品前端构架之git命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:git help<br>                -git –help</pre></p>
-<pre><code>二:git congfig
-    -<span class="ruby">用户配置
-</span>        -<span class="ruby">git config --global user.name <span class="string">"xxx"</span>
-</span>        -<span class="ruby">git config --global user.email test<span class="variable">@xxx</span>.com
-</span>    -<span class="ruby">配置级别
-</span>        -<span class="ruby"> --local [默认，高优先级]<span class="symbol">:</span>只影响本地仓库 .git/config
-</span>        -<span class="ruby"> --global [中优先级]<span class="symbol">:</span>影响到所有当前用户的git仓库 ~<span class="regexp">/.gitconfig
-</span></span>        -<span class="ruby"><span class="regexp"> --system [低优先级]:影响到全系统的git仓库 /etc</span><span class="regexp">/gitconfig
-</span></span>
-三:git init
-    -<span class="ruby"><span class="regexp">git status
-</span></span>        -<span class="ruby"><span class="regexp">查看当前仓库信息
-</span></span>    -<span class="ruby"><span class="regexp">git init
-</span></span>        -<span class="ruby"><span class="regexp">初始化一个git仓库
-</span></span>
-四:git status
-    -<span class="ruby"><span class="regexp">内容状态
-</span></span>        -<span class="ruby"><span class="regexp">工作目录
-</span></span>        -<span class="ruby"><span class="regexp">暂存区
-</span></span>        -<span class="ruby"><span class="regexp">提交区
-</span></span>    -<span class="ruby"><span class="regexp">了解当前内容状态
-</span></span>
-五:git add
-    -<span class="ruby"><span class="regexp">添加文件内容到暂存区（同时文件被跟踪）
-</span></span>    -<span class="ruby"><span class="regexp">批量添加
-</span></span>        -<span class="ruby"><span class="regexp">git add .  /</span><span class="regexp">/添加当前目录所有文件
-</span></span>
-六:忽略文件
-    -<span class="ruby"><span class="regexp">.gitgnore
-</span></span>        -<span class="ruby"><span class="regexp">在添加时忽略匹配的文件
-</span></span>        -<span class="ruby"><span class="regexp">仅作用于未跟踪的文件
-</span></span>    -<span class="ruby"><span class="regexp">常见的gitgnore
-</span></span>        #logs //注释
-        logs
-        *.log
-
-七:从暂存区删除git-rm
-    -<span class="ruby"><span class="regexp">git rm --cached:仅从暂存区删除
-</span></span>    -<span class="ruby"><span class="regexp">git rm :从暂存区与工作目录删除
-</span></span>    -<span class="ruby"><span class="regexp">git rm $(git ls-files --deleted):删除所有被跟踪，但是在工作目录被删除的文件
-</span></span>
-八:工作目录与暂存区
-    -<span class="ruby"><span class="regexp">物品:文件
-</span></span>    -<span class="ruby"><span class="regexp">货架:工作目录
-</span></span>    -<span class="ruby"><span class="regexp">购物车:暂存区
-</span></span>    -<span class="ruby"><span class="regexp">购买:提交内容
-</span></span>
-    -<span class="ruby"><span class="regexp">每类物品只能放置一次的购物车
-</span></span>    -<span class="ruby"><span class="regexp">货架和购物车可以出现同种物品
-</span></span>    -<span class="ruby"><span class="regexp">货架上的物品可以替换掉购物车物品
-</span></span>    -<span class="ruby"><span class="regexp">可以删除物品
-</span></span>    -<span class="ruby"><span class="regexp">提交购物车完成购买，生成购买记录
-</span></span>
-九:git commit
-    -<span class="ruby"><span class="regexp">根据暂存区内容创建一个提交记录
-</span></span>    -<span class="ruby"><span class="regexp">git commit -m ""
-</span></span>    -<span class="ruby"><span class="regexp">直接提交
-</span></span>        -<span class="ruby"><span class="regexp">git commit -a
-</span></span>
-十:git log
-    -<span class="ruby"><span class="regexp">git log --oneline
-</span></span>        -<span class="ruby"><span class="regexp">简单log
-</span></span>
-十一:git中的alias(别名）命令
-        -<span class="ruby"><span class="regexp">git config alias.shortname &amp;lt;fullcommad&amp;gt;
-</span></span>        -<span class="ruby"><span class="regexp">git config --global alias.lg "log --oneline"
-</span></span>        -<span class="ruby"><span class="regexp">git lg/</span><span class="regexp">/配置了别名
-</span></span>
-十二:git diff
-    -<span class="ruby"><span class="regexp">显示不同的版本差异
-</span></span>    -<span class="ruby"><span class="regexp">git diff:
-</span></span>        -<span class="ruby"><span class="regexp">工作目录与暂存区的差异
-</span></span>    -<span class="ruby"><span class="regexp">git diff --cached
-</span></span>        -<span class="ruby"><span class="regexp">暂存区与某次提交差异,默认为HEAD
-</span></span>    -<span class="ruby"><span class="regexp">git diff &amp;lt;reference&amp;gt;
-</span></span>        -<span class="ruby"><span class="regexp">工作目录与某次提交差异
-</span></span>
-十三:撤销本地修改
-    -<span class="ruby"><span class="regexp">git checkout --&amp;lt;file&amp;gt;
-</span></span>        -<span class="ruby"><span class="regexp">将文件内容从暂存区复制到工作目录
-</span></span>
-十四:撤销暂存区内容
-    -<span class="ruby"><span class="regexp">git reset HEAD &amp;lt;file&amp;gt;
-</span></span>        -<span class="ruby"><span class="regexp">将文件内容从上次提交复制到暂存区
-</span></span>
-十五:撤销全部改动
-    -<span class="ruby"><span class="regexp">git checkout HEAD --&amp;lt;file&amp;gt;
-</span></span>    -<span class="ruby"><span class="regexp">将内容从上次提交复制到工作目录&lt;/pre</span>&gt;</span>
-</code></pre><p>&nbsp;</p>
 
 
 

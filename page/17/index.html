@@ -21,6 +21,17 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body>
   <div id="container">
@@ -112,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/byby/" style="font-size: 10px;">byby</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a>
 					</div>
 				</section>
 				
@@ -121,17 +132,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
 			        
 			        </div>
 				</section>
@@ -191,6 +192,102 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-44ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/44ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/44ver/">DOM编程艺术之属性操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true  ">一:每个HTML属性对应相应的DON属性</pre></p>
+<pre><code>二:属性访问器之读取
+    -<span class="ruby">input.className/<span class="regexp">/获取class
+</span></span>    -<span class="ruby"><span class="regexp">input["id"]/</span><span class="regexp">/获取id
+</span></span>
+三:属性访问器之写入
+    -<span class="ruby"><span class="regexp">input.value="xxx"/</span><span class="regexp">/设置value属性
+</span></span>    -<span class="ruby"><span class="regexp">input.disabled=true/</span><span class="regexp">/禁用输入框
+</span></span>
+四:属性访问器之类型
+    -<span class="ruby"><span class="regexp">input.disabled/</span><span class="regexp">/boolean
+</span></span>    -<span class="ruby"><span class="regexp">input.id/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.onclick/</span><span class="regexp">/function
+</span></span>    -<span class="ruby"><span class="regexp">转换过的实用对象
+</span></span>    -<span class="ruby"><span class="regexp">通用性差-名字异常
+</span></span>    -<span class="ruby"><span class="regexp">扩展性差
+</span></span>    -<span class="ruby"><span class="regexp">去到的是实用对象/</span><span class="regexp">/经过转化的 如string-number
+</span></span>
+五:attribute之读取
+    -<span class="ruby"><span class="regexp">input.getAttribute("class")/</span><span class="regexp">/获取到class
+</span></span>
+六:attribute之写入
+    -<span class="ruby"><span class="regexp">input.setAttribute("value", "test")/</span><span class="regexp">/修改value值
+</span></span>    -<span class="ruby"><span class="regexp">input.setAttribute("disabled", "")/</span><span class="regexp">/disavle true 出现就为true
+</span></span>
+七:attribute之类型
+    -<span class="ruby"><span class="regexp">input.getAttribute('onclick')/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("disabled")/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("maxlength")/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">仅仅是字符串
+</span></span>
+八:实例
+    -<span class="ruby"><span class="regexp">button.disabled=true;
+</span></span>    -<span class="ruby"><span class="regexp">button.setAttribute('class', 'disabled')
+</span></span>
+九:dataset
+    -<span class="ruby"><span class="regexp">data-*属性集
+</span></span>    -<span class="ruby"><span class="regexp">元素上保存数据
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset/</span><span class="regexp">/返回html上以data-开头的属性值 返回的是一个对象
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset.name/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset.email/</span><span class="regexp">/string&lt;/pre</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-45ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -923,61 +1020,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><code class="brush:js;toolbar:false">面向对象</code></p><br><p>一:程序设计方法<br><br>-面向过程<br><br>-面向对象</p><br><p>二:面向过程<br><br>-思想<br><br>-以过程为中心<br><br>-自顶向下-逐步细化<br><br>-C…等</p><br><p>三:面向对象<br><br>-思想<br><br>-对象作为程序的基本单元<br><br>-程序分解为数据和相关操作<br><br>-C++ Java<br><br>-基本慨念<br><br>-类、对象<br><br>-属性、方法<br><br>-基本特性<br><br>-继承<br><br>-封装<br><br>-多态</p><br><p>四:JS面向对象<br><br>-constructor<br><br>-this<br><br>-原型继承<br><br>-原型链<br><br>-应用</p><br><p>五:constructor<br><br>-var o=new Object();<br><br>var o={x:1}<br><br>var a= new Array();<br><br>var a=[1,2,3]<br><br>以上constructor为Object</p><br><p>-自定义constructor<br><br>-function myObj(name,age){<br><br>this.name=name;<br><br>this.age=age;<br><br>this.setName=function(name){<br><br>this.name=name;<br><br>}<br><br>}<br><br>var m=new myObj(“name”,100)//constructor为myObj</p><br><p>-三种形式<br><br>-function myObj(){};<br><br>-var myObj=function(){};<br><br>-var myObj=new Fcuntion();</p><br><p>-注意<br><br>-所有的函数都可以当成constructor? //NO!<br><br>-var o =new Math.min()//NO!<br><br>-function myObj(name,age){<br><br>this.name=name;<br><br>this.age=age;<br><br>this.setName=function(name){<br><br>this.name=name;<br><br>}<br><br>return {};<br><br>}<br><br>-var m=new myObj(“name”,100);<br><br>-alert(m.name)// undefined 这里的m实际上是函数返回的{}对象的属性而非函数对象<br><br>//在返回对象找不到这个m 因为是空的</p><br><p>六:this<br><br>-var a=10;<br><br>alert(this.a)//window.a<br><br>this.b=20//window<br><br>alert(this.c)//window</p><br><p>-function test(name){<br><br>this.name=name//this指向创建的实例<br><br>this.sayHello=function(){<br><br>alert(“hello”,this.name)<br><br>//这里的this指向函数调用者 也就是下面的实例p1<br><br>}<br><br>}<br><br>-var p1=new test(“by”)//p1.name:by<br><br>-p1.sayHello()//p1.this</p><br><p>-new Fcuntion(this) //出现的this都指向window 无论执行环境在什么情况</p><br><p>-eval(‘alert(this)’) //调用上下文的环境</p><br><p>-(function(){<br><br>eval(“alert(‘this’)”)//执行闭包的this也就是window</p><br><p>})()</p><br><p>function Foo(){<br><br>this.bar=function(){<br><br>eval(‘alert(this)’)//这里的eval this执行bar函数的this 也就是foo实例<br><br>}<br><br>}</p><br><p>var foo=new Foo();<br><br>foo.bar();</p><br><p>-总结<br><br>- 场景 值<br><br>全局环境 全局对象(window)<br><br>constructor 新创建的对象<br><br>函数调用 函数的调用者<br><br>new Function 全局对象window<br><br>eval 调用上下文中的this</p><br><p>七:apply、call<br><br>-function Point(x,y){<br><br>this.x=x;<br><br>this.y=y;<br><br>this.move=function(x,y){<br><br>this.x+=x;<br><br>this.y+=y<br><br>}<br><br>}<br><br>var point=new Point(0,0)<br><br>point.move(1,1)</p><br><p>var circle={x:0,y:1,r:1};//创建一个圆<br><br>point.move.apply(circle,[1,1])//利用apply来实现圆的移动</p><br><p>​</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-55ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/55ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/55ver/">前端攻城狮文档手册-干货分享</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>干货内容如上图,如果其他攻城狮有大量的干货请分享一下哦~</p><br><p>度娘下载:</p><br><p>链接:<a href="http://pan.baidu.com/s/1qWl1LQc" target="_blank">http://pan.baidu.com/s/1qWl1LQc</a></p><br><p>密码: 68q2</p><br><p>手册解压密码:www.gbtags.com</p><br></div>
 
 
 

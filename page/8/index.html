@@ -21,6 +21,17 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body>
   <div id="container">
@@ -112,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/byby/" style="font-size: 10px;">byby</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a>
 					</div>
 				</section>
 				
@@ -121,17 +132,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
 			        
 			        </div>
 				</section>
@@ -191,6 +192,61 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-194ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/194ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/194ver/">JavaScript-悬浮导航栏</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript悬导航栏,代码很简单 具体看分析吧</p><br><p>记得把 导航栏设置为absolute 要不然top这个属性是无效的</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;js-页面悬浮导航&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    #xf{<br>        list-style: none;<br>        position: absolute;<br>    }<br>    #xf li{<br>        float: left;<br>        margin: 10px;<br>        background: gray;<br>    }<br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    var get_xf=document.getElementById(“xf”)//获取到需要悬浮的导航栏的id<br>    window.onscroll=function(){//绑定滚动条事件<br>        xf.style.top=(document.documentElement.scrollTop||document.body.scrollTop)+”px”//设置导航条离屏幕顶部的距离<br>        console.log(xf.style.top);//输出top数值<br>    };<br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;ul id=”xf”&gt;<br>        &lt;li&gt;hello&lt;/li&gt;<br>        &lt;li&gt;world&lt;/li&gt;<br>        &lt;li&gt;test&lt;/li&gt;<br><br><br>    &lt;/ul&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>    &lt;p&gt;测试文本&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-170ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -662,61 +718,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>JavaScript无块级作用域,<br><br>JavaScript作用域环境只有两种 全局与局部</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    var a=10;//全局<br>    (function(){<br>        var b=20;//函数作用域<br>    })();<br><br>    console.log(a);<br>    console.log(b)//error,b 未定义<br><br>    for(var item in{a:1,b:2}){<br>        //item在外级也可以访问到<br>        //JavaScript无块级作用域<br>        console.log(item);<br>    }<br>    console.log(item);//可以访问到<br><br>    eval(“var a=1”)<br><br>    //作用域链<br><br>    function outer2(){<br>        var local2=1;<br>        function outer1(){<br>            var local1=1;<br><br>        }<br>        outer1();<br>    }<br>    var global3=1;<br>    outer2();<br><br>    function outer3(){<br>        var i=1;<br>        var func=new Function(“console.log(typeof i);”);<br>        func();//undefined<br>    }<br>    outer3();<br><br>    //利用函数作用域封装<br>    (function(){<br>        //do sth<br>        var a,b;<br>    })();<br><br>    !function(){<br>        //do sth<br>        var a,b;<br>    }();<br><br>    &lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-138ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/138ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/138ver/">May Be 你应该找到你的Friends</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="text-align: center;">May Be You Should Find Your  Friends</p><br><p style="text-align: left;">也许你应该找到你的朋友,YES！ I M Suer, 我是一个金钱主义.</p><br><p style="text-align: left;">我可以为自己的利益付出很多,就像吉米·卡拉翰——定制伴郎.</p><br><p style="text-align: left;">同时我也像道格·哈里森我有很多朋友,同时我也没有朋友.</p><br><p style="text-align: left;">我没有那么刺激的经历,我甚至愿意专注于WORK, 这样可以使原本的内心充实.</p><br><p style="text-align: left;">只有内心强大的人才不会显得懦弱, 玻璃心最容易破碎.</p><br><p style="text-align: left;">也许我应该正视自己,Find My  Friends</p><br><p style="text-align: left;">就像看到这篇文章的,也许你应该正视你自己,去寻找Your Friends</p><br><p>&nbsp;</p>
 
 
 

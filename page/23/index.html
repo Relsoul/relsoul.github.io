@@ -21,6 +21,17 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body>
   <div id="container">
@@ -112,7 +123,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/byby/" style="font-size: 10px;">byby</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a>
 					</div>
 				</section>
 				
@@ -121,17 +132,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
 			        
 			        </div>
 				</section>
@@ -192,10 +193,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-9ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-11ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/9ver/" class="article-date">
+      <a href="/2015/10/21/11ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -209,7 +210,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/9ver/">一个石头剪刀布的小游戏</a>
+      <a class="article-title" href="/2015/10/21/11ver/">产品前端构架之git命令</a>
     </h1>
   
 
@@ -218,7 +219,277 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>没做太多的CSS效果，只做了一些基本的逻辑判断..新人，写的很渣。大家看看就行了。。</p><br><p>Deom:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p>
+        <p><pre class="lang:default decode:true ">一:git help<br>                -git –help</pre></p>
+<pre><code>二:git congfig
+    -<span class="ruby">用户配置
+</span>        -<span class="ruby">git config --global user.name <span class="string">"xxx"</span>
+</span>        -<span class="ruby">git config --global user.email test<span class="variable">@xxx</span>.com
+</span>    -<span class="ruby">配置级别
+</span>        -<span class="ruby"> --local [默认，高优先级]<span class="symbol">:</span>只影响本地仓库 .git/config
+</span>        -<span class="ruby"> --global [中优先级]<span class="symbol">:</span>影响到所有当前用户的git仓库 ~<span class="regexp">/.gitconfig
+</span></span>        -<span class="ruby"><span class="regexp"> --system [低优先级]:影响到全系统的git仓库 /etc</span><span class="regexp">/gitconfig
+</span></span>
+三:git init
+    -<span class="ruby"><span class="regexp">git status
+</span></span>        -<span class="ruby"><span class="regexp">查看当前仓库信息
+</span></span>    -<span class="ruby"><span class="regexp">git init
+</span></span>        -<span class="ruby"><span class="regexp">初始化一个git仓库
+</span></span>
+四:git status
+    -<span class="ruby"><span class="regexp">内容状态
+</span></span>        -<span class="ruby"><span class="regexp">工作目录
+</span></span>        -<span class="ruby"><span class="regexp">暂存区
+</span></span>        -<span class="ruby"><span class="regexp">提交区
+</span></span>    -<span class="ruby"><span class="regexp">了解当前内容状态
+</span></span>
+五:git add
+    -<span class="ruby"><span class="regexp">添加文件内容到暂存区（同时文件被跟踪）
+</span></span>    -<span class="ruby"><span class="regexp">批量添加
+</span></span>        -<span class="ruby"><span class="regexp">git add .  /</span><span class="regexp">/添加当前目录所有文件
+</span></span>
+六:忽略文件
+    -<span class="ruby"><span class="regexp">.gitgnore
+</span></span>        -<span class="ruby"><span class="regexp">在添加时忽略匹配的文件
+</span></span>        -<span class="ruby"><span class="regexp">仅作用于未跟踪的文件
+</span></span>    -<span class="ruby"><span class="regexp">常见的gitgnore
+</span></span>        #logs //注释
+        logs
+        *.log
+
+七:从暂存区删除git-rm
+    -<span class="ruby"><span class="regexp">git rm --cached:仅从暂存区删除
+</span></span>    -<span class="ruby"><span class="regexp">git rm :从暂存区与工作目录删除
+</span></span>    -<span class="ruby"><span class="regexp">git rm $(git ls-files --deleted):删除所有被跟踪，但是在工作目录被删除的文件
+</span></span>
+八:工作目录与暂存区
+    -<span class="ruby"><span class="regexp">物品:文件
+</span></span>    -<span class="ruby"><span class="regexp">货架:工作目录
+</span></span>    -<span class="ruby"><span class="regexp">购物车:暂存区
+</span></span>    -<span class="ruby"><span class="regexp">购买:提交内容
+</span></span>
+    -<span class="ruby"><span class="regexp">每类物品只能放置一次的购物车
+</span></span>    -<span class="ruby"><span class="regexp">货架和购物车可以出现同种物品
+</span></span>    -<span class="ruby"><span class="regexp">货架上的物品可以替换掉购物车物品
+</span></span>    -<span class="ruby"><span class="regexp">可以删除物品
+</span></span>    -<span class="ruby"><span class="regexp">提交购物车完成购买，生成购买记录
+</span></span>
+九:git commit
+    -<span class="ruby"><span class="regexp">根据暂存区内容创建一个提交记录
+</span></span>    -<span class="ruby"><span class="regexp">git commit -m ""
+</span></span>    -<span class="ruby"><span class="regexp">直接提交
+</span></span>        -<span class="ruby"><span class="regexp">git commit -a
+</span></span>
+十:git log
+    -<span class="ruby"><span class="regexp">git log --oneline
+</span></span>        -<span class="ruby"><span class="regexp">简单log
+</span></span>
+十一:git中的alias(别名）命令
+        -<span class="ruby"><span class="regexp">git config alias.shortname &amp;lt;fullcommad&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">git config --global alias.lg "log --oneline"
+</span></span>        -<span class="ruby"><span class="regexp">git lg/</span><span class="regexp">/配置了别名
+</span></span>
+十二:git diff
+    -<span class="ruby"><span class="regexp">显示不同的版本差异
+</span></span>    -<span class="ruby"><span class="regexp">git diff:
+</span></span>        -<span class="ruby"><span class="regexp">工作目录与暂存区的差异
+</span></span>    -<span class="ruby"><span class="regexp">git diff --cached
+</span></span>        -<span class="ruby"><span class="regexp">暂存区与某次提交差异,默认为HEAD
+</span></span>    -<span class="ruby"><span class="regexp">git diff &amp;lt;reference&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">工作目录与某次提交差异
+</span></span>
+十三:撤销本地修改
+    -<span class="ruby"><span class="regexp">git checkout --&amp;lt;file&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">将文件内容从暂存区复制到工作目录
+</span></span>
+十四:撤销暂存区内容
+    -<span class="ruby"><span class="regexp">git reset HEAD &amp;lt;file&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">将文件内容从上次提交复制到暂存区
+</span></span>
+十五:撤销全部改动
+    -<span class="ruby"><span class="regexp">git checkout HEAD --&amp;lt;file&amp;gt;
+</span></span>    -<span class="ruby"><span class="regexp">将内容从上次提交复制到工作目录&lt;/pre</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-39ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/39ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/39ver/">DOM编程艺术之动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:实现方式<br>        -gif<br>        -flash<br>        -CSS3<br>        -JS</pre></p>
+<pre><code>二:三要素
+    -<span class="ruby">对象
+</span>        -<span class="ruby"><span class="constant">DOM</span>
+</span>    -<span class="ruby">属性
+</span>        -<span class="ruby">width
+</span>        -<span class="ruby">height
+</span>        -<span class="ruby"><span class="constant">Left</span>
+</span>        -<span class="ruby">....
+</span>    -<span class="ruby">定时器
+</span>        -<span class="ruby">setInterval
+</span>        -<span class="ruby">setTimeout
+</span>        -<span class="ruby">requestAnimationFrame
+</span>
+三:setInterval
+    -<span class="ruby">var timer=setInterval(func,delay)
+</span>                函数  触发定时器的间隔
+    -<span class="ruby">clearInterval(timer)
+</span>    -<span class="ruby">每隔一段时间执行
+</span>
+
+四:setTimeout
+    -<span class="ruby">var timer=setTimeout(func,delay)
+</span>    -<span class="ruby">clearTimeout(timer)
+</span>    -<span class="ruby">只会执行一次
+</span>
+五:requestAnimationFrame
+    -<span class="ruby">var timer=requestAnimationFrame(func)
+</span>    -<span class="ruby">cancelAnimationFrame(func)
+</span>    -<span class="ruby">间隔时间以显示器的频率决定
+</span>    -<span class="ruby">更流畅
+</span>
+六:常见动画
+    -<span class="ruby">形变
+</span>    -<span class="ruby">位移
+</span>    -<span class="ruby">旋转
+</span>    -<span class="ruby">透明度
+</span>    -<span class="ruby">...
+</span>
+七:动画函数
+    -<span class="ruby">var animation=function(ele,attr,from,to){
+</span>        var distance=Math.abs(to-from);
+        var stepLength=distance/100
+        var sign=(to-from)/distance
+        var offset=0;
+        var step=function(){
+            var tmpOffset=offset+stepLength;
+            if(tmpOffset&amp;lt;distance){
+                ele.style[attr]=from+tmpOffset*sign+'px'
+            }else{
+                ele.style[attr]=from+"px"
+                clearInterval(intervalId)
+            }
+        }
+        ele.style[attr]=from+"px";
+        var intervalId=setInterval(step,10)
+    }
+
+    -<span class="ruby">var process=function(prcsswrap,drtn,intrvl,callback){
+</span>        var width=prcsswrap.clientWidth
+        var prcss=prcsswrap.getElementsByClassName('prcss')[0]
+        var count=drtn/intrvl
+        var offset=Math.floor(width/count)
+        var tmpCurrent=CURRENT
+        var step=function(){
+
+        }
+        var intervalId=setInterval(step,intrvl)
+    }
+</code></pre><p></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-38ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/38ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/38ver/">DOM编程艺术之事件代理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true  ">    一:事件代理<br>        -&lt;ul id=”myUi”&gt;&lt;li&gt;&lt;/ul&gt;<br>        -将事件注册到元素的父节点上<br>        -var myUl=document.getElementById(“myUl”);<br>        myUl.addEventListener(‘click’, function(event){<br>            var e=event||window.event;<br>            var target=e.target||e.srcElemnt<br>        })<br>        -优点<br>            -需要管理的handler更少<br>            -内存分配更少<br>            -增加/删除节点可以不处理事件<br>        -缺点<br>            -事件管理的逻辑更复杂</pre></p>
+<p>&nbsp;</p>
 
 
 
@@ -347,82 +618,6 @@
 </span></span>        -<span class="ruby"><span class="regexp">拖动滚动浏览器时</span></span>
 </code></pre><p></p>
 <p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-36ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/36ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/36ver/">DOM编程艺术之canvas</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">    一:基本用法<br>        -&lt;canvas id=”tutorial” width=”300” height=”150”&gt;&lt;/canvas&gt;</pre></p>
-<pre><code>二:渲染上下文
-    -<span class="keyword">var</span>  canvas=<span class="built_in">document</span>.getElementById(<span class="string">"tutorial"</span>)
-    -<span class="keyword">var</span> ctx=canvas.getContext(<span class="string">"2d"</span>)
-
-三:globalCompositeOperation
-    -ctx.globalCompositeOperation=<span class="string">'destination-over'</span><span class="comment">//两者都显示,后者在前者前面</span>
-
-四:基本绘图的步骤
-    -清除画笔-绘制图形-保存渲染上下文状态-绘制图形-渲染上下文状态
-    -<span class="keyword">var</span> sun=<span class="keyword">new</span> Image();
-    <span class="keyword">var</span> moon=<span class="keyword">new</span> Image();
-    <span class="keyword">var</span> earth=<span class="keyword">new</span> Image();
-    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{
-        sun.src=<span class="string">'Cancvas_sun.png'</span>;
-        moon.src=<span class="string">"Canvas_moon.png"</span>
-        earth.src=<span class="string">'Canvas_earth.png'</span>
-        <span class="built_in">window</span>.requestAnimationFrame(draw);
-    }
-    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>)</span>{}
-    init();<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
-</code></pre><p>&nbsp;</p>
 
 
 
@@ -666,6 +861,82 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 &amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
 </code></pre><p>&lt;/html&gt;<br></p>
 <p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-36ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/36ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/36ver/">DOM编程艺术之canvas</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">    一:基本用法<br>        -&lt;canvas id=”tutorial” width=”300” height=”150”&gt;&lt;/canvas&gt;</pre></p>
+<pre><code>二:渲染上下文
+    -<span class="keyword">var</span>  canvas=<span class="built_in">document</span>.getElementById(<span class="string">"tutorial"</span>)
+    -<span class="keyword">var</span> ctx=canvas.getContext(<span class="string">"2d"</span>)
+
+三:globalCompositeOperation
+    -ctx.globalCompositeOperation=<span class="string">'destination-over'</span><span class="comment">//两者都显示,后者在前者前面</span>
+
+四:基本绘图的步骤
+    -清除画笔-绘制图形-保存渲染上下文状态-绘制图形-渲染上下文状态
+    -<span class="keyword">var</span> sun=<span class="keyword">new</span> Image();
+    <span class="keyword">var</span> moon=<span class="keyword">new</span> Image();
+    <span class="keyword">var</span> earth=<span class="keyword">new</span> Image();
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{
+        sun.src=<span class="string">'Cancvas_sun.png'</span>;
+        moon.src=<span class="string">"Canvas_moon.png"</span>
+        earth.src=<span class="string">'Canvas_earth.png'</span>
+        <span class="built_in">window</span>.requestAnimationFrame(draw);
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>)</span>{}
+    init();<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -995,222 +1266,6 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 
 
   
-    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/33ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
-<pre><code>        }
-        .child{
-            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
-        }*/
-
-        /*<span class="keyword">table</span>+margin
-
-        .child{
-            <span class="keyword">display</span>: <span class="keyword">table</span>;
-            margin:<span class="number">0</span> auto;
-        }
-        */
-
-    /*    absolute+transform*/
-
-        /*.parent{
-            position: relative;
-        }
-        .child{
-            position: absolute; /*宽度由内容决定
-            left:<span class="number">50</span>%;
-            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
-
-
-        }
-        */
-
-/*        flex+justify-content*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; /*宽度为内容宽度
-            justify-content: center;
-        }
-
-        /*.child{
-                margin: <span class="number">0</span> auto
-        }  同样可以实现水平居中*/
-
-
-        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
-
-        /*.parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
-        }*/
-
-        /*垂直居中之absolute+transform
-        .parent{
-            position: relative;
-        }
-
-        .child{
-            position: absolute;
-            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
-            transform:translateY(-<span class="number">50</span>%);
-        }*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; 高度撑满整个容器
-            align-items: center; 垂直居中
-        }*/
-
-        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-
-        .parent{
-            text-align: center;
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle;
-        }
-
-        .child{
-            <span class="keyword">display</span>: inline-block;
-        }*/
-
-/*        居中之absolute+transform*/
-
-        /*.parent{
-            position:relative;
-        }
-        .child{
-            position:absolute;
-            left:<span class="number">50</span>%;
-            top:<span class="number">50</span>%;
-            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
-        }
-        */
-
-        居中之flex+justify-content+align-items
-        .parent{
-            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
-            justify-content: center; /*水平居中*/
-            align-items: center;/*垂直居中*/
-        }
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        居中布局 父元素 子元素宽/高度不固定
-
-        一：水平居中之inline-block+text-align
-            -兼容性非常好
-            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
-            -child会继承text-align:center，需要对子元素进行reset
-
-        二:水平居中之<span class="keyword">table</span>+margin
-            -<span class="keyword">table</span>元素宽度为内容宽度
-            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
-
-        三:水平居中之absolute+transform
-            -脱离文档流 不会对其他元素产生影响
-            -不兼容低版本IE
-
-        四:水平居中之flex+justify-content
-            -.child{
-                margin: <span class="number">0</span> auto
-            }
-            -不兼容低版本IE
-
-        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
-            -兼容到IE8以上
-            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
-
-        六:垂直居中之absolute+transform
-            -子元素不会干扰其他元素
-
-        七:垂直居中之flex+align-items
-            -不兼容低版本IE
-
-        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-            -兼容性比较高
-
-        九:居中之absolute+transform
-            -child不会影响其他元素
-            -不兼容性低版本IE
-
-        十:居中之flex+justify-content+align-items
-            -只需要设置parent
-            -不兼容低版本IE
-
-        十一:总结
-            -了解到CSS中的值和特性
-            -对问题进行分解
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
-         DOME
-         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-
-
-
-
-
-
-
-
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-22ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1383,314 +1438,6 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
                                         ]
                                     },
                                     //!-标注</code></pre>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-32ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/32ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/32ver/">DOM编程艺术之表单元素</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;script type=”text/javascript”&gt;<br>            一:表单步骤<br>                -构建表单<br>                -服务器处理<br>                -配置表单</pre></p>
-<pre><code>        二:构建表单
-            -<span class="ruby">见<span class="constant">HTML</span>
-</span>
-        三:服务器处理
-            -<span class="ruby">服务器接口地址
-</span>            -<span class="ruby">url编码
-</span>            -<span class="ruby">接口参数信息
-</span>
-        四:内容
-            -<span class="ruby">元素
-</span>            -<span class="ruby">验证
-</span>            -<span class="ruby">提交
-</span>
-        五:form元素
-            -<span class="ruby">属性
-</span>                -<span class="ruby">autocomplete
-</span>                    -<span class="ruby"><span class="symbol">on:</span>自动提示功能
-</span>                    -<span class="ruby"><span class="symbol">off:</span>无
-</span>                -<span class="ruby">elements
-</span>                    -<span class="ruby">该表单子孙表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">button,input,keygen,select
-</span>                    -<span class="ruby">归属于该表单的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">&amp;lt;input name=<span class="string">"d"</span> form=<span class="string">"f"</span>&amp;gt;在input元素中规定了form也会出现在elements中
-</span>                    -<span class="ruby">动态节点集合
-</span>                -<span class="ruby">length
-</span>                    -<span class="ruby">elements.length
-</span>                -<span class="ruby">取form表单元素
-</span>                    -<span class="ruby">testForm.elements[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm.elements[<span class="string">"a"</span>];
-</span>                    -<span class="ruby">testForm[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm[<span class="string">"a"</span>]
-</span>
-                -<span class="ruby">form[name]
-</span>                    -<span class="ruby">返回id或name为指定名称的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                    -<span class="ruby">如果结果为空，则返回id为指定名称的img元素
-</span>                    -<span class="ruby">如果有多个同名元素，则返回这些元素的动态节点集合
-</span>                    -<span class="ruby">一旦用指定名称取过该元素，则不管该元素的id或者name怎么变化，只要节点还在页面上均可以用原名获取该元素
-</span>                    -<span class="ruby">非动态集合所以可以取到已经设置过的元素如
-</span>                        -<span class="ruby">testForm[<span class="string">"a"</span>]=&amp;gt;name=<span class="string">"b"</span> testForm.elements[<span class="string">"a"</span>]=&amp;gt;null
-</span>                    -<span class="ruby">reset()
-</span>                        -<span class="ruby">可重置元素<span class="symbol">:input</span>,keygen,output,select,textarea
-</span>                        -<span class="ruby">触发表单reset事件，阻止该元素的默认行为可取消重置
-</span>                        -<span class="ruby">元素重置时不再触发元素上的change和input事件
-</span>                    -<span class="ruby">submit()
-</span>                    -<span class="ruby">checkValidity()
-</span>
-            六:lable元素
-                -<span class="ruby">htmlFor
-</span>                    -<span class="ruby">关联表单控件激活行为
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,input(除hidden外),keygen,meter,output,progress,select,txtarea
-</span>                    -<span class="ruby">通过设置label的css来构建input的<span class="constant">CSS</span>复杂效果
-</span>
-                -<span class="ruby">control
-</span>                    -<span class="ruby">如果指定了<span class="keyword">for</span>属性，则为该<span class="keyword">for</span>属性对应<span class="constant">ID</span>的可关联元素
-</span>                    -<span class="ruby">如果没有指定<span class="keyword">for</span>属性，则为第一个子孙可关联元素
-</span>                    -<span class="ruby"><span class="keyword">for</span>指定了一个不可关联元素,则lable.control=&amp;gt;null
-</span>
-                -<span class="ruby">form
-</span>                    -<span class="ruby">关联归属表单
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,fieldset,input,keygen,label,object,output,select,textarea
-</span>                    -<span class="ruby">只读属性，不可再程序中修改
-</span>                        -<span class="ruby">label.setAttribute(<span class="string">"form"</span>,<span class="string">"newFormId"</span>)
-</span>
-            七:input元素
-                -<span class="ruby">type
-</span>                    -<span class="ruby">控件外观
-</span>                    -<span class="ruby">数据类型
-</span>                    -<span class="ruby">默认为text
-</span>                -<span class="ruby">本地图片预览
-</span>                    -<span class="ruby">onchange
-</span>                    -<span class="ruby">accept
-</span>                        -<span class="ruby">audio/*
-</span>                        -<span class="ruby">video/*
-</span>                        -<span class="ruby">image/*
-</span>                        -<span class="ruby">不带<span class="string">";"</span>的<span class="constant">MIME</span> type以<span class="string">"."</span>开始的文件后缀名*<span class="regexp">/
-</span></span>                        -<span class="ruby"><span class="regexp">多个类型用逗号分隔
-</span></span>
-                    -<span class="ruby"><span class="regexp">multiple 可以多选
-</span></span>                    -<span class="ruby"><span class="regexp">files
-</span></span>                &amp;lt;input type="file" accept="image/*" multiple/&amp;gt;
-                file.addEventListener(
-                    "change",function(event){
-                        var file=Array.prototype.slice.call(event.target.files,0)
-                    };
-                    files.forEach(function(item){
-                        file2dataurl(item,function(url){
-                            var image=new Image()
-                            parent.appendChild(image)
-                            image.src=url
-                        })
-                    })
-                )
-
-            八:select元素
-                -<span class="ruby"><span class="regexp">&amp;lt;optgroup lable="name"&amp;gt; /</span><span class="regexp">/分组
-</span></span>                -<span class="ruby"><span class="regexp">name
-</span></span>                    -<span class="ruby"><span class="regexp">表单提交名称
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">第一个选中选项的value值
-</span></span>                -<span class="ruby"><span class="regexp">multiple
-</span></span>                    -<span class="ruby"><span class="regexp">多选
-</span></span>                -<span class="ruby"><span class="regexp">options
-</span></span>                    -<span class="ruby"><span class="regexp">动态的所有节点集合
-</span></span>                    -<span class="ruby"><span class="regexp">
-</span></span>                -<span class="ruby"><span class="regexp">selectedOptions
-</span></span>                    -<span class="ruby"><span class="regexp">已经选中选项的动态集合
-</span></span>                -<span class="ruby"><span class="regexp">selectedIndex
-</span></span>                    -<span class="ruby"><span class="regexp">选中的元素位置
-</span></span>                -<span class="ruby"><span class="regexp">add(element[,before])
-</span></span>                    -<span class="ruby"><span class="regexp">无参照物再最后添加选项
-</span></span>                -<span class="ruby"><span class="regexp">remove([index])
-</span></span>                    -<span class="ruby"><span class="regexp">删除选项
-</span></span>
-                -<span class="ruby"><span class="regexp">optgroup
-</span></span>                    -<span class="ruby"><span class="regexp">disabled
-</span></span>                        -<span class="ruby"><span class="regexp">当前分组选项是否可选
-</span></span>                    -<span class="ruby"><span class="regexp">label
-</span></span>                        -<span class="ruby"><span class="regexp">分组名称
-</span></span>
-                -<span class="ruby"><span class="regexp">option
-</span></span>                    -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">text
-</span></span>                    -<span class="ruby"><span class="regexp">index
-</span></span>                    -<span class="ruby"><span class="regexp">selected
-</span></span>                        -<span class="ruby"><span class="regexp">是否选中
-</span></span>                    -<span class="ruby"><span class="regexp">defaultSelected
-</span></span>                        -<span class="ruby"><span class="regexp">默认选中
-</span></span>
-            九:select
-                -<span class="ruby"><span class="regexp">创建选项
-</span></span>                    -<span class="ruby"><span class="regexp">document.createElement()
-</span></span>                    -<span class="ruby"><span class="regexp">new Option()
-</span></span>                        -<span class="ruby"><span class="regexp">new Option("说明","1.2")
-</span></span>                -<span class="ruby"><span class="regexp">添加选项
-</span></span>                    -<span class="ruby"><span class="regexp">insertAdjacentElement
-</span></span>                    -<span class="ruby"><span class="regexp">select.add
-</span></span>                -<span class="ruby"><span class="regexp">删除选项
-</span></span>                    -<span class="ruby"><span class="regexp">removeChild()
-</span></span>                    -<span class="ruby"><span class="regexp">select.remove()
-</span></span>                -<span class="ruby"><span class="regexp">级联下拉选择器
-</span></span>                    -<span class="ruby"><span class="regexp">onchange
-</span></span>                    -<span class="ruby"><span class="regexp">remove
-</span></span>                    -<span class="ruby"><span class="regexp">add
-</span></span>                    -<span class="ruby"><span class="regexp">参考HTML
-</span></span>                    var chapters=[{text:"1.DOM基础",value:"1"},{text:"2.事件模型",value:"2"}]
-                    var sections={
-                        1:[
-                            {text:"1.1 文档树",value:"1.1"},
-                            {text:"1.2 节点操作,value:"1.2"},
-                            {text:"1.3 元素遍历",value:"1.3"},
-                        ],
-                        2:[
-                            {text:"2.1 事件类型",value:"2.1"},
-                            {text:"2.2 事件模型",value:"2.2"},
-                        ]
-
-                    }
-                    function fillSelect(select,list){
-<span class="comment">                        //删除原有选项,倒序遍历</span>
-                        for (var i=select.length-1;i&amp;gt;0;i--) {
-                            select.remove(i)
-                        }
-
-                        list.forEach(function(data){
-                            var option=new Option(data.text,data.value)
-                            select.add(option)
-                        })
-                    }
-                    fillSelect(chapterSelect,chapters);
-                    chapterSelect.addEventListener("change",function(event){
-                        var value=event.target.value,
-                            list=section[value]||[];
-                        fillSelect(sectionSelect,list)
-                    })
-
-            十:textarea
-                -<span class="ruby"><span class="regexp">name
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                -<span class="ruby"><span class="regexp">select()
-</span></span>                -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容起始位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionEnd
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容结束位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionDirection
-</span></span>                    -<span class="ruby"><span class="regexp">键盘方向键控制
-</span></span>                -<span class="ruby"><span class="regexp">setSelectionRange()
-</span></span>                    -<span class="ruby"><span class="regexp">选中某些内容
-</span></span>                -<span class="ruby"><span class="regexp">setRangeText()
-</span></span>                    -<span class="ruby"><span class="regexp">设置某个范围内容
-</span></span>                -<span class="ruby"><span class="regexp">@输入提示
-</span></span>                    -<span class="ruby"><span class="regexp">oninput
-</span></span>                    -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">setRangeText
-</span></span>                    textarea.addEventListener("input",function(event){
-                        var target=event.target,
-                            curor=target.selectionStart;//拿到光标所在位置
-                            if(target.value.charAt(cursor-1)==="@"){//拿到光标前面一个字符
-                                doshowAtList(function(anme){
-                                    var end=cursor+name.length;
-                                        target.setRangeText(
-                                            name,cursor,end,"end"
-                                        )
-                                })
-                            }
-
-                    })
-
-
-
-
-
-
-
-    &amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;!--构建&amp;amp;配置表单--&amp;gt;
-    &amp;lt;form method="post" action="https://pizza.xxx.com/ordia" enctype="application/x-www-for-urlencoded"&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label&amp;gt;姓名:&amp;lt;input type="" name="custname" id="" value="" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;电话:&amp;lt;input type="tel" name="custtel" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;邮箱:&amp;lt;input type="email" name="custemail" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨大小&amp;lt;/legend&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="small"/&amp;gt;小&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="medium"&amp;gt;中&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="large"/&amp;gt;大&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨配料&amp;lt;/legend&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="bacon"/&amp;gt;熏肉&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="cheese"/&amp;gt;奶酪&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="mushroom"/&amp;gt;蘑菇&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label for=""&amp;gt;&amp;lt;input type="time" name="delivery" min="11:00" max="21:00" step="900" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;&amp;lt;button&amp;gt;提交订单&amp;lt;/button&amp;gt;&amp;lt;/p&amp;gt;
-    &amp;lt;/form&amp;gt;
-
-    &amp;lt;!--级联下拉选择器--&amp;gt;
-    &amp;lt;form name="course"&amp;gt; 
-        &amp;lt;select name="chapter"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择章目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-        &amp;lt;select name="section"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择节目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/body&amp;gt;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
 
 
 
