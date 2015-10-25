@@ -303,61 +303,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-127ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/127ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/127ver/">JavaScript:利用数组下标来快速排序 js快速排序</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>代码预览区:<a href="http://www.gbtags.com/gb/rtreplayer/752.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayer/752.htm</a></p><br><p>&nbsp;</p><br><p>因为脑子转不过来..写算法绝对会die的.所以用一种比较方便的死办法来排序了</p><br><p>&nbsp;</p><br><blockquote><br><h2><strong><span style="color: #993366;">分析</span></strong></h2><br><p>通过arr储存列表中每一项的val属性</p><br><p>arr1用val属性做下标储存每一个元素</p><br><p>最后通过arr排序后索引arr1进行排序输出</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>        window.onload=function(){<br>            var save_sel=document.getElementById(“myselect”)<br>            var get_sel=document.getElementById(“myselect”).getElementsByTagName(“option”);<br>            var arr=[];<br>            var arr1=[]<br>            for (var i = 0; i &lt; get_sel.length; i++) {<br>                arr.push(get_sel[i].getAttribute(“val”))<br>                arr1[get_sel[i].getAttribute(“val”)]=get_sel[i]<br><br>            };<br>            arr.sort()<br>            console.log(arr);<br>            console.log(arr1);<br><br>            for (var i = 0; i &lt; arr.length; i++) {<br><br>                save_sel.appendChild(arr1[arr[i]])<br>            };<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;select id=”myselect” size=”5”&gt;<br>  &lt;option val=”c”&gt;选项C&lt;/option&gt;<br>  &lt;option val=”d”&gt;选项D&lt;/option&gt;<br>  &lt;option val=”b”&gt;选项B&lt;/option&gt;<br>  &lt;option val=”e”&gt;选项E&lt;/option&gt;<br>  &lt;option val=”a”&gt;选项A&lt;/option&gt;<br>&lt;/select&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-161ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -723,6 +668,61 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习方法来自<a href="http://www.imooc.com/video/5932" target="_blank" rel="external">http://www.imooc.com/video/5932</a></p><br><p>demo演示:<a href="http://www.old.com/demo/%E6%8C%89%E9%92%AE/" target="_blank" rel="external">http://www.old.com/demo/%E6%8C%89%E9%92%AE/</a></p><br><p>&nbsp;</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-32.png" target="_blank" rel="external"><img class=" size-medium wp-image-329 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-32.png" data-original="http://www.old.com/wp-content/uploads/2015/04/32-300x115.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="32" width="300" height="115"></a></p><br><p>上图就是幽灵按钮</p><br><p>如何实现这个效果呢？先来分析下</p><br><p>我们需要利用到</p><br><p>CSS3中的</p><br><ol><br><li>transition</li><br><li>transform</li><br><li>box-sizing</li><br><li>border-radius</li><br></ol><br><p>以上代码都可以在CSS手册上找到解析,具体的使用到时候看代码即可</p><br><p>jquery中的</p><br><ol><br><li>animate()</li><br><li>outerWidth()</li><br><li>position()</li><br><li>stop()</li><br></ol><br><p>值得一提的是 outerWidth()  比如$(‘.tip’).outerWidth() 获取的是tip中的宽 这里的宽包括 padding border 等等</p><br><p>position()是相对于父级定位元素的定位 比如$(‘.tip’).position().left  .tip基于父级box盒子定位 那么这里获取的就是 tip至box中的左</p><br><p>stop()是停止动画函数</p><br><p>用到的重要技术也就差不多了</p><br><hr><br><p>下面开始分析</p><br><p><strong>HTML区</strong></p><br><p>首先需要一个box盒子来包裹按钮+图片也就是&lt;div class=”box”&gt;</p><br><p>因为我们的图标样式都是一样的 所以都定义一个css类.icon</p><br><p>图标和按钮样式有相同之处 所以定义一个css类.link</p><br><p>a标签中的data=”My mission is clear”用来存放需要显示的文字</p><br><p>定义4个span标签来负责我们鼠标滑入 滑出的边框动画</p><br><p>定义一个&lt;div class=”tip”&gt;<br><br>&lt;em&gt;&lt;/em&gt; //em用来显示data内容</p><br><p>&lt;span&gt;&lt;/span&gt;//span用来显示三角形<br><br>&lt;/div&gt;</p><br><p>&nbsp;</p><br><p><strong>CSS区</strong></p><br><p>给box加上相对定位relative</p><br><p>同时给.icon加上过渡属性</p><br><p>.icon:hover图标移入动画</p><br><p>.button中加上box-sizing的意思是不用计算宽度,直接把边框，padding也算进了宽度里面</p><br><p>.line 因为span是内联元素所以要给line加上display:block和position</p><br><p>再定义.button .line-top初始状态为</p><br><p>height: 2px;<br><br>width: 0px;<br><br>left:-110%;<br><br>top:-2px;</p><br><p>因为上线条从始到终高度都没变,就宽度在变 所以一开始设置宽度等于0,同时把定位定位在.button的left:-110%;top:-2px;   //top:-2px的意思是 0是定位在按钮内部的顶部 -2px就定位到了盒子上边框的顶部</p><br><p>&nbsp;</p><br><p>再定义.button:hover .line-top移动状态为</p><br><p>width: 100%;<br><br>left: -2px;</p><br><p>因为只有宽度变 所以设置宽度从0-100%   再设置left定位在盒子的左边框</p><br><p>.button:hover{<br><br>border: 2px solid rgba(255,255,255,1);<br><br>background-position: 140px center;<br><br>}</p><br><p>设置button 经过的时候 边框变亮 同时背景图片向左移。</p><br><p>&nbsp;</p><br><p>.tip{<br><br>position: absolute;<br><br>padding: 0 14px;<br><br>line-height: 35px;<br><br>height:35px;<br><br>background: #2dcb70;<br><br>color: #fff;<br><br>font-size: 18px;<br><br>margin: 0 auto;<br><br>border-radius: 3px;<br><br>-webkit-border-radius: 3px;<br><br>opacity: 0;<br><br>top: 100px;/<em>按钮与盒子顶部的距离</em>/<br><br>}</p><br><p>给tip定位到距离box top:100px</p><br><p>隐藏tip: opacity: 0;</p><br><p>&nbsp;</p><br><p>.tip span{<br><br>display: block;<br><br>width: 0;<br><br>height: 0;<br><br>overflow: 0;<br><br>border: 7px solid transparent;<br><br>border-top-color:#2dcb70;<br><br>position: absolute;<br><br>top: 35px;<br><br>left: 50%;<br><br>margin-left: -3px;<br><br>}</p><br><p>这段代码是设置小三角形的 就不具体分析了 实现的方法很多</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong>jquery区</strong></p><br><p>&nbsp;</p><br><p>jquery代码已经给出了比较完善的解释了 我这里就简单提一下思路</p><br><ol><br><li>首先给button加上滑入,滑出两个方法</li><br><li>滑入的时候先把a标签中的data属性取出来放到.tip中的em标签中</li><br><li>再把tip定位到按钮的左边</li><br><li>定位以后因为要居中 所以用tip的宽度减去button的宽度再除以2</li><br></ol><br><p>..如果嫌这步麻烦 也可以自己写死了去定位 比如tip的left是30px 等等</p><br><p>只是弹性没有计算的好</p><br><ol><br><li>鼠标移入的时候先停止动画</li><br><li>鼠标滑出的时候也先停止动画</li><br></ol><br><p>这两步很重要做一个判断</p><br><p>&nbsp;</p><br><p>暂时分析的差不多了..新手分析的有点乱,但是大概步骤应该写出来了…吧？</p><br><p>demo下载<br><br><div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1mgoUOkg" target="_blank">度娘盘</a></div></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong>HTML</strong></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;link rel=”stylesheet” type=”text/css” href=”button.css”&gt;<br>    &lt;script type=”text/javascript” src=”js/jquery-1.8.3.min.js”&gt;&lt;/script&gt;<br>    &lt;script type=”text/javascript” src=”anim.js”&gt;<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”box”&gt;<br>        &lt;div class=”link link-miss”&gt;<br>            &lt;span class=”icon”&gt;&lt;/span&gt;<br>            &lt;a href=”#” class=”button” data=”My mission is clear”&gt;<br>                &lt;span class=”line line-top”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-right”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-bottom”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-left”&gt;&lt;/span&gt;<br>                MISSION<br>            &lt;/a&gt;<br><br>        &lt;/div&gt;<br><br>        &lt;div class=”link link-play”&gt;<br>            &lt;span class=”icon”&gt;&lt;/span&gt;<br>            &lt;a href=”#” class=”button” data=”this is my play”&gt;<br>                &lt;span class=”line line-top”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-right”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-bottom”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-left”&gt;&lt;/span&gt;<br>                PLAY<br>            &lt;/a&gt;<br><br>        &lt;/div&gt;<br><br><br>        &lt;div class=”link link-touch”&gt;<br>            &lt;span class=”icon”&gt;&lt;/span&gt;<br>            &lt;a href=”#” class=”button” data=”this is my touch”&gt;<br>                &lt;span class=”line line-top”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-right”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-bottom”&gt;&lt;/span&gt;<br>                &lt;span class=”line line-left”&gt;&lt;/span&gt;<br>                THOCH<br>            &lt;/a&gt;<br><br>        &lt;/div&gt;<br>        &lt;div class=”tip”&gt;<br>            &lt;em&gt;&lt;/em&gt;&lt;span&gt;&lt;/span&gt;<br>        &lt;/div&gt;<br><br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong>CSS</strong></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">    <em>{margin: 0;padding: 0;}<br>    body{<br>        background: #333;<br>    }<br>    .box{<br>        position: relative;<br>        width: 800px;<br>        height: 280px;<br>        margin: 50px auto;<br>    }<br>    .box .link{<br>        width: 205px;<br>        height: 280px;<br>        float: left;<br>        margin: 0 20px;<br>    }<br>    .link .icon{<br>        transition:all 0.2s ease-out 0;<br>        -webkit-transition:all 0.2s ease-out 0;<br>        display: inline-block;<br>        width: 100%;<br>        height: 190px;<br>        background: url(images/)<br>    }<br>    /</em>实现旋转动画<em>/<br>    .link .icon:hover{<br><br><br>        transform:rotate(360deg) scale(1.2);<br>        -ms-transform:rotate(360deg) scale(1.2);<br>        -webkit-transform:rotate(360deg) scale(1.2);<br><br><br><br><br><br>    }<br><br>.link-miss .icon{<br><br>    background: url(images/mission.png) no-repeat center center;<br>}<br>.link-play .icon{<br><br>    background: url(images/play.png) no-repeat center center;<br>}<br><br>.link-touch .icon{<br><br>    background: url(images/touch.png) no-repeat center center;<br>}<br><br>/</em>按钮动画<em>/<br>.button{<br>    position: relative;<br>    display: block;<br>    width: 180px;<br>    height: 50px;<br>    line-height:50px;<br>    text-decoration: none;<br>    color: #2dcb70;<br>    font-family: Arial;<br>    font-weight: bold;<br>    border: 2px solid rgba(255,255,255,0.8);<br>    padding-left: 20px;<br>    margin: 0 auto;<br>    box-sizing:border-box;<br>    -webkit-box-sizing:border-box;<br>    /</em>box-sizing不用计算宽度,直接把边框，padding也算进了宽度里面<em>/<br>    transition:all 0.4s ease 0;<br>    -webkit-transition:all 0.4s ease 0;<br>    background: url(images/allow.png) no-repeat 130px center;<br>}<br><br>.button:hover{<br>    border: 2px solid rgba(255,255,255,1);<br>    background-position: 140px center;<br>}<br><br>.button .line{<br>    display: block;<br>    position: absolute;<br>    background: none;<br>    transition: 0.4s ease ;<br>    -webkit-transition: 0.4s ease ;<br>}<br>.button:hover .line{<br>    background: #fff;<br>}<br>.button .line-top{<br>    height: 2px;<br>    width: 0px;<br>    left:-110%;<br>    top:-2px;<br><br><br>}<br><br>.button:hover .line-top{<br>    width: 100%;<br>    left: -2px;<br>}<br><br>.button .line-right{<br>    height: 0;<br>    width: 2px;<br>    top:-110%;<br>    right: -2px;<br>}<br><br>.button:hover .line-right{<br>    height: 100%;<br>    width: 2px;<br>    top:-2px;<br>}<br><br><br><br>.button .line-bottom{<br>    height: 2px;<br>    width: 0px;<br>    right:-110%;<br>    bottom:-2px;<br><br><br>}<br><br>.button:hover .line-bottom{<br>    width: 100%;<br>    right: -2px;<br>}<br><br><br><br><br>.button .line-left{<br>    height: 0;<br>    width: 2px;<br>    bottom:-110%;<br>    left: -2px;<br>}<br><br>.button:hover .line-left{<br>    height: 100%;<br>    width: 2px;<br>    bottom:-2px;<br>}<br><br>.tip{<br>    position: absolute;<br>    padding: 0 14px;<br>    line-height: 35px;<br>    height:35px;<br>    background: #2dcb70;<br>    color: #fff;<br>    font-size: 18px;<br>    margin: 0 auto;<br>    border-radius: 3px;<br>    -webkit-border-radius: 3px;<br>    opacity: 0;<br>    top: 100px;/</em>按钮与盒子顶部的距离*/<br>}<br>.tip em{<br>    font-style: normal;<br>}<br>.tip span{<br>    display: block;<br>    width: 0;<br>    height: 0;<br>    overflow: 0;<br>    border: 7px solid transparent;<br>    border-top-color:#2dcb70;<br>    position: absolute;<br>    top: 35px;<br>    left: 50%;<br>    margin-left: -3px;<br>}</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong>jquery</strong></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">$(function(){<br><br>    $(‘.link .button’).hover(function(){ //给.link .button添加移动方法hover(移入,移除)<br>        var title=$(this).attr(‘data’);//获取到this也就是鼠标移入的标签中的data值<br>        $(‘.tip em’).text(title);//给.tip em添加上title<br>        var pos=$(this).position().left+10;//获取鼠标移入的标签相对于已经设置定位的父元素的left<br>        var dis=($(‘.tip’).outerWidth()-$(this).outerWidth())/2;//这句话的意思是 用tip的宽度减去this的宽度这里的宽度指的是所有宽度加起来除以2<br>        var l=pos-dis;<br>        console.log(l)<br>        $(‘.tip’).css({‘left’:l+”px”}).stop().animate({‘top’:140,’opacity’:1},400)//设置tip的css的left为l<br>        //同时设置一个动画,top从100移动到140 opacity从0变成1 用时400秒<br>    },function(){<br>        //鼠标移出事件<br><br>            $(“.tip”).stop().animate({‘top’:100,’opacity’:0},400)<br><br><br>    })<br>})</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-154ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/154ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/154ver/">近段时间暂停更新一下</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在深入学习JavaScript,,因为涉及的知识点多..打算到时候统一发个帖子</p><br><p>到时候我也好重新温习下近段时间所学的知识</p><br><p>JavaScript深入学习教程推荐:<a href="http://www.imooc.com/video/6006" target="_blank" rel="external">http://www.imooc.com/video/6006</a></p>
 
 
 

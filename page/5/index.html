@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-190ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-213ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/190ver/" class="article-date">
+      <a href="/2015/10/21/213ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/190ver/">CSS3:为图片应用边框</a>
+      <a class="article-title" href="/2015/10/21/213ver/">JavaScript操作符详解-1:你对操作符真的了解嘛？</a>
     </h1>
   
 
@@ -219,8 +219,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/383" target="_blank" rel="external">http://www.imooc.com/code/383</a></p><p></p>
-<div class="code-desc co"><br><h2 id="J_CodeLang" class="code-head" data-lang="HTML">为边框应用图片 border-image</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>顾名思义就是为边框应用背景图片，它和我们常用的background属性比较相似。例如：</p><br><pre align="center" class="code">background:url(xx.jpg) 10px 20px no-repeat;</pre><br><p align="left">但是又比背景图片复杂一些。</p><br><pre class="code">想象一下：一个矩形，有四个边框。如果应用了边框图片，图片该怎么分布呢？ 图片会自动被切割分成四等分。用于四个边框。<br><br>可以理解为它是一个切片工具，会自动把用做边框的图片切割。怎么切割呢？为了方便理解，做了一张特殊的图片，由9个矩形（70<em>70像素）拼成的一张图（210</em>210像素），并标注好序号，是不是像传说中的九宫图，如下：<br><br><a href="http://img.mukewang.com/52e21fea000127e802100210.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21fea000127e802100210.jpg" data-original="http://img.mukewang.com/52e21fea000127e802100210.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p align="left">我们把上图当作边框图片 来应用一下， 看一看是什么效果</p><br><p align="left">根据border-image的语法：</p><br><p align="left"><a href="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" data-original="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre align="left" class="code">#border-image{<br>   background:#F4FFFA;<br>   width:210px; height:210px; border:70px solid #ddd;<br><strong>   border-image:url(borderimg.png) 70 repeat  </strong><br>}</pre><br><p align="left">效果：</p><br><p align="left"><a href="http://img.mukewang.com/52e220780001091a03530354.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220780001091a03530354.jpg" data-original="http://img.mukewang.com/52e220780001091a03530354.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre class="code">从序号可以看出div的四个角分别对应了背景图片的四个角。而<strong>2,4,6,8 </strong>被重复。<strong>5在哪？</strong>因为是从四周向中心切割图片的所以，5显示不出来。而在chrome浏览器中5是存在的，下图的样子：<br><br><a href="http://img.mukewang.com/52e220be0001cef603560358.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220be0001cef603560358.jpg" data-original="http://img.mukewang.com/52e220be0001cef603560358.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br><br><strong>repeat</strong>的意思就是重复，目前因为是刚好被整除，效果看不出来。如果改下DIV的宽高，再来看重复的效果：<br><br><a href="http://img.mukewang.com/52e2210700016f5603190313.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2210700016f5603190313.jpg" data-original="http://img.mukewang.com/52e2210700016f5603190313.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p>边角部分为裁掉了，可见<strong>repeat</strong>就是一直重复，然后超出部分剪裁掉，而且是居中开始重复。</p><br><p><strong>Round 参数</strong>：Round可以理解为圆满的铺满。为了实现圆满所以会压缩（或拉伸）；</p><br><pre class="code">#border-image {<br><br>     width:170px;<br><br>     height:170px;<br><br>     border:70px solid;<br><br>     border-image:url(borderimg.png) 70 round;<br><br> }</pre><br><p>效果：</p><br><p><a href="http://img.mukewang.com/52e2216700014c4103190312.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2216700014c4103190312.jpg" data-original="http://img.mukewang.com/52e2216700014c4103190312.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>可见图片被压扁了。</p><br><p>Stretch 很好理解就是拉伸，有多长拉多长。有多远“滚”多远。</p><br><pre align="left" class="code">border-image:url(borderimg.png) 70 stretch</pre><br><p>看一下效果：</p><br><p><a href="http://img.mukewang.com/52e2218d0001d45403530366.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2218d0001d45403530366.jpg" data-original="http://img.mukewang.com/52e2218d0001d45403530366.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>2,4,6,8分别被拉伸显示。</p><br><p>注意：Chrome下，中间部分也会被拉伸，webkit浏览器对于round属性和repeat属性似乎没有区分，显示效果是一样的。</p><br><p>Firefox 26.0 下是可以准确区分的。</p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>为DIV应用下面的边框图片。图片绝对路径为：</p><br><pre class="code"><a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a></pre><br><p><img src="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" data-original="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><strong>任务经验</strong></p><br></div><br></div><br></div><br></div><br><div class="code-tips"><br><div class="co"><br><p><span style="color: #ff0000;">根据这个border-image的属性</span></p><br><p><span style="color: #ff0000;"> border-image:url(borderimg.png) 70 repeat</span></p><br><p><span style="color: #ff0000;">url是图片地址 70是图片切割的大小 repeat是重复图片 当然也可以使用 round 等等属性来设置下</span></p><br><p><span style="color: #ff0000;">所以任务答案就是: 见下面代码</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;边框图片&lt;/title&gt;<br>&lt;style&gt;<br>#border_image {<br>    margin:0 auto;<br>    height:100px;<br>    line-height:100px;<br>    text-align:center;<br>    font-size:30px;<br>    width:450px;<br>    border:15px solid #ccc;<br>    border-image:url(<a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a>) 20 repeat;<br><br>    }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”border_image”&gt;<br>请为我镶嵌上漂亮的画框吧<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
+        <p>PS：因为是笔记向代码 很多书上的东西都没写上去 基本上挑重点写了,如果想对操作符有更多的了解可以去观阅 JavaScript高级程序设计,当中解释可能有一些不正确的理解..请大家见谅,专业化的请推度娘一下</p><br><p>想要本地了解 直接复制代码粘贴到编辑器即可,alert注释了 如果想了解相关的可以去除alert注释</p><br><blockquote><p>操作符</p><br><ol><br><li>前置型递增/递减 后置型递增/递减</li><br><li>布尔操作符 逻辑非 逻辑与 逻辑或</li><br><li>运算操作符</li><br><li>条件操作符</li><br><li>赋值操作符</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作符详解-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function test0(){<br>        //前置型递增/递减 后置型递增/递减<br><br>        //前置型<br>        var bl0=10;//设置变量bl0等于10<br>        ++bl0;//++bl0相当于 bl0=bl0+1;<br>        // alert(bl0);//弹出11<br>        var bl1 =10;<br>        –bl1;//–bl1相当于bl1=bl1-1;<br>        // alert(bl1);//弹出9;<br><br>        //后置型<br>        var bl3=10;<br>        bl3++;//bl3++相当于 bl3=bl3+1;<br>        // alert(bl3);//弹出11<br>        var bl4 =10;<br>        bl4–;//bl4–相当于 bl0=bl4-1;<br>        // alert(bl4);//弹出9<br><br>        //那么这两个有什么区别呢？<br>        var bl5 =10;<br>        var bl6 = ++bl5 +10;<br>        // alert(bl6);//弹出的是21<br><br>        var bl7=10;<br>        var bl8 =bl7++ +10;<br>        // alert(bl8);//奇怪 弹出的是20 怎么回事呢？<br>        // alert(bl7);//再来看看经过相加后的bl17是多少 弹出的是11<br>        var bl9 =bl7 + 10;<br>        // alert(bl9)//再来运算下 弹出的是21<br>        //可以得出结论 前置的++是在运算符(+-<em>/)之前运行的 也就说优先级高于运算符<br>        //后置的是在运算符之后运行的 所以第二次运行弹出的是21<br><br>        //递增递减运算的对象是数字<br>        var bl10 =”jm”;<br>        bl10 ++;<br>        // alert(bl10);//这样弹出Nan<br>        var bl11 =”10”;<br>        bl11 ++<br>        // alert(bl11+typeof bl11);//这样弹出的是11 如果字符串里有数字会把字符中数字转换成数字类型<br>        var bl12 =”11mm”;<br>        bl12++<br>        // alert(bl12);//这样弹出的会是Nan 因为不能包含字符<br><br>        //布尔操作符<br>        //布尔操作符只有true和false两个属性<br><br>        //逻辑非<br>        var bl13=”hello”;<br>        // alert(!bl13);//!就是逻辑非 ！..逻辑非会拉入你进入反世界 比如bl13存在字符串对吧<br>        // alert(bl13);//如果bl13非空字符串 那么就会弹出ture 但是加了！号 一切都反了 !bl13会返回false<br>        var bl14=0;<br>        // alert(!bl14);//本来数字为0 会弹出false 加了!就会弹出false…好好体会吧.<br><br>        //逻辑与<br>        var bl15 =true;<br>        //var bl16 =(bl15&amp;&amp;nud);//直接会报错,逻辑与在第一个元素是true然后会判断第二个元素 这里第二个元素不存在<br>        //所以会报错<br>        var bl17 =false;<br>        var bl18 =(bl17&amp;&amp;nud);// 变量1等于false 变量2无论是true还是false，最后结果都是false<br>        // alert(bl18);//会直接弹出false<br><br>        //逻辑或<br>        var bl19=true;<br>        var bl20=false;<br>        // alert(bl19||bl20);//会弹出true ||是逻辑或的符号 逻辑或只要有一个是true 那么都会返回true<br>        //如果两个都是false 那么就会返回false<br>        var bl19=false;<br>        // alert(bl19||und)//und没有定义 再加上第一个元素是false 所以会报错<br><br><br><br>    }<br><br>    function test1(){<br>        //乘法<br>        var bl0=2</em>77;//这就是乘法<br>        var bl1=”24”;<br>        var bl2 =bl0*parseInt(bl1);//还记得parseInt函数吗？乘法要把字符串转为数值哦<br>        // alert(bl2);<br><br>        //除法<br>        var bl3 =-20/0;//任何非零的有限数除以0都是Infinity/-Infinity 取决于符号<br>        // alert(bl3);//因为是负号所以会弹出-Infinity<br><br>        //余数<br>        var bl4 =3%2;//2除以3取余数<br>        // alert(bl4);//弹出的是1<br>        //除法和余数要把字符串转为数值哦<br><br>        //加法<br>        var bl5=”213”;<br>        var bl6=24;<br>        var bl7=parseInt(bl5)+bl6;//parseInt变量已经讲过咯<br>        // alert(bl7+”bl7类型:”+typeof bl7);//弹出237 类型是数字类型<br>        var bl8 =bl5+bl6;//如果不经过转换那么是多少呢？<br>        // alert(bl8+”bl8类型:”+typeof bl8);//弹出21324 加号单纯变成字符串拼接了 把bl6转换为字符串然后拼接起来<br>        var bl9 =22;<br>        var bl10=33;<br>        var bl11 =”相加获得：”+bl9+bl10//<br>        // alert(bl11)//因为加法是从左到又的 这里会弹出”相加获得：2233”； 要解决很简单<br>        var bl12=”相加获得”+(bl9+bl10);//这样就正确了<br><br>        //减法<br>        var bl13 =”-214”;//这个是字符串<br>        var bl14 =17;<br>        var bl15= parseInt(bl13)+bl14;<br>        // alert(bl15);//弹出-197 如果我想把这个变为正数 那么应该怎么办呢？ 简单，跟数学一样<br>        var bl16= -parseInt(bl13)+bl14//仅仅在parseInt前面加一个-号就ok了<br>        // alert(bl16)//弹出正数<br>        var bl7=true;<br>        var bl8=10-bl7;//<br>        // alert(bl8);//弹出9 因为bl7被转换成了1 false就是0<br>        var bl9=”2015”;<br>        var bl10=bl9-“1000”;<br>        // alert(bl10);//会弹出1015 因为会在后台强制用 Number()转换成数字再进行相减<br><br>        //大于,小于，小于等于，大于等于<br>        var bl11 = “hello”;<br>        var bl12 = “soul”;<br>        var bl13 = bl11 &gt; bl12;<br>        // alert(bl13);//字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl4=”23”;<br>        var bl5=”3”;<br>        var bl6=bl5&lt;bl4;<br>        // alert(bl6);//明明是正确的啊？ 还是那句话 字符串比较会把两个字符转换为字符编码再进行比较// 返回的是false<br>        var bl7=”24”;<br>        var bl8=3;<br>        var bl9= bl7&gt;bl8;<br>        // alert(bl9);//字符串与数字比较 会把字符串转换为数字类型再进行比较 返回true<br><br>        var bl10=”a”;<br>        var bl12=3;<br>        // alert(bl10&gt;bl12);//返回Nan 因为a转为数字Nan Nan与数字比较都是会返回Nan<br><br>        //相等 不等 全等 不全等<br>        //对于对象来说 相等不相等 先转换再比较 全等不全等 仅比较不转换<br><br>        var bl10=undefined;<br>        var bl11=null;<br>        // alert(bl10==bl11);//会弹出相等 因为在JavaScript定义里 undefined和null是相等的<br>        var bl12=”12”;<br>        var bl13=12;<br>        var bl13= bl12==bl13;<br>        // alert(bl13);//将字符串转换后还是相等的.<br>        var bl14=”12”;<br>        var bl15=14;<br>        var bl16= bl14!=bl15;<br>        // alert(bl16);//返回true 因为转换成数字后 他们两个不相等<br><br>        //全等 不等 不全等<br><br>        var bl17=”13”;<br>        var bl18=13;<br>        var bl19= bl17==bl18;<br>        // alert(bl19);//转换后相等<br>        var bl20 = bl17===bl18//全等是三个等号 不会转换<br>        // alert(bl20);//返回false;<br>        var bl21=”33”;<br>        var bl22=33;<br>        var bl23= bl21!=bl22;//!=是不等于<br>        // alert(bl23);//转换后33等于33 所以返回false<br>        var bl24 =bl21!==bl22//!==是全不等<br>        // alert(bl24);//弹出true 因为他们是不等的 为什么呢？ 因为没有转换成整数比较 字符串等于整数吗？<br>         var bl25 =undefined;<br>         var bl26=null;<br>         // alert(bl25===bl26);//没有转换 会弹出false<br><br>    }<br><br>    function test2(){<br>        //条件操作符(三目操作符)<br>        var bl0=10;<br>        var bl2=”20”;<br>        var bl3= bl0&gt;bl2?bl0:bl2//bl0是否大于bl2？ 如果是则bl3=bl0；如果不是bl3=bl2；<br>        // alert(bl3+ typeof bl3);//因为bl0不大于bl2 所以bl3=bl2 弹出20<br><br>        //赋值操作符<br>        var bl4=10;//赋值10给bl4<br>        bl4 +=bl4;//bl4=bl4+bl4<br>        // alert(bl4);//等于20<br>        bl4 /=bl4//bl4=bl4/bl4;<br>        bl4 %=bl4//bl4%=bl4;<br><br><br>    }<br><br><br><br><br><br>    window.onload=function(){<br>        test0();<br>        test1();<br>        test2();<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -249,10 +248,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-224ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-214ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/224ver/" class="article-date">
+      <a href="/2015/10/21/214ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -266,7 +265,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/224ver/">秒变配色高手！怎么都不会错的6条网页设计配色原则</a>
+      <a class="article-title" href="/2015/10/21/214ver/">JavaScript变量详解-1:不来再学下变量吗？</a>
     </h1>
   
 
@@ -275,7 +274,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文转自优设:<a href="http://www.uisdc.com/6-rules-webdesign-color" target="_blank" rel="external">秒变配色高手！怎么都不会错的6条网页设计配色原则</a></p><br><p><img class="alignnone size-full wp-image-101090" src="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="website-pinciple-6-1" width="690" height="140"></p><br><p>身为<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>新手的你，是不是还在纠结于你制作的网页找不到一组完美的配色方案？在本教程中我们将与你分享6条肯定会火，并且“错不了”的指导方针，你可以按照这些原则把握最基本的色彩规律。现在我们分享的这些原则都不是规则，你会在你的职业生涯中创造出更多的配色方案。相反，他们是一个起点，是你如何生存在<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>领域色彩方向的安全指南。</p><br><h4><strong>一、需要配色的是你的画布，而不是你的图片</strong></h4><br><p>一个在网页设计中最根本的原则是，无论你花了多少时间创造了一个辉煌的设计，其最终的作用是发挥出内容的核心位置。你的配色方案永远不应该比它呈现的内容的更加“响亮”。你的设计应该是在后台，目的是帮助突出网站的内容。</p><br><p><img title="clip_image001" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"> <img title="clip_image002" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"></p><br><p>淡色的画布突出了图像，而明亮的画布反而不能突出你的内容。（别笑，后者是发生在网络上的真实案例^—^）</p><br><p>用Photoshop或者Sketch等软件设计网站的时候，创建设计的过程往往是相互独立的。有些设计单个看起来很不错，也能被你的客户所接受，但是当它真正被设计成网页的时候不适当的配色往往会分散访客的注意力。事实上，网页设计的过程是和内容紧密相连的，很多制作高品质的网页看上去空空荡荡，几乎没有内容。</p><br><p>这是一个伟大的想法：你可以在你的网站上先铺陈出你的内容，用设计软件也好用代码也好，然后在你内容的周围设计你的网页。当然这也是一个特殊情况，如果一个特定风格的图像和照片都能和你的设计和谐的融为一体，那么你的设计配色才算是完美。试想一下，网站的配色对内容而言就像衣服对于人的重要性，对此你必须制定一套完美的并且合身的衣服。</p><br><h4><strong>二、选择简单的灰色作为你网站的基调</strong></h4><br><p>你可以为你的网站基调选择无数种颜色，不过我建议你采用最简单的颜色，比如白色/浅灰色与深灰色的搭配文字背景。</p><br><p>你可以看看任何热门的网站、模版、主题，白色或浅灰色与深灰色搭配成了大多数的选择，这当然也是有充分理由的。这样的搭配对访客而言提高了你内容的可读性，并且把你的图片突出在最前方。</p><br><p><img title="clip_image003" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="775" border="0"></p><br><p>一般来说，你的文字最好避免使用墨黑色，深灰色一般更容易阅读。我们提供一个比较舒服的文字颜色范围：＃333333到＃666666。</p><br><p>对于你的背景色，全白色（#FFFFFFF）是可以搭配任何文本的最安全的颜色。如果你想选用其他的背景颜色，我们建议采用#FFFFFF到#CCCCCC</p><br><p>当然，这些颜色的选择都不是固定死的。只不过如果你是新手，以上的配色方案你可以放心使用。</p><br><h4><strong>三、只选择一种颜色突出显示</strong></h4><br><p>如果你选择好几种不同的色调来，那么你的配色方案绝大多数是有问题的。你颜色用得越多，你的页面就越来越难以控制。所以，在你网页以灰色基调的前提下，你最好只选择一种鲜艳的颜色来作为你想要突出的事物，比如标题、菜单、按钮等等。你的高亮颜色可以是蓝色、红色、绿色，等等。</p><br><p>你最好选择与你的基调颜色相关的高亮颜色。打开你的颜色选择器，并单击你彩色方块的中心。</p><br><p><img title="clip_image004" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="400" border="0"></p><br><p>向上或向下移动你的滑块，你可以仔细选择你认为最合适的颜色。</p><br><p><img title="clip_image005" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="60" border="0"></p><br><p>现在，你设计的页面有了三个基本的颜色：背景色、文本色和高亮色。在以后你也可以选择一种以上的高亮色，但现在对于新手的你来说还是选择一种比较合适。你现在已经掌握了基本的配色，如果你有信心，你以后还可以尝试更多种不同的方案。</p><br><p><strong>你刚刚学到：</strong></p><br><p>学会了如何选择“色相”。概括来说，色相是基本色，当你移动滑块，你会看到h值在颜色选择器中的变化。</p><br><p>“H”代表色相，一旦你选择了你的高亮颜色，文本框中显示的就是你当前颜色的色相。</p><br><h4><strong>四、如果有疑问，请使用蓝色</strong></h4><br><p>如果你对你的高亮色的选择有疑惑的话，不妨使用蓝色。蓝色是一种弹性比较大的颜色，可以和很多种颜色搭配。黄色和紫色也很不错，但是如果使用不当会适得其反。</p><br><p>另一方面，如果你是用蓝色，那么你用错颜色的概率就会很低。如果你正犹豫着不知道用什么颜色好，不妨使用蓝色。比较安全的蓝色包括从H235到H190，从海军蓝到深蓝色。</p><br><p><img title="clip_image006" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="290" border="0"></p><br><p>如果是我的话，我通常选择H205的蓝色，如果你选定了一种颜色作为你的高亮色，那么也请你在其他需要的地方使用这种颜色。如果你的按钮、标题等需要高亮，把它们的颜色也换成同一种蓝色。在下面这个例子中我把白色换成了蓝色。</p><br><p><img title="clip_image007" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="clip_image007" width="600" height="775" border="0"></p><br><h4><strong>五、给你的高亮色增加变化</strong></h4><br><p>你一旦选择了高亮的颜色，从该点移动滑块来选择接下来的颜色。在你的设计中也需要其他的颜色，高亮色的稍微变化会让你的颜色选择变得简单。</p><br><p><img title="clip_image008" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="279" border="0"></p><br><p>使用这些类型的颜色变化的东西，如：</p><br><p>悬停效果：</p><br><p><img title="clip_image009" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="125" border="0"></p><br><p>边界：</p><br><p><img title="clip_image010" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="135" border="0"></p><br><p>通过突出显示颜色：</p><br><p><img title="clip_image011" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="80" border="0"></p><br><p>渐变：</p><br><p><img title="clip_image012" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="68" border="0"></p><br><p>光影效果：</p><br><p><img title="clip_image013" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="45" border="0"></p><br><h4><strong>六、尽量不要使用颜色选择器右上角的颜色</strong></h4><br><p>颜色选择器的右上角是一块肥沃的土地。在右上角的颜色就像F1赛车; 他们可以执行出惊人的效果，而且非常诱人，但通常想用好需要大量的经验。如果没有这种经验，他们可能会导致事故的发生，所​​以最好以削弱你的颜色，最好都保持比较淡化的色彩。</p><br><p>这就是为什么在本教程的第三部分，我问你点击的颜色在地图右上角的中心选择您的高亮颜色之前，要确保你有一个比较柔和的颜色拉开序幕。</p><br><p>为了说明这一点，看如果我只是改变了我们设计的色调，到目前为止，会发生什么。</p><br><p><img title="clip_image014" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>看上去还是听舒服的对吧？但是如果你把颜色调整为选择器右上角的颜色，我们再来看看效果如何：</p><br><p><img title="clip_image015" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>分分钟亮瞎了访客的双眼！如果你想确保你不烧焦你的访客的视网膜，遵循留出颜色选择器的右上角的格子的一半原则。</p><br><p><strong>饱和度和亮度</strong></p><br><p>当您拖动周围的颜色选择器区域的地图区域，你会看到“S”和“B”的值发生变化，这代表饱和度和亮度。您还可以看到色相号保持不变。所以，你通过改变你原有的色相的饱和度和亮度会产生颜色的变化。</p><br><p><img title="clip_image016" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="77" border="0"></p><br><p><strong>饱和度</strong></p><br><p>是一种生动的色彩表现。例如，认为“我的衬衫中渗透着葡萄酒红”。在一个典型的颜色选择器饱和度是多少白了就是混在你的基地的色调来决定。白色越少，越饱和。</p><br><p>当您拖动到右边的颜色在地图上可以减少白色量，从而增加了饱和度，“S”的值上升。当您拖动到左边向所有的白角，你会减少饱和使“S”的值下降。</p><br><p><img title="clip_image017" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="100" border="0"></p><br><p><strong>亮度</strong></p><br><p>亮度是有多少黑色混合到你的颜色。黑色越少，越亮。</p><br><p>当你拖动滑块向上，减少了黑色的数量，增加亮度，在颜色选择器中的“B”的值上升。</p><br><p><img title="clip_image018" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="340" border="0"></p><br><p>与你原来的色调混合的黑色也被称为创造了“阴影”。这也来源于油漆混合，是黑色油漆与涂料颜色的混合。</p><br><p>当你混合灰色到彩色这被称为创造了色调。如果你调节饱和度和亮度，那么你就创造了一种色调。所以基本上任何时候无论你的饱和度和亮度均小于100％，这就是一个色调。</p><br><p>同样，这个词来源于油漆混合，在其中创建一个灰色的油漆，然后用彩色涂料混合。</p><br><p><strong>单色配色方案</strong></p><br><p>单色的配色方案是，你以一个基本的色调和扩展它的色相，饱和度和亮度。因此，通过采摘一大亮点的颜色和它创造的变化，你实际上创建了一个单色方案。</p><br><p><img title="clip_image019" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="70" border="0"></p><br><h4><strong>下一步？</strong></h4><br><p>坚持练习对灰度基础的单色配色方案，直到你感到很有信心为止。试着用不同的色调，尝试创建不同的高亮色，看看它是如何改变饱和度和亮度的设置，直到可以使用为止。</p><br><p>当你感觉很舒服，可以增加一个额外的高亮颜色。我建议尝试橙色和蓝色，因为他们往往​​是最简单的二重奏。然后尝试绿色和蓝色，这在我的经验中是第二个最简单的。这两种往往是与客户和访客都会称赞的搭配。</p><br><p>为了推动了你对Web的配色方案的理解，最​好的事情就是抓住自己喜欢颜色，你可以用取样器（浏览器扩展Colorzilla），并用它来​研究经验丰富的设计师是怎么做到的丰富的色彩搭配的。当你在浏览互联网的时候，看到一个很大的配合突破，你可以用颜色取样器看看在页面上使用的颜色的配色方案。你甚至可以尝试每个色相，看看哪些饱和度和亮度水平效果最好吧。另外要注意它的颜色组合的和谐度。</p><br><p>如果有疑问，可以随时回到属于你的“安全第一”的指导方针，这无论如何都是不会错的。</p>
+        <p>DOM编程艺术（第二版）书已经看到后面几张了，因为有些函数看的有点困难 所以打算先看一下JavaScript高级程序设计再返回来看看DOM编程艺术</p><br><blockquote><p>本次变量有 需要测试的可以把注释给删除</p><br><ol><br><li>整数型</li><br><li>字符型</li><br><li>布尔型</li><br><li>数组</li><br><li>对象简介</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-变量详解-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>     function test0(){<br>     tet = “soul”;//这样也可以定义 没有加var默认为全局类型的变量.<br>     var soul =”hello”;//这是一个字符型的变量.<br>     alert(typeof soul);//typeof是输出变量的类型 比如这个会输出字符型<br>     var num =1;//这是一个数字型的变量<br>     var bl =true;//这是一个布尔型的变量 他只有两个值 一个是true 一个是false<br>     var arr=[];//这是一个数组，注意[]计算机都是从0开始 也就是说数组第一个元素是arr[0]<br>     arr[0]=”hello”;//给数组第一个添加一个hello字符<br>     alert(arr[0]);//弹出数组第一个元素.<br>     var und;//这样也可以设置一个变量 但是没有赋值<br>     alert(und);//这样弹出的变量值是 undefined<br>     var nu=null;//这样给nu变量赋为一个空值 但是跟undefined不同的是 null可以根据你后续调用的需要可以转为数组<br>     //而vat nu;如果你后续要用nu作为数组 这样就不行..只能先这样理解咯，要专业化的可以推度娘一下<br>     }<br>     function test1(){<br>         //整数类型：Number数值转换，下面只列出一小部分 具体的请推度娘或者查阅相关资料哦<br>         var bl0=Number(“hello”);//会返回NaN 字符串转换成数字..你认为怎么转换？<br>         var bl1=Number(true);//会返回1 如果是false 那么会返回0<br>         var bl2=Number(“”);//会返回一个0<br>         //parseInt(),这个可以获取字符串中的整数(字符串第一个数必须是数字或者是符号 否则会返回Nan) 同时会把8进制 16进制的数转换成10进制<br>         var bl3=parseInt(“10086call”);//这样就只获取到当中的10086并且以数字类型保存起来;<br>         var bl4=parseInt(“70”);//同上<br>         var bl5=parseInt(22.5)//这样会返回22 因为只是获取整数 要获取小数请使用parseFloat<br>         var bl6=parseFloat(22.88)//这样就获取到小数了<br>         var bl7=parseInt(“0xf”);//返回15<br>         var bl8=parseInt(“0xAF”,16);//0xAF是一个16进制的数 后面的16 是要转换的数值类型 当然最终还是会转为为十进制<br>         var bl9=parseInt(“10”,2);//按照2进制来解析 把10(二进制)转为为十进制<br>         var bl10=parseInt(“10”,10);//10进制来解析<br>         //parseFload 浮点数<br>         var bl11=parseFloat(“0xf”);//因为parseFloat没有第二个参数可以写，parseFloat只解释10进制,再加上parseFloat会忽略前面的0,<br>         //所以bl11 弹出的是0 任何16进制的数都会返回成0;<br>     }<br><br>     function test2(){<br>         //字符串类型<br>         var bl0=”hello”;//这样就是一个字符串类型<br>         var bl1=’soul’;//用单引号包裹也是ok的<br>         var bl2= “错误”//左边一个单引号 右边一个双引号 这是奇葩(因为代码编写器原因 就没写引号了 大家把左边的双引号改成单引号)<br>         var bl3= “hello\’soul”;//反斜号是转义符号，如果想要在字符中输出单引号 必须要用转义 包括斜杠啊 双引号之类的<br>         var bl4=”hello\nsoul”;// \n是换行的意思<br>         var bl5=”hello\n soul\’ 我是\”大魔王\” “//大家好好理解这句话<br>         var bl6=”hello\x41”//转义字符 也可以\u 这样 转义字符大家可以在百度上找到<br>         var bl7=”hello soul\x41”;//空格也算一个字符 转义字符也算一个字符<br>         // alert(bl7.length);//.length是输出这个变量的长度 这样会弹出11 原因上一个已经解释了<br>         var bl8=”hello”;<br>         var bl8=bl8+”soul”;//字符串拼接 可以把变量与字符串拼接<br>         var bl9=10;//设置bl9是数字变量<br>         var bl9=bl8+bl9;//bl9等于bl8加上bl9<br>         // alert(bl9+”相加后是整数还是字符串呢”+typeof bl9);//相加后会变成字符串<br>         // 使用to.String 来转换成字符串<br>         var bl10 =999;<br>         var bl10s= bl10.toString();//把bl10转为字符串类型 后面没加参数默认是10<br>         var bl11=10;<br>         var bl11s=bl11.toString(2);//按照2进制的形式转换 得出的结果是 “1010” 可以使用 8 16进制等来转换<br>         //String 把任何类型转为字符串类型<br>         var bl12=10;<br>         var bl12s=String(bl12);//把bl12转换为字符串<br>         alert(bl12s+”转换后类型为”+typeof bl12s);<br>         var bl13;//未赋值的变量默认是 undefined<br>         var bl13s=String(bl13);//这样相当于把undefined转为字符串了 弹出的是”undefined”<br>         var bl14=null;<br>         var bl14s=String(bl14);//转为的是”null”<br>     }<br><br>     function test3(){<br>         //对象简介<br>         var o = new Object();//创建一个对象<br>         var o1 =new Object;//没加括号也是可以的 但是不推荐<br>         //对象类型具体后面再说<br>     }<br><br><br>     function qj(){<br>         alert(“我是全局的变量tet:”+tet);//可以调用到刚刚在函数内部设置的变量tet.<br>     }<br><br><br>     window.onload=function(){//网页加载完毕后加载函数.<br>         // test0();<br>         // qj();<br>         // test1();<br>         // test2();<br>     }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -304,10 +303,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-223ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-215ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/223ver/" class="article-date">
+      <a href="/2015/10/21/215ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -321,7 +320,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/223ver/">JavaScript简单动画-1</a>
+      <a class="article-title" href="/2015/10/21/215ver/">PPT练成记-1:小试牛刀</a>
     </h1>
   
 
@@ -330,7 +329,18 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>代码基于上次 ：<a title="JavaScript操控css -2：巧用一个变量设置奇数行,偶数行" href="http://www.old.com/soul-get/soul-js/126" target="_blank" rel="external">JavaScript操控css -2：巧用一个变量设置奇数行,偶数行</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS-1&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        table,th,td{<br>            border: 2px solid black;<br>            border-collapse:collapse;<br>            width: 100px;<br>        }<br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function changeBg(){//定义函数<br>            var get_table =document.getElementsByTagName(“table”);//获取页面中的table标签<br>            var obb;//定义变量 obb(偶数)<br>            for (var i = 0; i &lt; get_table.length; i++) {//开始遍历table<br>                obb =false;//设置偶数行等于 假<br>                var get_table_tr=get_table[i].getElementsByTagName(“tr”);//设置get_table等于table中的tr元素<br>            for (var d = 0; d &lt; get_table_tr.length; d++) {//开始遍历tr<br>                if (obb==true) {//如果偶数行等于 真<br>                    get_table_tr[d].style.background=”red”;//设置tr的背景颜色为红色<br>                    obb=false;//设置obb等于 假<br>                }else{//否则<br>                    obb=true;//返回obb等于 真<br>                }<br>                }<br>            }<br>        }<br><br>        function highLightrow(){//定义函数<br>            var get_tr =document.getElementsByTagName(“tr”);//获取tr标签<br>            for (var i = 0; i &lt; get_tr.length; i++) {//遍历<br>                get_tr[i].onmouseover=function(){//在tr标签添加鼠标移入动画 相当于onmouseove=””<br>                    this.style.fontSize=”24px”;//this这个很重要 返回鼠标移入的tr标签<br>                }<br>                if (get_tr[i].getAttribute(“fh”)==”none”) {//如果检测到tr标签的 fh属性等于 none<br>                    get_tr[i].onmouseout=function(){//添加鼠标移除的动画<br>                    this.style.fontSize=”16px”;//设置大小为16px;<br>                    }<br>                }else{<br>                    get_tr[i].onmouseout=function(){<br>                    this.style.fontSize=”14px”;//否则设置大小为14px; 这样做是为了使标题醒目<br>                    }<br>                }<br><br>            };<br>        }<br>    window.onload=function(){<br>        changeBg();<br>        highLightrow();<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>        &lt;table&gt;<br>            &lt;tr fh=”none”&gt;<br>                &lt;th&gt;名字&lt;/th&gt;<br>                &lt;th&gt;性别&lt;/th&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;soul&lt;/td&gt;<br>                &lt;td&gt;保密&lt;/td&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;seeker&lt;/td&gt;<br>                &lt;td&gt;你猜&lt;/td&gt;<br>            &lt;/tr&gt;<br><br>        &lt;/table&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p>最近老师要上台演讲…然后深夜加工出一副还算看的过去的PPT,以我现在的观点来看.还算有很多值得改进的地方.当然这一切多靠了<span style="color: #6236e3;"> 《曹德：PPT练成记》 </span>具体的购买地址请推<a href="http://baidu.com" target="_blank" rel="external">度娘</a>一下哦</p><p></p>
+<p></p><p>下面只稍微放几幅演示图,因为是经验向，所以各位看官就不要太过于较真了</p><p></p>
+<p></p><p>字体什么的自己去替换哦 推荐用”微软雅黑”</p><p></p>
+<p></p><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-23.png" target="_blank" rel="external"><img class=" size-medium wp-image-161 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-23.png" data-original="http://www.old.com/wp-content/uploads/2015/03/23-300x167.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="23" width="300" height="167"></a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-25.png" target="_blank" rel="external"> <img class=" size-medium wp-image-163 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-25.png" data-original="http://www.old.com/wp-content/uploads/2015/03/25-300x165.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="25" width="300" height="165"></a></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>放上演示ppt</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1hqowfVu" target="_blank">百度云下载</a></div>
 
 
 
@@ -359,10 +369,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-222ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-216ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/222ver/" class="article-date">
+      <a href="/2015/10/21/216ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -376,7 +386,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/222ver/">JavaScript操控CSS-3:直接添加className属性</a>
+      <a class="article-title" href="/2015/10/21/216ver/">有哪些值得推荐的中文字体？</a>
     </h1>
   
 
@@ -385,227 +395,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>越来越强大的JavaScript  这次笔记跟css-2和css-1没更改太多 详情可以看看前两文章</p><br><p>这次笔记加深了对节点的理解 233</p><br><p>不知道对各位看官能不能有所帮助呢？</p><br><blockquote><br><h2 class="post-title"><a title="JavaScript操控css -2：巧用一个变量设置奇数行,偶数行" href="http://www.old.com/soul-get/soul-js/126" target="_blank" rel="external">JavaScript操控css -2：巧用一个变量设置奇数行,偶数行</a></h2><br><h2 class="post-title"><a title="JavaScript操控CSS -1" href="http://www.old.com/soul-get/soul-js/124" target="_blank" rel="external">JavaScript操控CSS -1</a></h2><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-2&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        .add_css{<br>            color:red;<br><br>        }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function setClassName(){<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            var elem<br>            for (var i = 0; i &lt; get_h1.length; i++) {<br>                // var testa=get_h1[i].childNodes[1].nodeName;//测试获取到h1元素的下级第二个元素数组是从[0]开始<br>                // //childNodes[0]弹出的是text,这段只是为了更助于理解节点问题.看不懂可以跳过哦<br>                // alert(testa);//弹出testa内容<br><br>                elem=getNextElem(get_h1[i].nextSibling);//nextSibling是获取同级兄弟元素而不是下级<br>                // alert(elem.nodeName);//获取到下一个兄弟元素是p<br>                elem.className=”add_css”//添加class属性等于 css当中设置的add_css<br>            };<br>        }<br><br>        function getNextElem(nextnode){//获取到传递的参数<br>            if (nextnode.nodeType ==1) {//如果传递的参数属性类型等于1 1为元素节点 2为属性节点 3为文本节点<br>                return nextnode;//返回nextnode<br>            }else{//否则<br>                if (nextnode.nextSibling) {//如果传递的nextnode下一个兄弟元素存在<br>                    return getNextElem(nextnode.nextSibling);//递归调用这个函数 然后再针对nextnode的下一个兄弟元素进行检查<br>                } else{return null};//如果没有那么返回空<br>            }<br><br>        }<br><br>        // function changeNextSib(tag,theclass){<br>        //     var elem=document.getElementsByTagName(“tag”);<br>        //     var obb<br>        // }<br><br>        window.onload=function(){<br>            setClassName();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;Hello Seeker<br>        &lt;p&gt;我是下级P&lt;/p&gt;<br>    &lt;/h1&gt;<br>    &lt;p&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-221ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/221ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/221ver/">JavaScript操控CSS-4:className的深入与巧用一个变量设置奇数行,偶数行</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先来点简单的设置p的className</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                get_p[i].className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>直接用get_p.className=”add_css”会发现直接覆盖了而不是添加 那么应该怎么做呢？</p><br><p>按照DOM 编程艺术（第二版）书上所写的 写一个addClassNmae函数</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                var save_get_p=get_p[i]<br>                // save_get_p.className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>                addClassName(save_get_p,”add_css”);<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p style="text-align: center;">注意！前方高能</p><br><p style="text-align: left;">现在来利用以上学到的知识设置那个奇偶性变化问题吧</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-3-奇数行偶数行深入&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br>    function changeColor(){//定义函数<br>        var get_div =document.getElementsByTagName(“div”);//获取div标签<br>        var obb;//设置一个变量obb<br>        obb =false;//设置obb等于false<br>        for (var i = 0; i &lt; get_div.length; i++) {//遍历div<br>                var get_div_p =get_div[i].getElementsByTagName(“p”);//设置get_div_p等于get_div[i]下的p标签<br>            for (var d = 0; d &lt; get_div_p.length; d++) {//遍历p标签<br>                if (obb==true) {//如果obb是真<br>                var save_get_p=get_div_p[d];//设置变量save_get_p存储当前数组<br>                addClassName(save_get_p,”add_css”);//调用函数addClassName 并且传递两个参数 一个是标签 一个是要加的css<br>                obb =false;//设置obb等于假<br>                }else{obb=true};//否则返回obb等于真<br>            }<br>        }<br>    }<br>    window.onload=function(){//网页加载完毕加载函数<br>        changeColor();<br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;<br>        &lt;p&gt;hello&lt;/p&gt;<br>        &lt;p&gt;soul seeker&lt;/p&gt;<br>        &lt;p&gt;欢迎来到&lt;/p&gt;<br>        &lt;p&gt;灵魂放逐者营地&lt;/p&gt;<br>        &lt;p&gt;解开封锁的灵魂吧！&lt;/p&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-220ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/220ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/220ver/">JavaScript-抽象:抽个大象出来？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><del>抽象就是把实体的变成抽象的..</del></p><br><p>恩.还是抽个大象出来比较符合解释</p><br><p>&nbsp;</p><br><p>先看一段不是抽象的代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(){//定义函数<br>        var get_p = document.getElementsByTagName(“p”);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=”add_css”;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p>为什么要抽象呢？首先要涉及到一个慨念是”面向对象编程” 我也没学到这里来,所以只能简单说说了，</p><br><p>抽象可以方便我们更改元素而不用去一大堆代码里找相应的更改</p><br><p>&nbsp;</p><br><p><strong>下面是抽象的代码</strong></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(css_v,tag){//定义函数<br>        var get_p = document.getElementsByTagName(tag);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=css_v;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    function cX(){//定义抽象函数<br>        changeColor(“add_css”,”p”);//调用函数并且传递变量<br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>        cX();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-219ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/219ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/219ver/">JavaScript简单动画-2:初入动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为代码有点偏笔记向，所以没有对每个属性做出详细的解释了, 大家可以推度娘一下</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br>        }<br>        function moveAnmi(){//定义移动函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>            var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>            var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>            if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>                return true;//返回true(停止运行函数)<br><br>            }<br>            if(xpor&lt;200){//如果左属性小于200<br>                xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>            }<br>            if(xpor&gt;200){//如果左属性大于200<br>                xpor–;//每次减一<br>            }<br>            if(ypor&lt;100){//如果上属性小于100<br>                ypor++;//每次加1<br><br>            }<br>            if(ypor&gt;100){//如果上属性大于100<br>                ypor–;//每次减一<br><br>            }<br>            get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_anmi_o.style.left =xpor+”px”;//同上<br>            mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        }<br>        window.onload=function(){//网页加载完毕加载函数<br>            moveAnmi();<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-218ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/218ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/218ver/">JavaScript简单动画3-动画与抽象结合</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><span style="font-size: 18pt;">不太了解抽象的可以先看看</span></p><br><blockquote><br><h2 class="post-title"><span style="font-size: 12pt;"><a title="JavaScript-抽象:抽个大象出来？" href="http://www.old.com/soul-get/soul-js/145" target="_blank" rel="external">JavaScript-抽象:抽个大象出来？</a></span></h2><br><h2 class="post-title"><a title="JavaScript简单动画-2:初入动画" href="http://www.old.com/soul-get/soul-js/147" target="_blank" rel="external">JavaScript简单动画-2:初入动画</a> 没看过的去看看2</h2><br></blockquote><br><p>不废话,解释全在代码里 直接贴代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br><br>            var get_anmi_t =document.getElementById(“anmi_t”);//设置 get_anmi_t等于id属性为anmi_t的元素<br>            get_anmi_t.style.left=”500px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_t.style.top=”100px”;//要不然下面获取的时候会获取不到<br>            get_anmi_t.style.position=”absolute”;//设置定位为绝对定位<br><br>            CQ(“anmi_o”,200,200,10);//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>            CQ(“anmi_t”,400,200,10)//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_p=document.getElementById(elem);//设置get_p等于id为elem参数,比如上面elem传递的是”anmi_o”那么就获取id为anmi_o的标签<br>             var porx=parseInt(get_p.style.left);//设置porx为get_p的左属性 并且只获取整数<br>            var pory=parseInt(get_p.style.top);//设置porx为get_p的上属性 并且只获取整数<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//前面解释过了就不再解释了<br>                porx++;<br><br>            }<br>            if(porx&gt;finally_x){<br>                porx–;<br><br>            }<br>            if(pory&lt;finally_y){<br>                pory++;<br><br>            }<br>            if(pory&gt;finally_y){<br>                pory–<br><br>            }<br>            get_p.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_p.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数<br><br><br>        }<br>        // function moveAnmi(){//定义移动函数<br>        //     var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>        //     var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>        //     var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>        //     if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>        //         return true;//返回true(停止运行函数)<br><br>        //     }<br>        //     if(xpor&lt;200){//如果左属性小于200<br>        //         xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>        //     }<br>        //     if(xpor&gt;200){//如果左属性大于200<br>        //         xpor–;//每次减一<br>        //     }<br>        //     if(ypor&lt;100){//如果上属性小于100<br>        //         ypor++;//每次加1<br><br>        //     }<br>        //     if(ypor&gt;100){//如果上属性大于100<br>        //         ypor–;//每次减一<br><br>        //     }<br>        //     get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>        //     get_anmi_o.style.left =xpor+”px”;//同上<br>        //     mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        // }<br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>    &lt;p id=”anmi_t”&gt;seeker&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p><span style="font-family: arial, helvetica, sans-serif;">文章来自知乎：<a href="http://www.zhihu.com/question/20727176" target="_blank" rel="external">http://www.zhihu.com/question/20727176</a></span></p><p></p>
+<p></p><p>这里只转载了一部分 详情请跳转到知乎哦</p><p></p>
+<blockquote><p>每一款汉字都是一首诗，下面是一些值得推荐的中文字体。</p><br><p>感谢 <a class="member_mention" href="http://www.zhihu.com/people/5e572617e96bed88fc05e13aad0ae39e" data-hash="5e572617e96bed88fc05e13aad0ae39e" data-editable="true" data-title="@曾浩" data-tip="p$b$5e572617e96bed88fc05e13aad0ae39e" target="_blank" rel="external">@曾浩</a><a class="member_mention" href="http://www.zhihu.com/people/bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-hash="bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-editable="true" data-title="@王拓翔" data-tip="p$t$bcff7cca1e7e687d1ba1ed58a2b3dbf6" target="_blank" rel="external">@王拓翔</a> 等众多知友的提醒，如有需要请务必购买正版。<br><br>感谢@<a class="internal" href="http://www.zhihu.com/people/shesrebel" target="_blank" rel="external">于晏</a>提醒，“方正清刻本宋悦简体”正确的名称是“方正清刻本悦宋简体”。</p><br><p>update（5月22日）<br><br>————————————————————————————<br><br>1 方正正纤黑简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" data-original="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg"><br><br>2 汉仪全唐诗简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" data-original="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg"><br><br>3 微软雅黑</p><br><p><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" data-original="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg"></p><br><p>—————-<br><br>update（3月13日）<br><br>非常感谢各位知友厚爱，今天更新四款字体。</p><br><p>1 方正字迹-吕建德行楷<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" data-original="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg"></p><br><p>2 八大山人字体试用版<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" data-original="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg"><br><br>3 方正清刻本悦宋简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" data-original="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg"></p><br><p>—————-<br><br>update（2月18日）<br><br>1 方正幼线简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" data-original="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg"><br><br>2 方正兰亭刊宋<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" data-original="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg"></p><br><p>—————-<br><br>1方正苏新诗柳楷简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" data-original="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg"></p><br><p>&nbsp;</p><br><p><b>灵动型：</b><br><br>1 书体坊米芾体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" data-original="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg"><br><br>2 祥南行书体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" data-original="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg"><br><br>3 方正黄草<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" data-original="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg"></p><br><p><b>精致型：</b><br><br>1 冬青黑体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" data-original="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg"></p></blockquote><br><blockquote><p><b style="color: #222222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 22.1000003814697px;"> </b></p></blockquote>
 
 
 
@@ -689,10 +481,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-216ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-218ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/216ver/" class="article-date">
+      <a href="/2015/10/21/218ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -706,7 +498,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/216ver/">有哪些值得推荐的中文字体？</a>
+      <a class="article-title" href="/2015/10/21/218ver/">JavaScript简单动画3-动画与抽象结合</a>
     </h1>
   
 
@@ -715,9 +507,227 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p><span style="font-family: arial, helvetica, sans-serif;">文章来自知乎：<a href="http://www.zhihu.com/question/20727176" target="_blank" rel="external">http://www.zhihu.com/question/20727176</a></span></p><p></p>
-<p></p><p>这里只转载了一部分 详情请跳转到知乎哦</p><p></p>
-<blockquote><p>每一款汉字都是一首诗，下面是一些值得推荐的中文字体。</p><br><p>感谢 <a class="member_mention" href="http://www.zhihu.com/people/5e572617e96bed88fc05e13aad0ae39e" data-hash="5e572617e96bed88fc05e13aad0ae39e" data-editable="true" data-title="@曾浩" data-tip="p$b$5e572617e96bed88fc05e13aad0ae39e" target="_blank" rel="external">@曾浩</a><a class="member_mention" href="http://www.zhihu.com/people/bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-hash="bcff7cca1e7e687d1ba1ed58a2b3dbf6" data-editable="true" data-title="@王拓翔" data-tip="p$t$bcff7cca1e7e687d1ba1ed58a2b3dbf6" target="_blank" rel="external">@王拓翔</a> 等众多知友的提醒，如有需要请务必购买正版。<br><br>感谢@<a class="internal" href="http://www.zhihu.com/people/shesrebel" target="_blank" rel="external">于晏</a>提醒，“方正清刻本宋悦简体”正确的名称是“方正清刻本悦宋简体”。</p><br><p>update（5月22日）<br><br>————————————————————————————<br><br>1 方正正纤黑简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" data-original="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/368e7a98978c56535cbc2aba0ecc3b04_b.jpg"><br><br>2 汉仪全唐诗简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" data-original="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f47b444fa52557a4bc8cd87dde918499_b.jpg"><br><br>3 微软雅黑</p><br><p><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" data-original="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/a0d6fdd2373c0a9a4e9585b485d31a16_b.jpg"></p><br><p>—————-<br><br>update（3月13日）<br><br>非常感谢各位知友厚爱，今天更新四款字体。</p><br><p>1 方正字迹-吕建德行楷<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" data-original="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/b8a8391dc3a4a9fc7fd6cfe10164943c_b.jpg"></p><br><p>2 八大山人字体试用版<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" data-original="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/65efd28538531871fc851a8d097f97d4_b.jpg"><br><br>3 方正清刻本悦宋简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" data-original="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/9407948693b6aa11a0a728841c955245_b.jpg"></p><br><p>—————-<br><br>update（2月18日）<br><br>1 方正幼线简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" data-original="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/ef72b35c5923e195477d14fb868be9fe_b.jpg"><br><br>2 方正兰亭刊宋<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" data-original="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/7c3fc4756561f7ba97044e0d6b4d709a_b.jpg"></p><br><p>—————-<br><br>1方正苏新诗柳楷简体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" data-original="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic3.zhimg.com/fec080c4845e70a5e4476392029fb75e_b.jpg"></p><br><p>&nbsp;</p><br><p><b>灵动型：</b><br><br>1 书体坊米芾体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" data-original="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/f939d34b356e60c00fffb28ba87c2a29_b.jpg"><br><br>2 祥南行书体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" data-original="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/833b5b44e3547b2b068c02dbf94dafa4_b.jpg"><br><br>3 方正黄草<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" data-original="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic1.zhimg.com/9720b8ad0e00a7303b9bbfd2131a139c_b.jpg"></p><br><p><b>精致型：</b><br><br>1 冬青黑体<br><br><img class="origin_image zh-lightbox-thumb lazy" src="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" data-original="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="443" data-rawwidth="443" data-rawheight="131" data-actualsrc="http://pic2.zhimg.com/54aaa2db3e654e1877953385dc454135_b.jpg"></p></blockquote><br><blockquote><p><b style="color: #222222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; line-height: 22.1000003814697px;"> </b></p></blockquote>
+        <p><span style="font-size: 18pt;">不太了解抽象的可以先看看</span></p><br><blockquote><br><h2 class="post-title"><span style="font-size: 12pt;"><a title="JavaScript-抽象:抽个大象出来？" href="http://www.old.com/soul-get/soul-js/145" target="_blank" rel="external">JavaScript-抽象:抽个大象出来？</a></span></h2><br><h2 class="post-title"><a title="JavaScript简单动画-2:初入动画" href="http://www.old.com/soul-get/soul-js/147" target="_blank" rel="external">JavaScript简单动画-2:初入动画</a> 没看过的去看看2</h2><br></blockquote><br><p>不废话,解释全在代码里 直接贴代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br><br>            var get_anmi_t =document.getElementById(“anmi_t”);//设置 get_anmi_t等于id属性为anmi_t的元素<br>            get_anmi_t.style.left=”500px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_t.style.top=”100px”;//要不然下面获取的时候会获取不到<br>            get_anmi_t.style.position=”absolute”;//设置定位为绝对定位<br><br>            CQ(“anmi_o”,200,200,10);//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>            CQ(“anmi_t”,400,200,10)//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_p=document.getElementById(elem);//设置get_p等于id为elem参数,比如上面elem传递的是”anmi_o”那么就获取id为anmi_o的标签<br>             var porx=parseInt(get_p.style.left);//设置porx为get_p的左属性 并且只获取整数<br>            var pory=parseInt(get_p.style.top);//设置porx为get_p的上属性 并且只获取整数<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//前面解释过了就不再解释了<br>                porx++;<br><br>            }<br>            if(porx&gt;finally_x){<br>                porx–;<br><br>            }<br>            if(pory&lt;finally_y){<br>                pory++;<br><br>            }<br>            if(pory&gt;finally_y){<br>                pory–<br><br>            }<br>            get_p.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_p.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数<br><br><br>        }<br>        // function moveAnmi(){//定义移动函数<br>        //     var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>        //     var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>        //     var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>        //     if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>        //         return true;//返回true(停止运行函数)<br><br>        //     }<br>        //     if(xpor&lt;200){//如果左属性小于200<br>        //         xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>        //     }<br>        //     if(xpor&gt;200){//如果左属性大于200<br>        //         xpor–;//每次减一<br>        //     }<br>        //     if(ypor&lt;100){//如果上属性小于100<br>        //         ypor++;//每次加1<br><br>        //     }<br>        //     if(ypor&gt;100){//如果上属性大于100<br>        //         ypor–;//每次减一<br><br>        //     }<br>        //     get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>        //     get_anmi_o.style.left =xpor+”px”;//同上<br>        //     mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        // }<br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>    &lt;p id=”anmi_t”&gt;seeker&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-219ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/219ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/219ver/">JavaScript简单动画-2:初入动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为代码有点偏笔记向，所以没有对每个属性做出详细的解释了, 大家可以推度娘一下</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br>        }<br>        function moveAnmi(){//定义移动函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>            var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>            var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>            if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>                return true;//返回true(停止运行函数)<br><br>            }<br>            if(xpor&lt;200){//如果左属性小于200<br>                xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>            }<br>            if(xpor&gt;200){//如果左属性大于200<br>                xpor–;//每次减一<br>            }<br>            if(ypor&lt;100){//如果上属性小于100<br>                ypor++;//每次加1<br><br>            }<br>            if(ypor&gt;100){//如果上属性大于100<br>                ypor–;//每次减一<br><br>            }<br>            get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_anmi_o.style.left =xpor+”px”;//同上<br>            mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        }<br>        window.onload=function(){//网页加载完毕加载函数<br>            moveAnmi();<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-220ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/220ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/220ver/">JavaScript-抽象:抽个大象出来？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><del>抽象就是把实体的变成抽象的..</del></p><br><p>恩.还是抽个大象出来比较符合解释</p><br><p>&nbsp;</p><br><p>先看一段不是抽象的代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(){//定义函数<br>        var get_p = document.getElementsByTagName(“p”);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=”add_css”;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p>为什么要抽象呢？首先要涉及到一个慨念是”面向对象编程” 我也没学到这里来,所以只能简单说说了，</p><br><p>抽象可以方便我们更改元素而不用去一大堆代码里找相应的更改</p><br><p>&nbsp;</p><br><p><strong>下面是抽象的代码</strong></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(css_v,tag){//定义函数<br>        var get_p = document.getElementsByTagName(tag);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=css_v;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    function cX(){//定义抽象函数<br>        changeColor(“add_css”,”p”);//调用函数并且传递变量<br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>        cX();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-221ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/221ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/221ver/">JavaScript操控CSS-4:className的深入与巧用一个变量设置奇数行,偶数行</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先来点简单的设置p的className</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                get_p[i].className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>直接用get_p.className=”add_css”会发现直接覆盖了而不是添加 那么应该怎么做呢？</p><br><p>按照DOM 编程艺术（第二版）书上所写的 写一个addClassNmae函数</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                var save_get_p=get_p[i]<br>                // save_get_p.className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>                addClassName(save_get_p,”add_css”);<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p style="text-align: center;">注意！前方高能</p><br><p style="text-align: left;">现在来利用以上学到的知识设置那个奇偶性变化问题吧</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-3-奇数行偶数行深入&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br>    function changeColor(){//定义函数<br>        var get_div =document.getElementsByTagName(“div”);//获取div标签<br>        var obb;//设置一个变量obb<br>        obb =false;//设置obb等于false<br>        for (var i = 0; i &lt; get_div.length; i++) {//遍历div<br>                var get_div_p =get_div[i].getElementsByTagName(“p”);//设置get_div_p等于get_div[i]下的p标签<br>            for (var d = 0; d &lt; get_div_p.length; d++) {//遍历p标签<br>                if (obb==true) {//如果obb是真<br>                var save_get_p=get_div_p[d];//设置变量save_get_p存储当前数组<br>                addClassName(save_get_p,”add_css”);//调用函数addClassName 并且传递两个参数 一个是标签 一个是要加的css<br>                obb =false;//设置obb等于假<br>                }else{obb=true};//否则返回obb等于真<br>            }<br>        }<br>    }<br>    window.onload=function(){//网页加载完毕加载函数<br>        changeColor();<br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;<br>        &lt;p&gt;hello&lt;/p&gt;<br>        &lt;p&gt;soul seeker&lt;/p&gt;<br>        &lt;p&gt;欢迎来到&lt;/p&gt;<br>        &lt;p&gt;灵魂放逐者营地&lt;/p&gt;<br>        &lt;p&gt;解开封锁的灵魂吧！&lt;/p&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-222ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/222ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/222ver/">JavaScript操控CSS-3:直接添加className属性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>越来越强大的JavaScript  这次笔记跟css-2和css-1没更改太多 详情可以看看前两文章</p><br><p>这次笔记加深了对节点的理解 233</p><br><p>不知道对各位看官能不能有所帮助呢？</p><br><blockquote><br><h2 class="post-title"><a title="JavaScript操控css -2：巧用一个变量设置奇数行,偶数行" href="http://www.old.com/soul-get/soul-js/126" target="_blank" rel="external">JavaScript操控css -2：巧用一个变量设置奇数行,偶数行</a></h2><br><h2 class="post-title"><a title="JavaScript操控CSS -1" href="http://www.old.com/soul-get/soul-js/124" target="_blank" rel="external">JavaScript操控CSS -1</a></h2><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-2&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        .add_css{<br>            color:red;<br><br>        }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function setClassName(){<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            var elem<br>            for (var i = 0; i &lt; get_h1.length; i++) {<br>                // var testa=get_h1[i].childNodes[1].nodeName;//测试获取到h1元素的下级第二个元素数组是从[0]开始<br>                // //childNodes[0]弹出的是text,这段只是为了更助于理解节点问题.看不懂可以跳过哦<br>                // alert(testa);//弹出testa内容<br><br>                elem=getNextElem(get_h1[i].nextSibling);//nextSibling是获取同级兄弟元素而不是下级<br>                // alert(elem.nodeName);//获取到下一个兄弟元素是p<br>                elem.className=”add_css”//添加class属性等于 css当中设置的add_css<br>            };<br>        }<br><br>        function getNextElem(nextnode){//获取到传递的参数<br>            if (nextnode.nodeType ==1) {//如果传递的参数属性类型等于1 1为元素节点 2为属性节点 3为文本节点<br>                return nextnode;//返回nextnode<br>            }else{//否则<br>                if (nextnode.nextSibling) {//如果传递的nextnode下一个兄弟元素存在<br>                    return getNextElem(nextnode.nextSibling);//递归调用这个函数 然后再针对nextnode的下一个兄弟元素进行检查<br>                } else{return null};//如果没有那么返回空<br>            }<br><br>        }<br><br>        // function changeNextSib(tag,theclass){<br>        //     var elem=document.getElementsByTagName(“tag”);<br>        //     var obb<br>        // }<br><br>        window.onload=function(){<br>            setClassName();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;Hello Seeker<br>        &lt;p&gt;我是下级P&lt;/p&gt;<br>    &lt;/h1&gt;<br>    &lt;p&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

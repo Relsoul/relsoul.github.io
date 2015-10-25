@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-123ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-114ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/123ver/" class="article-date">
+      <a href="/2015/10/21/114ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/123ver/">使用CSS3设置漂亮大按钮</a>
+      <a class="article-title" href="/2015/10/21/114ver/">超炫js动画库:snabbt 简单使用教程 snabbt.js</a>
     </h1>
   
 
@@ -219,7 +219,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自<a href="http://www.gbtags.com/gb/explore.htm" target="_blank" rel="external">http://www.gbtags.com/gb/explore.htm</a></p><br><p>演示地址</p><br><p>&nbsp;</p><br><blockquote><br><h1><strong><span style="color: #993366;">分析</span></strong></h1><br><p>&nbsp;</p><br><p>:active</p><br><p>CSS伪类当鼠标点击的时候进行一些操作更改</p><br><p>transform: translate(0px,5px);<br><br>-webkit-transform: translate(0px,5px);<br><br>border-bottom: 1px solid;</p><br><p>这里当鼠标点击的时候</p><br><p>添加一个动画translate(x,y)</p><br><p>x不移动 y向下移动5个像素</p></blockquote><br><p>代码展示</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        body<br>{<br>  padding: 50px;<br>}<br><br>.animate<br>{<br>  transition: all 0.3s;<br>  -webkit-transition: all 0.3s;<br>}<br><br>.action-button<br>{<br>  position: relative;<br>  padding: 10px 40px;<br>  margin: 0px 10px 10px 0px;<br>  float: left;<br>  border-radius: 5px;<br>  font-family: ‘microsoft yahei’,Arial,sans-serif;<br>  font-size: 24px;<br>  font-weight:normal;<br>  color: #FFF;<br>  text-decoration: none;<br>}<br><br>.orange{<br>    background-color: orange;<br>    border-bottom: 5px solid #ab7018;<br>    text-shadow: 0px -2px #D1B358;<br>}<br><br>.blue<br>{<br>    background-color: #3498DB;<br>    border-bottom: 5px solid #2980B9;<br>    text-shadow: 0px -2px #2980B9;<br>}<br><br>.red<br>{<br>    background-color: #E74C3C;<br>    border-bottom: 5px solid #BD3E31;<br>    text-shadow: 0px -2px #BD3E31;<br>}<br><br>.green<br>{<br>    background-color: #82BF56;<br>    border-bottom: 5px solid #669644;<br>    text-shadow: 0px -2px #669644;<br>}<br><br>.yellow<br>{<br>    background-color: #F2CF66;<br>    border-bottom: 5px solid #D1B358;<br>    text-shadow: 0px -2px #D1B358;<br>}<br><br>.action-button:active<br>{<br>/<em>    transform: translate(0px,5px);<br>    -webkit-transform: translate(0px,5px);</em>/<br>    border-bottom: 1px solid;<br>}<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;a href=”#null” class=”action-button shadow animate orange”&gt;极客标签&lt;/a&gt;<br>&lt;a href=”#null” class=”action-button shadow animate blue”&gt;极客标签&lt;/a&gt;<br>&lt;a href=”#null” class=”action-button shadow animate red”&gt;极客标签&lt;/a&gt;<br>&lt;a href=”#null” class=”action-button shadow animate green”&gt;极客标签&lt;/a&gt;<br>&lt;a href=”#null” class=”action-button shadow animate yellow”&gt;极客标签&lt;/a&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><h4><span style="color: #000000;"><strong>..博主第一次研究一个js库的使用方法..因为英文完全是个战五渣.所以不能很深入的研究..有说的不对的地方欢迎批评指正.</strong></span></h4><p></p>
+<p>&nbsp;</p><br><blockquote><br><h2><span style="color: #800080;"><span style="color: #000000;">演示地址:<span style="color: #993366;"><a style="color: #993366;" href="http://www.old.com/demo/snabbt_anim.html" target="_blank">点击演示</a></span></span></span></h2><br><h2><span style="color: #800080;"><span style="color: #000000;">官方地址:</span><span style="color: #993366;"><a style="color: #993366;" href="http://daniel-lundin.github.io/snabbt.js/" target="_blank">http://daniel-lundin.github.io/snabbt.js/</a></span></span></h2><br></blockquote><br><p>&nbsp;</p><br><p><strong>PS：网上也有很多相关库的介绍和使用.这里只是简单的说说</strong></p><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>库的加载与使用</strong></span></h2><br><h3><span style="color: #993366;"><strong> 有Jquery</strong></span></h3><br><p>先加载Jquery再加载库</p><br><pre class="">$(elem).snabbt({})<br></pre><br><h3><span style="color: #993366;"><strong>无Jquery</strong></span></h3><br><pre class="">snabbt(elem,{})</pre><br><p>&nbsp;</p><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>链式操作</strong></span></h2><br><h3><span style="color: #993366;"><strong>有Jquery</strong></span></h3><br><pre class="">$(elem).snabbt({}).snabbt({})</pre><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>无Jquery</strong></span></h3><br><p>链式操作只需要获取一次元素</p><br><pre class="">snabbt(elem,{}).snabbt({})</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>一个旋转移动的动画</strong></span></h2><br><pre class="lang:default decode:true">$(“#sna_rotate”).click(function(){<br>                $(this).snabbt({<br>                    //移动 position:[x,y,z]<br>                    position:[200,100,0],<br>                    //旋转 rotation:[x,y,z]<br>                    //Math.PI正好是一周.<br>                    rotation:[0,Math.PI,0],<br>                    //duration:持续时间(ms)<br>                    duration: 100,<br>                    //动画效果 可以参考css中的动画<br>                    //当设置为spring duration无效<br>                    easing: ‘ease’<br>                }).snabbt({<br>                    position:[0,0,0],<br>                    rotation:[0,0,0],<br>                    easing:”spring”,<br>                    //控制spring弹性常数<br>                     springConstant: 0.4,<br>                     //控制spring回弹.设置为1就根本停不下来<br>                  springDeceleration: 0.9,<br>                  //控制spring回弹时间.(可以把数字设置为1000然后实践理解下应该就简单了)<br>                  springMass: 8,<br><br>                })<br>            })</pre><br><p>从上面这串代码来分析</p><br><p>&nbsp;</p><br><p>首先可以得知snabbt传递的是一个对象,对象里面再写属性,snabbt支持的属性可以在本页最下方进行查表,也可以去官方网站最下方查表</p><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>移动</strong></span></p><br><p>//移动 position:[x,y,z]</p><br><p>position:[200,100,0],</p><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>旋转</strong></span></p><br><p class="lang:default decode:true ">//旋转 rotation:[x,y,z]</p><br><p class="lang:default decode:true ">//Math.PI正好是一周</p><br><p class="lang:default decode:true "> rotation:[0,Math.PI,0],</p><br><p class="lang:default decode:true "><br></p><p class="lang:default decode:true "><span style="color: #993366;"><strong>持续时间</strong></span></p><br><p class="lang:default decode:true  ">//duration:持续时间(ms)</p><br><p class="lang:default decode:true  ">duration: 100,</p><br><p class="lang:default decode:true  "><br></p><p class="lang:default decode:true  "><span style="color: #993366;"><strong>动画效果</strong></span></p><br><p class="lang:default decode:true ">//动画效果 可以参考css中的动画</p><br><p class="lang:default decode:true ">//当设置为spring duration无效</p><br><p class="lang:default decode:true ">easing: ‘ease’</p><br><p class="lang:default decode:true  ">PS：官方提供了几种自带的动画效果,当然也可以自己写动画效果</p><br><p class="lang:default decode:true  "><br></p><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>回弹设置</strong></span></p><br><p class="lang:default decode:true ">//控制spring弹性常数</p><br><p class="lang:default decode:true ">springConstant: 0.4,</p><br><p class="lang:default decode:true ">//控制摆动.设置为1就根本停不下来</p><br><p class="lang:default decode:true ">springDeceleration: 0.9,</p><br><p class="lang:default decode:true ">//控制spring回弹时间.(可以把数字设置为1000然后实践理解下应该就简单了)</p><br><p class="lang:default decode:true ">springMass: 8,</p><br><p> PS：这块我也没搞懂..嘛嘛.大家多实践下获得自己想要的效果就行了.</p><br><hr><br><p>OK,现在来说说上面代码的意思.</p><br><p>首先获取到一个元素.并且给这个元素添加上动画效果</p><br><p>当点击这个元素的时候.向右移动200px,向下移动100px</p><br><p>同时在移动的时候,在x轴上翻转</p><br><p>整个动画完成时间是1秒.动画效果是ease</p><br><p>当第一个动画执行完毕后再执行第二个动画</p><br><p>首先元素会从第一个动画完成后的位置移动到初始位置</p><br><p>同时设置的动画效果是spring,动画时间会在元素达到平衡时结束</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>自定义ease动画效果</strong></span></h2><br><pre class="lang:default decode:true">snabbtAnim.prototype.custom=function(){<br>            $(“#sna_custom”).click(function(){<br>                $(this).snabbt({<br>                    position:[100,0,0],<br>                    duration:1000,<br>                    //自定义ease动画效果<br>                    easing:function(value){<br>                     return value + 0.3 <em> Math.sin(2</em>Math.PI <em> value);<br>                    }<br>                }).snabbt({<br>                    position:[0,0,0],<br>                    easing:”ease”<br>                })<br><br><br>            })<br>        }</em></pre><br><p>&nbsp;</p><br><p>自定义一个easing效果.</p><br><p class="lang:default decode:true  ">easing:function(value){ return value + 0.3  Math.sin(2<em>Math.PI </em> value); }</p><br><p> 传递一个value值 返回一个……..大家自己看吧.哈哈哈哈哈</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><blockquote><p>&nbsp;</p><br><h3 style="text-align: center;"><span style="color: #333333;">叠加动画</span></h3><br><pre class="lang:default decode:true ">snabbtAnim.prototype.overly=function(){<br>            $(“#sna_overly”).click(function(){<br>                $(this).snabbt({<br>                    //叠加两个动画 一个是向左移动 一个是抖动<br>                    valueFeeder: function(i, matrix) {<br>                        //i在0~1中变化 函数返回的是一个mateix矩阵 具体的可以看官网矩阵<br>                    var x = Math.sin(i<em>Math.PI);<br>                    console.log(i)<br>                    return matrix.rotateZ(Math.sin(6</em>i<em>Math.PI)).translate(x</em>200, 0, 0);<br>                  },<br>                  duration: 1000<br>                })<br>            })<br>        }</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>以valueFeeder为属性名 后面传递的是一个匿名函数</p><br><p>//i在0~1中变化开始是0在动画执行的途中不断变大最后为1</p><br><p>函数返回的是一个mateix矩阵 具体的可以看官网矩阵<br><br>var x = Math.sin(i<em>Math.PI);<br><br>console.log(i)<br><br>return matrix.rotateZ(Math.sin(6</em>i<em>Math.PI)).translate(x</em>200, 0, 0);</p><br><p>看最后的return返回值</p><br><p>返回一个matrix矩阵 rotateZ是在Z轴(垂直与我们屏幕)翻转同时后面加了一个translate移动 因为只写了x轴所以只会在x轴上移动</p><br><p>这样就在一个属性上叠加了两个动画,同时可以很好的控制这两个动画</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>关注动画</strong></span></h2><br><pre class="lang:default decode:true">$(“#sna_focus”).click(function(){<br>                //关注动画只需要传递一个’attention’参数即可<br>                $(this).snabbt(‘attention’,{<br>                     rotation: [0, 0, Math.PI/2],<br>                      springConstant: 1.9,<br>                      springDeceleration: 0.9,<br>                })<br>            })</pre><br><p>&nbsp;</p><br><p>关注动画只需要传递一个’attention’参数即可</p><br><p>同时关注动画会在原点不断回弹摆动 详情看demo</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>多个元素动画</strong></span></h2><br><pre class="lang:default decode:true">$(“#sna_con”).click(function(){<br>                $(“#sna_more”).find(“.sna_small”).snabbt({<br>                    //设置初始状态/初始地址为0 0 0<br>                 fromRotation: [0, 0, 0],<br>                 fromPotition:[0,0,0],<br>                 position:function(i,total){<br>                     return [i<em>(total</em>10),0,0]<br>                 },<br>                 rotation: function(i, total) {<br>                     console.log(total)//最后结果是5 因为有5个元素<br>                     console.log(i)//1,2,3,4 获取sna_small节点<br>                    return [0, 0, (i/(total - 1)) <em> (Math.PI/2)];<br>                  },<br>                   easing: ‘spring’,<br>                }).snabbt({<br>                    position:[0,0,0],<br>                    rotation: [0, 0, 0],<br>                      delay: function(i, total) {<br>                        return (total - i - 1) </em> 50;<br>                      },<br>                      easing: ‘ease’,<br>                })<br><br><br>            })</pre><br><p>&nbsp;</p><br><p>首先获取到一个class节点集合.然后设置一个节点的初始位置和状态</p><br><p class="lang:default decode:true  ">position:function(i,total){ return [i<em>(total</em>10),0,0] },</p><br><p class="lang:default decode:true  ">position:返回的是一个数组</p><br><p class="lang:default decode:true  ">[x,y,z]</p><br><p class="lang:default decode:true  ">这里只对x进行了改变</p><br><p class="lang:default decode:true  ">i可以看出执行次数或者看成循环</p><br><p class="lang:default decode:true  ">total是总元素节点 比如这个class有5个元素 那么total恒定是5</p><br><p class="lang:default decode:true  "><br></p><p class="lang:default decode:true  ">..应该差不多了.看看demo多实践下就ok了</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><blockquote><br><h2 style="text-align: center;"><span style="color: #333333;"><strong>附表</strong></span></h2><br><section id="matrix"><br><h2>Matrix API</h2><br><p>Matrix operations are performed using the Matrix class. The class has the following methods:</p><br><ul><br><li><strong>Matrix.translate(x, y, z)</strong> - Multiplies with a translation matrix</li><br><li><strong>Matrix.rotateX(radians)</strong> - Multiplies with a rotation around the x-axis</li><br><li><strong>Matrix.rotateY(radians)</strong> - Multiplies with a rotation around the y-axis</li><br><li><strong>Matrix.rotateZ(radians)</strong> - Multiplies with a rotation around the z-axis</li><br><li><strong>Matrix.scale(x, y)</strong> - Multiplies with a scaling matrix</li><br><li><strong>Matrix.skew(ax, ay)</strong> - Multiplies with a skew matrix</li><br><li><strong>Matrix.clear()</strong> - Sets the matrix to the identity matrix</li><br></ul><br><p>All operations are chainable to make writing matrix multiplications concise, e.g.:</p><br><pre><code class="javascript hljs">matrix.translate(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>).rotateX(<span class="hljs-built_in">Math</span>.PI);</code></pre><br><h3 class="extra-top-margin">Freeform transforms</h3><br><p>The matrix operations can be used outside of snabbt’s animation engine. This could be useful for interactive animations.</p><br><pre><code class="javascript hljs"><span class="hljs-keyword">var</span> matrix = snabbt.createMatrix();<br>matrix.translate(<span class="hljs-number">100</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>snabbt.setElementTransform(element, matrix);</code></pre><br></section><br><section id="api"><br><h3>Animation configuration</h3><br><p>The following parameters can on the configuration object:</p><br><table class="hide-mobile"><br><thead><br><tr><br><td>Parameter</td><br><td>Type</td><br><td>Default</td><br><td>Description</td><br></tr><br></thead><br><tbody><br><tr><br><td>position</td><br><td>Array(3)</td><br><td>[0, 0, 0]</td><br><td>Pixel offsets in each x-, y- and z-direction</td><br></tr><br><tr><br><td>rotation</td><br><td>Array(3)</td><br><td>[0, 0, 0]</td><br><td>Rotation in radians in x-, y- and z-direction</td><br></tr><br><tr><br><td>scale</td><br><td>Array(2)</td><br><td>[1, 1]</td><br><td>Scale in x- and y-direction</td><br></tr><br><tr><br><td>rotationPost</td><br><td>Array(3)</td><br><td>[0, 0, 0]</td><br><td>Rotation applied after <em>position</em> and <em>rotation</em></td><br></tr><br><tr><br><td>width</td><br><td>Scalar</td><br><td>Unchanged</td><br><td>Element width in pixels(<em>fromWidth</em> mandatory if used)</td><br></tr><br><tr><br><td>height</td><br><td>Scalar</td><br><td>Unchanged</td><br><td>Element height in pixels(<em>fromHeight</em> mandatory if used)</td><br></tr><br><tr><br><td>opacity</td><br><td>Scalar</td><br><td>1</td><br><td>Element opacity(0 - 1)(<em>fromOpactiy</em> mandatory if used)</td><br></tr><br><tr><br><td>duration</td><br><td>Scalar</td><br><td>500</td><br><td>Animation duration in milliseconds</td><br></tr><br><tr><br><td>delay</td><br><td>Scalar</td><br><td>0</td><br><td>Delay before the animation is started in milliseconds</td><br></tr><br><tr><br><td>loop</td><br><td>Scalar</td><br><td>0</td><br><td>Number of times to repeat the animation</td><br></tr><br><tr><br><td>complete</td><br><td>function</td><br><td>undefined</td><br><td>Function to be called when animation is completed</td><br></tr><br></tbody><br></table><br></section><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
@@ -248,10 +249,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-124ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-115ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/124ver/" class="article-date">
+      <a href="/2015/10/21/115ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -265,7 +266,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/124ver/">生成菜单添加和删除动画效果 by-soul</a>
+      <a class="article-title" href="/2015/10/21/115ver/">jquery:类似于焦点图的图片轮播展示</a>
     </h1>
   
 
@@ -274,9 +275,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p><del>可恶的jquery 老是有一些低级bug</del></p><p></p>
-<p></p><p>演示地址</p><p></p>
-<div><a href="http://www.old.com/demo/CSS-jquery%20%E8%8F%9C%E5%8D%95%E5%88%A0%E9%99%A4.html" target="_blank" rel="external">http://www.old.com/demo/CSS-jquery%20%E8%8F%9C%E5%8D%95%E5%88%A0%E9%99%A4.html</a></div><br><blockquote><br><h1><span style="color: #993366;"><strong>分析</strong></span></h1><br><p>先初始化给每个li中的i标签都加上click事件</p><br><p>然后再给container加上click事件 每一次点击都添加一个li元素</p><br><p><del>问题出在这里 我给每个添加的li元素都绑定了click事件..但是第一次点击container会有问题</del></p><br><p><del>所以我用了num来判断 如果是第一次点击再次初始化(first)一下</del></p><br><p>先创建一个元素节点</p><br><p>$new_li并不是添加上的元素节点而是li的第一个节点 所以会出现bug</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><div></div><br><div></div><br><div>代码</div><br><div></div><br><div><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>@import url(‘<a href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css" target="_blank" rel="external">http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css</a>‘);<br><br>body{<br>  background:#666;<br>  color: #fff;<br>  font-family: ‘microsoft yahei’,Arial,sans-serif;<br>}<br><br>ul{<br>  list-style:none;<br>  margin: 0;<br>  padding: 0;<br>  position: relative;<br>}<br><br>li{<br>  padding: 10px;<br>  margin: 2px;<br>  border: 1px solid #888;<br>}<br><br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript” src=”<a href="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        $(function(){<br>            function first(){<br>                $(“#container i”).click(function(event){<br>                var $i_parent= $(this).parent()<br>                $($i_parent).stop().animate({<br>                    left:0,<br>                    width:0,<br>                    opacity:0<br>                },300,function(){$($i_parent).remove()})<br>                event.stopPropagation()<br><br>            });<br>            }<br>            first()<br><br>            function addElem(elem){<br>                $(elem).bind(‘click’,<br>                    function(event){<br>                var $i_parent= $(this).parent()<br>                console.log($i_parent)<br>                $($i_parent).stop().animate({<br>                    left:0,<br>                    width:0,<br>                    opacity:0<br>                },300,function(){$($i_parent).remove()})<br>                event.stopPropagation()<br>            });<br><br>            }<br>            var num=0;<br>            var $new_li,$li_first;<br>            $(“#container”).click(function(event){<br>                num++<br>                $li_first=$(“#container li”).first();<br>                //创建元素节点<br>                var new_elem=$(“&lt;li&gt;更多语言&lt;i class=’fa fa-times pull-right’&gt;&lt;/i&gt;&lt;/li&gt;)”)<br>                $new_li=$li_first.before(new_elem);<br>                console.log($new_li)<br>                new_elem.hide().slideDown(500);<br>                event.stopPropagation()<br>                addElem($(new_elem).find(“i”))<br>                if(num=1){<br>                    first();<br>                }<br><br>            })<br><br><br><br><br>        })<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;ul id=”container”&gt;<br>  &lt;li&gt;Java&lt;i class=”fa fa-times pull-right”&gt;&lt;/i&gt;&lt;/li&gt;<br>  &lt;li&gt;Javascript&lt;i class=”fa fa-times pull-right”&gt;&lt;/i&gt;&lt;/li&gt;<br>  &lt;li&gt;HTML&lt;i class=”fa fa-times pull-right”&gt;&lt;/i&gt;&lt;/li&gt;<br>  &lt;li&gt;CSS&lt;i class=”fa fa-times pull-right”&gt;&lt;/i&gt;&lt;/li&gt;<br>  &lt;li&gt;PHP&lt;i class=”fa fa-times pull-right”&gt;&lt;/i&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br><div></div><br><div></div><br><div></div>
+        <p>..昨晚上思维停灵活的..不过只把“下一页”这个功能给实现了…今天翻过来看想实现“上一页”功能直接就傻眼了…希望大神能够帮小弟补全代码！！万分感激2333</p><br><p>&nbsp;</p><br><p>dome演示地址<a href="http://www.old.com/demo/%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C/jquery-%E8%A7%86%E9%A2%91%E5%A2%99.html" target="_blank" rel="external">点击演示</a></p><br><p>&nbsp;</p><br><blockquote><br><h1><span style="color: #993366;"><strong>分析</strong></span></h1><br><p>首先初始化了一些变量</p><br><pre class="lang:default decode:true">//定义每个版面放几张图片<br>            this.num=4;<br>            //定义最大图片张数<br>            this.max_num=9;<br>            //定义每张图片宽度<br>            this.eve_img=205;<br>            //定义最多能显示几版面<br>            this.max_lable=3;<br>            //初始化i标签(就是小圆点导航)<br>            this.i_lable=0<br>            //定义小圆点导航数量<br>            this.i_maxlable=$(“i”).length</pre><br><p>然后点击下一页的时候 根据剩余图片数量来判断left距离多少</p><br><p>&nbsp;</p><br><p>具体的大家看代码咯</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>代码</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    <em>{margin:0; padding: 0;font-family: ‘微软雅黑’;}<br>    #warp{<br>        width: 960px;<br>        margin:100px auto;<br>        overflow: hidden;<br>    }<br><br><br>    .show_head h1{<br>        float: left;<br>        display: block;<br>    }<br>    .show_head i{<br>        margin-left: 10px;<br>        margin-top: 25px;<br>        display: inline-block;<br>        width: 10px;<br>        height: 10px;<br>        border-radius:10px;<br>        background-color: #2D2D29;<br>    }<br>    .show_head a{<br>        text-decoration: none;<br>        display: inline-block;<br>        margin-left: 20px;<br>        color: #fff;<br>        height: 40px;<br>        line-height: 40px;<br>        width: 80px;<br>        text-align: center;<br>        background: #2D2D29;<br><br>    }<br>    #currt{<br>        background-color: #215A6D;<br>    }<br><br>    .show_img{<br>        overflow: hidden;<br>        width: 820px;<br>        height: 200px;<br>        position: relative;<br>    }<br><br>    .show_img img{<br>        width: 200px;<br>        height: 200px;<br>        padding: 0;<br>        margin:0;<br>    }<br>    .show_img li{<br>        display:inline-block;vertical-align:top;<br>        margin: 0;<br>        padding: 0;<br>        height: 200px;<br>        width: 200px;<br><br>    }<br>    .img_ul{<br>        display:inline-block;white-space:nowrap;<br>        position: relative;<br>        left:0px;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript” src=”jquery-1.9.1.min.js”&gt;&lt;/script&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    $(function(){<br>        function showImg(){<br>            //定义每个版面放几张图片<br>            this.num=4;<br>            //定义最大图片张数<br>            this.max_num=9;<br>            //定义每张图片宽度<br>            this.eve_img=205;<br>            //定义最多能显示几版面<br>            this.max_lable=3;<br>            //初始化i标签(就是小圆点导航)<br>            this.i_lable=0<br>            //定义小圆点导航数量<br>            this.i_maxlable=$(“i”).length<br>        }<br><br>        showImg.prototype.showNext=function(){<br>            //获取定义域<br>            than=this<br>            //设置最大图片张数<br>            var sum_max=than.max_num;<br>            //设置每个版面放几张图片<br>            var sum_num=than.num;<br>            //设置最多能显示几个版面<br>            var sum_lable=than.max_lable;<br>            //设定小圆点导航<br>            var sum_i_lable=than.i_lable;<br>            //设置小圆点导航最大数量<br>            var sum_i_maxlable=than.i_maxlable<br>            $(“.next”).click(function(){<br>                //每次减一个版面<br>                sum_lable–<br>                //每次小圆点导航+1<br>                sum_i_lable++<br>                //每次过去4张图片<br>                sum_max=sum_max-sum_num;<br><br>                //—-开始获取ul left—–<br>                var <em>left</em>=$(“.img_ul”).css(“left”)<br>                var now_left=parseInt(<em>left</em>)//获取ul目前left<br>                //—-结束获取ul left—–<br><br>                //—-更改小圆点导航开始—-<br>                //取消i标签的全部id<br>                $(“i”).siblings().attr(“id”,” “)<br>                //如果目前小圆点导航大于了最大的小圆点导航-1<br>                //别忘了eq()是从0开始计数的<br>                if (sum_i_lable&gt;(sum_i_maxlable-1)) {<br>                    sum_i_lable=0<br>                };<br>                //更改小圆点导航<br>                $(“i”).eq(sum_i_lable).attr(“id”,”currt”)<br>                console.log(sum_i_lable);<br>                //—-更改小圆点导航结束//<br><br><br>                //—-切换版面开始—-<br>                if (sum_max&gt;=sum_num) {//如果目前剩余图片大于4<br>                    //更改ul left<br>                    $(“.img_ul”).css({<br>                        “left”:”-“+than.eve_img</em>sum_num+”px”<br>                    })<br>                }else{<br><br>                    if(sum_lable&gt;0){//如果目前剩余的面板大于0<br>                        $(“.img_ul”).css({<br>                        “left”:now_left+(sum_max*than.eve_img)+”px”<br>                    })<br>                    }else{<br>                        //如果目前剩余面板小于等于0<br>                        $(“.img_ul”).css({<br>                            “left”:0<br>                        })<br>                        //重新定义版面<br>                        sum_lable=than.max_lable;<br>                        //重新定义最大图片张数<br>                        sum_max=than.max_num;<br><br>                    }<br><br>                };<br>            //—-切换版面结束—-<br>            })<br>        }<br><br><br><br><br><br>        var vshow=new showImg();<br>        vshow.showNext()<br><br><br><br>    })<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”warp”&gt;<br>        &lt;div class=”show”&gt;<br>            &lt;div class=”show_head”&gt;<br>                &lt;h1&gt;卡通动漫&lt;/h1&gt;<br>                &lt;i id=”currt”&gt;&lt;/i&gt;<br>                &lt;i&gt;&lt;/i&gt;<br>                &lt;i&gt;&lt;/i&gt;<br>                &lt;a class=”prev”&gt;上一页&lt;/span&gt;<br>                &lt;a class=”next”&gt;下一页&lt;/span&gt;<br>            &lt;/div&gt;<br>            &lt;div class=”show_con”&gt;<br>                &lt;div class=”show_img”&gt;<br>                    &lt;ul class=”img_ul”&gt;<br>                        &lt;li&gt;&lt;img src=”img/1.jpg” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2015.png” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2048.jpg” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2015-1.jpg” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2015.png” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2048.jpg” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2048.jpg” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2015.png” alt=””&gt;&lt;/li&gt;<br>                        &lt;li&gt;&lt;img src=”img/2048.jpg” alt=””&gt;&lt;/li&gt;<br>                    &lt;/ul&gt;<br>                &lt;/div&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
@@ -305,10 +304,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-100ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-116ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/100ver/" class="article-date">
+      <a href="/2015/10/21/116ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -322,7 +321,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/100ver/">分享一些不错的Javascript工具和类库</a>
+      <a class="article-title" href="/2015/10/21/116ver/">Javascript中实现链式API的方法</a>
     </h1>
   
 
@@ -331,7 +330,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自:<a href="http://www.gbtags.com/gb/share/5196.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5196.htm</a></p><br><h2>使用reveal.js创建漂亮的演讲稿</h2><br><p>这个使用简单的框架可以帮助大家快速的创建基于JS和HTML5的演讲稿，我们需要自己定义每一个单独的页面生成完整的演讲稿，这个框架同时提供了一些幻灯页的UI和过渡效果</p><br><p><strong>相关资源</strong>:</p><br><p><a href="http://lab.hakim.se/reveal-js" target="_blank">http://lab.hakim.se/reveal-js</a></p><br><p><a href="https://github.com/hakimel/reveal.js/" target="_blank">https://github.com/hakimel/reveal.js/</a></p><br><p><a href="http://mrbool.com/how-to-create-presentations-in-the-browser-with-reveal-js/27264" target="_blank">http://mrbool.com/how-to-create-presentations-in-the-browser-with-reveal-js/27264</a></p><br><h2>ASCIIFlow</h2><br><p>这是个超棒的绘图工具，使用连续的ASCII码来生成各种图形，相信运用你的大脑可以完成各种奇思妙想<del></del></p><br><p><strong>相关资源</strong>:</p><br><p><a href="http://asciiflow.com/#Draw" target="_blank">http://asciiflow.com/#Draw</a></p><br><p><strong>Google Web Designer</strong></p><br><p>想开发应用支持很多不同的设备吗？这是个桌面程序，但是关键点是它可以帮助你生成HTML5页面，并且可以快速支持运行在不同设备上</p><br><p><strong>相关资源</strong>:</p><br><p><a href="http://www.google.com/webdesigner/" target="_blank">http://www.google.com/webdesigner/</a></p><br><p><strong>文档</strong>:</p><br><p><a href="https://support.google.com/webdesigner/#topic=3249465" target="_blank">https://support.google.com/webdesigner/#topic=3249465</a></p><br><p><strong>HTML5 jQuery Paint Plugin</strong></p><br><p>整合一个简单的绘图软件到网站里吗？ 没问题，这个jQuery插件就可以实现</p><br><p><strong>相关资源</strong>:</p><br><p><a href="http://www.websanova.com/blog/jquery/html5-jquery-paint-plugin" target="_blank">www.websanova.com/blog/jquery/html5-jquery-paint-plugin</a></p><br><p><strong>Trees in JavaScript (jQuery)</strong></p><br><p>另外一个生成Javascript树状图形的js插件 - js Tree，这个插件拥有很多特性，比如，拖拽，键盘导航，行内管理等</p><br><p>使用例子:</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="com">// create new jsTree</span></li><br><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="kwd">function</span> <span class="pun">()</span> <span class="pun">{</span><span class="pln"> $</span><span class="pun">(</span><span class="str">‘#jstree_demo_div’</span><span class="pun">).</span><span class="pln">jstree</span><span class="pun">();</span> <span class="pun">});</span></li><br><li class="L2"></li><br><li class="L3"><span class="com">// listener</span></li><br><li class="L4"><span class="pln">$</span><span class="pun">(</span><span class="str">‘#jstree_demo_div’</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">“changed.jstree”</span><span class="pun">,</span> <span class="kwd">function</span> <span class="pun">(</span><span class="pln">e</span><span class="pun">,</span><span class="pln"> data</span><span class="pun">)</span> <span class="pun">{</span></li><br><li class="L5"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">selected</span><span class="pun">);</span></li><br><li class="L6"><span class="pun">});</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p><strong>相关资源</strong>:</p><br><p><a href="http://www.jstree.com/" target="_blank">http://www.jstree.com/</a></p><br><p><a href="http://www.abeautifulsite.net/jquery-file-tree/" target="_blank">http://www.abeautifulsite.net/jquery-file-tree/</a></p><br><p>以上就是今天推荐的一些js类库和工具，希望大家能够喜欢，如果有你自己发现的新JS工具和类库，请一定和我们分享`~~</p>
+        <p></p><p>转自:<a href="http://www.gbtags.com/gb/share/5176.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5176.htm</a></p><p></p>
+<div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/82740591-dcc1-4903-bc38-6e195bb6e105.jpg" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/82740591-dcc1-4903-bc38-6e195bb6e105.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/82740591-dcc1-4903-bc38-6e195bb6e105.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><div class="gbarticleads"><br><div id="gb_closead" class="gb_closead"></div><br></div><br><h2>链式操作概念</h2><br><p>在javascript开发过程中，实现链式API会帮助开发者更方便的理解代码，增加代码的可读性，下面是jQuery中的链式API的基础使用，如下：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">‘&lt;div&gt;&lt;/div&gt;’</span><span class="pun">)</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">html</span><span class="pun">(</span><span class="str">“链式API使用演示”</span><span class="pun">)</span></li><br><li class="L2"><span class="pun">.</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">“demo”</span><span class="pun">)</span></li><br><li class="L3"><span class="pun">.</span><span class="pln">appendTo</span><span class="pun">(</span><span class="str">“body”</span><span class="pun">);</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>这种方式比如下的代码书写更加简洁和易于阅读：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">‘&lt;div&gt;&lt;/div&gt;’</span><span class="pun">).</span><span class="pln">html</span><span class="pun">(</span><span class="str">“链式API使用演示”</span><span class="pun">);</span></li><br><li class="L1"><span class="pln">$</span><span class="pun">(</span><span class="str">‘&lt;div&gt;&lt;/div&gt;’</span><span class="pun">).</span><span class="pln">addClass</span><span class="pun">(</span><span class="str">“demo”</span><span class="pun">);</span></li><br><li class="L2"><span class="pln">$</span><span class="pun">(</span><span class="str">‘&lt;div&gt;&lt;/div&gt;’</span><span class="pun">).</span><span class="pln">appendTo</span><span class="pun">(</span><span class="str">“body”</span><span class="pun">);</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><blockquote><p>相关课程及其代码：<a href="http://www.gbtags.com/gb/gbtutorials/570.htm" target="_blank">什么是链式操作API？</a></p></blockquote><br><h2>如何实现链式操作</h2><br><p>设计链式API很简单，只需要保证每一个操作方法的返回都是当前对象即可，如下：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span> <span class="typ">MyClass</span> <span class="pun">=</span> <span class="kwd">function</span><span class="pun">(</span><span class="pln">a</span><span class="pun">){</span></li><br><li class="L1"><span class="kwd">this</span><span class="pun">.</span><span class="pln">a </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"></li><br><li class="L4"><span class="typ">MyClass</span><span class="pun">.</span><span class="pln">prototype</span><span class="pun">.</span><span class="pln">selfadd </span><span class="pun">=</span> <span class="kwd">function</span><span class="pun">(</span><span class="pln">b</span><span class="pun">){</span></li><br><li class="L5"><span class="kwd">this</span><span class="pun">.</span><span class="pln">a </span><span class="pun">+=</span><span class="pln"> b</span><span class="pun">;</span></li><br><li class="L6"><span class="pln"> document</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="str">“当前值：”</span> <span class="pun">+</span> <span class="kwd">this</span><span class="pun">.</span><span class="pln">a </span><span class="pun">+</span> <span class="str">“&lt;br/&gt;”</span><span class="pun">);</span></li><br><li class="L7"><span class="kwd">return</span> <span class="kwd">this</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>以上代码中方法都返回当前的对象this，这样可以继续使用对象调用对应方法</p><br><blockquote><p>相关课程和代码：<a href="http://www.gbtags.com/gb/gbtutorials/571.htm" target="_blank">如何设计javascript中链式操作API</a></p></blockquote><br><h2>返回和不返回this的性能比对</h2><br><p>如果担心返回this对象和不返回this对象的性能有很大差异的话，可以运行下面这个代码：</p><br><blockquote><p><a href="http://www.gbtags.com/gb/gbtutorialpreview/572.htm" target="_blank">性能比较</a></p></blockquote><br><p>可以看到区别差异非常小，所以在js开发中，使用链式操作API带来的易用性和可读性往往大于性能损耗，不同浏览器的支持也不太一样，推荐大家尽可能使用吧~~</p><br></div>
 
 
 
@@ -360,10 +360,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-126ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-117ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/126ver/" class="article-date">
+      <a href="/2015/10/21/117ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -377,7 +377,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/126ver/">利用CSS写一个短信对话框</a>
+      <a class="article-title" href="/2015/10/21/117ver/">最值得收藏的Bootstrap免费字体和图标网站</a>
     </h1>
   
 
@@ -386,7 +386,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;</p><br><p>演示地址:<a href="http://www.old.com/demo/css-%E5%AF%B9%E8%AF%9D%E6%B0%94%E6%B3%A1.html" target="_blank" rel="external">http://www.old.com/demo/css-%E5%AF%B9%E8%AF%9D%E6%B0%94%E6%B3%A1.html</a></p><br><p>&nbsp;</p><br><blockquote><br><h1><span style="color: #993366;"><strong>分析</strong></span></h1><br><p>其实很简单</p><br><p>做两个小三角形</p><br><p>一个是红色的</p><br><p>一个是白色的</p><br><p>然后通过定位定位元素即可.</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .talk{<br>        margin: 100px auto;<br>        padding: 50px;<br>        width:     200px;<br>        height: 100px;<br>        border: 5px solid red;<br>        position: relative;<br>    }<br>    .talk_bot{<br>        width: 0;<br>        height: 0;<br>        border-top:15px solid transparent;<br>        border-right: 20px solid red;<br>        border-bottom:15px solid transparent;<br>        position:absolute;<br>        left: -25px;<br>        top: 90px;<br><br>    }<br>    .talk_top{<br>        width: 0;<br>        height: 0;<br>        border-top:15px solid transparent;<br>        border-right: 20px solid #fff;<br>        border-bottom:15px solid transparent;<br>        position:absolute;<br>        left: -15px;<br>        top: 90px;<br><br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”talk”&gt;<br>        &lt;p&gt;CSS对话边框&lt;/p&gt;<br>        &lt;span class=”talk_bot”&gt;&lt;/span&gt;<br>        &lt;span class=”talk_top”&gt;&lt;/span&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/4489.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4489.htm</a></p><p></p>
+<div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/3105fea8-da6a-49e6-94c5-e172aa93397f.jpg" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/3105fea8-da6a-49e6-94c5-e172aa93397f.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/3105fea8-da6a-49e6-94c5-e172aa93397f.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><div class="gbarticleads"></div><br><p>如果你正在寻找Bootstrap图标，那今天的推荐对你而言绝对非常重要！在这篇内容中，我们把这套框架上的免费字体图标做了个整合(当然，以后还会不断的更新)。正如你所知，图标字体在一个web网页设计拥有很多优势：它们使用方便，不仅仅是图像，更是一个载体。大小随意缩放，还可以适应各种尺寸的屏幕（包含移动设备，平板电脑等）。</p><br><p>这套集合图标使用起来非常的方便：你只需要点击下载包，将文件添加到你的目录中。在介绍中我们也会对每一个图标有一个简短的描述，让你了解如何使用它们。如果你有兴趣收藏，也可以自己创建一个文档，将它们全部添加进去。我们经常会推荐一些图标网站给大家，除此之外，还有Bootstrap模板和字体，比如<a href="http://azmind.com/shop/" target="_blank">Bootstrap templates</a>, 像<a href="http://azmind.com/2014/12/12/jalia-premium-bootstrap-business-template/" target="_blank">Jalia</a> 和<a href="http://www.gbtags.com/gb/tag/1091.htm" target="_blank">Gbtags</a>，无论是模板还是素材，我们都将最好的呈现给你。所以，还等什么呢？开始吧。</p><br><h2>1. Glyphicons Halflings</h2><br><p>首先这包含了200多款字体图标是来自于<a href="http://glyphicons.com/" target="_blank">Glyphicon Halflings</a>。非常出色的一套bootstrap模板图标，要特别感谢Glyphicons里的每一个人。这里除了图标，还有一些大图供你使用和下载。帮助你快速搭建一个网站。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/cd323994-5499-4de3-9b6d-2abc7e63d28a.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/cd323994-5499-4de3-9b6d-2abc7e63d28a.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/cd323994-5499-4de3-9b6d-2abc7e63d28a.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>找到Glyphicons里你需要的内容，然后再html里添加一个图标，内容如下：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;span</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“glyphicon glyphicon-search”</span> <span class="atn">aria-hidden</span><span class="pun">=</span><span class="atv">“true”</span><span class="tag">&gt;&lt;/span&gt;</span></li><br></ol><br></div><br></div><br><h2>2. Font Awesome</h2><br><p>479款矢量字体图标全部免费，这是什么概念，就是即使你现在不用也要马上收藏的节奏，知道吗！或许你之前听说过这套图标集，因为它在很多网站都出现过。它们给我们提供的是一种方便，虽然曾经有过类似的介绍，但我今天还是要说，在很多图标字体中，我真的觉得它是最棒的-<a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/4a3e88ba-6e0a-4680-9a58-622f739813b0.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/4a3e88ba-6e0a-4680-9a58-622f739813b0.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/4a3e88ba-6e0a-4680-9a58-622f739813b0.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>在开始页面，字体使用有一些非常好的方法。最简单的是倒入CDN的一行代码，而且无需下载任何东西，只要贴在HTML中第一节就可以了：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css”</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span><span class="tag">&gt;</span></li><br></ol><br></div><br></div><br><p>在这里介绍另一种方法（i like你懂得），在CSS中引用默认字体Font Awesome，下载并复制‘font-awesome’目录到你的项目中，添加链接 “font-awesome.min.css”文件到HTML的第一节上。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“path/to/font-awesome/css/font-awesome.min.css”</span><span class="tag">&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>当然了，还有很多其他的方法，再介绍一个简单的例子吧：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;i</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“fa fa-camera-retro”</span><span class="tag">&gt;&lt;/i&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>这些方法都可以将你喜欢的字体变大变小，更换颜色阴影等，只要你喜欢，无所不能。</p><br><h2>3. Elegant Icon Font</h2><br><p>由360款优雅的矢量图标字体组成，完全免费使用-<a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font" target="_blank">elegantthemes</a>。这些图标已经全部进行了优化16*16像素（32px，64px等）的所有倍数。使之细节更加精准和清晰，在任何显示器上的都能呈现最完美的一面，当然包括Retina屏。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/cc037907-449a-4a16-8df7-af9b8d4414a6.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/cc037907-449a-4a16-8df7-af9b8d4414a6.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/cc037907-449a-4a16-8df7-af9b8d4414a6.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>不要认为它很难：</p><br><ol><br><li>下载包并解压</li><br><li>在‘elegant_font’文件夹中你会发现“HTML CSS”子文件夹，把它复制到你的项目中（注意，这里可以重命名哦）</li><br><li>将连接添加到‘style.css’文件中HTML的第一节。</li><br></ol><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“path/to/elegant-font/style.css”</span><span class="tag">&gt;</span></li><br></ol><br></div><br></div><br><p>你可以在你HTML里添加图标，并且使用CSS来更改它们的样式：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;span</span> <span class="atn">aria-hidden</span><span class="pun">=</span><span class="atv">“true”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“icon_pencil”</span><span class="tag">&gt;&lt;/span&gt;</span></li><br></ol><br></div><br></div><br><p>例如：</p><br><p>下面是我如何在<a href="http://azmind.com/2015/01/02/premium-template-trilli-bi-bootstrap-fullscreen-landing-page/" target="_blank">Trilli Bi</a>模板中使用图标：</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/236780f0-8209-45f7-999b-8584a8262501.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/236780f0-8209-45f7-999b-8584a8262501.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/236780f0-8209-45f7-999b-8584a8262501.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h2>HTML：</h2><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“features-box-icon”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;span</span> <span class="atn">aria-hidden</span><span class="pun">=</span><span class="atv">“true”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“icon_cogs”</span><span class="tag">&gt;&lt;/span&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br></div><br><h2>CSS：</h2><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">.</span><span class="pln">features</span><span class="pun">-</span><span class="pln">box</span><span class="pun">-</span><span class="pln">icon </span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">80px</span><span class="pun">;</span></li><br><li class="L2"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">80px</span><span class="pun">;</span></li><br><li class="L3"><span class="pln"> margin</span><span class="pun">:</span> <span class="lit">0</span> <span class="kwd">auto</span><span class="pun">;</span></li><br><li class="L4"><span class="pln"> padding</span><span class="pun">-</span><span class="pln">top</span><span class="pun">:</span> <span class="lit">10px</span><span class="pun">;</span></li><br><li class="L5"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#e8643e;</span></li><br><li class="L6"><span class="pun">-</span><span class="pln">moz</span><span class="pun">-</span><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">6px</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">6px</span><span class="pun">;</span></li><br><li class="L8"><span class="pln"> border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">6px</span><span class="pun">;</span></li><br><li class="L9"><span class="pln"> font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span> <span class="lit">50px</span><span class="pun">;</span></li><br><li class="L0"><span class="pln"> color</span><span class="pun">:</span> <span class="com">#fff;</span></li><br><li class="L1"><span class="pln"> line</span><span class="pun">-</span><span class="pln">height</span><span class="pun">:</span> <span class="lit">50px</span><span class="pun">;</span></li><br><li class="L2"><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"></li><br><li class="L5"><span class="pun">.</span><span class="pln">features</span><span class="pun">-</span><span class="pln">box</span><span class="pun">-</span><span class="pln">icon span </span><span class="pun">{</span></li><br><li class="L6"><span class="pln"> vertical</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> middle</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br></ol><br></div><br></div><br><h2>4. Gbtags</h2><br><p><a href="http://www.gbtags.com/gb/dashboard.htm" target="_blank">Gbtags</a>是一个前端教学非常全面的网站，除了超规模超人气的<a href="http://www.gbtags.com/gb/tag/1091.htm" target="_blank">bootstrap模板</a>和<a href="http://www.gbtags.com/gb/tag/1009.htm" target="_blank">图标</a>外，还教你如何制作网页。它拥有一个非常强大的前端<a href="http://www.gbtags.com/gb/gblibrary.htm" target="_blank">课程库</a>，我一直在思考，只靠一名技术大拿就将网站练就成这般高人气水平实属不易。网站中的模板和图标字体共有几百套并全部免费下载，除了是非常好的资源型网站外，更是学习和交流的平台，推荐指数6颗星。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/8105dfa8-f396-4af4-9d7e-0ad382bf4ad7.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/8105dfa8-f396-4af4-9d7e-0ad382bf4ad7.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/8105dfa8-f396-4af4-9d7e-0ad382bf4ad7.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h2>5. Typicons</h2><br><p>Typicons带来了336款免费的矢量图标，多用途，像素完美和方便嵌入是它绝对的优势<a href="http://typicons.com/" target="_blank">-typicons</a>。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/6ba4d9aa-86b9-4b9e-a83b-f972752c5325.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/6ba4d9aa-86b9-4b9e-a83b-f972752c5325.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/6ba4d9aa-86b9-4b9e-a83b-f972752c5325.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>首先在你bootstrap的项目中Typicons是很容易使用的。在Typicons的主页，你可以很清楚的了解所有使用图标的方式，当然，你也可以学习自己如何创建并自定义设置图标。首先介绍一个简单的方式：</p><br><ol><br><li>点击<a href="https://github.com/stephenhutchings/typicons.font/tree/master/src/font" target="_blank">GitHub page here</a>下载页面上的字体文件和缩小的CSS</li><br><li>复制它们到你项目的文件夹</li><br><li>在HTML的第一节加入 “typicons.min.css”</li><br></ol><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“path/to/typicons.min.css”</span><span class="tag">&gt;</span></li><br></ol><br></div><br></div><br><p>现在在你HTML文件夹中添加图标，可以使用CSS更改它们的样式。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;span</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“typcn typcn-arrow-left”</span><span class="tag">&gt;&lt;span&gt;</span></li><br></ol><br></div><br></div><br><p>你可以在typicons上找到所有名字相对应的类目。</p><br><h2>6. Meteocons</h2><br><p>如果你现在正需要一些关于天气的图标，<a href="http://www.alessioatzeni.com/meteocons/" target="_blank">Meteocons</a>应该是不错的一套。它包含了40多种图标，全部免费使用，可以用在商业和个人的项目中。包含不同格式文件：PSD、CSH、EPS、SVG和桌面、web字体，只要你喜欢，它们可以自定义，使用起来更加方便。</p><br><p>要想使用这些图标是非常简单的，更多方法可以参考<a href="http://www.alessioatzeni.com/meteocons/" target="_blank">Meteocons</a>主页。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/d7cecd11-c842-4d15-8fae-35aa3487e9c8.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/d7cecd11-c842-4d15-8fae-35aa3487e9c8.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/d7cecd11-c842-4d15-8fae-35aa3487e9c8.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h2>7. Open Iconic</h2><br><p><a href="https://useiconic.com/open" target="_blank">Open Iconie</a>是一款免费的开源图标，包含SVG、网页字体和图标集223种。作为创造者，<a href="https://useiconic.com/open" target="_blank">Open Iconie</a>已然是超清了，在设计时，它们被下降了8个px，所以它们非常的小，但同时在网页浏览速度上，它们又是加载速度最快的。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/909d8077-2ff3-49be-ae98-14d3a42f93d6.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/909d8077-2ff3-49be-ae98-14d3a42f93d6.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/909d8077-2ff3-49be-ae98-14d3a42f93d6.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>非常简单，如下三步：</p><br><ol><br><li>从网页中下载软件包</li><br><li>将该文件复制到你的项目中</li><br><li>在HTML的第一节插入“open-iconic-bootstrap.css”</li><br></ol><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“/open-iconic/font/css/open-iconic-bootstrap.css”</span><span class="tag">&gt;</span></li><br></ol><br></div><br></div><br><p>添加素材到你的HTML文件，可以使用CSS来更改它们的样式：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;span</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“oi oi-icon-name”</span> <span class="atn">title</span><span class="pun">=</span><span class="atv">“icon name”</span> <span class="atn">aria-hidden</span><span class="pun">=</span><span class="atv">“true”</span><span class="tag">&gt;&lt;/span&gt;</span></li><br></ol><br></div><br></div><br><p>你可以在这里找到所有图标相对应的类别名称。</p><br><h2>8. Elusive Icons</h2><br><p><a href="http://press.codes/downloads/elusive-icons-webfont/" target="_blank">Elusive Icons</a>包含了299种免费的图标，开源可作为网页字体和SVG矢量图标。</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/c58d6f05-85fc-4654-9eef-a3a72b277edb.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/c58d6f05-85fc-4654-9eef-a3a72b277edb.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/c58d6f05-85fc-4654-9eef-a3a72b277edb.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><h3>如何使用：</h3><br><p>看起来不容易，但实际上非常简单，可以使用CSS方法或者LESS。</p><br><p>CSS方法如下：</p><br><ol><br><li>下载并复制“fonts”目录到你的项目</li><br><li>复制 “elusive-webfont.css”文件到你的项目</li><br><li>打开“elusive-webfont.css” 文件上面的编辑字体网址，确定它们的指向是正确的。</li><br><li>在HTML第一节插入 “elusive-webfont.css”文件</li><br></ol><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“path/to/elusive-webfont.css”</span><span class="tag">&gt;</span></li><br></ol><br></div><br></div><br><p>添加图标到HTML代码中，并且使用CSS来更改它们的样式。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;i</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“el-icon-user”</span><span class="tag">&gt;&lt;/i&gt;</span></li><br></ol><br></div><br></div><br><h3>最后</h3><br><p>在这里你能找到最好的免费字体图标，希望它们能带给你更多的帮助，并有助于你的开发和设计。另外，我们还会定时更新更多内容，找到更多更好的图标集，希望你们继续关注我们。</p><br></div>
 
 
 
@@ -415,10 +416,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-98ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-118ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/98ver/" class="article-date">
+      <a href="/2015/10/21/118ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -432,7 +433,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/98ver/">Php自学入门笔记之变量</a>
+      <a class="article-title" href="/2015/10/21/118ver/">HTML5游戏开发引擎比较： LimeJS vs. CreateJS</a>
     </h1>
   
 
@@ -441,7 +442,22 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文为Soul Php自学笔记~</p><br><p>&nbsp;</p><br><blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>变量</strong></span></h1><br><p style="text-align: left;"><strong><span style="color: #993366;">1,整数型</span></strong></p><br><p style="text-align: left;">$ini1=123;</p><br><p>$int2=0123;//八进制</p><br><p>$int3=0x123//16进制</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>2,布尔型;</strong></span></p><br><p style="text-align: left;">$bool1=true;</p><br><p style="text-align: left;">var_dump($bool1);//bool(true)</p><br><p style="text-align: left;">echo $bool1;//1</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><strong><span style="color: #993366;">3,字符型</span></strong></p><br><p style="text-align: left;">$ str1=”hello soul”;//双引号包裹</p><br><p style="text-align: left;">$ str2=’hello soul’;//单引号包裹</p><br><p style="text-align: left;">$ str3=”hello\n soul”;//利用\n转义换行.双引号也称为功能引号</p><br><p style="text-align: left;">echo “我是$str1”;//我是 hellosoul 在双引号中遇见$符号会当做变量处理</p><br><p style="text-align: left;">echo ‘我是$str2’//我是$str2 在单引号中只会当成普通的字符处理</p><br><p style="text-align: left;">当字符串很长可以使用<strong>Heredoc结构形式</strong></p><br><p style="text-align: left;">$str4=&lt;&lt;&lt;GOD</p><br><p style="text-align: left;">我有一只小毛驴，我从来也不骑。<br><br>有一天我心血来潮，骑着去赶集。<br><br>我手里拿着小皮鞭，我心里正得意。<br><br>不知怎么哗啦啦啦啦，我摔了一身泥.<br><br>GOD;</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>4,浮点型</strong></span></p><br><p style="text-align: left;">$float=1.23;</p><br><p style="text-align: left;">$float1=1.2e3;//1200 科学计数法</p><br><p style="text-align: left;">$float2=7.0e-3//0.007</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>5,资源类型</strong></span></p><br><p style="text-align: left;">资源（resource）：资源是由专门的函数来建立和使用的，例如打开文件、数据连接、图形画布。我们可以对资源进行操作（创建、使用和释放）。任何资源，在不需要的时候应该被及时释放。如果我们忘记了释放资源，系统自动启用垃圾回收机制，在页面执行完毕后回收资源，以避免内存被消耗殆尽。</p><br><p style="text-align: left;">//首先采用“fopen”函数打开文件，得到返回值的就是资源类型。<br><br>$file_handle=fopen(“/data/webroot/resource/php/f.txt”,”r”);<br><br>if ($file_handle){<br><br>//接着采用while循环（后面语言结构语句中的循环结构会详细介绍）一行行地读取文件，然后输出每行的文字<br><br>while (!feof($file_handle)) { //判断是否到最后一行<br><br>$line = fgets($file_handle); //读取一行文本<br><br>echo $line; //输出一行文本<br><br>echo “&lt;br /&gt;”; //换行<br><br>}<br><br>}<br><br>fclose($file_handle);//关闭文件</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>6，NULL类型</strong></span></p><br><p style="text-align: left;">$s_s=null;</p><br><p style="text-align: center;"><br></p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p></p><p>转自:<a href="http://www.gbtags.com/gb/share/4859.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4859.htm</a></p><p></p>
+<p></p><p><a href="http://www.limejs.com/" target="_blank" rel="external">Limejs</a> :</p><p></p>
+<p><ul></ul></p>
+<p><li>需要安装python来编译和运行代码</li></p>
+<p><li>需要使用其他Javascript来预加载游戏相关资源</li></p>
+<p><li>编译后的代码不是开发人员易于阅读的，因此无法让第三方使用。编译使用python完成</li></p>
+<p><li>不同浏览器的音频问题不一样</li></p>
+<p><li>除了<a href="http://limejs.digitalfruit.ee/docs/" target="_blank" rel="external">Developers API</a>没有别的开发资源</li><br></p>
+<p></p><p><a href="http://www.createjs.com/" target="_blank" rel="external">CreateJS</a></p><p></p>
+<p><ul></ul></p>
+<p><li>使用直接使用javascript来开发和运行</li></p>
+<p><li>拥有自己的preloadJS，TweenJS，EaselJS和SoundJS可以自己渲染加载和音频</li></p>
+<p><li>不需要编译安全差点</li></p>
+<p><li>可以使用soundJS来加载音频</li></p>
+<p><li>每一个类库Tween,Easel,Sound and Preload自己拥有相关API</li><br></p>
+<blockquote><p>来源：<a href="http://stackoverflow.com/questions/14112562/limejs-vs-createjs-for-game-development" target="_blank">stackoverflow</a></p></blockquote>
 
 
 
@@ -470,10 +486,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-97ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-119ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/97ver/" class="article-date">
+      <a href="/2015/10/21/119ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -487,7 +503,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/97ver/">PHP自学笔记之常量</a>
+      <a class="article-title" href="/2015/10/21/119ver/">博主推荐:学写jquery缓动函数</a>
     </h1>
   
 
@@ -496,8 +512,298 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>&nbsp;</p><p></p>
-<blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>常量</strong></span></h1><br><p><span style="color: #993366;"><strong>1,什么是常量？</strong></span></p><br><p>常量即不可改变的值，一但定下了再后续的使用中无法改变</p><br><p><span style="color: #993366;"><strong>2,定义常量</strong></span></p><br><p align="left">define()函数的语法格式为：</p><br><pre align="left" class="code">bool define(string $constant_name, mixed $value[, $case_sensitive = true])</pre><br><p align="left">它有3个参数（也就是原料）：</p><br><p align="left">第一个参数“constant_name”为必选参数，常量名称,即标志符，常量的命名规则与变量的一致，但是要注意哦，它可不带美元符号哦。第二个参数“value”为必选参数，它是常量的值。第三个参数“case_sensitive”为可选参数，指定是否大小写敏感，设定为true表示不敏感，一般不指定第三个参数的情况下，默认第三个参数的值为false。</p><br><p align="left">（注： string表示参数类型为字符串类型，mixed表示参数类型可以接受为多种不同的类型，case_sensitive = true表示默认为布尔类型TRUE）</p><br><p> 举例:</p><br><p>&lt;?php<br><br>$p = “PII”;<br><br>define(“PI”,3.14);<br><br>define($p,3.14);<br><br>echo PI;<br><br>echo “&lt;br /&gt;”;<br><br>echo PII;<br><br>?&gt;</p><br><p><span style="color: #993366;"><strong> 3,常量作用</strong></span></p><br><p>&nbsp;</p><br><p align="left">常量主要功效是可以避免重复定义，篡改变量值。在我们进行团队开发时，或者代码量很大的时候，对于一些第一次定义后不改变的量，如果我们使用变量，在不知情的情况下，使用同一变量名时，变量值就会被替换掉，从而会引发服务器执行错误的任务。</p><br><p align="left">此外，使用常量还能提高代码的可维护性。如果由于某些原因，常量的值需要变更时候，我们只需要修改一个地方。例如在做计算中，起初我们取圆周率为3.14，于是很多计算中我们都使用3.14进行计算，当要求计算精度提高，圆周率需要取3.142的时候，我们不得不修改所有使用3.14的代码，倘若代码量比较多时，不仅工作量大，还可能遗漏。</p><br><p align="left">&lt;?php<br><br>define(“PI”,3.14);<br><br>$r=3;<br><br>echo “面积为:”.(PI<em>$r</em>$r).”&lt;br /&gt;”;<br><br>echo “周长为:”.(2<em>PI</em>$r).”&lt;br /&gt;”;<br><br>?&gt;</p><br><p align="left"><span style="color: #993366;"><strong>4,系统常量</strong></span></p><br><p align="left">系统常量是PHP已经定义好的常量，我们可以直接拿来使用，常见的系统常量有：</p><br><p align="left">（1）<strong>FILE</strong> :php程序文件名。它可以帮助我们获取当前文件在服务器的物理位置。</p><br><p align="left">（2）<strong>LINE</strong> :PHP程序文件行数。它可以告诉我们，当前代码在第几行。</p><br><p align="left">（3）PHP_VERSION:当前解析器的版本号。它可以告诉我们当前PHP解析器的版本号，我们可以提前知道我们的PHP代码是否可被该PHP解析器解析。</p><br><p align="left">（4）PHP_OS：执行当前PHP版本的操作系统名称。它可以告诉我们服务器所用的操作系统名称，我们可以根据该操作系统优化我们的代码。</p><br><p align="left">echo “现在开始输出系统常量&lt;br&gt;”;<br><br>echo “php物理路径”.<strong>FILE</strong>.”&lt;br&gt;”;<br><br>echo “代码所在行数”.<strong>LINE</strong>.”&lt;br&gt;”;<br><br>echo “PHP版本”.PHP_VERSION.”&lt;br&gt;”;<br><br>echo “PHP服务器”.PHP_OS.”&lt;br&gt;”;</p><br><p align="left"><br></p><p align="left"><span style="color: #993366;"><strong>5,常量如何取值</strong></span></p><br><p align="left">定义了常量，那么就要使用常量，那么如何获取常量值呢？</p><br><p align="left">获取常量值的有两种方法取值。第一种是使用常量名直接获取值；例如计算圆周率的面积，如下（“<em>”是运算符，相当于乘号，后面部分的小节会介绍）：</em></p><br><pre align="left" class="code">&lt;?php<br>define(“PI”,3.14);<br>$r=1;<br>$area = <strong>PI</strong>$r*$r; //计算圆的面积<br>?&gt;</pre><br><p align="left">第二种是使用constant()函数。它和直接使用常量名输出的效果是一样的，但函数可以动态的输出不同的常量，在使用上要灵活、方便，其语法格式如下：</p><br><pre class="code">mixed constant(string constant_name)</pre><br><p align="left">第一个参数constant_name为要获取常量的名称，也可为存储常量名的变量。如果成功则返回常量的值，失败则提示错误信息常量没有被定义。（注：mixed表示函数返回值类型为多种不同的类型，string表示参数类型为字符串类型）</p><br><p align="left">例如：</p><br><p><a href="http://img.mukewang.com/53293a9b0001462d05240186.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/53293a9b0001462d05240186.jpg" data-original="http://img.mukewang.com/53293a9b0001462d05240186.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>echo “开始常量&lt;br&gt;”;<br><br>define(“MY”,”soul”);<br><br>define(‘MY1’,”seeker”);<br><br>$system=true;<br><br>if ($system) {<br><br>$cons=”MY1”;<br><br># code…<br><br>}else{<br><br>$cons=”MY”;<br><br>}</p><br><p>$area=constant($cons);<br><br>echo “$area”;</p><br><p><span style="color: #993366;"><strong>6,如何判定常量是否被定义</strong></span></p><br><p align="left">如果常量被重复定义以后，PHP解析器会发出“Constant XXX already defined”的警告，提醒我们该常量已经被定义过。那么，在团队开发，或代码量很大的情况下，我们如何去判定一个常量是否被定义呢？</p><br><p align="left">defined()函数可以帮助我们判断一个常量是否已经定义，其语法格式为：</p><br><pre class="code">bool defined(string constants_name)</pre><br><p align="left">它只有参数constant_name，指的是要获取常量的名称，若存在则返回布尔类型true，否则返回布尔类型false; （注：bool表示函数返回值类型为布尔类型）</p><br><p align="left"><br></p><p>//利用defined来判断常量是否被定义<br><br>define(‘test’, ‘test1’);<br><br>$p=”test”;</p><br><p>var_dump(defined($p));//true<br><br>var_dump(defined(“test2”));//false</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p align="left"><br></p><p align="left"><br></p></blockquote>
+        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/4743.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4743.htm</a></p><p></p>
+<p></p><p>问题引入：实现如下效果</p><p></p>
+<p></p><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/debugwidget/f2ddfd95-3813-440d-bf58-8e10f0df7c80.htm"></iframe></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>两个方块的追逐效果，使用css3，实现起来没什么难度：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;</span></li></p>
+<p><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“first”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
+<p><li class="L2"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“second”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
+<p><li class="L3"><span class="tag">&lt;/div&gt;</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="com">#container{</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="pun">@-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">keyframes run</span><span class="pun">{</span></li></p>
+<p><li class="L8"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li></p>
+<p><li class="L9"><span class="lit">@keyframes</span><span class="pln"> run</span><span class="pun">{</span></li></p>
+<p><li class="L0"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="pun">}</span></li></p>
+<p><li class="L1"></li></p>
+<p><li class="L2"><span class="com">#first{</span></li></p>
+<p><li class="L3"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"></li></p>
+<p><li class="L1"><span class="com">#second{</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>用到了css3的animate属性，不是很复杂。不过出于兼容性的考虑，我们决定使用jquery的animate方法来重新实现。</p><p></p>
+<p></p><h2>简单粗暴地多次使用animate</h2><p></p>
+<p></p><p>可以看到，每个方块的运动都可以分解成四步，每一步都是向一个方向运动。于是如果要用$.animate来实现，可以在一个循环里，依次调用四遍animate来实现：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="com">#container{</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="com">#first{</span></li></p>
+<p><li class="L8"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pun">}</span></li></p>
+<p><li class="L5"></li></p>
+<p><li class="L6"><span class="com">#second{</span></li></p>
+<p><li class="L7"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pln"> right</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> bottom</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">var</span><span class="pln"> $first</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#first’</span><span class="pun">);</span></li></p>
+<p><li class="L1"><span class="kwd">var</span><span class="pln"> $second</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#second’</span><span class="pun">);</span></li></p>
+<p><li class="L2"></li></p>
+<p><li class="L3"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
+<p><li class="L4"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L5"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L6"><span class="str">“top”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L7"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L8"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L9"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L0"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L2"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L3"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L4"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L0"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
+<p><li class="L1"><span class="pun">});</span></li></p>
+<p><li class="L2"><span class="pun">});</span></li></p>
+<p><li class="L3"><span class="pun">});</span></li></p>
+<p><li class="L4"><span class="pun">});</span></li></p>
+<p><li class="L5"><span class="pun">})();</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
+<p><li class="L8"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L9"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L0"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L2"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L3"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L4"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L0"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L1"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L2"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L3"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L4"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
+<p><li class="L5"><span class="pun">});</span></li></p>
+<p><li class="L6"><span class="pun">});</span></li></p>
+<p><li class="L7"><span class="pun">});</span></li></p>
+<p><li class="L8"><span class="pun">});</span></li></p>
+<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>这种实现简单粗暴。我写的这段代码回调链太深了，不好看。有比我更熟悉jquery的朋友不使用complete回调，而是直接$.animate().animate()这样的调用链，效果一样，代码会短很多。不过jquery代码美化优化什么的不是今天的重点。重点是什么？学习缓动函数。</p><p></p>
+<p></p><h2>缓动函数（animation easing）</h2><p></p>
+<p></p><p>缓动函数是用来描述动画效果，在jquery中，实现了两种，分别是 linear和 swing。 linear效果就是没有效果，动画速度是均匀的，呈线性变化。 swing呢，动画效果呈线慢-快-慢的变化。swing也是$.animate的默认动画效果。</p><p></p>
+<p></p><p>或许仅仅这么说还是难以让人理解缓动函数在干什么，那就参考一下下面来自jquery ui的例子：</p><p></p>
+<p></p><p>或者参考<a href="http://www.zhouhua.info/jump/xyu0" target="_blank">jquery easing plugin</a>。</p><p></p>
+<p></p><p>回到jquery ui提供的各个缓动函数示意图上，对于任意一张示意图，横向表示时间，纵向表示动画变化量。当斜率越大时，表示此时动画速率越快。</p><p></p>
+<p></p><p>我们定义几个变量和常量来标记一下：动画起始变化量为<em>begin</em>，为方便计算，定义为常数0；动画结束和起始时的变化差值（总变化量）<em>change</em>，为方便计算，定义为常数1；动画持续时间<em>duration</em>；动画已进行时间<em>currentTime</em>；动画进行的进度<em>progress</em>，它等同于 currentTime / duration；当前变化量<em>eased</em>，jquery中这样定义：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">eased </span><span class="pun">=</span><span class="pln"> easingFunction</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">);</span></li><br><br><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>从上面的效果中随便挑一个出来看看是如何实现的吧：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">function</span><span class="pln"> easeOutBounce</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="kwd">if</span> <span class="pun">((</span><span class="pln">currentTime</span><span class="pun">/=</span><span class="pln">duration</span><span class="pun">)</span> <span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">1</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun"></span><span class="pln">currentTime</span><span class="pun">*</span><span class="pln">currentTime</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L4"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">1.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">75</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L6"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.25</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">9375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span></li></p>
+<p><li class="L8"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.625</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">984375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>说到这儿，我想该插一点相关话题。熟悉css3的朋友会知道，css3的动画也有缓动函数，不过换了个名字，叫<em>timing function</em>。在transition中是transition-timing-function，在animate里是animate-timing-function。主要支持的动画有ease、linear、ease-in、ease-out、ease-in-out等。那如果想要的动画不在浏览器默认支持的列表中怎么办？css3也是支持自定义timing-function的，不过不同于jquery的easing function，timing function并不是描述特定时间下的动画量，而是直接描述上面我们看到的曲线图。timing function允许使用三次贝塞尔曲线方程描述动画曲线。三次贝塞尔方程接受4个点的参数：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">cubic</span><span class="pun">-</span><span class="pln">bezier</span><span class="pun">(</span><span class="pln">P1x</span><span class="pun">,</span><span class="pln"> P1y</span><span class="pun">,</span><span class="pln"> P2x</span><span class="pun">,</span><span class="pln"> P2y</span><span class="pun">)</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>但在css的timing function场景下，P0点就是(0, 0)，P3点就是(1, 1)。于是变量就只剩下两个点的坐标，调用方式就变成了： cubic-bezier(P1x, P1y, P2x, P2y)。在W3C的规范中，定义了这四个点的纵横坐标都需要在0和1之间，这也就意味着无论怎么变化，曲线上所有的点都必须在这个1*1的正方形内，对比上面jquery ui easing的曲线图，我们可以确认像elastic这类的效果，使用timing-function就无能为力了。</p><p></p>
+<p></p><p>想多了解一下css3的timing function，不妨到<a href="http://www.zhouhua.info/jump/q6nt" target="_blank">这个网站</a>上自己动手试验一下。</p><p></p>
+<p></p><h2>编写easing function</h2><p></p>
+<p></p><p>说了半天的timing function，终于又回到easing function上来了。自己动手写easing function，那自由度，无边无际。从上面的介绍中，我们往往会有这样一个错觉，progress=0时，eased=0；progress=1时，eased=1。timing function中，因为P0和P3是定死的，所以这条一定成立，但在easing function中，其实并没有这个限制。</p><p></p>
+<p></p><p>什么意思？以我们开篇的动画为例，我们看一个方块从左上角运动一圈的轨迹。先说水平方向上，progress&lt;0.25时，left属性从0px变成220px；0.25&lt;=progress&lt;0.5时，left保持220px；0.5&lt;=progress&lt;0.75时，left属性从220px变成0px；0.75&lt;=progress&lt;1时，left保持0px。再看竖直方向上，progress&lt;0.25时，top保持0px；0.25&lt;=progress&lt;0.5时，top从0px变成220px；0.5&lt;=progress&lt;0.75时，top保持220px；0.75&lt;=progress&lt;1时，top从220px变成0px。那么这个过程反映成easing function就是：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">function</span><span class="pln"> horizontal</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="kwd">return</span><span class="pln"> progress </span><span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pun">}</span></li></p>
+<p><li class="L7"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L8"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">0.75</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="kwd">function</span><span class="pln"> vertical</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L4"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="kwd">return</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">-</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li></p>
+<p><li class="L9"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L0"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">1</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>接下来扩展jquery的easing效果库：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">easing</span><span class="pun">,</span></li></p>
+<p><li class="L1"><span class="pun">{</span></li></p>
+<p><li class="L2"><span class="str">“vertical”</span><span class="pun">:</span><span class="pln"> vertical</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="str">“horizontal”</span><span class="pun">:</span><span class="pln"> horizontal</span></li></p>
+<p><li class="L4"><span class="pun">});</span></li><br><br><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>在$.animate中就可以像linear或者swing那样使用了：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
+<p><li class="L1"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L2"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L4"><span class="pun">},{</span></li></p>
+<p><li class="L5"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
+<p><li class="L6"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
+<p><li class="L9"><span class="pun">},</span></li></p>
+<p><li class="L0"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
+<p><li class="L2"><span class="pun">}</span></li></p>
+<p><li class="L3"><span class="pun">});</span></li></p>
+<p><li class="L4"><span class="pun">})();</span></li></p>
+<p><li class="L5"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L9"><span class="pun">},{</span></li></p>
+<p><li class="L0"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
+<p><li class="L1"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
+<p><li class="L4"><span class="pun">},</span></li></p>
+<p><li class="L5"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
+<p><li class="L6"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="pun">});</span></li></p>
+<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>我们通过specialEasing这个参数为水平方向和竖直方向指定了不同的动画效果。当然了，在这个场景中，自己写缓动函数并没有降低整体的复杂度，毕竟这个缓动函数逻辑太碎，理解起来肯定比四个animate连起来的方式复杂。但我希望能给大家带来一些思路上的启示，为以后可能遇到的问题积累经验。</p><p></p>
+<blockquote><p>博客地址：<a href="http://www.zhouhua.info/2015/03/10/easing/" target="_blank">http://www.zhouhua.info/2015/03/10/easing/</a></p></blockquote>
 
 
 
@@ -526,10 +832,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-96ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-86ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/96ver/" class="article-date">
+      <a href="/2015/10/21/86ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -543,7 +849,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/96ver/">php自学笔记之运算符</a>
+      <a class="article-title" href="/2015/10/21/86ver/">JS程序设计-类型系统</a>
     </h1>
   
 
@@ -552,7 +858,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>运算符</strong></span></h1><br><p><span style="color: #993366;"><strong>1,PHP中的算术运算符</strong></span></p><br><p align="left">算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：</p><br><p align="left"><a href="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" target="_blank" rel="external"><img class=" alignleft" src="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" data-original="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">$english=110;//英语成绩哪有这么好- -</p><br><p>$math=118;//向前移一个小数点就差不多了<br><br>$biological=80;//生物<br><br>$physical=90;//物理</p><br><p>$sum=$english+$math+$biological+$physical;<br><br>$avg=$sum/4;<br><br>$x=$math-$english;<br><br>$x2=$english*$english;<br><br>echo “总分:”.$sum.”&lt;br&gt;”;<br><br>echo “平均分:”.$avg.”&lt;br&gt;”;<br><br>echo “数学比英语高多少分:”.$x.”&lt;br&gt;”;<br><br>echo “英语平方:”.$x2.”&lt;br&gt;”;</p><br><p>&nbsp;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>2,赋值运算符</strong></span></p><br><p align="left">PHP的赋值运算符有两种，分别是：</p><br><p align="left">(1)“=”：把右边表达式的值赋给左边的运算数。它将右边表达式值复制一份，交给左边的运算数。换而言之，首先给左边的运算数申请了一块内存，然后把复制的值放到这个内存中。</p><br><p align="left">(2)“&amp;”：引用赋值，意味着两个变量都指向同一个数据。它将使两个变量共享一块内存，如果这个内存存储的数据变了，那么两个变量的值都会发生变化。</p><br><p> //现在开始赋值运算符<br><br>$word1=”soul”;<br><br>$s_word1=$word1;<br><br>$c_word1=&amp;$word1;//$符号只相当于一个指针,当数据发生变化后赋值一样会发生变化<br><br>$word1=”soulseeker”;<br><br>echo $s_word1.”&lt;br&gt;”;<br><br>echo $c_word1.”&lt;br&gt;”</p><br><hr><br><p><span style="color: #993366;"><strong>3,比较运算符</strong></span></p><br><p>比较运算符主要是用于进行比较运算的，例如：等于、全等、不等、大于、小于。在PHP中常用的比较运算符如下表：</p><br><p><a href="http://img.mukewang.com/533a0af30001e75c06600409.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533a0af30001e75c06600409.jpg" data-original="http://img.mukewang.com/533a0af30001e75c06600409.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>$t1=1;<br><br>$t2=”1”;</p><br><p>var_dump( $t1==$t2);//普通=，只会比较值是否一样<br><br>br();<br><br>var_dump($t1===$t2);//严格等于,会连类型都判断<br><br>br();<br><br>var_dump($t1!=$t2);//普通不等<br><br>br();<br><br>var_dump($t1!==$t2);//如果t1不等于t2,或者他们类型不同返回true<br><br>br();<br><br>var_dump($t1&lt;&gt;$t2);//不等 同等于!=<br><br>br();<br><br>var_dump($t1&gt;=$t2);//大于等于，小于等于都不会去判断数据类型<br><br>br();<br><br>var_dump($t1&lt;=$t2);//<br><br>br();<br><br>var_dump($t1&gt;$t2);//大于，小于会严格判断数据和数据类型</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><span style="color: #993366;"><strong>4,三元运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>(“?:”)三元运算符也是一个比较运算符，对于表达式(expr1)?(expr2):(expr3)，如果expr1的值为true，则此表达式的值为expr2，否则为expr3。</p><br></div><br></div><br><p>$t3=78;</p><br><p>$t4=$t3&gt;60?”我及格了”:”我没及格”;<br><br>echo $t4;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>5,逻辑运算符 </strong></span></p><br><p align="left">逻辑运算符主用是进行逻辑运算的，例如：逻辑与、逻辑或、逻辑异或、逻辑非等，在PHP中常用的逻辑运算符如下表：（点击看大图）</p><br><p align="left"><a href="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" data-original="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">我们可以从投票的角度来理解逻辑运算：</p><br><p align="left"><strong>1、逻辑与：</strong>要求所有人都投票同意，才会通过某协议；</p><br><p align="left"><strong>2、逻辑或：</strong>只要求一个人投票同意就行；</p><br><p align="left"><strong>3、逻辑异或：</strong>只能有且只能有一个人投票同意；</p><br><p align="left"><strong>4、逻辑非：</strong>某个人要反对，但是通过逻辑非，使其反对无效；</p><br><p align="left">“与”和“或”有两种不同形式运算符的原因是它们运算的优先级（就是运算的有限顺序，比如我们小学的时候学习四则运算，加减乘除混合在一起啦，优先计算乘除，再计算加减）不同。</p><br><p align="left">//现在开始逻辑运算符<br><br>$a = TRUE; //A同意<br><br>$b = TRUE; //B同意<br><br>$c = FALSE; //C反对<br><br>$d = FALSE; //D反对<br><br>//咱顺便复习下三元运算符<br><br>echo ($a and $b)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a or $c)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a xor $c xor $d)?”通过”:”不通过”;//a或者b只有一个为true返回true<br><br>echo “&lt;br /&gt;”;<br><br>echo !$c?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a&amp;&amp;$d)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo($a||$b||$c)?”通过”:”不通过”;</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><strong><span style="color: #993366;">6,字符串连接运算符</span></strong></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">字符串连接运算符是为了将两个字符串进行连接，PHP中提供的字符串连接运算符有：</p><br><p align="left">（1）连接运算符(“.”)：它返回将右参数附加到左参数后面所得的字符串。</p><br><p align="left">（2）连接赋值运算符(“.=”)：它将右边参数附加到左边的参数后。</p><br></div><br></div><br><p>//现在开始字符串连接符<br><br>$a = “张先生”;<br><br>$tip=$a.”,欢迎您在慕课网学习PHP”;</p><br><p>$b = “东边日出西边雨”;<br><br>$b.=”,道是无晴却有晴”;//等同于$c=$c.”,道是无晴却有晴”;</p><br><p>$c = “东边日出西边雨”;<br><br>$c=$c.”,道是无晴却有晴”;</p><br><p>echo $tip.”&lt;br /&gt;”;<br><br>echo $b.”&lt;br /&gt;”;<br><br>echo $c.”&lt;br /&gt;”;</p><br><hr><br><p><span style="color: #993366;"><strong>7，错误控制运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">PHP中提供了一个错误控制运算符“@”，对于一些可能会在运行过程中出错的表达式时，我们不希望出错的时候给客户显示错误信息，这样对用户不友好。于是，可以将@放置在一个PHP表达式之前，该表达式可能产生的任何错误信息都被忽略掉；</p><br><p align="left">如果激活了track_error（这个玩意在php.ini中设置）特性，表达式所产生的任何错误信息都被存放在变量$php_errormsg中，此变量在每次出错时都会被覆盖，所以如果想用它的话必须尽早检查。</p><br><p align="left">需要注意的是：错误控制前缀“@”不会屏蔽解析错误的信息，不能把它放在函数或类的定义之前，也不能用于条件结构例如if和foreach等。</p><br></div><br></div><br><p>$conn=@mysql_connect(“localhost”,”username”,”password”);//@只能放在表达式中,不能放在foreach等循环中<br><br>echo “出错了，错误原因是：”.$php_errormsg;</p><br><hr><br><p>&nbsp;</p><br><p>8,运算符2</p><br><p>$maxLine = 4; //每排人数<br><br>$no = 17;//学生编号<br><br>$line=ceil($no/$maxLine);//判断座位<br><br>$row=$no%$maxLine?$no%$maxLine:$maxLine;//是否除尽？ 否取余数 是取$maxLine</p><br><p>echo “编号&lt;b&gt;”.$no.”&lt;/b&gt;的座位在第&lt;b&gt;”.$line.”&lt;/b&gt;排第&lt;b&gt;”.$row.”&lt;/b&gt;个位置”;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote>
+        <p><strong>类型系统</strong></p><br><ul class=" list-paddingleft-2"><br><li>标准类型:(6种) undefined，null，object，string，number</li><br><li>构造器(9种）object，boolean，string，number，function，array，date，regexp，error</li><br><li>对象(4种) math，json，全局对象，arguments，</li><br><li>以上为原生对象,也是本次讲解的</li><br><li>window，document，…(宿主对象)</li><br><li>activeXobject，debug，xml(浏览器对象)</li><br></ul><br><p>一:标准类型</p><br><ul class=" list-paddingleft-2"><br><li>原始类型(5种):undefined，null，string，number</li><br><li>引用类型(object)：通过new+构造器函数创造出来的也是引用类型 如</li><br></ul><br><p><code class="brush:js;toolbar:false">new String(“xx”);<br><br>new Number(123);<br><br></code></p><br><p>二:原始类型与引用类型</p><br><p><code class="brush:js;toolbar:false">var a;//undefined 未赋值,但是a保存在了栈内存中,值为undefined<br><br>var b=null// b保存在了栈内存中,值为null<br><br>var f={a:1}// f在栈内存中只保存了一个引用地址,这个地址指向的是堆内存所在的区域<br><br></code></p><br><p>三:原始类型与引用类型复制区别</p><br><p><code class="brush:js;toolbar:false">var num1=123;<br><br>var num2=num1;<br><br>原始类型复制前栈内存为</code></p><br><p>栈内存<br><br>num1 | 123;</p><br><p>复制后栈内存为<br><br>num1 | 123;<br><br>num2 | 123;</p><br><p>值都是一样的.</p><br><p>var obj1={a:1};<br><br>var obj2=obj1;<br><br>复制前</p><br><p>栈内存                                              堆内存1<br><br>obj1 |  地址指向堆内存 如堆内存1                        a | 1</p><br><p>复制后<br><br>obj1 |  地址指向堆内存 如堆内存1<br><br>obj2 |  地址指向堆内存 如堆内存1</p><br><p>两者指向的堆内存都是一样的，并不会重新开一个堆内存<br><br>所以对obj2进行修改同样也会影响到obj1<br><br></p><br><p>四:undefined</p><br><p>-值:undefined</p><br><p>-出现场景</p><br><p><code class="brush:js;toolbar:false">1：已声明为赋值的变量<br><br>var a;//undefined</code></p><br><p>2:获取对象不存在的属性<br><br>var o={a:1};<br><br>o.y//undefined</p><br><p>3：无返回值的函数执行结果,（匿名函数也无返回值,因为是立即执行)<br><br>function ab(){alert(a)}<br><br>var ret=ab()<br><br>console.log(ret)//undefined</p><br><p>4:函数参数未传入</p><br><p>function m(i,j){<br><br>console.log(i);<br><br>console.log(j);//undefined<br><br>}</p><br><p>m(1),//并未传入两个参数<br><br></p><br><p>-类型转换</p><br><p>undefined-boolean:false,</p><br><p>-number:Number(undefined)//Nan</p><br><p>-string:String(“undefined”)//“undefined”</p><br><p>五：null</p><br><p>-值:null</p><br><p>-出现场景:对象不存在的情况下 如 document.getElementById(“xxx”);</p><br><p>-类型转换</p><br><p>null-boolean:false</p><br><p>-number:0;</p><br><p>-string:”null”</p><br><p>六:boolean</p><br><p>-值:true,false</p><br><p>-出现场景:条件语句导致系统执行的隐式类型转化 如: if(){}</p><br><p>-类型转换</p><br><p>true-number:1</p><br><p>-string:”true”;</p><br><p>false-number:0;</p><br><p>-string:false;</p><br><p>七:string</p><br><p>-值:有单引号或者双引号括起来的字符序列</p><br><p>-类型转换</p><br><p>“空”-boolean:false;</p><br><p>-number:0;</p><br><p>“非空”-boolean:true;</p><br><p>-number:1;</p><br><p>八:number</p><br><p>-值: 整形,八进制,十六进制，浮点</p><br><p>-类型转换</p><br><p>0-boolean:false;</p><br><p>-string:”0”;</p><br><p>1-boolean:true;</p><br><p>-string:”1”;</p><br><p>infinity-boolean:true;</p><br><p>-string:”infinity”;</p><br><p>NaN-boolean:false;</p><br><p>-string:”NaN”;</p><br><p>九:object</p><br><p>-object是一组属性集合</p><br><p>{}-boolean:true</p><br><p>-number:NaN;</p><br><p>-string：”object”</p><br><p>&nbsp;</p>
 
 
 
@@ -581,10 +887,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-102ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-101ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/102ver/" class="article-date">
+      <a href="/2015/10/21/101ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -598,7 +904,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/102ver/">RAINBOW GIRL</a>
+      <a class="article-title" href="/2015/10/21/101ver/">Jquery-生成页面顶端的滑动弹出式提示框效果</a>
     </h1>
   
 
@@ -607,7 +913,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然很久以前就听到过这首歌了.</p><br><p>不过最近听到另一种风格的.</p><br><p>附上B站地址<a href="http://www.bilibili.com/video/av64435/" target="_blank" rel="external">http://www.bilibili.com/video/av64435/</a></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-QQ.png" target="_blank" rel="external"><img class=" size-medium wp-image-500 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-QQ.png" data-original="http://www.old.com/wp-content/uploads/2015/05/QQ截图20150517220321-300x235.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="QQ截图20150517220321" width="300" height="235"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>另外附上无损下载地址<br><br><div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1bnuEAYj" target="_blank">度娘下载</a></div><br><br>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p>&nbsp;</p><br><p>参考给定的HTML，使用jQuery和相关CSS生成页面顶端滑动错误提示效果，具体效果如下：</p><br><blockquote><p>点击页面中的按钮“系统提示” ，生成一个背景色为#efb73e的页面顶端居中“错误提示框”（贴近页面顶端），宽度为页面宽度的80%，高度为35px，出现效果为整体向下滑动出现，点击“错误提示框”中的关闭元素（id=“close” 元素），自动向上滑动关闭页面顶端的“错误提示效果”（效果为整体向上滑动消失），参考如下UI设计图形</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p></blockquote><br><p>&nbsp;</p><br><p>代码和预览地址<a href="http://www.gbtags.com/gb/rtreplayerpreview/843.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/843.htm</a></p>
 
 
 
@@ -732,10 +1038,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-43ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-84ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/43ver/" class="article-date">
+      <a href="/2015/10/21/84ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -749,7 +1055,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/43ver/">DOM编程艺术之样式操作</a>
+      <a class="article-title" href="/2015/10/21/84ver/">PS切图之修改，维护</a>
     </h1>
   
 
@@ -758,40 +1064,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">一:CSS-DOM<br>        -element.sheet// &lt;link href=”base.css”&gt;<br>        -element.sheet// &lt;style&gt;p{}&lt;/style&gt;<br>        -element.style//内联样式<br>        -element.sheet.cssRules[1].style//CSS规则<br>        -element.sheet.cssRules[1].selectorText//选择器<br>        -element.sheet.cssRules[1].style.lineHeight//element的行高<br>        -element.style.color//内联样式声明</pre></p>
-<pre><code>二:更新样式
-    -<span class="ruby">element.style更新利弊
-</span>        -<span class="ruby">更新一个属性需要一条语句
-</span>        -<span class="ruby">不是我们熟悉的<span class="constant">CSS</span>
-</span>        -<span class="ruby">样式混在逻辑中
-</span>    -<span class="ruby">element.style.cssText
-</span>        -<span class="ruby">element.style.cssText=<span class="string">"border-color:red;color:red"</span>/<span class="regexp">/创建的是内联样式
-</span></span>
-三:更新Class
-    -<span class="ruby"><span class="regexp">element.calssName+="invalid";/</span><span class="regexp">/推荐方法
-</span></span>    -<span class="ruby"><span class="regexp">不适用于一次更新很多元素样式
-</span></span>
-四:更换样式表
-    -<span class="ruby"><span class="regexp">&amp;lt;link href="xxx.css"&amp;gt;/</span><span class="regexp">/修改link
-</span></span>
-五:获取样式
-    -<span class="ruby"><span class="regexp">element.style/</span><span class="regexp">/只能获取到内联的样式 获取到的不一定是实际样式
-</span></span>    -<span class="ruby"><span class="regexp">var style=window.getComputedStyle(element).color/</span><span class="regexp">/获取到的实际样式包括内联样式修改后的实际样式
-</span></span>    -<span class="ruby"><span class="regexp">IE9-使用element.currentStyle/</span><span class="regexp">/兼容
-</span></span>
-六:CSS DOM overview
-    -<span class="ruby"><span class="regexp">StyleSheetList
-</span></span>        |            CSSStyleSheet
-        |                cssRules---CSSRuleList
-        |                        Style            -CSSStyleDeclaration
-        |                |        selectorText            color
-        |                |        
-        |                |
-        |                |
-        |                link.sheet   style.sheet
-        |
-    document.styleSheets&lt;/pre&gt;
-</code></pre><p>&nbsp;</p>
+        <p></p><p><strong>修改，维护</strong></p><p></p>
+<p></p><p>一:要继续放更多的图片？</p><p></p>
+<ul class=" list-paddingleft-2"><br><li>更改画布大小<br><p>-图像-画布大小:定位选为左上角</p></li><br></ul><br><p>二:移动图标</p><br><ul class=" list-paddingleft-2"><br><li>若图标为独立图层则用移动工具拖动即可</li><br><li>若图标为非独立图层<br><p>-用选区工具选中图标区域</p><br><p>-用移动工具拖动图标</p></li><br></ul><br><p>三:要减小画布</p><br><ul class=" list-paddingleft-2"><br><li>选定选区</li><br><li>裁剪</li><br></ul><br><p>四:注意事项</p><br><ul class=" list-paddingleft-2"><br><li>修改png8的图片<br><p>-需更改颜色模式为RGB颜色(图像-模式-RGB颜色)</p></li><br></ul>
 
 
 

@@ -193,501 +193,6 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-243ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/243ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/243ver/">First Soul Seeker Page</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主题来自<a href="http://www.yuxiaoxi.com/" target="_blank" rel="external">http://www.yuxiaoxi.com/</a>.</p><br><p>目前自学WEB中.希望一年以后可以换一套自己的主题吧.</p><br><p>差不多了。就这么的吧。</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-233ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/233ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/233ver/">windows.onload弹性加载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>代码来源于 DOM编程艺术第二版（6.3）</p><br><p>因为想对这些代码做更深的了解于是自己重新编写了一下,当然意思都还是一样的</p><br><pre class="lang:default decode:true ">function addWin(func){//定义函数addWin并且自定义一个变量func<br>            var oldevent=window.onload;//设置oldevent等于window.onload 意思就是把原来的函数存储起来<br>            if(typeof window.onload == “function”){//如果win.onload类型是函数，当然如果原来没写过window.onload那么就不是函数了<br>                window.onload =function(){//设置window.onload<br>                    oldevent();//添加上原来的老函数<br>                    func();//添加上新的函数<br>                }<br>            }else{//如果原来没写过window.onload那么执行<br>                window.onload =func;//设置window.onload=func<br>            }<br>        }<br>        addWin(hello);//hello就相当于func 那么window.onloado=func；相当于window.onload=hello;<br>        function hello(){<br>            alert(“hello”)<br><br>        }</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-232ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/232ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/232ver/">JavaScript节点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript节点是一个很重要的环节.不多说直接上代码</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-DOM方法&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function divIn(){<br>            var soul_div =document.getElementById(“soul”);//设置soul_div等于id：soul<br>            var soul_p=document.createElement(“p”);//新建个p元素存储为soul_p 元素节点<br>            soul_div.appendChild(soul_p);//在soul_div节点下插入p元素<br>            var soul_p_txt=document.createTextNode(“hello soul”);//创建个文本节点储存为 soul_p_txt<br>            soul_p.appendChild(soul_p_txt);//在P元素节点下插入文本节点<br>        }<br>    window.onload=function(){//页面加载完毕后加载函数<br>        divIn();<br>    }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”soul”&gt;<br><br>&lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" target="_blank" rel="external"><img class=" size-medium wp-image-108 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" data-original="http://www.old.com/wp-content/uploads/2015/03/211-300x230.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="21" width="300" height="230"></a></p><br><p>&nbsp;</p><br><p>上图代码节点大概就是这么分布的。</p><br><p><strong>高级版 insertAftet(before,after) 调用的变量请不要用before,after 换成这样应该好理解点insertAftet(hello,soul)；</strong></p><br><pre class="lang:default decode:true  ">function starIMGP(){<br>            var star_img=document.createElement(“img”);//创建一个新元素节点img<br>            star_img.setAttribute(“id”,”shit”);//设置img id属性等于shit<br>            star_img.setAttribute(“width”,”500px”);//设置宽属性节点<br>            star_img.setAttribute(“height”,”500px”);//设置高属性节点<br>            star_img.setAttribute(“src”,””);//设置src属性节点<br>            var star_p=document.createElement(“p”);//创建一个新元素节点p<br>            star_p.setAttribute(“id”,”p_node”);//设置p id属性等于p_node<br>            var star_p_txt=document.createTextNode(“pnode”);//创建一个文本节点节点<br>            star_p.appendChild(star_p_txt);//star_p元素节点下添加star_p_txt属性节点<br>            var star_ul=document.getElementById(“ul_all”);//获取ul id<br>            // star_ul.parentNode.insertBefore(star_img,star_ul);//把star_img插入star_ul前面<br>            insertAftet(star_img,star_ul);//将star_img插入star_ul之后<br>            insertAftet(star_p,star_img);//将star_p插入star_img之后<br><br><br>        }<br>        function insertAftet(before,after){//定义函数insertAftet<br>            var parent_node =after.parentNode;//设置变量parent_node等于after父级元素<br>            if(parent_node.lastChild==parent_node){//如果after父级元素就是after自己<br>                after.appendChild(before);//在after元素之后插入before元素<br>            }else{//如果不是<br>                parent_node.insertBefore(before,after.nextSibling);//在after与下一个元素之间插入before元素<br>            }<br><br>        }<br>//2015年3月8日更新一处错误</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-231ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/231ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/231ver/">JavaScript遍历-1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文针对有一定基础或者初学JavaScript的童鞋..其实就是自己的笔记罢了，哈哈</p><br><p>JavaScript遍历数组,也是从DOM 编程艺术书本上学到的,并且加以理解。</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         bianLi();<br>         }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>看来难度不够，再加点难度 不过在加点难度之前请把节点这个内容理解哦 <a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank">JavaScript节点</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>再深入一点点</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         bianLiSR();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br>    //下面可以利用上面的来深入一点点<br>    function bianLiSR(){<br>        var shuzu=[]//设置数组，如果在for循环里面设置，每一次都会重新定义数组,最终只能得到最后一个内容.<br>        var get_p=document.getElementsByTagName(“p”);//设置变量get_p等于p标签<br>        for (var i = 0; i &lt; get_p.length; i++) {//开始遍历循环p标签<br>            var get_p_soul =get_p[i].getAttribute(“soul”);//设置get_p_soul等于get_p[i]的soul属性内容<br>            var get_p_xiabiao =get_p[i].getAttribute(“xiabiao”);<br>            // alert(get_p_soul+”|”+get_p_xiabiao);//测试弹出get_p_soul内容是否正确<br>            shuzu[get_p_soul]=get_p_xiabiao;//设置数组自定义下标 get_p_soul等于soul属性内容<br><br>            //get_p_xiabiao等于下标属性内容,那么第一次循环就是 shuzu[标题1]=[我是下标1];<br>            //具体的去测试就ok了<br>            // alert(shuzu[get_p_soul]);//测试shuzu[soul]=xiabiao内容是否正确<br>        };<br>        for(get_p_soul in shuzu){//开始遍历<br>            alert(“数组下标是:”+get_p_soul+”|数组内容是:”+shuzu[get_p_soul]);//弹出遍历内容.<br>        }<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1” xiabiao=”我是下标1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2” xiabiao=”我是下标2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3” xiabiao=”我是下标3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-230ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/230ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/230ver/">JavaScript创建元素+节点+遍历+设置属性综合使用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本次文章是把前几节的内容都融合了进来.. 没有看过前文的童鞋去看一下哦,虽然也是笔记向的代码（笑</p><br><blockquote><p><a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank" rel="external">JavaScript节点</a></p><br><p><a title="JavaScript遍历-1" href="http://www.old.com/soul-get/soul-js/115" target="_blank" rel="external">JavaScript遍历-1</a></p><br><p><a title="windows.onload弹性加载" href="http://www.old.com/soul-get/soul-js/100" target="_blank" rel="external">JavaScript window.onload</a></p><br><p><a title="DOM-编程艺术第二版（4.3）-JavaScript图片库" href="http://www.old.com/soul-get/soul-js/80" target="_blank" rel="external">JavaScript图片库</a></p></blockquote><br><p>做一个下图的,可以点击“输出图片库中图片”输出li列表中的图片</p><br><p>本文遵循了DOM编程艺术（第二版）中的分离JavaScript（实际上代码还未完全做到)<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" target="_blank" rel="external"><img class=" size-medium wp-image-119 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" data-original="http://www.old.com/wp-content/uploads/2015/03/22-300x98.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="22" width="300" height="98"></a></p><br><p>&nbsp;</p><br><p>开始贴代码，代码量有点多，但是都是很简单的语句，逻辑理解起来也不困难（不过人家写的时候可能把代码写复杂了一点，不过不影响理解），我会做到每句代码都注释哦..笔记向代码,能够给大家带来一点帮助就行咯.</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-创建元素+节点+遍历+设置属性综合使用&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    function createImg(){//定义createImg函数<br>        var sz_title=[];//设置全局变量sz_title,为什么要在这里设置全局变量呢？因为下面有两个for循环，两个for循环都需要调用<br>        var sz_txt=[];//设置全局变量sz_txt;<br>        var get_ul = document.getElementById(“ulid”);//设置get_ul等于标签id为 “ulid”的元素<br>        var get_ul_li =get_ul.getElementsByTagName(“li”);//设置get_ul_li等于ulid元素下的li元素<br>        // alert(get_ul_li)//测试ok 获取到get_ul_li属性<br>        for (var i = 0; i &lt; get_ul_li.length; i++) {//开始遍历<br>            var li_title =get_ul_li[i].getAttribute(“title”);//设置li_title等于li元素的title属性内容 第一次循环那么li_title=get_ul_li[0]的title属性 即li_title=”这是第一张图片_blur_1”<br>            var li_link =get_ul_li[i].getAttribute(“soul_link”);//设置li_link等于li元素的soul_link属性内容<br>            // alert(“|获取li soul_link属性:”+li_link+”|获取li tittle属性:”+li_title);<br>            //测试获取文本内容ok<br>            sz_title[li_link]=li_title;//设置sz_title数组下标等于soul_link,数组等于标题内容.<br>            //第一次循环sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            //其实可以这样写的sz_title[li_title]=li_link 看起来比较方便理解一点<br>        };<br>        for(li_link in sz_title){//开始遍历sz_title数组<br>            var new_img =document.createElement(“img”);//创建一个新的img元素<br>            var new_img_src=new_img.setAttribute(“src”,li_link);//设置img元素的”src”属性等于li_link;<br>            //第一次遍历的sz_title[li_link]换成理解的来说就是 sz_title[../img/Pepsized_Blur_01.jpg]设置src属性等于li_link就相当于 src=”../img/Pepsized_Blur_01.jpg”<br>            var new_img_src=new_img.setAttribute(“width”,”400”);//设置img元素的宽等于400<br>            var new_img_src=new_img.setAttribute(“height”,”400”);//设置img元素的高等于400<br>            var p_txt=sz_title[li_link];//设置p元素的文本等于li_title 第一次遍历sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            // alert(p_txt);//检测p元素文本内容获取是否正确<br>            var new_p=document.createElement(“p”);//创建一个p元素<br>            var new_p_txt=document.createTextNode(p_txt);//创建p元素的文本节点 文本节点内容等于p_txt<br>            new_p.appendChild(new_p_txt);//在p元素下面添加p文本节点<br>            document.body.appendChild(new_p);//在body标签所有元素最后添加p标签<br>            document.body.appendChild(new_img);//在body p标签后添加图片<br>        }<br><br><br>    }<br>    window.onload=function(){//页面加载完毕后执行函数<br>        var button_bid =document.getElementById(“bid”);//设置get_ul等于标签id为 “bid”的元素 其实这个文档就一个button元素 可以用document.getElementsByTagName<br>        button_bid.onclick=function(){ //在button标签添加一个onclick事件<br>            createImg();//添加函数<br>            //因为涉及到元素的创建和获取 所以需要再页面加载完毕后才为button绑定事件<br>        }<br><br><br>    }<br>    //实际上可以把li元素也在JavaScript中写了。<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;button id=”bid”&gt;输出图片库图片&lt;/button&gt;<br>    &lt;ul id=”ulid”&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_01.jpg” title=”这是第一张图片_blur_1”&gt;blur_1&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_02.jpg” title=”这是第一张图片_blur_2”&gt;blur_2&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_03.jpg” title=”这是第一张图片_blur_3”&gt;blur_3&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_04.jpg” title=”这是第一张图片_blur_4”&gt;blur_4&lt;/li&gt;<br>    &lt;/ul&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-229ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/229ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/229ver/">一个页面中多个window.onload = function(){}冲突问题解决方案</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文转自<a href="http://blog.csdn.net/zndxlxm/article/details/7878298" target="_blank" rel="external">http://blog.csdn.net/zndxlxm/article/details/7878298</a></p><br><pre class="lang:default decode:true">假如在一个js里面需要window.onload两个方法：<br>方法1：写成这样就可以了<br>window.onload=function(){function(a);function(b);}<br>也就是集中window.onload一次。<br><br>方法2：<br><br><br>window.onload=function(){   //创建一个页面加载完毕函数<br>   alert(“加载完成”);    //弹出加载完成<br>   onload2();    //加载onload2函数<br>   onload3();    //加载onloado3函数<br>//onload2()的()可以传递参数<br>}<br>function onload2(){<br>   alert(“onload2加载完成”);<br>}<br>function onload3(){<br>   alert(“onload3加载完成”);<br>}</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-228ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/228ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/228ver/">JavaScript操控CSS -1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>DOM编程艺术（第二版） 第九章, 根据书上的代码自己做了一下笔记</p><br><blockquote><p>getNextNode(node) 是检测元素节点类型，好像用到了递归..</p></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function testCSS(){<br>            var get_pid=document.getElementById(“pid”);<br>            alert(“p元素是个什么类型：”+typeof get_pid.nodeName);//type of判断函数是个什么类型 比如p就是str(字符串)型的 var num =1 用typeof判断就是数字类型<br>            alert(“style是什么类型:”+typeof get_pid.style);//style也是一个对象<br>            alert(“style颜色:”+get_pid.style.color);//获取pid颜色<br>            alert(“style字体:”+get_pid.style.fontFamily);//js里-号会被认为是运算符 所以采用驼峰式命名<br>            alert(“style字体大小:”+get_pid.style.fontSize);//获取字体大小;<br>            get_pid.style.color=”blue”;//设置pid颜色为蓝色<br>            alert(“style更改后的颜色”+get_pid.style.color);//获取更改后的颜色<br><br>        }<br>        function changecss(){//更改h1兄弟元素的style属性<br>            var css_h1=document.getElementsByTagName(“h1”);//获取文档中h1标签<br><br>            for (var i = 0; i &lt; css_h1.length; i++) {//遍历h1标签<br>                var elem =getNextNode(css_h1[i].nextSibling);//设置变量elem,调用getNextNode函数返回的结果 这里传递给getNextNode函数的属性是(h1标签的下一个节点);节点有三种类型 文本，属性，元素，<br>                //因为我们要更改元素的css属性，所以我只要获取到元素节点就行了。其他的都不行。<br>                elem.style.color=”blue”;//设置elem的颜色是蓝色<br>                elem.style.fontSize=”24px”;//设置elem字体大小为24px<br>            };<br>        }<br>        function getNextNode(node){//开始检测节点类型函数<br>            if (node.nodeType==1) {//nodeType有三种类型 1-元素节点 2-属性节点 3-文本节点 判断是否是元素节点<br>                return node;//是 返回node<br>            };<br>            if (node.nextSibling) {//检测node下一个节点是否存在 存在执行<br>                return getNextNode(node.nextSibling);//再次调用函数getNextNode函数 检测Node的下一个节点.<br>                //即h1的下一个节点的下一个节点，相当于再次循环.. 好好理解下 应该不难<br>            };<br>            return null;//如果node下一个节点不存在 返回空<br>        }<br>         window.onload=function(){//网页加载完毕加载函数<br>             // testCSS();<br>             changecss();<br><br>         }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”pid” style=”color: red; font-family: sans-serif;font-size: 24px;”&gt;hello soul&lt;/p&gt;<br>    &lt;h1&gt;测试文本1&lt;/h1&gt;<br>    &lt;p&gt;测试文本2&lt;/p&gt;<br>    &lt;p&gt;测试文本3&lt;/p&gt;<br>    &lt;h1&gt;测试文本4&lt;/h1&gt;<br>    &lt;p&gt;测试文本5&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-227ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/227ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/227ver/">JavaScript操控css -2：巧用一个变量设置奇数行,偶数行</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>真的不得不佩服作者大大的思维.膜拜</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS-1&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        table,th,td{<br>            border: 2px solid black;<br>            border-collapse:collapse;<br>            width: 100px;<br>        }<br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function changeBg(){//定义函数<br>            var get_table =document.getElementsByTagName(“table”);//获取页面中的table标签<br>            var obb;//定义变量 obb(偶数)<br>            for (var i = 0; i &lt; get_table.length; i++) {//开始遍历table<br>                obb =false;//设置偶数行等于 假<br>                var get_table_tr=get_table[i].getElementsByTagName(“tr”);//设置get_table等于table中的tr元素<br>            for (var d = 0; d &lt; get_table_tr.length; d++) {//开始遍历tr<br>                if (obb==true) {//如果偶数行等于 真<br>                    get_table_tr[d].style.background=”red”;//设置tr的背景颜色为红色<br>                    obb=false;//设置obb等于 假<br>                }else{//否则<br>                    obb=true;//返回obb等于 真<br>                }<br>                }<br>            }<br>        }<br><br>    window.onload=function(){//页面加载完毕加载函数<br>        changeBg();<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>        &lt;table&gt;<br>            &lt;tr&gt;<br>                &lt;th&gt;名字&lt;/th&gt;<br>                &lt;th&gt;性别&lt;/th&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;soul&lt;/td&gt;<br>                &lt;td&gt;保密&lt;/td&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;seeker&lt;/td&gt;<br>                &lt;td&gt;你猜&lt;/td&gt;<br>            &lt;/tr&gt;<br><br>        &lt;/table&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-226ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/226ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/226ver/">紧跟潮流之布局篇！2015年至关重要的四种排版趋势</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文来自优设：<a href="http://www.uisdc.com/2015-4-essential-layout-trends" target="_blank" rel="external">紧跟潮流之布局篇！2015年至关重要的四种排版趋势</a></p><br><p><del>简单总结了一下. </del>     作者文笔比某逗比要好的很多.大家看看能够有所帮助就行</p><br><blockquote><br><ol><br><li>分割屏幕</li><br><li>去界面化</li><br><li>基于模块或网格</li><br><li>一屏以内</li><br></ol><br></blockquote><br><h2 id="toc_0" style="text-align: center;"><strong>1.分割屏幕</strong></h2><br><p>在这类中，我们精选的网站都用了垂直分隔线来分割屏幕。可能这么做有很多原因，通过研究大量此类案例，我发现主要有两点。</p><br><p>原因之一，有时候在一套设计中，的确存在两个同等重要的主体元素。网页设计的通常方法，是按照重要性给内容排序。然后重要性会体现在设计的层次和结构上。但是假如你就是要推广两样东西呢？这种方式，可以让你突出两者，并让用户迅速在其中做出选择。</p><br><p>原因之二，有时你要表现出一种重要的两重性。以Eight and Four网站为例。他们在此要表达的是，他们的核心竞争力来自植根数字领域，还有多才多艺的员工。这两点成就了他们。通过屏幕分割来表现这一点，是种令人愉快的方式。</p><br><h4><strong><a href="http://eightandfour.com/" target="_blank">Eightandfour</a></strong></h4><br><p><img class="alignnone size-full wp-image-123957" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012520.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012520.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012520" width="690"></p><br><h4><strong><a href="http://carelpiethein.com/en/" target="_blank">Carelpiethein</a></strong></h4><br><p><img class="alignnone size-full wp-image-123956" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012519.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012519.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012519" width="690"></p><br><h4><strong><a href="http://www.deweyspizza.com/" target="_blank">Deweyspizza</a></strong></h4><br><p><img class="alignnone size-full wp-image-123954" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012517.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012517.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012517" width="690"></p><br><h4><strong><a href="http://fian.my.id/marka/" target="_blank">Fian.my.id</a></strong></h4><br><p><img class="alignnone size-full wp-image-123955" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012518.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012518.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012518" width="690"></p><br><h4><strong><a href="http://pomopizzeria.com/" target="_blank">Pomopizzeria</a></strong></h4><br><p><img class="alignnone size-full wp-image-123953" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012516.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012516.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012516" width="690"></p><br><p>&nbsp;</p><br><hr><br><h2 id="toc_1" style="text-align: center;">2.去界面化！</h2><br><p>网页设计中的主要元素之一，就是容器元素：方块、边框、形状和所有类型的容器，用于将内容从页面中分离开。想象一个古板的页头，元素刚好容纳其中，与内容分隔开。如今的一项普遍趋势，就是去除所有这些额外的界面元素。</p><br><p>这是种极简主义的方式，但它更进一步，带来一些有趣的转变。</p><br><h4><strong><a href="http://www.br-time.jp/" target="_blank">Br-time</a></strong></h4><br><p><img class="alignnone size-full wp-image-123951" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012514.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012514.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012514" width="690"></p><br><p>在这个例子中，他们把页头和页尾的概念统统去掉了。反而更像一个交互式杂货摊。从左向右的排列，就基本完成了内容层次的排布，有助于让排版更加直观。用于分隔导航和内容的界面就不需要了。取而代之的是漂亮的产品惊艳全场。</p><br><h4><strong><a href="http://foreword.io/" target="_blank">Foreword</a></strong></h4><br><p><img class="alignnone size-full wp-image-123952" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012515.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012515.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012515" width="690"></p><br><p>可以发现，移除任何感官上的页头和页尾后，内容得到了极大的强调。你会先看到公司名称，然后是关于他们经营内容（和场所）的清晰描述，而不是先看到页头。之后才是主导航。让用户浏览之前先重点强调品牌，这个方式太棒了！它造就了优美的视觉流程。有趣的是，当你滚动页面时，页头和界面才出现。美观且有效的排版，这种模式的运用颇具启迪性。</p><br><h4><strong><a href="http://www.harvardartmuseums.org/" target="_blank">Harvardartmuseums</a></strong></h4><br><p><img class="alignnone size-full wp-image-123950" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012513.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012513.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012513" width="690"></p><br><h4><strong><a href="http://www.voiceshavepower.com/" target="_blank">Voiceshavepower</a></strong></h4><br><p><img class="alignnone size-full wp-image-123949" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012512.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012512.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012512" width="690"></p><br><h4><strong><a href="http://drurybuildings.com/" target="_blank">Drurybuildings</a></strong></h4><br><p><img class="alignnone size-full wp-image-123948" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012511.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012511.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012511" width="690"></p><br><hr><br><h2 id="toc_2" style="text-align: center;"><strong>3.基于模块或网格</strong></h2><br><p>接下来这些排版方式，建立在模块化或类似网格的结构上。在这些设计中，每个模块都力图根据屏幕尺寸伸缩调整。实际上这并不是什么新的方式，不过响应式网页设计让它变得更加有用。它暗示了一种自适应布局模式，可以像搭积木一样，由各种模块组件创建而成。</p><br><h4><strong><a href="http://www.teambadcompanyrowing.com/" target="_blank">Teambadcompanyrowing</a></strong></h4><br><p><img class="alignnone size-full wp-image-123947" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012510.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec2015012510.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec2015012510" width="690"></p><br><p>这个案例完美地诠释了这一点。整个设计都是响应式的。随着屏幕尺寸变化，每个模块都改变尺寸来适应空间。均匀划分屏幕使得设计更易于适应。他们还（在大屏幕尺寸中）引入一些元素来打破模块界限的束缚，这是画龙点睛之笔。</p><br><h4><strong><a href="http://madagascar.dreamworks.com/" target="_blank">Madagascar.dreamworks</a></strong></h4><br><p><img class="alignnone size-full wp-image-123946" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501259.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501259.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501259" width="690"></p><br><p>这个案例更加激进。当然，它也包含了模块化的方式，让他们能够根据需要轻松增减内容。但此处还有一个重要的设计元素在发挥作用，之前的案例是没有的。模块通过尺寸变化，来反映其重要程度和在各层级中的地位。这类模块化的布局方式存在一种风险，它使每样东西尺寸都相同，这意味着无法强调任何事物。相反，这个案例还是清晰地突出了主要元素。</p><br><h4><strong><a href="http://plfixtures.info/" target="_blank">Plfixtures</a></strong></h4><br><p><img class="alignnone size-full wp-image-123945" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501258.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501258.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501258" width="690"></p><br><h4><strong><a href="http://guide.residence-mixte.com/" target="_blank">Guide.residence-mixte</a></strong></h4><br><p><img class="alignnone size-full wp-image-123944" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501257.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501257.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501257" width="690"></p><br><h4><strong><a href="http://tevko.github.io/practice/" target="_blank">Tevko</a></strong></h4><br><p><img class="alignnone size-full wp-image-123943" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501256.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501256.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501256" width="690"></p><br><hr><br><h2 id="toc_3" style="text-align: center;"><strong>4.一屏以内</strong></h2><br><p>最后，还有一些网站采用这样的方式，让设计完全在一屏内展现。这是响应式设计的一个分支，因为它会适应屏幕尺寸。不过在这个绝佳案例中，整个设计的适应方式完完全全吻合屏幕，没有产生滚动条。没有滚动，意味着内容必须极度聚焦，而且要建立清晰的内容层次。我发现这些网站的聚焦能力和清晰程度，令人耳目一新。</p><br><h4><strong><a href="http://hatchcollective.co.uk/" target="_blank">Hatchcollective</a></strong></h4><br><h4><img class="alignnone size-full wp-image-123941" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501254.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501254.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501254" width="690"></h4><br><h4></h4><br><h4><strong><a href="http://www.shamballajewels.com/" target="_blank">Shamballajewels</a></strong></h4><br><p><img class="alignnone size-full wp-image-123942" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501255.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501255.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501255" width="690"></p><br><h4><strong><a href="http://www.erikfischer.com/" target="_blank">Erikfischer</a></strong></h4><br><p><img class="alignnone size-full wp-image-123939" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501252.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501252.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501252" width="690"></p><br><h4><strong><a href="http://twinpics.itrocksstudio.com/" target="_blank">Twinpics</a></strong></h4><br><p><img class="alignnone size-full wp-image-123940" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501253.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501253.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501253" width="690"></p><br><h4><strong><a href="http://nikolaylechev.com/" target="_blank">Nikolaylechev</a></strong></h4><br><p><img class="alignnone size-full wp-image-123938" src="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501251.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2015/01/kec201501251.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="kec201501251" width="690"></p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-225ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -715,6 +220,506 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文转自优设:<a href="http://www.uisdc.com/what-make-color-upscale" target="_blank" rel="external">涨姿势！为什么有的颜色看起来非常高档？</a></p><br><blockquote><br><h5>不愿意看下文的直接看总结吧</h5><br><h2><span style="color: #99cc00;"><strong>总结：</strong></span></h2><br><p>1，之所以一些颜色看起来会显得高档，其实是因为该颜色传提出的情绪很少。</p><br><p>2，而降低色彩饱和度，或者不明确色相的颜色，其实就是在降低和削减色彩对人情绪的影响。所以会看起来略显高档。</p><br><p>3，黑白照片看起来比彩色照片高档，大部分奢侈品牌选择黑白，其实都是在降低色彩本身对于人情绪的影响，而使人感觉高档。</p></blockquote><br><p><img class="alignnone size-full wp-image-104586" src="http://image.uisdc.com/wp-content/uploads/2014/09/what-make-color-great-1.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/what-make-color-great-1.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="690" height="140"></p><br><p><a href="http://weibo.com/enoxone" target="_blank">@-eno-one-</a> ：高档色的色彩纯度、明度、饱和度低，是表象。但不是使得它们看起来显得高档的根本原因。</p><br><h4>正确的答案是：</h4><br><p>之所以一些颜色看起来会显得高档，其实是因为该颜色传提出的情绪很少。<br><br>而降低色彩饱和度，其实就是在降低和削减色彩对人情绪的影响。所以会看起来略显高档。</p><br><p><b>我先从色彩对我们情绪影响的由来开始说起。</b></p><br><p>每种色彩都会给人不同的心理感受。比如我们常说的，紫金搭配显贵气，紫色代表神秘，蓝色代表迷离空旷，红色代表热情与危险，绿色代表生命等等。</p><br><p>见下图示例：</p><br><p><img src="http://image.uisdc.com/wp-content/uploads/2014/09/d80d0652f1fe2d32b19b0cff405807c4_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/d80d0652f1fe2d32b19b0cff405807c4_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="350"> <img src="http://image.uisdc.com/wp-content/uploads/2014/09/4212332703454fe645b3c32b4464363f_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/4212332703454fe645b3c32b4464363f_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="350"></p><br><p>这些色彩的心理感受，并不是人类后期赋予或者毫无根据杜撰出来的。我们现代人的行为、思维等等，其实都是因进化演变而形成的一种自然生理机制。</p><br><p>为什么蓝色会给人没有食欲？因为自然界中就没有天然存在的蓝色食物。为什么红色橙色会给人危险的感觉？因为自然界中，很多有毒的生物表体的颜色就是如此，</p><br><p>因此在人类长期的进化演变过程中，对于过分鲜艳的颜色，便有了独特的警觉性。还有更多的色彩心理，其实，都是因人类进化而逐渐被我们确定认知的。所以，就不再一一举例了。</p><br><p>见下图示例：</p><br><p><img src="http://image.uisdc.com/wp-content/uploads/2014/09/edf4a836edc1fd15fa379e2ca7805f32_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/edf4a836edc1fd15fa379e2ca7805f32_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="350"> <img src="http://image.uisdc.com/wp-content/uploads/2014/09/4591ff4de9071822c1f0d1b2b13b8090_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/4591ff4de9071822c1f0d1b2b13b8090_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="350"> <img src="http://image.uisdc.com/wp-content/uploads/2014/09/5e2011705f19f06625871ad642ed0488_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/5e2011705f19f06625871ad642ed0488_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="406"></p><br><p><b>结论：色彩饱和度较高的颜色，也就是我们通常所说的鲜艳的颜色，本身就会对我们观看者的情绪造成影响。</b></p><br><p>接下来，再说一下，色相对于情绪的影响。</p><br><h4>色相：</h4><br><p>色相是色彩的首要特征，是区别各种不同色彩的最准确的标准。事实上任何黑白灰以外的颜色都有色相的属性，而色相也就是由原色、间色和复色来构成的。色相，色彩可呈现出来的质的面貌。自然界中各个不同的色相是无限丰富的，如紫红、银灰、橙黄等。色相即各类色彩的相貌称谓。</p><br><p>下图的男士，身着三款不同颜色，但是色相明确的衬衣。</p><br><p><img src="http://image.uisdc.com/wp-content/uploads/2014/09/c548205aa7d33fb8799f95a8473a18df_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/c548205aa7d33fb8799f95a8473a18df_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="450"> <img src="http://image.uisdc.com/wp-content/uploads/2014/09/a9f68e13d4d79bb3bd3746165b05809d_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/a9f68e13d4d79bb3bd3746165b05809d_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="450"> <img src="http://image.uisdc.com/wp-content/uploads/2014/09/c74229beda6760ececade3a10c012452_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/c74229beda6760ececade3a10c012452_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="450"></p><br><p>以上三个颜色，我们大多数人都可以第一时间马上将它们说出来。比如黄色、绿色和蓝色。</p><br><p>而每种颜色，所让我们感受或联系到的情绪都会有不同，例如黄色会显得激烈，荧光的绿色会使人惊觉，较亮的蓝色让我们觉得干净。这些不同的感受，都是色彩带给我们的情绪影响。</p><br><p>接下来，我们再来做一组实验。</p><br><p><img src="http://image.uisdc.com/wp-content/uploads/2014/09/e09bf920c1af030325ed358923e37dac_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/e09bf920c1af030325ed358923e37dac_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="450"></p><br><p>我们先来看看上图中的衬衣，到底是蓝色还是绿色？是否发现，当物体的色相不那么明确之后，色彩对于我们情绪的影响也就随之减弱。</p><br><p>接下来，我们再来一次实验</p><br><p><img src="http://image.uisdc.com/wp-content/uploads/2014/09/d8e0215b89c3b507f7d0846cd988e147_b.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/09/d8e0215b89c3b507f7d0846cd988e147_b.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="涨姿势！为什么有的颜色看起来非常高档？" width="450"></p><br><p>还是选择最开始图例中的绿色来进行比较。左边衣服的绿色，色彩饱合度较高，而右边的则降低饱和度。看看那一个颜色会显得略微高档。其实，降低色彩饱和度，也是削弱色彩对人情绪影响的一个手段。</p><br><h4><strong>总结：</strong></h4><br><p>1，之所以一些颜色看起来会显得高档，其实是因为该颜色传提出的情绪很少。</p><br><p>2，而降低色彩饱和度，或者不明确色相的颜色，其实就是在降低和削减色彩对人情绪的影响。所以会看起来略显高档。</p><br><p>3，黑白照片看起来比彩色照片高档，大部分奢侈品牌选择黑白，其实都是在降低色彩本身对于人情绪的影响，而使人感觉高档。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-235ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/235ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/235ver/">After Effects错误：调用增效工具“AEDynamicLinkServer出错</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-aeerror.png" target="_blank" rel="external"><img class=" size-medium wp-image-86 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-aeerror.png" data-original="http://www.old.com/wp-content/uploads/2015/03/aeerror-220x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="aeerror" width="220" height="300"></a></p><br><p>&nbsp;</p><br><p>因为AE PR已删，图片就从网上copy.先说说事情起因.</p><br><p><strong>起因</strong></p><br><p>某天想用AE制作一下片头，顺便学习一下AE，然后打开深藏多年(两个月)的AE…这不打开不要紧，一打开就报错了..</p><br><p>随后打开PR，PR显示已停止工作..不提示任何错误，但是PS AI又能够正常使用。尼玛，还能愉快的玩耍不？</p><br><p><strong>随后</strong>(随后是个shen me gui?)</p><br><p>推度娘后,没得出一个什么结果.在搜索了一个多小时后，果断翻墙奔google,搜索了将近30几分钟HP已将为0…</p><br><p>于是深夜自己捣鼓，先把Adobe AE PR全部卸载 用的是Adobe Clean Tools 清理后重启电脑，继续安装。</p><br><p>十五分钟后….关机 默默的走到窗边 拿出一瓶XX矿泉水…</p><br><p>忽闻是显卡问题，奔回电脑，更新显卡驱动至最新版本.重启电脑，打开AE..怒砸板凳，这不坑爹呢？</p><br><p>怀疑是权限问题.把D盘 C盘 全部设置成Everyone权限..启动AE….</p><br><p>隔壁老王告诉我 C:\Users\你的用户名\Application Data 还有Adobe文件夹 斩草要除根！ 于是递归搜索C盘包含Adobe名字的文件夹..删之~</p><br><p>删后发现重新安装好的AE又要安装一次..用Adobe Clean Tools也没发现有AE..于是在控制面板-程序-删除了AE。重启电脑~安装~打开…打开..开…</p><br><p>有小伙伴说是quick time 播放器问题。于是删除了quick time 播放器..重新下载最新的…重启电脑~打开…………..</p><br><p>说了这么多废话 得出的结论是什么呢？</p><br><p><strong>MotherFucker,</strong></p><br><p><strong>前人经验告诉大家重装系统吧！</strong></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-236ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/236ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/236ver/">DOM-编程艺术第二版（4.3）-JavaScript图片库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天买的神器到手了，然后着手开始写代码..</p><br><p>4.3节是怎么做JavaScript图片库的,…码完以后发现onclick加了return false却还是跳转了</p><br><blockquote><p>&lt;li&gt;&lt;a  href=”img/Pepsized_Blur_01.jpg “ title=”A fireworks display” onclick=”showPic(this);return false;” title=”ssdas”&gt;one&lt;/a&gt;&lt;/li&gt;</p></blockquote><br><p>反复查了好久，推度娘不下一百次,..终于发现问题所在了。</p><br><p>通过<strong>文本对比工具</strong>发现一处错误！！这错误竟然是！</p><br><blockquote><p>论getAttention 和getAttribute 差别 WTF!!!</p></blockquote><br><p>更改过来后 问题解决…</p><br><hr><br><p>下面开始JavaScript图片库</p><br><pre class="lang:default decode:true ">function clickSP(){<br>            var ul_all = document.getElementById(“ul_all”);//获取元素id=”ul_all”<br>            var add_showpic = ul_all.getElementsByTagName(“a”);//设置add_showpic=ul_all下的a标签<br>            for (var i = 0; i &lt; add_showpic.length; i++) {//递归ul_all下的a标签<br>                if (add_showpic[i].getAttribute(“fh”)!=”stop”) {//如果a标签fh属性不等于stop 执行<br>                    add_showpic[i].onclick=function(){//为a标签添加onclick事件<br>                        showPic(this);//添加showPic(this)；<br>                        return false;//等同于 onclick=”showPic(this);return false;”<br>                    }<br><br>                }<br>            };<br>        }<br>window.onload =function(){//页面加载完毕后加载函数clickSP<br>clickSP();<br>}<br>function showPic(whichpic)<br>            {var source = whichpic.getAttribute(“href”);//设置变量 source等于点击a标签的href属性<br>            var placeholder = document.getElementById(“shit”);//获取img标签id=”shit“<br>            placeholder.setAttribute(“src”,source); //设置img标签的src属性等于变量sour//ce<br><br><br>//不好理解我举个例子  &lt;a href=”/img/1.jpg” onclick=”showPic(this)”&gt;one&lt;/a&gt; 我点击这个a////标签就相当于拿到了这个便签的href并且存储起来了(存储变量为source) 然后再把这个href传送给//img标签的src<br>//&lt;img src=”sdsa” id=”shit”&gt;这个imgsrc是乱的但是我通过showPic这个函数后 src就变成了点<br>//击a便签的href 即 src=”/img/1.jpg”<br><br><br>            var get_a_title=whichpic.getAttribute(“title”);//获取到a标签的标题属性内容<br>            // alert(“title”+get_a_title);//测试ok 测试代码已经注释不用管<br>            var get_pid =document.getElementById(“p_node”);//获取到p标签id为”p_node”<br>            // alert(p_node.childNodes[0].nodeValue);//获取到P_node文本；测试ok<br>            get_pid.firstChild.nodeValue=get_a_title;//firstChild等同于childNodes[0] 设<br>//置P_node文本等于get_a_title内容； 至于为什么是childNodes[0]这个我也没弄懂 childNodes<br>//[1]不行嘛？<br>            }<br><br><br>//以下是html代码<br>&lt;ul id=”ul_all”&gt;<br>&lt;li&gt;&lt;a  href=”img/Pepsized_Blur_01.jpg “ title=”hello soul” onclick=”showPic(this);return false;” title=”ssdas”&gt;one&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a  href=”img/Pepsized_Blur_02.jpg” title=”soul seeker” onclick=”showPic(this);return false;” title=”ssds”&gt;two&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a id=”testa” href=”img/Pepsized_Blur_03.jpg” title=”by soul” onclick=”showPic(this);return false;” &gt;three&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a fh=”stop” href=”#”&gt;stop&lt;/a&gt;&lt;/li&gt;<br><br>    &lt;/ul&gt;<br>    &lt;img id=”shit” width=”500px” height=”500px”  src=”img/Pepsized_Blur_01.jpg” /&gt;<br>    &lt;p id=”p_node”&gt;pnode&lt;/p&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-237ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/237ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/237ver/">该死的全角分号-JavaScript</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用惯了搜狗输入法，懒得换输入法了，用搜索输入法写代码的时候一时间把符号调成全角后，会发生一些莫名其妙的BUG。有时候排查要排查好久。</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-18.png" target="_blank" rel="external"><img class=" size-medium wp-image-76 alignright" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-18.png" data-original="http://www.old.com/wp-content/uploads/2015/03/18-300x209.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="18" width="300" height="209"></a></p><br><p>比如检查右图的代码都是编写正确的，但是运行的时候回莫名其妙的 报错</p><br><p>Uncaught SyntaxError: Unexpected token ILLEGAL</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-19.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-77" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-19.png" data-original="http://www.old.com/wp-content/uploads/2015/03/19-300x161.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="19" width="300" height="161"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>结果发现13行分号是全角。</p><br><p>囧！Damn！</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-238ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/238ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/238ver/">简评音乐界一大新起之秀“网易云音乐”&amp;#8211;有没有那么一段词能够怀念起过去？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引文：用酷狗音乐已经好几年了，见证过酷狗一步步的前进，也见证过光辉落幕后的余韵。</p><br><hr><br><p><span style="color: #993366;">先说说为什么抛弃酷狗音乐而转战网易云音乐.</span></p><br><p>酷狗音乐给我的感受就是 磅礴的资源库,从经典到流行，从大众到猎奇，基本上音乐资源都可以在酷狗音乐里面搜索到,当搜索到市面上非常猎奇的资源后,觉得酷狗音乐真的是一大资源搜索神奇.</p><br><p><span style="color: #993366;">从这里开始,酷狗便伴随了我4年之久.</span></p><br><p>而我一边在享受余韵带来的温存的时候，更多的是黑暗带给我的那种不安,弹窗广告,歌词广告,VIP功能，每一项都想黑暗中的利剑,深深刺入余韵中的温存。</p><br><p><span style="color: #993366;">然而温存终有冷却一刻.</span></p><br><p>当我在黑暗中摸索时,微弱光芒都成了一颗救命稻草，当我顺着稻草往上爬，我发现了新世界的大门.</p><br><p><span style="color: #993366;">网易云音乐</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" target="_blank" rel="external"><img class=" size-medium wp-image-58 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" data-original="http://www.old.com/wp-content/uploads/2015/03/111-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="11" width="300" height="197"></a></p><br><p>简洁的UI界面，当然这算不算一大亮点，只是说贪欲虚空是无穷的.当发现新事物总会有一股新奇感，随后淡于平静.</p><br><p>惊浪波起,随后狂风暴雨</p><br><p>当从酷狗音乐列表导出文件转入网易云音乐后,第一感觉 没有烦人的广告，整个界面都清爽了许多，像是一简约的播放器。</p><br><p><span style="color: #993366;">简约而不简单</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" target="_blank" rel="external"><img class=" size-medium wp-image-60 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" data-original="http://www.old.com/wp-content/uploads/2015/03/122-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="12" width="300" height="197"></a></p><br><p>发现音乐-歌单,每一个分享的歌单都带有使你欢奇的音符,更有大咖分享的歌单,一支精准之箭直入心胸。</p><br><p><span style="color: #993366;">私人定制</span><span style="color: #800080;"><span style="color: #993366;">-更多的是</span>享受</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" target="_blank" rel="external"><img class=" size-medium wp-image-61 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" data-original="http://www.old.com/wp-content/uploads/2015/03/13-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="13" width="300" height="197"></a></p><br><p>当听完十几首自己喜欢的歌后，打开“私人FM”浓浓的个人情怀，包含了天空，大地，激昂，深沉。每一首都是你想要的。</p><br><p><span style="color: #993366;">繁华中的虚幻</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" target="_blank" rel="external"><img class=" size-medium wp-image-62 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" data-original="http://www.old.com/wp-content/uploads/2015/03/14-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="14" width="300" height="197"></a></p><br><p>外面的世界那么灯火通明，这里却这么宁静，繁华中黑白交错的虚幻.淡淡的光盘划痕,随着音乐律动而渐隐。</p><br><p><span style="color: #993366;">手机,更让你不忍释手</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" target="_blank" rel="external"><img class=" size-medium wp-image-65 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" data-original="http://www.old.com/wp-content/uploads/2015/03/15-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="15" width="169" height="300"></a></p><br><p>少女的红韵,蕴含着历史.</p><br><p><span style="color: #993366;">推荐-相同的Soul</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" target="_blank" rel="external"><img class=" size-medium wp-image-63 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" data-original="http://www.old.com/wp-content/uploads/2015/03/16-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="16" width="169" height="300"></a></p><br><p>发现更多的惊喜.</p><br><p><span style="color: #993366;">律动，伴随着音乐的沉浸</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" target="_blank" rel="external"><img class=" size-medium wp-image-68 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" data-original="http://www.old.com/wp-content/uploads/2015/03/171-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="171" width="169" height="300"></a></p><br><p>&nbsp;</p><br><p>按下<span style="color: #ff0000;">红色</span>的Start 带上Earplug 沉浸在灵魂的世界中。</p><br><blockquote><p>网易云音乐ID “Relsoul”</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-239ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/239ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/239ver/">一个月前和一个月后自己的设(chou)计(hua)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p style="text-align: center;">PS：大神勿喷,仅仅是个人经历</p><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignleft wp-image-44" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/7-300x213.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="7" width="294" height="211"></a></p><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="  wp-image-45 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/8-300x187.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="8" width="343" height="214"></a></p><br><div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>两幅看起来都非常的low..然后再看看目前的设计.虽然也没好到哪去</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-10.png" target="_blank" rel="external"><img class=" size-medium wp-image-47 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-10.png" data-original="http://www.old.com/wp-content/uploads/2015/03/10-300x199.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="10" width="300" height="199"></a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="  wp-image-46 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/9-300x184.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="9" width="324" height="199"></a></p><br><p style="text-align: left;">勉励吧.</p><br><p style="text-align: left;">为什么只有条条框框呢？因为这样最简单啦。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-240ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/240ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/240ver/">吊炸天的phpwind移动版</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自从phpwind与阿里达成战略合作了,然后就出现了各种黑科技.</p><br><p>作为第二批加入的测试用户肯定要测试黑科技</p><br><ol><br><li>去<a href="http://www.phpwind.net/read/3417575简单查看了一下安装教程" target="_blank" rel="external">http://www.phpwind.net/read/3417575简单查看了一下安装教程</a></li><br><li>首先升级下论坛，下载邮件中的升级补丁，因为是第二批用户就不用替换补丁中的sql文件了。</li><br><li>然后去<a href="http://wind.aliyun.com进行APP生成.（登陆的账号用淘宝账号，不过前提需要支付宝实名认证）" target="_blank" rel="external">http://wind.aliyun.com进行APP生成.（登陆的账号用淘宝账号，不过前提需要支付宝实名认证）</a></li><br><li><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-11.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-34" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-11.png" data-original="http://www.old.com/wp-content/uploads/2015/03/11-265x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="1" width="265" height="300"></a>随便填写下，接口密钥在<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-21.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-35" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-21.png" data-original="http://www.old.com/wp-content/uploads/2015/03/21-300x97.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="2" width="300" height="97"></a><span style="color: #0000ff;">注意</span>：点随机以后需要点一下<span style="color: #0000ff;">提交 </span></li><br><li><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-31.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-36" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-31.png" data-original="http://www.old.com/wp-content/uploads/2015/03/31-300x136.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="3" width="300" height="136"></a>这里需要去高德申请下KEY<a href="http://lbs.amap.com/console/key/" target="_blank" rel="external">http://lbs.amap.com/console/key/</a></li><br><li>填写好高德的基本信息 成功获取到高德key<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-41.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-37" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-41.png" data-original="http://www.old.com/wp-content/uploads/2015/03/41-300x106.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="4" width="300" height="106"></a></li><br><li>回填好 OK生成APP<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-38" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/5-300x20.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="5" width="300" height="20"></a></li><br></ol><br><p>补充下 我用的是 amh4.2 然后升级的时候会缺少Mcrypt扩展 但是amh提供了模块下载 搜索Mcrypt 下载安装之 OK</p><br><p>下面放几张APP图</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-360.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-40" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-360.png" data-original="http://www.old.com/wp-content/uploads/2015/03/360手机助手截图0304_23_46_01-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="360手机助手截图0304_23_46_01" width="169" height="300"></a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-41" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/6-300x87.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="6" width="300" height="87"></a></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-241ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/241ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/241ver/">wordpress模板|主题制作之路一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; color: #9c7741; font-size: 14pt;"><span style="font-family: arial, helvetica, sans-serif;">wordpress主题制作之路一</span></span></p><br><p style="text-align: left;"><span style="font-size: 12pt; color: #505fa1;">虽然没学过PHP,但是还是想DIY一下.//双反斜号后为注释哦！</span></p><br><p style="text-align: left;">&lt;page one&gt;</p><br><p style="text-align: left;"><span style="color: #505fa1; font-size: 12pt;"><span style="line-height: 16px;">在<a style="color: #505fa1;" title="露兜博客" href="http://www.ludou.org/" target="_blank" rel="external">露兜</a>博客中有几章是介绍如何制作wordpress模板的.不过要下载一大堆的文件看起来好麻烦DE※ZE</span></span></p><br><p style="text-align: left;"><span style="font-size: 12pt; color: #505fa1;">一：看了一会主题文件分析.大概了解了wordpress主题构成</span></p><br><ol><br><li style="text-align: left;">index.php//首页</li><br><li style="text-align: left;">single.php//文章页</li><br><li style="text-align: left;">page.php//页面</li><br><li style="text-align: left;">category.php//分类</li><br><li style="text-align: left;">archive.php//文章归档页</li><br><li style="text-align: left;">tag.php//标签</li><br><li style="text-align: left;">author.php//作者</li><br><li style="text-align: left;">search.php//搜索页</li><br></ol><br><p><span style="font-size: 12pt; color: #505fa1;">常用的应该就这些了.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">wordpress主题必要的元素</span></p><br><ol><br><li>style.css</li><br><li>index.php</li><br></ol><br><p><span style="font-size: 12pt; color: #505fa1;">然后再添加几个文件</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">二：然后要下载一大堆的静态html.赶脚好麻烦.干脆不下了.自己写.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">先找到wordpress主题目录(\wp-content\themes\soul)，新建个文件夹名字叫soul.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">先写个index.php</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">里面放什么呢？.头部和脚部肯定要的嘛。先写个</span></p><br><blockquote><p>&lt;?php get_header(); ?&gt; //get_header()是获取header.php文件里的内容。</p><br><p>&lt;?php get_footer(); ?&gt;//php get_footer()是获取footer.php里的内容。</p><br><p>&nbsp;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignleft size-full wp-image-28" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/1.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="1" width="292" height="73"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #505fa1; font-size: 12pt;">再在soul主题目录里新建3个文件</span></p><br><p>&nbsp;</p><br><blockquote><p>style.css</p><br><p>footer.php</p><br><p>header.php</p></blockquote><br><p><span style="color: #505fa1; font-size: 12pt;">里面啥内容都不写慢慢来,打开style.css往里面写入</span></p><br><blockquote><p>/<em><br><br>Theme Name: Soul_life  //主题的名字（你写个阿拉斯加螺旋粒子加速计划也没人管你的（笑 ）<br><br>Theme URI: <a href="http://www.baidu.com/" target="_blank" rel="external">http://www.baidu.com/</a>  //主题的地址（啊咧？为啥是度娘？）<br><br>Version: 1.0    //版本：宇宙开发计划第233号<br><br>Description: soul_life 来自生活中的灵魂 //描述：本大爷才是描述，别无视本大爷.<br><br>Author: Soul //主题的作者（我就不行写个习**会有人把我头按键盘hkhjkgjksdgsjkdgas)<br><br>Author URI: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a> //作者的地址（又是度娘）<br>
+</em>/</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-29" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/2-300x108.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="2" width="300" height="108"></a></p><br><p><span style="color: #505fa1; font-size: 12pt;">恩.差不多了.继续下一步.开始开发header.php,新建个文件名为header.php</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #505fa1; font-size: 12pt;">第一！要保证绝对的公平 咳咳..跑题了 咱们继续</span></p><br><p><span style="color: #505fa1; font-size: 12pt;">1：先写上html标签外加个div</span></p><br><blockquote><p>&lt;!doctype html&gt;<br><br>&lt;html lang=”cn”&gt;<br><br>&lt;head&gt;<br><br>&lt;meta charset=”UTF-8”&gt;<br><br>&lt;title&gt;</p><br><p>&lt;/title&gt;<br><br>&lt;link rel=”stylesheet” type=”text/css” href=”&lt;?php bloginfo(‘template_url’);?&gt;/style.css”&gt;<br><br>&lt;?php wp_head(); ?&gt;<br><br>&lt;/head&gt;<br><br>&lt;body&gt;<br><br>&lt;div class=”soul-header”&gt;</p><br><p>&lt;/div&gt;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone wp-image-30 size-medium" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/3-300x111.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="3" width="300" height="111"></a></p><br><p><span style="color: #505fa1;"><del>2：</del>等等..你是不是忘了什么没解释，魂淡！&lt;?php bloginfo(‘template_url’);?&gt;什么意思？</span></p><br><blockquote><p>&lt;?php bloginfo(‘template_url’);?&gt; //bloginfo我理解为函数,template_url理解为模板所在目录.</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”&lt;?php bloginfo(‘template_url’);?&gt;/style.css”&gt;</p><br><p>//那么这句话可以理解为：引用模板目录下的style.css文件也就是\wp-content\themes\soul\style.css</p><br><p>（为何不直接写这句话？\wp-content\themes\soul …人家嫌麻烦啦）</p><br><p>&lt;?php wp_head(); ?&gt; //我也不懂他是什么 反正加在&lt;/head&gt;前面就对啦</p></blockquote><br><p><span style="color: #505fa1;">2：title标签里当然要写一些信息啦,这可是很重要的哦 SEO完全靠他了</span></p><br><blockquote><p>//HELLO 我是解释君 现在由我来解释以下内容：</p><br><p>&lt;title&gt;<br><br>&lt;?php if(is_home()){<br><br>bloginfo(‘name’);echo “-“;bloginfo(‘description’);//判断是否是首页 是：输出 名字-描述<br><br>}elseif (is_category()) {<br><br>single_cat_title();//是否是分类 是：返回 分类标题-名字<br><br>echo “-“;<br><br>bloginfo(‘name’);<br><br># code…<br><br>}elseif (is_single()||is_page()) {<br><br>single_post_title();//是否是单文章和单页面 是：返回 帖子名称<br><br># code…<br><br>}elseif (is_search()) {<br><br>echo “搜索结果”;//搜索页 是：返回搜索结果-名字<br><br>echo “-“;<br><br>bloginfo(‘name’);<br><br># code…<br><br>}elseif (is_404()) {<br><br>echo “页面未找到”;//404<br><br># code…<br><br>}else{<br><br>wp_title(‘’,true);<br><br>}?&gt;</p><br><p>&lt;/title&gt;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone wp-image-31 size-medium" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/4-300x182.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="4" width="300" height="182"></a></p><br><p><span style="color: #505fa1;">等等..这么多文字看着眼睛好疼,啊,邪王真眼！爆裂吧！现实！</span></p><br><p><span style="color: #505fa1;">3：这样就差不多了,等等，那么那个div是做什么的呢？baka！当然是放导航条的.</span></p><br><p><span style="color: #505fa1;">因为人家代码也看不懂就直接用了露兜大大的显示导航条代码了 <a style="color: #505fa1;" href="http://www.ludou.org/wordpress-highlight.html" target="_blank">代码（code）</a></span></p><br><blockquote><p>&lt;div class=”soul-header”&gt;<br><br>&lt;ul class=”soul-nav”&gt;<br><br>&lt;li<br><br>&lt;?php if (is_home()) { echo ‘ class=”current-cat”‘;} ?&gt;&gt;&lt;a title=”Home” href=”/“&gt;博客主页&lt;/a&gt;&lt;/li&gt;<br><br>&lt;?php<br><br>$currentcategory = ‘’;</p><br><p>// 以下这行代码用于在导航栏添加分类列表，<br><br>// 如果你不想添加分类到导航中，<br><br>// 请删除 6 - 14 行代码<br><br>if (is_category() || is_single()) {<br><br>$catsy = get_the_category();<br><br>$myCat = $catsy[0]-&gt;cat_ID;<br><br>$currentcategory = ‘&amp;current_category=’.$myCat;<br><br>}<br><br>wp_list_categories(‘depth=1&amp;title_li=&amp;show_count=0&amp;hide_empty=0&amp;child_of=0’.$currentcategory);</p><br><p>// 以下这行代码用于在导航栏添加页面列表<br><br>// 如果你不想添加页面到导航中，<br><br>// 请删除16 - 19行代码<br><br>wp_list_pages(‘depth=1&amp;title_li=&amp;sort_column=menu_order’);</p><br><p>?&gt;<br><br>&lt;/ul&gt;<br><br>&lt;h1 class=”logo cr”&gt;&lt;a href=”&lt;?php echo get_option(‘home’); ?&gt;”&gt;我是博客名字哦:&lt;?php bloginfo(‘name’) ?&gt;&lt;/a&gt;&lt;/h1&gt;<br><br>&lt;p class=”description”&gt;我是博客描述哦：<br><br>&lt;?php bloginfo(‘description’) ?&gt;<br><br>&lt;!– &lt;?php echo get_option(‘home’); ?&gt; 输出你的博客首页网址<br><br>&lt;?php bloginfo(‘name’); ?&gt; 输出你的博客名称<br><br>&lt;?php bloginfo(‘description’); ?&gt; 输出博客描述 –&gt;<br><br>&lt;/p&gt;</p><br><p>&lt;/div&gt;</p></blockquote><br><p><span style="color: #505fa1;">4：恩,头部文件就OK了 css之类的最讨厌了.自行调整吧！</span></p><br><p><span style="color: #505fa1;">睡觉去 明天继续</span></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-242ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/242ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/242ver/">分分钟解决sublime2插件下载不了,弹出报错问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Pack One</span></p><p></p>
+<blockquote><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">前几天在某下载站下载了sublime2作为开发文本工具.在下载插件的时候遇到了问题.</span></p><br><p><span style="font-size: 12pt;">使用一招分分钟解决</span></p><br><p><span style="font-size: 12pt;">删除Pristine Packages，data/Packages,data/Pristine Packages;原本汉化的<a href="https://packagecontrol/" target="_blank" rel="external">packagecontrol</a></span></p><br><p><span style="font-size: 12pt;">然后再去 <a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a> 下载放至data/Installed Packages下安装</span></p><br><p><span style="font-size: 12pt;">唯一缺点就是对英文</span>有<span style="text-decoration: underline;"><span style="font-size: 8pt;">不可视症 </span></span><span style="font-size: 12pt;">会感觉到一点点不舒服..</span></p></blockquote><br><p>Pack Two</p><br><blockquote><br><div>安装sublimecodeintel后弹出报错 插件-设置 用户 加入</div><br><div>, “detect_slow_plugins”:false即可 //<code>,逗号是用来分隔的 请务必加入<br><br>&lt;如果没加逗号报错 找到报错文件 加上逗号 OK</code><br></div><br></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-234ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/234ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/234ver/">DOM-编程艺术第二版（5.4）-JavaScript弹窗</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p><code>window.open(url,name,style)</code></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>这就是JavaScript弹窗代码, 写一个函数然后再编写个a标签然后设置好href添加上onclick后就变成了这样</p><p></p>
+<blockquote><p><code>function tc(){</code></p><br><p><code>window.open(“<a href="http://www.baidu.com&quot;,&quot;hello" target="_blank" rel="external">http://www.baidu.com&quot;,&quot;hello</a> soul”,”width=300,height=300”);</code></p><br><p><code>}</code></p><br><p><code>&lt;a href=”” onclick=”tc()”&gt;弹窗测试&lt;/a&gt;</code></p></blockquote><br><p>测试后没问题 ,然后我想要tc这个函数自己获取到a标签的href属性这样就方便很多了。于是稍微修改了下代码</p><br><blockquote><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">&lt;a href=”<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a>“ onclick=”tc(this)”&gt;&lt;/a&gt;//this的意思我理解为返回当前a标签中的href,然后传递给link于是代码意思就变成了window.open(“<a href="http://www.old.com&quot;,&quot;hello" target="_blank" rel="external">http://www.old.com&quot;,&quot;hello</a> soul”,”width=300,height=300”)</span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">function tc(link){  </span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;"> window.open(link,”hello soul”,”width=300,height=300”)</span></span></code></p><br><p><code><span style="color: #c7254e; font-family: Arial, 'Microsoft Yahei', SimSun, sans-serif;"><span style="font-size: 14px; line-height: 21.5999984741211px; background-color: #f9f2f4;">}</span></span></code></p></blockquote><br><p>差不多了,但是我写了好几个a标签 我只想要一个属性fh=”soul”的a标签可以弹窗 于是我这么写了.</p><br><blockquote><br><pre class="lang:default decode:true ">function aTest() {<br><br>    var alink = document.getElementsByTagName(“a”); //获取全部的a标签<br>    for (var i = 0; i &lt; alink.length; i++) { //递归a标签<br>        if (alink[i].getAttribute(“fh”) == “test”) { //检测fh=“test”的a标签<br>            var tz_titile =[];//设置变量tz_title等于数组<br>            var tz =[];//设置变量tz等于数组<br>            tz_titile[i] = alink[i].getAttribute(“title”); //设置tz_title[i]=a标签的标题<br>            tz[i] = alink[i].getAttribute(“href”); //设置tz[i]=a标签的href(PS:这里的a标签指的是fh=soul的a标签<br>            alink[i].onclick = function() { //给fh属性=soul的a标签加个onclick函数，等同 onlick= testcl(tz[i],tz_title[i]);return false)<br>                testck(tz[i], tz_titile[i]); //返回tz[i],tz_title[i]<br>                return false; //阻止a标签跳转<br>            }<br>        }<br>    };<br>}<br><br>window.onload = aTest; //页面加载完毕后加载aTest函数<br><br>function tc(a, b) {<br><br>    window.open(a, b, “width=300,height=300”); //name属性设置无效. 窗口标题根本就不是设置的那样啊喂！<br><br>}<br><br>    &lt;/script&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote>
 
 
 

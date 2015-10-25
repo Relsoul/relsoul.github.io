@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-206ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-180ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/206ver/" class="article-date">
+      <a href="/2015/10/21/180ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/206ver/">JavaScript:节点-2:再次理解下节点</a>
+      <a class="article-title" href="/2015/10/21/180ver/">JavaScript-检测用户使用的浏览器</a>
     </h1>
   
 
@@ -219,7 +219,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本来想写详细点,发现自己理解还不够 先放着 以后再填</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-再次理解childNodes&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function knowChildnodes(){<br>            var get_childnodes=document.body.childNodes;<br>            console.log(get_childnodes);//当前页面有多少元素<br>            var get_childnodes0=document.body.childNodes[0];<br>            console.log(get_childnodes0);//第0个的元素是什么<br>            var get_did=document.getElementById(“did”);//获取div<br>            console.log(get_did.childNodes);//输出div下的元素<br>            console.log(get_did.childNodes[1].nodeName);//从控制台可以看到[0]是一个#text文本 [1]才是元素<br>            console.log(get_did.firstChild.nodeName);//也可以使用firstChild获取到第一个[0]元素的名字<br>            console.log(get_did.childNodes.length.nodeName);//这样是找不到的 因为在childNodes是从0开始 获取到最后一个元素可以使用<br>            console.log(get_did.childNodes[get_did.childNodes.length-2].nodeName)//获取到最后一个元素属性名字 -1是#text文本<br>            console.log(get_did.lastChild.nodeName)//获取到最后一个元素的名字<br><br><br>            //兄弟节点,父级节点<br>            console.log(“我是分隔符,下面开始兄弟节点 父级节点”);<br>            console.log(“第0个元素是#text 那么他的下一个元素应该是p||”+get_did.childNodes[0].nextSibling.nodeName);//<br>            console.log(“第1个元素是p,那么他的下一个元素应该是p的文本||”+get_did.childNodes[1].nextSibling.nodeName);//<br>            console.log(“第2个元素是p的文本 那么他的下一个元素应该是p||”+get_did.childNodes[2].nextSibling.nodeName);<br>            //以上是下级的结构 那么同级的结构是什么呢？<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            console.log(get_h1[0].nextSibling.nodeValue);//文本节点…值是回车符<br>            //坑待理解后再填<br><br>        }<br><br><br>        window.onload=function(){<br>            knowChildnodes();<br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;hello&lt;/h1&gt;<br>    &lt;div id=”did”&gt;<br>        &lt;p&gt;我是soul&lt;/p&gt;<br>        &lt;p&gt;灵魂追逐者&lt;/p&gt;<br>        &lt;p&gt;放荡的灵魂&lt;/p&gt;<br>    &lt;/div&gt;<br>    &lt;h1&gt;第二个soul&lt;h1&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>    &lt;p&gt;我是规则之外的灵魂&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1155" target="_blank" rel="external">http://www.imooc.com/code/1155</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">userAgent</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>返回用户代理头的字符串表示(就是包括浏览器版本信息等的字符串)</p><br><p><strong>语法</strong></p><br><pre class="code">navigator.userAgent</pre><br><p>几种浏览的user_agent.，像360的兼容模式用的是IE、极速模式用的是chrom的内核。</p><br><p><a href="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" data-original="http://img.mukewang.com/535a3a4a0001e03f06870189.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>使用userAgent判断使用的是什么浏览器(假设使用的是IE8浏览器),<strong>代码如下:</strong></p><br><pre class="code">function validB(){<br>  var u_agent = navigator.userAgent;<br>  var B_name=”Failed to identify the browser”;<br>  if(u_agent.indexOf(“Firefox”)&gt;-1){<br>      B_name=”Firefox”;<br>  }else if(u_agent.indexOf(“Chrome”)&gt;-1){<br>      B_name=”Chrome”;<br>  }else if(u_agent.indexOf(“MSIE”)&gt;-1&amp;&amp;u_agent.indexOf(“Trident”)&gt;-1){<br>      B_name=”IE(8-10)”;<br>  }<br>    document.write(“B_name:”+B_name+”&lt;br&gt;”);<br>    document.write(“u_agent:”+u_agent+”&lt;br&gt;”);<br>}</pre><br><p><strong>运行结果:</strong></p><br><p><a href="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" data-original="http://img.mukewang.com/535dea1e00017b0b06880265.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>补充右边编辑器第8行，使用userAgent获取浏览器信息，并保存在u_agent中。</p><br><p>补充右边编辑器第24行，点击”查看浏览器”按钮，显示浏览器和浏览器相关信息。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">代码倒是没什么难度. 主要是通过检测字符串中是否包含浏览器的关键字来判定</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;navigator&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  function validB(){<br>    var u_agent =   navigator.userAgent    ;<br>    var B_name=”不是想用的主流浏览器!”;<br>    if(u_agent.indexOf(“Firefox”)&gt;-1){<br>        B_name=”Firefox”;<br>    }else if(u_agent.indexOf(“Chrome”)&gt;-1){<br>        B_name=”Chrome”;<br>    }else if(u_agent.indexOf(“MSIE”)&gt;-1&amp;&amp;u_agent.indexOf(“Trident”)&gt;-1){<br>        B_name=”IE(8-10)”;<br>    }<br>        document.write(“浏览器:”+B_name+”&lt;br&gt;”);<br>        document.write(“u_agent:”+u_agent+”&lt;br&gt;”);<br>  }<br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;form&gt;<br>     &lt;input type=”button” value=”查看浏览器” onclick=”validB()”  &gt;<br>  &lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 
@@ -248,10 +250,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-204ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-181ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/204ver/" class="article-date">
+      <a href="/2015/10/21/181ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -265,7 +267,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/204ver/">JavaScript-call:简单理解call</a>
+      <a class="article-title" href="/2015/10/21/181ver/">JavaScript编程挑战:截取数组指定字符的字符串</a>
     </h1>
   
 
@@ -274,7 +276,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>理解转自<a href="http://www.jb51.net/article/22963.htm" target="_blank" rel="external">http://www.jb51.net/article/22963.htm</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-apply与call&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function num1(a,b){<br>        alert(a+b);<br>    }<br>    function num2(a,b){<br>        alert(“a<em>b:”+a</em>b);<br>    }<br>    num2.call(num1,10,20)//这个例子中的意思就是用 num2 来替换 num1，num2.call(num1,10,20) == num2(10,20) ，所以运行结果为：alert(200); // 注意：js 中的函数其实是对象，函数名是对 Function 对象的引用。<br><br>    function abb(name){<br>        this.name=name<br>        this.showName=function(){alert(“abb name:”+this.name)}<br>    }<br>    function ann(name){<br>        this.name=name<br>    }<br><br>    var abb1=new abb(“abb1的name”);<br>    var ann1=new ann(“ann的name”);<br><br>    abb1.showName.call(ann1);//首先 ann是没有showName函数 但是我们又让ann1来执行showName函数,于是通过call继承下来了<br>    //showName=function(){alert(“abb name”+this.name)} 这里的this.name指的是 ann的name<br><br>    //以下解释来自<a href="http://www.jb51.net/article/22963.htm" target="_blank" rel="external">http://www.jb51.net/article/22963.htm</a><br>    //注意，call 的意思是把 abb1 的方法放到ann1上执行，原来ann1是没有showName() 方法，现在是把abb1 的showName()方法放到 ann 上来执行，所以this.name 应该是 ann，执行的结果就是 ：alert（”ann name”）;<br>//  怎么样，觉得有意思了吧，可以让a对象来执行b对象的方法，这是java程序员所不敢想的。还有更有趣的，可以用 call 来实现继承<br><br>    function Class1() {<br>        this.showTxt = function(txt) {<br>            alert(txt);<br>        }<br>    }<br><br>    function Class2() {<br>        Class1.call(this);<br>    }<br>    var c2 = new Class2();<br>    c2.showTxt(“cc”);<br>    //这样 Class2 就继承Class1了，Class1.call(this) 的 意思就是使用 Class1 对象代替this对象，那么 Class2 中不就有Class1 的所有属性和方法了吗，c2 对象就能够直接调用Class1 的方法以及属性了，执行结果就是：alert（“cc”）;<br>    function Class10() {<br>        this.showSub = function(a, b) {<br>            alert(a - b);<br>        }<br>    }<br><br>    function Class11() {<br>        this.showAdd = function(a, b) {<br>            alert(a + b);<br>        }<br>    }<br><br>    function Class3() {<br>        Class10.call(this);<br>        Class11.call(this);<br>    }<br>    var c3 =new Class3();<br>    c3.showAdd(10,20)<br><br>    //apply与call区别在于 call 的第二个参数可以是任意类型，而apply的第二个参数必须是数组，也可以是arguments<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1504" target="_blank" rel="external">http://www.imooc.com/code/1504</a></p><br><p>说到底还是思维不行啊.. 惭愧 还是看了别人的代码才知道这个思路</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">var scoreStr = “小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”;</span></p><br><p><span style="color: #ff0000;">var txt=(scoreStr.split(“;”)) //这句话的意思是以分号为分隔符,分隔 scoreStr数组 那么txt[0]就是 小明:87</span></p><br><p><span style="color: #ff0000;">var txt1=txt[i].indexOf(“:”)//indexOf查询:这个符号首次出现的位置 比如小明:87,:就是2</span></p><br><p><span style="color: #ff0000;"> var txt2=txt[i].substr(txt1+1)//substr从indexOf也就是substr(2+1)开始截取.因为截取是从3开始的 不信可以试试</span><br><br><span style="color: #ff0000;"> sum+=parseInt(txt2)//截取出来还是个字符串 用parseInt来转换成整型的</span></p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>某班的成绩出来了，现在老师要把班级的成绩打印出来。</p><br><p><strong>效果图:</strong></p><br><pre class="code">2014年5月9日 星期六–班级总分为:81</pre><br><p><strong>格式要求：</strong></p><br><p>1、显示打印的日期。 格式为类似“2014年03月21日 星期三” 的当前的时间。</p><br><p>2、计算出该班级的平均分（保留整数）。</p><br><p><strong>同学成绩数据如下：</strong></p><br><p>“小明:87; 小花:81; 小红:97; 小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步：可通过javascript的日期对象来得到当前的日期。</p><br><pre class="code">提示:使用Date()日期对象，注意星期返回值为0-6，所以要转成文字”星期X”</pre><br><p>第二步：一长窜的字符串不好弄，找规律后分割放到数组里更好操作哦。</p><br><p>第三步：分割字符串得到分数，然后求和取整。</p><br><pre class="code">提示：parseInt() 字符串类型转成整型。</pre><br></div><br></div><br></div><br><pre class="lang:default decode:true ">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;系好安全带,准备启航&lt;/title&gt;<br><br>&lt;script type=”text/javascript”&gt;<br><br>  //通过javascript的日期对象来得到当前的日期，并输出。<br>  var mydate=new Date()<br>  var mydate_year=mydate.getFullYear();<br>  var mydate_mon=mydate.getMonth();<br>  var mydate_day=mydate.getDate();<br>  var mydate_week=mydate.getDay();<br>  var mydate_arr=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”,]<br>  document.write(mydate_year+”年”+(mydate_mon+1)+”月”+mydate_day+”日”+mydate_arr[mydate_week]+”&lt;br&gt;”)<br><br><br><br><br>  //成绩是一长窜的字符串不好处理，找规律后分割放到数组里更好操作哦<br>  var scoreStr = “小明:87;小花:81;小红:97;小天:76;小张:74;小小:94;小西:90;小伍:76;小迪:64;小曼:76”;<br> var txt=(scoreStr.split(“;”))<br> document.write(txt+”&lt;br&gt;”);<br>var sum=0;<br><br>  //从数组中将成绩撮出来，然后求和取整，并输出。<br><br>  function getGrades(){<br><br>      for(var i=0;i&lt;txt.length;i++){<br>         var txt1=txt[i].indexOf(“:”)<br>         var txt2=txt[i].substr(txt1+1)<br>         sum+=parseInt(txt2)<br>      }<br><br>      }<br>      getGrades()<br>      document.write(sum);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 
@@ -303,10 +305,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-203ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-182ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/203ver/" class="article-date">
+      <a href="/2015/10/21/182ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -320,7 +322,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/203ver/">【转】领悟 JavaScript 中的面向对象</a>
+      <a class="article-title" href="/2015/10/21/182ver/">JavaScript数组排序:来乖乖站好</a>
     </h1>
   
 
@@ -329,7 +331,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文转自<a href="http://www.iteye.com/topic/155109" target="_blank" rel="external">http://www.iteye.com/topic/155109</a></p><br><p>领悟 JavaScript 中的面向对象</p><br><p>&nbsp;</p><br><p>注：读完本文后请务必接着看完所有回复！</p><br><p>JavaScript 是面向对象的。但是不少人对这一点理解得并不全面。</p><br><p>在 JavaScript 中，对象分为两种。一种可以称为“普通对象”，就是我们所普遍理解的那些：数字、日期、用户自定义的对象（如：{}）等等。</p><br><p>还有一种，称为“方法对象”，就是我们通常定义的 function。你可能觉得奇怪：方法就是方法，怎么成了对象了？但是在 JavaScript 中，方法的确是被当成对象来处理的。下面是一个简单的例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> func() {alert(<span class="string">‘Hello!’</span>);}</li><br><li>alert(func.toString());</li><br></ol><br></div><br><p>在这个例子中，func 虽然是作为一个方法定义的，但它自身却包含一个 toString 方法，说明 func 在这里是被当成一个对象来处理的。更准确的说，func 是一个“方法对象”。下面是例子的继续：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func.name = “I am func.”;</li><br><li>alert(func.name);</li><br></ol><br></div><br><p>我们可以任意的为 func 设置属性，这更加证明了 func 就是一个对象。那么方法对象和普通对象的区别在哪里呢？首先方法对象当然是可以执行的，在它后面加上一对括号，就是执行这个方法对象了。</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func();</li><br></ol><br></div><br><p>所以，方法对象具有二重性。一方面它可以被执行，另一方面它完全可以被当成一个普通对象来使用。这意味着什么呢？这意味着方法对象是可以完全独立于其他对象存在的。这一点我们可以同 Java 比较一下。在 Java 中，方法必须在某一个类中定义，而不能单独存在。而 JavaScript 中就不需要。</p><br><p>方法对象独立于其他方法，就意味着它能够被任意的引用和传递。下面是一个例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> invoke(f) {</li><br><li>    f();</li><br><li>}</li><br><li>invoke(func);</li><br></ol><br></div><br><p>将一个方法对象 func 传递给另一个方法对象 invoke，让后者在适当的时候执行 func。这就是所谓的“回调”了。另外，方法对象的这种特殊性，也使得 this 关键字不容易把握。这方面相关文章不少，这里不赘述了。</p><br><p>除了可以被执行以外，方法对象还有一个特殊的功用，就是它可以通过 new 关键字来创建普通对象。</p><br><p>话说每一个方法对象被创建时，都会自动的拥有一个叫 prototype 的属性。这个属性并无什么特别之处，它和其他的属性一样可以访问，可以赋值。不过当我们用 new 关键字来创建一个对象的时候，prototype 就起作用了：它的值（也是一个对象）所包含的所有属性，都会被复制到新创建的那个对象上去。下面是一个例子：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>func.prototype.name=”prototype of func”;</li><br><li><span class="keyword">var</span> f = <span class="keyword">new</span> func();</li><br><li>alert(f.name);</li><br></ol><br></div><br><p>执行的过程中会弹出两个对话框，后一个对话框表示 f 这个新建的对象从 func.prototype 那里拷贝了 name 属性。而前一个对话框则表示 func 被作为方法执行了一遍。你可能会问了，为什么这个时候要还把 func 执行一遍呢？其实这个时候执行 func，就是起“构造函数”的作用。为了形象的说明，我们重新来一遍：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">function</span> func() {</li><br><li>    <span class="keyword">this</span>.name=”name has been changed.”</li><br><li>}</li><br><li>func.prototype.name=”prototype of func”;</li><br><li><span class="keyword">var</span> f = <span class="keyword">new</span> func();</li><br><li>alert(f.name);</li><br></ol><br></div><br><p>你就会发现 f 的 name 属性不再是”prototype of func”，而是被替换成了”name has been changed”。这就是 func 这个对象方法所起到的“构造函数”的作用。所以，在 JavaScript 中，用 new 关键字创建对象是执行了下面三个步骤的：</p><br><ol><br><li>创建一个新的普通对象；</li><br><li>将方法对象的 prototype 属性的所有属性复制到新的普通对象中去。</li><br><li>以新的普通对象作为上下文来执行方法对象。</li><br></ol><br><p>对于“new func()”这样的语句，可以描述为“从 func 创建一个新对象”。总之，prototype 这个属性的唯一特殊之处，就是在创建新对象的时候了。<br><br>那么我们就可以利用这一点。比如有两个方法对象 A 和 B，既然从 A 创建的新对象包含了所有 A.prototype 的属性，那么我将它赋给 B.prototype，那么从 B 创建的新对象不也有同样的属性了？写成代码就是这样：</p><br><p>&nbsp;</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>A.prototype.hello = <span class="keyword">function</span>(){alert(<span class="string">‘Hello!’</span>);}</li><br><li>B.prototype = <span class="keyword">new</span> A();</li><br><li><span class="keyword">new</span> B().hello();</li><br></ol><br></div><br><p>这就是 JavaScript 的所谓“继承”了，其实质就是属性的拷贝，这里利用了 prototype 来实现。如果不用 prototype，那就用循环了，效果是一样的。所谓“多重继承”，自然就是到处拷贝了。</p><br><p>JavaScript 中面向对象的原理，就是上面这些了。自始至终我都没提到“类”的概念，因为 JavaScript 本来就没有“类”这个东西。面向对象可以没有类吗？当然可以。先有类，然后再有对象，这本来就不合理，因为类本来是从对象中归纳出来的，先有对象再有类，这才合理。像下面这样的：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://www.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://www.iteye.com/images/icon_star.png" data-original="http://www.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="keyword">var</span> o = {}; <span class="comment">// 我发现了一个东西。</span></li><br><li>o.eat = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“I am eating.”</span>}  <span class="comment">// 我发现它会吃；</span></li><br><li>o.sleep = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“ZZZzzz…”</span>}  <span class="comment">// 我发现它会睡；</span></li><br><li>o.talk = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“Hi!”</span>} <span class="comment">// 我发现它会说话；</span></li><br><li>o.think = <span class="keyword">function</span>(){<span class="keyword">return</span> <span class="string">“Hmmm…”</span>} <span class="comment">// 我发现它还会思考。</span></li><br><li></li><br><li><span class="keyword">var</span> Human = <span class="keyword">new</span> Function(); <span class="comment">// 我决定给它起名叫“人”。</span></li><br><li>Human.prototype = o; <span class="comment">// 这个东西就代表了所有“人”的概念。</span></li><br><li></li><br><li><span class="keyword">var</span> h = <span class="keyword">new</span> Human(); <span class="comment">// 当我发现其他同它一样的东西，</span></li><br><li>alert(h.talk()) <span class="comment">// 我就知道它也是“人”了！</span></li><br></ol><br></div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>————————————————————————————————<br><br>文章出自 yiding-he.iteye.com，转载请注明作者和出处。</p>
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/876" target="_blank" rel="external">http://www.imooc.com/code/876</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">数组排序sort()</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left"><strong>sort()</strong>方法使数组中的元素按照一定的顺序排列。</p><br><p align="left"><strong>语法:</strong></p><br><div><br><pre class="code">arrayObject.sort(方法函数)</pre><br><p><strong>参数说明：</strong></p><br><p><img src="http://img.mukewang.com/53329a2a000127f705170060.jpg" data-original="http://img.mukewang.com/53329a2a000127f705170060.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p align="left">1.如果不指定&lt;方法函数&gt;，则按unicode码顺序排列。</p><br><p align="left">2.如果指定&lt;方法函数&gt;，则按&lt;方法函数&gt;所指定的排序方法排序。</p><br><div><br><pre align="left" class="code">myArray.sort(sortMethod);</pre><br></div><br><p align="left"><strong>注意: </strong>该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：</p><br><p align="left">  <strong><span style="color: #ff0000;">若返回值&lt;=-1，则表示 A 在排序后的序列中出现在 B 之前。</span></strong><br><br><strong><span style="color: #ff0000;">  若返回值&gt;-1 &amp;&amp; &lt;1，则表示 A 和 B 具有相同的排序顺序。</span></strong><br><br><strong><span style="color: #ff0000;">  若返回值&gt;=1，则表示 A 在排序后的序列中出现在 B 之后。</span></strong></p><br><p align="left">1.使用sort()将数组进行排序，代码如下：</p><br><div><br><pre class="code">&lt;script type=”text/javascript”&gt;<br>  var myarr1 = new Array(“Hello”,”John”,”love”,”JavaScript”);<br>  var myarr2 = new Array(“80”,”16”,”50”,”6”,”100”,”1”);<br>  document.write(myarr1.sort()+”&lt;br&gt;”);<br>  document.write(myarr2.sort());<br>&lt;/script&gt;</pre><br></div><br><p><strong>运行结果：</strong></p><br><div><br><pre class="code">Hello,JavaScript,John,love<br>1,100,16,50,6,80</pre><br></div><br><p><strong>注意:上面的代码没有按照数值的大小对数字进行排序。</strong></p><br><p><strong>2.如要实现这一点，就必须使用一个排序函数，代码如下：</strong></p><br><div><br><pre class="code">&lt;script type=”text/javascript”&gt;<br>  function sortNum(a,b) {<br>  return a - b;<br> //升序，如降序，把“a - b”该成“b - a”<br>}<br> var myarr = new Array(“80”,”16”,”50”,”6”,”100”,”1”);<br>  document.write(myarr + “&lt;br&gt;”);<br>  document.write(myarr.sort(sortNum));<br>&lt;/script&gt;</pre><br></div><br><p><strong>运行结果：</strong></p><br><div><br><pre class="code">80,16,50,6,100,1<br>1,6,16,50,80,100</pre><br></div><br></div><br></div><br></div>
 
 
 
@@ -358,10 +362,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-202ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-183ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/202ver/" class="article-date">
+      <a href="/2015/10/21/183ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -375,7 +379,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/202ver/">【转】JavaScript基础之对象</a>
+      <a class="article-title" href="/2015/10/21/183ver/">JavaScript对象-返回星期方法</a>
     </h1>
   
 
@@ -384,7 +388,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文转自<a href="http://www.cnblogs.com/syuko/archive/2008/03/05/1091843.html" target="_blank" rel="external">http://www.cnblogs.com/syuko/archive/2008/03/05/1091843.html</a></p><br><p>JavaScript基础之对象</p><br><p>从2004年下半年开始学习Web编程至今3年有余。从HTML，asp开始到现在的VS2008一路学过来，其中学的最多的还是服务器端编程，对客户端编程的学习还是不成系统。虽然在很多个系统里面应用过脚本，有些还起到了比较重要的作用。但一直是只知其然不知其所以然，用的是小心翼翼。现在脚本编程从以前的”雕虫小技”变成了一个Web开发不可或缺的元素，其地位大大提高了，特别是Ajax兴起之后它更是”炙手可热”了。鉴于此种情况及自己对脚本编程的热爱，于是就系统地学习一下脚本。</p><br><p>学习是理解和记忆的过程。在理解和记忆的过程中必不可少地就需要一些辅助的记录，于是我就将自己的学习记录写成随笔。一来是帮助自己理解和记忆，二来也给其它热爱脚本的同志一些参考。</p><br><p>1 JavaScript对象</p><br><p>ECMA-262将对象（object）定义为”属性的无序集合，每个属性存放一个原始值、对象或函数”（unordered collection of properties each of which contains a primitive value, object, or function）。这意味着对象是无特定顺序的值的数组。在ECMAScript中，对象由特性（Attribute）构成，特性可以是原始值，也可以是引用值。如果特性存放的是函数，它将被看作对象的方法（Method），否则该特性被看作属性（Property）。</p><br><p>2 对象的废除</p><br><p>ECMAScript有无用存储单元收集程序（就像C#的垃圾收集器），意味着不必专门销毁对象来释放内存。当再没有对对象的引用时，该对象就被废除了。运行无用存储单元收集程序时，所有废除的对象都会被销毁。每当函数执行完它的代码，无用存储单元收集程序都会运行，释放所有的局部变量，还有在一些其它不可预知的情况下，无用存储单元收集程序也会运行。<br><br>把对象的所有引用都设置为null，可以强制性的废除对象。例如：</p><br><p>Var oObject=new Object();</p><br><p>// 程序逻辑</p><br><p>oObject=null;</p><br><p>当变量oObject设置为null后，对第一个创建的对象的引用就不存在了。这意味着下次运行无用存储单元收集程序时，该对象将被销毁。<br><br>每用完一个对象后，就将其废除，来释放内存，这是个好习惯。这样还确保不再使用已经不能访问的对象，从而防止程序设计错误的出现。此外，旧的浏览器（如IE）没有完全的无用存储单元收集程序，所以卸载页面时，对象可能不能被正确地销毁。以前IE6就有这样的诟病，当页面被关闭后对象还是没有被释放，所以总是会导致内存溢出的错误。废除对象和它所有的特性是确保内存正确使用的最好方法。</p><br><p>3 对象的类型</p><br><p>JavaScript中对象分为：本地对象（native object）、内置对象（built-in object）、宿主对象（host object）。其中本地对象和宿主对象大家一般用的比较多，比较熟。这里我就重点说明一下内置对象。<br><br>ECMA-262把内置对象定义为”由ECMAScript实现提供的、独立于宿主环境的所有对象，在ECMAScript程序开始执行时出现”（any object supplied by an ECMAScript implementation, independent of the host environment, which is present at the start of the execution of an ECMAScript program.）。这意味着开发者不必明确实例化内置对象，它已经被实例化了。但ECMAScript只定义了两个内置对象：</p><br><p>3.1 Math对象</p><br><p>Math对象就是解决数学问题的所有公式。这个在各种编程语言中都有类似的实现，就不做介绍了。</p><br><p>3.2 Global对象</p><br><p>园子里很多搞ASP.net的，相信大家对其中的Global.asax非常熟悉了。但这个对象在ECMAScript中却比较特殊。因为它实际上根本就不存在。如果尝试编写下面的代码去实例化它，将得到错误：<br><br>Var _global=new Global();<br><br>错误消息显示Global不是对象，但上文却说Global是一个内置对象，这不就自相矛盾了吗？不矛盾。这里需要理解的主要概念是，在ECMAScript中，不存在独立的函数，所有的函数都必须是某个对象的方法。ECMAScript中常用的函数例如isNaN()、isFinite（）等，看起来都像独立的函数。实际上，它们都是Global对象的方法。而且Global对象的方法还不止这些。</p><br><p>4 定义类或对象</p><br><p>虽然ECMAScript越来越正规化了，但创建对象的方法却被置之不理。在高级的编程语言（如C#）中，创建对象的方法被明确的定义了。所以不会有太大的分歧。但在脚本语言中创建对象的方法就是多种多样了。</p><br><p>4.1 工厂方式</p><br><p>由于对象的属性可在对象创建后动态定义，所以许多开发者都在初次引入JavaScript时编写类似下面的代码：<br><br>Var oCar=new Object();<br><br>oCar.color=”red”;<br><br>oCar.doors=4;<br><br>oCar.mpg=23;<br><br>oCar.showColor=function(){alert(this.color);};<br><br>在这段代码中，创建对象car。然后给它设置几个属性：它的颜色是红色，有四个门，每加仑油23英里。最后一个属性是指向函数的指针，意味着该属性其实是个方法。执行这段代码后，就可以使用对象car了。可是要创建多个car实例就麻烦了。<br><br>要解决此问题，开发者可以创建并返回特定类型的对象的工厂函数。例如，函数CreateCar（）可用于封装前面列出的创建car对象的操作：<br><br>Function createCar()<br><br>{<br><br>Var oTempCar=new Object();<br><br>oTempCar.color=”red”;<br><br>oTempCar.doors=4;<br><br>oTempCar.mpg=23;<br><br>oTempCar.showColor=function(){alert(this.color)};</p><br><p>return oTempCar;<br><br>}</p><br><p>Var oCar1=createCar();<br><br>Var oCar2=createCar();</p><br><p>这里，前面的所有代码都包含在createCar()函数中，此外还有一行额外的代码，返回Car对象作为函数值。调用此函数时，将创建新对象，并赋予它所有必要的属性，复制出一个前面说明的car对象。使用该方法，可以容易地创建car对象的两个版本，他们的属性完全一样。当然，还可以修改creatCar（）函数，给它传递各个属性的默认值，而不是赋予属性默认值：<br><br>Function createCar(sColor,iDoors,iMpg)<br><br>{<br><br>Var oTempCar=new Object();<br><br>oTempCar.color= sColor;<br><br>oTempCar.doors= iDoors;<br><br>oTempCar.mpg= iMpg;<br><br>oTempCar.showColor=function(){alert(this.color)};</p><br><p>return oTempCar;<br><br>}</p><br><p>Var oCar1=createCar(“red”,4,23);<br><br>Var oCar2=createCar(“blue”,2,26);<br><br>oCar1.showColor();            // 输出”red”<br><br>oCar2.showColor();            // 输出”blue”</p><br><p>给createCar（）函数加上参数，即可为要创建的car对象的color、doors和mpg属性赋值。使这两个对象具有相同的属性，却有不同的属性值。但这里有个问题：每次调用函数createCar（），都要创建新函数showColor()，意味着每个对象都有自己的showColor（）版本。事实上，每个对象用的都是同一段代码。这样的定义方法还有一个如下的变形：<br><br>Function Car(sColor,iDoors,iMpg)<br><br>{<br><br>this.color= sColor;<br><br>this.doors= iDoors;<br><br>this.mpg= iMpg;<br><br>this.showColor=function(){alert(this.color)};<br><br>}</p><br><p>Var oCar1=new Car(“red”,4,23);<br><br>Var oCar2=new Car(“blue”,2,26);</p><br><p>oCar1.showColor();            // 输出”red”<br><br>oCar2.showColor();            // 输出”blue”<br><br>这个方法和上一个方法有个一样的缺陷：重复的创建了showColor()函数。为了解决这个缺陷我们可以用下面的方法。</p><br><p>4.2 原型方式</p><br><p>该方法利用了对象的Prototype属性。用空构造函数来设置类名，然后所有的属性和方法都被直接赋予prototype属性：<br><br>Function Car()<br><br>{}</p><br><p>Car.prototype.color=”red”;<br><br>Car.prototype.doors=4;<br><br>Car.prototype.mpg=23;<br><br>Car.prototype.showColor=function(){alert(this.color)};</p><br><p>Var oCar1=new Car();<br><br>Var oCar2=new Car();</p><br><p>使用这个方法可以解决重复创建showColor（）函数，但又会有新的问题，考虑下面的例子：</p><br><p>Function Car()<br><br>{}</p><br><p>Car.prototype.color=”red”;<br><br>Car.prototype.doors=4;<br><br>Car.prototype.mpg=23;<br><br>Car.prototype.drivers=new Array(“Mike”,”Sue”);<br><br>Car.prototype.showColor=function(){alert(this.color)};</p><br><p>Var oCar1=new Car();<br><br>Var oCar2=new Car();</p><br><p>oCar1.drivers.push(“Matt”);</p><br><p>alert(oCar1.drivers);        // 输出”Mike,Sue,Matt”<br><br>alert(oCar2.drivers);        // 输出”Mike,Sue,Matt”</p><br><p>这里，属性drivers是指向Array对象的指针。改变指针指向的内容，所有的实例都会改变。看来这种方法也不可取</p><br><p>4.3 混合方式</p><br><p>这种方式就是用构造函数定义对象的所有非函数属性，用原型方式定义对象的函数属性（方法）。结果所有的函数只创建一次，而每个对象都具有自己的对象属性实例。<br><br>Function Car(sColor,iDoors,iMpg)<br><br>{<br><br>this.color= sColor;<br><br>this.doors= iDoors;</p><br><p>this.mpg= iMpg;<br><br>Car.drivers=new Array(“Mike”,”Sue”);<br><br>}</p><br><p>Car.prototype.showColor=function(){alert(this.color)};</p><br><p>Var oCar1=new Car(“red”,4,23);<br><br>Var oCar2=new Car(“blue”,3,25);</p><br><p>oCar1.drivers.push(“Matt”);</p><br><p>alert(oCar1.drivers);        // 输出”Mike,Sue,Matt”<br><br>alert(oCar2.drivers);        // 输出”Mike,Sue”</p><br><p>这种方式是ECMAScript主要采用的方式，它具有其他方式的特性，却没有它们的缺陷。在实际编程中应用的也是最多了。<br><br>另外还有JSON创建方式。其创建的方式如下：</p><br><p>var Car =<br><br>{<br><br>color: “red”,<br><br>doors: 4,<br><br>mpg: 23,<br><br>drivers: [{name: “Mike”, age: 20, Married: false}, {name: “Sue”, age: 30, Marred: true}],<br><br>showColor: function() {alert(this.color)}<br><br>};<br><br>这种创建对象的方式也比较优雅。可作为Ajax返回的文本，然后用eval()函数将其还原成一个对象。著名的脚本框架JQuery就有专门接收返回文本为JSON对象的异步方法。</p>
+        <p>在慕课网看到的觉得这个思路有点意思 于是把代码和经验给写下来了</p><br><p><a href="http://www.imooc.com/code/727" target="_blank" rel="external">http://www.imooc.com/code/727</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">先是定义一个数组weekday 存储星期</span></p><br><p><span style="color: #ff0000;">然后再定义一个变量myweek储存mydate.getDay() 这个语句是返回今天是星期几 0就是星期天1星期一</span></p><br><p><span style="color: #ff0000;">然后通过myweek来索引数组中的内容 比如weekday[0]那么输出的就是星期一</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;获得星期&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var mydate=new Date();<br>  var weekday=[“星期日”,”星期一”,”星期二”,”星期三”,”星期四”,”星期五”,”星期六”];<br>  var myweek=mydate.getDay()<br>  document.write(“今天是：” + weekday[myweek]);<br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 
@@ -413,10 +417,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-200ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-184ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/200ver/" class="article-date">
+      <a href="/2015/10/21/184ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -430,7 +434,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/200ver/">JavaScript对象-1:对象弹琴</a>
+      <a class="article-title" href="/2015/10/21/184ver/">JavaScript编程挑战-写个简单计算器:加减乘除</a>
     </h1>
   
 
@@ -439,7 +443,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript对象还真难理解,已经卡了两天,估计还要卡几天,目前分析了一下对象的创建</p><br><blockquote><br><ol><br><li>字面量创建对象</li><br><li>工程模式创建对象</li><br><li>构造函数创建对象</li><br><li>原型模式创建对象</li><br><li>组合使用构造模式与原型模式//常用</li><br><li>动态原型模式//不推荐</li><br><li>寄生构造函数模式//不推荐</li><br><li>稳妥构造函数模式//代码没写..这种模式主要是安全性高 具体的可以推度娘一下</li><br></ol><br><p>代码下载<div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1c0lMAVu" target="_blank">度娘下载</a></div></p></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1:对象弹琴&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    //创建对象之字面量创建<br>    var soul={};//ok 这就创建了一个对象<br>    soul.tc=function(){console.log(“hello,我是弹窗的soul的对象”)};<br>    soul.tc();//这就相当于调用了soul.tc的对象<br><br>    var soul1={//这样也可以创建个对象<br>        name:”soul”,//这样创建用逗号分隔<br>    }<br>    console.log(soul1.name)//<br><br>    //理解对象<br>    var Soul3 =new Object();<br>    Soul3.name=”soul”<br>    Soul3.sayName=function(){console(“Soul3的sayName函数对象”)+this.name}//this.name被解析成Soul3.name<br>    //也可以通过var Soul3={}这样的形式来创建对象<br>    console.log(“我是分隔线 下面开始理解对象之数据属性”)<br>    //理解对象之数据属性<br>    var Soul4={};<br>    Object.defineProperty(Soul4,”name”, {//三个值分别对应 对象名字 对象属性 描述 PS:IE9以上支持<br>        writable:false,//能否修改属性的值 默认是true 用逗号分隔<br>        value:”Soul4”//相当于 name=”Soul4”<br>    });<br>    console.log(Soul4.name)//获取Soul4的name属性值<br>    Soul4.name=”更改Soul4”<br>    console.log(“能否获取到更改Soul4后的name属性值:”+Soul4.name);//因为writable:false 所以禁止修改<br>    //<br>    var Soul5={};<br>    Object.defineProperty(Soul5,”name”, {//三个值分别对应 对象名字 对象属性 描述<br>        configurable:false,//能否删除属性 是否能够更改属性为访问器属性 默认是true 用逗号分隔<br>        value:”Soul5”//相当于 name=”Soul5”<br>    });<br>    console.log(“Soul5的name属性:”+Soul5.name);<br>    delete Soul5.name;//删除Soul5_name属性<br>    console.log(“删除了Soul5的name属性吗？:”+Soul5.name)<br>    //理解对象之访问器属性<br>    console.log(“我是分隔线，下面开始理解对象之访问器属性”);<br><br>    var Soul6 ={<br>        _year:2015,<br>        num:1//这是一个属性<br>    };<br>    Object.defineProperty(Soul6, “year”, {<br>        get:function(){//读取year属性的时候做出的行动<br>            return this._year;//返回this._year this解析为 Soul6<br>        },//用逗号分隔<br>        set:function(new_value){<br>            if(new_value&gt;2015){<br>                this._year=new_value;<br>                this.num=new_value-2015;<br>            }<br>        }<br><br>    });<br>    console.log(“这是读取Soul6的_year属性做出的行动”+Soul6.year);<br>    Soul6.year=2018;<br>    console.log(“更改Soul6的_year属性时会设置num等于新属性减去_year:”+Soul6.num);<br>    //理解对象之定义多个属性<br>    var Soul7={};<br>    Object.defineProperties(Soul7, {//两个参数分别对应是 对象名 描述 PS:IE9以上支持<br>        _year:{<br>            value:2015<br>        },//用逗号分隔<br><br>        num:{<br>            value:1<br><br>        },<br><br>        year:{<br>            get:function(){<br>                return this._year<br>            }<br>        },<br><br>        set:function(new_value) {<br>            if(new_value&gt;2015){<br>                this._year=new_value;<br>                this.num=new_value-2015;<br>            }<br>        }<br><br>    })<br>    //上面这段代码跟Soul6是一样的意思<br>    console.log(“我是分隔线,下面开始理解对象之读取属性的特性”)<br>    //理解对象之 读取属性的特性<br>    var miao_shu =Object.getOwnPropertyDescriptor(Soul7, “_year”);//设置miao_shu 等于Soul7的 _year描述<br>    console.log(“获取Soul7的_year值:”+miao_shu.value);<br>    console.log(“获取Soul7的_year属性能否读写:”+miao_shu.configurable);<br><br>    //下面开始创建对象<br>    console.log(“我是分隔线,下面开始创建对象”)<br><br>    //工厂模式创建对象<br>    function Soul9(name,age,job){<br>        var o=new Object();<br>        o.name=name;<br>        o.age=age;<br>        o.job=job;<br>        o.sayName=function(){console.log(“工程模式创建Soul9的sayName函数”)+this.name};<br>        return o;<br>    }<br>    var Soul9_1=Soul9(“Soul9_1”,19,”学生”);<br>    var Soul9_2=Soul9(“Soul9_2”,20,”学生”);<br><br><br><br><br>    //构造函数模式创建对象<br>    function Soul2(name,age,job){<br>        this.name=name;//this指的是当前传递参数的函数调用<br>        this.age=age;<br>        this.job=job;<br>        this.sayName=function(){console.log(“soul2对象sayName函数:”+this.name)}<br>    }<br>    // var soul_1=soul2(“我叫soul”,19,”student”);//..这样给对象传递参数是不对<br>    var soul_2 =new Soul2(“我叫soul”,19,”student”);<br>    var soul_3 =new Soul2(“我叫灵魂”,20,”学生”);<br>    console.log(soul_2.name);//看看能不能获取到soul_2对象的name属性<br>    soul_3.sayName();//看看能不能获取到osul2对象的sayName函数<br>    //来检测下soul_2和soul_3是不是Soul2的实例？<br>    console.log(soul_2.constructor == Soul2);//“soul_2和soul_3都是构造函数” 是=true 否=false //soul_3就不列举了<br>    console.log(soul_3 instanceof Object)//所有的对象都是Object的实例 true<br>    console.log(soul_2 instanceof Soul2)//true 是Soul2的实例<br><br>    //将构造函数当做函数<br>    var soul_2 =new Soul2(“window弹出|我叫soul”,19,”student”);//构造函数<br>    soul_2.sayName()//构造函数<br><br>    Soul2(“我叫soul”,19,”student”);//普通函数<br>    window.sayName();//添加到window<br><br>    var o =new Object();//跨域函数<br>    Soul2.call(o,”我叫Soul-跨域函数”,19,”student”);//<br>    o.sayName();<br><br>    //原型模式<br>    console.log(“我是分隔线,下面开始理解原型模式”)<br>    function Soul10(){}//创建一个Soul10对象<br>    Soul10.prototype.name = “Soul10”//给Soul10对象添加个原型属性name<br>    Soul10.prototype.sayName=function(){console.log(“原型模式:”+this.name)}//this指的是Soul10的name<br>    var soul_10 =new Soul10();//<br>    var soul_11 =new Soul10();<br>    console.log(“原型模式 soul_10 name:”+soul_10.name)<br>    soul_11.sayName();<br>    console.log(soul_11.sayName==soul_10.sayName)//判断soul_11的sayName是否跟soul_10的sayName函数一样 是-true<br>    //原型与实例<br>    //当调用时首先搜索 实例 如果实例没属性再搜索原型 在实例定义属性会覆盖掉原型<br><br>    soul_10.name=”实例hello”<br>    console.log(soul_10);<br>    delete soul_10.name;<br>    console.log(soul_10)//原型 Soul10<br>    //使用 hasOwnProperty检测属性是来自原型还是实例 来自原型-false 实例true<br>    console.log(soul_10.hasOwnProperty(“name”))<br><br>    //原型与in操作符<br>    console.log(“name” in soul_10)//检测soul_10里有没有name属性 不管name属性是原型还是实例<br>    var save_soul_10 =Object.getOwnPropertyNames(Soul10.prototype);//枚举 Soul10的实例<br>    console.log(“枚举soul_11的属性”+save_soul_10)<br><br>    //更简单的原型语法<br>    function Soul13 () {}<br>    Soul13.prototype={<br>        name:”Soul13”,<br>        sayName:function () {<br>            console.log(this.name)<br>        }<br>    }<br>    var soul_13 =new Soul13()<br>    //每创建一个函数,都会创建它的prototype对象 这个对象也会获得constructor属性(这个指向构造函数)<br>    //但是用字面量方法创建重写了prototype对象 constructor也不会指向Soul3<br>    console.log(soul_13.constructor == Soul13)//false<br>    //如果constructor属性很重要 可以通过添加一句话来指向原型<br>    function Soul14 () {}<br>    Soul14.prototype={<br>        name:”Soul14”,<br>        constructor:Soul14//这样就会始终指向Soul14<br>    }<br>    var soul_14 =new Soul14()<br>    console.log(soul_14.constructor == Soul14);//true<br><br>    //原型的动态性<br>    var soul_15 =new Soul14()<br>    Soul14.prototype.hello=function(){console.log(“原型动态性”)}//<br>    soul_15.hello();<br>    //以上先创建了 Soul14的实例 保存在soul_15中 然后给Soul14原型添加了一句方法<br>    //我们调用soul_15.hello()时,先会在实例中搜索hello,如果实例没有再搜索原型<br><br>    //实例中的指针[Prototype]只指向原型,而不指向构造函数<br>    function Soul15(){}//这是个构造函数<br>    var soul_16 =new Soul15();//创建个Soul15的实例<br>    Soul15.prototype={<br>        name:”hello”,<br>        saySoul:function(){console.log(this_name)}<br>    }<br>    // soul_16.saySoul();//error<br>    //上文说过了 实例中指针[Prototype]只指向原型,而我们在创建实例后又重写了<br>    //一开始 soul_16指向的是Soul15的原型,但是下一步我们又重写了原型,所以soul_16指向的<br>    //仅仅是 原来的原型. 而不是新的原型<br><br>    //原生对象的原型<br>    console.log(“我是分隔线,下面开始原生对象的原型”)<br>    //<br>    console.log(typeof Array.prototype.sort)//数组的sort方法,返回的是一个函数<br><br>    //定义原生对象的方法<br>    String.prototype.CZ=function(txt){<br>        return this.indexOf(txt);//查找txt字符是从哪开始的<br>    }<br>    var txt=”soul”<br>    console.log(txt.CZ(“o”))//o是soul中的第一个字符 字符从0开始的<br><br>    //原型对象的问题<br><br><br>    function Soul16(){}<br>    Soul16.prototype={<br>        name:[“张三,李四”]<br>    }<br>    var soul_16_1=new Soul16();<br>    var soul_16_2=new Soul16();<br>    soul_16_1.name.push(“王五”)//在soul_16_1.name属性后面添加王五<br>    console.log(soul_16_2.name);//我输出的是soul_16_2.name 而非soul_16_1.name 为什么还会有王五？<br>    //因为soul_16_1与2 都是共享一个原型Soul16<br><br>    //组合使用构造函数模式与原型模式<br>    console.log(“我是分隔线,下面开始组合使用构造函数模式与原型模式”)<br><br>    //构造函数模式用于定义实例属性, 而原型模式用于定义方法和共享的属性s<br><br>    function Soul17(name,age){<br>        this.soul=[“灵魂”,”灵魂追逐着”]//不加this会找不到soul属性<br>        this.name=name<br>        this.age=age<br>    }<br><br>    Soul17.prototype={<br>        constructor:Soul17,<br>        sayName:function(){console.log(this.name)}<br>    }<br>    var soul17_1=new Soul17(“soul”,”19”)<br>    var soul17_2=new Soul17(“我是soul17_2”,”19”)<br>    soul17_2.soul.push(“hello”)<br>    console.log(“soul17_2:”+soul17_2.soul);<br>    console.log(“soul17_1:”+soul17_1.soul);<br>    soul17_2.sayName();<br>    //用构造函数定义属性 用原型定义方法 共享方法,修改属性却不共享<br><br>    //寄生构造函数模式<br>    console.log(“我是分隔线,下面开始动态原型模式”)<br>    function Soul18(){<br>        var soul18_arr =new Array();<br>        soul18_arr.push.apply(soul18_arr,arguments)<br>        soul18_arr.setSoul18=function(){<br>            return this.join(“|”)//使用不同的分隔符<br>        }<br>        return soul18_arr//返回数组<br>    }<br>    var soul18_1 =new Soul18(“red”,”blue”);<br>    console.log(soul18_1.setSoul18())<br>    //能使用其他模式的情况下 不建议使用这种模式<br><br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p></p><p>学习代码以及文章来自:<a href="http://www.imooc.com/code/1488" target="_blank" rel="external">http://www.imooc.com/code/1488</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>使用JS完成一个简单的计算器功能。实现2个输入框中输入整数后，点击第三个输入框能给出2个整数的加减乘除。</p><br><p>提示：获取元素的值设置和获取方法为：例：赋值：document.getElementById(“id”）.value = 1； 取值：var 啊= document.getElementById(“id”）.value；</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 创建构建运算函数count()。</p><br><p>第二步： 获取两个输入框中的值和获取选择框的值。</p><br><pre class="code">提示：document.getElementById( id名 ).value 获取或设置 id名的值。</pre><br><p>第三步： 获取通过下拉框来选择的值来改变加减乘除的运算法则。</p><br><pre class="code">提示：使用switch判断运算法则。</pre><br><p>第四步：  通过 = 按钮来调用创建的函数，得到结果。</p><br><p><strong>注意:</strong> 使用parseInt()函数可解析一个字符串,并返回一个整数。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">value可以获取到标签的值 然后通过case处理来更改value值</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br>  &lt;title&gt; 事件&lt;/title&gt;<br>  &lt;script type=”text/javascript”&gt;<br>   function count(){<br>       var num1=document.getElementById(“txt1”)<br><br>       var num2=document.getElementById(“txt2”)<br>       var over=document.getElementById(“fruit”)<br>       var run=document.getElementById(“select”)<br>       switch(run.value){<br>           case “-“:over.value=parseInt(num1.value)-parseInt(num2.value);<br>           break;<br>           case “+”:over.value=parseInt(num1.value)+parseInt(num2.value);<br>           break;<br>           case “<em>“:over.value=parseInt(num1.value)</em>parseInt(num2.value);<br>           break;<br>           case “/“:over.value=parseInt(num1.value)/parseInt(num2.value);<br>           break;<br>       }<br><br><br>    //获取第一个输入框的值<br>    //获取第二个输入框的值<br>    //获取选择框的值<br>    //获取通过下拉框来选择的值来改变加减乘除的运算法则<br>    //设置结果输入框的值<br><br>   }<br>  &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br>   &lt;input type=’text’ id=’txt1’ /&gt;<br>   &lt;select id=’select’&gt;<br>        &lt;option value=’+’&gt;+&lt;/option&gt;<br>        &lt;option value=”-“&gt;-&lt;/option&gt;<br>        &lt;option value=”<em>“&gt;</em>&lt;/option&gt;<br>        &lt;option value=”/“&gt;/&lt;/option&gt;<br>   &lt;/select&gt;<br>   &lt;input type=’text’ id=’txt2’ /&gt;<br>   &lt;input type=’button’ value=’ = ‘ onclick=”count()”/&gt; &lt;!–通过 = 按钮来调用创建的函数，得到结果–&gt;<br>   &lt;input type=’text’ id=’fruit’  /&gt;<br> &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 
@@ -468,10 +474,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-199ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-185ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/199ver/" class="article-date">
+      <a href="/2015/10/21/185ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -485,7 +491,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/199ver/">JavaScript this浅解:谁?是谁调戏(yong)了我</a>
+      <a class="article-title" href="/2015/10/21/185ver/">JavaScript:2维数组+编程挑战:2次元赛高！</a>
     </h1>
   
 
@@ -494,8 +500,22 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p><!--StartFragment --></p><p></p>
-<div>&lt;a href=”abc” onclick=”function(){console.log(this.href)}” &gt;&lt;/a&gt;</div><br><div></div><br><div>this指向的就是A元素</div><br><div>function Soul2(){<br><br>this.age=”19”<br><br>}</div><br><div>var abc =new Soul2()</div><br><div>this指向的就是abc</div><br><div></div><br><div>看不懂？没关系来个简单的</div><br><div></div><br><div><!--StartFragment --><p></p><br><div>this的意思就相当于<br><br>我是员工<br><br>A BOSS调戏(yong)了我 就指向ABOSS<br><br>B BOSS调戏(yong)了我 就指向B BOSS</div><br></div>
+        <p></p><p>学习代码及文章来自<a href="http://www.imooc.com/code/1484" target="_blank" rel="external">http://www.imooc.com/code/1484</a></p><p></p>
+<p></p><p>二维数组一直没弄清楚.现在来详细的弄清楚下</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..三维数组<br>        document.write(ew[1][2]);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p>再来输出二维数组</p><p></p>
+<p></p><p>值得注意的是[i].length因为第二个循环是要输出二维数组中二维的元素 所以先判断二维有多少个元素也就是</p><p></p>
+<p></p><p>[i]的长度 比如ew[1].length 就为3</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..二维数组<br>        document.write(ew[1][2]+”&lt;/br&gt;”);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”<br>        for (var i = 0; i &lt; ew.length; i++) {<br>            for (var j = 0; j &lt;ew[i].length; j++) {<br>                document.write(ew[i][j]+”&lt;/br&gt;”)<br>                //判断ew[i]中有多少个元素然后再输出j<br>                //也就是输出二维数组<br>            };<br>        };</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 
@@ -524,10 +544,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-198ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/198ver/" class="article-date">
+      <a href="/2015/10/21/186ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -541,7 +561,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/198ver/">JS-继承-1:继承者们</a>
+      <a class="article-title" href="/2015/10/21/186ver/">JavaScript:编程挑战-1:运算符的那点事</a>
     </h1>
   
 
@@ -550,7 +570,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>快混乱了,啃完JavaScript高级程序设计后 赶紧啃啃W3c的继承和对象教程压压惊..</p><br><p>推荐在看这篇文章的时候去看看W3c的继承和对象 这样相对而言比较好理解</p><br><p><a href="http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp" target="_blank" rel="external">http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp</a></p><br><p>本文最重要的第三点 也就是组合继承的最重要一点就是 call(this)理解了这句话估计也就掌握了继承</p><br><p>本章解释了继承的几种方法</p><br><blockquote><br><ol><br><li>继承之原型链 //原型链来继承 实例会公用原型链的属性</li><br><li>借用构造函数// 组合继承的初始版本</li><br><li>组合继承//学会这个就OK了..再看下去..我觉得你跟我一样会转晕的.用构造函数建立属性 原型建立方法</li><br></ol><br></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-继承-1-继承者们&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    //每个构造函数都有一个原型对象,原型对象都包含一个指向构造函数的指针,实例都包含一个指向原型对象内部的指针<br>    //继承之原型链<br><br>    function Soul1(){//构造函数 对象Soul1<br>        this.name=”soul1”<br>    }<br>    Soul1.prototype.getName = function(){//定义 Soul1的原型函数getName<br>        return this.name;//this指向调用这个函数的 变量，对象等等<br>    };<br>    function Soul2(){//构造函数 对象Soul2<br>        this.age=”19”<br>    }<br>    Soul2.prototype=new Soul1()//对象Soul2的原型等于Soul1<br><br>    Soul2.prototype.getAge=function(){//定义 Soul2的原型函数getAge<br>        return this.age<br>    }<br>    var soul1_1=new Soul2();<br>    var soul1_2=new Soul1();<br>    console.log(soul1_1.getAge())//ok 这是Soul2中的age 那么来试试Soul1中的name<br>    console.log(soul1_1.getName())//ok 获取到Soul1中的name<br>    // console.log(soul1_2.getAge())//error 不能越级访问..也就是说 Soul2定义的函数,属性 Soul1都不能访问到<br>    console.log(soul1_1 instanceof Object)//soul1_1是Object 所有的对象都是Object的实例<br>    console.log(soul1_1 instanceof Soul1)//true<br>    console.log(Object.prototype.isPrototypeOf(soul1_1))//soul1_1原型是Object<br><br>    //谨慎的定义方法<br>    Soul2.prototype.getName=function(){//重写超类型(指的是Soul1)中的getName函数 注意 这语句必须放Soul1_1=new Soul2()之下<br>        return this.age+this.name<br>    }<br>    console.log(soul1_1.getName())<br><br>    // Soul2.prototype={//用字面量添加新方法会导致Soul2.prototype=new Soul1() 失效<br>    //     this.name=name<br>    // }<br>    function Soul3(){//构造函数 Soul3<br>        this.color=[“红色”,”黑色”]//创建 颜色数组<br>    }<br>    function Soul4(){}//构造函数 Soul4<br><br>    Soul4.prototype=new Soul3()//Soul4的原型等于Soul3的原型<br><br>    var Soul3_1 = new Soul4()//创建Soul4的实例<br>    Soul3_1.color.push(“蓝色”)//在Soul3_1的颜色数组添加蓝色<br>    console.log(Soul3_1.color)//输出颜色数组<br><br>    var Soul3_2 = new Soul4()//创建Soul4的实例<br>    console.log(Soul3_2.color)//输出颜色数组<br>    //发现 创建了Soul3_1 和Soul3_2 两个实例都共享了color数组<br><br>    //组合继承(将原型和借用构造函数组合)<br>    //构造函数构造属性 原型建立方法<br>    function Soul5(name){<br>        this.name= name;<br>        this.color=[“蓝色”,”绿色”,”黄色”];<br>        }<br>    Soul5.prototype.sayName=function(){<br>        console.log(“Soul5名字”+this.name);<br>    }<br>    function Soul7(name,age){<br>        //关键代码就是call<br>        Soul5.call(this,name);//向Soul5传递this.name  比如Soul7_1用这个函数构建name属性的 this就相当于Soul7_1<br><br>        this.age=age;//age Soul7自己处理<br>    }<br>    //继承方法<br>    Soul7.prototype=new Soul5();<br>    Soul7.prototype.constructor=Soul7 //Soul7构造函数并不指向Soul5 而是指向自己<br>    Soul7.prototype.sayAge=function(){<br>        console.log(“Soul7年龄:”+this.age)<br>    }<br>    var Soul7_1 =new Soul7(“Soul7name”,”19”)//构造Soul7的实例Soul7_1<br>    Soul7_1.color.push(“Soul7_1红色”)//在Soul7_1实例中的color数组添加新元素<br>    Soul7_1.sayName();//Soul7_1是Soul7的实例 但是Soul7继承了Soul5的原型,所以Soul7_1继承了Soul5的方法和属性<br>    Soul7_1.sayAge();//同上<br>    console.log(Soul7_1.color)<br><br>    var Soul7_2=new Soul7(“Soul7_2的名字”,”18”)//同上<br>    Soul7_2.color.push(“Soul7_2黑色”)<br>    Soul7_2.sayName();<br>    Soul7_2.sayAge();<br>    console.log(Soul7_2.color)<br>    //以上代码都继承了 Soul5的原型 但是用构造函数创建属性 并且指定Soul7的原型构造函数等于Soul7<br>    //所以Soul7_1和Soul7_2公用构造函数Soul7但是这个构造函数Soul7的原型构造函数等于他本身,所以不会<br>    //重写Soul5构造函数的属性<br>    //…绕的有点多..多理解一下就ok了<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+        <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 
@@ -579,10 +599,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-197ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/197ver/" class="article-date">
+      <a href="/2015/10/21/187ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -596,7 +616,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/197ver/">document.write, innerHTML,document.createTextNode</a>
+      <a class="article-title" href="/2015/10/21/187ver/">JavaScript对象初入-1:如何使用对象</a>
     </h1>
   
 
@@ -605,7 +625,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>比较简单的理解这几个方法 不做深入探究</p><br><blockquote><p>var pid=document.getElementById(“p”)</p><br><p>pid.document.write(“hello”)</p><br><p>//每次都会刷新pid的内容 不会在pid后面添加内容</p><br><p>pid.document.innerHTML 跟write差不多</p><br><p>//每次都会刷新pid内容</p><br><p>用document.createTextNode</p><br><p>//会创建一个文本节点 每次都会在pid后面添加内容</p></blockquote><br><p>具体的可以推度娘一下,这里只能简单说一下了</p>
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><p></p>
+<div class="code-desc co"><br><p>小伙伴们，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、定义”改变颜色”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.color<br>obj.style.backgroundColor</pre><br><p>二、定义”改变宽高”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.width<br>obj.style.height</pre><br><p>三、定义”隐藏内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”none”;</pre><br><p>四、定义”显示内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”block”;</pre><br><p>五、定义”取消设置”的函数</p><br><pre class="code"><strong>提示:<br></strong>使用confirm()确定框，来确认是否取消设置。<br>如是将以上所有的设置恢复原始值,否则不做操作。<br></pre><br><p>六、当点击相应按钮，执行相应操作，为按钮添加相应事件</p><br><p>&nbsp;</p><br><hr><br><p>完成这些任务对小伙伴来说都不是问题. 正好最近学到了对象,于是在想怎么把对象应用进去</p><br><p>根据 构造函数与原型对象混合使用 来构造一个对象</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” Content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;javascript&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{font-size:12px;}<br>#txt{<br>    height:400px;<br>    width:600px;<br>    border:#333 solid 1px;<br>    padding:5px;}<br>p{<br>    line-height:18px;<br>    text-indent:2em;}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;h2 id=”con”&gt;JavaScript课程&lt;/H2&gt;<br>  &lt;div id=”txt”&gt;<br>     &lt;h5&gt;JavaScript为网页添加动态效果并实现与用户交互的功能。&lt;/h5&gt;<br>        &lt;p&gt;1. JavaScript入门篇，让不懂JS的你，快速了解JS。&lt;/p&gt;<br>        &lt;p&gt;2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。&lt;/p&gt;<br>        &lt;p&gt;3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。&lt;/p&gt;<br>  &lt;/div&gt;<br>  &lt;form&gt;<br>  &lt;!–当点击相应按钮，执行相应操作，为按钮添加相应事件–&gt;<br>    &lt;input type=”button” value=”改变颜色” onclick=”changeElem.changeColor()”&gt;<br>    &lt;input type=”button” value=”改变宽高” onclick=”changeElem.changeWH()”&gt;<br>    &lt;input type=”button” value=”隐藏内容” onclick=”changeElem.hidden()”&gt;<br>    &lt;input type=”button” value=”显示内容” onclick=”changeElem.show()” &gt;<br>    &lt;input type=”button” value=”取消设置” onclick=”changeElem.back()”&gt;<br>  &lt;/form&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  function change (name) {<br>    this.elem=document.getElementById(name)<br>  }<br>  var changeElem=new change(“txt”)<br>//定义”改变颜色”的函数<br>change.prototype.changeColor = function(){<br>      this.elem.style.color=”red”;<br>      this.elem.style.backgroundColor=”black”;<br>};<br>//定义”改变宽高”的函数<br>change.prototype.changeWH=function() {<br>  this.elem.style.width=”300px”;<br>  this.elem.style.height=”300px”;<br>}<br>//定义”隐藏内容”的函数<br>change.prototype.hidden=function() {<br> this.elem.style.display=”none”;<br>}<br>//定义”显示内容”的函数<br>change.prototype.show=function() {<br> this.elem.style.display=”block”;<br>}<br><br>//定义”取消设置”的函数<br>change.prototype.back=function() {<br> var back_1=”是否取消设置”<br>    var back_2=confirm(back_1)<br>    if(back_2==true){<br>        this.elem.removeAttribute(“style”)<br>        alert(“System  initialise”)<br>    }<br>    else{<br>        alert(“手贱点了一下”)<br>    }<br>}<br>  &lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
 
 
 
@@ -634,10 +655,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-196ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-188ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/196ver/" class="article-date">
+      <a href="/2015/10/21/188ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -651,7 +672,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/196ver/">【转】javascript深入理解js闭包</a>
+      <a class="article-title" href="/2015/10/21/188ver/">Html5+Css实现下拉菜单</a>
     </h1>
   
 
@@ -660,8 +681,94 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>文本来自<a href="http://www.jb51.net/article/24101.htm" target="_blank" rel="external">http://www.jb51.net/article/24101.htm</a></p><p></p>
-<div id="art_demo">闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。</div><br><div class="blank3"></div><br><div id="con_all"><br><div id="BAIDU_DUP_wrapper_u1892994_0"></div><br></div><br><div id="art_content"><br><p><strong>一、变量的作用域</strong></p><br><p>要理解闭包，首先必须理解Javascript特殊的变量作用域。</p><br><p>变量的作用域无非就是两种：全局变量和局部变量。</p><br><p>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。<br><br>Js代码</p><br><p>var n=999;</p><br><p>function f1(){<br><br>alert(n);<br><br>}</p><br><p>f1(); // 999</p><br><p>另一方面，在函数外部自然无法读取函数内的局部变量。</p><br><p>Js代码</p><br><p>function f1(){<br><br>var n=999;<br><br>}</p><br><p>alert(n); // error</p><br><p>这里有一个地方需要注意，函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！</p><br><p>Js代码</p><br><p>function f1(){<br><br>n=999;<br><br>}</p><br><p>f1();</p><br><p>alert(n); // 999</p><br><p>——————————————————————————————————–</p><br><p><strong>二、如何从外部读取局部变量？</strong></p><br><p>出于种种原因，我们有时候需要得到函数内的局部变量。但是，前面已经说过了，正常情况下，这是办不到的，只有通过变通方法才能实现。</p><br><p>那就是在函数的内部，再定义一个函数。</p><br><p>Js代码</p><br><p>function f1(){</p><br><p>n=999;</p><br><p>function f2(){<br><br>alert(n); // 999<br><br>}</p><br><p>}</p><br><p>在上面的代码中，函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1 就是不可见的。这就是Javascript语言特有的“链式作用域”结构（chain scope），</p><br><p>子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p><br><p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗！<br><br>Js代码</p><br><p>function f1(){</p><br><p>n=999;</p><br><p>function f2(){<br><br>alert(n);<br><br>}</p><br><p>return f2;</p><br><p>}</p><br><p>var result=f1();</p><br><p>result(); // 999</p><br><p>——————————————————————————————————–</p><br><p><strong>三、闭包的概念</strong></p><br><p>上一节代码中的f2函数，就是闭包。</p><br><p>各种专业文献上的“闭包”（closure）定义非常抽象，很难看懂。我的理解是，闭包就是能够读取其他函数内部变量的函数。</p><br><p>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。</p><br><p>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p><br><p>——————————————————————————————————–b</p><br><p><strong>四、闭包的用途</strong></p><br><p>闭包可以用在许多地方。它的最大用处有两个，一个是前面提到的可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。</p><br><p>怎么来理解这句话呢？请看下面的代码。<br><br>Js代码</p><br><p>function f1(){</p><br><p>var n=999;</p><br><p>nAdd=function(){n+=1}</p><br><p>function f2(){<br><br>alert(n);<br><br>}</p><br><p>return f2;</p><br><p>}</p><br><p>var result=f1();</p><br><p>result(); // 999</p><br><p>nAdd();</p><br><p>result(); // 1000</p><br><p>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，并没有在f1调用后被自动清除。</p><br><p>为什么会这样呢？原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p><br><p>这段代码中另一个值得注意的地方，就是“nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此 nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），而这个</p><br><p>匿名函数本身也是一个闭包，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。</p><br><p>——————————————————————————————————–</p><br><p><strong>五、使用闭包的注意点</strong></p><br><p>1）由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p><br><p>2）闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便</p><br><p>改变父函数内部变量的值。</p><br><p>——————————————————————————————————–</p><br><p><strong>六、思考题</strong></p><br><p>如果你能理解下面代码的运行结果，应该就算理解闭包的运行机制了。</p><br><p>Js代码<br><br>var name = “The Window”;<br><br>var object = {<br><br>name : “My Object”,<br><br>getNameFunc : function(){<br><br>return function(){<br><br>return this.name;<br><br>};<br><br>}<br><br>};<br><br>alert(object.getNameFunc()());  //The Window</p><br><p>——————————————————————————————————–<br><br><strong>JavaScript闭包例子</strong></p><br><p>function outerFun()<br><br>{<br><br>var a=0;<br><br>function innerFun()<br><br>{<br><br>a++;<br><br>alert(a);<br><br>}<br><br>}<br><br>innerFun()</p><br><p>上面的代码是错误的.innerFun()的作用域在outerFun()内部,所在outerFun()外部调用它是错误的.</p><br><p>改成如下,也就是闭包:</p><br><p>Js代码</p><br><p>function outerFun()<br><br>{<br><br>var a=0;<br><br>function innerFun()<br><br>{<br><br>a++;<br><br>alert(a);<br><br>}<br><br>return innerFun;  //注意这里<br><br>}<br><br>var obj=outerFun();<br><br>obj();  //结果为1<br><br>obj();  //结果为2<br><br>var obj2=outerFun();<br><br>obj2();  //结果为1<br><br>obj2();  //结果为2</p><br><p>什么是闭包:</p><br><p>当内部函数 在定义它的作用域 的外部 被引用时,就创建了该内部函数的闭包 ,如果内部函数引用了位于外部函数的变量,当外部函数调用完毕后,这些变量在内存不会被 释放,因为闭包需要它们.</p><br><p>——————————————————————————————————–</p><br><p><strong>再来看一个例子</strong></p><br><p>Js代码</p><br><p>function outerFun()<br><br>{<br><br>var a =0;<br><br>alert(a);<br><br>}<br><br>var a=4;<br><br>outerFun();<br><br>alert(a);</p><br><p>结果是 0,4 .  因为在函数内部使用了var关键字 维护a的作用域在outFun()内部.</p><br><p>再看下面的代码:</p><br><p>Js代码</p><br><p>function outerFun()<br><br>{<br><br>//没有var<br><br>a =0;<br><br>alert(a);<br><br>}<br><br>var a=4;<br><br>outerFun();<br><br>alert(a);<br><br>结果为 0,0 真是奇怪,为什么呢?</p><br><p>作用域链是描述一种路径的术语,沿着该路径可以确定变量的值 .当执行a=0时,因为没有使用var关键字,因此赋值操作会沿着作用域链到var a=4;  并改变其值.</p><br><p>————————————————————————————————————————————————–</p><br><p>如果你对javascript闭包还不是很理解，那么请看下面转载的文章：(转载:<a href="http://www.felixwoo.com/archives/247" target="_blank" rel="external">http://www.felixwoo.com/archives/247</a>)</p><br><p><strong>一、什么是闭包？</strong></p><br><p>官方”的解释是：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。<br><br>相信很少有人能直接看懂这句话，因为他描述的太学术。其实这句话通俗的来说就是：<strong>JavaScript中所有的function都是一个闭包</strong>。不过一般来说，嵌套的function所产生的闭包更为强大，也是大部分时候我们所谓的“闭包”。看下面这段代码：</p><br><pre class="javascript">function a() {<br> var i = 0;<br> function b() { alert(++i); }<br> return b;<br>}<br>var c = a();<br>c();</pre><br><p>这段代码有两个特点：</p><br><p>1、函数b嵌套在函数a内部；</p><br><p>2、函数a返回函数b。</p><br><p>引用关系如图：</p><br><p><img src="http://files.jb51.net/upload/201007/20100703001016918.jpg" data-original="http://files.jb51.net/upload/201007/20100703001016918.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p>这样在执行完var c=a()后，变量c实际上是指向了函数b，再执行c()后就会弹出一个窗口显示i的值(第一次为1)。这段代码其实就创建了一个闭包，为什么？因为函数a外的变量c引用了函数a内的函数b，就是说：</p><br><p><strong>当函数a的内部函数b被函数a外的一个变量引用的时候，就创建了一个闭包。<br><br></strong></p><br><p>让我们说的更透彻一些。所谓“闭包”，就是在构造函数体内定义另外的函数作为目标对象的方法函数，而这个对象的方法函数反过来引用外层函数体中的临时变量。这使得只要目标 对象在生存期内始终能保持其方法，就能间接保持原构造函数体当时用到的临时变量值。尽管最开始的构造函数调用已经结束，临时变量的名称也都消失了，但在目 标对象的方法内却始终能引用到该变量的值，而且该值只能通这种方法来访问。即使再次调用相同的构造函数，但只会生成新对象和方法，新的临时变量只是对应新 的值，和上次那次调用的是各自独立的。</p><br><p><strong>二、闭包有什么作用？<br><br></strong></p><br><p>简而言之，闭包的作用就是在a执行完并返回后，闭包使得Javascript的垃圾回收机制GC不会收回a所占用的资源，因为a的内部函数b的执行需要依赖a中的变量。这是对闭包作用的非常直白的描述，不专业也不严谨，但大概意思就是这样，理解闭包需要循序渐进的过程。</p><br><p>在上面的例子中，由于闭包的存在使得函数a返回后，a中的i始终存在，这样每次执行c()，i都是自加1后alert出i的值。</p><br><p>那 么我们来想象另一种情况，如果a返回的不是函数b，情况就完全不同了。因为a执行完后，b没有被返回给a的外界，只是被a所引用，而此时a也只会被b引 用，因此函数a和b互相引用但又不被外界打扰(被外界引用)，函数a和b就会被GC回收。(关于Javascript的垃圾回收机制将在后面详细介绍)</p><br><p><strong>三、闭包内的微观世界</strong></p><br><p>如果要更加深入的了解闭包以及函数a和嵌套函数b的关系，我们需要引入另外几个概念：函数的执行环境(excution context)、活动对象(call object)、作用域(scope)、作用域链(scope chain)。以函数a从定义到执行的过程为例阐述这几个概念。</p><br><ol><br><li>当<strong>定义</strong>函数a的时候，js解释器会将函数a的<strong>作用域链(scope chain)</strong>设置为<strong>定义a时a所在的“环境”</strong>，如果a是一个全局函数，则scope chain中只有window对象。</li><br><li>当<strong>执行</strong>函数a的时候，a会进入相应的<strong>执行环境(excution context)</strong>。</li><br><li>在创建执行环境的过程中，首先会为a添加一个scope属性，即a的<strong>作用域</strong>，其值就为第1步中的scope chain。即a.scope=a的作用域链。</li><br><li>然后执行环境会创建一个<strong>活动对象(call object)</strong>。活动对象也是一个拥有属性的对象，但它不具有原型而且不能通过JavaScript代码直接访问。创建完活动对象后，把活动对象添加到a的作用域链的最顶端。此时a的作用域链包含了两个对象：a的活动对象和window对象。</li><br><li>下一步是在活动对象上添加一个arguments属性，它保存着调用函数a时所传递的参数。</li><br><li>最后把所有函数a的形参和内部的函数b的引用也添加到a的活动对象上。在这一步中，完成了函数b的的定义，因此如同第3步，函数b的作用域链被设置为b所被定义的环境，即a的作用域。</li><br></ol><br><p>到此，整个函数a从定义到执行的步骤就完成了。此时a返回函数b的引用给c，又函数b的作用域链包含了对函数a的活动对象的引用，也就是说b可以访问到a中定义的所有变量和函数。函数b被c引用，函数b又依赖函数a，因此函数a在返回后不会被GC回收。</p><br><p>当函数b执行的时候亦会像以上步骤一样。因此，执行时b的作用域链包含了3个对象：b的活动对象、a的活动对象和window对象，如下图所示：</p><br><p><img src="http://files.jb51.net/upload/201007/20100703001017585.jpg" data-original="http://files.jb51.net/upload/201007/20100703001017585.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p>如图所示，当在函数b中访问一个变量的时候，搜索顺序是：</p><br><ol><br><li>先搜索自身的活动对象，如果存在则返回，如果不存在将继续搜索函数a的活动对象，依次查找，直到找到为止。</li><br><li>如果函数b存在prototype原型对象，则在查找完自身的活动对象后先查找自身的原型对象，再继续查找。这就是Javascript中的变量查找机制。</li><br><li>如果整个作用域链上都无法找到，则返回undefined。</li><br></ol><br><p>小结，本段中提到了两个重要的词语：函数的<strong>定义</strong>与<strong>执行</strong>。文中提到函数的作用域是在定义函数时候就已经确定，而不是在执行的时候确定（参看步骤1和3）。用一段代码来说明这个问题：</p><br><pre class="javascript">function f(x) {<br>  var g = function () { return x; }<br>  return g;<br>}<br>var h = f(1);<br>alert(h());</pre><br><p>这段代码中变量h指向了f中的那个匿名函数(由g返回)。</p><br><ul><br><li>假设函数h的作用域是在执行alert(h())确定的，那么此时h的作用域链是：h的活动对象-&gt;alert的活动对象-&gt;window对象。</li><br><li>假设函数h的作用域是在定义时确定的，就是说h指向的那个匿名函数在定义的时候就已经确定了作用域。那么在执行的时候，h的作用域链为：h的活动对象-&gt;f的活动对象-&gt;window对象。</li><br></ul><br><p>如果第一种假设成立，那输出值就是undefined；如果第二种假设成立，输出值则为1。</p><br><p>运行结果证明了第2个假设是正确的，说明函数的作用域确实是在定义这个函数的时候就已经确定了。</p><br><p><strong>四、闭包的应用场景<br><br></strong>保护函数内的变量安全。以最开始的例子为例，函数a中i只有函数b才能访问，而无法通过其他途径访问到，因此保护了i的安全性。</p><br><ol><br><li>在内存中维持一个变量。依然如前例，由于闭包，函数a中i的一直存在于内存中，因此每次执行c()，都会给i自加1。</li><br><li>通过保护变量的安全实现JS私有属性和私有方法（不能被外部访问）<br><br>私有属性和方法在Constructor外是无法被访问的function Constructor(…) {<br><br>var that = this;<br><br>var membername = value;<br><br>function membername(…) {…}<br><br>}</li><br></ol><br><p>以上3点是闭包最基本的应用场景，很多经典案例都源于此。</p><br><p><strong>五、Javascript的垃圾回收机制<br><br></strong></p><br><p>在Javascript中，如果一个对象不再被引用，那么这个对象就会被GC回收。如果两个对象互相引用，而不再被第3者所引用，那么这两个互相引用的对象也会被回收。因为函数a被b引用，b又被a外的c引用，这就是为什么函数a执行后不会被回收的原因。</p><br><p>&nbsp;</p><br><p><strong>六、结语</strong></p><br><p>理解JavaScript的闭包是迈向高级JS程序员的必经之路，理解了其解释和运行机制才能写出更为安全和优雅的代码。</p><br></div>
+        <p></p><p>比较考验Css基础…我这个半吊子快速入门的Css水平还有待提高啊.</p><p></p>
+<p></p><p>代码没啥难度 主要的是一个定位 绝对定位和相对定位.</p><p></p>
+<p></p><p>还有一个选择器</p><p></p>
+<p></p><p>#nav li:hover #nav2{<br><br>display: block;<br><br>}</p><p></p>
+<p></p><p>//鼠标经过一级菜单时候 设置二级菜单ul为块状</p><p></p>
+<p></p><p>#nav2{</p><p></p>
+<p></p><p>display:none;</p><p></p>
+<p></p><p>}</p><p></p>
+<p></p><p>//二级菜单默认是隐藏的</p><p></p>
+<p></p><p>然后就是细节方面的微调<br></p>
+<p><div class="down shortcodestyle icon-download"><a href=" http://pan.baidu.com/s/1o6MGghs " target="_blank">度娘下载</a></div></p><p></p>
+<p><blockquote><p>position：absolute 绝定定位 ,相对其最近的已定位的祖先元素(即是设置了非static的祖先元素)进行定位。如果元素没有已定位的祖先元素，那么它的位置则是相对于最初的包含块（body）。</p></blockquote></p>
+<p></p><p>&nbsp;</p><p></p>
+<pre class="lang:default decode:true">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;HtmlCss实现下拉菜单&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #nav{
+        background-color: gray;
+        margin: 0 auto;
+        width: 600px;
+        height: 60px;
+        list-style: none;
+        position: relative;
+
+    }
+    #nav li{
+        float: left;
+        line-height: 60px;/*设置垂直,也就是行高*/
+        text-align: center; /*设置垂直(因为上面设置了行高),和水平居中*/
+
+    }
+    #nav li:hover #nav2{
+        display: block;
+    }
+    #nav li a{
+         padding: 0 10px;
+        /* padding值加在 a标签里是为了防止li宽度加宽 a标签移动时背景颜色覆盖不全*/
+        text-decoration: none;
+        /*设置a标签下划线为空*/
+        color: black;
+        /*a标签颜色 黑色*/
+        display: block;
+        /*设置块状元素的原因是
+        鼠标经过a标签的时候
+        背景颜色可以覆盖整个a标签块*/
+    }
+    #nav li a:hover{
+        color: #FFF;
+        background: #2D2D29;
+    }
+    #nav2{
+        list-style: none;
+        position: absolute;
+        width: 85px;
+        display: none;
+    }
+    #nav2 li{
+        float: none;
+        top: 60px;
+        left: 0px;
+        background: #215A6D;
+        margin-top:2px;
+
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul id="nav"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;灵魂城堡&lt;/a&gt;
+            &lt;ul id="nav2"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Soul&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Seeker&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;放荡者茶会&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;记录的地平线&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
 
 
 
@@ -690,10 +797,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-195ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-189ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/195ver/" class="article-date">
+      <a href="/2015/10/21/189ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -707,7 +814,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/195ver/">【转】JavaScript之变量作用域:域域域域域鱼？</a>
+      <a class="article-title" href="/2015/10/21/189ver/">CSS3:颜色之RGBA</a>
     </h1>
   
 
@@ -716,7 +823,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文摘自</p><br><p><a href="http://www.cnblogs.com/dolphinX/archive/2012/09/29/2708763.html" target="_blank" rel="external">http://www.cnblogs.com/dolphinX/archive/2012/09/29/2708763.html</a></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">function outerFn() {//定义一个outerFn函数<br>            document.write(“运行的是outerFn函数&lt;br/&gt;”);//打印<br>            var innerVar = 0;//设置outerFn中的全局变量innerVar 因为这个变量在outerFn有效<br>            function innerFn() {//定义一个匿名函数 这样写也ok var innerFn=function(){}<br><br>                innerVar++;//每次调用这个函数都会给innerVar+1<br>                document.write(“调用Inner函数 \t”);//打印<br>                document.write(“innerVar = “+innerVar+”&lt;br/&gt;”);//打印innerVar次数<br>            }<br>            return innerFn;<br>            //在第一次运行了outerFn函数后,然后outerFn函数就指向了outerFn函数中的innerFn函数<br>            //为什么会指向呢？ 因为返回了innerFn这个函数<br>        }<br>        var fnRef = outerFn();//这里调用outerFn函数后 fnRef就指向了innerFn<br>        fnRef();<br>        fnRef();<br>        var fnRef2 = outerFn();//创建一个新的fnRef2函数<br>        fnRef2();//这里的变量并不会共享<br>        fnRef2();<br>        fnRef2();</pre><br><p>&nbsp;</p>
+        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/385" target="_blank" rel="external">http://www.imooc.com/code/385</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">颜色之RGBA</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制<strong>alpha</strong>透明度的参数。</p><br><p>语法：</p><br><pre class="code">color：rgba(R,G,B,A)</pre><br><p>以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。</p><br><p>代码示例：</p><br><pre class="code"><span class="builtin css-declaration-kw">background-color<span class="after">:</span></span>rgba(100,120,60,0.5);</pre><br><div class="content"></div><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>在下列代码中的第12行，把文字的背景设置为透明度为<strong>  0.5</strong>的<strong>白色</strong></p><br><p>&nbsp;</p><br><p><strong>任务经验</strong></p><br><p><span style="color: #ff0000;">首先根据RGBA的属性和参数来看</span></p><br><p><span style="color: #ff0000;">RGBA（10,10,10,0.5）</span></p><br><p><span style="color: #ff0000;">10,10,10代表的是Red(红) Green（绿） Blue（蓝）</span></p><br><p><span style="color: #ff0000;">0.5代表的是透明度, 透明度从1-0 </span></p><br><p><span style="color: #ff0000;">1是不透明 0是完全透明 </span></p><br><p><span style="color: #ff0000;">分析后，任务代码应该为</span></p><br><p>PS：RGBA在css记得用小写rgba</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;RGBA colors&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{background:url(<a href="http://static.mukewang.com/static/img/logo_index.png)}" target="_blank" rel="external">http://static.mukewang.com/static/img/logo_index.png)}</a><br>p{<br> font-size:42px;<br> text-align:center;<br> font-weight:bold;<br> background:rgba(255,255,255,0.5);<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p&gt;背景半透明的？&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 
