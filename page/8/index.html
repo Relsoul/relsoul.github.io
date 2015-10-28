@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/byby/" style="font-size: 10px;">byby</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a>
+						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,62 +192,6 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
-  
-    <article id="post-190ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/190ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/190ver/">CSS3:为图片应用边框</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/383" target="_blank" rel="external">http://www.imooc.com/code/383</a></p><p></p>
-<div class="code-desc co"><br><h2 id="J_CodeLang" class="code-head" data-lang="HTML">为边框应用图片 border-image</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>顾名思义就是为边框应用背景图片，它和我们常用的background属性比较相似。例如：</p><br><pre align="center" class="code">background:url(xx.jpg) 10px 20px no-repeat;</pre><br><p align="left">但是又比背景图片复杂一些。</p><br><pre class="code">想象一下：一个矩形，有四个边框。如果应用了边框图片，图片该怎么分布呢？ 图片会自动被切割分成四等分。用于四个边框。<br><br>可以理解为它是一个切片工具，会自动把用做边框的图片切割。怎么切割呢？为了方便理解，做了一张特殊的图片，由9个矩形（70<em>70像素）拼成的一张图（210</em>210像素），并标注好序号，是不是像传说中的九宫图，如下：<br><br><a href="http://img.mukewang.com/52e21fea000127e802100210.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21fea000127e802100210.jpg" data-original="http://img.mukewang.com/52e21fea000127e802100210.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p align="left">我们把上图当作边框图片 来应用一下， 看一看是什么效果</p><br><p align="left">根据border-image的语法：</p><br><p align="left"><a href="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" data-original="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre align="left" class="code">#border-image{<br>   background:#F4FFFA;<br>   width:210px; height:210px; border:70px solid #ddd;<br><strong>   border-image:url(borderimg.png) 70 repeat  </strong><br>}</pre><br><p align="left">效果：</p><br><p align="left"><a href="http://img.mukewang.com/52e220780001091a03530354.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220780001091a03530354.jpg" data-original="http://img.mukewang.com/52e220780001091a03530354.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre class="code">从序号可以看出div的四个角分别对应了背景图片的四个角。而<strong>2,4,6,8 </strong>被重复。<strong>5在哪？</strong>因为是从四周向中心切割图片的所以，5显示不出来。而在chrome浏览器中5是存在的，下图的样子：<br><br><a href="http://img.mukewang.com/52e220be0001cef603560358.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220be0001cef603560358.jpg" data-original="http://img.mukewang.com/52e220be0001cef603560358.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br><br><strong>repeat</strong>的意思就是重复，目前因为是刚好被整除，效果看不出来。如果改下DIV的宽高，再来看重复的效果：<br><br><a href="http://img.mukewang.com/52e2210700016f5603190313.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2210700016f5603190313.jpg" data-original="http://img.mukewang.com/52e2210700016f5603190313.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p>边角部分为裁掉了，可见<strong>repeat</strong>就是一直重复，然后超出部分剪裁掉，而且是居中开始重复。</p><br><p><strong>Round 参数</strong>：Round可以理解为圆满的铺满。为了实现圆满所以会压缩（或拉伸）；</p><br><pre class="code">#border-image {<br><br>     width:170px;<br><br>     height:170px;<br><br>     border:70px solid;<br><br>     border-image:url(borderimg.png) 70 round;<br><br> }</pre><br><p>效果：</p><br><p><a href="http://img.mukewang.com/52e2216700014c4103190312.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2216700014c4103190312.jpg" data-original="http://img.mukewang.com/52e2216700014c4103190312.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>可见图片被压扁了。</p><br><p>Stretch 很好理解就是拉伸，有多长拉多长。有多远“滚”多远。</p><br><pre align="left" class="code">border-image:url(borderimg.png) 70 stretch</pre><br><p>看一下效果：</p><br><p><a href="http://img.mukewang.com/52e2218d0001d45403530366.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2218d0001d45403530366.jpg" data-original="http://img.mukewang.com/52e2218d0001d45403530366.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>2,4,6,8分别被拉伸显示。</p><br><p>注意：Chrome下，中间部分也会被拉伸，webkit浏览器对于round属性和repeat属性似乎没有区分，显示效果是一样的。</p><br><p>Firefox 26.0 下是可以准确区分的。</p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>为DIV应用下面的边框图片。图片绝对路径为：</p><br><pre class="code"><a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a></pre><br><p><img src="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" data-original="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><strong>任务经验</strong></p><br></div><br></div><br></div><br></div><br><div class="code-tips"><br><div class="co"><br><p><span style="color: #ff0000;">根据这个border-image的属性</span></p><br><p><span style="color: #ff0000;"> border-image:url(borderimg.png) 70 repeat</span></p><br><p><span style="color: #ff0000;">url是图片地址 70是图片切割的大小 repeat是重复图片 当然也可以使用 round 等等属性来设置下</span></p><br><p><span style="color: #ff0000;">所以任务答案就是: 见下面代码</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;边框图片&lt;/title&gt;<br>&lt;style&gt;<br>#border_image {<br>    margin:0 auto;<br>    height:100px;<br>    line-height:100px;<br>    text-align:center;<br>    font-size:30px;<br>    width:450px;<br>    border:15px solid #ccc;<br>    border-image:url(<a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a>) 20 repeat;<br><br>    }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”border_image”&gt;<br>请为我镶嵌上漂亮的画框吧<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
   
     <article id="post-170ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -719,6 +663,61 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>&nbsp;</p><br><p>注释以及解析都放代码里的 大家可以看看</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    function Person(){<br><br>    }<br><br>    function Student(){<br><br>    }<br><br>    Student.prototype=Person.prototype;<br>    //不能直接把原型赋值给一个对象<br>    //如果student.prototype有一些方法和属性,后续构建实例的话会直接影响到这些方法和属性<br><br>    Student.prototype=new Person();<br>    //可以实现 但是比如Person有 age 和name.在这里创建实例的话 传参比较奇怪<br><br>    Student.prototype=Object.create(Person.prototype);<br>    //JavaScript ES5之后支持<br><br>    Student.prototype.constructor=Person;<br><br>    //ES5之前<br>    if(!Object.create){<br>        Object.create=function(proto){<br>            function F(){}<br>            F.prototype=proto;<br>            return new F;<br>        }<br>    }<br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-134ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/134ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/134ver/">JavaScript深入浅出:instanceof</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>instanceof 是用来检测对象的原型链</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    //instanceof<br>    console.log([1,2] instanceof Array);//true;<br>    new Object instanceof Array;//false<br>    //instanceof会检测左边对象是否由右边构造的<br>    //或者说 左边对象原型链是否是右边构造器<br><br>    function soul(){};<br>    //创建一个soul函数构造器<br><br>    function dark(){};<br>    //创建一个dark函数构造器<br><br>    dark.prototype=new soul();<br>    //设置dark的原型等于 soul 实例<br><br>    var seeker =new dark();<br>    //创建dark实例<br><br>    console.log(seeker instanceof dark);//true<br>    //seeker原型是否是dark<br><br>    var one =new soul();<br>    //创建soul实例<br><br>    one instanceof soul;//true;<br><br>    one instanceof dark;//false;<br><br>    console.log(seeker instanceof soul)//true<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>具体的都在代码中,大家看看吧.</p>
 
 
 
