@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-153ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/153ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/153ver/">JavaScript:深入浅出-数据类型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习视频来自:<a href="http://www.imooc.com/video/5673" target="_blank" rel="external">http://www.imooc.com/video/5673</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>在JavaScript中数据类型有原始类型和对象</p><br><p>原始类型有以下几类数据</p><br><ol><br><li>数字(number)</li><br><li>字符串(string)</li><br><li>布尔（boolean)</li><br><li>null</li><br><li>undefined</li><br><li>对象(object)</li><br></ol><br><p>对象也算一种原始类型,对象中包含以下几类数据</p><br><ol><br><li>Function</li><br><li>Array</li><br><li>Date</li><br><li>….</li><br></ol><br><p>&nbsp;</p><br><p>来写一个基本的数据类型</p><br><pre class="lang:default decode:true">        var num=32;<br>    var num1=”33”;<br>    console.log(typeof (num+num1))<br>    //两个字符串相加是3332并且是字符串类型的<br>    //字符串相加的时候 如果一方不是字符串会转化为字符串再进行相加<br>    console.log(typeof (num1*num));<br>    //相乘则是数字类型<br>    //字符串相乘的时候 如果一方不是数字会转化Number()为数字再进行相乘<br><br>    //函数,数组,日期都是object</pre><br><p>&nbsp;</p><br><p>再来看看隐式转换</p><br><pre class="lang:default decode:true">//隐式转化<br>    //  num3=-0 //隐式转化数字<br>    // num4+’’//隐式转化字符串<br><br>    var test= “2”==2//<br>    console.log(test)//相等true<br>    // 非严格等于会先转化再去判断<br><br>    var test1=”2”===1<br>    console.log(test1)//不等<br>    //number==string//转number<br>    //boolean==?转number 1=true<br>    //object==number|string//new String(“hi”)==”hi”<br><br>    //基本类型添加方法.属性的时候 会把基本类型临时转化为对象 使用过后就会销毁</pre><br><p>&nbsp;</p><br><p>数据类型检测</p><br><pre class="lang:default decode:true ">//类型检测<br>    //type of arrary 返回object<br>    //[1,2] instanceof Arrary //return:true<br>    //<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-152ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -550,61 +605,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文只列出了关于排版的一些重点.详细的可以去观阅官方文档<a href="http://v3.bootcss.com/css/#type" target="_blank" rel="external">http://v3.bootcss.com/css/#type</a></p><br><p>也会结合上次所学的栅格系统所使用排版功能</p><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">排版-标题</span></strong></p><br><blockquote><p>head标签内容就不写了.运行后就可以看到h1-h6之间标题区别了.并且Bootstrap提供了一个副标题标签 small</p><br><p>下面来测试看看</p><br><pre class="lang:default decode:true">&lt;div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-6 col-md-offset-3”&gt;<br>                &lt;h1&gt;imH1&lt;small&gt;副标题测试&lt;/small&gt;&lt;/h1&gt;<br>                &lt;h2&gt;imH2&lt;/h2&gt;<br>                &lt;h3&gt;imH3&lt;/h3&gt;<br>                &lt;h4&gt;imH4&lt;/h4&gt;<br>                &lt;h5&gt;imH5&lt;/h5&gt;<br>                &lt;h6&gt;imH6&lt;/h6&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>    &lt;/div&gt;</pre><br><p>稍微加一点样式方便观看</p><br><pre class="lang:default decode:true">&lt;style&gt;<br>    .row{<br>        margin-top: 10px;<br>        background: #b3b3b3;<br>        padding: 10px;<br>    }<br>    [class*=’col-‘]{<br>        border:1px solid #2b2f2f;<br>        padding: 10px;<br>    }<br><br><br>    &lt;/style&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">排版-页面主体</span></strong></p><br><blockquote><p>Bootstrap 将全局 <code>font-size</code> 设置为 <strong>14px</strong>，<code>line-height</code> 设置为 <strong>1.428</strong>。这些属性直接赋予 <code>&lt;body&gt;</code> 元素和所有段落元素。另外，<code>&lt;p&gt;</code> （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。</p><br><pre class="lang:default decode:true ">div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-6 col-md-offset-3”&gt;<br>                &lt;h1&gt;imH1&lt;small&gt;副标题测试&lt;/small&gt;&lt;/h1&gt;<br>                &lt;h2&gt;imH2&lt;/h2&gt;<br>                &lt;h3&gt;imH3&lt;/h3&gt;<br>                &lt;h4&gt;imH4&lt;/h4&gt;<br>                &lt;h5&gt;imH5&lt;/h5&gt;<br>                &lt;h6&gt;imH6&lt;/h6&gt;<br>                &lt;p&gt;零基础学bootstrap..&lt;br&gt;零基础学bootstrap..&lt;/p&gt;<br>                &lt;p&gt;零基础学bootstrap..&lt;/p&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br><br><br>    &lt;/div&gt;</pre><br><p>通过br以及两个p标签可以很明显的看出bootstrap做出的修改效果</p><br><p>&nbsp;</p><br><p><span style="color: #800080;">中心内容</span></p><br><p>通过添加 <code>.lead</code> 类可以让段落突出显示。</p><br><pre class="lang:default decode:true ">&lt;p class=”lead”&gt;零基础学bootstrap..&lt;/p&gt;</pre><br><p>给其中一个p元素添加上lead类.刷新浏览器就可以看到效果了</p></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-内联文本元素</strong></span></p><br><blockquote><p><span style="color: #800080;">mark高亮标签</span></p><br><p>创建一个新行新列,然后写个p标签.在其中用mark标签标记下 发现 被mark标签包裹的文字高亮了.当然这里的高亮调用的是bootstrap默认的高亮效果</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-12”&gt;<br>                &lt;p&gt;这是&lt;mark&gt;bootstrap&lt;/mark&gt;第三章的排版功能&lt;/p&gt;<br><br>            &lt;/div&gt;<br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">删除线</span></p><br><p>使用del标签就可以创建一个删除线的效果了类似于 <del>我就不删除来打我啊</del></p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-12”&gt;<br>                &lt;p&gt;这是&lt;mark&gt;bootstrap&lt;/mark&gt;第三章的排版功能&lt;/p&gt;<br>                &lt;p&gt;这是&lt;del&gt;bootstrap&lt;/del&gt;第三章的排版功能&lt;/p&gt;<br><br>            &lt;/div&gt;<br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">无用文本</span></p><br><p>无用文本用s标签来进行标记..显示效果跟del标签是一样的</p><br><pre class="lang:default decode:true ">&lt;p&gt;这是&lt;del&gt;bootstrap&lt;/del&gt;第三章的&lt;s&gt;排版功能&lt;/s&gt;&lt;/p&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">插入文本&amp;&amp;下划线文本</span></p><br><p>实际上就是一条下划线,使用ins标签或者u标签</p><br><pre class="lang:default decode:true">&lt;p&gt;这是&lt;ins&gt;bootstrap&lt;/ins&gt;第三章的&lt;u&gt;排版功能&lt;/u&gt;&lt;/p&gt;</pre><br><p>&nbsp;</p><br><p id="小号文本"><span style="color: #800080;">小号文本</span></p><br><p>对于不需要强调的inline或block类型的文本，使用 <code>&lt;small&gt;</code> 标签包裹，其内的文本将被设置为父容器字体大小的 85%。标题元素中嵌套的 <code>&lt;small&gt;</code> 元素被设置不同的 <code>font-size</code> 。</p><br><p>你还可以为行内元素赋予 <code>.small</code> 类以代替任何 <code>&lt;small&gt;</code> 元素。</p><br><pre class="lang:default decode:true">&lt;small&gt;这是bootstrap第三章的排版功能&lt;/small&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">着重</span></p><br><p>通过增加 font-weight 值强调一段文本。</p><br><pre class="lang:default decode:true">&lt;p&gt;这是&lt;strong&gt;bootstrap&lt;/strong&gt;第三章的排版功能&lt;/p&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">斜体</span></p><br><p>用斜体强调一段文本。 使用em标签</p><br><div class="bs-example" data-example-id="simple-strong"><br><pre class="lang:default decode:true">&lt;p&gt;这是&lt;em&gt;bootstrap&lt;/em&gt;第三章的排版功能&lt;/p&gt;</pre><br></div><br></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">排版-对齐</span></strong></p><br><blockquote><p>通过文本对齐类，可以简单方便的将文字重新对齐。</p><br><pre class="lang:default decode:true">&lt;p class=”text-left”&gt;Left aligned text.&lt;/p&gt;<br>                &lt;p class=”text-center”&gt;Center aligned text.&lt;/p&gt;<br>                &lt;p class=”text-right”&gt;Right aligned text.&lt;/p&gt;<br>                &lt;p class=”text-justify”&gt;Justified text.&lt;/p&gt;<br>                &lt;p class=”text-nowrap”&gt;No wrap text.&lt;/p&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-改变大小写</strong></span></p><br><blockquote><p>通过这几个类可以改变文本的大小写。</p><br><p><span style="color: #800080;">text-lowercase</span>:全部小写</p><br><p><span style="color: #800080;">text-uppercase</span>:全部大写</p><br><p><span style="color: #800080;">text-capitalize</span>:首字母大写</p><br><pre class="lang:default decode:true">&lt;p class=”text-lowercase”&gt;Lowercased text.&lt;/p&gt;<br>&lt;p class=”text-uppercase”&gt;Uppercased text.&lt;/p&gt;<br>&lt;p class=”text-capitalize”&gt;Capitalized text.&lt;/p&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-缩略语</strong></span></p><br><p>当鼠标悬停在缩写和缩写词上时就会显示完整内容，Bootstrap 实现了对 HTML 的 <code>&lt;abbr&gt;</code> 元素的增强样式。缩略语元素带有 <code>title</code> 属性，外观表现为带有较浅的虚线框，鼠标移至上面时会变成带有“问号”的指针。如想看完整的内容可把鼠标悬停在缩略语上（对使用辅助技术的用户也可见）, 但需要包含 title 属性。</p><br><blockquote><br><p id="基本缩略语"><span style="color: #800080;">基本缩略语</span></p><br><p>使用abbr标签,鼠标移入上去会显示title内容</p><br><pre class="lang:default decode:true ">&lt;p&gt;测试文本&lt;abbr title=”缩略词不知道写什么好”&gt;缩略语&lt;/abbr&gt;&lt;/p&gt;</pre><br><p>&nbsp;</p><br><p id="首字母缩略语"><span style="color: #800080;">首字母缩略语</span></p><br><p>为缩略语添加 <code>.initialism</code> 类，可以让 font-size 变得稍微小些。</p><br><pre class="lang:default decode:true">&lt;abbr title=”HyperText Markup Language” class=”initialism”&gt;HTML&lt;/abbr&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-地址</strong></span></p><br><blockquote><p>让联系信息以最接近日常使用的格式呈现。在每行结尾添加 <code>&lt;br&gt;</code> 可以保留需要的样式。</p><br><p>…实际上就一个空壳罢了.不会有什么特殊的效果</p><br><pre class="lang:default decode:true">&lt;address&gt;<br>                  &lt;strong&gt;Twitter, Inc.&lt;/strong&gt;&lt;br&gt;<br>                  795 Folsom Ave, Suite 600&lt;br&gt;<br>                  San Francisco, CA 94107&lt;br&gt;<br>                  &lt;abbr title=”Phone”&gt;P:&lt;/abbr&gt; (123) 456-7890<br>                &lt;/address&gt;<br><br>                &lt;address&gt;<br>                  &lt;strong&gt;Full Name&lt;/strong&gt;&lt;br&gt;<br>                  &lt;a href=”mailto:#”&gt;first.last@example.com&lt;/a&gt;<br>                &lt;/address&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-引用</strong></span></p><br><blockquote><br><p id="默认样式的引用"><span style="color: #800080;">默认样式的引用</span></p><br><p>将任何 <abbr title="HyperText Markup Language">HTML</abbr> 元素包裹在 <code>&lt;blockquote&gt;</code> 中即可表现为引用样式。对于直接引用，我们建议用 <code>&lt;p&gt;</code> 标签。</p><br><p>加了一个白色的边框..</p><br><pre class="lang:default decode:true ">&lt;blockquote&gt;<br>  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;<br>&lt;/blockquote&gt;</pre><br><p>&nbsp;</p><br><p id="多种引用样式"><span style="color: #800080;">多种引用样式</span></p><br><p>对于标准样式的 <code>&lt;blockquote&gt;</code>，可以通过几个简单的变体就能改变风格和内容。</p><br><h4 id="命名来源">命名来源</h4><br><p>添加 <code>&lt;footer&gt;</code> 用于标明引用来源。来源的名称可以包裹进 <code>&lt;cite&gt;</code>标签中。</p><br><div class="zero-clipboard"><br><pre class="lang:default decode:true ">&lt;blockquote&gt;<br>  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;<br>  &lt;footer&gt;Someone famous in &lt;cite title=”Source Title”&gt;Source Title&lt;/cite&gt;&lt;/footer&gt;<br>&lt;/blockquote&gt;</pre><br><p>&nbsp;</p><br></div><br><h4 id="另一种展示风格">另一种展示风格</h4><br><p>通过赋予 <code>.blockquote-reverse</code> 类可以让引用呈现内容右对齐的效果。</p><br><div class="highlight"><br><pre class="lang:default decode:true ">&lt;blockquote class=”blockquote-reverse”&gt;<br>  …<br>&lt;/blockquote&gt;</pre><br><p>&nbsp;</p><br></div><br></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;"><strong>排版-列表</strong></span></p><br><blockquote><br><p id="无序列表"><span style="color: #800080;">无序列表</span></p><br><p>实现方式以及展示方式跟平时写代码都没什么区别</p><br><pre class="lang:default decode:true ">&lt;ul&gt;<br>  &lt;li&gt;…&lt;/li&gt;<br>&lt;/ul&gt;</pre><br><p>&nbsp;</p><br><p id="有序列表"><span style="color: #800080;">有序列表</span></p><br><p>实际上用起来也没太大的差别</p><br><pre class="lang:default decode:true ">&lt;ol&gt;<br>  &lt;li&gt;…&lt;/li&gt;<br>&lt;/ol&gt;</pre><br><p>&nbsp;</p><br><p id="无样式列表"><span style="color: #800080;">无样式列表</span></p><br><p>移除了默认的 <code>list-style</code> 样式和左侧外边距的一组元素（只针对直接子元素）。<strong>这是针对直接子元素的</strong>，也就是说，你需要对所有嵌套的列表都添加这个类才能具有同样的样式。</p><br><p>也就是说li下的ul li 不会移除默认的样式</p><br><pre class="lang:default decode:true ">&lt;ul class=”list-unstyled”&gt;<br>                  &lt;li&gt;我是子li<br>                    &lt;ul&gt;<br>                        &lt;li&gt;我是子li的子li&lt;/li&gt;<br>                        &lt;li&gt;我是子li的子li&lt;/li&gt;<br>                    &lt;/ul&gt;<br><br>                  &lt;/li&gt;<br>                &lt;/ul&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p id="内联列表"><span style="color: #800080;">内联列表</span></p><br><p>通过设置 <code>display: inline-block;</code> 并添加少量的内补（padding），将所有元素放置于同一行。</p><br><pre class="lang:default decode:true ">&lt;ul class=”list-inline”&gt;<br>                  &lt;li&gt;我是第一个&lt;/li&gt;<br>                  &lt;li&gt;我是第二个&lt;/li&gt;<br>                  &lt;li&gt;我是第三个&lt;/li&gt;<br>                &lt;/ul&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">排版-描述</span></strong></p><br><blockquote><br><p id="描述"><span style="color: #800080;">描述</span></p><br><p>带有描述的短语列表。</p><br><pre class="lang:default decode:true ">&lt;dl&gt;<br>                  &lt;dt&gt;我是soul&lt;/dt&gt;<br>                  &lt;dd&gt;我是soul的描述-灵魂&lt;/dd&gt;<br>                &lt;/dl&gt;</pre><br><p>&nbsp;</p><br><p id="水平排列的描述"><span style="color: #800080;">水平排列的描述</span></p><br><p><code>.dl-horizontal</code> 可以让 <code>&lt;dl&gt;</code> 内的短语及其描述排在一行。开始是像 <code>&lt;dl&gt;</code> 的默认样式堆叠在一起，随着导航条逐渐展开而排列在一行。</p><br><p>在小屏幕下会像普通的dl那样 在屏幕能够支持显示后面的描述后会显示在一行</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;dl class=”dl-horizontal”&gt;<br>                       &lt;dt&gt;我是渣渣&lt;/dt&gt;<br>                  &lt;dd&gt;我是渣渣的描述-渣渣&lt;/dd&gt;<br>                   &lt;dt&gt;我是soul&lt;/dt&gt;<br>                  &lt;dd&gt;我是soul的描述-灵魂&lt;/dd&gt;<br><br>                    &lt;/dl&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-86ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/86ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/86ver/">JS程序设计-类型系统</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>类型系统</strong></p><br><ul class=" list-paddingleft-2"><br><li>标准类型:(6种) undefined，null，object，string，number</li><br><li>构造器(9种）object，boolean，string，number，function，array，date，regexp，error</li><br><li>对象(4种) math，json，全局对象，arguments，</li><br><li>以上为原生对象,也是本次讲解的</li><br><li>window，document，…(宿主对象)</li><br><li>activeXobject，debug，xml(浏览器对象)</li><br></ul><br><p>一:标准类型</p><br><ul class=" list-paddingleft-2"><br><li>原始类型(5种):undefined，null，string，number</li><br><li>引用类型(object)：通过new+构造器函数创造出来的也是引用类型 如</li><br></ul><br><p><code class="brush:js;toolbar:false">new String(“xx”);<br><br>new Number(123);<br><br></code></p><br><p>二:原始类型与引用类型</p><br><p><code class="brush:js;toolbar:false">var a;//undefined 未赋值,但是a保存在了栈内存中,值为undefined<br><br>var b=null// b保存在了栈内存中,值为null<br><br>var f={a:1}// f在栈内存中只保存了一个引用地址,这个地址指向的是堆内存所在的区域<br><br></code></p><br><p>三:原始类型与引用类型复制区别</p><br><p><code class="brush:js;toolbar:false">var num1=123;<br><br>var num2=num1;<br><br>原始类型复制前栈内存为</code></p><br><p>栈内存<br><br>num1 | 123;</p><br><p>复制后栈内存为<br><br>num1 | 123;<br><br>num2 | 123;</p><br><p>值都是一样的.</p><br><p>var obj1={a:1};<br><br>var obj2=obj1;<br><br>复制前</p><br><p>栈内存                                              堆内存1<br><br>obj1 |  地址指向堆内存 如堆内存1                        a | 1</p><br><p>复制后<br><br>obj1 |  地址指向堆内存 如堆内存1<br><br>obj2 |  地址指向堆内存 如堆内存1</p><br><p>两者指向的堆内存都是一样的，并不会重新开一个堆内存<br><br>所以对obj2进行修改同样也会影响到obj1<br><br></p><br><p>四:undefined</p><br><p>-值:undefined</p><br><p>-出现场景</p><br><p><code class="brush:js;toolbar:false">1：已声明为赋值的变量<br><br>var a;//undefined</code></p><br><p>2:获取对象不存在的属性<br><br>var o={a:1};<br><br>o.y//undefined</p><br><p>3：无返回值的函数执行结果,（匿名函数也无返回值,因为是立即执行)<br><br>function ab(){alert(a)}<br><br>var ret=ab()<br><br>console.log(ret)//undefined</p><br><p>4:函数参数未传入</p><br><p>function m(i,j){<br><br>console.log(i);<br><br>console.log(j);//undefined<br><br>}</p><br><p>m(1),//并未传入两个参数<br><br></p><br><p>-类型转换</p><br><p>undefined-boolean:false,</p><br><p>-number:Number(undefined)//Nan</p><br><p>-string:String(“undefined”)//“undefined”</p><br><p>五：null</p><br><p>-值:null</p><br><p>-出现场景:对象不存在的情况下 如 document.getElementById(“xxx”);</p><br><p>-类型转换</p><br><p>null-boolean:false</p><br><p>-number:0;</p><br><p>-string:”null”</p><br><p>六:boolean</p><br><p>-值:true,false</p><br><p>-出现场景:条件语句导致系统执行的隐式类型转化 如: if(){}</p><br><p>-类型转换</p><br><p>true-number:1</p><br><p>-string:”true”;</p><br><p>false-number:0;</p><br><p>-string:false;</p><br><p>七:string</p><br><p>-值:有单引号或者双引号括起来的字符序列</p><br><p>-类型转换</p><br><p>“空”-boolean:false;</p><br><p>-number:0;</p><br><p>“非空”-boolean:true;</p><br><p>-number:1;</p><br><p>八:number</p><br><p>-值: 整形,八进制,十六进制，浮点</p><br><p>-类型转换</p><br><p>0-boolean:false;</p><br><p>-string:”0”;</p><br><p>1-boolean:true;</p><br><p>-string:”1”;</p><br><p>infinity-boolean:true;</p><br><p>-string:”infinity”;</p><br><p>NaN-boolean:false;</p><br><p>-string:”NaN”;</p><br><p>九:object</p><br><p>-object是一组属性集合</p><br><p>{}-boolean:true</p><br><p>-number:NaN;</p><br><p>-string：”object”</p><br><p>&nbsp;</p>
 
 
 

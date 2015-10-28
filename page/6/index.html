@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-222ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/222ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/222ver/">JavaScript操控CSS-3:直接添加className属性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>越来越强大的JavaScript  这次笔记跟css-2和css-1没更改太多 详情可以看看前两文章</p><br><p>这次笔记加深了对节点的理解 233</p><br><p>不知道对各位看官能不能有所帮助呢？</p><br><blockquote><br><h2 class="post-title"><a title="JavaScript操控css -2：巧用一个变量设置奇数行,偶数行" href="http://www.old.com/soul-get/soul-js/126" target="_blank" rel="external">JavaScript操控css -2：巧用一个变量设置奇数行,偶数行</a></h2><br><h2 class="post-title"><a title="JavaScript操控CSS -1" href="http://www.old.com/soul-get/soul-js/124" target="_blank" rel="external">JavaScript操控CSS -1</a></h2><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-2&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        .add_css{<br>            color:red;<br><br>        }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function setClassName(){<br>            var get_h1=document.getElementsByTagName(“h1”);<br>            var elem<br>            for (var i = 0; i &lt; get_h1.length; i++) {<br>                // var testa=get_h1[i].childNodes[1].nodeName;//测试获取到h1元素的下级第二个元素数组是从[0]开始<br>                // //childNodes[0]弹出的是text,这段只是为了更助于理解节点问题.看不懂可以跳过哦<br>                // alert(testa);//弹出testa内容<br><br>                elem=getNextElem(get_h1[i].nextSibling);//nextSibling是获取同级兄弟元素而不是下级<br>                // alert(elem.nodeName);//获取到下一个兄弟元素是p<br>                elem.className=”add_css”//添加class属性等于 css当中设置的add_css<br>            };<br>        }<br><br>        function getNextElem(nextnode){//获取到传递的参数<br>            if (nextnode.nodeType ==1) {//如果传递的参数属性类型等于1 1为元素节点 2为属性节点 3为文本节点<br>                return nextnode;//返回nextnode<br>            }else{//否则<br>                if (nextnode.nextSibling) {//如果传递的nextnode下一个兄弟元素存在<br>                    return getNextElem(nextnode.nextSibling);//递归调用这个函数 然后再针对nextnode的下一个兄弟元素进行检查<br>                } else{return null};//如果没有那么返回空<br>            }<br><br>        }<br><br>        // function changeNextSib(tag,theclass){<br>        //     var elem=document.getElementsByTagName(“tag”);<br>        //     var obb<br>        // }<br><br>        window.onload=function(){<br>            setClassName();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;Hello Seeker<br>        &lt;p&gt;我是下级P&lt;/p&gt;<br>    &lt;/h1&gt;<br>    &lt;p&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-223ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -275,61 +330,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文转自优设:<a href="http://www.uisdc.com/6-rules-webdesign-color" target="_blank" rel="external">秒变配色高手！怎么都不会错的6条网页设计配色原则</a></p><br><p><img class="alignnone size-full wp-image-101090" src="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="website-pinciple-6-1" width="690" height="140"></p><br><p>身为<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>新手的你，是不是还在纠结于你制作的网页找不到一组完美的配色方案？在本教程中我们将与你分享6条肯定会火，并且“错不了”的指导方针，你可以按照这些原则把握最基本的色彩规律。现在我们分享的这些原则都不是规则，你会在你的职业生涯中创造出更多的配色方案。相反，他们是一个起点，是你如何生存在<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>领域色彩方向的安全指南。</p><br><h4><strong>一、需要配色的是你的画布，而不是你的图片</strong></h4><br><p>一个在网页设计中最根本的原则是，无论你花了多少时间创造了一个辉煌的设计，其最终的作用是发挥出内容的核心位置。你的配色方案永远不应该比它呈现的内容的更加“响亮”。你的设计应该是在后台，目的是帮助突出网站的内容。</p><br><p><img title="clip_image001" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"> <img title="clip_image002" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"></p><br><p>淡色的画布突出了图像，而明亮的画布反而不能突出你的内容。（别笑，后者是发生在网络上的真实案例^—^）</p><br><p>用Photoshop或者Sketch等软件设计网站的时候，创建设计的过程往往是相互独立的。有些设计单个看起来很不错，也能被你的客户所接受，但是当它真正被设计成网页的时候不适当的配色往往会分散访客的注意力。事实上，网页设计的过程是和内容紧密相连的，很多制作高品质的网页看上去空空荡荡，几乎没有内容。</p><br><p>这是一个伟大的想法：你可以在你的网站上先铺陈出你的内容，用设计软件也好用代码也好，然后在你内容的周围设计你的网页。当然这也是一个特殊情况，如果一个特定风格的图像和照片都能和你的设计和谐的融为一体，那么你的设计配色才算是完美。试想一下，网站的配色对内容而言就像衣服对于人的重要性，对此你必须制定一套完美的并且合身的衣服。</p><br><h4><strong>二、选择简单的灰色作为你网站的基调</strong></h4><br><p>你可以为你的网站基调选择无数种颜色，不过我建议你采用最简单的颜色，比如白色/浅灰色与深灰色的搭配文字背景。</p><br><p>你可以看看任何热门的网站、模版、主题，白色或浅灰色与深灰色搭配成了大多数的选择，这当然也是有充分理由的。这样的搭配对访客而言提高了你内容的可读性，并且把你的图片突出在最前方。</p><br><p><img title="clip_image003" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="775" border="0"></p><br><p>一般来说，你的文字最好避免使用墨黑色，深灰色一般更容易阅读。我们提供一个比较舒服的文字颜色范围：＃333333到＃666666。</p><br><p>对于你的背景色，全白色（#FFFFFFF）是可以搭配任何文本的最安全的颜色。如果你想选用其他的背景颜色，我们建议采用#FFFFFF到#CCCCCC</p><br><p>当然，这些颜色的选择都不是固定死的。只不过如果你是新手，以上的配色方案你可以放心使用。</p><br><h4><strong>三、只选择一种颜色突出显示</strong></h4><br><p>如果你选择好几种不同的色调来，那么你的配色方案绝大多数是有问题的。你颜色用得越多，你的页面就越来越难以控制。所以，在你网页以灰色基调的前提下，你最好只选择一种鲜艳的颜色来作为你想要突出的事物，比如标题、菜单、按钮等等。你的高亮颜色可以是蓝色、红色、绿色，等等。</p><br><p>你最好选择与你的基调颜色相关的高亮颜色。打开你的颜色选择器，并单击你彩色方块的中心。</p><br><p><img title="clip_image004" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="400" border="0"></p><br><p>向上或向下移动你的滑块，你可以仔细选择你认为最合适的颜色。</p><br><p><img title="clip_image005" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="60" border="0"></p><br><p>现在，你设计的页面有了三个基本的颜色：背景色、文本色和高亮色。在以后你也可以选择一种以上的高亮色，但现在对于新手的你来说还是选择一种比较合适。你现在已经掌握了基本的配色，如果你有信心，你以后还可以尝试更多种不同的方案。</p><br><p><strong>你刚刚学到：</strong></p><br><p>学会了如何选择“色相”。概括来说，色相是基本色，当你移动滑块，你会看到h值在颜色选择器中的变化。</p><br><p>“H”代表色相，一旦你选择了你的高亮颜色，文本框中显示的就是你当前颜色的色相。</p><br><h4><strong>四、如果有疑问，请使用蓝色</strong></h4><br><p>如果你对你的高亮色的选择有疑惑的话，不妨使用蓝色。蓝色是一种弹性比较大的颜色，可以和很多种颜色搭配。黄色和紫色也很不错，但是如果使用不当会适得其反。</p><br><p>另一方面，如果你是用蓝色，那么你用错颜色的概率就会很低。如果你正犹豫着不知道用什么颜色好，不妨使用蓝色。比较安全的蓝色包括从H235到H190，从海军蓝到深蓝色。</p><br><p><img title="clip_image006" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="290" border="0"></p><br><p>如果是我的话，我通常选择H205的蓝色，如果你选定了一种颜色作为你的高亮色，那么也请你在其他需要的地方使用这种颜色。如果你的按钮、标题等需要高亮，把它们的颜色也换成同一种蓝色。在下面这个例子中我把白色换成了蓝色。</p><br><p><img title="clip_image007" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="clip_image007" width="600" height="775" border="0"></p><br><h4><strong>五、给你的高亮色增加变化</strong></h4><br><p>你一旦选择了高亮的颜色，从该点移动滑块来选择接下来的颜色。在你的设计中也需要其他的颜色，高亮色的稍微变化会让你的颜色选择变得简单。</p><br><p><img title="clip_image008" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="279" border="0"></p><br><p>使用这些类型的颜色变化的东西，如：</p><br><p>悬停效果：</p><br><p><img title="clip_image009" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="125" border="0"></p><br><p>边界：</p><br><p><img title="clip_image010" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="135" border="0"></p><br><p>通过突出显示颜色：</p><br><p><img title="clip_image011" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="80" border="0"></p><br><p>渐变：</p><br><p><img title="clip_image012" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="68" border="0"></p><br><p>光影效果：</p><br><p><img title="clip_image013" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="45" border="0"></p><br><h4><strong>六、尽量不要使用颜色选择器右上角的颜色</strong></h4><br><p>颜色选择器的右上角是一块肥沃的土地。在右上角的颜色就像F1赛车; 他们可以执行出惊人的效果，而且非常诱人，但通常想用好需要大量的经验。如果没有这种经验，他们可能会导致事故的发生，所​​以最好以削弱你的颜色，最好都保持比较淡化的色彩。</p><br><p>这就是为什么在本教程的第三部分，我问你点击的颜色在地图右上角的中心选择您的高亮颜色之前，要确保你有一个比较柔和的颜色拉开序幕。</p><br><p>为了说明这一点，看如果我只是改变了我们设计的色调，到目前为止，会发生什么。</p><br><p><img title="clip_image014" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>看上去还是听舒服的对吧？但是如果你把颜色调整为选择器右上角的颜色，我们再来看看效果如何：</p><br><p><img title="clip_image015" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>分分钟亮瞎了访客的双眼！如果你想确保你不烧焦你的访客的视网膜，遵循留出颜色选择器的右上角的格子的一半原则。</p><br><p><strong>饱和度和亮度</strong></p><br><p>当您拖动周围的颜色选择器区域的地图区域，你会看到“S”和“B”的值发生变化，这代表饱和度和亮度。您还可以看到色相号保持不变。所以，你通过改变你原有的色相的饱和度和亮度会产生颜色的变化。</p><br><p><img title="clip_image016" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="77" border="0"></p><br><p><strong>饱和度</strong></p><br><p>是一种生动的色彩表现。例如，认为“我的衬衫中渗透着葡萄酒红”。在一个典型的颜色选择器饱和度是多少白了就是混在你的基地的色调来决定。白色越少，越饱和。</p><br><p>当您拖动到右边的颜色在地图上可以减少白色量，从而增加了饱和度，“S”的值上升。当您拖动到左边向所有的白角，你会减少饱和使“S”的值下降。</p><br><p><img title="clip_image017" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="100" border="0"></p><br><p><strong>亮度</strong></p><br><p>亮度是有多少黑色混合到你的颜色。黑色越少，越亮。</p><br><p>当你拖动滑块向上，减少了黑色的数量，增加亮度，在颜色选择器中的“B”的值上升。</p><br><p><img title="clip_image018" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="340" border="0"></p><br><p>与你原来的色调混合的黑色也被称为创造了“阴影”。这也来源于油漆混合，是黑色油漆与涂料颜色的混合。</p><br><p>当你混合灰色到彩色这被称为创造了色调。如果你调节饱和度和亮度，那么你就创造了一种色调。所以基本上任何时候无论你的饱和度和亮度均小于100％，这就是一个色调。</p><br><p>同样，这个词来源于油漆混合，在其中创建一个灰色的油漆，然后用彩色涂料混合。</p><br><p><strong>单色配色方案</strong></p><br><p>单色的配色方案是，你以一个基本的色调和扩展它的色相，饱和度和亮度。因此，通过采摘一大亮点的颜色和它创造的变化，你实际上创建了一个单色方案。</p><br><p><img title="clip_image019" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="70" border="0"></p><br><h4><strong>下一步？</strong></h4><br><p>坚持练习对灰度基础的单色配色方案，直到你感到很有信心为止。试着用不同的色调，尝试创建不同的高亮色，看看它是如何改变饱和度和亮度的设置，直到可以使用为止。</p><br><p>当你感觉很舒服，可以增加一个额外的高亮颜色。我建议尝试橙色和蓝色，因为他们往往​​是最简单的二重奏。然后尝试绿色和蓝色，这在我的经验中是第二个最简单的。这两种往往是与客户和访客都会称赞的搭配。</p><br><p>为了推动了你对Web的配色方案的理解，最​好的事情就是抓住自己喜欢颜色，你可以用取样器（浏览器扩展Colorzilla），并用它来​研究经验丰富的设计师是怎么做到的丰富的色彩搭配的。当你在浏览互联网的时候，看到一个很大的配合突破，你可以用颜色取样器看看在页面上使用的颜色的配色方案。你甚至可以尝试每个色相，看看哪些饱和度和亮度水平效果最好吧。另外要注意它的颜色组合的和谐度。</p><br><p>如果有疑问，可以随时回到属于你的“安全第一”的指导方针，这无论如何都是不会错的。</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-208ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/208ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/208ver/">JavaScript-内置对象-2:数组的内置对象是shenmegui?</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章介绍了数组内置对象的以下内置对象,可以复制代码保存到本地文件后观看哦</p><br><blockquote><br><ol><br><li>数组对象之长度对象</li><br><li>转换数组为字符串</li><br><li>数组的元素插入</li><br><li>数组之排序</li><br><li>数组之 相加</li><br><li>数组之 插入 替换 删除</li><br><li>数组之 位置</li><br><li>数组之迭代方法</li><br><li>归并数组</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-内置对象-2&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function soulArr(){<br>        //数组对象<br><br>        //数组对象之长度对象<br>        var soul_arr1=[“hello”,”soul”,”i\’m”,”soul seeker”]//这里使用了转义字符\’<br>        console.log(“soul_arr1长度是多少”+soul_arr1.length);//soul_arr1有四个元素输出4<br>        soul_arr1.length=3;//设置长度会删除后面的元素<br>        console.log(“设置长度是3,删除了最后一个长度,那么现在数组内容是:”+soul_arr1);<br>        soul_arr1[5]=”new soul”;<br>        console.log(“新增加了一个元素,那么现在数组内容是:”+soul_arr1);//hello,soul,i’m,,,new soul  中间多出了两个逗号 是因为我们在上次设置了长度为3 然后我们又在第5个添加了元素, 所以中间没有值要写逗号<br><br>        soul_arr2=[“hello”,”soul”];<br>        soul_arr2[soul_arr2.length]=”seeker”;<br>        console.log(“在数组最后添加一个元素”+soul_arr2);<br>        soul_arr2[soul_arr2.length-1]=”new seeker”//更改数组最后一个元素内容 为什么是-1 因为长度是2 但是数组从0开始 所以要-1<br>        console.log(“更改数组最后一个元素内容”+soul_arr2);<br><br>        //转换数组为字符串<br>        console.log(“转换数组为字符串”+soul_arr2.toString());<br>        console.log(“使用不同的符号来作为数组转为字符串的分隔符”+soul_arr2.join(“||”));<br><br>        //数组的元素插|入<br>        var soul_arr3=[“hello”];<br>        soul_arr3.push(“soul”,”seeker”);<br>        soul_arr3[3]=”new soul”;//稍微理解一下 数组是从0开始0,1,2(在最后添加了两个元素),[3]就是第4个元素<br>        console.log(“在数组的最后添加元素”+soul_arr3);<br>        soul_arr3.pop()<br>        console.log(“移除了最后一个元素”+soul_arr3);<br>        var fsoul_arr3=soul_arr3.shift();//取得数组的第一项并且删除第一项<br>        console.log(“数组取出的第一项是:”+fsoul_arr3+”|现在数组内容为:”+soul_arr3);<br>        var f1soul_arr3=soul_arr3.shift();//再取出第一项<br>        console.log(“数组取出的第一项是:”+f1soul_arr3+”|现在数组内容为:”+soul_arr3);<br>        soul_arr3.push(“new seeker”,”new shenshi”,”new hello”);//添加几个元素<br>        var nsoul_arr3=soul_arr3.unshift(“ok”,”yes”);<br>        console.log(“在数组前端推入两项 内容是:”+nsoul_arr3+”|当前数组内容为:”+soul_arr3);<br><br>        //数组之排序<br>        var soul_arr4=[“b”,”a”,”d”,”c”];<br>        soul_arr4.sort();//从低到高排序<br>        console.log(“从低到高排序”+soul_arr4);<br>        soul_arr4.reverse();//翻转数组排序<br>        console.log(“翻转数组排序”+soul_arr4);<br>        //sort排序有一个问题 在进行比较时 因为9位于15前面 所以会把9放后面<br>        //…下文数组不是排序好的嘛..为何还要多此一举<br>        var soul_arr5 =[5,9,15,20,25];<br>        soul_arr5.sort();<br>        console.log(“排序正确的数组再进行排序:”+soul_arr5);<br>        //怎么解决呢？编写了一个函数来判断<br>        soul_arr5.sort(compaer);//利用 -1 1 0就解决了<br>        console.log(“解决后:”+soul_arr5);//从低到高<br><br>        //数组之 相加<br>        var soul_arr6=[“hello”,”world”];<br>        var soul_arr7=[“none”];<br>        soul_arr6 += soul_arr7;//直接相加会发现会把数组转换为字符串再进行相加<br>        console.log(“直接相加”+soul_arr6+”类型”+typeof soul_arr6);<br><br>        var soul_arr6=[“我是一”,”我是二”,”我是三”,”我是四”];<br>        var soul_arr7=[“我是六”,”我是七”];<br>        var soul_arr8=soul_arr6.concat(soul_arr7);//相当于复制了一份 然后再在数组末尾插入soul_arr7 不会破坏原来的数组<br>        console.log(“在数组末尾插入一个数组”+soul_arr8);<br>        //数组之 插入 替换 删除<br>        //删除<br>        var soul_arr9=[“我是0”,”我是1”,”我是2”,”我是3”,”我是4”];<br>        var del_soul_arr9=soul_arr9.splice(0,2);//删除第一项与第二项 0与2之间不就是第一项和第二项嘛？<br>        console.log(“删除的数组为:”+del_soul_arr9+”当前数组内容为:”+soul_arr9);<br>        //插入<br>        var add_soul_arr9=soul_arr9.splice(2,0,”我是在\’我是4\’之前插入的”,”再插入一个”);//从第二项插入,因为上面删除了两项 所以第二项应该是”我是4”<br>        console.log(“插入的元素为:”+add_soul_arr9+”|当前数组内容为:”+soul_arr9);<br>        //替换<br>        var soul_arr10=[“我是0”,”我是1”,”我是2”,”我是3”,”我是4”];<br>        var rep_soul_arr10=soul_arr10.splice(0,1,”我是插入的”,”我是插入的-2”);<br>        console.log(“删除的元素为:”+rep_soul_arr10+”|当前数组内容:”+soul_arr10);//替换”我是0”后再插入一个元素<br><br>        //数组之 位置<br>        //从正向开始查找<br>        var soul_arr10=[“1”,4,”1”,1,2,3,”1”];<br>        console.log(“正向查找:”+soul_arr10.indexOf(“1”));//indexOf查找时会使用全等查找 并且查到到了后会输出元素在数组的位置<br>        //反向查找<br>        console.log(“反向查找:”+soul_arr10.lastIndexOf(“1”));//反向查找会查找到最远的那个<br>        //还有分段查询<br>        console.log(“从1开始查询而非0(数组第一个元素)”+soul_arr10.indexOf(“1”,1));//结果是2<br>        console.log(“从反向的6开始查询而非反向的0|”+soul_arr10.lastIndexOf(“1”,6))//结果是6<br><br>        //数组之迭代方法<br>        var soul_arr11=[1,2,3,4,5,6,7];<br>        //将大于5的元素组成数组<br>        var soul5_arr11=soul_arr11.filter(function(num){<br>            return(num&gt;5);<br>        })<br>        console.log(“新组成数组:”+soul5_arr11+”|原来的数组”+soul_arr11);//发现不会影响到原来的数组<br>        //将每个数组乘以2<br>        var soul2_arr11=soul_arr11.map(function(num){<br>            return(num*2);<br>        })<br>        console.log(“乘以后的数组:”+soul2_arr11);<br><br>        //归并数组<br>        //数组内容进行相加<br>        var soul_arr12=soul_arr11.reduce(function(q,h){//reduce是从正向开始相加 也可以从反向开始<br>            return(q+h);<br>        })//传递两个参数 q是前一个值,h是当前值<br>        console.log(“相加结果:”+soul_arr12);<br>        var soul_arr13=soul_arr11.reduceRight(function(q,h){<br>            return(q+h);<br>        })<br>        console.log(“反向相加,因为是简单相加所以都一样”+soul_arr13);<br><br><br>    }<br>    function compaer(a,b){<br>        if(a&gt;b){//比较两个值 如果前面的大于后面的<br>            return 1;//把后面的放前面 所以返回1<br><br>        }<br>        if(a&lt;b){//比较两个值 如果前面的小于后面的<br>            return -1;//把前面的放后面 返回-1<br><br>        }<br>        if(a=b){//如果相等<br>            return 0;//不做更改<br>        }<br>    }<br><br><br><br><br>    window.onload=function(){<br>        soulArr();<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,284 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-27ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/27ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/27ver/">产品前端构架之模块化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:模块组织JavaScript</pre></p>
+<pre><code>二:模块
+    -封装实现
+    -暴露接口
+    -声明依赖
+
+三:反模式
+    -math.js
+        <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        };
+        <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
+        }
+        -封装无
+        -接口结构不明显
+    -caculator.js
+        <span class="keyword">var</span> action=<span class="string">"add"</span>
+        <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> add(a,b)
+            }
+        }
+        -没有依赖声明
+        -使用全局状态
+
+四:字面量
+-math.js
+    <span class="keyword">var</span> math={
+        add:<span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        },
+        sub:<span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
+        }
+    }
+    -结构性好
+    -无访问控制
+- caculator.js
+    <span class="keyword">var</span> caculator={
+        action:<span class="string">"add"</span>,
+        compute:<span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
+            }
+        }
+    }
+    -同样没有依赖声明
+
+五:IIFE
+    -caculator-<span class="number">1.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="keyword">return</span> {
+                compute: <span class="function"><span class="keyword">function</span> <span class="params">(a,b)</span></span>{
+                    <span class="keyword">switch</span>(action){
+                        <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                        <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
+                    }
+                }
+            }
+        })()
+    -访问控制
+    -无依赖声明
+
+    -caculator-<span class="number">2.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">(m)</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                <span class="keyword">switch</span>(action){
+                    <span class="keyword">case</span> <span class="string">"add"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                    <span class="keyword">case</span> <span class="string">"sub"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                }
+            }
+            <span class="keyword">return</span>{
+                compute:compute
+            }
+        })(math)
+        -显示了依赖声明
+        -仍然污染了全局变量
+        -必须手动进行依赖管理
+
+    六:命名空间
+        -math.js
+            <span class="keyword">namespace</span>(<span class="string">"math"</span>,[],<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+                <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a+b};
+                <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a-b}
+                <span class="keyword">return</span>{
+                    add:add,
+                    sub:sub
+                }
+            })
+            -无依赖声明
+
+        -caculator.js
+            <span class="keyword">namespace</span>(<span class="string">"caculator"</span>,[<span class="string">"math"</span>].<span class="keyword">function</span>(m){
+                <span class="keyword">var</span> action = <span class="string">"add"</span>
+                <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                    <span class="keyword">return</span> m[action](a,b)
+                }
+                <span class="keyword">return</span>{
+                    compute:compute
+                }
+            })
+            -依赖声明
+            -依赖注入&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-6ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/6ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/6ver/">angular新手入门必注意的一点！Argument &amp;#8216;xxx&amp;#8217; is not a function, got undefined,初学Angular的第一个坑</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转自BLOG：<a href="http://www.cnblogs.com/YikaJ/p/4226313.html" target="_blank" rel="external">http://www.cnblogs.com/YikaJ/p/4226313.html</a></p><br><p>图片加载不出请大家转自原文BLOG进行观看</p><br><p>Angular也是早有听说了啊，一直没闲下功夫研究，趁着放假，学一学。慕课网（www.imooc.com）里有一套教程，还是很不错的。但是真正上手编码的时候就发现，尼玛！例子都跑不起来，全是报错，Argument ‘xxx’ is not a function, got undefined是最显眼的错误。我们先来看看教程中的“错误”代码是怎样的。</p><br><p>来一个最简单的 Hello World 吧！</p><br><p>&nbsp;</p><br><p>我们一般接触到的第一个入门教程都是类似与这样的，代码简单。我们有个<em>ng-app</em>作为Angular的启动口，然后<em>ng-controller=”helloCtrl”</em>控制p标签。View层，则用双花括号出入数据greeting的message值。然后在下面的script定义了一个helloCtrl的函数，并为$scope.greeting赋了值。这一切看起来都是那么自然，想象中，浏览器就该出现，”Hello, World!”。可惜的是，浏览器给了我们这样的回复。</p><br><p>没错，这就是开头所说的那个。于是我弄不懂，为什么老师可以跑通，我却跑不通，大家都是Angular-1.3.0。国内不给力，很难找到答案，最后去StackOverflow找到了。<strong>因为从Angular-1.3.0 beta15开始，Angular不再支持全局的Controller！</strong>那么问题来了，如何在Angular里定义模块呢？</p><br><p>当然这篇blog是为了让大家学习Angular的时候别遇到闭门羹，我大致说一下。AngularJs里，有一个angular.module，模块机制就是靠这个来加载的。我们来看看如何可以重新出现梦寐以求的“Hello World”。</p><br><p>我们看看，改了什么，<em>ng-app=”myApp”</em>首先给入口赋了名字，然后再下面进行模块的初始化。在angular.module(String, moduleArray)函数里，第一个String参数是该模块的名字，第二个参数是所依赖的模块（这里暂时用不着），返回了myApp这个模块，然后再通过模块的controller方法定义helloCtrl控制器即可。</p><br><p>&nbsp;</p><br><p>当然我们要解释依赖模块的话，我们可以看一下稍作修改的第三版Demo</p><br><p>&nbsp;</p><br><p>仅仅是多定义一个helloController模块，这样myApp，就可以仅仅作为启动口，而不会混杂着控制器。我们可以定义多个js文件，清晰明确的通过模块梳理整个项目的结构。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-4ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/4ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/4ver/">angular学习笔记-个人初步学习感受</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h3>argular初始化</h3><p></p>
+<p><pre><code>//创建一个div 并在div上声明一个初始化属性<br>//ng-app:初始化<br>//ng-init:声明初始化的一些属性<br>//通过来输出绑定的属性<br>&lt;div ng-app=”” ng-init=”name=’hello’;data=[‘argular’,’one’]”&gt;<br> &lt;br&gt;<br><br>&lt;/div&gt;<br></code></pre></p>
+<p></p><h3><a id="user-content-argular绑定-ng-model" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#argular绑定-ng-model" target="_blank" rel="external"></a>argular绑定 ng-model</h3><p></p>
+<p>ng-model把相关处理事件绑定到指定标签上， 这样我们就可以不用在手工处理相关事件(比如change等)的条件下完成对数据的展现需求。</p><br><pre><code>//通过ng-model绑定数据 然后再通过输出<br>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;br&gt;<br>你输入的值为:<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-解析后生成数据-ng-bind" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#解析后生成数据-ng-bind" target="_blank" rel="external"></a>解析后生成数据 ng-bind</h3><br><p>在angular未解析完成之前会暴露模板比如这种字符串 所以可以采用ng-bind来实现绑定 ng-bind绑定的是这个值/数据 也就是下文的name, name可以算是一个数据了</p><br><pre><code>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;p&gt;你输入的是&lt;span ng-bind=”name”&gt;&lt;/span&gt;&lt;/p&gt;<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-单击事件-ng-click" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#单击事件-ng-click" target="_blank" rel="external"></a>单击事件 ng-click</h3><br><p>ng-hide=”true”，设置HTML元素不可见。</p><br><pre><code>&lt;div ng-app=”” ng=init=”hide=false”&gt;<br>        &lt;button ng-click=”hide=!hide”&gt;click me&lt;/button&gt;<br>        &lt;div ng-hide=”hide”&gt;<br>            input you name&lt;input ng-model=”inputvalue”&gt;<br>            &lt;br&gt;<br>            &lt;span ng-bind=”inputvalue”&gt;&lt;/span&gt;<br>        &lt;/div&gt;<br>&lt;div&gt;<br></code></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-14ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -285,10 +563,10 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 
 
   
-    <article id="post-6ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-17ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/6ver/" class="article-date">
+      <a href="/2015/10/21/17ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -302,7 +580,7 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/6ver/">angular新手入门必注意的一点！Argument &amp;#8216;xxx&amp;#8217; is not a function, got undefined,初学Angular的第一个坑</a>
+      <a class="article-title" href="/2015/10/21/17ver/">CSS布局之两列布局</a>
     </h1>
   
 
@@ -311,7 +589,234 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自BLOG：<a href="http://www.cnblogs.com/YikaJ/p/4226313.html" target="_blank" rel="external">http://www.cnblogs.com/YikaJ/p/4226313.html</a></p><br><p>图片加载不出请大家转自原文BLOG进行观看</p><br><p>Angular也是早有听说了啊，一直没闲下功夫研究，趁着放假，学一学。慕课网（www.imooc.com）里有一套教程，还是很不错的。但是真正上手编码的时候就发现，尼玛！例子都跑不起来，全是报错，Argument ‘xxx’ is not a function, got undefined是最显眼的错误。我们先来看看教程中的“错误”代码是怎样的。</p><br><p>来一个最简单的 Hello World 吧！</p><br><p>&nbsp;</p><br><p>我们一般接触到的第一个入门教程都是类似与这样的，代码简单。我们有个<em>ng-app</em>作为Angular的启动口，然后<em>ng-controller=”helloCtrl”</em>控制p标签。View层，则用双花括号出入数据greeting的message值。然后在下面的script定义了一个helloCtrl的函数，并为$scope.greeting赋了值。这一切看起来都是那么自然，想象中，浏览器就该出现，”Hello, World!”。可惜的是，浏览器给了我们这样的回复。</p><br><p>没错，这就是开头所说的那个。于是我弄不懂，为什么老师可以跑通，我却跑不通，大家都是Angular-1.3.0。国内不给力，很难找到答案，最后去StackOverflow找到了。<strong>因为从Angular-1.3.0 beta15开始，Angular不再支持全局的Controller！</strong>那么问题来了，如何在Angular里定义模块呢？</p><br><p>当然这篇blog是为了让大家学习Angular的时候别遇到闭门羹，我大致说一下。AngularJs里，有一个angular.module，模块机制就是靠这个来加载的。我们来看看如何可以重新出现梦寐以求的“Hello World”。</p><br><p>我们看看，改了什么，<em>ng-app=”myApp”</em>首先给入口赋了名字，然后再下面进行模块的初始化。在angular.module(String, moduleArray)函数里，第一个String参数是该模块的名字，第二个参数是所依赖的模块（这里暂时用不着），返回了myApp这个模块，然后再通过模块的controller方法定义helloCtrl控制器即可。</p><br><p>&nbsp;</p><br><p>当然我们要解释依赖模块的话，我们可以看一下稍作修改的第三版Demo</p><br><p>&nbsp;</p><br><p>仅仅是多定义一个helloController模块，这样myApp，就可以仅仅作为启动口，而不会混杂着控制器。我们可以定义多个js文件，清晰明确的通过模块梳理整个项目的结构。</p>
+        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type=”text/css”&gt;<br>            /<em>一列定宽一列自适应之float+margin
+            </em>{padding: 0;margin: 0;}<br>                .left{<br>                    float: left;<br>                    width: 100px;<br>                    background: red;<br>                }<br>                .right{<br>                    margin-left: 100px; /<em>往右缩进100px; 间距通过margin-left设置<br>                    background: blue;<br>                }</em>/</pre></p>
+<pre><code>            /*二:一列定宽一列自适应之float+margin+fix
+            .left{
+                float: left;
+                width: <span class="number">100</span>px;
+                position: relative;  提高层级
+            }
+            .right{
+                margin-left: <span class="number">120</span>px;
+            }
+            .right-fix{
+                float:right;
+                width: <span class="number">100</span>%
+                margin-left:-<span class="number">100</span>px;
+            }*/
+
+
+        /*三:一列定宽一列自适应之float+overflow
+        .left{
+            float:left;
+            width: <span class="number">100</span>px;
+            margin-right:<span class="number">20</span>px; /*间距设置在left上
+        }
+        .right{
+            overflow: hidden; /*触发bfc模式,里面内容跟外界隔离,实现所需布局
+        }*/
+
+        /*四:一列定宽一列自适应之<span class="keyword">table</span>
+        .parent{
+            <span class="keyword">display</span>: <span class="keyword">table</span>; 宽度默认为auto
+            width: <span class="number">100</span>%; 设置宽度为<span class="number">100</span>%
+            <span class="keyword">table</span>-layout: fixed; 加速<span class="keyword">table</span>渲染，实现了布局优先
+        }
+        .left,.right{
+            <span class="keyword">display</span>:<span class="keyword">table</span>-cell; left和right变为表格
+        }
+        .left{
+            width:<span class="number">100</span>px;
+            padding-right: <span class="number">20</span>px;设置间距
+        }*/
+
+
+    /*五:一列定宽一列自适应之flex
+            .parent{
+                <span class="keyword">display</span>: flex;
+            }
+            .left{
+                width: <span class="number">100</span>px;
+                margin-right:<span class="number">20</span>px ;
+            }
+            .right{
+                flex:<span class="number">1</span>;
+            }*/
+
+
+    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
+        一:一列定宽一列自适应之float+margin
+            -优点:容易理解
+            -IE6文字会往右缩进<span class="number">3</span>px 通过在left加margin-right可以解决
+            -在right子元素上清除浮动.会在right元素上空出left高度的一个空白
+
+        二:一列定宽一列自适应之float+margin+fix
+            -不会存在<span class="number">3</span>px问题
+            -不会存在right子元素上清除浮动也不会影响
+            -right-fix会盖在left上面，所以需要提高left层级
+
+        三:一列定宽一列自适应之float+overflow
+            -IE6不支持
+
+        四:一列定宽一列自适应之<span class="keyword">table</span>
+            -代码比较多- -
+
+        五:一列定宽一列自适应之flex
+            -不兼容低版本
+            -性能会有一个问题(flex布局会涉及到计算)
+            -适用于小范围布局
+
+
+    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
+&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
+        &amp;<span class="keyword">lt</span>;div class="left"&amp;<span class="keyword">gt</span>;
+            &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;left&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;&amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;left&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
+        &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+        &amp;<span class="keyword">lt</span>;div class="right-fix"&amp;<span class="keyword">gt</span>;
+            &amp;<span class="keyword">lt</span>;div class="right"&amp;<span class="keyword">gt</span>;
+                &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;right&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
+                &amp;<span class="keyword">lt</span>;p&amp;<span class="keyword">gt</span>;right&amp;<span class="keyword">lt</span>;/p&amp;<span class="keyword">gt</span>;
+            &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+        &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/html&gt;<br></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-26ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/26ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/26ver/">产品前端构架之模块系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一：模块系统<br>                -依赖管理 加载/分析/注入/初始化<br>                -决定模块写法</pre></p>
+<pre><code>二:Commonjs/module 非浏览器环境的js
+    -<span class="ruby">math.js
+</span>        function add(a,b){
+            return a+b;
+        };
+        function sub(a,b){
+            return a-b
+        }
+        exports.add=add
+        exports.sub=sub
+    -<span class="ruby">caculator.js
+</span>        var math=require("./math");
+        function Caculator(container){
+            this.add=container.querySelector("xx")
+<span class="comment">            //do sth</span>
+        }
+        exports.Caculator=Caculator
+        优点
+        -<span class="ruby">依赖管理程度可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">运行时指出，模块定义非常简单
+</span>        -<span class="ruby">文件级的模块作用域隔离
+</span>        -<span class="ruby">可以处理循环依赖
+</span>        缺点
+        -<span class="ruby">不是标准组织的规范
+</span>        -<span class="ruby">同步的<span class="keyword">require</span>，没有考虑浏览器环境
+</span>
+    三:AMD
+        -<span class="ruby">math.js
+</span>            define([],function(){
+                function add(a,b){
+                    return a+b
+                }
+                function sub(a,b){
+                    return a-b
+                }
+<span class="comment">                //接口暴露</span>
+                return{
+                    add:add,
+                    sub:sub
+                }
+            })
+
+        -<span class="ruby">caculator.js
+</span><span class="comment">        //依赖声明</span>
+            define(["./math"],function(math){
+<span class="comment">                //do sth</span>
+                return{
+                    Caculator:Caculator
+                }
+            })
+        优点
+        -<span class="ruby">依赖管理成熟可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">转为异步<span class="constant">IO</span>环境打造，适合浏览器环境
+</span>        -<span class="ruby">支持类似<span class="constant">Commonjs</span>的书写方法
+</span>        -<span class="ruby">通过插件<span class="constant">API</span>可支持加载非<span class="constant">JS</span>资源
+</span>        -<span class="ruby">成熟的打包构建工具
+</span>        缺点
+        -<span class="ruby">模块定义繁琐，需要额外嵌套
+</span>        -<span class="ruby">只是库级别的支持，需要引入额外库
+</span>        -<span class="ruby">无法处理循环依赖
+</span>        -<span class="ruby">无法实现条件加载
+</span>
+    四:systemjs
+        -<span class="ruby">支持加载<span class="constant">AMD</span>
+</span>        -<span class="ruby">支持加载<span class="constant">Commonjs</span>
+</span>        -<span class="ruby">支持加载<span class="constant">ES6</span>
+</span>        -<span class="ruby">支持加载任何资源
+</span>    System.paths={
+        "app/*":"../es6/*.js"
+    }
+    System.import("app/caculator").then(function(c){
+        new c.Caculator(document.getElementById("caculator"))
+    })&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -425,6 +930,168 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 </span>    -<span class="ruby">模块化
 </span>    -<span class="ruby">注释&lt;<span class="regexp">/pre&gt;</span></span>
 </code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-34ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/34ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/34ver/">DOM编程艺术之Ajax</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">AJAX<br>        一:Ajax概念<br>            -异步JavaScriptXML（JSON,TXT…）</pre></p>
+<pre><code>二:Ajax通信流程
+    -XHR
+        -readState:<span class="number">0</span>;
+        -sratus:
+        -responseText:
+    | open()还未发送请求
+    v
+        -readyState:<span class="number">1</span>;
+    |send()发送y请求
+    v        y
+        -readyState:<span class="number">2</span>
+    |浏览器返回数据 y
+    v        y
+        -readyState:<span class="number">3</span>;
+    |结束请求    y
+    v        y
+        -readyState:<span class="number">4</span>;
+        -stratus:<span class="number">200</span>;
+        -responseText:&amp;lt;!DOCTYPE HTML&amp;gt; <span class="comment">//相应返回值</span>
+
+三:Ajax调用示例
+    <span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建XHR对象</span>
+    <span class="comment">//处理返回数据</span>
+    xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>{
+        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>){
+            <span class="keyword">if</span>((xhr.status&amp;gt;=<span class="number">200</span>&amp;amp;&amp;amp;xhr.status&amp;lt;<span class="number">300</span>)||xhr.status==<span class="number">304</span>){
+                callback(xhr.responseText)
+            }<span class="keyword">else</span>{
+                alert(<span class="string">"Request was unsuccessful:"</span>+xhr.status)    
+            }
+
+        }
+    }
+
+    <span class="comment">//发送请求</span>
+    xhr.open(<span class="string">"get"</span>,<span class="string">"example.json"</span>,<span class="literal">true</span>)
+    xhr.setRequestHeader(<span class="string">"myHeader"</span>,<span class="string">"myValue"</span>);
+    xhr.send(<span class="literal">null</span>)
+
+四:方法
+    -xhr.open(method,url[,<span class="keyword">async</span>=<span class="literal">true</span>]);
+              请求方法 请求路径 默认为<span class="literal">true</span>
+    -xhr.setRequestHeader(header   ,    value)
+                           Content-Type  编码
+    -xhr.send([data=<span class="literal">null</span>])<span class="comment">//正式向服务器端发送请求</span>
+                <span class="built_in">String</span>
+                FormData
+
+    -发请一个表单请求
+    -xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>)
+    -xhr,send(<span class="string">"FormData"</span>)
+
+五:请求参数序列化
+    -xhr.open(<span class="string">"get"</span>,<span class="string">"example.json?"</span>+<span class="string">"name1=value1&amp;amp;name2=value2"</span>,<span class="literal">true</span>)
+    -如果查询参数是对象则应该处理一下
+        funcrion serialize(data){
+            <span class="keyword">if</span>(!data)<span class="keyword">return</span> <span class="string">""</span>;
+            <span class="keyword">var</span> pairs=[];
+            <span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> data) {
+                <span class="keyword">if</span>(!data.hasOwnProperty(name))<span class="keyword">continue</span>;
+                <span class="keyword">if</span>(<span class="keyword">typeof</span> data[name]===<span class="string">'function'</span>) <span class="keyword">continue</span>;
+                <span class="keyword">var</span> value=data[name].toString();
+                name=<span class="built_in">encodeURIComponent</span>(name);
+                value=<span class="built_in">encodeURIComponent</span>(value);
+                pairs.push(name+<span class="string">"="</span>+value);
+            }
+            <span class="keyword">return</span> pairs.join(<span class="string">"&amp;amp;"</span>)
+        }
+
+六:GET请求
+    -<span class="keyword">var</span> url=<span class="string">"example.json?"</span>+serialize(formdata);
+    xhr.open(<span class="string">'get'</span>,url,<span class="literal">true</span>);
+    xhr.send(<span class="literal">null</span>);
+
+七:POST请求
+    -xhr.open(<span class="string">'post'</span>,<span class="string">"example.json"</span>,<span class="literal">true</span>);
+    xhr.send(serialize(formdata))
+
+八:同源策略
+    -两个页面拥有相同的协议，端口，主机，那么这两个页面属于同一个源
+
+
+九:跨域资源访问
+    -不满足同源策略的资源访问，叫跨域资源访问
+    -W3C定义了CORS
+    -现代浏览器已经实现了对CORS的支持
+
+十:其他跨域技术
+    -Frame代理
+    -JSONP
+    -Comet
+    -...
+
+十一:JSONP
+    -<span class="built_in">JSON</span> <span class="keyword">with</span> padding （填充式<span class="built_in">JSON</span>）
+    -&amp;lt;script&amp;gt;可以跨域
+    -请求一段js代码
+
+    <span class="function"><span class="keyword">function</span> <span class="title">handleResponse</span>(<span class="params">response</span>)</span>{
+        alert(<span class="string">"my name is"</span>+response.name)
+    }
+    <span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">"script"</span>)
+    script.src=<span class="string">"http://127.0.0.1:3000/json?callback=handleResponse"</span>
+    <span class="built_in">document</span>.body.insertBefore(script,<span class="built_in">document</span>.body.firstChild);
+    handleResponse({name:<span class="string">'NetEase'</span>})
+</code></pre><p></p>
+<p>&nbsp;</p>
 
 
 
@@ -608,361 +1275,6 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 
 
   
-    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/33ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
-<pre><code>        }
-        .child{
-            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
-        }*/
-
-        /*<span class="keyword">table</span>+margin
-
-        .child{
-            <span class="keyword">display</span>: <span class="keyword">table</span>;
-            margin:<span class="number">0</span> auto;
-        }
-        */
-
-    /*    absolute+transform*/
-
-        /*.parent{
-            position: relative;
-        }
-        .child{
-            position: absolute; /*宽度由内容决定
-            left:<span class="number">50</span>%;
-            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
-
-
-        }
-        */
-
-/*        flex+justify-content*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; /*宽度为内容宽度
-            justify-content: center;
-        }
-
-        /*.child{
-                margin: <span class="number">0</span> auto
-        }  同样可以实现水平居中*/
-
-
-        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
-
-        /*.parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
-        }*/
-
-        /*垂直居中之absolute+transform
-        .parent{
-            position: relative;
-        }
-
-        .child{
-            position: absolute;
-            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
-            transform:translateY(-<span class="number">50</span>%);
-        }*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; 高度撑满整个容器
-            align-items: center; 垂直居中
-        }*/
-
-        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-
-        .parent{
-            text-align: center;
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle;
-        }
-
-        .child{
-            <span class="keyword">display</span>: inline-block;
-        }*/
-
-/*        居中之absolute+transform*/
-
-        /*.parent{
-            position:relative;
-        }
-        .child{
-            position:absolute;
-            left:<span class="number">50</span>%;
-            top:<span class="number">50</span>%;
-            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
-        }
-        */
-
-        居中之flex+justify-content+align-items
-        .parent{
-            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
-            justify-content: center; /*水平居中*/
-            align-items: center;/*垂直居中*/
-        }
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        居中布局 父元素 子元素宽/高度不固定
-
-        一：水平居中之inline-block+text-align
-            -兼容性非常好
-            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
-            -child会继承text-align:center，需要对子元素进行reset
-
-        二:水平居中之<span class="keyword">table</span>+margin
-            -<span class="keyword">table</span>元素宽度为内容宽度
-            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
-
-        三:水平居中之absolute+transform
-            -脱离文档流 不会对其他元素产生影响
-            -不兼容低版本IE
-
-        四:水平居中之flex+justify-content
-            -.child{
-                margin: <span class="number">0</span> auto
-            }
-            -不兼容低版本IE
-
-        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
-            -兼容到IE8以上
-            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
-
-        六:垂直居中之absolute+transform
-            -子元素不会干扰其他元素
-
-        七:垂直居中之flex+align-items
-            -不兼容低版本IE
-
-        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-            -兼容性比较高
-
-        九:居中之absolute+transform
-            -child不会影响其他元素
-            -不兼容性低版本IE
-
-        十:居中之flex+justify-content+align-items
-            -只需要设置parent
-            -不兼容低版本IE
-
-        十一:总结
-            -了解到CSS中的值和特性
-            -对问题进行分解
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
-         DOME
-         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-
-
-
-
-
-
-
-
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-35ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/35ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/35ver/">DOM编程艺术之数据通信-HTTP协议</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:HTTP<br>            -客户端向服务器发送包含命令和URL的HTTP请求报文<br>            -服务器返回一个包含事务结果的HTTP响应报文</pre></p>
-<pre><code>二:请求报文格式
-    -<span class="ruby">头行 
-</span>        -<span class="ruby"><span class="constant">GET</span> music.<span class="number">163</span>.com <span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>          方式  主机地址        版本
-    -<span class="ruby">头部
-</span>        -<span class="ruby">许多键值对构成
-</span>            -<span class="ruby"><span class="constant">Accept</span><span class="symbol">:</span>浏览器端接受的类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Encoding</span><span class="symbol">:</span>浏览器端编码类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Language</span><span class="symbol">:</span>浏览器端可以接受的语言类型
-</span>            -<span class="ruby"><span class="constant">Cache</span>-<span class="constant">Control</span><span class="symbol">:</span>浏览器是否可以缓存
-</span>            -<span class="ruby"><span class="constant">Connection</span><span class="symbol">:</span>是否持续链接
-</span>            -<span class="ruby"><span class="constant">Cookie</span><span class="symbol">:</span>浏览器向服务器端发送的cookie
-</span>            -<span class="ruby"><span class="constant">Host</span><span class="symbol">:</span>主机地址
-</span>            -<span class="ruby"><span class="constant">Pragma</span><span class="symbol">:</span>
-</span>            -<span class="ruby"><span class="constant">User</span>-<span class="constant">Agent</span><span class="symbol">:</span>浏览器版本
-</span>
-三:响应报文格式
-    -<span class="ruby">头行
-</span>        -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>  <span class="number">200</span>    <span class="constant">OK</span>
-</span>         HTTP版本  状态码    HTTP状态码描述
-    -<span class="ruby">头部
-</span>        -<span class="ruby"><span class="constant">Expires</span><span class="symbol">:</span>缓存有效时间
-</span>        -<span class="ruby"><span class="constant">Server</span><span class="symbol">:</span>服务器端<span class="constant">HTTP</span>服务器
-</span>    -<span class="ruby">主体
-</span>        -<span class="ruby">完整的<span class="constant">XML</span>页面
-</span>
-四:常用HTTP方法
-    -<span class="ruby"><span class="constant">GET</span>
-</span>        -<span class="ruby">从服务器获取一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">POST</span>
-</span>        -<span class="ruby">向服务器发送需要处理的数据 包含主体
-</span>    -<span class="ruby"><span class="constant">PUT</span>
-</span>        -<span class="ruby">将请求的主体部分储存在服务器上 包含主体
-</span>    -<span class="ruby"><span class="constant">DELETE</span>
-</span>        -<span class="ruby">从服务器上删除一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">HEAD</span>
-</span>        -<span class="ruby">只从服务器获取文档的首部 不包含主体
-</span>    -<span class="ruby"><span class="constant">TRACE</span>
-</span>        -<span class="ruby">对可能经过代理服务器传送到服务器上的报文进行追踪 不包含主体
-</span>    -<span class="ruby"><span class="constant">OPTIONS</span>
-</span>        -<span class="ruby">决定可以在服务器上执行哪些方法 不包含主体
-</span>
-五:URL构成
-    -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
-</span>    -<span class="ruby">protocol
-</span>        -<span class="ruby">http
-</span>    -<span class="ruby">host
-</span>        -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
-</span>    -<span class="ruby">pathname
-</span>        -<span class="ruby">index.html
-</span>    -<span class="ruby">hostname
-</span>        -<span class="ruby">www.<span class="number">163</span>.com
-</span>    -<span class="ruby">port
-</span>        -<span class="ruby"><span class="number">8080</span>
-</span>    -<span class="ruby">search
-</span>        -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
-</span>    -<span class="ruby">hash
-</span>        -<span class="ruby">news
-</span>
-六:HTTP版本
-    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>
-</span>        -<span class="ruby"><span class="number">1991</span>年 <span class="constant">HTTP</span>原型，有很多设计缺陷
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>
-</span>        -<span class="ruby">很快取代<span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>，成为第一个广泛应用的版本
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>+
-</span>        -<span class="ruby">添加持久的keep-alive连接，虚拟主机支持，以及代理连接支持，成为非官方的事实标准
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>        -<span class="ruby">校正了结构性缺点，明确语义，引入重要的性能优化措施，删除不好特性，是当前使用的版
-</span>
-七:常见HTTP状态码
-    -<span class="ruby"><span class="number">200</span>
-</span>        -<span class="ruby">请求成功。一般用于<span class="constant">GET</span>和<span class="constant">POST</span>方法 原因短语<span class="symbol">:OK</span>
-</span>    -<span class="ruby"><span class="number">301</span>
-</span>        -<span class="ruby">资源移动，所请求资源自动到新的<span class="constant">URL</span>，浏览器自动跳转到新的<span class="constant">URL</span> moved <span class="constant">Permanently</span>
-</span>    -<span class="ruby"><span class="number">304</span>
-</span>        -<span class="ruby">未修改。所请求资源未修改，浏览器读取缓存数据 <span class="constant">Not</span> <span class="constant">Modified</span>
-</span>    -<span class="ruby"><span class="number">400</span>
-</span>        -<span class="ruby">请求语法错误，服务器无法理解 <span class="constant">Bad</span> <span class="constant">Request</span>
-</span>    -<span class="ruby"><span class="number">404</span>
-</span>        -<span class="ruby">未找到资源，可以设置个性<span class="number">404</span>页面 <span class="constant">Not</span> <span class="constant">Found</span>
-</span>    -<span class="ruby"><span class="number">500</span>
-</span>        -<span class="ruby">内部服务器错误 <span class="constant">Internal</span> <span class="constant">Server</span> <span class="constant">Error</span></span>
-</code></pre><p></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-36ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1010,331 +1322,6 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
     }
     <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>)</span>{}
     init();<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
-</code></pre><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-37ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/37ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/37ver/">DOM编程艺术之BOM</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">    一:BOM<br>                -窗口对象模型<br>                -navigator<br>                    -浏览器信息<br>                -location<br>                    -浏览器定位和导航<br>                -history<br>                    -窗口浏览器历史<br>                -screen<br>                    -屏幕信息</pre></p>
-<pre><code>二:navigator
-    -<span class="ruby">浏览器信息
-</span>    -<span class="ruby">palform
-</span>        -<span class="ruby">运行在什么平台如<span class="constant">Win32</span>
-</span>    -<span class="ruby">userAgent
-</span>        -<span class="ruby">chrom
-</span>        -<span class="ruby">firefox
-</span>        -<span class="ruby"><span class="constant">IE</span>
-</span>三:location
-    -<span class="ruby">浏览器定位和导航
-</span>        -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
-</span>        -<span class="ruby">protocol
-</span>            -<span class="ruby">http
-</span>        -<span class="ruby">host
-</span>            -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
-</span>        -<span class="ruby">pathname
-</span>            -<span class="ruby">index.html
-</span>        -<span class="ruby">hostname
-</span>            -<span class="ruby">www.<span class="number">163</span>.com
-</span>        -<span class="ruby">port
-</span>            -<span class="ruby"><span class="number">8080</span>
-</span>        -<span class="ruby">search
-</span>            -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
-</span>        -<span class="ruby">hash
-</span>            -<span class="ruby">news
-</span>        -<span class="ruby">调用location会返回href
-</span>            -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/xxx.com/</span>
-</span>        -<span class="ruby">assign(url)
-</span>            -<span class="ruby">载入新的url，记录浏览历史
-</span>        -<span class="ruby">replace(url)
-</span>            -<span class="ruby">载入新的url，不记录浏览历史
-</span>        -<span class="ruby">reload()
-</span>            -<span class="ruby">重载当前页
-</span>
-四:history
-    -<span class="ruby">浏览器当前窗口的浏览历史
-</span>        -<span class="ruby">back()
-</span>        -<span class="ruby">forward();
-</span>        -<span class="ruby">go();<span class="regexp">//</span>负数后退 正数前进
-</span>五:screen
-    -<span class="ruby">屏幕信息
-</span>        -<span class="ruby">availHeight /<span class="regexp">/显示器可以用高度
-</span></span>        -<span class="ruby"><span class="regexp">height/</span><span class="regexp">/显示器高度
-</span></span>
-六:方法
-    -<span class="ruby"><span class="regexp">alert(),confirm(),prompt()/</span><span class="regexp">/三种对话框
-</span></span>    -<span class="ruby"><span class="regexp">setTimeout(),setInterval()/</span><span class="regexp">/计时器
-</span></span>    -<span class="ruby"><span class="regexp">open(),close()/</span><span class="regexp">/开新窗口，关闭窗口
-</span></span>
-七:三种对话框
-    -<span class="ruby"><span class="regexp">alert()/</span><span class="regexp">/确定按钮
-</span></span>    -<span class="ruby"><span class="regexp">confirm() /</span><span class="regexp">/确定返回true 取消返回false
-</span></span>    -<span class="ruby"><span class="regexp">prompt()/</span><span class="regexp">/输入框 返回用户输入的输入字符串
-</span></span>    -<span class="ruby"><span class="regexp">三种对话框都是阻塞用户进行浏览
-</span></span>
-八:开，关新窗口
-    -<span class="ruby"><span class="regexp">var w =window.open("url","name","width=400,height=350,status=yes,rezizable=yes")
-</span></span>    -<span class="ruby"><span class="regexp">父窗口调用w.close();
-</span></span>    -<span class="ruby"><span class="regexp">子窗口调用window.close();
-</span></span>
-九:事件
-    -<span class="ruby"><span class="regexp">load
-</span></span>        -<span class="ruby"><span class="regexp">文档和所有图片加载完毕时
-</span></span>    -<span class="ruby"><span class="regexp">unload
-</span></span>        -<span class="ruby"><span class="regexp">离开文档时
-</span></span>    -<span class="ruby"><span class="regexp">beforeunload
-</span></span>        -<span class="ruby"><span class="regexp">和unload类似，但他提供询问用户是否确定离开的机会
-</span></span>    -<span class="ruby"><span class="regexp">resize
-</span></span>        -<span class="ruby"><span class="regexp">拖动改变浏览器窗口大小
-</span></span>    -<span class="ruby"><span class="regexp">scroll
-</span></span>        -<span class="ruby"><span class="regexp">拖动滚动浏览器时</span></span>
-</code></pre><p></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-10ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/10ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/10ver/">CSS布局之响应式布局</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#响应式<br><br>##优点<br><br>-不用花更多的时间去做适配<br><br>##缺点<br><br>-不同设备会因设计而缺失一些元素<br><br>##viewport<br><br><code>&lt;br&gt;
-&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no&quot; /&amp;gt;&lt;br&gt;</code><br><br>不会被缩小了<br><br>不同的设备<strong>device-width</strong>不一样<br><br>少用定宽布局模式</p><br><p>##@media<br><br><code>&lt;br&gt;
-@media screen and (max-with:320px){&lt;br&gt;
-/*视窗宽度&amp;lt;=320px*/&lt;br&gt;
-}&lt;br&gt;
-@media screen and (min-with:769px){&lt;br&gt;
-/*视窗宽度&amp;gt;=769px*/&lt;br&gt;
-}&lt;br&gt;
-@media screen and (min-with:769px) and (max-width:1000px){&lt;br&gt;
-/*769px&amp;lt;=视窗宽度&amp;lt;=1000px*/&lt;br&gt;
-}&lt;br&gt;</code><br><br>##简单响应式<br><br><code>&lt;br&gt;
-CSS&lt;br&gt;
-*{&lt;br&gt;
-padding: 0;&lt;br&gt;
-margin: 0;&lt;br&gt;
-}&lt;br&gt;
-.left{&lt;br&gt;
-background: #001E3B;&lt;br&gt;
-float: left;&lt;br&gt;
-width: 100px;&lt;br&gt;
-margin-right: 20px;&lt;br&gt;
-}&lt;br&gt;
-.right{&lt;br&gt;
-background: #0084C7;&lt;br&gt;
-overflow: hidden;&lt;br&gt;
-}&lt;br&gt;
-@media screen and (max-width:320px){&lt;br&gt;
-.left{&lt;br&gt;
-float:none;&lt;br&gt;
-width: auto;&lt;br&gt;
-margin-right: 0;&lt;br&gt;
-margin-bottom:20px;&lt;br&gt;
-}&lt;br&gt;
-}&lt;br&gt;
-HTML&lt;br&gt;
-&amp;lt;div class=&quot;parent&quot;&amp;gt;&lt;br&gt;
-&amp;lt;div class=&quot;left&quot;&amp;gt;&lt;br&gt;
-&amp;lt;p&amp;gt;left&amp;lt;/p&amp;gt;&lt;br&gt;
-&amp;lt;/div&amp;gt;&lt;br&gt;
-&amp;lt;div class=&quot;right&quot;&amp;gt;&lt;br&gt;
-&amp;lt;p&amp;gt;right&amp;lt;/p&amp;gt;&lt;br&gt;
-&amp;lt;p&amp;gt;right&amp;lt;/p&amp;gt;&lt;br&gt;
-&amp;lt;/div&amp;gt;&lt;br&gt;
-&amp;lt;/div&amp;gt;&lt;br&gt;</code></p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-19ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/19ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/19ver/">DOM编程艺术之表单提交</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true  ">一:隐式提交<br>                -如:聚焦在输入框时按回车提交表单<br>                -满足以下任一条件<br>                    -表单有非禁用的提交按钮<br>                    -没有提交按钮时,只有一个input元素</pre></p>
-<pre><code>二:提交
-    -<span class="ruby">提交过程
-</span>        -<span class="ruby">根据表单enctype指定的值构建要提交的数据结构
-</span>        -<span class="ruby">使用method指定的方式发送数据到action指定的目标
-</span>    -<span class="ruby">构建提交数据
-</span>        -<span class="ruby">从可提交的元素中提取数据组装成指定的数据结构的过程
-</span>        -<span class="ruby">可提交元素<span class="symbol">:button</span>.input,keygen,object,select,textarea
-</span>    -<span class="ruby">编码方式(enctype)
-</span>        -<span class="ruby">application/x-www-form-urlencoded[默认]
-</span>            -<span class="ruby">a=a&amp;amp;b=b&amp;amp;c=c &amp;amp;分割键值对
-</span>        -<span class="ruby">multipare/form-data
-</span>            -<span class="ruby">数据格式组织成<span class="number">2388</span>文字流
-</span>        -<span class="ruby">text/plain
-</span>            -<span class="ruby">a=a b=b c=c 空格分割的键值对
-</span>    -<span class="ruby">特殊案例
-</span>        -<span class="ruby">name=<span class="string">"isindex"</span>&amp;amp;&amp;amp;type=<span class="string">"text"</span>
-</span>            -<span class="ruby">编码方式为application/x-www-form-urlencoded
-</span>            -<span class="ruby">作为表单的第一个提交元素
-</span>            -<span class="ruby">提交时只发送value值，不包含name
-</span>        -<span class="ruby">name=<span class="string">"_charset_"</span>&amp;amp;&amp;amp;type=<span class="string">"hidden"</span>
-</span>            -<span class="ruby">没有设置value值
-</span>            -<span class="ruby">提交时value自动用当前提交的字符集填充
-</span>    -<span class="ruby">submit()
-</span>        -<span class="ruby">提交表单
-</span>            -<span class="ruby">form.submit()
-</span>    -<span class="ruby">onsubmit
-</span>        -<span class="ruby">表单提交事件
-</span>        -<span class="ruby">提交之前的数据验证
-</span>        -<span class="ruby">阻止事件的默认行为可取消表单提交
-</span>        form.addEventListener("submit",function(event){
-            var noValid=false;
-            var elements=event.target.elements
-<span class="comment">            //TODO 处理自定义的验证规则</span>
-            if(noValid){
-                event.preventDefault()
-            }
-        })
-    -<span class="ruby">无刷新表单提交
-</span>        -<span class="ruby">form
-</span>        -<span class="ruby">target
-</span>        -<span class="ruby">iframe
-</span>        iframe指定一个name
-        form指定一个target指向iframe name&lt;/pre&gt;
 </code></pre><p>&nbsp;</p>
 
 

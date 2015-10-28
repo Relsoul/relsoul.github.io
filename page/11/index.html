@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-164ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/164ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/164ver/">JavaScript:延迟自动切换的选项卡</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;</p><br><p>演示地址：<a href="http://www.old.com/demo/CSS-Tab%20%E8%87%AA%E5%8A%A8%20test.html" target="_blank" rel="external">http://www.old.com/demo/CSS-Tab%20%E8%87%AA%E5%8A%A8%20test.html</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">首先这次学到了代码封装的重要性，在重复调用多次相同代码的时候可以封装下那段代码</span></p><br><p><span style="color: #ff0000;">自动切换时通过setInterval来实现的</span></p><br><p><span style="color: #ff0000;">索引也跟前几次的选项卡大同小异，在此就不多说了</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;tab&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{<br>        margin: 0;<br>        padding: 0;<br>    }<br>    #tab{<br>        width: 400px;<br>        height: 200px;<br>        border: 1px solid #aaa;<br>        margin: 10px;<br>        overflow: hidden;<br>    }<br>    #title{<br>        position: relative;<br>        height: 40px;<br>        text-align:center;<br>        line-height: 40px;<br>        background: #F7F7F7;<br>    }<br>    #title ul{<br>        position: absolute;<br>        width: 401px;<br>        left: -1px;<br>        height: 40px;<br><br><br>    }<br>    #title ul li{<br>        list-style: none;<br>        float: left;<br>        width:75px;<br>        height: 39px;<br>        line-height: 39px;<br>        text-align: center;<br>        background: #fff;<br>        border-bottom:1px solid #eee;<br>        padding: 0 3px;<br>        background: #F7F7F7;<br>    }<br><br><br>    #tab ul li a{<br>        text-decoration: none;<br>        color: black;<br><br>    }<br>    #title ul li.light{<br>        border-right: 1px solid #aaa;<br>        background: #fff;<br>        border-bottom-color: #fff;<br>        border-left: 1px solid #eee;<br>        border-right: 1px solid #eee;<br>        padding: 0px;<br>    }<br>    #tab a:hover{<br>        color: red;<br>    }<br>    .disblock{<br>        display: block;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br><br>function changeCss(){<br>    var tab_li=document.getElementById(“title_ul”).getElementsByTagName(“li”)<br>    //获取li列表<br>    var tab_con=document.getElementById(“tab_con”).getElementsByTagName(“div”)<br>    //获取内容列表<br>    var index=0;<br>    var timer=null;<br>    //创建一个索引<br>    for (var i = 0; i &lt; tab_li.length; i++) {<br>        //建立id索引<br>        tab_li[i].id=i;<br>        //鼠标移入事件<br>        tab_li[i].onmouseover=function(){<br>            //先清除下播放函数<br>            clearInterval(timer)<br>            //传递this.id<br>            changeOp(this.id)<br>        }<br><br>        //鼠标移出事件<br>        tab_li[i].onmouseout=function(){<br>            timer=setInterval(autoPlay,2000)<br>        }<br><br>    };<br><br><br>    //每2秒执行autoPlay函数<br>    //先判断是否存在 存在清空 定时器 这样做有利于性能维护<br>    if (timer) {<br>        clearInterval(timer);<br>        timer=null<br>    };<br>    timer=setInterval(autoPlay,2000)<br><br><br>    function autoPlay(){<br>        //每次index+1<br>        index++;<br>        //如果index大于等于li列表个数了<br>        if (index&gt;=tab_li.length) {<br>            //重新定义li<br>            index=0;<br>        };<br>        //调用changeOp函数 并且传递index<br>        changeOp(index);<br><br>    }<br>    //创建个函数 方便调用<br>    function changeOp(curindex){<br>        for(var j=0;j&lt;tab_li.length;j++){<br>            tab_li[j].className=” “;<br>            tab_con[j].style.display=”none”;<br><br>        }<br>        //接受传递的curindex值<br>        tab_li[curindex].className=”light”<br>        tab_con[curindex].style.display=”block”;<br>        //重置index值<br>        //鼠标移出事件的时候 就会把index值设置成this.id<br>        index=curindex<br>    }<br><br><br>}<br><br>window.onload=function(){<br>    changeCss()<br>}<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”tab”&gt;<br>        &lt;div id=”title”&gt;<br>            &lt;ul id=”title_ul”&gt;<br>                &lt;li class=”light”&gt;&lt;a href=”#” &gt;公告&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;规则&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;论坛&lt;/a&gt;&lt;/li&gt;<br>                &lt;li&gt;&lt;a href=”#”&gt;安全&lt;/a&gt;&lt;/li&gt;<br>                &lt;li &gt;&lt;a href=”#” &gt;公益&lt;/a&gt;&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>    &lt;div id=”tab_con”&gt;<br>        &lt;div class=”mod” style=”display: block;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;今日装备大优惠&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;快来抢购啊&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;过了这个村可没那个店了&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[通知]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;严禁抢购装备&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;严禁非法购买&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;守卫24小时守护&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[规则]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;洞天福地出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;道友极品装备出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;收购大量灵晶&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[论坛]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>&lt;div class=”mod” style=”display: none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;保证探险安全&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;结伴而行&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;不知道写什么了&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[安全]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div class=”mod” style=”display:none;”&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售&lt;/a&gt;<br><br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;免费出售免费出售免费出售免费出售&lt;/a&gt;<br>                &lt;/li&gt;<br>                &lt;li&gt;&lt;span&gt;&lt;a href=””&gt;[公益]&lt;/a&gt;&lt;/span&gt;<br>                    &lt;a href=”#”&gt;哈哈哈哈&lt;/a&gt;<br>                &lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br><br>    &lt;/div&gt;<br><br>    &lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-163ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -668,61 +723,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近在深入学习JavaScript,,因为涉及的知识点多..打算到时候统一发个帖子</p><br><p>到时候我也好重新温习下近段时间所学的知识</p><br><p>JavaScript深入学习教程推荐:<a href="http://www.imooc.com/video/6006" target="_blank" rel="external">http://www.imooc.com/video/6006</a></p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-153ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/153ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/153ver/">JavaScript:深入浅出-数据类型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习视频来自:<a href="http://www.imooc.com/video/5673" target="_blank" rel="external">http://www.imooc.com/video/5673</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>在JavaScript中数据类型有原始类型和对象</p><br><p>原始类型有以下几类数据</p><br><ol><br><li>数字(number)</li><br><li>字符串(string)</li><br><li>布尔（boolean)</li><br><li>null</li><br><li>undefined</li><br><li>对象(object)</li><br></ol><br><p>对象也算一种原始类型,对象中包含以下几类数据</p><br><ol><br><li>Function</li><br><li>Array</li><br><li>Date</li><br><li>….</li><br></ol><br><p>&nbsp;</p><br><p>来写一个基本的数据类型</p><br><pre class="lang:default decode:true">        var num=32;<br>    var num1=”33”;<br>    console.log(typeof (num+num1))<br>    //两个字符串相加是3332并且是字符串类型的<br>    //字符串相加的时候 如果一方不是字符串会转化为字符串再进行相加<br>    console.log(typeof (num1*num));<br>    //相乘则是数字类型<br>    //字符串相乘的时候 如果一方不是数字会转化Number()为数字再进行相乘<br><br>    //函数,数组,日期都是object</pre><br><p>&nbsp;</p><br><p>再来看看隐式转换</p><br><pre class="lang:default decode:true">//隐式转化<br>    //  num3=-0 //隐式转化数字<br>    // num4+’’//隐式转化字符串<br><br>    var test= “2”==2//<br>    console.log(test)//相等true<br>    // 非严格等于会先转化再去判断<br><br>    var test1=”2”===1<br>    console.log(test1)//不等<br>    //number==string//转number<br>    //boolean==?转number 1=true<br>    //object==number|string//new String(“hi”)==”hi”<br><br>    //基本类型添加方法.属性的时候 会把基本类型临时转化为对象 使用过后就会销毁</pre><br><p>&nbsp;</p><br><p>数据类型检测</p><br><pre class="lang:default decode:true ">//类型检测<br>    //type of arrary 返回object<br>    //[1,2] instanceof Arrary //return:true<br>    //<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

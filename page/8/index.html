@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -193,6 +193,62 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-190ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/190ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/190ver/">CSS3:为图片应用边框</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/383" target="_blank" rel="external">http://www.imooc.com/code/383</a></p><p></p>
+<div class="code-desc co"><br><h2 id="J_CodeLang" class="code-head" data-lang="HTML">为边框应用图片 border-image</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>顾名思义就是为边框应用背景图片，它和我们常用的background属性比较相似。例如：</p><br><pre align="center" class="code">background:url(xx.jpg) 10px 20px no-repeat;</pre><br><p align="left">但是又比背景图片复杂一些。</p><br><pre class="code">想象一下：一个矩形，有四个边框。如果应用了边框图片，图片该怎么分布呢？ 图片会自动被切割分成四等分。用于四个边框。<br><br>可以理解为它是一个切片工具，会自动把用做边框的图片切割。怎么切割呢？为了方便理解，做了一张特殊的图片，由9个矩形（70<em>70像素）拼成的一张图（210</em>210像素），并标注好序号，是不是像传说中的九宫图，如下：<br><br><a href="http://img.mukewang.com/52e21fea000127e802100210.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e21fea000127e802100210.jpg" data-original="http://img.mukewang.com/52e21fea000127e802100210.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p align="left">我们把上图当作边框图片 来应用一下， 看一看是什么效果</p><br><p align="left">根据border-image的语法：</p><br><p align="left"><a href="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" data-original="http://img.mukewang.com/52e2201a0001b1e004720260.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre align="left" class="code">#border-image{<br>   background:#F4FFFA;<br>   width:210px; height:210px; border:70px solid #ddd;<br><strong>   border-image:url(borderimg.png) 70 repeat  </strong><br>}</pre><br><p align="left">效果：</p><br><p align="left"><a href="http://img.mukewang.com/52e220780001091a03530354.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220780001091a03530354.jpg" data-original="http://img.mukewang.com/52e220780001091a03530354.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><pre class="code">从序号可以看出div的四个角分别对应了背景图片的四个角。而<strong>2,4,6,8 </strong>被重复。<strong>5在哪？</strong>因为是从四周向中心切割图片的所以，5显示不出来。而在chrome浏览器中5是存在的，下图的样子：<br><br><a href="http://img.mukewang.com/52e220be0001cef603560358.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e220be0001cef603560358.jpg" data-original="http://img.mukewang.com/52e220be0001cef603560358.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><br><br><strong>repeat</strong>的意思就是重复，目前因为是刚好被整除，效果看不出来。如果改下DIV的宽高，再来看重复的效果：<br><br><a href="http://img.mukewang.com/52e2210700016f5603190313.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2210700016f5603190313.jpg" data-original="http://img.mukewang.com/52e2210700016f5603190313.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></pre><br><p>边角部分为裁掉了，可见<strong>repeat</strong>就是一直重复，然后超出部分剪裁掉，而且是居中开始重复。</p><br><p><strong>Round 参数</strong>：Round可以理解为圆满的铺满。为了实现圆满所以会压缩（或拉伸）；</p><br><pre class="code">#border-image {<br><br>     width:170px;<br><br>     height:170px;<br><br>     border:70px solid;<br><br>     border-image:url(borderimg.png) 70 round;<br><br> }</pre><br><p>效果：</p><br><p><a href="http://img.mukewang.com/52e2216700014c4103190312.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2216700014c4103190312.jpg" data-original="http://img.mukewang.com/52e2216700014c4103190312.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>可见图片被压扁了。</p><br><p>Stretch 很好理解就是拉伸，有多长拉多长。有多远“滚”多远。</p><br><pre align="left" class="code">border-image:url(borderimg.png) 70 stretch</pre><br><p>看一下效果：</p><br><p><a href="http://img.mukewang.com/52e2218d0001d45403530366.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/52e2218d0001d45403530366.jpg" data-original="http://img.mukewang.com/52e2218d0001d45403530366.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>2,4,6,8分别被拉伸显示。</p><br><p>注意：Chrome下，中间部分也会被拉伸，webkit浏览器对于round属性和repeat属性似乎没有区分，显示效果是一样的。</p><br><p>Firefox 26.0 下是可以准确区分的。</p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>为DIV应用下面的边框图片。图片绝对路径为：</p><br><pre class="code"><a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a></pre><br><p><img src="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" data-original="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><strong>任务经验</strong></p><br></div><br></div><br></div><br></div><br><div class="code-tips"><br><div class="co"><br><p><span style="color: #ff0000;">根据这个border-image的属性</span></p><br><p><span style="color: #ff0000;"> border-image:url(borderimg.png) 70 repeat</span></p><br><p><span style="color: #ff0000;">url是图片地址 70是图片切割的大小 repeat是重复图片 当然也可以使用 round 等等属性来设置下</span></p><br><p><span style="color: #ff0000;">所以任务答案就是: 见下面代码</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;边框图片&lt;/title&gt;<br>&lt;style&gt;<br>#border_image {<br>    margin:0 auto;<br>    height:100px;<br>    line-height:100px;<br>    text-align:center;<br>    font-size:30px;<br>    width:450px;<br>    border:15px solid #ccc;<br>    border-image:url(<a href="http://img.mukewang.com/52e22a1c0001406e03040221.jpg" target="_blank" rel="external">http://img.mukewang.com/52e22a1c0001406e03040221.jpg</a>) 20 repeat;<br><br>    }<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”border_image”&gt;<br>请为我镶嵌上漂亮的画框吧<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-170ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -248,10 +304,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-166ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-167ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/166ver/" class="article-date">
+      <a href="/2015/10/21/167ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -265,7 +321,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/166ver/">JavaScript:通过索引来创建个选项卡</a>
+      <a class="article-title" href="/2015/10/21/167ver/">CSS清除浮动常用方法小结 CSS clear both {overflow:auto;zoom:1;}</a>
     </h1>
   
 
@@ -274,7 +330,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;</p><br><p>演示页面：<a href="http://www.old.com/demo/%E9%80%89%E9%A1%B9%E5%8D%A1.html" target="_blank" rel="external">http://www.old.com/demo/%E9%80%89%E9%A1%B9%E5%8D%A1.html</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">跟上次那个垂直定位网页特效建立大同小异.</span></p><br><p><span style="color: #ff0000;">这次主要的代码是</span></p><br><pre class="lang:default decode:true"> get_p[i].id=i</pre><br><p><span style="color: #ff0000;">上面这句代码给每个 p标签都创建了一个id</span></p><br><p><span style="color: #ff0000;">每次移动鼠标都会给所有标签添加上display=”none”</span></p><br><pre class="lang:default decode:true"> get_menu_ul[this.id].style.display=”block”</pre><br><p><span style="color: #ff0000;">然后get_menu_ul</span></p><br><p><span style="color: #ff0000;">this.id的意思是当前鼠标移入的P标签id是多少  比如id是0</span></p><br><p><span style="color: #ff0000;">那么对应的ul标签也是0</span></p><br><p><span style="color: #ff0000;">通过get_p id来建立索引</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{margin:0;<br>     padding:0;<br>     font-size:13px;<br>     list-style:none;}<br><br>.menu{width:210px;<br>      margin:50px auto;<br>      border:1px solid #ccc;}<br><br>.menu p{height:25px;<br>        line-height:25px;<br>        font-weight:bold;<br>        background:#eee;<br>        border-bottom:1px solid #ccc;<br>        cursor:pointer;<br>        padding-left:5px;}<br><br>.menu div ul{display:none;}<br><br>.menu li{height:24px;<br>         line-height:24px;<br>         padding-left:5px;}<br>&lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br>    window.onload=function(){<br>        changeShow()<br><br>      // 将所有点击的标题和要显示隐藏的列表取出来<br><br>     // 遍历所有要点击的标题且给它们添加索引及绑定事件<br><br>     // 获取点击的标题上的索引属性，根据该索引找到对应的列表<br><br>     // 判断该列表，如果是显示的则将其隐藏，如果是隐藏的则将其显示出来<br><br>    }<br><br><br>    function changeShow(){<br>        var get_p=document.getElementsByTagName(“p”)<br>        var get_menu=document.getElementById(“menu”)<br>        var get_menu_ul=get_menu.getElementsByTagName(“ul”)<br>        for(var i=0;i&lt;get_p.length;i++){<br>            get_p[i].id=i<br>            get_p[i].onmouseover=function(){<br>                for(var j=0;j&lt;get_p.length;j++){<br>                    get_menu_ul[j].style.display=”none”<br>                }<br>             get_menu_ul[this.id].style.display=”block”<br><br>            }<br><br><br><br>        }<br><br><br>    }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”menu” id=”menu”&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;Web前端&lt;/p&gt;<br>            &lt;ul style=”display:block”&gt;<br>                &lt;li&gt;JavaScript&lt;/li&gt;<br>                &lt;li&gt;DIV+CSS&lt;/li&gt;<br>                &lt;li&gt;jQuery&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;后台脚本&lt;/p&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;PHP&lt;/li&gt;<br>                &lt;li&gt;ASP.net&lt;/li&gt;<br>                &lt;li&gt;JSP&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;前端框架&lt;/p&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;Extjs&lt;/li&gt;<br>                &lt;li&gt;Esspress&lt;/li&gt;<br>                &lt;li&gt;YUI&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p>转自 <a href="http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html" target="_blank" rel="external">http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html</a></p><br><p><span style="color: #ff0000;">经验</span></p><br><p><span style="color: #ff0000;">浮动以后不会自动撑开父级的高度</span></p><br><p><strong>常用的清除浮动的方法有以下三种:</strong></p><br><p><strong>此为未清除浮动源代码，运行代码无法查看到父级元素浅黄色背景。</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>三种清除浮动方法如下：</p><br><p><strong>1、使用空标签清除浮动。</strong>我用了很久的一种方法，空标签可以是div标签，也可以是P标签。我习惯用&lt;P&gt;，够简短，也有很多人用&lt;hr&gt;，只是需要另外 为其清除边框，但理论上可以是任何标签。这种方式是在需要清除浮动的父级元素内部的所有浮动元素后添加这样一个标签清除浮动，并为其定义CSS代 码：clear:both。此方法的弊端在于增加了无意义的结构元素。</p><br><p><strong>对于使用额外标签清除浮动（闭合浮动元素），是W3C<span class="t_tag">推荐</span>的 做法。至于使用&lt;br /&gt;元素还是空&lt;div&gt;&lt;/div&gt;可以根据自己的喜好来选（当然你也可以使用其它块级元素）。不过要注意的 是，&lt;br /&gt;本身是有表现的，它会多出一个换行出来，所以要设定它的heigh为0，以隐藏它的表现。所以大多数情况下使用空&lt;div&gt;比较合 适。</strong></p><br><p>&nbsp;</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
+{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>.clr{clear:both;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;p class=”clr”&gt; &lt;/p&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>2、使用overflow属性。</strong>此方法有效地解决了通过空标签元素清除浮动而不得不增加无意代码的弊端。使用该方法是只需在需要清除浮动的元素中定义CSS属性：overflow:auto，即可！”zoom:1″用于兼容IE6,也可以用width:100%。</p><br><p><strong>不过使用overflow的时候，可能会对页面表现带来影响，而且这种影响是不确定的，你最好是能在多个浏览器上测试你的页面；</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;overflow:auto;zoom:1; }/</em> overflow:auto可以换成overflow:hidden，zoom:1可以换成width:100%<em>/<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p><strong>3、使用after伪对象清除浮动。</strong> 该方法只适用于非IE浏览器 。具体写法可参照以下示例。使用中需注意以下几点。一、该方法中必须为需要清除浮动元素的伪对象中设置height:0，否则该元素会比实际高出若干像 素；二、content属性是必须的，但其值可以为空，蓝色理想讨论该方法的时候content属性的值设为”.”，但我发现为空亦是可以的。</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
+{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#layout:after{display:block;clear:both;content:””;visibility:hidden;height:0;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>此三种方法各有利弊，使用时应择优选择，个人习惯于第一种，比较稳定可靠。</strong></p>
 
 
 
@@ -663,61 +721,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>&nbsp;</p><br><p>注释以及解析都放代码里的 大家可以看看</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    function Person(){<br><br>    }<br><br>    function Student(){<br><br>    }<br><br>    Student.prototype=Person.prototype;<br>    //不能直接把原型赋值给一个对象<br>    //如果student.prototype有一些方法和属性,后续构建实例的话会直接影响到这些方法和属性<br><br>    Student.prototype=new Person();<br>    //可以实现 但是比如Person有 age 和name.在这里创建实例的话 传参比较奇怪<br><br>    Student.prototype=Object.create(Person.prototype);<br>    //JavaScript ES5之后支持<br><br>    Student.prototype.constructor=Person;<br><br>    //ES5之前<br>    if(!Object.create){<br>        Object.create=function(proto){<br>            function F(){}<br>            F.prototype=proto;<br>            return new F;<br>        }<br>    }<br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-134ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/134ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/134ver/">JavaScript深入浅出:instanceof</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>instanceof 是用来检测对象的原型链</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    //instanceof<br>    console.log([1,2] instanceof Array);//true;<br>    new Object instanceof Array;//false<br>    //instanceof会检测左边对象是否由右边构造的<br>    //或者说 左边对象原型链是否是右边构造器<br><br>    function soul(){};<br>    //创建一个soul函数构造器<br><br>    function dark(){};<br>    //创建一个dark函数构造器<br><br>    dark.prototype=new soul();<br>    //设置dark的原型等于 soul 实例<br><br>    var seeker =new dark();<br>    //创建dark实例<br><br>    console.log(seeker instanceof dark);//true<br>    //seeker原型是否是dark<br><br>    var one =new soul();<br>    //创建soul实例<br><br>    one instanceof soul;//true;<br><br>    one instanceof dark;//false;<br><br>    console.log(seeker instanceof soul)//true<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>具体的都在代码中,大家看看吧.</p>
 
 
 

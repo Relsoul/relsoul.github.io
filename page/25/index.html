@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-1ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/1ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.752Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/1ver/">解决IE9、IE10无法加载本地CSS文件的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>转自<a href="http://wlt436.blog.163.com/blog/static/6464704201472944155390/" target="_blank" rel="external">http://wlt436.blog.163.com/blog/static/6464704201472944155390/</a></strong></p><br><p>从去年三月份开始，我的IE出现了一个很奇怪的现象：在IE9/IE10模式下打开所有本地网页，都不能加载外链CSS样式表，浏览器会报“SEC7113：CSS 因 Mime 类型不匹配而被忽略”的错误；而在IE6/7/8以及chrome、firefox里面就不存在这样的问题，这给我的前端开发造成了很大的麻烦。查阅了微软的官方文档，给出的解释是微软对浏览器的安全机制作了一些修改，会拒绝加载MIME type不匹配的CSS文件，不过我在&lt;link&gt;里面已经正确声明了css type，这个问题仍然存在。当时尝试了各种解决方法，搜遍了百度谷歌，在各种技术论坛发帖询问，都没有效果，至于网上那些所谓修改web.xml的方法，纯属扯淡。</p><br><p>这一年半以来，我都是使用在本地架设一个服务器环境的方法来实现对本地网页的预览，具体的实现步骤不说了，这种方式极其不方便，原来想要浏览一个网页，去到对应的目录双击打开就行，现在还得先用dreamweaver打开，然后发布一下才可以正常浏览。</p><br><p>直到今天，偶然看到了这篇文章：<a href="http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files" target="_blank" rel="nofollow">http://social.technet.microsoft.com/Forums/ie/zh-CN/592ae03c-b5b5-468b-886a-9bdc54e9a4aa/ie10-wont-open-local-css-files</a></p><br><p>文章下面的推荐答案经过我的测试，实际上是无效的。但是最后面一个回答，终于解决了这个困扰我一年半的问题。具体的解决步骤非常简单：</p><br><p><b> 1、下载FileTypesMan，百度即可找到，只有60多K</b></p><br><p><b> 2、解压运行FileTypesMan.exe，程序会花一点时间查找所有的文件格式，稍等一下即可</b></p><br><p><b> 3、在列表中找到.css，双击进入到“编辑文件类型”界面</b></p><br><p><b> 4、在MIME类型那里，修改为text/css</b></p><br><p><b> 5、点确定，大功告成~</b></p><br><p>然后再打开本地网页，css文件已经可以正常加载了。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-0ver" class="article article-type-post" itemscope itemprop="blogPost">
   
