@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-154ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/154ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/154ver/">近段时间暂停更新一下</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在深入学习JavaScript,,因为涉及的知识点多..打算到时候统一发个帖子</p><br><p>到时候我也好重新温习下近段时间所学的知识</p><br><p>JavaScript深入学习教程推荐:<a href="http://www.imooc.com/video/6006" target="_blank" rel="external">http://www.imooc.com/video/6006</a></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-153ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -633,11 +688,11 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-87ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-145ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/87ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+      <a href="/2015/10/21/145ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -650,7 +705,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/87ver/">JS程序设计-词法重点</a>
+      <a class="article-title" href="/2015/10/21/145ver/">零基础学bootstrap:代码</a>
     </h1>
   
 
@@ -659,69 +714,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>JS-词法重点</strong></p><br><p>一:变量标识符的命名要求</p><br><ul class=" list-paddingleft-2"><br><li>以字母,下划线，或者美元符号($)开头</li><br><li>以字母,下划线,美元符号($)和数组组成</li><br><li></li><br></ul><br><p>二:关键字与保留字</p><br><p>无法使用关键字与保留字来命名</p><br><p>参考地址:<a href="http://www.itxueyuan.org/view/6627.html" target="_blank" rel="external">http://www.itxueyuan.org/view/6627.html</a></p><br><p>三:大小写敏感</p><br><ul class=" list-paddingleft-2"><br><li>var Aa=0;与var AA=0;是两个变量</li><br><li>关键字比如for也需要大小写分明</li><br></ul><br><p>四:严格模式</p><br><ul class=" list-paddingleft-2"><br><li>增加js的安全性</li><br><li>提高编译效率</li><br></ul><br><p>​</p><br><p>五:使用严格模式</p><br><ul class=" list-paddingleft-2"><br><li>全局使用</li><br></ul><br><p><code class="brush:js;toolbar:false">&lt;script&gt;<br><br>“use strict”<br><br>var a=0;<br><br>&lt;/script&gt;<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>局部使用</li><br></ul><br><p><code class="brush:js;toolbar:false">function ab(){<br><br>“use strict”<br><br>var a=0;<br><br>}<br><br></code></p><br><p>六:严格模式与标准模式区别</p><br><ul class=" list-paddingleft-2"><br><li>严格模式下不允许隐式声明</li><br></ul><br><p><code class="brush:js;toolbar:false">function(){<br><br>“use strict”<br><br>a=0;//a在前面并未声明 ,使用严格模式会报错</code></p><br><p>}<br><br></p><br><ul class=" list-paddingleft-2"><br><li>对象重命名属性</li><br></ul><br><p><code class="brush:js;toolbar:false">var obj={a:1,b:2,a:3}<br><br>obj.a//非严格模式会得出3 严格模式会报错<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>arguments.callee</li><br></ul><br><p><code class="brush:js;toolbar:false">var i=0;<br><br>function ac(){<br><br>if(i&gt;10){<br><br>return false;<br><br>}<br><br>i++;<br><br>arguments.callee()//指向本身这个函数,严格模式下会报错<br><br>}<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>    with语句等等~</li><br></ul><br><p>七:注释</p><br><ul class=" list-paddingleft-2"><br><li>单行注释</li><br></ul><br><p><code class="brush:js;toolbar:false">//var a=1;<br><br>//var b=2;<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>多行注释</li><br></ul><br><p><code class="brush:js;toolbar:false">/<em>var a=1;<br><br>var b=2;</em>/<br><br></code></p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-88ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/88ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/88ver/">PS切图之测量、取色</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>&nbsp;</p><p></p>
-<p></p><p>一:所有数组都要测量.如:宽，高，定位，行高，背景图位置等。</p><p></p>
-<p></p><p>二:利用矩形选框工具结合信息面板进行测量</p><p></p>
-<p></p><p>三:测量时画布尽可能放得够大</p><p></p>
-<p></p><p>四:测量文字大小用文字工具，测量文字行高在文字工具-属性面板可以查到到</p><p></p>
-<p></p><p>五：测量背景图文字-矩形选框工具，测量出的高即为文字大小</p><p></p>
-<p></p><p>六：矩形选框工具</p><p></p>
-<ul class=" list-paddingleft-2"><br><li>添加到选区:按住shift</li><br><li>从选区减去：按住alt</li><br><li>与选区交叉：按住shift+alt</li><br></ul><br><p><b>​</b></p><br><p>七：小技巧:利用矩形选框工具的添加到选区来测量页面宽/高</p><br><ul class=" list-paddingleft-2"><br><li>在左侧画一个小矩形</li><br><li>在右侧画一个小矩形</li><br><li>信息面板上所得的宽/高即为两者之间的距离</li><br></ul><br><p>八:取色</p><br><ul class=" list-paddingleft-2"><br><li>尽量用取色器来取色</li><br><li>用取色工具来判断是否为纯色</li><br><li>确定是否为线性渐变:用魔棒工具，把容差改为较低的数值既可以选择到单一的颜色</li><br></ul>
+        <p><span style="color: #993366;"><strong>前文</strong></span></p><br><blockquote><p>这里也只列出一些比较重点的内容,详细的可以去官方参考文档 <a href="http://v3.bootcss.com/css/#code" target="_blank" rel="external">http://v3.bootcss.com/css/#code</a></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;style&gt;<br>    .row{<br>        margin-top: 10px;<br>        background: #b3b3b3;<br>        padding: 10px;<br>    }<br>    [class*=’col-‘]{<br>        border:1px solid #2b2f2f;<br>        padding: 10px;<br>    }<br><br><br>    &lt;/style&gt;<br></pre><br><p>稍微加一点css样式方便区别</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><strong><span style="color: #993366;">内联代码</span></strong></p><br><blockquote><p> 通过 <code>&lt;code&gt;</code> 标签包裹内联样式的代码片段。 显示是颜色变化.实践一下就知道了</p><br><pre class="lang:default decode:true">&lt;div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-8”&gt;<br>                &lt;p&gt;bootstrap零基础学习-排版,&lt;code&gt;By-Soul&lt;/code&gt;&lt;/p&gt;<br><br>            &lt;/div&gt;<br><br>        &lt;/div&gt;<br><br>    &lt;/div&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-user-input"><span style="color: #993366;"><strong>用户输入</strong></span></p><br><blockquote><p>通过 <code>&lt;kbd&gt;</code> 标签标记用户通过键盘输入的内容。..实际上这只是一个样式罢了不会实际上记录你的键盘</p><br><p>显示样式大家可以实践下</p><br><pre class="lang:default decode:true">&lt;p&gt;我输入了&lt;kbd&gt;ctrl+m&lt;/kbd&gt;&lt;/p&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-block"><span style="color: #993366;"><strong>代码块</strong></span></p><br><blockquote><p>多行代码可以使用 <code>&lt;pre&gt;</code> 标签。为了正确的展示代码，注意将尖括号做转义处理。</p><br><pre class="lang:default decode:true">&lt;pre&gt;&amp;lt;p&amp;gt;Sample text here…&amp;lt;/p&amp;gt;&lt;/pre&gt;</pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p id="code-variables"><span style="color: #993366;"><strong>变量</strong></span></p><br><blockquote><p>通过 <code>&lt;var&gt;</code> 标签标记变量。实际上这只是一个样式罢了</p><br><pre class="lang:default decode:true">&lt;var&gt;y&lt;/var&gt; = &lt;var&gt;m&lt;/var&gt;&lt;var&gt;x&lt;/var&gt; + &lt;var&gt;b&lt;/var&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p id="code-sample-output"><span style="color: #993366;"><strong>程序输出</strong></span></p><br><blockquote><p>通过 <code>&lt;samp&gt;</code> 标签来标记程序输出的内容。</p><br><p>展示效果跟普通的差不多.</p><br><pre><code class="language-html" data-lang="html"><span class="nt">&lt;samp&gt;</span>This text is meant to be treated as sample output from a computer program.<span class="nt">&lt;/samp&gt;</span></code></pre><br></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

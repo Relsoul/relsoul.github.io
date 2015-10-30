@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,179 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-111ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/111ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/111ver/">javascript实现各种字符串搜索算法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/4430.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4430.htm</a></p><p></p>
+<p></p><p>我觉得在前端开发中过多地考虑算法没有太多实际的意义。但这仅仅是我觉得，我并没有证据证明这一点。那为何不来尝试一下，面对一个特定的任务，我将使用不同的算法来实现，看看究竟效率相差多少。今天我想通过字符串搜索这一场景来进行测试。</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><h2>测试场景</h2><p></p>
+<p><ol></ol></p>
+<p><li>主字符串就以ABC的一篇文章内容为例，略做修改<br></li></p>
+<blockquote><p>There are some times when clicking “like” on a friend’s Facebook status doesn’t feel appropriate. A bad day. A loved one lost. A break up. It only seems natural that a “dislike” button could solve the conundrum of wanting to empathize but not seem inappropriate by clicking “like.” Mark Zuckerberg Puts the Rest of Us to Shame by Speaking Fluent Chinese. Mark Zuckerberg: Facebook Founder and Animal Butcher. Mark Zuckerberg and That Shirt. The idea has been on Mark Zuckerberg’s radar for a while, he said. In 2010, he told ABC News’ Diane Sawyer that that Facebook would “definitely think about” adding a dislike button. “People definitely seem to want it,” Zuckerberg said. Four years later — Zuckerberg says Facebook is still “thinking about” adding the oft-requested button, Zuckerberg says Facebook is still “thinking about” adding the oft-requested button. At a town hall meeting on Thursday, the CEO revealed he has some reservations about the feature. “There are two things that it can mean,” Zuckerberg said of the potential button, which could be used in a mean spirited way or to express empathy. Finding how to limit it to the latter is the challenge. Zuckerberg said he doesn’t want the button to turn into a “voting mechanism” or something that isn’t “socially valuable.” “Often people will tell us they don’t feel comfortable pressing ‘like,’” Zuckerberg said. “What’s the right way to make it so people can easier express a wide range of emotions?” One suggestion percolating online: Roll out the feature under a different name. However, an “empathy button” just may not have the same ring to it as “dislike.”</p></blockquote><br><br><li>模式字符串<br><ul><br><li>靠近起点 friend</li><br><li>靠近终点 button”</li><br><li>靠近中间 Zuckerberg says Facebook is still “thinking about” adding the oft-requested button.</li><br></ul><br></li><br><br><h3>暴力算法</h3><br><p>首先是最原始的做法，主串左侧开始，逐个对比，如果不相同，则主串起始点向后移一位，重复，直到找到。</p><br><p>第一次尝试 G C A T C G C A G A G A G T A T A C A G T A C G 1 2 3 4   G C A G A G A G   第二次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1     G C A G A G A G   第三次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1     G C A G A G A G   第四次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1     G C A G A G A G   第五次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1     G C A G A G A G   Sixth attempt G C A T C G C A G A G A G T A T A C A G T A C G   1 2 3 4 5 6 7 8     G C A G A G A G</p><br><p>以上示例（<a href="http://www.zhouhua.info/jump/0dcj" target="_blank">http://igm.univ-mlv.fr/~lecroq/string/examples/exp3.html</a>）说明了一次暴力搜索的过程。</p><br><p>我用JS模拟了这个算法：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> mainString</span><span class="pun">=</span><span class="str">“”</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> searchString</span><span class="pun">=</span><span class="str">“”</span></li><br><li class="L2"><span class="kwd">function</span><span class="pln"> basicSearch</span><span class="pun">(</span><span class="pln">mainStr</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">,</span><span class="pln"> offset</span><span class="pun">){</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> mainLength</span><span class="pun">=</span><span class="pln">mainStr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L4"><span class="kwd">var</span><span class="pln"> searchLength</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L5"><span class="kwd">if</span><span class="pun">(</span><span class="pln">searchLength</span><span class="pun">&gt;</span><span class="pln">mainLength</span><span class="pun">-</span><span class="pln">offset</span><span class="pun">){</span></li><br><li class="L6"><span class="kwd">return</span> <span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="pln"> offset</span><span class="pun">=</span><span class="pln">offset</span><span class="pun">||</span><span class="lit">0</span><span class="pun">;</span></li><br><li class="L9"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln">searchlength</span><span class="pun">&gt;</span><span class="pln">i </span><span class="pun">;</span><span class="pln">i</span><span class="pun">++){</span></li><br><li class="L0"><span class="kwd">if</span><span class="pun">(</span><span class="pln">str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)!==</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset</span><span class="pun">+</span><span class="pln">i</span><span class="pun">)){</span></li><br><li class="L1"><span class="kwd">return</span><span class="pln"> basicSearch</span><span class="pun">(</span><span class="pln">mainStr</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">,</span><span class="pln"> offset</span><span class="pun">+</span><span class="lit">1</span><span class="pun">)</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="kwd">return</span><span class="pln"> offset</span><span class="pun">;</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln">basicSearch</span><span class="pun">(</span><span class="pln">mainString</span><span class="pun">,</span><span class="pln"> searchString</span><span class="pun">);</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>非递归版：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">function</span><span class="pln"> basicSearchLoop</span><span class="pun">(</span><span class="pln">mainStr</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">){</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> mainLength</span><span class="pun">=</span><span class="pln">mainStr</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> searchLength</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L3"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> offset</span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span><span class="pln">padding</span><span class="pun">=</span><span class="pln">mainLength</span><span class="pun">-</span><span class="pln">searchLength</span><span class="pun">;</span><span class="pln">offset</span><span class="pun">&lt;</span> <span class="pun">=</span><span class="pln">padding</span><span class="pun">;</span><span class="pln">offset</span><span class="pun">++)</span> <span class="pun">{</span></li><br><li class="L4"><span class="kwd">var</span><span class="pln"> match</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></li><br><li class="L5"><span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> searchLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span></li><br><li class="L6"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)</span> <span class="pun">!==</span><span class="pln"> mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">))</span> <span class="pun">{</span></li><br><li class="L7"><span class="pln"> match</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li><br><li class="L8"><span class="kwd">break</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="kwd">if</span><span class="pun">(</span><span class="pln">match</span><span class="pun">)</span><span class="kwd">return</span><span class="pln"> offset</span><span class="pun">;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="kwd">return</span> <span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li><br><li class="L4"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><h2>KMP算法（Knuth-Morris-Pratt算法）</h2><br><p>KMP算是字符串搜索算法里的明星。不过本文重点不是介绍算法历史，有兴趣的可以移步百度百科（<a href="http://www.zhouhua.info/jump/yqnx" target="_blank">KMP算法</a>）。这里一样先看一个例子：</p><br><p>第一次尝试 G C A T C G C A G A G A G T A T A C A G T A C G 1 2 3 4   G C A G A G A G</p><br><p>移动步数: 4 (<em>i</em>-<em>kmpNext</em>[<em>i</em>]=3- -1)</p><br><p>第二次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1     G C A G A G A G</p><br><p>移动步数: 1 (<em>i</em>-<em>kmpNext</em>[<em>i</em>]=0- -1)</p><br><p>第三次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1 2 3 4 5 6 7 8     G C A G A G A G</p><br><p>移动步数: 7 (<em>i</em>-<em>kmpNext</em>[<em>i</em>]=8-1)</p><br><p>如果每次发生不一致都要计算一次效率太低，可以考虑将计算结果缓存到一张<strong>部分匹配表</strong>中（也可以在搜索之前先生成此表）。以intristed为例：移动步数: 1 (<em>i</em>-<em>kmpNext</em>[<em>i</em>]=0- -1)</p><br><p><a href="http://www.zhouhua.info/jump/b5bz" target="_blank">原始示例出处</a>。我们看到，这里有一个 kmpNext 数组，这是什么呢？我们慢慢来理解。每一次尝试匹配时，从模式字符串的左端开始对比，如果第i个字符相同，则比较第i+1个；如果不相同，则需要把模式字符串向右移动。移动的位数是算法优劣的关键。每次移动一位是暴力算法的做法。kmp算法有自己独特的移动步数计算方法。</p><br><p>首先引入两个概念：<strong>前缀</strong>和<strong>后缀</strong>。</p><br><ul><br><li>前缀：一个字符串所有头部的集合，不包含自身；</li><br><li>后缀：一个字符串所有尾部的集合，不包含自身。</li><br></ul><br><p>我们看下面的例子（编号从1开始编）：</p><br><p>i n t r i s t i n g 1 2 3 4 5 6 7 8 9   i n t r i s t e d</p><br><p>在模式串8的位置发生了不匹配，那么要计算模式串右移的位数之前，我们先写出位置1~7处的子串intrist的前缀和后缀：</p><br><ul><br><li>前缀：i, in, int, intr, intri, intris, intrist</li><br><li>后缀：t, st, ist, rist, trist, ntrist, intrist</li><br></ul><br><p>我们再定义一个<strong>部分匹配值</strong>的概念：前缀和后缀交集中，长度最长的元素的长度。很显然，这里前缀和后缀没有交集，最长共同元素的长度也就认为是0，那么模式串向右移动（8-0=）8个字符。跟上面的算法（上面是7-(-1)）稍有不同，不过大体意思一样，计算结果也一样。</p><br><p>部分匹配表 模式字符串 i n t r i s t e d 序号 1 2 3 4 5 6 7 8 9 部分匹配值 0 0 0 0 1 0 0 0 0</p><br><p>计算右移位数就可以很容易地从表中计算出来：</p><br><blockquote><p>移动位数=已匹配的位数-已匹配部分的部分匹配值</p></blockquote><br><p>例如在第6个位置s处发现不匹配，那么需要右移5-1=4位。</p><br><p>但这样计算其实并不方便，比如已匹配位数为0的情况很难处理，所以我们可以对部分匹配值做一个修正，每个值减去1，公式也相应调整为：</p><br><blockquote><p>移动位数=不匹配字符的位置-已匹配部分的修正部分匹配值</p></blockquote><br><p>这样这个公式就与上面示例中的公式相同了。</p><br><p>我用JS模拟了这个算法：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">function</span> <span class="typ">KMPSearch</span><span class="pun">(</span><span class="pln">mainLength</span><span class="pun">,</span><span class="pln">str</span><span class="pun">,</span><span class="pln">offset</span><span class="pun">,</span><span class="kwd">group</span><span class="pun">){</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> mainLength</span><span class="pun">=</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> searchLength</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L3"><span class="kwd">if</span><span class="pun">(</span><span class="pln">searchLength</span><span class="pun">&gt;</span><span class="pln">mainLength</span><span class="pun">-</span><span class="pln">offset</span><span class="pun">){</span></li><br><li class="L4"><span class="kwd">return</span> <span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> offset</span><span class="pun">=</span><span class="pln">offset</span><span class="pun">||</span><span class="lit">0</span><span class="pun">;</span></li><br><li class="L7"><span class="kwd">group</span><span class="pun">=</span><span class="kwd">group</span><span class="pun">||[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pun">];</span></li><br><li class="L8"><span class="kwd">var</span><span class="pln"> searchedString</span><span class="pun">=[];</span></li><br><li class="L9"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln">searchlength</span><span class="pun">&gt;</span><span class="pln">i </span><span class="pun">;</span><span class="pln">i</span><span class="pun">++){</span></li><br><li class="L0"><span class="kwd">var</span><span class="pln"> searchingChar</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span></li><br><li class="L1"><span class="kwd">if</span><span class="pun">(</span><span class="pln">searchingChar</span><span class="pun">!==</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset</span><span class="pun">+</span><span class="pln">i</span><span class="pun">)){</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> offsetJump</span><span class="pun">;</span></li><br><li class="L3"><span class="kwd">if</span><span class="pun">(</span><span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])</span> <span class="pun">{</span></li><br><li class="L4"><span class="pln"> offsetJump </span><span class="pun">=</span> <span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li><br><li class="L5"><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li><br><li class="L6"><span class="pln"> offsetJump </span><span class="pun">=</span> <span class="kwd">next</span><span class="pun">(</span><span class="pln">searchedString</span><span class="pun">);</span></li><br><li class="L7"><span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]=</span><span class="pln">offsetJump</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"><span class="kwd">return</span> <span class="typ">KPMSearch</span><span class="pun">(</span><span class="pln">mainLength</span><span class="pun">,</span><span class="pln">str</span><span class="pun">,</span><span class="pln">offset</span><span class="pun">+</span><span class="pln">offsetJump</span><span class="pun">,</span><span class="kwd">group</span><span class="pun">);</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pln"> searchedString</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">searchingChar</span><span class="pun">);</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="kwd">return</span><span class="pln"> offset</span><span class="pun">;</span></li><br><li class="L4"><span class="pun">}</span></li><br><li class="L5"><span class="kwd">function</span> <span class="kwd">next</span><span class="pun">(</span><span class="pln">chars</span><span class="pun">){</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> length</span><span class="pun">=</span><span class="pln">chars</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L7"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="pln">length</span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">i</span><span class="pun">&gt;</span><span class="lit">0</span><span class="pun">;</span><span class="pln">i</span><span class="pun">–){</span></li><br><li class="L8"><span class="kwd">var</span><span class="pln"> isMatch</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></li><br><li class="L9"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> j</span><span class="pun">=</span><span class="lit">0</span> <span class="pun">;</span><span class="pln">j</span><span class="pun">&lt;</span> <span class="pun">=</span><span class="pln">i</span><span class="pun">;</span><span class="pln">j</span><span class="pun">++){</span></li><br><li class="L0"><span class="kwd">if</span><span class="pun">(</span><span class="pln">chars</span><span class="pun">[</span><span class="pln">j</span><span class="pun">]!==</span><span class="pln">chars</span><span class="pun">[</span><span class="pln">length</span><span class="pun">-</span><span class="pln">i</span><span class="pun">+</span><span class="pln">j</span><span class="pun">]){</span></li><br><li class="L1"><span class="pln"> isMatch</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li><br><li class="L2"><span class="kwd">break</span><span class="pun">;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pun">}</span></li><br><li class="L5"><span class="kwd">if</span><span class="pun">(</span><span class="pln">isMatch</span><span class="pun">)</span><span class="kwd">return</span><span class="pln"> length</span><span class="pun">-</span><span class="pln">i</span><span class="pun">;</span></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>非递归版：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">function</span> <span class="typ">KMPSearchLoop</span><span class="pun">(</span><span class="pln">mainStr</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">)</span> <span class="pun">{</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> mainLength</span><span class="pun">=</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> searchLength </span><span class="pun">=</span><span class="pln"> str</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L3"><span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span><span class="pln"> offset </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span><span class="pln"> padding </span><span class="pun">=</span><span class="pln"> mainLength </span><span class="pun">-</span><span class="pln"> searchLength</span><span class="pun">,</span> <span class="kwd">group</span> <span class="pun">=</span> <span class="pun">[</span><span class="lit">1</span><span class="pun">,</span> <span class="lit">1</span><span class="pun">];</span><span class="pln"> offset </span><span class="pun">&lt;</span> <span class="pun">=</span><span class="pln"> padding</span><span class="pun">;){</span></li><br><li class="L4"><span class="kwd">var</span><span class="pln"> searchedString </span><span class="pun">=</span> <span class="pun">[];</span></li><br><li class="L5"><span class="kwd">var</span><span class="pln"> match</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> offsetJump</span><span class="pun">;</span></li><br><li class="L7"><span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> searchLength</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span> <span class="pun">{</span></li><br><li class="L8"><span class="kwd">var</span><span class="pln"> searchingChar </span><span class="pun">=</span><span class="pln"> str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span></li><br><li class="L9"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">searchingChar </span><span class="pun">!==</span><span class="pln"> mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">))</span> <span class="pun">{</span></li><br><li class="L0"><span class="pln"> match</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">if</span> <span class="pun">(</span><span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">])</span> <span class="pun">{</span></li><br><li class="L2"><span class="pln"> offsetJump </span><span class="pun">=</span> <span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">];</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="kwd">else</span> <span class="pun">{</span></li><br><li class="L5"><span class="pln"> offsetJump </span><span class="pun">=</span> <span class="kwd">next</span><span class="pun">(</span><span class="pln">searchedString</span><span class="pun">);</span></li><br><li class="L6"><span class="kwd">group</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> offsetJump</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="kwd">break</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> searchedString</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">searchingChar</span><span class="pun">);</span></li><br><li class="L1"><span class="pun">}</span></li><br><li class="L2"><span class="kwd">if</span><span class="pun">(</span><span class="pln">match</span><span class="pun">){</span></li><br><li class="L3"><span class="kwd">return</span><span class="pln"> offset</span><span class="pun">;</span></li><br><li class="L4"><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li><br><li class="L5"><span class="pln"> offset</span><span class="pun">+=</span><span class="pln">offsetJump</span><span class="pun">;</span></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="kwd">return</span> <span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><h2>Horspool算法</h2><br><p>Horspool算法在做匹配的时候，创造性地从右向左匹配，对后来其他算法有很深的影响。还是那句话，本文会讲很多算法上的东西，但本文重点不是算法，下面还是会过一下Horspool算法的搜索过程，如果难以理解，还是参考其他更详细的资料。依然是示例（<a href="http://www.zhouhua.info/jump/eqpj" target="_blank">http://igm.univ-mlv.fr/~lecroq/string/examples/exp18.html</a>）：</p><br><p>第一次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   1   G C A G A G A G</p><br><p>移动步数: 1 (Horspool[A])</p><br><p>第二次尝试 G C A T C G C A G A G A G T A T A C A G T A C G             3 2 1     G C A G A G A G</p><br><p>移动步数: 2 (Horspool[G])</p><br><p>第三次尝试 G C A T C G C A G A G A G T A T A C A G T A C G         5 4 3 2 1     G C A G A G A G</p><br><p>移动步数: 2 (Horspool[G])</p><br><p>第四次尝试 G C A T C G C A G A G A G T A T A C A G T A C G   8 7 6 5 4 3 2 1     G C A G A G A G</p><br><p>先对齐，从模式串的右侧开始匹配，如果完全匹配则结束搜索，否则查看模式串最右边对应的主串字符是什么。找出这个字符在模式串中最后出现的位置（除最末位）距离模式串最后一个字符的距离，如果没有在模式串中出现过，则认为这个距离是模式串的长度。我们可以事先把这个距离表计算出来。</p><br><p>7 6 5 4 3 2 1   G C A G A G A G</p><br><p>⇒</p><br><p>字符 G C A *（其他） 距离 2 6 1 8（模式串的长度）</p><br><p>以上面第三次尝试为例，从右向左匹配了5次后发现匹配失败了，那么这时就看序号1处主串的字符是什么。很容易得到是‘G’，查询上表，‘G’对应的距离是2，那就很简单粗暴地把模式串向右移动两位，再次进行匹配。</p><br><p>上代码：</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">function</span> <span class="typ">HorspoolSearchLoop</span><span class="pun">(</span><span class="pln">mainString</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">){</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> mainLength</span><span class="pun">=</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> searchLength </span><span class="pun">=</span><span class="pln"> str</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> table</span><span class="pun">={};</span></li><br><li class="L4"><span class="kwd">for</span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> index</span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span><span class="pln">l</span><span class="pun">=</span><span class="pln">searchLength</span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln">l</span><span class="pun">&gt;</span><span class="pln">index </span><span class="pun">;</span><span class="pln">index</span><span class="pun">++){</span></li><br><li class="L5"><span class="pln"> table</span><span class="pun">[</span><span class="pln">str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">index</span><span class="pun">)]=</span><span class="pln">l</span><span class="pun">-</span><span class="pln">index</span><span class="pun">;</span></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span><span class="pln"> offset </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span><span class="pln"> padding </span><span class="pun">=</span><span class="pln"> mainLength </span><span class="pun">-</span><span class="pln"> searchLength</span><span class="pun">;</span><span class="pln"> offset </span><span class="pun">&lt;</span> <span class="pun">=</span><span class="pln"> padding</span><span class="pun">;){</span></li><br><li class="L8"><span class="kwd">var</span><span class="pln"> rightChar</span><span class="pun">;</span></li><br><li class="L9"><span class="kwd">var</span><span class="pln"> match</span><span class="pun">=</span><span class="kwd">true</span><span class="pun">;</span></li><br><li class="L0"><span class="kwd">var</span><span class="pln"> offsetJump</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">for</span> <span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> searchLength</span><span class="pun">-</span><span class="lit">1</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">–)</span> <span class="pun">{</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> searchingChar </span><span class="pun">=</span><span class="pln"> str</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span></li><br><li class="L3"><span class="kwd">if</span><span class="pun">(</span><span class="pln">i</span><span class="pun">===</span><span class="pln">searchLength</span><span class="pun">-</span><span class="lit">1</span><span class="pun">){</span></li><br><li class="L4"><span class="pln"> rightChar</span><span class="pun">=</span><span class="pln">mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset</span><span class="pun">+</span><span class="pln">i</span><span class="pun">);</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">searchingChar </span><span class="pun">!==</span><span class="pln"> mainString</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">offset </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">))</span> <span class="pun">{</span></li><br><li class="L7"><span class="pln"> match</span><span class="pun">=</span><span class="kwd">false</span><span class="pun">;</span></li><br><li class="L8"><span class="pln"> offsetJump </span><span class="pun">=</span><span class="pln"> table</span><span class="pun">[</span><span class="pln">rightChar</span><span class="pun">]||</span><span class="pln">searchLength</span><span class="pun">;</span></li><br><li class="L9"><span class="kwd">break</span><span class="pun">;</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pun">}</span></li><br><li class="L2"><span class="kwd">if</span><span class="pun">(</span><span class="pln">match</span><span class="pun">){</span></li><br><li class="L3"><span class="kwd">return</span><span class="pln"> offset</span><span class="pun">;</span></li><br><li class="L4"><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span></li><br><li class="L5"><span class="pln"> offset</span><span class="pun">+=</span><span class="pln">offsetJump</span><span class="pun">;</span></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="kwd">return</span> <span class="pun">-</span><span class="lit">1</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br></ol><br></div><br></div><br><p>这次只写了非递归的版本，因为递归的版本已经没有写的必要。</p><br><h2>还是来谈javascript</h2><br><p>冲着javascript性能来看这篇文章的同学一定没有兴趣看上来的算法。我一边写一边测试，终于也不愿意再深究其他的一些算法，原本还想把Boyer-Moore算法、Sunday算法也一起讨论讨论，现在看来完全没有必要。为什么？因为javascript实现这些算法的效率实在太！慢！了！</p><br><p>回到开头我们设置的测试场景，我们分别来试验一下搜索10000次，各种算法所要耗费的时间。</p><br><p>递归版（10000次·ms） 循环版（10000次·ms） 暴力算法 87, 1862, 990 35, 1349, 661 KMP算法 106, 3405, 1770 76, 2337, 1194 Horspool算法 187, 2479, 1446 javascript原生方法 9, 101, 47</p><br><p>我想从数据上看，结论是很清晰的。javascript代码的性能确实不高，相比较于循环，递归更是慢了近1倍。javascript在分配内存，数组访问，函数调用等等方面的性能与编译型语言差距很大。如果要实现一个特定的任务，我们更多地应该考虑尽可能地使用原生代码来实现，高级的算法在javascript里似乎并没有多少实用价值。</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/debugwidget/7d7627df-4296-42eb-b8c5-5da7cffd0b1b.htm"></iframe></p><br><blockquote><p>移过来好多样式丢了……</p></blockquote><br><blockquote><p>blog：<a href="http://www.zhouhua.info/2014/12/16/string/" target="_blank">http://www.zhouhua.info/2014/12/16/string/</a></p></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-112ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/112ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/112ver/">教你如何从bilibili下载视频并且提取视频BGM</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&nbsp;</p><br><blockquote><br><h1><span style="color: #993366;"><strong>下载bilibili视频</strong></span></h1><br><p>&nbsp;</p><br><p>The First 在bilibili找到你想要下载的视频 比如: <a href="http://www.bilibili.com/video/av2299170/" target="_blank" rel="external">http://www.bilibili.com/video/av2299170/</a></p><br><p>然后再bilibili后面加上jj 最后拼起来就是<a href="http://www.bilibilijj.com/video/av2299170/" target="_blank" rel="external">http://www.bilibilijj.com/video/av2299170/</a></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" target="_blank" rel="external"><img class=" size-medium wp-image-460 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" data-original="http://www.old.com/wp-content/uploads/2015/05/1-300x66.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="1" width="300" height="66"></a></p><br><p>&nbsp;</p><br><p>点击MP4进行下载</p><br><p>&nbsp;</p><br><h1><span style="color: #993366;"><strong><span style="color: #993366;">录制保存</span></strong></span></h1><br><p>有时候某些视频并不能下载 所以这里用到了Bandicam这款视频软件进行录制后保存</p><br><p>关于Bandicam下载可以去Bandicam吧进行下载</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" target="_blank" rel="external"><img class=" size-medium wp-image-461 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" data-original="http://www.old.com/wp-content/uploads/2015/05/2-280x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="2" width="280" height="300"></a> 这里只稍微说一下.一般录制出来的视频比较大.如果有需要后期开一章如何压制视频的文章吧</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><blockquote><br><h1><span style="color: #993366;"><strong>截取视频音乐</strong></span></h1><br><p>截取视频音乐有很多种方式.如果你愿意一边看视频一边截取可以采用potplay播放器的录制功能</p><br><h4><span style="color: #333333;">使用potplay </span></h4><br><p>下载地址:<a href="http://potplayer.daum.net/?lang=zh_CN" target="_blank" rel="external">http://potplayer.daum.net/?lang=zh_CN</a></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" target="_blank" rel="external"><img class=" size-medium wp-image-462 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" data-original="http://www.old.com/wp-content/uploads/2015/05/3-300x185.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="3" width="300" height="185"></a></p><br><p>&nbsp;</p><br><p>打开个视频文件 按TAB键既可以看到视频的一些相关信息</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" target="_blank" rel="external"><img class=" size-medium wp-image-463 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" data-original="http://www.old.com/wp-content/uploads/2015/05/4-300x219.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="4" width="300" height="219"></a></p><br><p>然后开始录制 右键选择 声音-音轨-录制</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" target="_blank" rel="external"><img class=" size-medium wp-image-464 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-05.png" data-original="http://www.old.com/wp-content/uploads/2015/05/5-300x276.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="5" width="300" height="276"></a></p><br><p>&nbsp;</p><br><p>这里可以选择很多种格式录制音频.. 到此使用potplay录制音频就结束了</p><br><p>&nbsp;</p><br><h1><span style="color: #333333;"><strong>使用视频制作软件截取音频</strong></span></h1><br><p>..这个我就不多说了..</p><br><p>另外网上还有一大堆如何截取视频音频的教程..大家可以多去了解一下</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-113ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/113ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/113ver/">CSS 预处理语言LESS简单实用教程与笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><blockquote></blockquote></p>
+<p></p><h1><span style="color: #333333; font-family: arial, helvetica, sans-serif;"><strong>前言</strong></span></h1><p></p>
+<p>CSS 预处理语言有两种 一种是今天的LESS 还有一种是SASS…至于学哪种..看个人喜好咯.其实都差不多</p><br><p>&nbsp;</p><br><h1><span style="color: #333333;"><strong>何为CSS预处理语言？</strong></span></h1><br><p>首先我们知道CSS是没有变量这一说的,也没有运算,逻辑判断…. 于是某个想要偷懒的程序猿开发出了一门预处理语言,满足了世界上一大批想偷懒的程序猿,这是一件普大喜奔的事</p><br><p>&nbsp;</p><br><h1><span style="color: #333333;"><strong>它能干什么？</strong></span></h1><br><p><del>不管它能不能干什么.反正不能干你就是了.</del></p><br><p>我们可以定义多个变量方便后面重复编写的时候调用,我们也可以编写一个class方便后续文本继承这个class</p><br><p>&nbsp;</p><br><blockquote><br><h1><span style="color: #333333;"><strong>下载与编译</strong></span></h1><br><p>&nbsp;</p><br><h3 style="text-align: center;"><strong>编译</strong></h3><br><p>编译的方式有很多种,nodejs可以编译,客户端(浏览器)也可以编译,这里我推荐使用咋们自己人开发的一款编译工具叫koala</p><br><p>官方网址为:<a href="http://koala-app.com/" target="_blank" rel="external">http://koala-app.com/</a></p><br><p>下载 安装就不多说了.</p><br><p>首先新建一个文件夹 less(名字自己取)然后新建一个文件名为.less的文件 比如test.less</p><br><p>然后打开这款软件,把文件夹拖入或者添加到这里</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-11.png" target="_blank" rel="external"><img class=" size-medium wp-image-471 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-11.png" data-original="http://www.old.com/wp-content/uploads/2015/05/11-300x185.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="1" width="300" height="185"></a></p><br><p>&nbsp;</p><br><p>添加 文件夹后会出现</p><br><p>这时候要做的是 设置文件输出路径</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-21.png" target="_blank" rel="external"><img class=" size-medium wp-image-472 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-21.png" data-original="http://www.old.com/wp-content/uploads/2015/05/21-300x187.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="2" width="300" height="187"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>1:选择你要编译的less文件</p><br><p>2:选择输出方式</p><br><p>3:点击立即编译</p><br><p>4:HTML导出编译的css</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-31.png" target="_blank" rel="external"><img class="  alignnone wp-image-473 " src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-31.png" data-original="http://www.old.com/wp-content/uploads/2015/05/31.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="3" width="572" height="354"></a></p><br><p>&nbsp;</p><br><p>OK这时候你就编译了一个less了</p><br><p>&nbsp;</p><br><h1><span style="color: #333333;"><strong>小贴士</strong></span></h1><br><p>只要不关闭Koala这个软件 那么less与css都是动态即时编译 也就是说直接在less文件里面写完后保存并不需要再次执行编译.</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><blockquote><br><h1 style="text-align: center;"> <strong><span style="color: #333333;">LESS简单教程</span></strong></h1><br><h3><span style="color: #993366;"><strong>变量</strong></span></h3><br><pre class="lang:default decode:true ">@a:#eee;<br>@testW:300px;<br></pre><br><p>用@开头来定义一个变量</p><br><h3><span style="color: #993366;"><strong>使用变量</strong></span></h3><br><pre class="lang:default decode:true">body{<br>    background: @a;<br>}</pre><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>继承/混合</strong></span></h3><br><pre class="lang:default decode:true ">.box{<br>    width: @testW;<br>    height:@testW;<br>    background: red;<br>    .border;<br>}<br><br>//混合<br>.border{<br>    border:5px solid pink;<br>}</pre><br><p>首先我们定义了一个class 然后再.box里引用了这个类 .border这样就实现了继承 具体的可以看看编译后的CSS哦</p><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>混合传参</strong></span></h3><br><pre class="lang:default decode:true ">.border_02(@border_w){<br>    border: solid yellow @border_w;<br>}<br>.test_hunhe{<br>    .border_02(30px);<br>}</pre><br><p>.border_o2中声明了一个不带默认值的参数,在.test_hunhe调用的时候需要传递具体的参数</p><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>混合传参-给定默认值</strong></span></h3><br><pre class="lang:default decode:true ">.border_03(@border_w:10px){<br>    border:solid blue @border_w;<br>}<br>.test_hunhe03{<br>    .border_03();<br>}<br></pre><br><p>.test<em>hunhe03调用的时候不带参值.默认就是10px</em></p><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>标记锚点</strong></span></h3><br><pre class="lang:default decode:true">.Col(red,@a:red){<br>    color:@a;<br><br>}<br><br>.Col(blue,@a:blue){<br>    color:@a<br>}<br>//默认设置..PS:需要把参数全部传递进去<br>.Col(@,@a:null){<br>        background: #147845;<br>}<br>.test_04{<br> .Col(blue);<br>}</pre><br><p>最后生成的test_04为 background: #147845; color:blue</p><br><p>&nbsp;</p><br><h3><span style="color: #993366;">嵌套</span></h3><br><pre class="lang:default decode:true">.magic{<br>    //magic下的li<br>    li{<br>        //li下的a<br>        a{<br>            .Col(blue);<br>            //&amp;代表上一级选择器的元素<br>            &amp;:hover{<br>                .Col(red)<br>            }<br>        }<br>    }<br>}<br><br></pre><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>&amp;选择符</strong></span></h3><br><pre class="lang:default decode:true">a{<br>            .Col(blue);<br>            //&amp;代表上一级选择器的元素<br>            &amp;:hover{<br>                .Col(red)<br>            }</pre><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong> 运算</strong></span></h3><br><pre class="lang:default decode:true ">.sum{<br><br>    //<br>    .box();<br>    //继承box的样式<br>    //同时在后面又定义了个Width覆盖了box的width<br>    //运算记得用空格隔开..<br>    width:@testW - 100px;<br><br>}</pre><br><p>&nbsp;</p><br><h3><span style="color: #993366;"><strong>避免编译</strong></span></h3><br><pre class="lang:default decode:true ">//避免编译<br><br>.test_03{<br>    //用~””来避免编译<br>    width:~”cacl(300px-30px)”;<br><br>}<br><br>//! important<br>//css中用来定义层级<br>.test_improtant{<br> .box()!important;<br>}<br></pre><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-114ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -486,352 +659,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-119ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/119ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/119ver/">博主推荐:学写jquery缓动函数</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/4743.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4743.htm</a></p><p></p>
-<p></p><p>问题引入：实现如下效果</p><p></p>
-<p></p><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/debugwidget/f2ddfd95-3813-440d-bf58-8e10f0df7c80.htm"></iframe></p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>两个方块的追逐效果，使用css3，实现起来没什么难度：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;</span></li></p>
-<p><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“first”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
-<p><li class="L2"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“second”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
-<p><li class="L3"><span class="tag">&lt;/div&gt;</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="com">#container{</span></li></p>
-<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
-<p><li class="L5"><span class="pun">}</span></li></p>
-<p><li class="L6"></li></p>
-<p><li class="L7"><span class="pun">@-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">keyframes run</span><span class="pun">{</span></li></p>
-<p><li class="L8"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pun">}</span></li></p>
-<p><li class="L2"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pun">}</span></li></p>
-<p><li class="L6"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pun">}</span></li></p>
-<p><li class="L0"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span></li></p>
-<p><li class="L4"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L7"><span class="pun">}</span></li></p>
-<p><li class="L8"><span class="pun">}</span></li></p>
-<p><li class="L9"><span class="lit">@keyframes</span><span class="pln"> run</span><span class="pun">{</span></li></p>
-<p><li class="L0"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span></li></p>
-<p><li class="L4"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L7"><span class="pun">}</span></li></p>
-<p><li class="L8"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pun">}</span></li></p>
-<p><li class="L2"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pun">}</span></li></p>
-<p><li class="L6"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
-<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pun">}</span></li></p>
-<p><li class="L0"><span class="pun">}</span></li></p>
-<p><li class="L1"></li></p>
-<p><li class="L2"><span class="com">#first{</span></li></p>
-<p><li class="L3"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
-<p><li class="L6"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
-<p><li class="L7"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pun">}</span></li></p>
-<p><li class="L0"></li></p>
-<p><li class="L1"><span class="com">#second{</span></li></p>
-<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
-<p><li class="L6"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
-<p><li class="L7"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pun">}</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>用到了css3的animate属性，不是很复杂。不过出于兼容性的考虑，我们决定使用jquery的animate方法来重新实现。</p><p></p>
-<p></p><h2>简单粗暴地多次使用animate</h2><p></p>
-<p></p><p>可以看到，每个方块的运动都可以分解成四步，每一步都是向一个方向运动。于是如果要用$.animate来实现，可以在一个循环里，依次调用四遍animate来实现：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="com">#container{</span></li></p>
-<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
-<p><li class="L5"><span class="pun">}</span></li></p>
-<p><li class="L6"></li></p>
-<p><li class="L7"><span class="com">#first{</span></li></p>
-<p><li class="L8"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L0"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L4"><span class="pun">}</span></li></p>
-<p><li class="L5"></li></p>
-<p><li class="L6"><span class="com">#second{</span></li></p>
-<p><li class="L7"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
-<p><li class="L0"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pln"> right</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L2"><span class="pln"> bottom</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="kwd">var</span><span class="pln"> $first</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#first’</span><span class="pun">);</span></li></p>
-<p><li class="L1"><span class="kwd">var</span><span class="pln"> $second</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#second’</span><span class="pun">);</span></li></p>
-<p><li class="L2"></li></p>
-<p><li class="L3"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
-<p><li class="L4"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L5"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
-<p><li class="L6"><span class="str">“top”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L7"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L8"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L9"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
-<p><li class="L0"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
-<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L2"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L3"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L4"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
-<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L6"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
-<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L0"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
-<p><li class="L1"><span class="pun">});</span></li></p>
-<p><li class="L2"><span class="pun">});</span></li></p>
-<p><li class="L3"><span class="pun">});</span></li></p>
-<p><li class="L4"><span class="pun">});</span></li></p>
-<p><li class="L5"><span class="pun">})();</span></li></p>
-<p><li class="L6"></li></p>
-<p><li class="L7"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
-<p><li class="L8"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L9"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
-<p><li class="L0"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
-<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L2"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L3"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
-<p><li class="L4"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
-<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L7"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L8"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
-<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L0"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L1"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L2"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
-<p><li class="L3"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
-<p><li class="L4"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
-<p><li class="L5"><span class="pun">});</span></li></p>
-<p><li class="L6"><span class="pun">});</span></li></p>
-<p><li class="L7"><span class="pun">});</span></li></p>
-<p><li class="L8"><span class="pun">});</span></li></p>
-<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>这种实现简单粗暴。我写的这段代码回调链太深了，不好看。有比我更熟悉jquery的朋友不使用complete回调，而是直接$.animate().animate()这样的调用链，效果一样，代码会短很多。不过jquery代码美化优化什么的不是今天的重点。重点是什么？学习缓动函数。</p><p></p>
-<p></p><h2>缓动函数（animation easing）</h2><p></p>
-<p></p><p>缓动函数是用来描述动画效果，在jquery中，实现了两种，分别是 linear和 swing。 linear效果就是没有效果，动画速度是均匀的，呈线性变化。 swing呢，动画效果呈线慢-快-慢的变化。swing也是$.animate的默认动画效果。</p><p></p>
-<p></p><p>或许仅仅这么说还是难以让人理解缓动函数在干什么，那就参考一下下面来自jquery ui的例子：</p><p></p>
-<p></p><p>或者参考<a href="http://www.zhouhua.info/jump/xyu0" target="_blank">jquery easing plugin</a>。</p><p></p>
-<p></p><p>回到jquery ui提供的各个缓动函数示意图上，对于任意一张示意图，横向表示时间，纵向表示动画变化量。当斜率越大时，表示此时动画速率越快。</p><p></p>
-<p></p><p>我们定义几个变量和常量来标记一下：动画起始变化量为<em>begin</em>，为方便计算，定义为常数0；动画结束和起始时的变化差值（总变化量）<em>change</em>，为方便计算，定义为常数1；动画持续时间<em>duration</em>；动画已进行时间<em>currentTime</em>；动画进行的进度<em>progress</em>，它等同于 currentTime / duration；当前变化量<em>eased</em>，jquery中这样定义：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="pln">eased </span><span class="pun">=</span><span class="pln"> easingFunction</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">);</span></li><br><br><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>从上面的效果中随便挑一个出来看看是如何实现的吧：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="kwd">function</span><span class="pln"> easeOutBounce</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L1"><span class="kwd">if</span> <span class="pun">((</span><span class="pln">currentTime</span><span class="pun">/=</span><span class="pln">duration</span><span class="pun">)</span> <span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">1</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
-<p><li class="L2"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun"></span><span class="pln">currentTime</span><span class="pun">*</span><span class="pln">currentTime</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
-<p><li class="L4"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">1.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">75</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
-<p><li class="L6"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.25</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">9375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
-<p><li class="L7"><span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span></li></p>
-<p><li class="L8"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.625</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">984375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pun">}</span></li></p>
-<p><li class="L0"><span class="pun">}</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>说到这儿，我想该插一点相关话题。熟悉css3的朋友会知道，css3的动画也有缓动函数，不过换了个名字，叫<em>timing function</em>。在transition中是transition-timing-function，在animate里是animate-timing-function。主要支持的动画有ease、linear、ease-in、ease-out、ease-in-out等。那如果想要的动画不在浏览器默认支持的列表中怎么办？css3也是支持自定义timing-function的，不过不同于jquery的easing function，timing function并不是描述特定时间下的动画量，而是直接描述上面我们看到的曲线图。timing function允许使用三次贝塞尔曲线方程描述动画曲线。三次贝塞尔方程接受4个点的参数：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="pln">cubic</span><span class="pun">-</span><span class="pln">bezier</span><span class="pun">(</span><span class="pln">P1x</span><span class="pun">,</span><span class="pln"> P1y</span><span class="pun">,</span><span class="pln"> P2x</span><span class="pun">,</span><span class="pln"> P2y</span><span class="pun">)</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>但在css的timing function场景下，P0点就是(0, 0)，P3点就是(1, 1)。于是变量就只剩下两个点的坐标，调用方式就变成了： cubic-bezier(P1x, P1y, P2x, P2y)。在W3C的规范中，定义了这四个点的纵横坐标都需要在0和1之间，这也就意味着无论怎么变化，曲线上所有的点都必须在这个1*1的正方形内，对比上面jquery ui easing的曲线图，我们可以确认像elastic这类的效果，使用timing-function就无能为力了。</p><p></p>
-<p></p><p>想多了解一下css3的timing function，不妨到<a href="http://www.zhouhua.info/jump/q6nt" target="_blank">这个网站</a>上自己动手试验一下。</p><p></p>
-<p></p><h2>编写easing function</h2><p></p>
-<p></p><p>说了半天的timing function，终于又回到easing function上来了。自己动手写easing function，那自由度，无边无际。从上面的介绍中，我们往往会有这样一个错觉，progress=0时，eased=0；progress=1时，eased=1。timing function中，因为P0和P3是定死的，所以这条一定成立，但在easing function中，其实并没有这个限制。</p><p></p>
-<p></p><p>什么意思？以我们开篇的动画为例，我们看一个方块从左上角运动一圈的轨迹。先说水平方向上，progress&lt;0.25时，left属性从0px变成220px；0.25&lt;=progress&lt;0.5时，left保持220px；0.5&lt;=progress&lt;0.75时，left属性从220px变成0px；0.75&lt;=progress&lt;1时，left保持0px。再看竖直方向上，progress&lt;0.25时，top保持0px；0.25&lt;=progress&lt;0.5时，top从0px变成220px；0.5&lt;=progress&lt;0.75时，top保持220px；0.75&lt;=progress&lt;1时，top从220px变成0px。那么这个过程反映成easing function就是：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="kwd">function</span><span class="pln"> horizontal</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L1"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L2"><span class="kwd">return</span><span class="pln"> progress </span><span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span></li></p>
-<p><li class="L4"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L5"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
-<p><li class="L6"><span class="pun">}</span></li></p>
-<p><li class="L7"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L8"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">0.75</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
-<p><li class="L9"><span class="pun">}</span></li></p>
-<p><li class="L0"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pun">}</span></li></p>
-<p><li class="L2"><span class="kwd">function</span><span class="pln"> vertical</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L3"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L4"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
-<p><li class="L5"><span class="pun">}</span></li></p>
-<p><li class="L6"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L7"><span class="kwd">return</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">-</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
-<p><li class="L8"><span class="pun">}</span></li></p>
-<p><li class="L9"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
-<p><li class="L0"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
-<p><li class="L1"><span class="pun">}</span></li></p>
-<p><li class="L2"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">1</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
-<p><li class="L3"><span class="pun">}</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>接下来扩展jquery的easing效果库：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">easing</span><span class="pun">,</span></li></p>
-<p><li class="L1"><span class="pun">{</span></li></p>
-<p><li class="L2"><span class="str">“vertical”</span><span class="pun">:</span><span class="pln"> vertical</span><span class="pun">,</span></li></p>
-<p><li class="L3"><span class="str">“horizontal”</span><span class="pun">:</span><span class="pln"> horizontal</span></li></p>
-<p><li class="L4"><span class="pun">});</span></li><br><br><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>在$.animate中就可以像linear或者swing那样使用了：</p><p></p>
-<p><div class="jspContainer"></div></p>
-<p><div class="jspPane"></div></p>
-<p><ol class="linenums"></ol></p>
-<p><li class="L0"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
-<p><li class="L1"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L2"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
-<p><li class="L3"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
-<p><li class="L4"><span class="pun">},{</span></li></p>
-<p><li class="L5"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
-<p><li class="L6"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
-<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
-<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
-<p><li class="L9"><span class="pun">},</span></li></p>
-<p><li class="L0"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
-<p><li class="L1"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
-<p><li class="L2"><span class="pun">}</span></li></p>
-<p><li class="L3"><span class="pun">});</span></li></p>
-<p><li class="L4"><span class="pun">})();</span></li></p>
-<p><li class="L5"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
-<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
-<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
-<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
-<p><li class="L9"><span class="pun">},{</span></li></p>
-<p><li class="L0"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
-<p><li class="L1"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
-<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
-<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
-<p><li class="L4"><span class="pun">},</span></li></p>
-<p><li class="L5"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
-<p><li class="L6"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
-<p><li class="L7"><span class="pun">}</span></li></p>
-<p><li class="L8"><span class="pun">});</span></li></p>
-<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
-<p><div class="jspVerticalBar"></div><br></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>我们通过specialEasing这个参数为水平方向和竖直方向指定了不同的动画效果。当然了，在这个场景中，自己写缓动函数并没有降低整体的复杂度，毕竟这个缓动函数逻辑太碎，理解起来肯定比四个animate连起来的方式复杂。但我希望能给大家带来一些思路上的启示，为以后可能遇到的问题积累经验。</p><p></p>
-<blockquote><p>博客地址：<a href="http://www.zhouhua.info/2015/03/10/easing/" target="_blank">http://www.zhouhua.info/2015/03/10/easing/</a></p></blockquote>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-86ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -887,10 +714,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-101ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-87ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/101ver/" class="article-date">
+      <a href="/2015/10/21/87ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -904,7 +731,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/101ver/">Jquery-生成页面顶端的滑动弹出式提示框效果</a>
+      <a class="article-title" href="/2015/10/21/87ver/">JS程序设计-词法重点</a>
     </h1>
   
 
@@ -913,160 +740,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&nbsp;</p><br><p>参考给定的HTML，使用jQuery和相关CSS生成页面顶端滑动错误提示效果，具体效果如下：</p><br><blockquote><p>点击页面中的按钮“系统提示” ，生成一个背景色为#efb73e的页面顶端居中“错误提示框”（贴近页面顶端），宽度为页面宽度的80%，高度为35px，出现效果为整体向下滑动出现，点击“错误提示框”中的关闭元素（id=“close” 元素），自动向上滑动关闭页面顶端的“错误提示效果”（效果为整体向上滑动消失），参考如下UI设计图形</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p></blockquote><br><p>&nbsp;</p><br><p>代码和预览地址<a href="http://www.gbtags.com/gb/rtreplayerpreview/843.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/843.htm</a></p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-41ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/41ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/41ver/">DOM编程艺术之事件注册</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:事件注册<br>        -addEventListener(type, listener)//注册事件 默认为冒泡过程<br>        -使用element.onclick// 只能注册一个函数</pre></p>
-<pre><code>二:取消事件注册
-    -<span class="ruby">removeEventListener(type, listener)
-</span>    -<span class="ruby">element.onclick=null/<span class="regexp">/不推荐
-</span></span>
-三:事件触发
-    -<span class="ruby"><span class="regexp">dispatchEvent(event)/</span><span class="regexp">/触发事件
-</span></span>    -<span class="ruby"><span class="regexp">element.dispatchEvent('click')
-</span></span>
-四:浏览器兼容型
-    -<span class="ruby"><span class="regexp">事件注册与取消
-</span></span>        -<span class="ruby"><span class="regexp">attachEvent/detach</span>Event
-</span>    -<span class="ruby">事件触发
-</span>        -<span class="ruby">fireEvent(e)
-</span>    -<span class="ruby">no capture /<span class="regexp">/无捕获阶段
-</span></span>
-    var addEvent=document.addEventListener?function(elem,type,lis,useca){
-        elem.addEventListener(type,lis,useca)
-    }:function(elem,type,lis,useca){
-        elem.attachEvent('on'+type+lis)
-    }
-    -<span class="ruby"><span class="regexp">事件取消同上
-</span></span>
-五:事件对象
-    -<span class="ruby"><span class="regexp">var click=function(event){
-</span></span>
-    }
-    -<span class="ruby"><span class="regexp">IE低版本
-</span></span>        -<span class="ruby"><span class="regexp">var click=function(event){
-</span></span>            event=event||window.event
-        }
-    -<span class="ruby"><span class="regexp">属性
-</span></span>        -<span class="ruby"><span class="regexp">type /</span><span class="regexp">/事件类型
-</span></span>        -<span class="ruby"><span class="regexp">target(srcElement)/</span><span class="regexp">/目标元素
-</span></span>        -<span class="ruby"><span class="regexp">currentTarget/</span><span class="regexp">/父节点的元素
-</span></span>    -<span class="ruby"><span class="regexp">方法
-</span></span>        -<span class="ruby"><span class="regexp">stopPropagation/</span><span class="regexp">/阻止冒泡
-</span></span>            -<span class="ruby"><span class="regexp">event.cancelBubble=true /</span><span class="regexp">/IE
-</span></span>            -<span class="ruby"><span class="regexp">event.stopImmediatePropagation/</span><span class="regexp">/阻止本身和子节点事件传播
-</span></span>        -<span class="ruby"><span class="regexp">preventDefault/</span><span class="regexp">/阻止默认行为
-</span></span>            -<span class="ruby"><span class="regexp">returnValue=false /</span><span class="regexp">//</span><span class="constant">IE</span>&lt;<span class="regexp">/pre&gt;</span></span>
-</code></pre><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-84ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/84ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/84ver/">PS切图之修改，维护</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p><strong>修改，维护</strong></p><p></p>
-<p></p><p>一:要继续放更多的图片？</p><p></p>
-<ul class=" list-paddingleft-2"><br><li>更改画布大小<br><p>-图像-画布大小:定位选为左上角</p></li><br></ul><br><p>二:移动图标</p><br><ul class=" list-paddingleft-2"><br><li>若图标为独立图层则用移动工具拖动即可</li><br><li>若图标为非独立图层<br><p>-用选区工具选中图标区域</p><br><p>-用移动工具拖动图标</p></li><br></ul><br><p>三:要减小画布</p><br><ul class=" list-paddingleft-2"><br><li>选定选区</li><br><li>裁剪</li><br></ul><br><p>四:注意事项</p><br><ul class=" list-paddingleft-2"><br><li>修改png8的图片<br><p>-需更改颜色模式为RGB颜色(图像-模式-RGB颜色)</p></li><br></ul>
+        <p><strong>JS-词法重点</strong></p><br><p>一:变量标识符的命名要求</p><br><ul class=" list-paddingleft-2"><br><li>以字母,下划线，或者美元符号($)开头</li><br><li>以字母,下划线,美元符号($)和数组组成</li><br><li></li><br></ul><br><p>二:关键字与保留字</p><br><p>无法使用关键字与保留字来命名</p><br><p>参考地址:<a href="http://www.itxueyuan.org/view/6627.html" target="_blank" rel="external">http://www.itxueyuan.org/view/6627.html</a></p><br><p>三:大小写敏感</p><br><ul class=" list-paddingleft-2"><br><li>var Aa=0;与var AA=0;是两个变量</li><br><li>关键字比如for也需要大小写分明</li><br></ul><br><p>四:严格模式</p><br><ul class=" list-paddingleft-2"><br><li>增加js的安全性</li><br><li>提高编译效率</li><br></ul><br><p>​</p><br><p>五:使用严格模式</p><br><ul class=" list-paddingleft-2"><br><li>全局使用</li><br></ul><br><p><code class="brush:js;toolbar:false">&lt;script&gt;<br><br>“use strict”<br><br>var a=0;<br><br>&lt;/script&gt;<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>局部使用</li><br></ul><br><p><code class="brush:js;toolbar:false">function ab(){<br><br>“use strict”<br><br>var a=0;<br><br>}<br><br></code></p><br><p>六:严格模式与标准模式区别</p><br><ul class=" list-paddingleft-2"><br><li>严格模式下不允许隐式声明</li><br></ul><br><p><code class="brush:js;toolbar:false">function(){<br><br>“use strict”<br><br>a=0;//a在前面并未声明 ,使用严格模式会报错</code></p><br><p>}<br><br></p><br><ul class=" list-paddingleft-2"><br><li>对象重命名属性</li><br></ul><br><p><code class="brush:js;toolbar:false">var obj={a:1,b:2,a:3}<br><br>obj.a//非严格模式会得出3 严格模式会报错<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>arguments.callee</li><br></ul><br><p><code class="brush:js;toolbar:false">var i=0;<br><br>function ac(){<br><br>if(i&gt;10){<br><br>return false;<br><br>}<br><br>i++;<br><br>arguments.callee()//指向本身这个函数,严格模式下会报错<br><br>}<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>    with语句等等~</li><br></ul><br><p>七:注释</p><br><ul class=" list-paddingleft-2"><br><li>单行注释</li><br></ul><br><p><code class="brush:js;toolbar:false">//var a=1;<br><br>//var b=2;<br><br></code></p><br><ul class=" list-paddingleft-2"><br><li>多行注释</li><br></ul><br><p><code class="brush:js;toolbar:false">/<em>var a=1;<br><br>var b=2;</em>/<br><br></code></p><br><p>&nbsp;</p>
 
 
 

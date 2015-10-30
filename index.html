@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -193,11 +193,11 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-了不起的nodejs/一个简单的TCP聊天" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-了不起的nodejs/HTTPchat客户端与服务端" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/28/了不起的nodejs/一个简单的TCP聊天/" class="article-date">
-  	<time datetime="2015-10-28T15:18:39.090Z" itemprop="datePublished">2015-10-28</time>
+      <a href="/2015/10/30/了不起的nodejs/HTTPchat客户端与服务端/" class="article-date">
+  	<time datetime="2015-10-30T12:04:40.752Z" itemprop="datePublished">2015-10-30</time>
 </a>
     </div>
   
@@ -210,7 +210,130 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/28/了不起的nodejs/一个简单的TCP聊天/">一个简单的TCP聊天程序</a>
+      <a class="article-title" href="/2015/10/30/了不起的nodejs/HTTPchat客户端与服务端/">HTTP客户端与服务端</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###HTTP客户端与服务端<br>原谅我标题党了..也不算一个chat,只是展示了一下http的请求和http接收<br>关于了不起的nodejs实例都可以在我的<a href="https://github.com/Relsoul/bdwork/tree/master/soul" target="_blank" rel="external">github</a>上找到</p>
+<p>###服务端<br>这里利用到http上一课也就是http表单中的知识.<br>建立一个服务器,然后监听3100端口.同时处理下data事件和end事件<br>这里没啥难度.咋们看客户端的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> qs=<span class="built_in">require</span>(<span class="string">"querystring"</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> body=<span class="string">""</span>;</span><br><span class="line">	req.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		body+=data</span><br><span class="line">	&#125;)</span><br><span class="line">	req.on(<span class="string">"end"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	res.writeHead(<span class="number">200</span>);</span><br><span class="line">	res.end(<span class="string">"okay"</span>)</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"接受到的name参数为:"</span>+qs.parse(body).name)</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">&#125;).listen(<span class="number">3100</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"run 3100 port"</span>)&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>###客户端<br>首先我们了解下<code>http.request</code><br>向某个网页发起一次http请求 可以是get也可以是post只需要以一个对象的方式写入进去就okay了<br>下例就是向127.0.1.1发起一次POST请求.同时附带一个查询字符串<br>    http.request({},function(res)).end()<br>其中function(res)这个函数是请求成功后的一个回调函数 其中res就是服务器发送至你的返回体<br>既然是返回体那么肯定也有一些事件 比如data事件<br>    process.stdout.write<br>这串代码是用来向客户端屏幕输出字符的<br>    end()<br>end就是结束请求的意思 也就是说我们可以在结束请求的时候添加一些查询字符串 比如{name:”soul”}经过qs的转码后会变成name=soul<br>下例代码完整的请求应该是<br>    POST 127.0.0.1:3100/?name=query<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">http.request(&#123;</span><br><span class="line">		<span class="string">"host"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">		<span class="string">"port"</span>:<span class="number">3100</span>,</span><br><span class="line">		<span class="string">"method"</span>:<span class="string">"<span class="keyword">POST</span>"</span>,</span><br><span class="line">		<span class="string">"url"</span>:<span class="string">"/"</span></span><br><span class="line">	&#125;,function(res)&#123;</span><br><span class="line">		res.setEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		res.on(<span class="string">"data"</span>,function(data)&#123;</span><br><span class="line">			console.log(data)</span><br><span class="line">		 console.log(<span class="string">"请求成功"</span>)</span><br><span class="line">		 process.stdout.write(<span class="string">"\r\n 请再输入你的名字:"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).end(qs.stringify(&#123;name:query&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>然后我们把他封装成一个函数方便后面调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params">query</span>)</span>&#123;</span><br><span class="line">	http.request(&#123;</span><br><span class="line">		<span class="string">"host"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">		<span class="string">"port"</span>:<span class="number">3100</span>,</span><br><span class="line">		<span class="string">"method"</span>:<span class="string">"POST"</span>,</span><br><span class="line">		<span class="string">"url"</span>:<span class="string">"/"</span></span><br><span class="line">	&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">		res.setEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		res.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(data)</span><br><span class="line">		 <span class="built_in">console</span>.log(<span class="string">"请求成功"</span>)</span><br><span class="line">		 process.stdout.write(<span class="string">"\r\n 请再输入你的名字:"</span>)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;).end(qs.stringify(&#123;name:query&#125;))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">process.stdout.write(<span class="string">"第一次输入你的名字:"</span>);</span><br><span class="line"><span class="comment">//流默认是暂停的 需要resume()来恢复</span></span><br><span class="line">process.stdin.resume();</span><br><span class="line">process.stdin.setEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">process.stdin.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	send(name.replace(<span class="string">"\n"</span>,<span class="string">""</span>))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="built_in">process</span>.<span class="keyword">stdin</span>
+</code></pre><p>客户端输入.默认是暂停的 所以我们得恢复输入流这样才能监听到输入的data事件<br>    process.stdin.resume()//恢复输入流<br>    process.stdin.setEncoding(“utf-8”);//设置一下编码 否则是buffer类型</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/了不起的nodejs/">了不起的nodejs</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-了不起的nodejs/HTTP表单" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/了不起的nodejs/HTTP表单/" class="article-date">
+  	<time datetime="2015-10-29T14:08:39.579Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/了不起的nodejs/HTTP表单/">HTTP表单</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###创建一个HTTP服务<br>引入nodejs提供的http模块后就可以创建一个HTTP服务.<br>http.createServer返回当前服务器,然后再监听一下端口就可以访问localhost:3100了<br>req:客户端(浏览器)请求<br>res:服务器发送至浏览器的接口<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> app=http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;&#125;</span><br><span class="line">app.listen(<span class="number">3100</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"监听于3100端口"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>###HTTP的req与res<br>req和res是一个对象,所以不妨用console.log输出一下就可以看到众多信息了<br><strong>req.url</strong><br>req.url即客户端访问的url地址 但不包含主机头 如<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">get</span> http:<span class="comment">//baidu.com/nice/</span></span><br><span class="line">req.url=&gt;/nice</span><br></pre></td></tr></table></figure></p>
+<p><strong>res.writeHead,res.write,res.end</strong><br>res.writeHead用来设置服务器发送至浏览器的头部信息 如图<br><img src="http://7xi9fb.com1.z0.glb.clouddn.com/img/http.png" alt="res.writeHead"><br>res.write用来向客户端发送body体…大致理解为HTML源码就okay了~<br>如果这个方法被调用但是 response.writeHead() 没有被调用，它将切换到默认header模式并更新默认的headers。<br>res.end<br>当body发送完毕的时候得调用一下res.end(),否则浏览器会一致向服务器发送请求(长时间链接不会断开)<br>如果在res.end结束后调用res.write则会报错<br>下面的代码只会输出 sdsdas和hello而setTimeout中的代码则不会输出<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> app=http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(req.url==<span class="string">"/"</span>)&#123;</span><br><span class="line">		res.writeHead(<span class="number">200</span>,&#123;<span class="string">"Content-Type"</span>:<span class="string">"text/html"</span>&#125;)</span><br><span class="line">		</span><br><span class="line">		res.write(<span class="string">"sdsdsa"</span>)</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			res.write(<span class="string">"2333"</span>)</span><br><span class="line">		&#125;,<span class="number">5000</span>)</span><br><span class="line">		res.end(<span class="string">"&lt;h1&gt;hello&lt;/h1&gt;"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">3100</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"监听于3100端口"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>###开始制作一个HTTP表单<br><strong>req.data,end事件</strong><br>当客户端有数据传输都会产生以上两个事件<br>data事件接受数据,当数据产生完毕则会触发end事件</p>
+<p><strong>req.headers</strong><br>客户端向服务端发送数据会包含客户端的头部.同res.headers</p>
+<p><strong>querystring</strong><br>查询参数格式化<br>        querystring.(“name=soul”)=&gt;{name:soul}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http=<span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">var</span> qs=<span class="built_in">require</span>(<span class="string">"querystring"</span>)</span><br><span class="line"><span class="keyword">var</span> app=http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(req.url==<span class="string">"/"</span>)&#123;</span><br><span class="line">		res.writeHead(<span class="number">200</span>,&#123;<span class="string">"Content-Type"</span>:<span class="string">"text/html"</span>&#125;)</span><br><span class="line">		fs.readFile(__dirname+<span class="string">"/index.html"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</span><br><span class="line">			res.write(data)</span><br><span class="line">			res.end()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(req.url==<span class="string">"/url"</span>&amp;&amp;req.method==<span class="string">"POST"</span>)&#123;</span><br><span class="line">		<span class="keyword">var</span> body=<span class="string">''</span>;</span><br><span class="line">		req.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">			<span class="comment">//这里必须隐式转化为字符串</span></span><br><span class="line">			body+=data</span><br><span class="line">		&#125;);</span><br><span class="line">		req.on(<span class="string">"end"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="comment">//qs.parse默认只支持字符串 直接写入data是一个二进制的data</span></span><br><span class="line">			<span class="built_in">console</span>.log(qs.parse(body))</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"接收完毕"</span>)</span><br><span class="line">			res.write(<span class="string">"&lt;h1&gt;Content-Type:"</span>+req.headers[<span class="string">"content-type"</span>]+<span class="string">"&lt;/h1&gt; &lt;h1&gt;接收到的数据为:"</span>+body+<span class="string">"&lt;/h1&gt;"</span>+</span><br><span class="line">			<span class="string">"&lt;h1&gt;格式化后的数据为:"</span>+<span class="built_in">JSON</span>.stringify(qs.parse(body))+<span class="string">"&lt;/h1&gt;"</span>)</span><br><span class="line">			res.end()</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(<span class="number">3100</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"监听于3100端口"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>HTML</strong></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"http://localhost:3100/url"</span> <span class="keyword">method</span>=<span class="string">"post"</span>&gt;</span><br><span class="line">			&lt;label <span class="keyword">for</span>=<span class="string">""</span>&gt;</span><br><span class="line">				&lt;p&gt;</span><br><span class="line">					请输入用户名</span><br><span class="line">					&lt;input <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span> /&gt;</span><br><span class="line">				&lt;/p&gt;</span><br><span class="line">				</span><br><span class="line">			&lt;/label&gt;</span><br><span class="line">			&lt;input <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"提交"</span>/&gt;</span><br><span class="line">		&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/了不起的nodejs/">了不起的nodejs</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-了不起的nodejs/一个简单的TCP聊天" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/29/了不起的nodejs/一个简单的TCP聊天/" class="article-date">
+  	<time datetime="2015-10-29T08:34:33.388Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/了不起的nodejs/一个简单的TCP聊天/">一个简单的TCP聊天程序</a>
     </h1>
   
 
@@ -222,8 +345,9 @@ var _hmt = _hmt || [];
         <h3 id="nodejs中创建net服务器">nodejs中创建net服务器</h3><p>引入nodejs自带的net模块 然后创建一个net服务<br>其中的conn保存着每个链接,就像你的身份证一般，那个conn就是身份证.在众多的人群(链接)中我总是可以通过conn(身份证)找到你的身影.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net=<span class="built_in">require</span>(<span class="string">"net"</span>)</span><br><span class="line"><span class="keyword">var</span> server=net.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">conn</span>)</span>&#123;&#125;)</span><br></pre></td></tr></table></figure></p>
 <h3 id="nodejs中的net事件">nodejs中的net事件</h3><p>总所周知nodejs是事件驱动的,So.每个conn都提供了一些事件, 失去链接的事件,链接发送数据的事件.<br>客户端链接进来了,服务端亦然可以对客户端发送消息表示你已经加入进来了.<br>客户端发送消息用的是”流”.</p>
 <blockquote>
-<p>引用 nodejs权威指南中的一段话(摘选)<br>在使用write方法写入数据时，系统首先将该部分数据读到内存,再把数据写入文件<br>引用 nodejsAPI<br>       socket.write(data, [encoding], [callback])<br>在套接字上发送数据。第二参数指明了使用字符串时的编码方式-默认为UTF8编码。<br>如果所有数据被成功刷新到内核缓冲区，则返回true。如果所有或部分数据在用户内存里还处于队列中，则返回false。当缓冲区再次被释放时，’drain’事件会被分发。<br>当数据最终被完整写入时，可选的callback参数会被执行 - 但不一定是马上执行。<br><strong>close与end事件</strong><br>当底层套接字关闭时,nodejs会触发close事件 nodejs中有两个和连接终止相关的事件:end与close.前者是客户端关闭TCP连接时触发,比如你关闭客户端,如Telnet协议的<br>客户端,telnet会发送一个名为FIN的包给服务器,意味者结束连接.<br>当连接发生错误时(触发error事件),end事件不会被触发.因为服务端未收到FIN包.这两种情况下 close事件都会被触发.<br><strong>设置字符编码</strong><br>    conn.setEncoding(“utf8”) //仅仅对于客户端发送的数据有效<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net=<span class="built_in">require</span>(<span class="string">"net"</span>)</span><br><span class="line">conn.setEncoding(<span class="string">"utf8"</span>)</span><br><span class="line"><span class="keyword">var</span> server=net.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">conn</span>)</span>&#123;</span><br><span class="line">conn.write(<span class="string">"欢迎来到TCP"</span>)</span><br><span class="line">conn.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data)<span class="comment">//未设置编码是buffer 设置编码则为相应的字符集</span></span><br><span class="line">&#125;)</span><br><span class="line">conn.on(<span class="string">"close"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"客户端断开连接"</span>)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>引用 nodejs权威指南中的一段话(摘选)</strong><br>在使用write方法写入数据时，系统首先将该部分数据读到内存,再把数据写入文件<br><strong>引用 nodejsAPI</strong><br>       socket.write(data, [encoding], [callback])<br>在套接字上发送数据。第二参数指明了使用字符串时的编码方式-默认为UTF8编码。<br>如果所有数据被成功刷新到内核缓冲区，则返回true。如果所有或部分数据在用户内存里还处于队列中，则返回false。当缓冲区再次被释放时，’drain’事件会被分发。<br>当数据最终被完整写入时，可选的callback参数会被执行 - 但不一定是马上执行。</p>
 </blockquote>
+<p><strong>close与end事件</strong><br>当底层套接字关闭时,nodejs会触发close事件 nodejs中有两个和连接终止相关的事件:end与close.前者是客户端关闭TCP连接时触发,比如你关闭客户端,如Telnet协议的<br>客户端,telnet会发送一个名为FIN的包给服务器,意味者结束连接.<br>当连接发生错误时(触发error事件),end事件不会被触发.因为服务端未收到FIN包.这两种情况下 close事件都会被触发.<br><strong>设置字符编码</strong><br>    conn.setEncoding(“utf8”) //仅仅对于客户端发送的数据有效<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net=<span class="built_in">require</span>(<span class="string">"net"</span>)</span><br><span class="line">conn.setEncoding(<span class="string">"utf8"</span>)</span><br><span class="line"><span class="keyword">var</span> server=net.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">conn</span>)</span>&#123;</span><br><span class="line">conn.write(<span class="string">"欢迎来到TCP"</span>)</span><br><span class="line">conn.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(data)<span class="comment">//未设置编码是buffer 设置编码则为相应的字符集</span></span><br><span class="line">&#125;)</span><br><span class="line">conn.on(<span class="string">"close"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">"客户端断开连接"</span>)</span><br><span class="line">&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <h3 id="开始做一个TCP聊天程序">开始做一个TCP聊天程序</h3><p>为了方便解释和说明.我决定把解释都放程序代码块中,涉及到重要的API和知识点再放外面说明<br>整体思路为<br>监听用户输入–根据输入判别是否为聊天消息—群发给每个用户<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net=<span class="built_in">require</span>(<span class="string">"net"</span>)</span><br><span class="line"><span class="comment">//创建net服务器</span></span><br><span class="line"><span class="keyword">var</span> count=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> users=&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> server=net.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">conn</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> nickname;</span><br><span class="line">	<span class="comment">//设置获取客户端输入编码</span></span><br><span class="line">	conn.setEncoding(<span class="string">"utf8"</span>)</span><br><span class="line">	count++</span><br><span class="line">	conn.write(<span class="string">"welcome now conn:"</span>+count+<span class="string">" please input your name and press enter:\r\n"</span>)</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"当前连接数为:"</span>+count)</span><br><span class="line">	<span class="comment">//监听退出事件</span></span><br><span class="line">	conn.on(<span class="string">"close"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		count--</span><br><span class="line">		<span class="comment">//删除相应的conn</span></span><br><span class="line">		<span class="keyword">delete</span> users[nickname]</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"退出一位链接 当前链接数为"</span>+count)</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="comment">//监听用户输入事件</span></span><br><span class="line">	conn.on(<span class="string">"data"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">		data=data.replace(<span class="string">"\r\n"</span>,<span class="string">""</span>)</span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 *  这里相当于做路由,因为我们只能监听用户的输入 </span><br><span class="line">		 * 根据用户第一次输入来判断是否输入了姓名,以及用户后续的输入判别为聊天消息</span><br><span class="line">		 * </span><br><span class="line">		 * */</span></span><br><span class="line">		<span class="comment">//如果还不存在注册姓名</span></span><br><span class="line">		<span class="keyword">if</span>(!nickname)&#123;</span><br><span class="line">			<span class="comment">//用户输入了触发了data时间 然后再根据data检测.</span></span><br><span class="line">			<span class="comment">//检测用户名是否重复</span></span><br><span class="line">			<span class="keyword">if</span>(users[data])&#123;</span><br><span class="line">				conn.write(<span class="string">"\r\n nickname already in use try agin: "</span>)</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">//注册用户名</span></span><br><span class="line">				nickname=data</span><br><span class="line">				<span class="comment">//存储每一个用户链接</span></span><br><span class="line">				<span class="comment">//conn相当于身份证 这里就可以通过key value来索引到conn看</span></span><br><span class="line">				users[nickname]=conn</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> users)&#123;</span><br><span class="line">					users[i].write(<span class="string">"\r\n"</span>+nickname+<span class="string">"joined the room\r\n"</span>)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//用户输入了姓名后的消息都视为聊天记录</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="comment">//聊天消息</span></span><br><span class="line">			<span class="comment">//把消息发送给每个用户</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> users)&#123;</span><br><span class="line">				<span class="comment">//除了发送者本人</span></span><br><span class="line">				<span class="keyword">if</span>(i!=nickname)&#123;</span><br><span class="line">					users[i].write(nickname+<span class="string">": "</span>+data+<span class="string">"\r\n"</span>)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="number">4120</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"监听4120端口"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 
       
@@ -610,116 +734,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本次文章是把前几节的内容都融合了进来.. 没有看过前文的童鞋去看一下哦,虽然也是笔记向的代码（笑</p><br><blockquote><p><a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank" rel="external">JavaScript节点</a></p><br><p><a title="JavaScript遍历-1" href="http://www.old.com/soul-get/soul-js/115" target="_blank" rel="external">JavaScript遍历-1</a></p><br><p><a title="windows.onload弹性加载" href="http://www.old.com/soul-get/soul-js/100" target="_blank" rel="external">JavaScript window.onload</a></p><br><p><a title="DOM-编程艺术第二版（4.3）-JavaScript图片库" href="http://www.old.com/soul-get/soul-js/80" target="_blank" rel="external">JavaScript图片库</a></p></blockquote><br><p>做一个下图的,可以点击“输出图片库中图片”输出li列表中的图片</p><br><p>本文遵循了DOM编程艺术（第二版）中的分离JavaScript（实际上代码还未完全做到)<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" target="_blank" rel="external"><img class=" size-medium wp-image-119 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" data-original="http://www.old.com/wp-content/uploads/2015/03/22-300x98.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="22" width="300" height="98"></a></p><br><p>&nbsp;</p><br><p>开始贴代码，代码量有点多，但是都是很简单的语句，逻辑理解起来也不困难（不过人家写的时候可能把代码写复杂了一点，不过不影响理解），我会做到每句代码都注释哦..笔记向代码,能够给大家带来一点帮助就行咯.</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-创建元素+节点+遍历+设置属性综合使用&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    function createImg(){//定义createImg函数<br>        var sz_title=[];//设置全局变量sz_title,为什么要在这里设置全局变量呢？因为下面有两个for循环，两个for循环都需要调用<br>        var sz_txt=[];//设置全局变量sz_txt;<br>        var get_ul = document.getElementById(“ulid”);//设置get_ul等于标签id为 “ulid”的元素<br>        var get_ul_li =get_ul.getElementsByTagName(“li”);//设置get_ul_li等于ulid元素下的li元素<br>        // alert(get_ul_li)//测试ok 获取到get_ul_li属性<br>        for (var i = 0; i &lt; get_ul_li.length; i++) {//开始遍历<br>            var li_title =get_ul_li[i].getAttribute(“title”);//设置li_title等于li元素的title属性内容 第一次循环那么li_title=get_ul_li[0]的title属性 即li_title=”这是第一张图片_blur_1”<br>            var li_link =get_ul_li[i].getAttribute(“soul_link”);//设置li_link等于li元素的soul_link属性内容<br>            // alert(“|获取li soul_link属性:”+li_link+”|获取li tittle属性:”+li_title);<br>            //测试获取文本内容ok<br>            sz_title[li_link]=li_title;//设置sz_title数组下标等于soul_link,数组等于标题内容.<br>            //第一次循环sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            //其实可以这样写的sz_title[li_title]=li_link 看起来比较方便理解一点<br>        };<br>        for(li_link in sz_title){//开始遍历sz_title数组<br>            var new_img =document.createElement(“img”);//创建一个新的img元素<br>            var new_img_src=new_img.setAttribute(“src”,li_link);//设置img元素的”src”属性等于li_link;<br>            //第一次遍历的sz_title[li_link]换成理解的来说就是 sz_title[../img/Pepsized_Blur_01.jpg]设置src属性等于li_link就相当于 src=”../img/Pepsized_Blur_01.jpg”<br>            var new_img_src=new_img.setAttribute(“width”,”400”);//设置img元素的宽等于400<br>            var new_img_src=new_img.setAttribute(“height”,”400”);//设置img元素的高等于400<br>            var p_txt=sz_title[li_link];//设置p元素的文本等于li_title 第一次遍历sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            // alert(p_txt);//检测p元素文本内容获取是否正确<br>            var new_p=document.createElement(“p”);//创建一个p元素<br>            var new_p_txt=document.createTextNode(p_txt);//创建p元素的文本节点 文本节点内容等于p_txt<br>            new_p.appendChild(new_p_txt);//在p元素下面添加p文本节点<br>            document.body.appendChild(new_p);//在body标签所有元素最后添加p标签<br>            document.body.appendChild(new_img);//在body p标签后添加图片<br>        }<br><br><br>    }<br>    window.onload=function(){//页面加载完毕后执行函数<br>        var button_bid =document.getElementById(“bid”);//设置get_ul等于标签id为 “bid”的元素 其实这个文档就一个button元素 可以用document.getElementsByTagName<br>        button_bid.onclick=function(){ //在button标签添加一个onclick事件<br>            createImg();//添加函数<br>            //因为涉及到元素的创建和获取 所以需要再页面加载完毕后才为button绑定事件<br>        }<br><br><br>    }<br>    //实际上可以把li元素也在JavaScript中写了。<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;button id=”bid”&gt;输出图片库图片&lt;/button&gt;<br>    &lt;ul id=”ulid”&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_01.jpg” title=”这是第一张图片_blur_1”&gt;blur_1&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_02.jpg” title=”这是第一张图片_blur_2”&gt;blur_2&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_03.jpg” title=”这是第一张图片_blur_3”&gt;blur_3&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_04.jpg” title=”这是第一张图片_blur_4”&gt;blur_4&lt;/li&gt;<br>    &lt;/ul&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-231ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/231ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/231ver/">JavaScript遍历-1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文针对有一定基础或者初学JavaScript的童鞋..其实就是自己的笔记罢了，哈哈</p><br><p>JavaScript遍历数组,也是从DOM 编程艺术书本上学到的,并且加以理解。</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         bianLi();<br>         }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>看来难度不够，再加点难度 不过在加点难度之前请把节点这个内容理解哦 <a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank">JavaScript节点</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>再深入一点点</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         bianLiSR();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br>    //下面可以利用上面的来深入一点点<br>    function bianLiSR(){<br>        var shuzu=[]//设置数组，如果在for循环里面设置，每一次都会重新定义数组,最终只能得到最后一个内容.<br>        var get_p=document.getElementsByTagName(“p”);//设置变量get_p等于p标签<br>        for (var i = 0; i &lt; get_p.length; i++) {//开始遍历循环p标签<br>            var get_p_soul =get_p[i].getAttribute(“soul”);//设置get_p_soul等于get_p[i]的soul属性内容<br>            var get_p_xiabiao =get_p[i].getAttribute(“xiabiao”);<br>            // alert(get_p_soul+”|”+get_p_xiabiao);//测试弹出get_p_soul内容是否正确<br>            shuzu[get_p_soul]=get_p_xiabiao;//设置数组自定义下标 get_p_soul等于soul属性内容<br><br>            //get_p_xiabiao等于下标属性内容,那么第一次循环就是 shuzu[标题1]=[我是下标1];<br>            //具体的去测试就ok了<br>            // alert(shuzu[get_p_soul]);//测试shuzu[soul]=xiabiao内容是否正确<br>        };<br>        for(get_p_soul in shuzu){//开始遍历<br>            alert(“数组下标是:”+get_p_soul+”|数组内容是:”+shuzu[get_p_soul]);//弹出遍历内容.<br>        }<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1” xiabiao=”我是下标1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2” xiabiao=”我是下标2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3” xiabiao=”我是下标3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-232ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/232ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/232ver/">JavaScript节点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript节点是一个很重要的环节.不多说直接上代码</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-DOM方法&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function divIn(){<br>            var soul_div =document.getElementById(“soul”);//设置soul_div等于id：soul<br>            var soul_p=document.createElement(“p”);//新建个p元素存储为soul_p 元素节点<br>            soul_div.appendChild(soul_p);//在soul_div节点下插入p元素<br>            var soul_p_txt=document.createTextNode(“hello soul”);//创建个文本节点储存为 soul_p_txt<br>            soul_p.appendChild(soul_p_txt);//在P元素节点下插入文本节点<br>        }<br>    window.onload=function(){//页面加载完毕后加载函数<br>        divIn();<br>    }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”soul”&gt;<br><br>&lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" target="_blank" rel="external"><img class=" size-medium wp-image-108 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" data-original="http://www.old.com/wp-content/uploads/2015/03/211-300x230.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="21" width="300" height="230"></a></p><br><p>&nbsp;</p><br><p>上图代码节点大概就是这么分布的。</p><br><p><strong>高级版 insertAftet(before,after) 调用的变量请不要用before,after 换成这样应该好理解点insertAftet(hello,soul)；</strong></p><br><pre class="lang:default decode:true  ">function starIMGP(){<br>            var star_img=document.createElement(“img”);//创建一个新元素节点img<br>            star_img.setAttribute(“id”,”shit”);//设置img id属性等于shit<br>            star_img.setAttribute(“width”,”500px”);//设置宽属性节点<br>            star_img.setAttribute(“height”,”500px”);//设置高属性节点<br>            star_img.setAttribute(“src”,””);//设置src属性节点<br>            var star_p=document.createElement(“p”);//创建一个新元素节点p<br>            star_p.setAttribute(“id”,”p_node”);//设置p id属性等于p_node<br>            var star_p_txt=document.createTextNode(“pnode”);//创建一个文本节点节点<br>            star_p.appendChild(star_p_txt);//star_p元素节点下添加star_p_txt属性节点<br>            var star_ul=document.getElementById(“ul_all”);//获取ul id<br>            // star_ul.parentNode.insertBefore(star_img,star_ul);//把star_img插入star_ul前面<br>            insertAftet(star_img,star_ul);//将star_img插入star_ul之后<br>            insertAftet(star_p,star_img);//将star_p插入star_img之后<br><br><br>        }<br>        function insertAftet(before,after){//定义函数insertAftet<br>            var parent_node =after.parentNode;//设置变量parent_node等于after父级元素<br>            if(parent_node.lastChild==parent_node){//如果after父级元素就是after自己<br>                after.appendChild(before);//在after元素之后插入before元素<br>            }else{//如果不是<br>                parent_node.insertBefore(before,after.nextSibling);//在after与下一个元素之间插入before元素<br>            }<br><br>        }<br>//2015年3月8日更新一处错误</pre><br><p>&nbsp;</p>
 
 
 

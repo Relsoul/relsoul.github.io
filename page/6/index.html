@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,116 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-220ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/220ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/220ver/">JavaScript-抽象:抽个大象出来？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><del>抽象就是把实体的变成抽象的..</del></p><br><p>恩.还是抽个大象出来比较符合解释</p><br><p>&nbsp;</p><br><p>先看一段不是抽象的代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(){//定义函数<br>        var get_p = document.getElementsByTagName(“p”);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=”add_css”;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p>为什么要抽象呢？首先要涉及到一个慨念是”面向对象编程” 我也没学到这里来,所以只能简单说说了，</p><br><p>抽象可以方便我们更改元素而不用去一大堆代码里找相应的更改</p><br><p>&nbsp;</p><br><p><strong>下面是抽象的代码</strong></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-抽象&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function changeColor(css_v,tag){//定义函数<br>        var get_p = document.getElementsByTagName(tag);//获取文档中的p元素<br>        for (var i = 0; i &lt; get_p.length; i++) {//遍历p元素<br>            get_p[i].className=css_v;//设置p元素的class等于add_css 相当于 class=”add_css”<br>        };<br><br>    }<br><br>    function cX(){//定义抽象函数<br>        changeColor(“add_css”,”p”);//调用函数并且传递变量<br>    }<br><br>    window.onload=function(){//网页加载完毕后加载函数<br>        changeColor();<br>        cX();<br>    }<br><br>    &lt;/script&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;hello&lt;/p&gt;<br>    &lt;p&gt;Soul Seeker&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-221ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/221ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/221ver/">JavaScript操控CSS-4:className的深入与巧用一个变量设置奇数行,偶数行</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先来点简单的设置p的className</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                get_p[i].className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>直接用get_p.className=”add_css”会发现直接覆盖了而不是添加 那么应该怎么做呢？</p><br><p>按照DOM 编程艺术（第二版）书上所写的 写一个addClassNmae函数</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-4-深入css&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    .soul{<br>        background: blue;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br><br>        function newClassName(){<br>            var get_p =document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                var save_get_p=get_p[i]<br>                // save_get_p.className=”add_css”//这样设置后就直接覆盖了class属性 而不是添加 发现原来的背景也没了<br>                addClassName(save_get_p,”add_css”);<br>            };<br>        }<br><br>        window.onload=function(){ //这次采用了一个页面中多个window.onload = function(){}冲突问题解决方案<br>            test();//大家不习惯的话可以换回来,具体情况可以看我blog:<a href="http://www.old.com" target="_blank" rel="external">http://www.old.com</a><br>        }<br>        function test(){<br>            newClassName();<br><br>        }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p class=”soul”&gt;我是一名灵魂追逐者&lt;/p&gt;<br>    &lt;p&gt;放荡者的灵魂&lt;/p&gt;<br>    &lt;p&gt;红色月色,灵魂绝响&lt;/p&gt;<br>    &lt;h1 class=”soul”&gt;风铃&lt;/h1&gt;<br>    &lt;p&gt;随风而动,奏响灵魂乐章&lt;/p&gt;<br>    &lt;p&gt;在这夜色之下,恐惧的黑暗&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><hr><br><p style="text-align: center;">注意！前方高能</p><br><p style="text-align: left;">现在来利用以上学到的知识设置那个奇偶性变化问题吧</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作css-3-奇数行偶数行深入&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    .add_css{<br>        color: red;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function addClassName(name,value){//创建一个添加class属性的函数 并且定义两个参数 name,value<br>            if(typeof name.className==null){//如果name.className是空的话<br>                name.className=value;//直接设置name的className等于传递过来value的值<br>            }else{//否则<br>                var new_name =name.className;//设置new_name存储当前name的class<br>                new_name += “ “;//+=的意思就是 new_name=new_name+” “;加上一个空格<br>                new_name += value;//然后在空格后面加上传递过来的value值<br>                name.className=new_name;//设置传递过来的name的class值等于new_name<br>            }<br>        }<br>    function changeColor(){//定义函数<br>        var get_div =document.getElementsByTagName(“div”);//获取div标签<br>        var obb;//设置一个变量obb<br>        obb =false;//设置obb等于false<br>        for (var i = 0; i &lt; get_div.length; i++) {//遍历div<br>                var get_div_p =get_div[i].getElementsByTagName(“p”);//设置get_div_p等于get_div[i]下的p标签<br>            for (var d = 0; d &lt; get_div_p.length; d++) {//遍历p标签<br>                if (obb==true) {//如果obb是真<br>                var save_get_p=get_div_p[d];//设置变量save_get_p存储当前数组<br>                addClassName(save_get_p,”add_css”);//调用函数addClassName 并且传递两个参数 一个是标签 一个是要加的css<br>                obb =false;//设置obb等于假<br>                }else{obb=true};//否则返回obb等于真<br>            }<br>        }<br>    }<br>    window.onload=function(){//网页加载完毕加载函数<br>        changeColor();<br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;<br>        &lt;p&gt;hello&lt;/p&gt;<br>        &lt;p&gt;soul seeker&lt;/p&gt;<br>        &lt;p&gt;欢迎来到&lt;/p&gt;<br>        &lt;p&gt;灵魂放逐者营地&lt;/p&gt;<br>        &lt;p&gt;解开封锁的灵魂吧！&lt;/p&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-222ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -330,61 +440,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文转自优设:<a href="http://www.uisdc.com/6-rules-webdesign-color" target="_blank" rel="external">秒变配色高手！怎么都不会错的6条网页设计配色原则</a></p><br><p><img class="alignnone size-full wp-image-101090" src="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/website-pinciple-6-1.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="website-pinciple-6-1" width="690" height="140"></p><br><p>身为<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>新手的你，是不是还在纠结于你制作的网页找不到一组完美的配色方案？在本教程中我们将与你分享6条肯定会火，并且“错不了”的指导方针，你可以按照这些原则把握最基本的色彩规律。现在我们分享的这些原则都不是规则，你会在你的职业生涯中创造出更多的配色方案。相反，他们是一个起点，是你如何生存在<span class="wp_keywordlink_affiliate"><a title="查看 网页设计 中的全部文章" href="http://www.uisdc.com/tag/%e7%bd%91%e9%a1%b5%e8%ae%be%e8%ae%a1" target="_blank">网页设计</a></span>领域色彩方向的安全指南。</p><br><h4><strong>一、需要配色的是你的画布，而不是你的图片</strong></h4><br><p>一个在网页设计中最根本的原则是，无论你花了多少时间创造了一个辉煌的设计，其最终的作用是发挥出内容的核心位置。你的配色方案永远不应该比它呈现的内容的更加“响亮”。你的设计应该是在后台，目的是帮助突出网站的内容。</p><br><p><img title="clip_image001" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0012.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"> <img title="clip_image002" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0026.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="350" border="0"></p><br><p>淡色的画布突出了图像，而明亮的画布反而不能突出你的内容。（别笑，后者是发生在网络上的真实案例^—^）</p><br><p>用Photoshop或者Sketch等软件设计网站的时候，创建设计的过程往往是相互独立的。有些设计单个看起来很不错，也能被你的客户所接受，但是当它真正被设计成网页的时候不适当的配色往往会分散访客的注意力。事实上，网页设计的过程是和内容紧密相连的，很多制作高品质的网页看上去空空荡荡，几乎没有内容。</p><br><p>这是一个伟大的想法：你可以在你的网站上先铺陈出你的内容，用设计软件也好用代码也好，然后在你内容的周围设计你的网页。当然这也是一个特殊情况，如果一个特定风格的图像和照片都能和你的设计和谐的融为一体，那么你的设计配色才算是完美。试想一下，网站的配色对内容而言就像衣服对于人的重要性，对此你必须制定一套完美的并且合身的衣服。</p><br><h4><strong>二、选择简单的灰色作为你网站的基调</strong></h4><br><p>你可以为你的网站基调选择无数种颜色，不过我建议你采用最简单的颜色，比如白色/浅灰色与深灰色的搭配文字背景。</p><br><p>你可以看看任何热门的网站、模版、主题，白色或浅灰色与深灰色搭配成了大多数的选择，这当然也是有充分理由的。这样的搭配对访客而言提高了你内容的可读性，并且把你的图片突出在最前方。</p><br><p><img title="clip_image003" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0036.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="775" border="0"></p><br><p>一般来说，你的文字最好避免使用墨黑色，深灰色一般更容易阅读。我们提供一个比较舒服的文字颜色范围：＃333333到＃666666。</p><br><p>对于你的背景色，全白色（#FFFFFFF）是可以搭配任何文本的最安全的颜色。如果你想选用其他的背景颜色，我们建议采用#FFFFFF到#CCCCCC</p><br><p>当然，这些颜色的选择都不是固定死的。只不过如果你是新手，以上的配色方案你可以放心使用。</p><br><h4><strong>三、只选择一种颜色突出显示</strong></h4><br><p>如果你选择好几种不同的色调来，那么你的配色方案绝大多数是有问题的。你颜色用得越多，你的页面就越来越难以控制。所以，在你网页以灰色基调的前提下，你最好只选择一种鲜艳的颜色来作为你想要突出的事物，比如标题、菜单、按钮等等。你的高亮颜色可以是蓝色、红色、绿色，等等。</p><br><p>你最好选择与你的基调颜色相关的高亮颜色。打开你的颜色选择器，并单击你彩色方块的中心。</p><br><p><img title="clip_image004" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0044.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="400" border="0"></p><br><p>向上或向下移动你的滑块，你可以仔细选择你认为最合适的颜色。</p><br><p><img title="clip_image005" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0055.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="60" border="0"></p><br><p>现在，你设计的页面有了三个基本的颜色：背景色、文本色和高亮色。在以后你也可以选择一种以上的高亮色，但现在对于新手的你来说还是选择一种比较合适。你现在已经掌握了基本的配色，如果你有信心，你以后还可以尝试更多种不同的方案。</p><br><p><strong>你刚刚学到：</strong></p><br><p>学会了如何选择“色相”。概括来说，色相是基本色，当你移动滑块，你会看到h值在颜色选择器中的变化。</p><br><p>“H”代表色相，一旦你选择了你的高亮颜色，文本框中显示的就是你当前颜色的色相。</p><br><h4><strong>四、如果有疑问，请使用蓝色</strong></h4><br><p>如果你对你的高亮色的选择有疑惑的话，不妨使用蓝色。蓝色是一种弹性比较大的颜色，可以和很多种颜色搭配。黄色和紫色也很不错，但是如果使用不当会适得其反。</p><br><p>另一方面，如果你是用蓝色，那么你用错颜色的概率就会很低。如果你正犹豫着不知道用什么颜色好，不妨使用蓝色。比较安全的蓝色包括从H235到H190，从海军蓝到深蓝色。</p><br><p><img title="clip_image006" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image00615.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="290" border="0"></p><br><p>如果是我的话，我通常选择H205的蓝色，如果你选定了一种颜色作为你的高亮色，那么也请你在其他需要的地方使用这种颜色。如果你的按钮、标题等需要高亮，把它们的颜色也换成同一种蓝色。在下面这个例子中我把白色换成了蓝色。</p><br><p><img title="clip_image007" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0076.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="clip_image007" width="600" height="775" border="0"></p><br><h4><strong>五、给你的高亮色增加变化</strong></h4><br><p>你一旦选择了高亮的颜色，从该点移动滑块来选择接下来的颜色。在你的设计中也需要其他的颜色，高亮色的稍微变化会让你的颜色选择变得简单。</p><br><p><img title="clip_image008" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0083.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="279" border="0"></p><br><p>使用这些类型的颜色变化的东西，如：</p><br><p>悬停效果：</p><br><p><img title="clip_image009" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0094.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="125" border="0"></p><br><p>边界：</p><br><p><img title="clip_image010" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0103.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="135" border="0"></p><br><p>通过突出显示颜色：</p><br><p><img title="clip_image011" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0114.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="80" border="0"></p><br><p>渐变：</p><br><p><img title="clip_image012" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0123.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="68" border="0"></p><br><p>光影效果：</p><br><p><img title="clip_image013" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0135.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="45" border="0"></p><br><h4><strong>六、尽量不要使用颜色选择器右上角的颜色</strong></h4><br><p>颜色选择器的右上角是一块肥沃的土地。在右上角的颜色就像F1赛车; 他们可以执行出惊人的效果，而且非常诱人，但通常想用好需要大量的经验。如果没有这种经验，他们可能会导致事故的发生，所​​以最好以削弱你的颜色，最好都保持比较淡化的色彩。</p><br><p>这就是为什么在本教程的第三部分，我问你点击的颜色在地图右上角的中心选择您的高亮颜色之前，要确保你有一个比较柔和的颜色拉开序幕。</p><br><p>为了说明这一点，看如果我只是改变了我们设计的色调，到目前为止，会发生什么。</p><br><p><img title="clip_image014" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0143.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>看上去还是听舒服的对吧？但是如果你把颜色调整为选择器右上角的颜色，我们再来看看效果如何：</p><br><p><img title="clip_image015" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0152.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="560" border="0"></p><br><p>分分钟亮瞎了访客的双眼！如果你想确保你不烧焦你的访客的视网膜，遵循留出颜色选择器的右上角的格子的一半原则。</p><br><p><strong>饱和度和亮度</strong></p><br><p>当您拖动周围的颜色选择器区域的地图区域，你会看到“S”和“B”的值发生变化，这代表饱和度和亮度。您还可以看到色相号保持不变。所以，你通过改变你原有的色相的饱和度和亮度会产生颜色的变化。</p><br><p><img title="clip_image016" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0162.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="77" border="0"></p><br><p><strong>饱和度</strong></p><br><p>是一种生动的色彩表现。例如，认为“我的衬衫中渗透着葡萄酒红”。在一个典型的颜色选择器饱和度是多少白了就是混在你的基地的色调来决定。白色越少，越饱和。</p><br><p>当您拖动到右边的颜色在地图上可以减少白色量，从而增加了饱和度，“S”的值上升。当您拖动到左边向所有的白角，你会减少饱和使“S”的值下降。</p><br><p><img title="clip_image017" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="100" border="0"></p><br><p><strong>亮度</strong></p><br><p>亮度是有多少黑色混合到你的颜色。黑色越少，越亮。</p><br><p>当你拖动滑块向上，减少了黑色的数量，增加亮度，在颜色选择器中的“B”的值上升。</p><br><p><img title="clip_image018" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0181.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="340" border="0"></p><br><p>与你原来的色调混合的黑色也被称为创造了“阴影”。这也来源于油漆混合，是黑色油漆与涂料颜色的混合。</p><br><p>当你混合灰色到彩色这被称为创造了色调。如果你调节饱和度和亮度，那么你就创造了一种色调。所以基本上任何时候无论你的饱和度和亮度均小于100％，这就是一个色调。</p><br><p>同样，这个词来源于油漆混合，在其中创建一个灰色的油漆，然后用彩色涂料混合。</p><br><p><strong>单色配色方案</strong></p><br><p>单色的配色方案是，你以一个基本的色调和扩展它的色相，饱和度和亮度。因此，通过采摘一大亮点的颜色和它创造的变化，你实际上创建了一个单色方案。</p><br><p><img title="clip_image019" src="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" data-original="http://image.uisdc.com/wp-content/uploads/2014/08/clip_image0192.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="秒变配色高手！怎么都不会错的6条网页设计配色原则" width="600" height="70" border="0"></p><br><h4><strong>下一步？</strong></h4><br><p>坚持练习对灰度基础的单色配色方案，直到你感到很有信心为止。试着用不同的色调，尝试创建不同的高亮色，看看它是如何改变饱和度和亮度的设置，直到可以使用为止。</p><br><p>当你感觉很舒服，可以增加一个额外的高亮颜色。我建议尝试橙色和蓝色，因为他们往往​​是最简单的二重奏。然后尝试绿色和蓝色，这在我的经验中是第二个最简单的。这两种往往是与客户和访客都会称赞的搭配。</p><br><p>为了推动了你对Web的配色方案的理解，最​好的事情就是抓住自己喜欢颜色，你可以用取样器（浏览器扩展Colorzilla），并用它来​研究经验丰富的设计师是怎么做到的丰富的色彩搭配的。当你在浏览互联网的时候，看到一个很大的配合突破，你可以用颜色取样器看看在页面上使用的颜色的配色方案。你甚至可以尝试每个色相，看看哪些饱和度和亮度水平效果最好吧。另外要注意它的颜色组合的和谐度。</p><br><p>如果有疑问，可以随时回到属于你的“安全第一”的指导方针，这无论如何都是不会错的。</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-162ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/162ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/162ver/">JavaScript-焦点轮播图效果</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习代码以及文章来自：<a href="http://www.imooc.com/code/3605" target="_blank" rel="external">http://www.imooc.com/code/3605</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">CSS这块..一直是个坑也就没分析了</span></p><br><p><span style="color: #ff0000;">这次主要是通过控制pic.style.top距离来判断是哪个li</span></p><br><p><span style="color: #ff0000;">170是div的高度 ，因为我们是通过一个div来显示的.</span></p><br><p><span style="color: #ff0000;">170<em>2=第二章图片</em></span></p><br><p><span style="color: #ff0000;">..这块没怎么写好.希望各位大神能够指点一下</span></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">首先这个JS有几个函数或者方法呢？</span></p><br><p><span style="color: #ff0000;">if (timer) {//如果原来就有了这个定时器</span><br><br><span style="color: #ff0000;"> //先清除原来的定时器</span><br><br><span style="color: #ff0000;"> clearInterval(timer);</span><br><br><span style="color: #ff0000;"> timer=null;</span><br><br><span style="color: #ff0000;"> };</span></p><br><p><span style="color: #ff0000;">这是第一个方法 用来清除原来的定时器</span></p><br><p><span style="color: #ff0000;"> timer=setInterval(autoPlay,2000)</span></p><br><p><span style="color: #ff0000;">这是第二个 用来自动播放</span></p><br><pre class="lang:default decode:true"><span style="color: #ff0000;"> function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //</span></pre><br><p><span style="color: #ff0000;"> 这是第三个 自动播放该怎么播放的函数.默认是从1开始的.为什么不是0？ ..你默认显示的不就是0吗?</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;"> function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }</span></pre><br><p><span style="color: #ff0000;"> 这是第四个函数 你自动播放的时候肯定要去怎么切换这个图片吧</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;">stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br></span></pre><br><p><span style="color: #ff0000;"> </span></p><br><p><span style="color: #ff0000;">这是第五个函数 鼠标移入的时候调用切换图片的函数 移出后重新开始设置定时器 也就是第二个方法</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style&gt;<br>  <em>{margin:0;<br>    padding:0;<br>    list-style:none;}<br>  .wrap{height:170px;<br>        width:490px;<br>        margin:60px auto;<br>        overflow: hidden;<br>        position: relative;<br>        margin:100px auto;}<br>  .wrap ul{position:absolute;}<br>  .wrap ul li{height:170px;}<br>  .wrap ol{position:absolute;<br>           right:5px;<br>           bottom:10px;}<br>  .wrap ol li{height:20px; width: 20px;<br>              background:#ccc;<br>              border:solid 1px #666;<br>              margin-left:5px;<br>              color:#000;<br>              float:left;<br>              line-height:center;<br>              text-align:center;<br>              cursor:pointer;}<br>  .wrap ol .on{background:#E97305;<br>               color:#fff;}<br><br>  &lt;/style&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  window.onload=function(){//网页加载完毕<br>    var wrap=document.getElementById(‘wrap’),<br>        pic=document.getElementById(‘pic’),<br>        //获取list列表<br>        list=document.getElementById(‘list’).getElementsByTagName(‘li’),<br>        //建立索引<br>        index=0,<br>        //设置定时器<br>        timer=null;<br><br><br>      //自动播放图片<br>      //在自动播放图片前加一个判断<br>      if (timer) {//如果原来就有了这个定时器<br>        //先清除原来的定时器<br>        clearInterval(timer);<br>        timer=null;<br>      };<br>      //再进行播放<br>      timer=setInterval(autoPlay,2000)<br><br>      function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //<br><br><br>      // 定义图片切换函数<br>      function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex</em>170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }<br><br><br>     //建立停止自动播放以及鼠标移入移出事件函数<br>     stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br><br><br>   }<br><br>  &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;div class=”wrap” id=’wrap’&gt;<br>    &lt;ul id=”pic”&gt;<br>      &lt;li&gt;&lt;img  height=470 src=”<a href="http://img.mukewang.com/54111cd9000174cd04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111cd9000174cd04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111dac000118af04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111dac000118af04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d9c0001998204900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d9c0001998204900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d8a0001f41704900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d8a0001f41704900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d7d00018ba604900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d7d00018ba604900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>    &lt;/ul&gt;<br>    &lt;ol id=”list”&gt;<br>      &lt;li class=”on”&gt;1&lt;/li&gt;<br>      &lt;li&gt;2&lt;/li&gt;<br>      &lt;li&gt;3&lt;/li&gt;<br>      &lt;li&gt;4&lt;/li&gt;<br>      &lt;li&gt;5&lt;/li&gt;<br>    &lt;/ol&gt;<br>  &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
@@ -670,61 +725,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习代码以及文章来自<a href="http://www.imooc.com/code/3251" target="_blank" rel="external">http://www.imooc.com/code/3251</a></p><br><p>1.在第27行处补充完整，实现当点击”全选”按钮时，将选中所有的复选项。</p><br><pre class="code"><strong>提示:</strong>document.getElementsByTagName(“input”)获取的是所有input标签，包括复选项和按钮，所以要判断是否是复选项，如是选中。</pre><br><p>2.在第33行处补充完整，实现当点击”全不选”按钮时，将取消所有选中的复选项。</p><br><p>3.在第40行处补充完整，在文本框中输入输入1-6数值，当点击”确定”按钮时，根据输入的数值，通过id选中相应的复选项。</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">因为任务需要. 在想 能不能不通过获取id的方式来获取.这样太麻烦了于是想用数组来获取.关键就这一条 savebox[i]=hobby[i]</span></p><br><p><span style="color: #ff0000;">通过savebox[i]来充当指针 指向元素的位置</span></p><br><p><span style="color: #ff0000;">然后再通过checkNum函数来设置复选框是否选中</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>        &lt;title&gt;无标题文档&lt;/title&gt;<br>    &lt;/head&gt;<br><br>    &lt;body&gt;<br>        &lt;form&gt;<br>          请选择你爱好:&lt;br&gt;<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby1”&gt;  音乐<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby2”&gt;  登山<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby3”&gt;  游泳<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby4”&gt;  阅读<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby5”&gt;  打球<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby6”&gt;  跑步 &lt;br&gt;<br>          &lt;input type=”button” value = “全选” onclick = “checkall();”&gt;<br>          &lt;input type=”button” value = “全不选” onclick = “clearall();”&gt;<br>          &lt;p&gt;请输入您要选择爱好的序号，序号为1-6:&lt;/p&gt;<br>          &lt;input id=”wb” name=”wb” type=”text” &gt;<br>          &lt;input name=”ok” type=”button” value=”确定” onclick = “checkone();”&gt;<br>        &lt;/form&gt;<br>        &lt;script type=”text/javascript”&gt;<br>        function checkall(){<br>            var hobby = document.getElementsByTagName(“input”);<br>            var hobby_name=document.getElementsByName(“hobby”)<br><br>          for(var i=0;i&lt;hobby.length;i++){<br>              if(hobby[i].type==”checkbox”){<br>                  hobby[i].checked=true<br>              }<br><br>          }<br>        }<br>        function clearall(){<br>            var hobby = document.getElementsByName(“hobby”);<br>            for(var i=0;i&lt;hobby.length;i++){<br>                if(hobby[i].checked==true){<br>                    hobby[i].checked=false<br>                }<br>            }<br><br>         // 任务2<br><br>        }<br>       var savebox=[];<br>        function checkone(){<br>            var j=document.getElementById(“wb”).value;<br>            var hobby = document.getElementsByTagName(“input”);<br><br>       for(var i=0;i&lt;hobby.length;i++){<br>              if(hobby[i].type==”checkbox”){<br>                  savebox[i]=hobby[i]<br>              }<br><br>          }<br><br>          switch(j){<br>              case “1”:<br><br>                   checkNum(0);<br>                  break;<br>              case “2”:<br>                 checkNum(1);<br>                  break;<br>              case “3”:<br>                  checkNum(2);<br>                  break;<br>              case “4”:<br>                  checkNum(3);<br>              break;<br>              case “5”:<br>                  checkNum(4);<br>              break;<br>              case “6”:<br>                  checkNum(5);<br>              break;<br>              default:<br>                  alert(“请输入1-6的数字”)<br>                  break;<br>          }<br>        }<br><br>        function checkNum(n){<br>            if(savebox[n].checked==true){<br>                return savebox[n].checked=false<br><br>            }else{<br>                return savebox[n].checked=true<br>            }<br><br>        }<br><br>        &lt;/script&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-179ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/179ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/179ver/">JavaScript-编程挑战:做一个简单的跳转页面</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1633" target="_blank" rel="external">http://www.imooc.com/code/1633</a></p><br><p>代码都很简单location.assign是重载页面 其他的用num来控制几秒后重载页面</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-计时器跳转&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;form&gt;<br>        &lt;input type=”text” id=”txt”&gt;<br><br>    &lt;/form&gt;<br>    &lt;a href=”<a href="http://baidu.com&quot;&gt;baidu&lt;/a&amp;gt" target="_blank" rel="external">http://baidu.com&quot;&gt;baidu&lt;/a&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        var num=0,time;<br>        function sTime(){<br>            document.getElementById(“txt”).value=num<br>            num++<br>            time=setTimeout(function(){<br>                sTime()<br>            },1000)<br>            if(num&gt;5){<br>                location.assign(“<a href="http://www.imooc.com" target="_blank" rel="external">http://www.imooc.com</a>“);<br>                clearTimeout(time);<br>            }<br><br>        }<br>        sTime();<br><br><br><br><br>    &lt;/script&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

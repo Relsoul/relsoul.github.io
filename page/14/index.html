@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,407 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-98ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/98ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/98ver/">Php自学入门笔记之变量</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文为Soul Php自学笔记~</p><br><p>&nbsp;</p><br><blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>变量</strong></span></h1><br><p style="text-align: left;"><strong><span style="color: #993366;">1,整数型</span></strong></p><br><p style="text-align: left;">$ini1=123;</p><br><p>$int2=0123;//八进制</p><br><p>$int3=0x123//16进制</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>2,布尔型;</strong></span></p><br><p style="text-align: left;">$bool1=true;</p><br><p style="text-align: left;">var_dump($bool1);//bool(true)</p><br><p style="text-align: left;">echo $bool1;//1</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><strong><span style="color: #993366;">3,字符型</span></strong></p><br><p style="text-align: left;">$ str1=”hello soul”;//双引号包裹</p><br><p style="text-align: left;">$ str2=’hello soul’;//单引号包裹</p><br><p style="text-align: left;">$ str3=”hello\n soul”;//利用\n转义换行.双引号也称为功能引号</p><br><p style="text-align: left;">echo “我是$str1”;//我是 hellosoul 在双引号中遇见$符号会当做变量处理</p><br><p style="text-align: left;">echo ‘我是$str2’//我是$str2 在单引号中只会当成普通的字符处理</p><br><p style="text-align: left;">当字符串很长可以使用<strong>Heredoc结构形式</strong></p><br><p style="text-align: left;">$str4=&lt;&lt;&lt;GOD</p><br><p style="text-align: left;">我有一只小毛驴，我从来也不骑。<br><br>有一天我心血来潮，骑着去赶集。<br><br>我手里拿着小皮鞭，我心里正得意。<br><br>不知怎么哗啦啦啦啦，我摔了一身泥.<br><br>GOD;</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>4,浮点型</strong></span></p><br><p style="text-align: left;">$float=1.23;</p><br><p style="text-align: left;">$float1=1.2e3;//1200 科学计数法</p><br><p style="text-align: left;">$float2=7.0e-3//0.007</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>5,资源类型</strong></span></p><br><p style="text-align: left;">资源（resource）：资源是由专门的函数来建立和使用的，例如打开文件、数据连接、图形画布。我们可以对资源进行操作（创建、使用和释放）。任何资源，在不需要的时候应该被及时释放。如果我们忘记了释放资源，系统自动启用垃圾回收机制，在页面执行完毕后回收资源，以避免内存被消耗殆尽。</p><br><p style="text-align: left;">//首先采用“fopen”函数打开文件，得到返回值的就是资源类型。<br><br>$file_handle=fopen(“/data/webroot/resource/php/f.txt”,”r”);<br><br>if ($file_handle){<br><br>//接着采用while循环（后面语言结构语句中的循环结构会详细介绍）一行行地读取文件，然后输出每行的文字<br><br>while (!feof($file_handle)) { //判断是否到最后一行<br><br>$line = fgets($file_handle); //读取一行文本<br><br>echo $line; //输出一行文本<br><br>echo “&lt;br /&gt;”; //换行<br><br>}<br><br>}<br><br>fclose($file_handle);//关闭文件</p><br><p style="text-align: left;"><br></p><p style="text-align: left;"><span style="color: #993366;"><strong>6，NULL类型</strong></span></p><br><p style="text-align: left;">$s_s=null;</p><br><p style="text-align: center;"><br></p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-119ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/119ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/119ver/">博主推荐:学写jquery缓动函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/4743.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/4743.htm</a></p><p></p>
+<p></p><p>问题引入：实现如下效果</p><p></p>
+<p></p><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/debugwidget/f2ddfd95-3813-440d-bf58-8e10f0df7c80.htm"></iframe></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>两个方块的追逐效果，使用css3，实现起来没什么难度：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;</span></li></p>
+<p><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“first”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
+<p><li class="L2"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“second”</span><span class="tag">&gt;&lt;/div&gt;</span></li></p>
+<p><li class="L3"><span class="tag">&lt;/div&gt;</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="com">#container{</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="pun">@-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">keyframes run</span><span class="pun">{</span></li></p>
+<p><li class="L8"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li></p>
+<p><li class="L9"><span class="lit">@keyframes</span><span class="pln"> run</span><span class="pun">{</span></li></p>
+<p><li class="L0"><span class="lit">0</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="lit">25</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="lit">50</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L9"><span class="pln"> left</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="lit">75</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> top</span><span class="pun">:</span><span class="lit">220px</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="lit">100</span><span class="pun">%</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="pun">}</span></li></p>
+<p><li class="L1"></li></p>
+<p><li class="L2"><span class="com">#first{</span></li></p>
+<p><li class="L3"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span> <span class="lit">0.8s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"></li></p>
+<p><li class="L1"><span class="com">#second{</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pln"> animation</span><span class="pun">:</span><span class="pln"> run </span><span class="lit">1.6s</span><span class="pln"> infinite</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>用到了css3的animate属性，不是很复杂。不过出于兼容性的考虑，我们决定使用jquery的animate方法来重新实现。</p><p></p>
+<p></p><h2>简单粗暴地多次使用animate</h2><p></p>
+<p></p><p>可以看到，每个方块的运动都可以分解成四步，每一步都是向一个方向运动。于是如果要用$.animate来实现，可以在一个循环里，依次调用四遍animate来实现：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="com">#container{</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> relative</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">320px</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pln"> border</span><span class="pun">:</span><span class="lit">1px</span><span class="pln"> solid </span><span class="com">#ccc;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="com">#first{</span></li></p>
+<p><li class="L8"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> orange</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L4"><span class="pun">}</span></li></p>
+<p><li class="L5"></li></p>
+<p><li class="L6"><span class="com">#second{</span></li></p>
+<p><li class="L7"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100px</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> red</span><span class="pun">;</span></li></p>
+<p><li class="L0"><span class="pln"> position</span><span class="pun">:</span><span class="pln"> absolute</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pln"> right</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L2"><span class="pln"> bottom</span><span class="pun">:</span><span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">var</span><span class="pln"> $first</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#first’</span><span class="pun">);</span></li></p>
+<p><li class="L1"><span class="kwd">var</span><span class="pln"> $second</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘#second’</span><span class="pun">);</span></li></p>
+<p><li class="L2"></li></p>
+<p><li class="L3"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
+<p><li class="L4"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L5"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L6"><span class="str">“top”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L7"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L8"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L9"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L0"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L2"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L3"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L4"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L0"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
+<p><li class="L1"><span class="pun">});</span></li></p>
+<p><li class="L2"><span class="pun">});</span></li></p>
+<p><li class="L3"><span class="pun">});</span></li></p>
+<p><li class="L4"><span class="pun">});</span></li></p>
+<p><li class="L5"><span class="pun">})();</span></li></p>
+<p><li class="L6"></li></p>
+<p><li class="L7"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
+<p><li class="L8"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L9"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L0"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L1"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L2"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L3"><span class="str">“right”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L4"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L5"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L9"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L0"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L1"><span class="str">“right”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L2"><span class="str">“bottom”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L3"><span class="pun">},</span><span class="lit">400</span><span class="pun">,</span><span class="str">“linear”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(){</span></li></p>
+<p><li class="L4"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
+<p><li class="L5"><span class="pun">});</span></li></p>
+<p><li class="L6"><span class="pun">});</span></li></p>
+<p><li class="L7"><span class="pun">});</span></li></p>
+<p><li class="L8"><span class="pun">});</span></li></p>
+<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>这种实现简单粗暴。我写的这段代码回调链太深了，不好看。有比我更熟悉jquery的朋友不使用complete回调，而是直接$.animate().animate()这样的调用链，效果一样，代码会短很多。不过jquery代码美化优化什么的不是今天的重点。重点是什么？学习缓动函数。</p><p></p>
+<p></p><h2>缓动函数（animation easing）</h2><p></p>
+<p></p><p>缓动函数是用来描述动画效果，在jquery中，实现了两种，分别是 linear和 swing。 linear效果就是没有效果，动画速度是均匀的，呈线性变化。 swing呢，动画效果呈线慢-快-慢的变化。swing也是$.animate的默认动画效果。</p><p></p>
+<p></p><p>或许仅仅这么说还是难以让人理解缓动函数在干什么，那就参考一下下面来自jquery ui的例子：</p><p></p>
+<p></p><p>或者参考<a href="http://www.zhouhua.info/jump/xyu0" target="_blank">jquery easing plugin</a>。</p><p></p>
+<p></p><p>回到jquery ui提供的各个缓动函数示意图上，对于任意一张示意图，横向表示时间，纵向表示动画变化量。当斜率越大时，表示此时动画速率越快。</p><p></p>
+<p></p><p>我们定义几个变量和常量来标记一下：动画起始变化量为<em>begin</em>，为方便计算，定义为常数0；动画结束和起始时的变化差值（总变化量）<em>change</em>，为方便计算，定义为常数1；动画持续时间<em>duration</em>；动画已进行时间<em>currentTime</em>；动画进行的进度<em>progress</em>，它等同于 currentTime / duration；当前变化量<em>eased</em>，jquery中这样定义：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">eased </span><span class="pun">=</span><span class="pln"> easingFunction</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">);</span></li><br><br><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>从上面的效果中随便挑一个出来看看是如何实现的吧：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">function</span><span class="pln"> easeOutBounce</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">,</span><span class="pln"> currentTime</span><span class="pun">,</span> <span class="kwd">begin</span><span class="pun">,</span><span class="pln"> change</span><span class="pun">,</span><span class="pln"> duration</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="kwd">if</span> <span class="pun">((</span><span class="pln">currentTime</span><span class="pun">/=</span><span class="pln">duration</span><span class="pun">)</span> <span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">1</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun"></span><span class="pln">currentTime</span><span class="pun">*</span><span class="pln">currentTime</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L4"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">1.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">75</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span> <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">currentTime </span><span class="pun">&lt;</span> <span class="pun">(</span><span class="lit">2.5</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))</span> <span class="pun">{</span></li></p>
+<p><li class="L6"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.25</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">9375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L7"><span class="pun">}</span> <span class="kwd">else</span> <span class="pun">{</span></li></p>
+<p><li class="L8"><span class="kwd">return</span><span class="pln"> change</span><span class="pun"><em>(</em></span><span class="lit">7.5625</span><span class="pun">(</span><span class="pln">currentTime</span><span class="pun">-=(</span><span class="lit">2.625</span><span class="pun">/</span><span class="lit">2.75</span><span class="pun">))*</span><span class="pln">currentTime </span><span class="pun">+</span> <span class="pun">.</span><span class="lit">984375</span><span class="pun">)</span> <span class="pun">+</span> <span class="kwd">begin</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>说到这儿，我想该插一点相关话题。熟悉css3的朋友会知道，css3的动画也有缓动函数，不过换了个名字，叫<em>timing function</em>。在transition中是transition-timing-function，在animate里是animate-timing-function。主要支持的动画有ease、linear、ease-in、ease-out、ease-in-out等。那如果想要的动画不在浏览器默认支持的列表中怎么办？css3也是支持自定义timing-function的，不过不同于jquery的easing function，timing function并不是描述特定时间下的动画量，而是直接描述上面我们看到的曲线图。timing function允许使用三次贝塞尔曲线方程描述动画曲线。三次贝塞尔方程接受4个点的参数：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">cubic</span><span class="pun">-</span><span class="pln">bezier</span><span class="pun">(</span><span class="pln">P1x</span><span class="pun">,</span><span class="pln"> P1y</span><span class="pun">,</span><span class="pln"> P2x</span><span class="pun">,</span><span class="pln"> P2y</span><span class="pun">)</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>但在css的timing function场景下，P0点就是(0, 0)，P3点就是(1, 1)。于是变量就只剩下两个点的坐标，调用方式就变成了： cubic-bezier(P1x, P1y, P2x, P2y)。在W3C的规范中，定义了这四个点的纵横坐标都需要在0和1之间，这也就意味着无论怎么变化，曲线上所有的点都必须在这个1*1的正方形内，对比上面jquery ui easing的曲线图，我们可以确认像elastic这类的效果，使用timing-function就无能为力了。</p><p></p>
+<p></p><p>想多了解一下css3的timing function，不妨到<a href="http://www.zhouhua.info/jump/q6nt" target="_blank">这个网站</a>上自己动手试验一下。</p><p></p>
+<p></p><h2>编写easing function</h2><p></p>
+<p></p><p>说了半天的timing function，终于又回到easing function上来了。自己动手写easing function，那自由度，无边无际。从上面的介绍中，我们往往会有这样一个错觉，progress=0时，eased=0；progress=1时，eased=1。timing function中，因为P0和P3是定死的，所以这条一定成立，但在easing function中，其实并没有这个限制。</p><p></p>
+<p></p><p>什么意思？以我们开篇的动画为例，我们看一个方块从左上角运动一圈的轨迹。先说水平方向上，progress&lt;0.25时，left属性从0px变成220px；0.25&lt;=progress&lt;0.5时，left保持220px；0.5&lt;=progress&lt;0.75时，left属性从220px变成0px；0.75&lt;=progress&lt;1时，left保持0px。再看竖直方向上，progress&lt;0.25时，top保持0px；0.25&lt;=progress&lt;0.5时，top从0px变成220px；0.5&lt;=progress&lt;0.75时，top保持220px；0.75&lt;=progress&lt;1时，top从220px变成0px。那么这个过程反映成easing function就是：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="kwd">function</span><span class="pln"> horizontal</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="kwd">return</span><span class="pln"> progress </span><span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li></p>
+<p><li class="L4"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L5"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
+<p><li class="L6"><span class="pun">}</span></li></p>
+<p><li class="L7"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L8"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">0.75</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L9"><span class="pun">}</span></li></p>
+<p><li class="L0"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="kwd">function</span><span class="pln"> vertical</span><span class="pun">(</span><span class="pln">progress</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L3"><span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L4"><span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span></li></p>
+<p><li class="L5"><span class="pun">}</span></li></p>
+<p><li class="L6"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.5</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="kwd">return</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">-</span> <span class="lit">0.25</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L8"><span class="pun">}</span></li></p>
+<p><li class="L9"><span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">progress </span><span class="pun">&lt;</span> <span class="lit">0.75</span><span class="pun">)</span> <span class="pun">{</span></li></p>
+<p><li class="L0"><span class="kwd">return</span> <span class="lit">1</span><span class="pun">;</span></li></p>
+<p><li class="L1"><span class="pun">}</span></li></p>
+<p><li class="L2"><span class="kwd">return</span> <span class="pun">(</span><span class="lit">1</span> <span class="pun">-</span><span class="pln"> progress</span><span class="pun">)</span> <span class="pun">*</span> <span class="lit">4</span><span class="pun">;</span></li></p>
+<p><li class="L3"><span class="pun">}</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>接下来扩展jquery的easing效果库：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pln">$</span><span class="pun">.</span><span class="pln">extend</span><span class="pun">(</span><span class="pln">$</span><span class="pun">.</span><span class="pln">easing</span><span class="pun">,</span></li></p>
+<p><li class="L1"><span class="pun">{</span></li></p>
+<p><li class="L2"><span class="str">“vertical”</span><span class="pun">:</span><span class="pln"> vertical</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="str">“horizontal”</span><span class="pun">:</span><span class="pln"> horizontal</span></li></p>
+<p><li class="L4"><span class="pun">});</span></li><br><br><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>在$.animate中就可以像linear或者swing那样使用了：</p><p></p>
+<p><div class="jspContainer"></div></p>
+<p><div class="jspPane"></div></p>
+<p><ol class="linenums"></ol></p>
+<p><li class="L0"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> firstMove</span><span class="pun">(){</span></li></p>
+<p><li class="L1"><span class="pln"> $first</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L2"><span class="str">“left”</span><span class="pun">:</span><span class="lit">220</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="str">“top”</span><span class="pun">:</span><span class="lit">220</span></li></p>
+<p><li class="L4"><span class="pun">},{</span></li></p>
+<p><li class="L5"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
+<p><li class="L6"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
+<p><li class="L7"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
+<p><li class="L9"><span class="pun">},</span></li></p>
+<p><li class="L0"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
+<p><li class="L1"><span class="pln"> firstMove</span><span class="pun">();</span></li></p>
+<p><li class="L2"><span class="pun">}</span></li></p>
+<p><li class="L3"><span class="pun">});</span></li></p>
+<p><li class="L4"><span class="pun">})();</span></li></p>
+<p><li class="L5"><span class="pun">(</span><span class="kwd">function</span><span class="pln"> secondMove</span><span class="pun">(){</span></li></p>
+<p><li class="L6"><span class="pln"> $second</span><span class="pun">.</span><span class="pln">animate</span><span class="pun">({</span></li></p>
+<p><li class="L7"><span class="str">“left”</span><span class="pun">:</span><span class="lit">0</span><span class="pun">,</span></li></p>
+<p><li class="L8"><span class="str">“top”</span><span class="pun">:</span><span class="lit">0</span></li></p>
+<p><li class="L9"><span class="pun">},{</span></li></p>
+<p><li class="L0"><span class="pln"> duration</span><span class="pun">:</span> <span class="lit">1600</span><span class="pun">,</span></li></p>
+<p><li class="L1"><span class="pln"> specialEasing</span><span class="pun">:</span> <span class="pun">{</span></li></p>
+<p><li class="L2"><span class="pln"> left</span><span class="pun">:</span> <span class="str">‘horizontal’</span><span class="pun">,</span></li></p>
+<p><li class="L3"><span class="pln"> top</span><span class="pun">:</span> <span class="str">‘vertical’</span></li></p>
+<p><li class="L4"><span class="pun">},</span></li></p>
+<p><li class="L5"><span class="pln"> complete</span><span class="pun">:</span> <span class="kwd">function</span><span class="pun">()</span> <span class="pun">{</span></li></p>
+<p><li class="L6"><span class="pln"> secondMove</span><span class="pun">();</span></li></p>
+<p><li class="L7"><span class="pun">}</span></li></p>
+<p><li class="L8"><span class="pun">});</span></li></p>
+<p><li class="L9"><span class="pun">})();</span></li><br><br></p>
+<p><div class="jspVerticalBar"></div><br></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>我们通过specialEasing这个参数为水平方向和竖直方向指定了不同的动画效果。当然了，在这个场景中，自己写缓动函数并没有降低整体的复杂度，毕竟这个缓动函数逻辑太碎，理解起来肯定比四个animate连起来的方式复杂。但我希望能给大家带来一些思路上的启示，为以后可能遇到的问题积累经验。</p><p></p>
+<blockquote><p>博客地址：<a href="http://www.zhouhua.info/2015/03/10/easing/" target="_blank">http://www.zhouhua.info/2015/03/10/easing/</a></p></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-120ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -472,10 +873,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-96ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-101ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/96ver/" class="article-date">
+      <a href="/2015/10/21/101ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -489,7 +890,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/96ver/">php自学笔记之运算符</a>
+      <a class="article-title" href="/2015/10/21/101ver/">Jquery-生成页面顶端的滑动弹出式提示框效果</a>
     </h1>
   
 
@@ -498,7 +899,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote><br><h1 style="text-align: center;"><span style="color: #993366;"><strong>运算符</strong></span></h1><br><p><span style="color: #993366;"><strong>1,PHP中的算术运算符</strong></span></p><br><p align="left">算术运算符主要是用于进行算术运算的，例如：加法运算、减法运算、乘法运算、除法运算。在PHP中的常用的算术运算符对应下表：</p><br><p align="left"><a href="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" target="_blank" rel="external"><img class=" alignleft" src="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" data-original="http://img.mukewang.com/5333bfdb0001a27a05300240.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">$english=110;//英语成绩哪有这么好- -</p><br><p>$math=118;//向前移一个小数点就差不多了<br><br>$biological=80;//生物<br><br>$physical=90;//物理</p><br><p>$sum=$english+$math+$biological+$physical;<br><br>$avg=$sum/4;<br><br>$x=$math-$english;<br><br>$x2=$english*$english;<br><br>echo “总分:”.$sum.”&lt;br&gt;”;<br><br>echo “平均分:”.$avg.”&lt;br&gt;”;<br><br>echo “数学比英语高多少分:”.$x.”&lt;br&gt;”;<br><br>echo “英语平方:”.$x2.”&lt;br&gt;”;</p><br><p>&nbsp;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>2,赋值运算符</strong></span></p><br><p align="left">PHP的赋值运算符有两种，分别是：</p><br><p align="left">(1)“=”：把右边表达式的值赋给左边的运算数。它将右边表达式值复制一份，交给左边的运算数。换而言之，首先给左边的运算数申请了一块内存，然后把复制的值放到这个内存中。</p><br><p align="left">(2)“&amp;”：引用赋值，意味着两个变量都指向同一个数据。它将使两个变量共享一块内存，如果这个内存存储的数据变了，那么两个变量的值都会发生变化。</p><br><p> //现在开始赋值运算符<br><br>$word1=”soul”;<br><br>$s_word1=$word1;<br><br>$c_word1=&amp;$word1;//$符号只相当于一个指针,当数据发生变化后赋值一样会发生变化<br><br>$word1=”soulseeker”;<br><br>echo $s_word1.”&lt;br&gt;”;<br><br>echo $c_word1.”&lt;br&gt;”</p><br><hr><br><p><span style="color: #993366;"><strong>3,比较运算符</strong></span></p><br><p>比较运算符主要是用于进行比较运算的，例如：等于、全等、不等、大于、小于。在PHP中常用的比较运算符如下表：</p><br><p><a href="http://img.mukewang.com/533a0af30001e75c06600409.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533a0af30001e75c06600409.jpg" data-original="http://img.mukewang.com/533a0af30001e75c06600409.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>$t1=1;<br><br>$t2=”1”;</p><br><p>var_dump( $t1==$t2);//普通=，只会比较值是否一样<br><br>br();<br><br>var_dump($t1===$t2);//严格等于,会连类型都判断<br><br>br();<br><br>var_dump($t1!=$t2);//普通不等<br><br>br();<br><br>var_dump($t1!==$t2);//如果t1不等于t2,或者他们类型不同返回true<br><br>br();<br><br>var_dump($t1&lt;&gt;$t2);//不等 同等于!=<br><br>br();<br><br>var_dump($t1&gt;=$t2);//大于等于，小于等于都不会去判断数据类型<br><br>br();<br><br>var_dump($t1&lt;=$t2);//<br><br>br();<br><br>var_dump($t1&gt;$t2);//大于，小于会严格判断数据和数据类型</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><span style="color: #993366;"><strong>4,三元运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>(“?:”)三元运算符也是一个比较运算符，对于表达式(expr1)?(expr2):(expr3)，如果expr1的值为true，则此表达式的值为expr2，否则为expr3。</p><br></div><br></div><br><p>$t3=78;</p><br><p>$t4=$t3&gt;60?”我及格了”:”我没及格”;<br><br>echo $t4;</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>5,逻辑运算符 </strong></span></p><br><p align="left">逻辑运算符主用是进行逻辑运算的，例如：逻辑与、逻辑或、逻辑异或、逻辑非等，在PHP中常用的逻辑运算符如下表：（点击看大图）</p><br><p align="left"><a href="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" data-original="http://img.mukewang.com/533e0fbe0001c56f06080279.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p align="left">我们可以从投票的角度来理解逻辑运算：</p><br><p align="left"><strong>1、逻辑与：</strong>要求所有人都投票同意，才会通过某协议；</p><br><p align="left"><strong>2、逻辑或：</strong>只要求一个人投票同意就行；</p><br><p align="left"><strong>3、逻辑异或：</strong>只能有且只能有一个人投票同意；</p><br><p align="left"><strong>4、逻辑非：</strong>某个人要反对，但是通过逻辑非，使其反对无效；</p><br><p align="left">“与”和“或”有两种不同形式运算符的原因是它们运算的优先级（就是运算的有限顺序，比如我们小学的时候学习四则运算，加减乘除混合在一起啦，优先计算乘除，再计算加减）不同。</p><br><p align="left">//现在开始逻辑运算符<br><br>$a = TRUE; //A同意<br><br>$b = TRUE; //B同意<br><br>$c = FALSE; //C反对<br><br>$d = FALSE; //D反对<br><br>//咱顺便复习下三元运算符<br><br>echo ($a and $b)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a or $c)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a xor $c xor $d)?”通过”:”不通过”;//a或者b只有一个为true返回true<br><br>echo “&lt;br /&gt;”;<br><br>echo !$c?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo ($a&amp;&amp;$d)?”通过”:”不通过”;<br><br>echo “&lt;br /&gt;”;<br><br>echo($a||$b||$c)?”通过”:”不通过”;</p><br><hr><br><p id="J_CodeLang" class="code-head" data-lang="PHP"><strong><span style="color: #993366;">6,字符串连接运算符</span></strong></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">字符串连接运算符是为了将两个字符串进行连接，PHP中提供的字符串连接运算符有：</p><br><p align="left">（1）连接运算符(“.”)：它返回将右参数附加到左参数后面所得的字符串。</p><br><p align="left">（2）连接赋值运算符(“.=”)：它将右边参数附加到左边的参数后。</p><br></div><br></div><br><p>//现在开始字符串连接符<br><br>$a = “张先生”;<br><br>$tip=$a.”,欢迎您在慕课网学习PHP”;</p><br><p>$b = “东边日出西边雨”;<br><br>$b.=”,道是无晴却有晴”;//等同于$c=$c.”,道是无晴却有晴”;</p><br><p>$c = “东边日出西边雨”;<br><br>$c=$c.”,道是无晴却有晴”;</p><br><p>echo $tip.”&lt;br /&gt;”;<br><br>echo $b.”&lt;br /&gt;”;<br><br>echo $c.”&lt;br /&gt;”;</p><br><hr><br><p><span style="color: #993366;"><strong>7，错误控制运算符</strong></span></p><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p align="left">PHP中提供了一个错误控制运算符“@”，对于一些可能会在运行过程中出错的表达式时，我们不希望出错的时候给客户显示错误信息，这样对用户不友好。于是，可以将@放置在一个PHP表达式之前，该表达式可能产生的任何错误信息都被忽略掉；</p><br><p align="left">如果激活了track_error（这个玩意在php.ini中设置）特性，表达式所产生的任何错误信息都被存放在变量$php_errormsg中，此变量在每次出错时都会被覆盖，所以如果想用它的话必须尽早检查。</p><br><p align="left">需要注意的是：错误控制前缀“@”不会屏蔽解析错误的信息，不能把它放在函数或类的定义之前，也不能用于条件结构例如if和foreach等。</p><br></div><br></div><br><p>$conn=@mysql_connect(“localhost”,”username”,”password”);//@只能放在表达式中,不能放在foreach等循环中<br><br>echo “出错了，错误原因是：”.$php_errormsg;</p><br><hr><br><p>&nbsp;</p><br><p>8,运算符2</p><br><p>$maxLine = 4; //每排人数<br><br>$no = 17;//学生编号<br><br>$line=ceil($no/$maxLine);//判断座位<br><br>$row=$no%$maxLine?$no%$maxLine:$maxLine;//是否除尽？ 否取余数 是取$maxLine</p><br><p>echo “编号&lt;b&gt;”.$no.”&lt;/b&gt;的座位在第&lt;b&gt;”.$line.”&lt;/b&gt;排第&lt;b&gt;”.$row.”&lt;/b&gt;个位置”;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p></blockquote>
+        <p>&nbsp;</p><br><p>参考给定的HTML，使用jQuery和相关CSS生成页面顶端滑动错误提示效果，具体效果如下：</p><br><blockquote><p>点击页面中的按钮“系统提示” ，生成一个背景色为#efb73e的页面顶端居中“错误提示框”（贴近页面顶端），宽度为页面宽度的80%，高度为35px，出现效果为整体向下滑动出现，点击“错误提示框”中的关闭元素（id=“close” 元素），自动向上滑动关闭页面顶端的“错误提示效果”（效果为整体向上滑动消失），参考如下UI设计图形</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p></blockquote><br><p>&nbsp;</p><br><p>代码和预览地址<a href="http://www.gbtags.com/gb/rtreplayerpreview/843.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/843.htm</a></p>
 
 
 
@@ -609,118 +1010,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>虽然很久以前就听到过这首歌了.</p><br><p>不过最近听到另一种风格的.</p><br><p>附上B站地址<a href="http://www.bilibili.com/video/av64435/" target="_blank" rel="external">http://www.bilibili.com/video/av64435/</a></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-QQ.png" target="_blank" rel="external"><img class=" size-medium wp-image-500 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-QQ.png" data-original="http://www.old.com/wp-content/uploads/2015/05/QQ截图20150517220321-300x235.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="QQ截图20150517220321" width="300" height="235"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>另外附上无损下载地址<br><br><div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1bnuEAYj" target="_blank">度娘下载</a></div><br><br>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-103ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/103ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/103ver/">git Shell个人学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p><span style="font-size: 18pt;"> </span></p><p></p>
-<p></p><p><span style="color: #993366; font-family: 'arial black', 'avant garde'; font-size: 18pt;"><strong>本文是GitHub个人学习笔记.</strong></span></p><p></p>
-<blockquote><br><h1 style="text-align: center;"><span style="color: #993366; font-family: 'arial black', 'avant garde'; font-size: 18pt;"><strong>下载与安装GitHub</strong></span></h1><br><p><span style="font-family: 'arial black', 'avant garde'; font-size: 14pt;">下载 GitHub For Windows :<a href="https://windows.github.com/" target="_blank" rel="external">https://windows.github.com/</a></span></p><br><p><span style="font-family: 'arial black', 'avant garde'; font-size: 14pt;">PS:推荐架设VPN..下载和访问速度不忍直视啊</span></p></blockquote><br><p><span style="font-size: 18pt;"> </span></p><br><blockquote><br><p style="text-align: center;"><span style="font-family: 'arial black', 'avant garde'; font-size: 18pt;"><strong><span style="color: #993366;">Git Shell</span></strong></span></p><br><h3><span style="color: #993366; font-size: 14pt;"><strong>创建版本库</strong></span></h3><br><p><span style="font-family: 'arial black', 'avant garde'; font-size: 14pt;">在桌面打开Git Shell即进入了shell模式</span></p><br><p><span style="color: #993366; font-family: 'arial black', 'avant garde'; font-size: 14pt;">新建文件夹&gt;&gt;  mkdir</span><span style="color: #993366; font-size: 14pt;">初始化版本库&gt;&gt; git init</span></p><br><hr><br><p><span style="font-size: 14pt; color: #993366;"><strong>添加文件</strong></span></p><br><p>添加文件&gt;&gt;git add [file1 file2 file3…]</p><br><p>提交文件到仓库&gt;&gt;git commit -m  “第一次提交文件压力山大”</p><br><hr><br><p><span style="color: #993366; font-size: 14pt;"><strong>回溯</strong></span></p><br><p>查看是否存在改动未提交的文件&gt;&gt;git status</p><br><p>查看文件改动信息&gt;&gt;git diff</p><br><p>查看git改动日志&gt;&gt;git log</p><br><p>简单显示git改动日志&gt;&gt;git log –pretty=oneline</p><br><p>回溯git&gt;&gt;git re<span class="operator"><span class="keyword">set</span> –hard HEAD^  一个^代表回溯到上一个版本^^两个回溯到上上个版本….</span></p><br><p>显示回溯日志&gt;&gt;git reflog</p><br><p>回溯git(通过commit id)&gt;&gt;git re<span class="operator"><span class="keyword">set</span> –hard <span class="number">3628164</span></span></p><br><hr><br><p><span style="color: #993366; font-size: 14pt;"><strong>工作区与暂存区详细说明:</strong></span><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000" target="_blank" rel="external">click</a></p><br><hr><br><p><span style="color: #993366; font-size: 14pt;"><strong>git add提交说明</strong></span></p><br><p>git做的是修改管理，修改包括.文件,动作</p><br><p>比如第一次我在readme.txt文件写了一行</p><br><p>hello world</p><br><p>然后用git add命令进行添加,但是我突然想写一行</p><br><p>bey bey</p><br><p>于是修改后不再次添加直接 git commit -m “xxx”</p><br><p>然后再执行git status发现还有个readme.txt文件修改未被提交</p><br><p>原理很简单</p><br><p>第一次add添加的是hello world 这个文件放到了缓存区</p><br><p>然后你又添加了一行代码 beybey 于是这个文件又被放到了缓存区</p><br><p>也就是说缓存区有两个readme.txt</p><br><p>理解了后就好办了,可以第一次修改的时候不add readme.txt</p><br><p>或者第二次修改后再次使用 add readme.txt合并两个文件 再进行git commit -m添加</p><br><p>用<span style="color: #993366;"><strong>git diff HEAD – readme.txt</strong></span>命令可以查看工作区和版本库里面最新版本的区别：</p><br><hr><br><h4><span style="color: #993366; font-size: 14pt;"><strong>撤销修改</strong></span></h4><br><p>回到最近一次<code>git commit</code>或<code>git add</code>时的状态&gt;&gt;git checkout – readme.txt</p><br><p>添加到缓存区后撤销操作&gt;&gt;git reset HEAD file (然后再用checkout命令继续撤销)</p><br><p>撤销添加到本地仓库未添加到远程仓库&gt;&gt;git re<span class="operator"><span class="keyword">set</span> –hard HEAD^</span></p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366; font-size: 14pt;"><strong>删除文件</strong></span></p><br><p>从版本库中删除文件&gt;&gt;git rm flie</p><br><p>接着再提交动作 git commit -m “删除一个文件”</p><br><hr><br><p><span style="color: #993366; font-size: 14pt;"><strong> 远程仓库</strong></span></p><br><p>添加远程库&gt;&gt;git remote add 代号(自行填写) git<span class="variable">@github</span>.<span class="symbol">com:你的账户名</span>/仓库名.git</p><br><pre class="">错误提示：(本地已经存在这个远程仓库) fatal: remote origin already exists.</pre><br><pre class="">解决办法：(移除这个远程仓库) git remote rm origin</pre><br><p>推送文件至远程库&gt;&gt;git push -u origin master</p><br><p>PS：由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p><br><p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p><br><p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p><br><p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p><br><hr><br><p><span style="font-size: 14pt;"><strong><span style="color: #993366;">  克隆远程库</span></strong></span></p><br><p>git clone git<span class="variable">@github</span>.<span class="symbol">com:账户名</span>/仓库名.git</p><br><p>&nbsp;</p><br><hr><br><p><span style="color: #800080; font-size: 14pt;"><strong>创建与合并分支</strong></span></p><br><p><span style="color: #333333;">创建切换到dev分支&gt;&gt;git checkout -b dev</span></p><br><p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换，相当于以下两条命令：</p><br><pre><code class="ruby"><span class="variable">$ </span>git branch dev<br><span class="variable">$ </span>git checkout dev</code></pre><br><p>查看当前分支&gt;&gt;git branch （<code>git branch</code>命令会列出所有分支，当前分支前面会标一个<code>*</code>号）</p><br><p>切换分支&gt;&gt;git checkout 分支名</p><br><p>合并分支&gt;&gt;git merge 分支名（移动到其他分支后使用此命令合并分支名)</p><br><p>删除分支&gt;&gt;git branch -d 分支名</p><br><p>合并远程仓库&gt;&gt;git merge soul/master</p><br><p>&nbsp;</p><br><hr><br><p><span style="color: #800080; font-size: 14pt;"><strong>解决合并冲突</strong></span></p><br><p>首先创建一个git checkout -b soul分支soul</p><br><p>然后再readme.txt文件增加一行</p><br><p>soul readme</p><br><p>提交一下readme.txt</p><br><p>然后切换回master分支</p><br><p>然后修改master分支下的readme.txt</p><br><p>master readme</p><br><p>提交一下readme.txt</p><br><p>然后执行一下合并git merge soul</p><br><p>Auto-merging readme.txt<br><br>CONFLICT (content): Merge conflict in readme.txt<br><br>Automatic merge failed; fix conflicts and then commit the result.</p><br><p>发现会报错 git无法执行快速合并</p><br><p>用git status也会提示冲突文件</p><br><p>于是我们需要手动处理</p><br><p>查看readme.txt文件</p><br><p>Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容</p><br><p>我们修改readme.txt文件</p><br><p>删除git生成的&lt;&lt;&lt;&lt;&lt; ====== &gt;&gt;&gt;&gt;&gt;&gt;然后把test分支上readme.txt的内容添加到readme.txt里就ok了</p><br><p>然后git add readme.txt git commit -m “fix”</p><br><hr><br><h4><span style="font-size: 14pt; color: #993366;"><strong>分支管理策略</strong></span></h4><br><p>通常合并分支git都是使用Fast forward，但这种模式下，删除分支后，会丢掉分支信息</p><br><p>如果要强制禁用<code>Fast forward</code>模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p><br><p><span class="variable">$ </span>git merge –no-ff -m <span class="string">“merge with no-ff”</span> dev</p><br><p><span class="constant">Merge</span> made by the <span class="string">‘recursive’</span> strategy. readme.txt | <span class="number">1</span> +</p><br><p><span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</p><br><p>因为本次合并要创建一个新的commit，所以加上<code>-m</code>参数，把commit描述写进去。</p><br><p>Git分支十分强大，在团队开发中应该充分应用。</p><br><p>合并分支时，加上<code>–no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366; font-size: 14pt;"><strong>Bug分支</strong></span></p><br><p>比如我在dev分支下修改readme.txt时需要去master分支上修改一个bug</p><br><p>于是我可以利用</p><br><p>储藏&gt;&gt;git stash</p><br><p>当前的工作 然后切换至master上创建一个临时分支bugfix然后修改readme.txt</p><br><p>修改完毕后git add readme.txt; git commit -m “fixbug”</p><br><p>然后切换到master分支来</p><br><p>git merge –no-ff -m <span class="string">“merged bug fix 101”</span> bugfix</p><br><p>合并下bugfix 然后</p><br><p>git branch -d bugfix</p><br><p>删除这个分支</p><br><p>切换到dev分支</p><br><p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p><br><p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；</p><br><p>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了：再用<code>git stash list</code>查看，就看不到任何stash内容了：</p><br><p>利用 git stash pop恢复下内容 就可以继续工作了</p><br><hr><br><p>&nbsp;</p><br><p><span style="color: #993366; font-size: 14pt;"><strong>强行删除分支 </strong></span></p><br><p>在未合并分支的情况下删除分支</p><br><p>git branch -d bugfix git会报错</p><br><p>于是我们可以使用</p><br><p>强行删除&gt;&gt;git branch -<span class="constant">D    (其实就把小写d改为大写D)</span></p><br><p>然后就删除完毕了</p><br><hr><br><p><span style="font-size: 14pt; color: #993366;"> <strong>多人协作</strong></span></p><br><p>真羡慕有两台电脑的人2333</p><br><p>详情去<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013760174128707b935b0be6fc4fc6ace66c4f15618f8d000" target="_blank" rel="external">click me</a> 这个网站观看~</p><br><hr><br><p>&nbsp;</p></blockquote>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-104ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/104ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/104ver/">手机屏幕分辨率和浏览器分辨率</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>转自<a href="http://hc24.iteye.com/blog/1870458" target="_blank" rel="external">http://hc24.iteye.com/blog/1870458</a></p><br><p>在使用CSS3的中有如下类似代码</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Html代码 <embed src="http://hc24.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://hc24.iteye.com/images/icon_star.png" data-original="http://hc24.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-xml" start="1"><br><li>@media screen and (max-width:480px)｛</li><br><li>    ……</li><br><li>｝</li><br></ol><br></div><br><p>&nbsp;</p><br><p>意思是在最大宽度为480px的设备上应用{}里面的样式。这里的width，注意是手机浏览器的分辨率，而不是手机设备的屏幕分辨率。比如苹果4的手机屏幕分辨率是960x640。而其自带的Safari浏览器的分辨率是320<em>480。我们可以通过如下代码检测所用的浏览器的分辨率：</em></p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://hc24.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://hc24.iteye.com/images/icon_star.png" data-original="http://hc24.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li>$(<span class="string">“#info”</span>).html(<span class="string">“(您的浏览器的分辨率为：”</span>+($(document).width()+<span class="string">““</span>+$(document).height())+<span class="string">“)”</span>);</li><br></ol><br></div><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Html代码 <embed src="http://hc24.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://hc24.iteye.com/images/icon_star.png" data-original="http://hc24.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-xml" start="1"><br><li><span class="tag">&lt;</span><span class="tag-name">div</span> <span class="attribute">id</span>=<span class="attribute-value">“info”</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag-name">div</span><span class="tag">&gt;</span></li><br></ol><br></div><br><p>在很多的Android设备上，系统自带的浏览器，chrome浏览器，QQ浏览器，UC等，经过测试得出的值都不太一样。这就给手机WEB开发带来了复杂度。同样在桌面浏览器中测试也会不同。</p><br><p>我们在针对手机进行WEB开发时，通常会在head中加入：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Html代码 <embed src="http://hc24.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://hc24.iteye.com/images/icon_star.png" data-original="http://hc24.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-xml" start="1"><br><li><span class="tag">&lt;</span><span class="tag-name">meta</span> <span class="attribute">name</span>=<span class="attribute-value">“viewport”</span> <span class="attribute">content</span>=<span class="attribute-value">“width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0”</span><span class="tag">&gt;</span></li><br></ol><br></div><br><p>这里的device-width也是值所使用的浏览器的width，而非手机本身。</p><br><p>&nbsp;</p><br><p>有不当还请指教。</p><br><p>&nbsp;</p><br><p>======================分割线===========================</p><br><p>有用的JS检测代码：</p><br><div id="" class="dp-highlighter"><br><div class="bar"><br><div class="tools">Js代码 <embed src="http://hc24.iteye.com/javascripts/syntaxhighlighter/clipboard_new.swf" type="application/x-shockwave-flash" width="14" height="15"> <a title="收藏这段代码"><img class="star" src="http://hc24.iteye.com/images/icon_star.png" data-original="http://hc24.iteye.com/images/icon_star.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="收藏代码"></a></div><br></div><br><ol class="dp-c" start="1"><br><li><span class="comment">/<em></em></span></li><br><li><span class="comment">            </span></li><br><li><span class="comment">  智能机浏览器版本信息:</span></li><br><li><span class="comment">            </span></li><br><li><span class="comment"> <em></em></span></li><br><li><span class="comment">            </span></li><br><li><span class="comment"> /</span></li><br><li></li><br><li><span class="keyword">var</span> browser = {</li><br><li></li><br><li>    versions : <span class="keyword">function</span>() {</li><br><li></li><br><li>        <span class="keyword">var</span> u = navigator.userAgent, app = navigator.appVersion;</li><br><li></li><br><li>        <span class="keyword">return</span> {<span class="comment">//移动终端浏览器版本信息 </span></li><br><li></li><br><li>        trident : u.indexOf(<span class="string">‘Trident’</span>) &gt; -1, <span class="comment">//IE内核</span></li><br><li></li><br><li>        presto : u.indexOf(<span class="string">‘Presto’</span>) &gt; -1, <span class="comment">//opera内核</span></li><br><li></li><br><li>        webKit : u.indexOf(<span class="string">‘AppleWebKit’</span>) &gt; -1, <span class="comment">//苹果、谷歌内核</span></li><br><li></li><br><li>        gecko : u.indexOf(<span class="string">‘Gecko’</span>) &gt; -1 &amp;&amp; u.indexOf(<span class="string">‘KHTML’</span>) == -1, <span class="comment">//火狐内核</span></li><br><li></li><br><li>        mobile : !!u.match(/AppleWebKit.<em>Mobile.</em>/) || !!u.match(/AppleWebKit/), <span class="comment">//是否为移动终端</span></li><br><li></li><br><li>        ios : !!u.match(/(i[^;]+;( U;)? CPU.+Mac OS X)/), <span class="comment">//ios终端</span></li><br><li></li><br><li>        android : u.indexOf(<span class="string">‘Android’</span>) &gt; -1 || u.indexOf(<span class="string">‘Linux’</span>) &gt; -1, <span class="comment">//android终端或者uc浏览器</span></li><br><li></li><br><li>        iPhone : u.indexOf(<span class="string">‘iPhone’</span>) &gt; -1 || u.indexOf(<span class="string">‘Mac’</span>) &gt; -1, <span class="comment">//是否为iPhone或者QQHD浏览器</span></li><br><li></li><br><li>        iPad : u.indexOf(<span class="string">‘iPad’</span>) &gt; -1, <span class="comment">//是否iPad</span></li><br><li></li><br><li>        webApp : u.indexOf(<span class="string">‘Safari’</span>) == -1</li><br><li>    <span class="comment">//是否web应该程序，没有头部与底部</span></li><br><li></li><br><li>    };</li><br><li></li><br><li>}(),</li><br><li></li><br><li>language : (navigator.browserLanguage || navigator.language).toLowerCase()</li><br><li></li><br><li>}</li><br></ol><br></div><br><p>&nbsp;</p>
 
 
 

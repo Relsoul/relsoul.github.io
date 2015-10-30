@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-179ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/179ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/179ver/">JavaScript-编程挑战:做一个简单的跳转页面</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1633" target="_blank" rel="external">http://www.imooc.com/code/1633</a></p><br><p>代码都很简单location.assign是重载页面 其他的用num来控制几秒后重载页面</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-计时器跳转&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;form&gt;<br>        &lt;input type=”text” id=”txt”&gt;<br><br>    &lt;/form&gt;<br>    &lt;a href=”<a href="http://baidu.com&quot;&gt;baidu&lt;/a&amp;gt" target="_blank" rel="external">http://baidu.com&quot;&gt;baidu&lt;/a&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        var num=0,time;<br>        function sTime(){<br>            document.getElementById(“txt”).value=num<br>            num++<br>            time=setTimeout(function(){<br>                sTime()<br>            },1000)<br>            if(num&gt;5){<br>                location.assign(“<a href="http://www.imooc.com" target="_blank" rel="external">http://www.imooc.com</a>“);<br>                clearTimeout(time);<br>            }<br><br>        }<br>        sTime();<br><br><br><br><br>    &lt;/script&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-180ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -769,63 +824,6 @@ var _hmt = _hmt || [];
 
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-189ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/189ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/189ver/">CSS3:颜色之RGBA</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习文章及代码来自<a href="http://www.imooc.com/code/385" target="_blank" rel="external">http://www.imooc.com/code/385</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">颜色之RGBA</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>RGB是一种色彩标准，是由红(R)、绿(G)、蓝(B)的变化以及相互叠加来得到各式各样的颜色。RGBA是在RGB的基础上增加了控制<strong>alpha</strong>透明度的参数。</p><br><p>语法：</p><br><pre class="code">color：rgba(R,G,B,A)</pre><br><p>以上R、G、B三个参数，正整数值的取值范围为：0 - 255。百分数值的取值范围为：0.0% - 100.0%。超出范围的数值将被截至其最接近的取值极限。并非所有浏览器都支持使用百分数值。A为透明度参数，取值在0~1之间，不可为负值。</p><br><p>代码示例：</p><br><pre class="code"><span class="builtin css-declaration-kw">background-color<span class="after">:</span></span>rgba(100,120,60,0.5);</pre><br><div class="content"></div><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>在下列代码中的第12行，把文字的背景设置为透明度为<strong>  0.5</strong>的<strong>白色</strong></p><br><p>&nbsp;</p><br><p><strong>任务经验</strong></p><br><p><span style="color: #ff0000;">首先根据RGBA的属性和参数来看</span></p><br><p><span style="color: #ff0000;">RGBA（10,10,10,0.5）</span></p><br><p><span style="color: #ff0000;">10,10,10代表的是Red(红) Green（绿） Blue（蓝）</span></p><br><p><span style="color: #ff0000;">0.5代表的是透明度, 透明度从1-0 </span></p><br><p><span style="color: #ff0000;">1是不透明 0是完全透明 </span></p><br><p><span style="color: #ff0000;">分析后，任务代码应该为</span></p><br><p>PS：RGBA在css记得用小写rgba</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”&gt;<br>&lt;title&gt;RGBA colors&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{background:url(<a href="http://static.mukewang.com/static/img/logo_index.png)}" target="_blank" rel="external">http://static.mukewang.com/static/img/logo_index.png)}</a><br>p{<br> font-size:42px;<br> text-align:center;<br> font-weight:bold;<br> background:rgba(255,255,255,0.5);<br>}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;p&gt;背景半透明的？&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 

@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -193,11 +193,11 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-191ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-232ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/191ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+      <a href="/2015/10/21/232ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/191ver/">Css3:阴影 box-shadow（二）</a>
+      <a class="article-title" href="/2015/10/21/232ver/">JavaScript节点</a>
     </h1>
   
 
@@ -219,9 +219,63 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章以及代码来自<a href="http://www.imooc.com/code/5413" target="_blank" rel="external">http://www.imooc.com/code/5413</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">阴影 box-shadow（二）</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p><strong>1、阴影模糊半径与阴影扩展半径的区别</strong></p><br><p>阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</p><br><p>阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</p><br><p><strong>2、X轴偏移量和Y轴偏移量值可以设置为负数</strong></p><br><pre class="code">box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</pre><br><p>X轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:-4px 4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd91c000140a901540143.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd91c000140a901540143.jpg" data-original="http://img.mukewang.com/548fd91c000140a901540143.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Y轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px -4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd93e00011dd101570142.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd93e00011dd101570142.jpg" data-original="http://img.mukewang.com/548fd93e00011dd101570142.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br></div><br></div>
+        <p>JavaScript节点是一个很重要的环节.不多说直接上代码</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-DOM方法&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function divIn(){<br>            var soul_div =document.getElementById(“soul”);//设置soul_div等于id：soul<br>            var soul_p=document.createElement(“p”);//新建个p元素存储为soul_p 元素节点<br>            soul_div.appendChild(soul_p);//在soul_div节点下插入p元素<br>            var soul_p_txt=document.createTextNode(“hello soul”);//创建个文本节点储存为 soul_p_txt<br>            soul_p.appendChild(soul_p_txt);//在P元素节点下插入文本节点<br>        }<br>    window.onload=function(){//页面加载完毕后加载函数<br>        divIn();<br>    }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”soul”&gt;<br><br>&lt;/div&gt;<br><br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" target="_blank" rel="external"><img class=" size-medium wp-image-108 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-211.png" data-original="http://www.old.com/wp-content/uploads/2015/03/211-300x230.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="21" width="300" height="230"></a></p><br><p>&nbsp;</p><br><p>上图代码节点大概就是这么分布的。</p><br><p><strong>高级版 insertAftet(before,after) 调用的变量请不要用before,after 换成这样应该好理解点insertAftet(hello,soul)；</strong></p><br><pre class="lang:default decode:true  ">function starIMGP(){<br>            var star_img=document.createElement(“img”);//创建一个新元素节点img<br>            star_img.setAttribute(“id”,”shit”);//设置img id属性等于shit<br>            star_img.setAttribute(“width”,”500px”);//设置宽属性节点<br>            star_img.setAttribute(“height”,”500px”);//设置高属性节点<br>            star_img.setAttribute(“src”,””);//设置src属性节点<br>            var star_p=document.createElement(“p”);//创建一个新元素节点p<br>            star_p.setAttribute(“id”,”p_node”);//设置p id属性等于p_node<br>            var star_p_txt=document.createTextNode(“pnode”);//创建一个文本节点节点<br>            star_p.appendChild(star_p_txt);//star_p元素节点下添加star_p_txt属性节点<br>            var star_ul=document.getElementById(“ul_all”);//获取ul id<br>            // star_ul.parentNode.insertBefore(star_img,star_ul);//把star_img插入star_ul前面<br>            insertAftet(star_img,star_ul);//将star_img插入star_ul之后<br>            insertAftet(star_p,star_img);//将star_p插入star_img之后<br><br><br>        }<br>        function insertAftet(before,after){//定义函数insertAftet<br>            var parent_node =after.parentNode;//设置变量parent_node等于after父级元素<br>            if(parent_node.lastChild==parent_node){//如果after父级元素就是after自己<br>                after.appendChild(before);//在after元素之后插入before元素<br>            }else{//如果不是<br>                parent_node.insertBefore(before,after.nextSibling);//在after与下一个元素之间插入before元素<br>            }<br><br>        }<br>//2015年3月8日更新一处错误</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-241ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/241ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/241ver/">wordpress模板|主题制作之路一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; color: #9c7741; font-size: 14pt;"><span style="font-family: arial, helvetica, sans-serif;">wordpress主题制作之路一</span></span></p><br><p style="text-align: left;"><span style="font-size: 12pt; color: #505fa1;">虽然没学过PHP,但是还是想DIY一下.//双反斜号后为注释哦！</span></p><br><p style="text-align: left;">&lt;page one&gt;</p><br><p style="text-align: left;"><span style="color: #505fa1; font-size: 12pt;"><span style="line-height: 16px;">在<a style="color: #505fa1;" title="露兜博客" href="http://www.ludou.org/" target="_blank" rel="external">露兜</a>博客中有几章是介绍如何制作wordpress模板的.不过要下载一大堆的文件看起来好麻烦DE※ZE</span></span></p><br><p style="text-align: left;"><span style="font-size: 12pt; color: #505fa1;">一：看了一会主题文件分析.大概了解了wordpress主题构成</span></p><br><ol><br><li style="text-align: left;">index.php//首页</li><br><li style="text-align: left;">single.php//文章页</li><br><li style="text-align: left;">page.php//页面</li><br><li style="text-align: left;">category.php//分类</li><br><li style="text-align: left;">archive.php//文章归档页</li><br><li style="text-align: left;">tag.php//标签</li><br><li style="text-align: left;">author.php//作者</li><br><li style="text-align: left;">search.php//搜索页</li><br></ol><br><p><span style="font-size: 12pt; color: #505fa1;">常用的应该就这些了.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">wordpress主题必要的元素</span></p><br><ol><br><li>style.css</li><br><li>index.php</li><br></ol><br><p><span style="font-size: 12pt; color: #505fa1;">然后再添加几个文件</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">二：然后要下载一大堆的静态html.赶脚好麻烦.干脆不下了.自己写.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">先找到wordpress主题目录(\wp-content\themes\soul)，新建个文件夹名字叫soul.</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">先写个index.php</span></p><br><p><span style="font-size: 12pt; color: #505fa1;">里面放什么呢？.头部和脚部肯定要的嘛。先写个</span></p><br><blockquote><p>&lt;?php get_header(); ?&gt; //get_header()是获取header.php文件里的内容。</p><br><p>&lt;?php get_footer(); ?&gt;//php get_footer()是获取footer.php里的内容。</p><br><p>&nbsp;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignleft size-full wp-image-28" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/1.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="1" width="292" height="73"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #505fa1; font-size: 12pt;">再在soul主题目录里新建3个文件</span></p><br><p>&nbsp;</p><br><blockquote><p>style.css</p><br><p>footer.php</p><br><p>header.php</p></blockquote><br><p><span style="color: #505fa1; font-size: 12pt;">里面啥内容都不写慢慢来,打开style.css往里面写入</span></p><br><blockquote><p>/<em><br><br>Theme Name: Soul_life  //主题的名字（你写个阿拉斯加螺旋粒子加速计划也没人管你的（笑 ）<br><br>Theme URI: <a href="http://www.baidu.com/" target="_blank" rel="external">http://www.baidu.com/</a>  //主题的地址（啊咧？为啥是度娘？）<br><br>Version: 1.0    //版本：宇宙开发计划第233号<br><br>Description: soul_life 来自生活中的灵魂 //描述：本大爷才是描述，别无视本大爷.<br><br>Author: Soul //主题的作者（我就不行写个习**会有人把我头按键盘hkhjkgjksdgsjkdgas)<br><br>Author URI: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a> //作者的地址（又是度娘）<br>
+</em>/</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone size-medium wp-image-29" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/2-300x108.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="2" width="300" height="108"></a></p><br><p><span style="color: #505fa1; font-size: 12pt;">恩.差不多了.继续下一步.开始开发header.php,新建个文件名为header.php</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #505fa1; font-size: 12pt;">第一！要保证绝对的公平 咳咳..跑题了 咱们继续</span></p><br><p><span style="color: #505fa1; font-size: 12pt;">1：先写上html标签外加个div</span></p><br><blockquote><p>&lt;!doctype html&gt;<br><br>&lt;html lang=”cn”&gt;<br><br>&lt;head&gt;<br><br>&lt;meta charset=”UTF-8”&gt;<br><br>&lt;title&gt;</p><br><p>&lt;/title&gt;<br><br>&lt;link rel=”stylesheet” type=”text/css” href=”&lt;?php bloginfo(‘template_url’);?&gt;/style.css”&gt;<br><br>&lt;?php wp_head(); ?&gt;<br><br>&lt;/head&gt;<br><br>&lt;body&gt;<br><br>&lt;div class=”soul-header”&gt;</p><br><p>&lt;/div&gt;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone wp-image-30 size-medium" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/3-300x111.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="3" width="300" height="111"></a></p><br><p><span style="color: #505fa1;"><del>2：</del>等等..你是不是忘了什么没解释，魂淡！&lt;?php bloginfo(‘template_url’);?&gt;什么意思？</span></p><br><blockquote><p>&lt;?php bloginfo(‘template_url’);?&gt; //bloginfo我理解为函数,template_url理解为模板所在目录.</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”&lt;?php bloginfo(‘template_url’);?&gt;/style.css”&gt;</p><br><p>//那么这句话可以理解为：引用模板目录下的style.css文件也就是\wp-content\themes\soul\style.css</p><br><p>（为何不直接写这句话？\wp-content\themes\soul …人家嫌麻烦啦）</p><br><p>&lt;?php wp_head(); ?&gt; //我也不懂他是什么 反正加在&lt;/head&gt;前面就对啦</p></blockquote><br><p><span style="color: #505fa1;">2：title标签里当然要写一些信息啦,这可是很重要的哦 SEO完全靠他了</span></p><br><blockquote><p>//HELLO 我是解释君 现在由我来解释以下内容：</p><br><p>&lt;title&gt;<br><br>&lt;?php if(is_home()){<br><br>bloginfo(‘name’);echo “-“;bloginfo(‘description’);//判断是否是首页 是：输出 名字-描述<br><br>}elseif (is_category()) {<br><br>single_cat_title();//是否是分类 是：返回 分类标题-名字<br><br>echo “-“;<br><br>bloginfo(‘name’);<br><br># code…<br><br>}elseif (is_single()||is_page()) {<br><br>single_post_title();//是否是单文章和单页面 是：返回 帖子名称<br><br># code…<br><br>}elseif (is_search()) {<br><br>echo “搜索结果”;//搜索页 是：返回搜索结果-名字<br><br>echo “-“;<br><br>bloginfo(‘name’);<br><br># code…<br><br>}elseif (is_404()) {<br><br>echo “页面未找到”;//404<br><br># code…<br><br>}else{<br><br>wp_title(‘’,true);<br><br>}?&gt;</p><br><p>&lt;/title&gt;</p></blockquote><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignnone wp-image-31 size-medium" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/4-300x182.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="4" width="300" height="182"></a></p><br><p><span style="color: #505fa1;">等等..这么多文字看着眼睛好疼,啊,邪王真眼！爆裂吧！现实！</span></p><br><p><span style="color: #505fa1;">3：这样就差不多了,等等，那么那个div是做什么的呢？baka！当然是放导航条的.</span></p><br><p><span style="color: #505fa1;">因为人家代码也看不懂就直接用了露兜大大的显示导航条代码了 <a style="color: #505fa1;" href="http://www.ludou.org/wordpress-highlight.html" target="_blank">代码（code）</a></span></p><br><blockquote><p>&lt;div class=”soul-header”&gt;<br><br>&lt;ul class=”soul-nav”&gt;<br><br>&lt;li<br><br>&lt;?php if (is_home()) { echo ‘ class=”current-cat”‘;} ?&gt;&gt;&lt;a title=”Home” href=”/“&gt;博客主页&lt;/a&gt;&lt;/li&gt;<br><br>&lt;?php<br><br>$currentcategory = ‘’;</p><br><p>// 以下这行代码用于在导航栏添加分类列表，<br><br>// 如果你不想添加分类到导航中，<br><br>// 请删除 6 - 14 行代码<br><br>if (is_category() || is_single()) {<br><br>$catsy = get_the_category();<br><br>$myCat = $catsy[0]-&gt;cat_ID;<br><br>$currentcategory = ‘&amp;current_category=’.$myCat;<br><br>}<br><br>wp_list_categories(‘depth=1&amp;title_li=&amp;show_count=0&amp;hide_empty=0&amp;child_of=0’.$currentcategory);</p><br><p>// 以下这行代码用于在导航栏添加页面列表<br><br>// 如果你不想添加页面到导航中，<br><br>// 请删除16 - 19行代码<br><br>wp_list_pages(‘depth=1&amp;title_li=&amp;sort_column=menu_order’);</p><br><p>?&gt;<br><br>&lt;/ul&gt;<br><br>&lt;h1 class=”logo cr”&gt;&lt;a href=”&lt;?php echo get_option(‘home’); ?&gt;”&gt;我是博客名字哦:&lt;?php bloginfo(‘name’) ?&gt;&lt;/a&gt;&lt;/h1&gt;<br><br>&lt;p class=”description”&gt;我是博客描述哦：<br><br>&lt;?php bloginfo(‘description’) ?&gt;<br><br>&lt;!– &lt;?php echo get_option(‘home’); ?&gt; 输出你的博客首页网址<br><br>&lt;?php bloginfo(‘name’); ?&gt; 输出你的博客名称<br><br>&lt;?php bloginfo(‘description’); ?&gt; 输出博客描述 –&gt;<br><br>&lt;/p&gt;</p><br><p>&lt;/div&gt;</p></blockquote><br><p><span style="color: #505fa1;">4：恩,头部文件就OK了 css之类的最讨厌了.自行调整吧！</span></p><br><p><span style="color: #505fa1;">睡觉去 明天继续</span></p>
 
 
 
@@ -669,61 +723,6 @@ var _hmt = _hmt || [];
       
         <p></p><p><!--StartFragment --></p><p></p>
 <div>&lt;a href=”abc” onclick=”function(){console.log(this.href)}” &gt;&lt;/a&gt;</div><br><div></div><br><div>this指向的就是A元素</div><br><div>function Soul2(){<br><br>this.age=”19”<br><br>}</div><br><div>var abc =new Soul2()</div><br><div>this指向的就是abc</div><br><div></div><br><div>看不懂？没关系来个简单的</div><br><div></div><br><div><!--StartFragment --><p></p><br><div>this的意思就相当于<br><br>我是员工<br><br>A BOSS调戏(yong)了我 就指向ABOSS<br><br>B BOSS调戏(yong)了我 就指向B BOSS</div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-200ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/200ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/200ver/">JavaScript对象-1:对象弹琴</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript对象还真难理解,已经卡了两天,估计还要卡几天,目前分析了一下对象的创建</p><br><blockquote><br><ol><br><li>字面量创建对象</li><br><li>工程模式创建对象</li><br><li>构造函数创建对象</li><br><li>原型模式创建对象</li><br><li>组合使用构造模式与原型模式//常用</li><br><li>动态原型模式//不推荐</li><br><li>寄生构造函数模式//不推荐</li><br><li>稳妥构造函数模式//代码没写..这种模式主要是安全性高 具体的可以推度娘一下</li><br></ol><br><p>代码下载<div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1c0lMAVu" target="_blank">度娘下载</a></div></p></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1:对象弹琴&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    //创建对象之字面量创建<br>    var soul={};//ok 这就创建了一个对象<br>    soul.tc=function(){console.log(“hello,我是弹窗的soul的对象”)};<br>    soul.tc();//这就相当于调用了soul.tc的对象<br><br>    var soul1={//这样也可以创建个对象<br>        name:”soul”,//这样创建用逗号分隔<br>    }<br>    console.log(soul1.name)//<br><br>    //理解对象<br>    var Soul3 =new Object();<br>    Soul3.name=”soul”<br>    Soul3.sayName=function(){console(“Soul3的sayName函数对象”)+this.name}//this.name被解析成Soul3.name<br>    //也可以通过var Soul3={}这样的形式来创建对象<br>    console.log(“我是分隔线 下面开始理解对象之数据属性”)<br>    //理解对象之数据属性<br>    var Soul4={};<br>    Object.defineProperty(Soul4,”name”, {//三个值分别对应 对象名字 对象属性 描述 PS:IE9以上支持<br>        writable:false,//能否修改属性的值 默认是true 用逗号分隔<br>        value:”Soul4”//相当于 name=”Soul4”<br>    });<br>    console.log(Soul4.name)//获取Soul4的name属性值<br>    Soul4.name=”更改Soul4”<br>    console.log(“能否获取到更改Soul4后的name属性值:”+Soul4.name);//因为writable:false 所以禁止修改<br>    //<br>    var Soul5={};<br>    Object.defineProperty(Soul5,”name”, {//三个值分别对应 对象名字 对象属性 描述<br>        configurable:false,//能否删除属性 是否能够更改属性为访问器属性 默认是true 用逗号分隔<br>        value:”Soul5”//相当于 name=”Soul5”<br>    });<br>    console.log(“Soul5的name属性:”+Soul5.name);<br>    delete Soul5.name;//删除Soul5_name属性<br>    console.log(“删除了Soul5的name属性吗？:”+Soul5.name)<br>    //理解对象之访问器属性<br>    console.log(“我是分隔线，下面开始理解对象之访问器属性”);<br><br>    var Soul6 ={<br>        _year:2015,<br>        num:1//这是一个属性<br>    };<br>    Object.defineProperty(Soul6, “year”, {<br>        get:function(){//读取year属性的时候做出的行动<br>            return this._year;//返回this._year this解析为 Soul6<br>        },//用逗号分隔<br>        set:function(new_value){<br>            if(new_value&gt;2015){<br>                this._year=new_value;<br>                this.num=new_value-2015;<br>            }<br>        }<br><br>    });<br>    console.log(“这是读取Soul6的_year属性做出的行动”+Soul6.year);<br>    Soul6.year=2018;<br>    console.log(“更改Soul6的_year属性时会设置num等于新属性减去_year:”+Soul6.num);<br>    //理解对象之定义多个属性<br>    var Soul7={};<br>    Object.defineProperties(Soul7, {//两个参数分别对应是 对象名 描述 PS:IE9以上支持<br>        _year:{<br>            value:2015<br>        },//用逗号分隔<br><br>        num:{<br>            value:1<br><br>        },<br><br>        year:{<br>            get:function(){<br>                return this._year<br>            }<br>        },<br><br>        set:function(new_value) {<br>            if(new_value&gt;2015){<br>                this._year=new_value;<br>                this.num=new_value-2015;<br>            }<br>        }<br><br>    })<br>    //上面这段代码跟Soul6是一样的意思<br>    console.log(“我是分隔线,下面开始理解对象之读取属性的特性”)<br>    //理解对象之 读取属性的特性<br>    var miao_shu =Object.getOwnPropertyDescriptor(Soul7, “_year”);//设置miao_shu 等于Soul7的 _year描述<br>    console.log(“获取Soul7的_year值:”+miao_shu.value);<br>    console.log(“获取Soul7的_year属性能否读写:”+miao_shu.configurable);<br><br>    //下面开始创建对象<br>    console.log(“我是分隔线,下面开始创建对象”)<br><br>    //工厂模式创建对象<br>    function Soul9(name,age,job){<br>        var o=new Object();<br>        o.name=name;<br>        o.age=age;<br>        o.job=job;<br>        o.sayName=function(){console.log(“工程模式创建Soul9的sayName函数”)+this.name};<br>        return o;<br>    }<br>    var Soul9_1=Soul9(“Soul9_1”,19,”学生”);<br>    var Soul9_2=Soul9(“Soul9_2”,20,”学生”);<br><br><br><br><br>    //构造函数模式创建对象<br>    function Soul2(name,age,job){<br>        this.name=name;//this指的是当前传递参数的函数调用<br>        this.age=age;<br>        this.job=job;<br>        this.sayName=function(){console.log(“soul2对象sayName函数:”+this.name)}<br>    }<br>    // var soul_1=soul2(“我叫soul”,19,”student”);//..这样给对象传递参数是不对<br>    var soul_2 =new Soul2(“我叫soul”,19,”student”);<br>    var soul_3 =new Soul2(“我叫灵魂”,20,”学生”);<br>    console.log(soul_2.name);//看看能不能获取到soul_2对象的name属性<br>    soul_3.sayName();//看看能不能获取到osul2对象的sayName函数<br>    //来检测下soul_2和soul_3是不是Soul2的实例？<br>    console.log(soul_2.constructor == Soul2);//“soul_2和soul_3都是构造函数” 是=true 否=false //soul_3就不列举了<br>    console.log(soul_3 instanceof Object)//所有的对象都是Object的实例 true<br>    console.log(soul_2 instanceof Soul2)//true 是Soul2的实例<br><br>    //将构造函数当做函数<br>    var soul_2 =new Soul2(“window弹出|我叫soul”,19,”student”);//构造函数<br>    soul_2.sayName()//构造函数<br><br>    Soul2(“我叫soul”,19,”student”);//普通函数<br>    window.sayName();//添加到window<br><br>    var o =new Object();//跨域函数<br>    Soul2.call(o,”我叫Soul-跨域函数”,19,”student”);//<br>    o.sayName();<br><br>    //原型模式<br>    console.log(“我是分隔线,下面开始理解原型模式”)<br>    function Soul10(){}//创建一个Soul10对象<br>    Soul10.prototype.name = “Soul10”//给Soul10对象添加个原型属性name<br>    Soul10.prototype.sayName=function(){console.log(“原型模式:”+this.name)}//this指的是Soul10的name<br>    var soul_10 =new Soul10();//<br>    var soul_11 =new Soul10();<br>    console.log(“原型模式 soul_10 name:”+soul_10.name)<br>    soul_11.sayName();<br>    console.log(soul_11.sayName==soul_10.sayName)//判断soul_11的sayName是否跟soul_10的sayName函数一样 是-true<br>    //原型与实例<br>    //当调用时首先搜索 实例 如果实例没属性再搜索原型 在实例定义属性会覆盖掉原型<br><br>    soul_10.name=”实例hello”<br>    console.log(soul_10);<br>    delete soul_10.name;<br>    console.log(soul_10)//原型 Soul10<br>    //使用 hasOwnProperty检测属性是来自原型还是实例 来自原型-false 实例true<br>    console.log(soul_10.hasOwnProperty(“name”))<br><br>    //原型与in操作符<br>    console.log(“name” in soul_10)//检测soul_10里有没有name属性 不管name属性是原型还是实例<br>    var save_soul_10 =Object.getOwnPropertyNames(Soul10.prototype);//枚举 Soul10的实例<br>    console.log(“枚举soul_11的属性”+save_soul_10)<br><br>    //更简单的原型语法<br>    function Soul13 () {}<br>    Soul13.prototype={<br>        name:”Soul13”,<br>        sayName:function () {<br>            console.log(this.name)<br>        }<br>    }<br>    var soul_13 =new Soul13()<br>    //每创建一个函数,都会创建它的prototype对象 这个对象也会获得constructor属性(这个指向构造函数)<br>    //但是用字面量方法创建重写了prototype对象 constructor也不会指向Soul3<br>    console.log(soul_13.constructor == Soul13)//false<br>    //如果constructor属性很重要 可以通过添加一句话来指向原型<br>    function Soul14 () {}<br>    Soul14.prototype={<br>        name:”Soul14”,<br>        constructor:Soul14//这样就会始终指向Soul14<br>    }<br>    var soul_14 =new Soul14()<br>    console.log(soul_14.constructor == Soul14);//true<br><br>    //原型的动态性<br>    var soul_15 =new Soul14()<br>    Soul14.prototype.hello=function(){console.log(“原型动态性”)}//<br>    soul_15.hello();<br>    //以上先创建了 Soul14的实例 保存在soul_15中 然后给Soul14原型添加了一句方法<br>    //我们调用soul_15.hello()时,先会在实例中搜索hello,如果实例没有再搜索原型<br><br>    //实例中的指针[Prototype]只指向原型,而不指向构造函数<br>    function Soul15(){}//这是个构造函数<br>    var soul_16 =new Soul15();//创建个Soul15的实例<br>    Soul15.prototype={<br>        name:”hello”,<br>        saySoul:function(){console.log(this_name)}<br>    }<br>    // soul_16.saySoul();//error<br>    //上文说过了 实例中指针[Prototype]只指向原型,而我们在创建实例后又重写了<br>    //一开始 soul_16指向的是Soul15的原型,但是下一步我们又重写了原型,所以soul_16指向的<br>    //仅仅是 原来的原型. 而不是新的原型<br><br>    //原生对象的原型<br>    console.log(“我是分隔线,下面开始原生对象的原型”)<br>    //<br>    console.log(typeof Array.prototype.sort)//数组的sort方法,返回的是一个函数<br><br>    //定义原生对象的方法<br>    String.prototype.CZ=function(txt){<br>        return this.indexOf(txt);//查找txt字符是从哪开始的<br>    }<br>    var txt=”soul”<br>    console.log(txt.CZ(“o”))//o是soul中的第一个字符 字符从0开始的<br><br>    //原型对象的问题<br><br><br>    function Soul16(){}<br>    Soul16.prototype={<br>        name:[“张三,李四”]<br>    }<br>    var soul_16_1=new Soul16();<br>    var soul_16_2=new Soul16();<br>    soul_16_1.name.push(“王五”)//在soul_16_1.name属性后面添加王五<br>    console.log(soul_16_2.name);//我输出的是soul_16_2.name 而非soul_16_1.name 为什么还会有王五？<br>    //因为soul_16_1与2 都是共享一个原型Soul16<br><br>    //组合使用构造函数模式与原型模式<br>    console.log(“我是分隔线,下面开始组合使用构造函数模式与原型模式”)<br><br>    //构造函数模式用于定义实例属性, 而原型模式用于定义方法和共享的属性s<br><br>    function Soul17(name,age){<br>        this.soul=[“灵魂”,”灵魂追逐着”]//不加this会找不到soul属性<br>        this.name=name<br>        this.age=age<br>    }<br><br>    Soul17.prototype={<br>        constructor:Soul17,<br>        sayName:function(){console.log(this.name)}<br>    }<br>    var soul17_1=new Soul17(“soul”,”19”)<br>    var soul17_2=new Soul17(“我是soul17_2”,”19”)<br>    soul17_2.soul.push(“hello”)<br>    console.log(“soul17_2:”+soul17_2.soul);<br>    console.log(“soul17_1:”+soul17_1.soul);<br>    soul17_2.sayName();<br>    //用构造函数定义属性 用原型定义方法 共享方法,修改属性却不共享<br><br>    //寄生构造函数模式<br>    console.log(“我是分隔线,下面开始动态原型模式”)<br>    function Soul18(){<br>        var soul18_arr =new Array();<br>        soul18_arr.push.apply(soul18_arr,arguments)<br>        soul18_arr.setSoul18=function(){<br>            return this.join(“|”)//使用不同的分隔符<br>        }<br>        return soul18_arr//返回数组<br>    }<br>    var soul18_1 =new Soul18(“red”,”blue”);<br>    console.log(soul18_1.setSoul18())<br>    //能使用其他模式的情况下 不建议使用这种模式<br><br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

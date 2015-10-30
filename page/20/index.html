@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,185 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-56ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/56ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/56ver/">移动web问题小结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h3>转自:<a href="http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/" target="_blank" rel="external">http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/</a></h3><p></p>
+<p></p><h3></h3><p></p>
+<p></p><h3></h3><p></p>
+<p></p><h3><strong>Meta标签：</strong></h3><p></p>
+<p><div></div></p>
+<p><div id="highlighter_742653" class="syntaxhighlighter  php"></div></p>
+<p><table border="0" cellspacing="0" cellpadding="0"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td class="gutter"></td></p>
+<p><div class="line number1 index0 alt2">1</div><br></p>
+<p><td class="code"></td></p>
+<p><div class="container"></div></p>
+<p><div class="line number1 index0 alt2"><code class="php plain">&lt;meta content=</code><code class="php string">“width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;”</code> <code class="php plain">name=</code><code class="php string">“viewport”</code> <code class="php plain">/&gt;</code></div><br><br><br><br><br><br><br></p>
+<p>这个想必大家都知道，当页面在手机上显示时，增加这个meta可以让页面强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。</p><br><p><strong>PS：</strong>在设置了initial-scale=1 之后，我们终于可以以1:1 的比例进行页面设计了。关于viewport，还有一个很重要的概念是：iphone 的safari 浏览器完全没有滚动条，而且不是简单的”隐藏滚动条”，是根本没有这个功能。iphone 的safari 浏览器实际上从一开始就完整显示了这个网页，然后用viewport 查看其中的一部分。当你用手指拖动时，其实拖的不是页面，而是viewport。浏览器行为的改变不止是滚动条，交互事件也跟普通桌面不一样。</p><br><p>&nbsp;</p><br><div><br><div id="highlighter_985706" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">&lt;meta content=</code><code class="php string">“telephone=no”</code> <code class="php plain">name=</code><code class="php string">“format-detection”</code> <code class="php plain">/&gt;</code></div><br><div class="line number2 index1 alt1"><code class="php plain">&lt;meta content=</code><code class="php string">“email=no”</code> <code class="php plain">name=</code><code class="php string">“format-detection”</code> <code class="php plain">/&gt;</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>这两个属性分别对ios上自动识别电话和android上自动识别邮箱做了限制。</p><br><p>&nbsp;</p><br><h3><strong> 获取滚动条的值：</strong></h3><br><div><br><div id="highlighter_420644" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">window.scrollY  window.scrollX</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>桌面浏览器中想要获取滚动条的值是通过document.scrollTop和document.scrollLeft得到的，但在iOS中你会发现这两个属性是未定义的，为什么呢？因为在iOS中没有滚动条的概念，在Android中通过这两个属性可以正常获取到滚动条的值，那么在iOS中我们该如何获取滚动条的值呢？就是上面两个属性，但是事实证明android也支持这属性，所以索性都用woindow.scroll.</p><br><p>&nbsp;</p><br><h3><strong>禁止选择文本：</strong></h3><br><div><br><div id="highlighter_393044" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">-webkit-user-select:none</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>禁止用户选择文本，ios和android都支持</p><br><p>&nbsp;</p><br><h3>屏蔽阴影：</h3><br><pre>-webkit-appearance:none</pre><br><p>亲测，可以同时屏蔽输入框怪异的内阴影，解决iOS下无法修改按钮样式，测试还发现一个小问题就是，加了上面的属性后，iOS下默认还是带有圆角的，不过可以使用 border-radius属性修改。</p><br><p>&nbsp;</p><br><h3><strong> css之border-box：</strong></h3><br><div><br><div id="highlighter_552804" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">element{</code></div><br><div class="line number2 index1 alt1"><code class="php spaces">        </code><code class="php plain">width: 100%;</code></div><br><div class="line number3 index2 alt2"><code class="php spaces">        </code><code class="php plain">padding-left: 10px;</code></div><br><div class="line number4 index3 alt1"><code class="php spaces">        </code><code class="php plain">box-sizing:border-box;</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">        </code><code class="php plain">-webkit-box-sizing:border-box;</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">        </code><code class="php plain">border: 1px solid blue;</code></div><br><div class="line number7 index6 alt2"><code class="php plain">}</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>那我想要一个元素100%显示，又必须有一个固定的padding-left／padding-right，还有1px的边框，怎么办？这样编写代码必然导致出现横向滚动条，肿么办？要相信问题就是用来解决的。这时候伟大的css3为我们提供了box-sizing属性，对于这个属性的具体解释不做赘述（想深入了解的同学可以到w3school查看，要知道自己动手会更容易记忆）。让我们看看如何解决上面的问题：</p><br><p>&nbsp;</p><br><h3><strong> css3多文本换行：</strong></h3><br><div><br><div id="highlighter_9381" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">p {</code></div><br><div class="line number2 index1 alt1"><code class="php spaces">    </code><code class="php plain">overflow : hidden;</code></div><br><div class="line number3 index2 alt2"><code class="php spaces">    </code><code class="php plain">text-overflow: ellipsis;</code></div><br><div class="line number4 index3 alt1"><code class="php spaces">    </code><code class="php plain">display: -webkit-box;</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">    </code><code class="php plain">-webkit-line-clamp: 2;</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">    </code><code class="php plain">-webkit-box-orient: vertical;</code></div><br><div class="line number7 index6 alt2"><code class="php plain">}</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>Webkit支持一个名为-webkit-line-clamp的属性，参见<a href="http://developer.apple.com/safari/library/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html#//apple_ref/doc/uid/TP30001266-UnsupportedProperties" target="_blank" rel="external">链接</a>，也就是说这个属性并不是标准的一部分，可能是Webkit内部使用的，或者被弃用的属性。需要注意的是display需要设置成box，-webkit-line-clamp表示需要显示几行。</p><br><p>&nbsp;</p><br><h3><strong> Retina屏幕高清图片：</strong></h3><br><pre>selector {<br>  background-image: url(no-image-set.png);<br>  background: image-set(url(foo-lowres.png) 1x,url(foo-highres.png) 2x) center;<br>}</pre><br><p>image-set的语法，类似于不同的文本，图像也会显示成不同的：</p><br><ol><br><li> <strong>不支持image-set</strong>：在不支持image-set的浏览器下，他会支持background-image图像，也就是说不支持image-set的浏览器下，他们解析background-image中的背景图像；</li><br><li> <strong>支持image-set</strong>：如果你的浏览器支持image-sete，而且是普通显屏下，此时浏览器会选择image-set中的@1x背景图像；</li><br><li> <strong>Retina屏幕下的image-set</strong>：如果你的浏览器支持image-set，而且是在Retina屏幕下，此时浏览器会选择image-set中的@2x背景图像。</li><br></ol><br><p>&nbsp;</p><br><h3><strong> </strong></h3><br><h3><strong> html5重力感应事件：</strong></h3><br><div><br><div id="highlighter_73289" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br><div class="line number8 index7 alt1">8</div><br><div class="line number9 index8 alt2">9</div><br><div class="line number10 index9 alt1">10</div><br><div class="line number11 index10 alt2">11</div><br><div class="line number12 index11 alt1">12</div><br><div class="line number13 index12 alt2">13</div><br><div class="line number14 index13 alt1">14</div><br><div class="line number15 index14 alt2">15</div><br><div class="line number16 index15 alt1">16</div><br><div class="line number17 index16 alt2">17</div><br><div class="line number18 index17 alt1">18</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php keyword">if</code> <code class="php plain">(window.DeviceMotionEvent) { </code></div><br><div class="line number2 index1 alt1"><code class="php spaces">                 </code><code class="php plain">window.addEventListener(</code><code class="php string">‘devicemotion’</code><code class="php plain">,deviceMotionHandler, false);  </code></div><br><div class="line number3 index2 alt2"><code class="php spaces">        </code><code class="php plain">} </code></div><br><div class="line number4 index3 alt1"><code class="php spaces">        </code><code class="php keyword">var</code> <code class="php plain">speed = 30;</code><code class="php comments">//speed</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">        </code><code class="php keyword">var</code> <code class="php plain">x = y = z = lastX = lastY = lastZ = 0;</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">        </code><code class="php keyword">function</code> <code class="php plain">deviceMotionHandler(eventData) {  </code></div><br><div class="line number7 index6 alt2"><code class="php spaces">          </code><code class="php keyword">var</code> <code class="php plain">acceleration =event.accelerationIncludingGravity;</code></div><br><div class="line number8 index7 alt1"><code class="php spaces">                </code><code class="php plain">x = acceleration.x;</code></div><br><div class="line number9 index8 alt2"><code class="php spaces">                </code><code class="php plain">y = acceleration.y;</code></div><br><div class="line number10 index9 alt1"><code class="php spaces">                </code><code class="php plain">z = acceleration.z;</code></div><br><div class="line number11 index10 alt2"><code class="php spaces">                </code><code class="php keyword">if</code><code class="php plain">(Math.</code><code class="php functions">abs</code><code class="php plain">(x-lastX) &gt; speed || Math.</code><code class="php functions">abs</code><code class="php plain">(y-lastY) &gt; speed || Math.</code><code class="php functions">abs</code><code class="php plain">(z-lastZ) &gt; speed) {</code></div><br><div class="line number12 index11 alt1"><code class="php spaces">                    </code><code class="php comments">//简单的摇一摇触发代码</code></div><br><div class="line number13 index12 alt2"><code class="php spaces">                    </code><code class="php plain">alert(1);</code></div><br><div class="line number14 index13 alt1"><code class="php spaces">                </code><code class="php plain">}</code></div><br><div class="line number15 index14 alt2"><code class="php spaces">                </code><code class="php plain">lastX = x;</code></div><br><div class="line number16 index15 alt1"><code class="php spaces">                </code><code class="php plain">lastY = y;</code></div><br><div class="line number17 index16 alt2"><code class="php spaces">                </code><code class="php plain">lastZ = z;</code></div><br><div class="line number18 index17 alt1"><code class="php spaces">        </code><code class="php plain">}</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>关于deviceMotionEvent是HTML5新增的事件，用来检测手机重力感应效果具体可参考<a href="http://w3c.github.io/deviceorientation/spec-source-orientation.html" target="_blank">http://w3c.github.io/deviceorientation/spec-source-orientation.html</a></p><br><p>&nbsp;</p><br><h3><strong>移动端touch事件：</strong></h3><br><ul><br><li>touchstart //当手指接触屏幕时触发</li><br><li>touchmove //当已经接触屏幕的手指开始移动后触发</li><br><li>touchend //当手指离开屏幕时触发</li><br><li>touchcancel//当某种touch事件非正常结束时触发</li><br></ul><br><p>这4个事件的触发顺序为：</p><br><p>touchstart -&gt; touchmove -&gt;  touchend -&gt;touchcancel</p><br><p>对于某些android系统touch的bug:</p><br><p>比如手指在屏幕由上向下拖动页面时，理论上是会触发 一个 touchstart ，很多次 touchmove ，和最终的 touchend ，可是在android 4.0上，touchmove只被触发一次，触发时间和touchstart 差不多，而touchend直接没有被触发。这是一个非常严重的bug，在<a href="http://code.google.com/p/android/issues/detail?id=19827" target="_blank">google Issue</a>已有不少人提出 ,这个很蛋疼的bug是在模拟下拉刷新是遇到的尤其当touchmove的dom节点数量变多时比出现，当时解决办法就是用settimeout来稀释touchmove。</p><br><p>&nbsp;</p><br><h3><strong>单击延迟：</strong></h3><br><p>click 事件因为要等待双击确认，会有 300ms 的延迟，体验并不是很好。</p><br><p>开发者大多数会使用封装的 tap 事件来代替click 事件，所谓的 tap 事件由 touchstart 事件 + touchmove 判断 + touchend 事件封装组成。</p><br><p><a title="article5" href="https://developers.google.com/mobile/articles/fast_buttons?hl=de-DE" target="_blank" rel="external">Creating Fast Buttons for Mobile Web Applications</a></p><br><p><a title="article5" href="http://stackoverflow.com/questions/12238587/eliminate-300ms-delay-on-click-events-in-mobile-safari" target="_blank" rel="external">Eliminate 300ms delay on click events in mobile Safari</a></p><br><p>&nbsp;</p><br><h3><strong>IOS里面fixed的文本框焦点居中</strong></h3><br><div><br><div id="highlighter_384576" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br><div class="line number8 index7 alt1">8</div><br><div class="line number9 index8 alt2">9</div><br><div class="line number10 index9 alt1">10</div><br><div class="line number11 index10 alt2">11</div><br><div class="line number12 index11 alt1">12</div><br><div class="line number13 index12 alt2">13</div><br><div class="line number14 index13 alt1">14</div><br><div class="line number15 index14 alt2">15</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">&lt;!DOCTYPE html&gt;</code></div><br><div class="line number2 index1 alt1"><code class="php spaces">    </code><code class="php plain">&lt;head&gt;</code></div><br><div class="line number3 index2 alt2"><code class="php spaces">    </code><code class="php plain">input {</code></div><br><div class="line number4 index3 alt1"><code class="php spaces">       </code><code class="php plain">position:fixed;</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">       </code><code class="php plain">top:0;left:0;</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">    </code><code class="php plain">}</code></div><br><div class="line number7 index6 alt2"><code class="php spaces">    </code><code class="php plain">&lt;/head&gt;</code></div><br><div class="line number8 index7 alt1"><code class="php spaces">    </code><code class="php plain">&lt;body&gt;</code></div><br><div class="line number9 index8 alt2"><code class="php spaces">        </code><code class="php plain">&lt;div </code><code class="php keyword">class</code><code class="php plain">=</code><code class="php string">“header”</code><code class="php plain">&gt;</code></div><br><div class="line number10 index9 alt1"><code class="php spaces">            </code><code class="php plain">&lt;form action=</code><code class="php string">“”</code><code class="php plain">&gt;</code></div><br><div class="line number11 index10 alt2"><code class="php spaces">                </code><code class="php plain">&lt;label&gt;Testfield: &lt;input type=</code><code class="php string">“text”</code> <code class="php plain">/&gt;&lt;/label&gt;</code></div><br><div class="line number12 index11 alt1"><code class="php spaces">            </code><code class="php plain">&lt;/form&gt;</code></div><br><div class="line number13 index12 alt2"><code class="php spaces">        </code><code class="php plain">&lt;/div&gt;</code></div><br><div class="line number14 index13 alt1"><code class="php spaces">    </code><code class="php plain">&lt;/body&gt;</code></div><br><div class="line number15 index14 alt2"><code class="php plain">&lt;/html&gt;</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>在ios里面，当一个文本框的样式为fixed时候，如果这个文本框获得焦点，它的位置就会乱掉，由于ios里面做了自适应居中，这个fixed的文本框会跑到页面中间。类似：</p><br><p><a href="http://www.nihaoshijie.com.cn/wordpress/wp-content/uploads/2014/10/QQ%E5%9B%BE%E7%89%8720141203214548.png" target="_blank" rel="external"><img class="alignleft size-full wp-image-485 ls_lazyimg" src="http://www.alloyteam.com/wp-content/plugins/images-lazyload-and-slideshow/blank_1x1.gif" data-original="http://www.alloyteam.com/wp-content/plugins/images-lazyload-and-slideshow/blank_1x1.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="QQ图片20141203214548"></a></p><br><p><strong>解决办法有两个：</strong></p><br><p>可以在文本框获得焦点的时候将fixed改为absolute，失去焦点时在改回fixed，但是这样会让屏幕有上下滑动的体验不太好。</p><br><div><br><div id="highlighter_767882" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br><div class="line number8 index7 alt1">8</div><br><div class="line number9 index8 alt2">9</div><br><div class="line number10 index9 alt1">10</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">.fixfixed {</code></div><br><div class="line number2 index1 alt1"><code class="php plain">position:absolute;</code></div><br><div class="line number3 index2 alt2"><code class="php plain">}</code></div><br><div class="line number4 index3 alt1"><code class="php plain">$(document)</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">    </code><code class="php plain">.on(</code><code class="php string">‘focus’</code><code class="php plain">, </code><code class="php string">‘input’</code><code class="php plain">, </code><code class="php keyword">function</code><code class="php plain">(e) {</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">        </code><code class="php variable">$this</code><code class="php plain">.addClass(</code><code class="php string">‘fixfixed’</code><code class="php plain">);</code></div><br><div class="line number7 index6 alt2"><code class="php spaces">    </code><code class="php plain">})</code></div><br><div class="line number8 index7 alt1"><code class="php spaces">    </code><code class="php plain">.on(</code><code class="php string">‘blur’</code><code class="php plain">, </code><code class="php string">‘input’</code><code class="php plain">, </code><code class="php keyword">function</code><code class="php plain">(e) {</code></div><br><div class="line number9 index8 alt2"><code class="php spaces">        </code><code class="php variable">$this</code><code class="php plain">.removeClass(</code><code class="php string">‘fixfixed’</code><code class="php plain">);</code></div><br><div class="line number10 index9 alt1"><code class="php spaces">    </code><code class="php plain">});</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>&nbsp;</p><br><p>还有一种就是用一个假的fixed的文本框放在页面顶部，一个absolute的文本框隐藏在页面顶部，当fixed的文本框获得焦点时候将其隐藏，然后显示absolute的文本框，当失去焦点时，在把absolute的文本框隐藏，fixed的文本框显示。</p><br><div><br><div id="highlighter_766594" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br><div class="line number6 index5 alt1">6</div><br><div class="line number7 index6 alt2">7</div><br><div class="line number8 index7 alt1">8</div><br><div class="line number9 index8 alt2">9</div><br><div class="line number10 index9 alt1">10</div><br><div class="line number11 index10 alt2">11</div><br><div class="line number12 index11 alt1">12</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">.fixfixed {</code></div><br><div class="line number2 index1 alt1"><code class="php plain">position:absolute;</code></div><br><div class="line number3 index2 alt2"><code class="php plain">}</code></div><br><div class="line number4 index3 alt1"><code class="php plain">$(document)</code></div><br><div class="line number5 index4 alt2"><code class="php spaces">    </code><code class="php plain">.on(</code><code class="php string">‘focus’</code><code class="php plain">, </code><code class="php string">‘input’</code><code class="php plain">, </code><code class="php keyword">function</code><code class="php plain">(e) {</code></div><br><div class="line number6 index5 alt1"><code class="php spaces">        </code><code class="php variable">$absolute</code><code class="php plain">..show();</code></div><br><div class="line number7 index6 alt2"><code class="php spaces">        </code><code class="php variable">$this</code><code class="php plain">.hide();</code></div><br><div class="line number8 index7 alt1"><code class="php spaces">    </code><code class="php plain">})</code></div><br><div class="line number9 index8 alt2"><code class="php spaces">    </code><code class="php plain">.on(</code><code class="php string">‘blur’</code><code class="php plain">, </code><code class="php string">‘input’</code><code class="php plain">, </code><code class="php keyword">function</code><code class="php plain">(e) {</code></div><br><div class="line number10 index9 alt1"><code class="php spaces">         </code><code class="php variable">$fixed</code><code class="php plain">..show();</code></div><br><div class="line number11 index10 alt2"><code class="php spaces">        </code><code class="php variable">$this</code><code class="php plain">.hide();</code></div><br><div class="line number12 index11 alt1"><code class="php spaces">    </code><code class="php plain">});</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>&nbsp;</p><br><p>最后一种就是顶部的input不参与滚动，只让其下面滚动。</p><br><p>&nbsp;</p><br><h3><strong><strong>position:sticky</strong></strong></h3><br><p>position:sticky是一个新的css3属性，它的表现类似position:relative和position:fixed的合体，在目标区域在屏幕中可见时，它的行为就像position:relative; 而当页面滚动超出目标区域时，它的表现就像position:fixed，它会固定在目标位置。</p><br><div><br><div id="highlighter_762302" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br><div class="line number5 index4 alt2">5</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">.sticky { </code></div><br><div class="line number2 index1 alt1"><code class="php plain">position: -webkit-sticky; </code></div><br><div class="line number3 index2 alt2"><code class="php plain">position:sticky; </code></div><br><div class="line number4 index3 alt1"><code class="php plain">top: 15px; </code></div><br><div class="line number5 index4 alt2"><code class="php plain">}</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p><strong>浏览器兼容性</strong>：<br><br>由于这是一个全新的属性，以至于到现在都没有一个规范，W3C也刚刚开始讨论它，而现在只有webkit nightly版本和chrome 开发版(Chrome 23.0.1247.0+ Canary)才开始支持它。<br><br>另外需要注意的是，如果同时定义了left和right值，那么left生效，right会无效，同样，同时定义了top和bottom，top赢～～<br><br><strong>移动端点透事件</strong></p><br><p>简单的说，由于在移动端我们经常会使用tap(touchstart)事件来替换掉click事件，那么就会有一种场景是：</p><br><div><br><div id="highlighter_454362" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">&lt;div id=</code><code class="php string">“mengceng”</code><code class="php plain">&gt;&lt;/div&gt;</code></div><br><div class="line number2 index1 alt1"></div><br><div class="line number3 index2 alt2"><code class="php plain">&lt;a href=</code><code class="php string">“www.qq.com”</code><code class="php plain">&gt;www.qq.com&lt;/a&gt;</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>div是绝对定位的蒙层z-index高于a，而a标签是页面中的一个链接，我们给div绑定tap事件：</p><br><div><br><div id="highlighter_337861" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">$(</code><code class="php string">‘#mengceng’</code><code class="php plain">).on(</code><code class="php string">‘tap’</code><code class="php plain">,</code><code class="php keyword">function</code><code class="php plain">(){</code></div><br><div class="line number2 index1 alt1"><code class="php plain">$(</code><code class="php string">‘#mengceng’</code><code class="php plain">).hide();</code></div><br><div class="line number3 index2 alt2"><code class="php plain">});</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>我们点击蒙层时 div正常消失，但是当我们在a标签上点击蒙层时，发现a链接被触发，这就是所谓的点透事件。</p><br><p>原因：</p><br><p>touchstart 早于 touchend 早于 click。亦即click的触发是有延迟的，这个时间大概在300ms左右，也就是说我们tap触发之后蒙层隐藏，此时click还没有触发，300ms之后由于蒙层隐藏，我们的click触发到了下面的a链接上。</p><br><p>解决办法：</p><br><p>1 尽量都使用touch事件来替换click事件。</p><br><p>2 阻止a链接的click的preventDefault</p><br><p>&nbsp;</p><br><p><strong>base64编码图片替换url图片</strong></p><br><p>u在移动端，网络请求是很珍贵的资源，尤其在2g或者3g网络下，所以能不发请求的资源都尽量不要发，对于一些小图片icon之类的，可以将图片用base64编码，来减少网络请求。</p><br><p>&nbsp;</p><br><h4><strong>手机拍照和上传图片</strong></h4><br><p>&lt;input type=”file”&gt;的accept 属性</p><br><div><br><div id="highlighter_742749" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">&lt;!– 选择照片 –&gt;</code></div><br><div class="line number2 index1 alt1"><code class="php plain">&lt;input type=file accept=</code><code class="php string">“image/<em>“</em></code><code class="php plain">&gt;</code></div><br><div class="line number3 index2 alt2"><code class="php plain">&lt;!– 选择视频 –&gt;</code></div><br><div class="line number4 index3 alt1"><code class="php plain">&lt;input type=file accept=</code><code class="php string">“video/“</code><code class="php plain">&gt;</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>&nbsp;</p><br><p><strong>动画效果时开启硬件加速</strong></p><br><p>我们在制作动画效果时经常会想要改版元素的top或者left来让元素动起来，在pc端还好但是移动端就会有较大的卡顿感，这么我们需要使用css3的  transform: translate3d;来替换，</p><br><p>此效果可以让浏览器开启<a href="http://www.cnblogs.com/PeunZhang/p/3510083.html" target="_blank" rel="external">gpu</a>加速，渲染更流畅，但是笔着实验时在ios上体验良好，但在一些低端android机型可能会出现意想不到的效果。</p><br><p>&nbsp;</p><br><h4>快速回弹滚动</h4><br><p>在iOS上如果你想让一个元素拥有像 Native 的滚动效果，你可以这样做：</p><br><div><br><div id="highlighter_637749" class="syntaxhighlighter  php"><br><table border="0" cellspacing="0" cellpadding="0"><br><tbody><br><tr><br><td class="gutter"><br><div class="line number1 index0 alt2">1</div><br><div class="line number2 index1 alt1">2</div><br><div class="line number3 index2 alt2">3</div><br><div class="line number4 index3 alt1">4</div><br></td><br><td class="code"><br><div class="container"><br><div class="line number1 index0 alt2"><code class="php plain">.div {</code></div><br><div class="line number2 index1 alt1"><code class="php spaces">        </code><code class="php plain">overflow: auto;</code></div><br><div class="line number3 index2 alt2"><code class="php spaces">        </code><code class="php plain">-webkit-overflow-scrolling: touch;</code></div><br><div class="line number4 index3 alt1"><code class="php spaces">    </code><code class="php plain">}</code></div><br></div><br></td><br></tr><br></tbody><br></table><br></div><br></div><br><p>经笔着测试，此效果在不同的ios系统表现不一致，</p><br><p>对于局部滚动，ios8以上，不加此效果，滚动的超级慢，ios8一下，不加此效果，滚动还算比较流畅</p><br><p>对于body滚动，ios8以上，不加此效果同样拥有弹性滚动效果。</p><br><p>&nbsp;</p><br><p>持续更新中。。</p><br><p>&nbsp;</p><br><p>参考资料：<a href="http://www.nihaoshijie.com.cn/index.php/archives/455" target="_blank" rel="external">http://www.nihaoshijie.com.cn/index.php/archives/455</a></p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-55ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/55ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/55ver/">前端攻城狮文档手册-干货分享</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/fc4049e8-d8ea-41fe-9218-33317d7c86bf.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/72ee7433-cf99-48fd-a1fb-5f529317cd05.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>干货内容如上图,如果其他攻城狮有大量的干货请分享一下哦~</p><br><p>度娘下载:</p><br><p>链接:<a href="http://pan.baidu.com/s/1qWl1LQc" target="_blank">http://pan.baidu.com/s/1qWl1LQc</a></p><br><p>密码: 68q2</p><br><p>手册解压密码:www.gbtags.com</p><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-53ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/53ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/53ver/">JS程序设计之面向对象简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code class="brush:js;toolbar:false">面向对象</code></p><br><p>一:程序设计方法<br><br>-面向过程<br><br>-面向对象</p><br><p>二:面向过程<br><br>-思想<br><br>-以过程为中心<br><br>-自顶向下-逐步细化<br><br>-C…等</p><br><p>三:面向对象<br><br>-思想<br><br>-对象作为程序的基本单元<br><br>-程序分解为数据和相关操作<br><br>-C++ Java<br><br>-基本慨念<br><br>-类、对象<br><br>-属性、方法<br><br>-基本特性<br><br>-继承<br><br>-封装<br><br>-多态</p><br><p>四:JS面向对象<br><br>-constructor<br><br>-this<br><br>-原型继承<br><br>-原型链<br><br>-应用</p><br><p>五:constructor<br><br>-var o=new Object();<br><br>var o={x:1}<br><br>var a= new Array();<br><br>var a=[1,2,3]<br><br>以上constructor为Object</p><br><p>-自定义constructor<br><br>-function myObj(name,age){<br><br>this.name=name;<br><br>this.age=age;<br><br>this.setName=function(name){<br><br>this.name=name;<br><br>}<br><br>}<br><br>var m=new myObj(“name”,100)//constructor为myObj</p><br><p>-三种形式<br><br>-function myObj(){};<br><br>-var myObj=function(){};<br><br>-var myObj=new Fcuntion();</p><br><p>-注意<br><br>-所有的函数都可以当成constructor? //NO!<br><br>-var o =new Math.min()//NO!<br><br>-function myObj(name,age){<br><br>this.name=name;<br><br>this.age=age;<br><br>this.setName=function(name){<br><br>this.name=name;<br><br>}<br><br>return {};<br><br>}<br><br>-var m=new myObj(“name”,100);<br><br>-alert(m.name)// undefined 这里的m实际上是函数返回的{}对象的属性而非函数对象<br><br>//在返回对象找不到这个m 因为是空的</p><br><p>六:this<br><br>-var a=10;<br><br>alert(this.a)//window.a<br><br>this.b=20//window<br><br>alert(this.c)//window</p><br><p>-function test(name){<br><br>this.name=name//this指向创建的实例<br><br>this.sayHello=function(){<br><br>alert(“hello”,this.name)<br><br>//这里的this指向函数调用者 也就是下面的实例p1<br><br>}<br><br>}<br><br>-var p1=new test(“by”)//p1.name:by<br><br>-p1.sayHello()//p1.this</p><br><p>-new Fcuntion(this) //出现的this都指向window 无论执行环境在什么情况</p><br><p>-eval(‘alert(this)’) //调用上下文的环境</p><br><p>-(function(){<br><br>eval(“alert(‘this’)”)//执行闭包的this也就是window</p><br><p>})()</p><br><p>function Foo(){<br><br>this.bar=function(){<br><br>eval(‘alert(this)’)//这里的eval this执行bar函数的this 也就是foo实例<br><br>}<br><br>}</p><br><p>var foo=new Foo();<br><br>foo.bar();</p><br><p>-总结<br><br>- 场景 值<br><br>全局环境 全局对象(window)<br><br>constructor 新创建的对象<br><br>函数调用 函数的调用者<br><br>new Function 全局对象window<br><br>eval 调用上下文中的this</p><br><p>七:apply、call<br><br>-function Point(x,y){<br><br>this.x=x;<br><br>this.y=y;<br><br>this.move=function(x,y){<br><br>this.x+=x;<br><br>this.y+=y<br><br>}<br><br>}<br><br>var point=new Point(0,0)<br><br>point.move(1,1)</p><br><p>var circle={x:0,y:1,r:1};//创建一个圆<br><br>point.move.apply(circle,[1,1])//利用apply来实现圆的移动</p><br><p>​</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-52ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -805,254 +984,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>转自<a href="http://sentsin.com/web/112.html" target="_blank" rel="external">http://sentsin.com/web/112.html</a></p><br><pre class="">$(“#wrap”).bind(“mouseenter mouseleave”,function(e) {<br>           var w = $(this).width();<br>           var h = $(this).height();<br>           var x = (e.pageX - this.offsetLeft - (w / 2)) <em> (w &gt; h ? (h / w) : 1);<br>           var y = (e.pageY - this.offsetTop - (h / 2)) </em> (h &gt; w ? (w / h) : 1);<br>           var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4; //direction的值为“0,1,2,3”分别对应着“上，右，下，左”<br>           var eventType = e.type;<br>           var dirName = new Array(‘上方’,’右侧’,’下方’,’左侧’);<br>           if(e.type == ‘mouseenter’){<br>              $(“#result”).html(dirName[direction]+’进入’);<br>          }else{<br>              $(‘#result’).html(dirName[direction]+’离开’);<br>          }<br>      });</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-45ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/45ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/45ver/">论如何使用jQuery插件flickity设计响应式幻灯片插件效果</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>发自:<a href="http://www.gbtags.com/gb/share/5553.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5553.htm</a></p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>最终实现效果如下哈~~</p><p></p>
-<p></p><p><img src="http://www.gbtags.com/gb/networks/uploadimg/ca44e095-39a0-46e6-a026-d7c0f1e13638.gif" data-original="http://www.gbtags.com/gb/networks/uploadimg/ca44e095-39a0-46e6-a026-d7c0f1e13638.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500"></p><p></p>
-<p></p><p>这次给大家推荐一个比较好用的响应式幻灯片,值得一提的是此库不仅仅支持图片的一个幻灯效果,也支持div的幻灯效果,大家可以利用这库实现很多炫酷的效果,具体的看演示吧.</p><p></p>
-<p><blockquote><p>官网: <a href="http://flickity.metafizzy.co/" target="_blank" rel="external">http://flickity.metafizzy.co/</a></p></blockquote></p>
-<p></p><p>浏览器支持:<strong>IE8+</strong>,Android 2.3+, iOS Safari 5+, chrome,FF…</p><p></p>
-<p></p><p><strong>快速入门</strong></p><p></p>
-<p></p><p>如何引入. flickity库？</p><p></p>
-<div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://flickity.metafizzy.co/flickity.css" target="_blank" rel="external">http://flickity.metafizzy.co/flickity.css</a>“</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js" target="_blank" rel="external">http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js</a>“</span><span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L2"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://flickity.metafizzy.co/flickity.pkgd.min.js" target="_blank" rel="external">http://flickity.metafizzy.co/flickity.pkgd.min.js</a>“</span><span class="tag">&gt;&lt;/script&gt;</span></li><br></ol><br></div><br></div><br><p>结合jquery来使用该库如下例</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln"> $</span><span class="pun">(“</span><span class="com">#box_img”).flickity({</span></li><br><li class="L1"><span class="pln"> cellAlign</span><span class="pun">:</span><span class="pln">left</span></li><br><li class="L2"><span class="pun">})</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>不结合jquery来使用该库如下例</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> elem </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">‘.main-gallery’</span><span class="pun">);</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> flkty </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Flickity</span><span class="pun">(</span><span class="pln"> elem</span><span class="pun">,</span> <span class="pun">{</span></li><br><li class="L2"><span class="pln"> cellAlign</span><span class="pun">:</span> <span class="str">‘left’</span><span class="pun">,</span></li><br><li class="L3"><span class="pln"> contain</span><span class="pun">:</span> <span class="kwd">true</span></li><br><li class="L4"><span class="pun">});</span></li><br><li class="L5"><span class="pln"> </span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> flkty </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Flickity</span><span class="pun">(</span> <span class="str">‘.main-gallery’</span><span class="pun">,</span> <span class="pun">{</span></li><br><li class="L7"><span class="com">// options</span></li><br><li class="L8"><span class="pun">});</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>下例教程皆结合jquery来进行演示</p><br><p>HTML</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“main_box”</span> <span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_1”</span><span class="tag">&gt;</span><span class="pln">1</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_2”</span><span class="tag">&gt;</span><span class="pln">2</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L3"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_3”</span><span class="tag">&gt;</span><span class="pln">3</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L4"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br></div><br><p>CSS</p><br></div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">.</span><span class="pln">img_1</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L2"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L4"></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pun">.</span><span class="pln">img_2</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L9"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L0"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L1"></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="pln"> </span></li><br><li class="L4"><span class="pun">.</span><span class="pln">img_3</span><span class="pun">{</span></li><br><li class="L5"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L7"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L8"></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">main_box</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">400px</span><span class="pun">;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p><strong>JS</strong></p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">“.main_box”</span><span class="pun">).</span><span class="pln">flickity</span><span class="pun">({</span></li><br><li class="L1"></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pln"> contain</span><span class="pun">:</span><span class="kwd">true</span></li><br><li class="L4"></li><br><li class="L5"><span class="pln"> </span></li><br><li class="L6"><span class="pun">})</span></li><br></ol><br></div><br></div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln"> </span></li><br></ol><br></div><br></div><br></div><br></div><br><p>flickity库支持在HTML直接写相关属性如</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“gallery gallery-nav js-flickity”</span> <span class="atn">data-flickity-options</span><span class="pun">=</span><span class="atv">‘{ “asNavFor”: “.gallery-main”, “contain”: true, “pageDots”: false }’</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“gallery-cell”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p><strong>PS：如果只打算使用幻灯片的看到这就可以Ctrl+W了 下面是详细的方法属性介绍</strong></p><br><p>&nbsp;</p><br><p>详细属性与方法介绍</p><br><p>-详细了解请点击文章底部的代码书写录像及其预览</p><br><p>flickity库属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">循环滚动</span></li><br><li class="L1"><span class="pln">wrapAround</span><span class="pun">:</span> <span class="kwd">true</span><span class="pun">|</span><span class="kwd">false</span></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pun">自由滚动</span></li><br><li class="L4"><span class="pln">freeScroll</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">是否显示上下切换条</span></li><br><li class="L7"><span class="pln">prevNextButtons</span><span class="pun">:</span> <span class="kwd">false</span><span class="pun">,</span></li><br><li class="L8"><span class="pln"> </span></li><br><li class="L9"><span class="pun">是否显示小圆点导航</span></li><br><li class="L0"><span class="pln">pageDots</span><span class="pun">:</span> <span class="kwd">false</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="pun">自动播放,</span><span class="lit">1500</span><span class="pun">毫秒切换下一图片</span></li><br><li class="L3"><span class="pln">autoPlay</span><span class="pun">:</span> <span class="lit">1500</span> <span class="com">//设置为true默认为3s</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="pun">设定幻灯片从第几张开始</span></li><br><li class="L6"><span class="pln">initialIndex</span><span class="pun">:</span><span class="lit">1</span> <span class="com">//设定幻灯片从第几张开始 从0开始计数</span></li><br><li class="L7"><span class="pln"> </span></li><br><li class="L8"><span class="pun">是否启用键盘切换</span></li><br><li class="L9"><span class="pln">accessibility</span><span class="pun">:</span> <span class="kwd">true</span><span class="pun">,</span><span class="com">//是否启用键盘切换 默认true</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pun">幻灯片高度设置</span></li><br><li class="L2"><span class="pln">setGallerySize</span><span class="pun">:</span> <span class="kwd">true</span><span class="com">//默认使用最高的图片作为幻灯片的高度,设置为false则使用幻灯片定义高度</span></li><br><li class="L3"><span class="pln"> </span></li><br><li class="L4"><span class="pun">幻灯片播放位置</span></li><br><li class="L5"><span class="pln">rightToLeft</span><span class="pun">:</span> <span class="kwd">true</span><span class="com">//从右至左播放幻灯片</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pun">预览导航设置</span></li><br><li class="L8"><span class="com">//创建一个新的预览导航幻灯片</span></li><br><li class="L9"><span class="pln"> $</span><span class="pun">(</span><span class="str">“.main_box_nav”</span><span class="pun">).</span><span class="pln">flickity</span><span class="pun">({</span></li><br><li class="L0"><span class="pln"> asNavFor</span><span class="pun">:</span> <span class="str">‘.main_box’</span><span class="pun">,</span> <span class="com">//指向主幻灯片</span></li><br><li class="L1"><span class="pln"> pageDots</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">,</span></li><br><li class="L2"><span class="pln"> contain</span><span class="pun">:</span><span class="kwd">true</span></li><br><li class="L3"><span class="pun">})</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="com">/<em>预览导航样式</em>/</span></li><br><li class="L6"><span class="pun">.</span><span class="pln">main_box_nav</span><span class="pun">{</span></li><br><li class="L7"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">300px</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"></li><br><li class="L0"><span class="com">/<em>预览导航样式选中状态</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">main_box_nav </span><span class="pun">.</span><span class="pln">nav</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">nav</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#65ce65;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br></ol><br></div><br></div><br><p>flickity库样式</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">幻灯片高度为最高图片的高度</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">gallery</span><span class="pun">-</span><span class="pln">cell </span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">160px</span><span class="pun">;</span></li><br><li class="L4"><span class="pln"> margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span> <span class="lit">10px</span><span class="pun">;</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pln"> </span></li><br><li class="L8"><span class="pun">通过设置</span><span class="pln"> elem</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{}来设置选中图片的样式</span></li><br><li class="L9"><span class="pun">.</span><span class="pln">img_2</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{</span></li><br><li class="L0"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#b2b3b4;</span></li><br><li class="L1"><span class="pun">}</span></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pun">上下切换条箭头样式设置</span></li><br><li class="L4"><span class="com">/<em>上下切换条箭头背景颜色设置</em>/</span></li><br><li class="L5"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">prev</span><span class="pun">-</span><span class="kwd">next</span><span class="pun">-</span><span class="pln">button</span><span class="pun">{</span></li><br><li class="L6"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li><br><li class="L7"><span class="pln"> border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">8px</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"></li><br><li class="L0"><span class="com">/<em>上下切换条箭头颜色设置</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">prev</span><span class="pun">-</span><span class="kwd">next</span><span class="pun">-</span><span class="pln">button </span><span class="pun">.</span><span class="pln">arrow</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> fill</span><span class="pun">:</span><span class="pln">blue</span><span class="pun">;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="pun">小圆点导航条设置</span></li><br><li class="L6"><span class="com">/<em>小圆点导航条整体设置</em>/</span></li><br><li class="L7"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> bottom</span><span class="pun">:</span> <span class="lit">0px</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="com">/<em>小圆点导航原点设置</em>/</span></li><br><li class="L2"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">.</span><span class="pln">dot </span><span class="pun">{</span></li><br><li class="L3"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">12px</span><span class="pun">;</span></li><br><li class="L4"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">12px</span><span class="pun">;</span></li><br><li class="L5"><span class="pln"> opacity</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">;</span></li><br><li class="L6"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> transparent</span><span class="pun">;</span></li><br><li class="L7"><span class="pln"> border</span><span class="pun">:</span> <span class="lit">2px</span><span class="pln"> solid </span><span class="com">#fff;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"><span class="pln"> </span></li><br><li class="L0"><span class="com">/<em>选中小圆点设置</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">.</span><span class="pln">dot</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected </span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#887e8e;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="com">/<em>选择幻灯片时的轮廓线设置</em>/</span></li><br><li class="L6"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">enabled</span><span class="pun">:</span><span class="pln">focus </span><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">viewport </span><span class="pun">{</span></li><br><li class="L7"><span class="pln"> outline</span><span class="pun">:</span><span class="pln"> thin dotted</span><span class="pun">;</span></li><br><li class="L8"><span class="pln"> outline</span><span class="pun">:</span> <span class="lit">5px</span> <span class="kwd">auto</span> <span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">focus</span><span class="pun">-</span><span class="pln">ring</span><span class="pun">-</span><span class="pln">color</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>基本上flickity库的样式和方法都介绍完毕了,如需了解flickity库的API请转至</p><br><blockquote><p><a href="http://flickity.metafizzy.co/api.html" target="_blank" rel="external">http://flickity.metafizzy.co/api.html</a></p></blockquote><br></div><br><div><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtreplayerpreview/1012.htm"></iframe>&nbsp;<p></p><br><div><br><blockquote><p>代码书写录像及其预览：<a href="http://www.gbtags.com/gb/rtreplayerpreview/1012.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1012.htm</a></p></blockquote><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-44ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/44ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/44ver/">DOM编程艺术之属性操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true  ">一:每个HTML属性对应相应的DON属性</pre></p>
-<pre><code>二:属性访问器之读取
-    -<span class="ruby">input.className/<span class="regexp">/获取class
-</span></span>    -<span class="ruby"><span class="regexp">input["id"]/</span><span class="regexp">/获取id
-</span></span>
-三:属性访问器之写入
-    -<span class="ruby"><span class="regexp">input.value="xxx"/</span><span class="regexp">/设置value属性
-</span></span>    -<span class="ruby"><span class="regexp">input.disabled=true/</span><span class="regexp">/禁用输入框
-</span></span>
-四:属性访问器之类型
-    -<span class="ruby"><span class="regexp">input.disabled/</span><span class="regexp">/boolean
-</span></span>    -<span class="ruby"><span class="regexp">input.id/</span><span class="regexp">/string
-</span></span>    -<span class="ruby"><span class="regexp">input.onclick/</span><span class="regexp">/function
-</span></span>    -<span class="ruby"><span class="regexp">转换过的实用对象
-</span></span>    -<span class="ruby"><span class="regexp">通用性差-名字异常
-</span></span>    -<span class="ruby"><span class="regexp">扩展性差
-</span></span>    -<span class="ruby"><span class="regexp">去到的是实用对象/</span><span class="regexp">/经过转化的 如string-number
-</span></span>
-五:attribute之读取
-    -<span class="ruby"><span class="regexp">input.getAttribute("class")/</span><span class="regexp">/获取到class
-</span></span>
-六:attribute之写入
-    -<span class="ruby"><span class="regexp">input.setAttribute("value", "test")/</span><span class="regexp">/修改value值
-</span></span>    -<span class="ruby"><span class="regexp">input.setAttribute("disabled", "")/</span><span class="regexp">/disavle true 出现就为true
-</span></span>
-七:attribute之类型
-    -<span class="ruby"><span class="regexp">input.getAttribute('onclick')/</span><span class="regexp">/string
-</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("disabled")/</span><span class="regexp">/string
-</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("maxlength")/</span><span class="regexp">/string
-</span></span>    -<span class="ruby"><span class="regexp">仅仅是字符串
-</span></span>
-八:实例
-    -<span class="ruby"><span class="regexp">button.disabled=true;
-</span></span>    -<span class="ruby"><span class="regexp">button.setAttribute('class', 'disabled')
-</span></span>
-九:dataset
-    -<span class="ruby"><span class="regexp">data-*属性集
-</span></span>    -<span class="ruby"><span class="regexp">元素上保存数据
-</span></span>    -<span class="ruby"><span class="regexp">div.dataset/</span><span class="regexp">/返回html上以data-开头的属性值 返回的是一个对象
-</span></span>    -<span class="ruby"><span class="regexp">div.dataset.name/</span><span class="regexp">/string
-</span></span>    -<span class="ruby"><span class="regexp">div.dataset.email/</span><span class="regexp">/string&lt;/pre</span>&gt;</span>
-</code></pre><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-43ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/43ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/43ver/">DOM编程艺术之样式操作</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:CSS-DOM<br>        -element.sheet// &lt;link href=”base.css”&gt;<br>        -element.sheet// &lt;style&gt;p{}&lt;/style&gt;<br>        -element.style//内联样式<br>        -element.sheet.cssRules[1].style//CSS规则<br>        -element.sheet.cssRules[1].selectorText//选择器<br>        -element.sheet.cssRules[1].style.lineHeight//element的行高<br>        -element.style.color//内联样式声明</pre></p>
-<pre><code>二:更新样式
-    -<span class="ruby">element.style更新利弊
-</span>        -<span class="ruby">更新一个属性需要一条语句
-</span>        -<span class="ruby">不是我们熟悉的<span class="constant">CSS</span>
-</span>        -<span class="ruby">样式混在逻辑中
-</span>    -<span class="ruby">element.style.cssText
-</span>        -<span class="ruby">element.style.cssText=<span class="string">"border-color:red;color:red"</span>/<span class="regexp">/创建的是内联样式
-</span></span>
-三:更新Class
-    -<span class="ruby"><span class="regexp">element.calssName+="invalid";/</span><span class="regexp">/推荐方法
-</span></span>    -<span class="ruby"><span class="regexp">不适用于一次更新很多元素样式
-</span></span>
-四:更换样式表
-    -<span class="ruby"><span class="regexp">&amp;lt;link href="xxx.css"&amp;gt;/</span><span class="regexp">/修改link
-</span></span>
-五:获取样式
-    -<span class="ruby"><span class="regexp">element.style/</span><span class="regexp">/只能获取到内联的样式 获取到的不一定是实际样式
-</span></span>    -<span class="ruby"><span class="regexp">var style=window.getComputedStyle(element).color/</span><span class="regexp">/获取到的实际样式包括内联样式修改后的实际样式
-</span></span>    -<span class="ruby"><span class="regexp">IE9-使用element.currentStyle/</span><span class="regexp">/兼容
-</span></span>
-六:CSS DOM overview
-    -<span class="ruby"><span class="regexp">StyleSheetList
-</span></span>        |            CSSStyleSheet
-        |                cssRules---CSSRuleList
-        |                        Style            -CSSStyleDeclaration
-        |                |        selectorText            color
-        |                |        
-        |                |
-        |                |
-        |                link.sheet   style.sheet
-        |
-    document.styleSheets&lt;/pre&gt;
-</code></pre><p>&nbsp;</p>
 
 
 

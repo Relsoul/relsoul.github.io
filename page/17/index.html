@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,187 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-64ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/64ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/64ver/">页面制作之CSS布局</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code class="brush:css;toolbar:false"> CSS布局<br><br>布局-元素的摆放模式</code></p><br><p>一: display //设置元素的显示方式<br><br>-block<br><br>-块级元素<br><br>-默认宽度为父元素宽度<br><br>-可设置宽高<br><br>-换行显示<br><br>-默认display:div,p,h1-h6,ul,form<br><br>-inline<br><br>-默认宽度为内容宽度<br><br>-不可设置宽高<br><br>-同行显示<br><br>-默认inline:span,a,label,cite,em</p><br><p>-inline-block<br><br>-默认宽度为内容宽度<br><br>-可设置宽高<br><br>-同行显示<br><br>-整块换行<br><br>-默认inline-block:input,textarea,select,button</p><br><p>-none<br><br>-设置元素不显示<br><br>-visibility：hidden //仍然在页面占据空间</p><br><p>二:块级元素水平居中<br><br>-margin:auto;width:978px;</p><br><p>三:居中导航<br><br>-通过ul li来设置HTML<br><br>-ul{text-align:center;height:30px;line-height:30px;}<br><br>-li,a{display:inline-block;width:80px;height:100%;}<br><br>——————————————————————————–<br><br>四:position 定位<br><br>-top,right,bottom,left,z-index -设置位置<br><br>-没有设置宽高 那么设置Position会被撑开<br><br>-元素边缘边缘距离参造物边缘的距离<br><br>-z-index<br><br>-Z轴上的排序<br><br>-z-index栈<br><br>-子级元素的Z-index是参考于父级的Z-index</p><br><p>五:position<br><br>-static|relative|absolute|fixed<br><br>-positon:relative;//相对定位<br><br>-仍在文档流中<br><br>-参造物为元素本身<br><br>-使用场景:绝对定位的参造物<br><br>-positon:absolute;//绝对定位<br><br>-默认宽度为内容宽度<br><br>-脱离了文档流<br><br>-参造物为第一个定位祖先/根元素<br><br>-position:fixed //固定定位<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-参造物为视窗</p><br><p>六:遮罩<br><br>-position:fixed;z-index:999;height:100%;width:100%</p><br><p>七:三行自适应布局<br><br>-.body{position:absolute;top:100px;left:0;bottom:100px;right:0;oveflow:auto}</p><br><p>八:float<br><br>-left|right|<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-向指定方向一直移动<br><br>-float的元素在同一文档流中<br><br>-float元素半脱离文档流<br><br>-对元素，脱离文档流;对内容，在文档流</p><br><p>九:clear<br><br>- both|left|right<br><br>-应用于后续元素<br><br>-应用于后续元素<br><br>-clearfix:after{content:”.”;display:block;clear:both;oveflow:hidden;}//在父级上加</p><br><p>十:两列布局<br><br>-边栏向右浮动,主栏向左浮动,给父级元素加上清除clearfix</p><br><p>三行自适应布局(position)+两列布局(flot)-&gt;两列自适应布局</p><br><p>十一:Flex布局(弹性布局)<br><br>-flex container 内容<br><br>-flex item 元素<br><br>-main axis 主轴<br><br>-cross axis 副轴</p><br><p>十二:flex item<br><br>-在文档流中的子元素 (position 除外) float也算文档流 ,子元素的子元素也除外</p><br><p>十三:flex-direction 方向<br><br>-row(行)|row-reverse(反向行)|column(列)|column-reverse(反向列)</p><br><p>十四:flex-wrap 换行<br><br>-nowarp|warp|wrap-reverse</p><br><p>十五:flex-flow 一次性设置方向与换行<br><br>-&lt;flex-direction&gt;||&lt;flex-wrap&gt;</p><br><p>十六:order 排列顺序<br><br>-order:&lt;number&gt;<br><br>-initial:0</p><br><p>十七:flex-basis 弹性基准<br><br>-设置flex item的初始宽/高<br><br>-flex-basis:main-size|&lt;width&gt;</p><br><p>十八:flex-grow 分配到剩余空间的比例 考虑flex-basis<br><br>-flex-grow:&lt;number&gt;<br><br>-initial:0</p><br><p>弹性布局元素宽度:flex-basis+flow-grow/sum(flow-grow)<em>remain</em></p><br><p>十九:flex-shrink 设置或检索弹性盒的收缩比率。<br><br>-flex-shrink:&lt;number&gt;<br><br>-initial:1<br><br>弹性布局元素宽度:flex-basis+flex-shrink/sum(flow-grow)remain</p><br><p>二十:flex<br><br>-&lt;flex-grow&gt;||&lt;flex-shrink&gt;||&lt;flex-basis&gt;<br><br>伸展因子 收缩因子 基准</p><br><p>二十一:justify-content 对齐剩余空间分配<br><br>-flex-start|flex-end|center|space-between|space-around</p><br><p>二十二:align-items<br><br>-设置cross-axis方向上对齐方式</p><br><p>二十三:align-self<br><br>-设置单个flex item在cross-axis方向上对齐方式</p><br><p>二十四:align-content<br><br>-设置cross-axis方向上行对齐方式</p><br><p>​</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-42ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/42ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/42ver/">DOM编程艺术之事件流</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一DOM事件<br>        -事件流<br>        -事件注册<br>        -事件对象<br>        -事件分类<br>        -事件代理</pre></p>
+<pre><code>二什么是DOM事件
+    -<span class="ruby">点击一个<span class="constant">DOM</span>元素
+</span>    -<span class="ruby">键盘按下一个健
+</span>    -<span class="ruby">输入框输入内容
+</span>    -<span class="ruby">页面加载完毕
+</span>
+三:事件流
+    -<span class="ruby">capture phase /<span class="regexp">/事件捕获
+</span></span>        -<span class="ruby"><span class="regexp">从window往下捕获到触发节点的父元素
+</span></span>    -<span class="ruby"><span class="regexp">target phase/</span><span class="regexp">/事件触发
+</span></span>        -<span class="ruby"><span class="regexp">目标节点的触发过程
+</span></span>    -<span class="ruby"><span class="regexp">bubble phase/</span><span class="regexp">/事件冒泡
+</span></span>        -<span class="ruby"><span class="regexp">从当前事件节点的父节点冒泡到window&lt;/pre</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-84ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/84ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/84ver/">PS切图之修改，维护</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p><strong>修改，维护</strong></p><p></p>
+<p></p><p>一:要继续放更多的图片？</p><p></p>
+<ul class=" list-paddingleft-2"><br><li>更改画布大小<br><p>-图像-画布大小:定位选为左上角</p></li><br></ul><br><p>二:移动图标</p><br><ul class=" list-paddingleft-2"><br><li>若图标为独立图层则用移动工具拖动即可</li><br><li>若图标为非独立图层<br><p>-用选区工具选中图标区域</p><br><p>-用移动工具拖动图标</p></li><br></ul><br><p>三:要减小画布</p><br><ul class=" list-paddingleft-2"><br><li>选定选区</li><br><li>裁剪</li><br></ul><br><p>四:注意事项</p><br><ul class=" list-paddingleft-2"><br><li>修改png8的图片<br><p>-需更改颜色模式为RGB颜色(图像-模式-RGB颜色)</p></li><br></ul>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-83ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -552,175 +733,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>类型识别</strong></p><br><p>一:识别代码</p><br><ul class=" list-paddingleft-2"><br><li>tyoeof</li><br><li>Object.prototype.toString</li><br><li>Constructor</li><br><li>instans of</li><br></ul><br><p>二:typeof</p><br><ul class=" list-paddingleft-2"><br><li>举例<br><p>-typeof null//object</p><br><p>-typeof {3}//object</p></li><br><li>typeof可以识别标准类型,除null之外</li><br><li>不能识别具体对象类型(Function除外)</li><br></ul><br><p>三:Object.prototype.toString</p><br><ul class=" list-paddingleft-2"><br><li>可以识别标准类型以及内置（build-in）对象类型</li><br><li>不能识别自定义类型（如:new peo()）;</li><br></ul><br><p>四:Constructor</p><br><ul class=" list-paddingleft-2"><br><li>识别标准类型（undefined、null除外）</li><br><li>识别内置对象类型</li><br></ul><br><p>五:instanceof</p><br><ul class=" list-paddingleft-2"><br><li>判别内置对象类型</li><br><li>不能判别原始对象类型</li><br><li>​判别自定义对象类型（以及自定义对象类型的父级）</li><br></ul><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-76ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/76ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/76ver/">HTML之组合内容</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>组合内容</p><p></p>
-<p></p><p>一:分区</p><p></p>
-<ul class=" list-paddingleft-2"><br><li>div</li><br></ul><br><p>二: 段落</p><br><ul class=" list-paddingleft-2"><br><li>p</li><br></ul><br><p>三:列表</p><br><ul class=" list-paddingleft-2"><br><li>ul</li><br><li>ol</li><br><li>dl</li><br></ul><br><p>四:div</p><br><ul class=" list-paddingleft-2"><br><li>本身无什么语义,用来做分区,是其他标签的容器</li><br></ul><br><p>五:p</p><br><ul class=" list-paddingleft-2"><br><li>段落,用于放文字</li><br></ul><br><p>六:列表</p><br><ul class=" list-paddingleft-2"><br><li>无序列表<br><p>-&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</p></li><br><li>有序列表<br><p>-&lt;ol&gt;&lt;li&gt;&lt;/li&gt;&lt;/ol&gt;</p></li><br><li>自定义列表<br><p>-由一系列name value组成</p><br><p>-&lt;dl&gt;&lt;dt&gt;name&lt;/dt&gt;&lt;dd&gt;value&gt;&lt;/dd&gt;&lt;/dl&gt; dd可以使多个</p></li><br></ul><br><p>七:其他</p><br><ul class=" list-paddingleft-2"><br><li>pre:保留换行，空格等源格式</li><br><li>blockguote:大块引用</li><br></ul>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-75ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/75ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/75ver/">HTML之嵌入资源</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p><strong>嵌入资源</strong></p><p></p>
-<p></p><p>一:类型</p><p></p>
-<ul class=" list-paddingleft-2"><br><li>img</li><br><li>iframe</li><br><li>object</li><br><li>embed</li><br><li>video</li><br><li>audio</li><br></ul><br><p>二:img</p><br><ul class=" list-paddingleft-2"><br><li>嵌入图片</li><br><li>&lt;img src=”url” alt=”图片描述”&gt;</li><br></ul><br><p>三:object,embed</p><br><ul class=" list-paddingleft-2"><br><li>嵌入外部资源</li><br><li>&lt;object type=”插件类型”&gt;</li><br><li>&lt;prame name=”插件参数”&gt; &lt;/object&gt;</li><br><li>&lt;embed type=”插件类型” src=”插件地址”&gt;</li><br></ul><br><p>四:iframe</p><br><ul class=" list-paddingleft-2"><br><li>嵌入页面</li><br><li>&lt;iframe src=”url”&gt;</li><br></ul><br><p>五:video</p><br><ul class=" list-paddingleft-2"><br><li>&lt;video poster=”封面”&gt;</li><br><li>&lt;source src=”url”&gt; &lt;/video&gt;</li><br><li>&lt;track&gt;引入视频字幕</li><br></ul><br><p>六:图</p><br><ul class=" list-paddingleft-2"><br><li>canvas 像素</li><br><li>svg 矢量</li><br><li>热点区域<br><p>-map</p><br><p>-area</p></li><br></ul>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-74ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/74ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/74ver/">HTML之表格、表单、语义化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>表格</strong></p><br><p>一:类型</p><br><ul class=" list-paddingleft-2"><br><li>table:表格</li><br><li>caption:标题</li><br><li>thead:头部</li><br><li>tbody:内容</li><br><li>tfoot:尾部</li><br><li>th:表头单元格</li><br><li>&lt;td colspan=”跨列”&gt;</li><br><li>&lt;th rowspan=”跨行”&gt;</li><br></ul><br><p>二:表单</p><br><ul class=" list-paddingleft-2"><br><li>&lt;form action=”后台地址” method=”post”&gt;:最外层</li><br><li>fieldset:分区</li><br><li>legend:分区标题</li><br><li>input type=”file” 文件<br><p>-=”checkbox”多选</p><br><p>-=”radio”单选</p><br><p>-=”text”:文本框</p><br><p>-=”submit”:提交</p><br><p>-=”reset”:重置</p></li><br><li>select:下拉列表<br><p>-option:下拉列表选项</p></li><br><li>textarea:多行文本框</li><br></ul><br><p>三:表单属性</p><br><ul class=" list-paddingleft-2"><br><li>disabled:禁止操作</li><br><li>selelted:默认选择</li><br><li>checked:选中</li><br><li>hidden:隐藏</li><br><li>readonly:只读</li><br><li>placeholder:默认提示信息</li><br></ul><br><p>四:HTML5 TYPE</p><br><ul class=" list-paddingleft-2"><br><li>email</li><br><li>url</li><br><li>tel</li><br><li>number</li><br><li>range</li><br><li>…</li><br></ul><br><p><strong>语义化</strong></p><br><p>一:用正确标签来描述</p><br><p>二:作用</p><br><ul class=" list-paddingleft-2"><br><li>利于SEO</li><br><li>可访问性</li><br><li>可读性</li><br></ul><br><p>​</p><br><p>三:实体字符:参考百度百科即可。</p>
 
 
 

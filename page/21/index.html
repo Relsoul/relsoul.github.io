@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-42ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-45ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/42ver/" class="article-date">
+      <a href="/2015/10/21/45ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/42ver/">DOM编程艺术之事件流</a>
+      <a class="article-title" href="/2015/10/21/45ver/">论如何使用jQuery插件flickity设计响应式幻灯片插件效果</a>
     </h1>
   
 
@@ -219,20 +219,111 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">一DOM事件<br>        -事件流<br>        -事件注册<br>        -事件对象<br>        -事件分类<br>        -事件代理</pre></p>
-<pre><code>二什么是DOM事件
-    -<span class="ruby">点击一个<span class="constant">DOM</span>元素
-</span>    -<span class="ruby">键盘按下一个健
-</span>    -<span class="ruby">输入框输入内容
-</span>    -<span class="ruby">页面加载完毕
-</span>
-三:事件流
-    -<span class="ruby">capture phase /<span class="regexp">/事件捕获
-</span></span>        -<span class="ruby"><span class="regexp">从window往下捕获到触发节点的父元素
-</span></span>    -<span class="ruby"><span class="regexp">target phase/</span><span class="regexp">/事件触发
-</span></span>        -<span class="ruby"><span class="regexp">目标节点的触发过程
-</span></span>    -<span class="ruby"><span class="regexp">bubble phase/</span><span class="regexp">/事件冒泡
-</span></span>        -<span class="ruby"><span class="regexp">从当前事件节点的父节点冒泡到window&lt;/pre</span>&gt;</span>
+        <p></p><p>发自:<a href="http://www.gbtags.com/gb/share/5553.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5553.htm</a></p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><p>最终实现效果如下哈~~</p><p></p>
+<p></p><p><img src="http://www.gbtags.com/gb/networks/uploadimg/ca44e095-39a0-46e6-a026-d7c0f1e13638.gif" data-original="http://www.gbtags.com/gb/networks/uploadimg/ca44e095-39a0-46e6-a026-d7c0f1e13638.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500"></p><p></p>
+<p></p><p>这次给大家推荐一个比较好用的响应式幻灯片,值得一提的是此库不仅仅支持图片的一个幻灯效果,也支持div的幻灯效果,大家可以利用这库实现很多炫酷的效果,具体的看演示吧.</p><p></p>
+<p><blockquote><p>官网: <a href="http://flickity.metafizzy.co/" target="_blank" rel="external">http://flickity.metafizzy.co/</a></p></blockquote></p>
+<p></p><p>浏览器支持:<strong>IE8+</strong>,Android 2.3+, iOS Safari 5+, chrome,FF…</p><p></p>
+<p></p><p><strong>快速入门</strong></p><p></p>
+<p></p><p>如何引入. flickity库？</p><p></p>
+<div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://flickity.metafizzy.co/flickity.css" target="_blank" rel="external">http://flickity.metafizzy.co/flickity.css</a>“</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js" target="_blank" rel="external">http://cdn.gbtags.com/jquery/2.1.1/jquery.min.js</a>“</span><span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L2"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://flickity.metafizzy.co/flickity.pkgd.min.js" target="_blank" rel="external">http://flickity.metafizzy.co/flickity.pkgd.min.js</a>“</span><span class="tag">&gt;&lt;/script&gt;</span></li><br></ol><br></div><br></div><br><p>结合jquery来使用该库如下例</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln"> $</span><span class="pun">(“</span><span class="com">#box_img”).flickity({</span></li><br><li class="L1"><span class="pln"> cellAlign</span><span class="pun">:</span><span class="pln">left</span></li><br><li class="L2"><span class="pun">})</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>不结合jquery来使用该库如下例</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> elem </span><span class="pun">=</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">querySelector</span><span class="pun">(</span><span class="str">‘.main-gallery’</span><span class="pun">);</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> flkty </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Flickity</span><span class="pun">(</span><span class="pln"> elem</span><span class="pun">,</span> <span class="pun">{</span></li><br><li class="L2"><span class="pln"> cellAlign</span><span class="pun">:</span> <span class="str">‘left’</span><span class="pun">,</span></li><br><li class="L3"><span class="pln"> contain</span><span class="pun">:</span> <span class="kwd">true</span></li><br><li class="L4"><span class="pun">});</span></li><br><li class="L5"><span class="pln"> </span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> flkty </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Flickity</span><span class="pun">(</span> <span class="str">‘.main-gallery’</span><span class="pun">,</span> <span class="pun">{</span></li><br><li class="L7"><span class="com">// options</span></li><br><li class="L8"><span class="pun">});</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>下例教程皆结合jquery来进行演示</p><br><p>HTML</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“main_box”</span> <span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_1”</span><span class="tag">&gt;</span><span class="pln">1</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_2”</span><span class="tag">&gt;</span><span class="pln">2</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L3"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“img_3”</span><span class="tag">&gt;</span><span class="pln">3</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L4"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br></div><br><p>CSS</p><br></div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">.</span><span class="pln">img_1</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L2"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L4"></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pun">.</span><span class="pln">img_2</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L9"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L0"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L1"></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="pln"> </span></li><br><li class="L4"><span class="pun">.</span><span class="pln">img_3</span><span class="pun">{</span></li><br><li class="L5"><span class="pln"> width</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> height</span><span class="pun">:</span><span class="lit">100</span><span class="pun">%;</span></li><br><li class="L7"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="com">#478484;</span></li><br><li class="L8"></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">main_box</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">400px</span><span class="pun">;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p><strong>JS</strong></p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">“.main_box”</span><span class="pun">).</span><span class="pln">flickity</span><span class="pun">({</span></li><br><li class="L1"></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pln"> contain</span><span class="pun">:</span><span class="kwd">true</span></li><br><li class="L4"></li><br><li class="L5"><span class="pln"> </span></li><br><li class="L6"><span class="pun">})</span></li><br></ol><br></div><br></div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln"> </span></li><br></ol><br></div><br></div><br></div><br></div><br><p>flickity库支持在HTML直接写相关属性如</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“gallery gallery-nav js-flickity”</span> <span class="atn">data-flickity-options</span><span class="pun">=</span><span class="atv">‘{ “asNavFor”: “.gallery-main”, “contain”: true, “pageDots”: false }’</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“gallery-cell”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p><strong>PS：如果只打算使用幻灯片的看到这就可以Ctrl+W了 下面是详细的方法属性介绍</strong></p><br><p>&nbsp;</p><br><p>详细属性与方法介绍</p><br><p>-详细了解请点击文章底部的代码书写录像及其预览</p><br><p>flickity库属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">循环滚动</span></li><br><li class="L1"><span class="pln">wrapAround</span><span class="pun">:</span> <span class="kwd">true</span><span class="pun">|</span><span class="kwd">false</span></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pun">自由滚动</span></li><br><li class="L4"><span class="pln">freeScroll</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">是否显示上下切换条</span></li><br><li class="L7"><span class="pln">prevNextButtons</span><span class="pun">:</span> <span class="kwd">false</span><span class="pun">,</span></li><br><li class="L8"><span class="pln"> </span></li><br><li class="L9"><span class="pun">是否显示小圆点导航</span></li><br><li class="L0"><span class="pln">pageDots</span><span class="pun">:</span> <span class="kwd">false</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="pun">自动播放,</span><span class="lit">1500</span><span class="pun">毫秒切换下一图片</span></li><br><li class="L3"><span class="pln">autoPlay</span><span class="pun">:</span> <span class="lit">1500</span> <span class="com">//设置为true默认为3s</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="pun">设定幻灯片从第几张开始</span></li><br><li class="L6"><span class="pln">initialIndex</span><span class="pun">:</span><span class="lit">1</span> <span class="com">//设定幻灯片从第几张开始 从0开始计数</span></li><br><li class="L7"><span class="pln"> </span></li><br><li class="L8"><span class="pun">是否启用键盘切换</span></li><br><li class="L9"><span class="pln">accessibility</span><span class="pun">:</span> <span class="kwd">true</span><span class="pun">,</span><span class="com">//是否启用键盘切换 默认true</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pun">幻灯片高度设置</span></li><br><li class="L2"><span class="pln">setGallerySize</span><span class="pun">:</span> <span class="kwd">true</span><span class="com">//默认使用最高的图片作为幻灯片的高度,设置为false则使用幻灯片定义高度</span></li><br><li class="L3"><span class="pln"> </span></li><br><li class="L4"><span class="pun">幻灯片播放位置</span></li><br><li class="L5"><span class="pln">rightToLeft</span><span class="pun">:</span> <span class="kwd">true</span><span class="com">//从右至左播放幻灯片</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pun">预览导航设置</span></li><br><li class="L8"><span class="com">//创建一个新的预览导航幻灯片</span></li><br><li class="L9"><span class="pln"> $</span><span class="pun">(</span><span class="str">“.main_box_nav”</span><span class="pun">).</span><span class="pln">flickity</span><span class="pun">({</span></li><br><li class="L0"><span class="pln"> asNavFor</span><span class="pun">:</span> <span class="str">‘.main_box’</span><span class="pun">,</span> <span class="com">//指向主幻灯片</span></li><br><li class="L1"><span class="pln"> pageDots</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">,</span></li><br><li class="L2"><span class="pln"> contain</span><span class="pun">:</span><span class="kwd">true</span></li><br><li class="L3"><span class="pun">})</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="com">/<em>预览导航样式</em>/</span></li><br><li class="L6"><span class="pun">.</span><span class="pln">main_box_nav</span><span class="pun">{</span></li><br><li class="L7"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">300px</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"></li><br><li class="L0"><span class="com">/<em>预览导航样式选中状态</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">main_box_nav </span><span class="pun">.</span><span class="pln">nav</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">nav</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#65ce65;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br></ol><br></div><br></div><br><p>flickity库样式</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">幻灯片高度为最高图片的高度</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">gallery</span><span class="pun">-</span><span class="pln">cell </span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">160px</span><span class="pun">;</span></li><br><li class="L4"><span class="pln"> margin</span><span class="pun">-</span><span class="pln">right</span><span class="pun">:</span> <span class="lit">10px</span><span class="pun">;</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="pln"> </span></li><br><li class="L7"><span class="pln"> </span></li><br><li class="L8"><span class="pun">通过设置</span><span class="pln"> elem</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{}来设置选中图片的样式</span></li><br><li class="L9"><span class="pun">.</span><span class="pln">img_2</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected</span><span class="pun">{</span></li><br><li class="L0"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#b2b3b4;</span></li><br><li class="L1"><span class="pun">}</span></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="pun">上下切换条箭头样式设置</span></li><br><li class="L4"><span class="com">/<em>上下切换条箭头背景颜色设置</em>/</span></li><br><li class="L5"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">prev</span><span class="pun">-</span><span class="kwd">next</span><span class="pun">-</span><span class="pln">button</span><span class="pun">{</span></li><br><li class="L6"><span class="pln"> background</span><span class="pun">-</span><span class="pln">color</span><span class="pun">:</span><span class="pln">red</span><span class="pun">;</span></li><br><li class="L7"><span class="pln"> border</span><span class="pun">-</span><span class="pln">radius</span><span class="pun">:</span> <span class="lit">8px</span><span class="pun">;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"></li><br><li class="L0"><span class="com">/<em>上下切换条箭头颜色设置</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">prev</span><span class="pun">-</span><span class="kwd">next</span><span class="pun">-</span><span class="pln">button </span><span class="pun">.</span><span class="pln">arrow</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> fill</span><span class="pun">:</span><span class="pln">blue</span><span class="pun">;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="pun">小圆点导航条设置</span></li><br><li class="L6"><span class="com">/<em>小圆点导航条整体设置</em>/</span></li><br><li class="L7"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> bottom</span><span class="pun">:</span> <span class="lit">0px</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="com">/<em>小圆点导航原点设置</em>/</span></li><br><li class="L2"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">.</span><span class="pln">dot </span><span class="pun">{</span></li><br><li class="L3"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">12px</span><span class="pun">;</span></li><br><li class="L4"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">12px</span><span class="pun">;</span></li><br><li class="L5"><span class="pln"> opacity</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">;</span></li><br><li class="L6"><span class="pln"> background</span><span class="pun">:</span><span class="pln"> transparent</span><span class="pun">;</span></li><br><li class="L7"><span class="pln"> border</span><span class="pun">:</span> <span class="lit">2px</span><span class="pln"> solid </span><span class="com">#fff;</span></li><br><li class="L8"><span class="pun">}</span></li><br><li class="L9"><span class="pln"> </span></li><br><li class="L0"><span class="com">/<em>选中小圆点设置</em>/</span></li><br><li class="L1"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">page</span><span class="pun">-</span><span class="pln">dots </span><span class="pun">.</span><span class="pln">dot</span><span class="pun">.</span><span class="kwd">is</span><span class="pun">-</span><span class="pln">selected </span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> background</span><span class="pun">:</span> <span class="com">#887e8e;</span></li><br><li class="L3"><span class="pun">}</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="com">/<em>选择幻灯片时的轮廓线设置</em>/</span></li><br><li class="L6"><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">enabled</span><span class="pun">:</span><span class="pln">focus </span><span class="pun">.</span><span class="pln">flickity</span><span class="pun">-</span><span class="pln">viewport </span><span class="pun">{</span></li><br><li class="L7"><span class="pln"> outline</span><span class="pun">:</span><span class="pln"> thin dotted</span><span class="pun">;</span></li><br><li class="L8"><span class="pln"> outline</span><span class="pun">:</span> <span class="lit">5px</span> <span class="kwd">auto</span> <span class="pun">-</span><span class="pln">webkit</span><span class="pun">-</span><span class="pln">focus</span><span class="pun">-</span><span class="pln">ring</span><span class="pun">-</span><span class="pln">color</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>基本上flickity库的样式和方法都介绍完毕了,如需了解flickity库的API请转至</p><br><blockquote><p><a href="http://flickity.metafizzy.co/api.html" target="_blank" rel="external">http://flickity.metafizzy.co/api.html</a></p></blockquote><br></div><br><div><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtreplayerpreview/1012.htm"></iframe>&nbsp;<p></p><br><div><br><blockquote><p>代码书写录像及其预览：<a href="http://www.gbtags.com/gb/rtreplayerpreview/1012.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1012.htm</a></p></blockquote><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-44ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/44ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/44ver/">DOM编程艺术之属性操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true  ">一:每个HTML属性对应相应的DON属性</pre></p>
+<pre><code>二:属性访问器之读取
+    -<span class="ruby">input.className/<span class="regexp">/获取class
+</span></span>    -<span class="ruby"><span class="regexp">input["id"]/</span><span class="regexp">/获取id
+</span></span>
+三:属性访问器之写入
+    -<span class="ruby"><span class="regexp">input.value="xxx"/</span><span class="regexp">/设置value属性
+</span></span>    -<span class="ruby"><span class="regexp">input.disabled=true/</span><span class="regexp">/禁用输入框
+</span></span>
+四:属性访问器之类型
+    -<span class="ruby"><span class="regexp">input.disabled/</span><span class="regexp">/boolean
+</span></span>    -<span class="ruby"><span class="regexp">input.id/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.onclick/</span><span class="regexp">/function
+</span></span>    -<span class="ruby"><span class="regexp">转换过的实用对象
+</span></span>    -<span class="ruby"><span class="regexp">通用性差-名字异常
+</span></span>    -<span class="ruby"><span class="regexp">扩展性差
+</span></span>    -<span class="ruby"><span class="regexp">去到的是实用对象/</span><span class="regexp">/经过转化的 如string-number
+</span></span>
+五:attribute之读取
+    -<span class="ruby"><span class="regexp">input.getAttribute("class")/</span><span class="regexp">/获取到class
+</span></span>
+六:attribute之写入
+    -<span class="ruby"><span class="regexp">input.setAttribute("value", "test")/</span><span class="regexp">/修改value值
+</span></span>    -<span class="ruby"><span class="regexp">input.setAttribute("disabled", "")/</span><span class="regexp">/disavle true 出现就为true
+</span></span>
+七:attribute之类型
+    -<span class="ruby"><span class="regexp">input.getAttribute('onclick')/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("disabled")/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">input.getAttribute("maxlength")/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">仅仅是字符串
+</span></span>
+八:实例
+    -<span class="ruby"><span class="regexp">button.disabled=true;
+</span></span>    -<span class="ruby"><span class="regexp">button.setAttribute('class', 'disabled')
+</span></span>
+九:dataset
+    -<span class="ruby"><span class="regexp">data-*属性集
+</span></span>    -<span class="ruby"><span class="regexp">元素上保存数据
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset/</span><span class="regexp">/返回html上以data-开头的属性值 返回的是一个对象
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset.name/</span><span class="regexp">/string
+</span></span>    -<span class="ruby"><span class="regexp">div.dataset.email/</span><span class="regexp">/string&lt;/pre</span>&gt;</span>
 </code></pre><p>&nbsp;</p>
 
 
@@ -262,10 +353,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-64ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-43ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/64ver/" class="article-date">
+      <a href="/2015/10/21/43ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -279,7 +370,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/64ver/">页面制作之CSS布局</a>
+      <a class="article-title" href="/2015/10/21/43ver/">DOM编程艺术之样式操作</a>
     </h1>
   
 
@@ -288,7 +379,40 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code class="brush:css;toolbar:false"> CSS布局<br><br>布局-元素的摆放模式</code></p><br><p>一: display //设置元素的显示方式<br><br>-block<br><br>-块级元素<br><br>-默认宽度为父元素宽度<br><br>-可设置宽高<br><br>-换行显示<br><br>-默认display:div,p,h1-h6,ul,form<br><br>-inline<br><br>-默认宽度为内容宽度<br><br>-不可设置宽高<br><br>-同行显示<br><br>-默认inline:span,a,label,cite,em</p><br><p>-inline-block<br><br>-默认宽度为内容宽度<br><br>-可设置宽高<br><br>-同行显示<br><br>-整块换行<br><br>-默认inline-block:input,textarea,select,button</p><br><p>-none<br><br>-设置元素不显示<br><br>-visibility：hidden //仍然在页面占据空间</p><br><p>二:块级元素水平居中<br><br>-margin:auto;width:978px;</p><br><p>三:居中导航<br><br>-通过ul li来设置HTML<br><br>-ul{text-align:center;height:30px;line-height:30px;}<br><br>-li,a{display:inline-block;width:80px;height:100%;}<br><br>——————————————————————————–<br><br>四:position 定位<br><br>-top,right,bottom,left,z-index -设置位置<br><br>-没有设置宽高 那么设置Position会被撑开<br><br>-元素边缘边缘距离参造物边缘的距离<br><br>-z-index<br><br>-Z轴上的排序<br><br>-z-index栈<br><br>-子级元素的Z-index是参考于父级的Z-index</p><br><p>五:position<br><br>-static|relative|absolute|fixed<br><br>-positon:relative;//相对定位<br><br>-仍在文档流中<br><br>-参造物为元素本身<br><br>-使用场景:绝对定位的参造物<br><br>-positon:absolute;//绝对定位<br><br>-默认宽度为内容宽度<br><br>-脱离了文档流<br><br>-参造物为第一个定位祖先/根元素<br><br>-position:fixed //固定定位<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-参造物为视窗</p><br><p>六:遮罩<br><br>-position:fixed;z-index:999;height:100%;width:100%</p><br><p>七:三行自适应布局<br><br>-.body{position:absolute;top:100px;left:0;bottom:100px;right:0;oveflow:auto}</p><br><p>八:float<br><br>-left|right|<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-向指定方向一直移动<br><br>-float的元素在同一文档流中<br><br>-float元素半脱离文档流<br><br>-对元素，脱离文档流;对内容，在文档流</p><br><p>九:clear<br><br>- both|left|right<br><br>-应用于后续元素<br><br>-应用于后续元素<br><br>-clearfix:after{content:”.”;display:block;clear:both;oveflow:hidden;}//在父级上加</p><br><p>十:两列布局<br><br>-边栏向右浮动,主栏向左浮动,给父级元素加上清除clearfix</p><br><p>三行自适应布局(position)+两列布局(flot)-&gt;两列自适应布局</p><br><p>十一:Flex布局(弹性布局)<br><br>-flex container 内容<br><br>-flex item 元素<br><br>-main axis 主轴<br><br>-cross axis 副轴</p><br><p>十二:flex item<br><br>-在文档流中的子元素 (position 除外) float也算文档流 ,子元素的子元素也除外</p><br><p>十三:flex-direction 方向<br><br>-row(行)|row-reverse(反向行)|column(列)|column-reverse(反向列)</p><br><p>十四:flex-wrap 换行<br><br>-nowarp|warp|wrap-reverse</p><br><p>十五:flex-flow 一次性设置方向与换行<br><br>-&lt;flex-direction&gt;||&lt;flex-wrap&gt;</p><br><p>十六:order 排列顺序<br><br>-order:&lt;number&gt;<br><br>-initial:0</p><br><p>十七:flex-basis 弹性基准<br><br>-设置flex item的初始宽/高<br><br>-flex-basis:main-size|&lt;width&gt;</p><br><p>十八:flex-grow 分配到剩余空间的比例 考虑flex-basis<br><br>-flex-grow:&lt;number&gt;<br><br>-initial:0</p><br><p>弹性布局元素宽度:flex-basis+flow-grow/sum(flow-grow)<em>remain</em></p><br><p>十九:flex-shrink 设置或检索弹性盒的收缩比率。<br><br>-flex-shrink:&lt;number&gt;<br><br>-initial:1<br><br>弹性布局元素宽度:flex-basis+flex-shrink/sum(flow-grow)remain</p><br><p>二十:flex<br><br>-&lt;flex-grow&gt;||&lt;flex-shrink&gt;||&lt;flex-basis&gt;<br><br>伸展因子 收缩因子 基准</p><br><p>二十一:justify-content 对齐剩余空间分配<br><br>-flex-start|flex-end|center|space-between|space-around</p><br><p>二十二:align-items<br><br>-设置cross-axis方向上对齐方式</p><br><p>二十三:align-self<br><br>-设置单个flex item在cross-axis方向上对齐方式</p><br><p>二十四:align-content<br><br>-设置cross-axis方向上行对齐方式</p><br><p>​</p>
+        <p><pre class="lang:default decode:true ">一:CSS-DOM<br>        -element.sheet// &lt;link href=”base.css”&gt;<br>        -element.sheet// &lt;style&gt;p{}&lt;/style&gt;<br>        -element.style//内联样式<br>        -element.sheet.cssRules[1].style//CSS规则<br>        -element.sheet.cssRules[1].selectorText//选择器<br>        -element.sheet.cssRules[1].style.lineHeight//element的行高<br>        -element.style.color//内联样式声明</pre></p>
+<pre><code>二:更新样式
+    -<span class="ruby">element.style更新利弊
+</span>        -<span class="ruby">更新一个属性需要一条语句
+</span>        -<span class="ruby">不是我们熟悉的<span class="constant">CSS</span>
+</span>        -<span class="ruby">样式混在逻辑中
+</span>    -<span class="ruby">element.style.cssText
+</span>        -<span class="ruby">element.style.cssText=<span class="string">"border-color:red;color:red"</span>/<span class="regexp">/创建的是内联样式
+</span></span>
+三:更新Class
+    -<span class="ruby"><span class="regexp">element.calssName+="invalid";/</span><span class="regexp">/推荐方法
+</span></span>    -<span class="ruby"><span class="regexp">不适用于一次更新很多元素样式
+</span></span>
+四:更换样式表
+    -<span class="ruby"><span class="regexp">&amp;lt;link href="xxx.css"&amp;gt;/</span><span class="regexp">/修改link
+</span></span>
+五:获取样式
+    -<span class="ruby"><span class="regexp">element.style/</span><span class="regexp">/只能获取到内联的样式 获取到的不一定是实际样式
+</span></span>    -<span class="ruby"><span class="regexp">var style=window.getComputedStyle(element).color/</span><span class="regexp">/获取到的实际样式包括内联样式修改后的实际样式
+</span></span>    -<span class="ruby"><span class="regexp">IE9-使用element.currentStyle/</span><span class="regexp">/兼容
+</span></span>
+六:CSS DOM overview
+    -<span class="ruby"><span class="regexp">StyleSheetList
+</span></span>        |            CSSStyleSheet
+        |                cssRules---CSSRuleList
+        |                        Style            -CSSStyleDeclaration
+        |                |        selectorText            color
+        |                |        
+        |                |
+        |                |
+        |                link.sheet   style.sheet
+        |
+    document.styleSheets&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -317,11 +441,11 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-7ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-41ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/7ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+      <a href="/2015/10/21/41ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -334,7 +458,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/7ver/">媒体查询:支持不同的视口</a>
+      <a class="article-title" href="/2015/10/21/41ver/">DOM编程艺术之事件注册</a>
     </h1>
   
 
@@ -343,9 +467,48 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><h1>媒体查询:支持不同的视口</h1><p></p>
-<p></p><h3><a id="user-content-支持程度" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#支持程度" target="_blank" rel="external"></a>支持程度</h3><p></p>
-<p>IE9+,FF3.6+,Chrome4+,Safari4+,Oprea9.5+,Android2.1+,IOS safari3.2+</p><br><h3><a id="user-content-媒体查询能检测的特效摘选" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询能检测的特效摘选" target="_blank" rel="external"></a>媒体查询能检测的特效(摘选)</h3><br><ul><br><li>width:视口宽度</li><br><li>height:视口高度</li><br><li>device-width:设备屏幕宽度</li><br><li>device-height:设备屏幕高度</li><br><li>orientation:设备处于横向还是纵向</li><br></ul><br><h3><a id="user-content-一个媒体查询" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#一个媒体查询" target="_blank" rel="external"></a>一个媒体查询</h3><br><pre><code>//import 会增加HTTP请求，影响加载速度<br>//屏幕宽度在200px-360px之间<br>import url(“phone.css”) screen and (min-width:200px) and (max-width:360px);<br></code></pre><br><h3><a id="user-content-低版本兼容库" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#低版本兼容库" target="_blank" rel="external"></a>低版本兼容库</h3><br><p>Respond.js为IE8以及更低版本增加媒体查询功能</p><br><h3><a id="user-content-从固定设计着手" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#从固定设计着手" target="_blank" rel="external"></a>从固定设计着手</h3><br><p>从固定的960px设计开始设计window的效果,同时保持设计中图片的精简</p><br><h3><a id="user-content-阻止浏览器自动调整页面大小" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#阻止浏览器自动调整页面大小" target="_blank" rel="external"></a>阻止浏览器自动调整页面大小</h3><br><pre><code>//放大两倍的设备屏幕宽度效果<br>//initial-scale=2.0 放大两倍<br>//width=device-width 设备宽度<br>&lt;meta name=”viewport” content=”initial-scale=2.0,width=device-width”&gt;<br></code></pre><br><p>控制可缩放范围与禁止缩放</p><br><pre><code>//maxinum-scale=3 用户最大调整缩放为3倍<br>//minimun-scale=0.5 用户最小调整缩放为0.5倍<br>//user-scalable=no 禁止用户缩放<br>&lt;meta name=”viewport” content=”maxinum-scale=3,minimun-scale=0.5,width=device-width，user-scalable=no”&gt;<br></code></pre><br><h3><a id="user-content-针对不同的视口宽度修正设计" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#针对不同的视口宽度修正设计" target="_blank" rel="external"></a>针对不同的视口宽度修正设计</h3><br><pre><code>//最大宽度为768px的设备进行调整<br>@media  screen and (max-width: 768px) {<br>                #nav{<br>                //do sth<br>                }<br>            }<br></code></pre><br><h3><a id="user-content-响应式设计中内容始终优先" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#响应式设计中内容始终优先" target="_blank" rel="external"></a>响应式设计中内容始终优先</h3><br><p>多平台多视口的情况下保留尽可能多的内容，而不是使用display:none或者类似的方法来隐藏内容</p><br><h3><a id="user-content-媒体查询只是必要条件之一" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#媒体查询只是必要条件之一" target="_blank" rel="external"></a>媒体查询只是必要条件之一</h3><br><p>媒体查询只能根据设备特性应用对应的样式.一但超出应用样式的范围，媒体查询将无法生效如上面那段代码 如果屏幕宽度大于768px那么将无法生效</p><br><h3><a id="user-content-我们需要流动布局" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2#我们需要流动布局" target="_blank" rel="external"></a>我们需要流动布局</h3><br><p>如果针对已知的特定访问设备，可以单独使用媒体查询来制作理想的设计效果，我们已经见过配适768px有多简单，但是这种策略有严重的缺陷，换句话说，它不能适应未来的变换。 目前的效果更像是一个自适应，而不是我们想要的响应式。我们设计应该在突变之前保持灵动.</p>
+        <p><pre class="lang:default decode:true ">一:事件注册<br>        -addEventListener(type, listener)//注册事件 默认为冒泡过程<br>        -使用element.onclick// 只能注册一个函数</pre></p>
+<pre><code>二:取消事件注册
+    -<span class="ruby">removeEventListener(type, listener)
+</span>    -<span class="ruby">element.onclick=null/<span class="regexp">/不推荐
+</span></span>
+三:事件触发
+    -<span class="ruby"><span class="regexp">dispatchEvent(event)/</span><span class="regexp">/触发事件
+</span></span>    -<span class="ruby"><span class="regexp">element.dispatchEvent('click')
+</span></span>
+四:浏览器兼容型
+    -<span class="ruby"><span class="regexp">事件注册与取消
+</span></span>        -<span class="ruby"><span class="regexp">attachEvent/detach</span>Event
+</span>    -<span class="ruby">事件触发
+</span>        -<span class="ruby">fireEvent(e)
+</span>    -<span class="ruby">no capture /<span class="regexp">/无捕获阶段
+</span></span>
+    var addEvent=document.addEventListener?function(elem,type,lis,useca){
+        elem.addEventListener(type,lis,useca)
+    }:function(elem,type,lis,useca){
+        elem.attachEvent('on'+type+lis)
+    }
+    -<span class="ruby"><span class="regexp">事件取消同上
+</span></span>
+五:事件对象
+    -<span class="ruby"><span class="regexp">var click=function(event){
+</span></span>
+    }
+    -<span class="ruby"><span class="regexp">IE低版本
+</span></span>        -<span class="ruby"><span class="regexp">var click=function(event){
+</span></span>            event=event||window.event
+        }
+    -<span class="ruby"><span class="regexp">属性
+</span></span>        -<span class="ruby"><span class="regexp">type /</span><span class="regexp">/事件类型
+</span></span>        -<span class="ruby"><span class="regexp">target(srcElement)/</span><span class="regexp">/目标元素
+</span></span>        -<span class="ruby"><span class="regexp">currentTarget/</span><span class="regexp">/父节点的元素
+</span></span>    -<span class="ruby"><span class="regexp">方法
+</span></span>        -<span class="ruby"><span class="regexp">stopPropagation/</span><span class="regexp">/阻止冒泡
+</span></span>            -<span class="ruby"><span class="regexp">event.cancelBubble=true /</span><span class="regexp">/IE
+</span></span>            -<span class="ruby"><span class="regexp">event.stopImmediatePropagation/</span><span class="regexp">/阻止本身和子节点事件传播
+</span></span>        -<span class="ruby"><span class="regexp">preventDefault/</span><span class="regexp">/阻止默认行为
+</span></span>            -<span class="ruby"><span class="regexp">returnValue=false /</span><span class="regexp">//</span><span class="constant">IE</span>&lt;<span class="regexp">/pre&gt;</span></span>
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -374,10 +537,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-5ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-28ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/5ver/" class="article-date">
+      <a href="/2015/10/21/28ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -391,7 +554,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/5ver/">第一个练手之作-soul笔记本</a>
+      <a class="article-title" href="/2015/10/21/28ver/">做个简单的本地弹幕播放器</a>
     </h1>
   
 
@@ -400,7 +563,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>预览:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%AC%94%E8%AE%B0%E6%9C%AC/</a></p><br><p>代码写的很渣.目前正在努力学习~</p>
+        <p></p><h1><strong>推荐跳转至此链接观看<a href="http://www.gbtags.com/gb/share/5769.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5769.htm</a></strong></h1><p></p>
+<p>&nbsp;</p><br><div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/20b7f765-e655-47ee-ab8c-89b04009c00b.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>前言</p><br><ul><br><li>本文仅仅是做一个简单的弹幕播放器</li><br><li>本文弹幕播放器仅仅是演示一下发送弹幕功能</li><br><li>请跳转本文底部的在线调试代码进行调试</li><br></ul><br></blockquote><br><p>最终实现效果如下:</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Okay.首先你得找到一个弹幕开源库就是这个啦:<a href="https://github.com/jabbany/CommentCoreLibrary" target="_blank" rel="external">https://github.com/jabbany/CommentCoreLibrary</a></p><br><p>其次你得准备好一个HTML文件 准备完后lets do it</p><br><p>&nbsp;</p><br><p>引入两个重要的弹幕开源库文件 这里用了我blog的文件</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/CommentCoreLibrary.js" target="_blank" rel="external">http://www.old.com/cdn/CommentCoreLibrary.js</a>“</span> <span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L1"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/style.css" target="_blank" rel="external">http://www.old.com/cdn/style.css</a>“</span><span class="tag">/&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>编写好HTML 结构</p><br><p>这里解释一下这个弹幕开源库必须要一个HTML结构也就是</p><br><p>这两个结构是必须的 且class为abp和container也是不能改变的 这点从开源库的css文件就可以看出</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>添加一些视频元素和一个表单元素 HTML就okay了</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;video</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“abpVideo”</span> <span class="atn">poster</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg" target="_blank" rel="external">http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg</a>“</span> <span class="atn">controls</span><span class="pun">=</span><span class="atv">“none”</span><span class="tag">&gt;</span></li><br><li class="L2"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/mp4”</span><span class="tag">&gt;</span></li><br><li class="L3"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/webm”</span><span class="tag">&gt;</span></li><br><li class="L4"><span class="tag">&lt;p</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“warning”</span><span class="tag">&gt;</span><span class="pln">Your browser does not support HTML5 video.</span><span class="tag">&lt;/p&gt;</span></li><br><li class="L5"><span class="tag">&lt;/video&gt;</span></li><br><li class="L6"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L7"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“controls”</span><span class="tag">&gt;</span></li><br><li class="L8"><span class="tag">&lt;form</span> <span class="atn">action</span><span class="pun">=</span><span class="atv">“”</span><span class="tag">&gt;</span></li><br><li class="L9"><span class="tag">&lt;p&gt;</span><span class="pln">选择颜色:</span><span class="tag">&lt;select</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“chose”</span><span class="tag">&gt;</span></li><br><li class="L0"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xff0000”</span><span class="tag">&gt;</span><span class="pln">红色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L1"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0x7fff00”</span><span class="tag">&gt;</span><span class="pln">绿色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L2"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xffff56”</span><span class="tag">&gt;</span><span class="pln">黄色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L3"><span class="tag">&lt;/select&gt;</span></li><br><li class="L4"><span class="pln"> 输入内容:</span><span class="tag">&lt;input</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“”</span> <span class="tag">/&gt;</span> <span class="tag">&lt;button</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“send”</span><span class="tag">&gt;</span><span class="pln">发送</span><span class="tag">&lt;/button&gt;</span></li><br><li class="L5"><span class="tag">&lt;/p&gt;</span></li><br><li class="L6"><span class="tag">&lt;/form&gt;</span></li><br><li class="L7"><span class="tag">&lt;/div&gt;</span></li><br><li class="L8"></li><br><li class="L9"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p>设置一下CSS达到全屏的效果</p><br><p>这里说我遇到一个坑.在绘制的div也就是id=”commentCanvas” 他的css属性为position:absolute z-index=999 所以会覆盖在视频文件上方导致视频文件进度条无法按 -  -于是这里我采用了设置id=”commentCanvas”的height=80%来达到效果。当然肯定有更好的解决办法，希望大家能够踊跃讨论下。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;style</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> html</span><span class="pun">,</span><span class="pln">body</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L4"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pln"> body</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> overflow</span><span class="pun">-</span><span class="pln">y</span><span class="pun">:</span><span class="pln">scroll</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">container</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">90</span><span class="pun">%;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="com">#abpVideo{</span></li><br><li class="L4"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L5"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="pun">.</span><span class="pln">controls</span><span class="pun">{</span></li><br><li class="L9"><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="tag">&lt;/style&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>设置一些js属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">‘load’</span><span class="pun">,</span> <span class="kwd">function</span> <span class="pun">()</span> <span class="pun">{</span></li><br><li class="L2"><span class="com">// 在窗体载入完毕后再绑定</span></li><br><li class="L3"><span class="kwd">function</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">id</span><span class="pun">){</span></li><br><li class="L4"><span class="kwd">return</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> CM </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">CommentManager</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘commentCanvas’</span><span class="pun">));</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">init</span><span class="pun">();</span></li><br><li class="L8"><span class="com">// 先启用弹幕播放（之后可以停止）</span></li><br><li class="L9"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li><br><li class="L0"><span class="com">// 开放 CM 对象到全局这样就可以在 console 终端里操控</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">CM </span><span class="pun">=</span><span class="pln"> CM</span><span class="pun">;</span></li><br><li class="L2"><span class="com">//创建弹幕列表对象</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> list</span><span class="pun">={</span></li><br><li class="L4"><span class="com">//这些属性都可以在官网文档找到答案 这里就不详细说明了</span></li><br><li class="L5"><span class="str">“dur”</span><span class="pun">:</span> <span class="lit">10000</span><span class="pun">,</span></li><br><li class="L6"><span class="str">“size”</span><span class="pun">:</span> <span class="lit">25</span><span class="pun">,</span></li><br><li class="L7"><span class="str">“stime”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li><br><li class="L8"><span class="str">“mode”</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">,</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pln"> $</span><span class="pun">(</span><span class="str">“send”</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">“click”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li><br><li class="L2"><span class="com">//text属性为弹幕文字</span></li><br><li class="L3"><span class="pln"> list</span><span class="pun">.</span><span class="pln">text</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">“main”</span><span class="pun">).</span><span class="pln">value</span></li><br><li class="L4"><span class="com">//color为弹幕颜色同时转化为10进制</span></li><br><li class="L5"><span class="pln"> list</span><span class="pun">.</span><span class="pln">color</span><span class="pun">=(</span><span class="pln">parseInt</span><span class="pun">((</span><span class="pln">$</span><span class="pun">(</span><span class="str">“chose”</span><span class="pun">).</span><span class="pln">value</span><span class="pun">)));</span></li><br><li class="L6"><span class="com">//这条就是发送弹幕功能了</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">list</span><span class="pun">);</span></li><br><li class="L8"></li><br><li class="L9"><span class="pln"> event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li><br><li class="L0"><span class="pln"> event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li><br><li class="L1"><span class="pun">})</span></li><br><li class="L2"></li><br><li class="L3"><span class="pun">});</span></li><br><li class="L4"><span class="tag">&lt;/script&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1141.htm"></iframe>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来玩一下吗？<a href="http://www.gbtags.com/gb/rtreplayerpreview/1141.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1141.htm</a></p></blockquote><br><p>&nbsp;</p><br></div><br><p>&nbsp;</p>
 
 
 
@@ -429,10 +593,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-35ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-27ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/35ver/" class="article-date">
+      <a href="/2015/10/21/27ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -446,7 +610,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/35ver/">DOM编程艺术之数据通信-HTTP协议</a>
+      <a class="article-title" href="/2015/10/21/27ver/">产品前端构架之模块化</a>
     </h1>
   
 
@@ -455,831 +619,570 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">一:HTTP<br>            -客户端向服务器发送包含命令和URL的HTTP请求报文<br>            -服务器返回一个包含事务结果的HTTP响应报文</pre></p>
-<pre><code>二:请求报文格式
-    -<span class="ruby">头行 
-</span>        -<span class="ruby"><span class="constant">GET</span> music.<span class="number">163</span>.com <span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>          方式  主机地址        版本
-    -<span class="ruby">头部
-</span>        -<span class="ruby">许多键值对构成
-</span>            -<span class="ruby"><span class="constant">Accept</span><span class="symbol">:</span>浏览器端接受的类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Encoding</span><span class="symbol">:</span>浏览器端编码类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Language</span><span class="symbol">:</span>浏览器端可以接受的语言类型
-</span>            -<span class="ruby"><span class="constant">Cache</span>-<span class="constant">Control</span><span class="symbol">:</span>浏览器是否可以缓存
-</span>            -<span class="ruby"><span class="constant">Connection</span><span class="symbol">:</span>是否持续链接
-</span>            -<span class="ruby"><span class="constant">Cookie</span><span class="symbol">:</span>浏览器向服务器端发送的cookie
-</span>            -<span class="ruby"><span class="constant">Host</span><span class="symbol">:</span>主机地址
-</span>            -<span class="ruby"><span class="constant">Pragma</span><span class="symbol">:</span>
-</span>            -<span class="ruby"><span class="constant">User</span>-<span class="constant">Agent</span><span class="symbol">:</span>浏览器版本
-</span>
-三:响应报文格式
-    -<span class="ruby">头行
-</span>        -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>  <span class="number">200</span>    <span class="constant">OK</span>
-</span>         HTTP版本  状态码    HTTP状态码描述
-    -<span class="ruby">头部
-</span>        -<span class="ruby"><span class="constant">Expires</span><span class="symbol">:</span>缓存有效时间
-</span>        -<span class="ruby"><span class="constant">Server</span><span class="symbol">:</span>服务器端<span class="constant">HTTP</span>服务器
-</span>    -<span class="ruby">主体
-</span>        -<span class="ruby">完整的<span class="constant">XML</span>页面
-</span>
-四:常用HTTP方法
-    -<span class="ruby"><span class="constant">GET</span>
-</span>        -<span class="ruby">从服务器获取一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">POST</span>
-</span>        -<span class="ruby">向服务器发送需要处理的数据 包含主体
-</span>    -<span class="ruby"><span class="constant">PUT</span>
-</span>        -<span class="ruby">将请求的主体部分储存在服务器上 包含主体
-</span>    -<span class="ruby"><span class="constant">DELETE</span>
-</span>        -<span class="ruby">从服务器上删除一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">HEAD</span>
-</span>        -<span class="ruby">只从服务器获取文档的首部 不包含主体
-</span>    -<span class="ruby"><span class="constant">TRACE</span>
-</span>        -<span class="ruby">对可能经过代理服务器传送到服务器上的报文进行追踪 不包含主体
-</span>    -<span class="ruby"><span class="constant">OPTIONS</span>
-</span>        -<span class="ruby">决定可以在服务器上执行哪些方法 不包含主体
-</span>
-五:URL构成
-    -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
-</span>    -<span class="ruby">protocol
-</span>        -<span class="ruby">http
-</span>    -<span class="ruby">host
-</span>        -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
-</span>    -<span class="ruby">pathname
-</span>        -<span class="ruby">index.html
-</span>    -<span class="ruby">hostname
-</span>        -<span class="ruby">www.<span class="number">163</span>.com
-</span>    -<span class="ruby">port
-</span>        -<span class="ruby"><span class="number">8080</span>
-</span>    -<span class="ruby">search
-</span>        -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
-</span>    -<span class="ruby">hash
-</span>        -<span class="ruby">news
-</span>
-六:HTTP版本
-    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>
-</span>        -<span class="ruby"><span class="number">1991</span>年 <span class="constant">HTTP</span>原型，有很多设计缺陷
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>
-</span>        -<span class="ruby">很快取代<span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>，成为第一个广泛应用的版本
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>+
-</span>        -<span class="ruby">添加持久的keep-alive连接，虚拟主机支持，以及代理连接支持，成为非官方的事实标准
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>        -<span class="ruby">校正了结构性缺点，明确语义，引入重要的性能优化措施，删除不好特性，是当前使用的版
-</span>
-七:常见HTTP状态码
-    -<span class="ruby"><span class="number">200</span>
-</span>        -<span class="ruby">请求成功。一般用于<span class="constant">GET</span>和<span class="constant">POST</span>方法 原因短语<span class="symbol">:OK</span>
-</span>    -<span class="ruby"><span class="number">301</span>
-</span>        -<span class="ruby">资源移动，所请求资源自动到新的<span class="constant">URL</span>，浏览器自动跳转到新的<span class="constant">URL</span> moved <span class="constant">Permanently</span>
-</span>    -<span class="ruby"><span class="number">304</span>
-</span>        -<span class="ruby">未修改。所请求资源未修改，浏览器读取缓存数据 <span class="constant">Not</span> <span class="constant">Modified</span>
-</span>    -<span class="ruby"><span class="number">400</span>
-</span>        -<span class="ruby">请求语法错误，服务器无法理解 <span class="constant">Bad</span> <span class="constant">Request</span>
-</span>    -<span class="ruby"><span class="number">404</span>
-</span>        -<span class="ruby">未找到资源，可以设置个性<span class="number">404</span>页面 <span class="constant">Not</span> <span class="constant">Found</span>
-</span>    -<span class="ruby"><span class="number">500</span>
-</span>        -<span class="ruby">内部服务器错误 <span class="constant">Internal</span> <span class="constant">Server</span> <span class="constant">Error</span></span>
-</code></pre><p></p>
-<p>&nbsp;</p>
+        <p><pre class="lang:default decode:true ">一:模块组织JavaScript</pre></p>
+<pre><code>二:模块
+    -封装实现
+    -暴露接口
+    -声明依赖
 
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/33ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
-<pre><code>        }
-        .child{
-            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
-        }*/
-
-        /*<span class="keyword">table</span>+margin
-
-        .child{
-            <span class="keyword">display</span>: <span class="keyword">table</span>;
-            margin:<span class="number">0</span> auto;
+三:反模式
+    -math.js
+        <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        };
+        <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
         }
-        */
-
-    /*    absolute+transform*/
-
-        /*.parent{
-            position: relative;
-        }
-        .child{
-            position: absolute; /*宽度由内容决定
-            left:<span class="number">50</span>%;
-            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
-
-
-        }
-        */
-
-/*        flex+justify-content*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; /*宽度为内容宽度
-            justify-content: center;
-        }
-
-        /*.child{
-                margin: <span class="number">0</span> auto
-        }  同样可以实现水平居中*/
-
-
-        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
-
-        /*.parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
-        }*/
-
-        /*垂直居中之absolute+transform
-        .parent{
-            position: relative;
-        }
-
-        .child{
-            position: absolute;
-            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
-            transform:translateY(-<span class="number">50</span>%);
-        }*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; 高度撑满整个容器
-            align-items: center; 垂直居中
-        }*/
-
-        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-
-        .parent{
-            text-align: center;
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle;
-        }
-
-        .child{
-            <span class="keyword">display</span>: inline-block;
-        }*/
-
-/*        居中之absolute+transform*/
-
-        /*.parent{
-            position:relative;
-        }
-        .child{
-            position:absolute;
-            left:<span class="number">50</span>%;
-            top:<span class="number">50</span>%;
-            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
-        }
-        */
-
-        居中之flex+justify-content+align-items
-        .parent{
-            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
-            justify-content: center; /*水平居中*/
-            align-items: center;/*垂直居中*/
-        }
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        居中布局 父元素 子元素宽/高度不固定
-
-        一：水平居中之inline-block+text-align
-            -兼容性非常好
-            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
-            -child会继承text-align:center，需要对子元素进行reset
-
-        二:水平居中之<span class="keyword">table</span>+margin
-            -<span class="keyword">table</span>元素宽度为内容宽度
-            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
-
-        三:水平居中之absolute+transform
-            -脱离文档流 不会对其他元素产生影响
-            -不兼容低版本IE
-
-        四:水平居中之flex+justify-content
-            -.child{
-                margin: <span class="number">0</span> auto
+        -封装无
+        -接口结构不明显
+    -caculator.js
+        <span class="keyword">var</span> action=<span class="string">"add"</span>
+        <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> add(a,b)
             }
-            -不兼容低版本IE
-
-        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
-            -兼容到IE8以上
-            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
-
-        六:垂直居中之absolute+transform
-            -子元素不会干扰其他元素
-
-        七:垂直居中之flex+align-items
-            -不兼容低版本IE
-
-        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-            -兼容性比较高
-
-        九:居中之absolute+transform
-            -child不会影响其他元素
-            -不兼容性低版本IE
-
-        十:居中之flex+justify-content+align-items
-            -只需要设置parent
-            -不兼容低版本IE
-
-        十一:总结
-            -了解到CSS中的值和特性
-            -对问题进行分解
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
-         DOME
-         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-
-
-
-
-
-
-
-
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-32ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/32ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/32ver/">DOM编程艺术之表单元素</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;script type=”text/javascript”&gt;<br>            一:表单步骤<br>                -构建表单<br>                -服务器处理<br>                -配置表单</pre></p>
-<pre><code>        二:构建表单
-            -<span class="ruby">见<span class="constant">HTML</span>
-</span>
-        三:服务器处理
-            -<span class="ruby">服务器接口地址
-</span>            -<span class="ruby">url编码
-</span>            -<span class="ruby">接口参数信息
-</span>
-        四:内容
-            -<span class="ruby">元素
-</span>            -<span class="ruby">验证
-</span>            -<span class="ruby">提交
-</span>
-        五:form元素
-            -<span class="ruby">属性
-</span>                -<span class="ruby">autocomplete
-</span>                    -<span class="ruby"><span class="symbol">on:</span>自动提示功能
-</span>                    -<span class="ruby"><span class="symbol">off:</span>无
-</span>                -<span class="ruby">elements
-</span>                    -<span class="ruby">该表单子孙表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">button,input,keygen,select
-</span>                    -<span class="ruby">归属于该表单的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">&amp;lt;input name=<span class="string">"d"</span> form=<span class="string">"f"</span>&amp;gt;在input元素中规定了form也会出现在elements中
-</span>                    -<span class="ruby">动态节点集合
-</span>                -<span class="ruby">length
-</span>                    -<span class="ruby">elements.length
-</span>                -<span class="ruby">取form表单元素
-</span>                    -<span class="ruby">testForm.elements[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm.elements[<span class="string">"a"</span>];
-</span>                    -<span class="ruby">testForm[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm[<span class="string">"a"</span>]
-</span>
-                -<span class="ruby">form[name]
-</span>                    -<span class="ruby">返回id或name为指定名称的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                    -<span class="ruby">如果结果为空，则返回id为指定名称的img元素
-</span>                    -<span class="ruby">如果有多个同名元素，则返回这些元素的动态节点集合
-</span>                    -<span class="ruby">一旦用指定名称取过该元素，则不管该元素的id或者name怎么变化，只要节点还在页面上均可以用原名获取该元素
-</span>                    -<span class="ruby">非动态集合所以可以取到已经设置过的元素如
-</span>                        -<span class="ruby">testForm[<span class="string">"a"</span>]=&amp;gt;name=<span class="string">"b"</span> testForm.elements[<span class="string">"a"</span>]=&amp;gt;null
-</span>                    -<span class="ruby">reset()
-</span>                        -<span class="ruby">可重置元素<span class="symbol">:input</span>,keygen,output,select,textarea
-</span>                        -<span class="ruby">触发表单reset事件，阻止该元素的默认行为可取消重置
-</span>                        -<span class="ruby">元素重置时不再触发元素上的change和input事件
-</span>                    -<span class="ruby">submit()
-</span>                    -<span class="ruby">checkValidity()
-</span>
-            六:lable元素
-                -<span class="ruby">htmlFor
-</span>                    -<span class="ruby">关联表单控件激活行为
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,input(除hidden外),keygen,meter,output,progress,select,txtarea
-</span>                    -<span class="ruby">通过设置label的css来构建input的<span class="constant">CSS</span>复杂效果
-</span>
-                -<span class="ruby">control
-</span>                    -<span class="ruby">如果指定了<span class="keyword">for</span>属性，则为该<span class="keyword">for</span>属性对应<span class="constant">ID</span>的可关联元素
-</span>                    -<span class="ruby">如果没有指定<span class="keyword">for</span>属性，则为第一个子孙可关联元素
-</span>                    -<span class="ruby"><span class="keyword">for</span>指定了一个不可关联元素,则lable.control=&amp;gt;null
-</span>
-                -<span class="ruby">form
-</span>                    -<span class="ruby">关联归属表单
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,fieldset,input,keygen,label,object,output,select,textarea
-</span>                    -<span class="ruby">只读属性，不可再程序中修改
-</span>                        -<span class="ruby">label.setAttribute(<span class="string">"form"</span>,<span class="string">"newFormId"</span>)
-</span>
-            七:input元素
-                -<span class="ruby">type
-</span>                    -<span class="ruby">控件外观
-</span>                    -<span class="ruby">数据类型
-</span>                    -<span class="ruby">默认为text
-</span>                -<span class="ruby">本地图片预览
-</span>                    -<span class="ruby">onchange
-</span>                    -<span class="ruby">accept
-</span>                        -<span class="ruby">audio/*
-</span>                        -<span class="ruby">video/*
-</span>                        -<span class="ruby">image/*
-</span>                        -<span class="ruby">不带<span class="string">";"</span>的<span class="constant">MIME</span> type以<span class="string">"."</span>开始的文件后缀名*<span class="regexp">/
-</span></span>                        -<span class="ruby"><span class="regexp">多个类型用逗号分隔
-</span></span>
-                    -<span class="ruby"><span class="regexp">multiple 可以多选
-</span></span>                    -<span class="ruby"><span class="regexp">files
-</span></span>                &amp;lt;input type="file" accept="image/*" multiple/&amp;gt;
-                file.addEventListener(
-                    "change",function(event){
-                        var file=Array.prototype.slice.call(event.target.files,0)
-                    };
-                    files.forEach(function(item){
-                        file2dataurl(item,function(url){
-                            var image=new Image()
-                            parent.appendChild(image)
-                            image.src=url
-                        })
-                    })
-                )
-
-            八:select元素
-                -<span class="ruby"><span class="regexp">&amp;lt;optgroup lable="name"&amp;gt; /</span><span class="regexp">/分组
-</span></span>                -<span class="ruby"><span class="regexp">name
-</span></span>                    -<span class="ruby"><span class="regexp">表单提交名称
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">第一个选中选项的value值
-</span></span>                -<span class="ruby"><span class="regexp">multiple
-</span></span>                    -<span class="ruby"><span class="regexp">多选
-</span></span>                -<span class="ruby"><span class="regexp">options
-</span></span>                    -<span class="ruby"><span class="regexp">动态的所有节点集合
-</span></span>                    -<span class="ruby"><span class="regexp">
-</span></span>                -<span class="ruby"><span class="regexp">selectedOptions
-</span></span>                    -<span class="ruby"><span class="regexp">已经选中选项的动态集合
-</span></span>                -<span class="ruby"><span class="regexp">selectedIndex
-</span></span>                    -<span class="ruby"><span class="regexp">选中的元素位置
-</span></span>                -<span class="ruby"><span class="regexp">add(element[,before])
-</span></span>                    -<span class="ruby"><span class="regexp">无参照物再最后添加选项
-</span></span>                -<span class="ruby"><span class="regexp">remove([index])
-</span></span>                    -<span class="ruby"><span class="regexp">删除选项
-</span></span>
-                -<span class="ruby"><span class="regexp">optgroup
-</span></span>                    -<span class="ruby"><span class="regexp">disabled
-</span></span>                        -<span class="ruby"><span class="regexp">当前分组选项是否可选
-</span></span>                    -<span class="ruby"><span class="regexp">label
-</span></span>                        -<span class="ruby"><span class="regexp">分组名称
-</span></span>
-                -<span class="ruby"><span class="regexp">option
-</span></span>                    -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">text
-</span></span>                    -<span class="ruby"><span class="regexp">index
-</span></span>                    -<span class="ruby"><span class="regexp">selected
-</span></span>                        -<span class="ruby"><span class="regexp">是否选中
-</span></span>                    -<span class="ruby"><span class="regexp">defaultSelected
-</span></span>                        -<span class="ruby"><span class="regexp">默认选中
-</span></span>
-            九:select
-                -<span class="ruby"><span class="regexp">创建选项
-</span></span>                    -<span class="ruby"><span class="regexp">document.createElement()
-</span></span>                    -<span class="ruby"><span class="regexp">new Option()
-</span></span>                        -<span class="ruby"><span class="regexp">new Option("说明","1.2")
-</span></span>                -<span class="ruby"><span class="regexp">添加选项
-</span></span>                    -<span class="ruby"><span class="regexp">insertAdjacentElement
-</span></span>                    -<span class="ruby"><span class="regexp">select.add
-</span></span>                -<span class="ruby"><span class="regexp">删除选项
-</span></span>                    -<span class="ruby"><span class="regexp">removeChild()
-</span></span>                    -<span class="ruby"><span class="regexp">select.remove()
-</span></span>                -<span class="ruby"><span class="regexp">级联下拉选择器
-</span></span>                    -<span class="ruby"><span class="regexp">onchange
-</span></span>                    -<span class="ruby"><span class="regexp">remove
-</span></span>                    -<span class="ruby"><span class="regexp">add
-</span></span>                    -<span class="ruby"><span class="regexp">参考HTML
-</span></span>                    var chapters=[{text:"1.DOM基础",value:"1"},{text:"2.事件模型",value:"2"}]
-                    var sections={
-                        1:[
-                            {text:"1.1 文档树",value:"1.1"},
-                            {text:"1.2 节点操作,value:"1.2"},
-                            {text:"1.3 元素遍历",value:"1.3"},
-                        ],
-                        2:[
-                            {text:"2.1 事件类型",value:"2.1"},
-                            {text:"2.2 事件模型",value:"2.2"},
-                        ]
-
-                    }
-                    function fillSelect(select,list){
-<span class="comment">                        //删除原有选项,倒序遍历</span>
-                        for (var i=select.length-1;i&amp;gt;0;i--) {
-                            select.remove(i)
-                        }
-
-                        list.forEach(function(data){
-                            var option=new Option(data.text,data.value)
-                            select.add(option)
-                        })
-                    }
-                    fillSelect(chapterSelect,chapters);
-                    chapterSelect.addEventListener("change",function(event){
-                        var value=event.target.value,
-                            list=section[value]||[];
-                        fillSelect(sectionSelect,list)
-                    })
-
-            十:textarea
-                -<span class="ruby"><span class="regexp">name
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                -<span class="ruby"><span class="regexp">select()
-</span></span>                -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容起始位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionEnd
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容结束位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionDirection
-</span></span>                    -<span class="ruby"><span class="regexp">键盘方向键控制
-</span></span>                -<span class="ruby"><span class="regexp">setSelectionRange()
-</span></span>                    -<span class="ruby"><span class="regexp">选中某些内容
-</span></span>                -<span class="ruby"><span class="regexp">setRangeText()
-</span></span>                    -<span class="ruby"><span class="regexp">设置某个范围内容
-</span></span>                -<span class="ruby"><span class="regexp">@输入提示
-</span></span>                    -<span class="ruby"><span class="regexp">oninput
-</span></span>                    -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">setRangeText
-</span></span>                    textarea.addEventListener("input",function(event){
-                        var target=event.target,
-                            curor=target.selectionStart;//拿到光标所在位置
-                            if(target.value.charAt(cursor-1)==="@"){//拿到光标前面一个字符
-                                doshowAtList(function(anme){
-                                    var end=cursor+name.length;
-                                        target.setRangeText(
-                                            name,cursor,end,"end"
-                                        )
-                                })
-                            }
-
-                    })
-
-
-
-
-
-
-
-    &amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;!--构建&amp;amp;配置表单--&amp;gt;
-    &amp;lt;form method="post" action="https://pizza.xxx.com/ordia" enctype="application/x-www-for-urlencoded"&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label&amp;gt;姓名:&amp;lt;input type="" name="custname" id="" value="" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;电话:&amp;lt;input type="tel" name="custtel" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;邮箱:&amp;lt;input type="email" name="custemail" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨大小&amp;lt;/legend&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="small"/&amp;gt;小&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="medium"&amp;gt;中&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="large"/&amp;gt;大&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨配料&amp;lt;/legend&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="bacon"/&amp;gt;熏肉&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="cheese"/&amp;gt;奶酪&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="mushroom"/&amp;gt;蘑菇&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label for=""&amp;gt;&amp;lt;input type="time" name="delivery" min="11:00" max="21:00" step="900" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;&amp;lt;button&amp;gt;提交订单&amp;lt;/button&amp;gt;&amp;lt;/p&amp;gt;
-    &amp;lt;/form&amp;gt;
-
-    &amp;lt;!--级联下拉选择器--&amp;gt;
-    &amp;lt;form name="course"&amp;gt; 
-        &amp;lt;select name="chapter"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择章目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-        &amp;lt;select name="section"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择节目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/body&amp;gt;
-</code></pre><p>&lt;/html&gt;<br></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-9ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/9ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/9ver/">一个石头剪刀布的小游戏</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>没做太多的CSS效果，只做了一些基本的逻辑判断..新人，写的很渣。大家看看就行了。。</p><br><p>Deom:<a href="http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">http://htmlpreview.github.io/?https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p><br><p>源码:<a href="https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html" target="_blank" rel="external">https://github.com/Relsoul/bdwork/blob/master/soul/%E7%9F%B3%E5%A4%B4%E5%89%AA%E5%88%80%E5%B8%83/index.html</a></p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-12ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/12ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/12ver/">来聊聊前端中的火星文-正则表达式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h1><strong>大家可以访问此网站进行详细观看<a href="http://www.gbtags.com/gb/share/5616.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5616.htm</a></strong></h1><p></p>
-<p><blockquote><p>update:2015年6月29日</p></blockquote></p>
-<p></p><p>更新圆括号的含义</p><p></p>
-<p></p><p>自从编写了一个兼容低版本的函数后.我才知道论正则表达式的重要性.正则表达式这东西不难.学的话一个小时就学会了.忘记的话…10分钟吧.哈哈哈哈哈哈哈…..</p><p></p>
-<p></p><p>咳咳,这里开始聊聊前端中的正则表达式,论1小时如何从正常人转变为火星人.</p><p></p>
-<p></p><p>首先我是从某网站的正则表达式视频看起的.一个小时目不转睛的看,同时还得做笔记.所以没有耐心坐在电脑旁看一个小时困意盎然的视频可以来看看这篇文章.</p><p></p>
-<p></p><p>&nbsp;</p><p></p>
-<p></p><p>先来看一段验证邮箱的正则</p><p></p>
-<div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="str">/(^\w+)@([a-z0-9]+).([a-z]+$)/</span><span class="pln">gi</span></li><br></ol><br></div><br></div><br><p>Okay,火星文对吧.你看得懂吗？实际上编写这段文章的时候我也忘了大半.所以采用拆！拆迁队的方式来拆</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pln">wtf<em>Soul@gbtags123</em></span><span class="pun">.</span><span class="pln">com</span></li><br><li class="L1"><span class="pun">/(^</span><span class="pln">\w</span><span class="pun">+)</span> <span class="com">//匹配邮箱@前的正则</span></li><br><li class="L2"><span class="pun">@</span></li><br><li class="L3"><span class="pun">([</span><span class="pln">a</span><span class="pun">-</span><span class="pln">z0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+)</span> <span class="com">//匹配@后 .前的正则</span></li><br><li class="L4"><span class="pln">. </span><span class="com">//转义字符</span></li><br><li class="L5"><span class="pun">([</span><span class="pln">a</span><span class="pun">-</span><span class="pln">z</span><span class="pun">]+</span><span class="pln">$</span><span class="pun">)/</span><span class="pln">gi </span><span class="com">//匹配点后的正则</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>okay 拆完了.咋们现在不需要了解那些火星文的意思，等看完这篇文章后再回来看看你就知道火星人其实也是C生物</p><br><p>&nbsp;</p><br><p>先聊聊JS中的正则</p><br><p>JS中的正则有两种风格</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> jsfg</span><span class="pun">=</span><span class="kwd">new</span> <span class="typ">RegExp</span><span class="pun">(</span><span class="str">“a”</span><span class="pun">,</span><span class="str">“gi”</span><span class="pun">)</span> <span class="com">//js风格</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> perlfg</span><span class="pun">=</span><span class="str">/a/</span><span class="pln">gi </span><span class="com">//perlfg风格</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>JS风格是通过一个正则构造器来构造的 new RegExp(“正则”,”是否区分大小写，全局搜索等等~”)</p><br><p>perlfg风格通过 /正则/是否区分大小写，全局搜索等等~ 这样的形式</p><br><p>okay开始我们第一个正则:不区分大小写全局替换字符串中的a</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str</span><span class="pun">=</span><span class="str">“abcAbcAABBCC”</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re</span><span class="pun">=</span><span class="str">/a/</span><span class="pln">gi</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> rep</span><span class="pun">=</span><span class="pln">str</span><span class="pun">.</span><span class="pln">replace</span><span class="pun">(</span><span class="pln">re</span><span class="pun">,</span><span class="str">“替换”</span><span class="pun">)</span></li><br><li class="L3"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">rep</span><span class="pun">)</span> <span class="com">//替换bc替换bc替换替换BBCC</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>上面的无论是A还是a全部被替换成了一个字符串“替换”</p><br><p>我们主要注意/a/gi后的gi</p><br><p>g:全局匹配 不加g则匹配一次就不匹配了</p><br><p>i:不区分大小写 不加就只匹配小写a</p><br><p>以上你就完成了第一个正则匹配 是不是很激动？ 别急 咋们继续</p><br><p>&nbsp;</p><br><p>范例二:查找字符串第一个出现的数字</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str4</span><span class="pun">=</span><span class="str">‘adsf 23 23 wcs’</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re2</span><span class="pun">=</span><span class="str">/\d/</span></li><br><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str4</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">re2</span><span class="pun">))</span><span class="com">//5</span></li><br></ol><br></div><br></div><br><p>okay 火星文出现了 \d 是什么意思？ 先放着咋们先了解下基础</p><br><p>&nbsp;</p><br><p>先说说正则里面的圆括号，方括号</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str8</span><span class="pun">=</span><span class="str">“apc aapc ccpc dbpc”</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re6</span><span class="pun">=</span><span class="str">/[abc]pc/</span><span class="pln">g </span><span class="com">//a或b或c apc bpc</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> re7</span><span class="pun">=</span><span class="str">/apc|bpc|cpc/</span><span class="pln">g</span></li><br><li class="L3"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str8</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re6</span><span class="pun">))</span><span class="com">//apc apc cpc bpc</span></li><br><li class="L4"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str8</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re7</span><span class="pun">))</span> <span class="com">//apc apc cpc bpc</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>match这个函数的功能是以数组的形式返回匹配到的元素.</p><br><p>/apc|bpc|cpc/g 中”|”是什么意思？</p><br><p>我们知道js中用||代表或 那么在js中用单杠代表或</p><br><p>这里的/[abc]pc/g 啥意思呢？</p><br><p>“g”我们知道是全局匹配</p><br><p>/[abc]pc/是shenmegui？</p><br><p>[abc]pc的意思是 a或b或c开头的英文字母后面接一个pc 比如apc,bpc,cpc;可以匹配到这几种</p><br><p>可以得出方括号里的内容都是或的 比如我们要匹配0-9a-z下划线那么可以这样写</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re7</span><span class="pun">=</span><span class="str">/[0-9a-z]/</span></li><br></ol><br></div><br></div><br><p>而上面这段看起来有点长的正则可以简写为 \w</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re7</span><span class="pun">=</span><span class="str">/\w/</span> <span class="com">//等同于上面的正则</span></li><br></ol><br></div><br></div><br><p>再来说说 我们只匹配除0-9以外的东西应该怎么写？</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re8</span><span class="pun">=</span><span class="str">/[^0-9]/</span></li><br></ol><br></div><br></div><br><p>注意我在方括号的<strong>开头</strong>加了一个^符号 而这段正则可以这样写</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re8</span><span class="pun">=</span><span class="str">/\D/</span> <span class="com">//注意我这里是大写的\D 不是小写的\d</span></li><br></ol><br></div><br></div><br><p>大写小写肯定是有区别的 他们之间区别也很简单</p><br><p>我们知道\D是除0-9以外的东西 那么小写的\d就是 匹配0-9 也就是 /[0-9]/</p><br><p>同理 \w是匹配0-9a-z下划线 那么\W 就是匹配0-9a-z下划线除外的东西 也就是/[^0-9a-z<em>]/</em></p><br><p>okay学到这里我们再来看看第二个范例</p><br><p>范例二:查找字符串第一个出现的数字</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str4</span><span class="pun">=</span><span class="str">‘adsf 23 23 wcs’</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re2</span><span class="pun">=</span><span class="str">/\d/</span></li><br><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str4</span><span class="pun">.</span><span class="pln">search</span><span class="pun">(</span><span class="pln">re2</span><span class="pun">))</span><span class="com">//5</span></li><br></ol><br></div><br></div><br><p>这里的/\d/并没有加g 也就说只匹配一次 再结合这个\d是什么意思我们很容易得出这个正则表达式就是匹配数字</p><br><p>关于\d \s \b什么意思可以去这个网站进行查询<a href="https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx</a></p><br><p>再来个范例3:替换所有文字为soul</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str9</span><span class="pun">=</span><span class="str">“abc”</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re12</span><span class="pun">=</span><span class="str">/./</span><span class="pln">g </span><span class="com">//.代表任意字符</span></li><br><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str9</span><span class="pun">.</span><span class="pln">replace</span><span class="pun">(</span><span class="pln">re12</span><span class="pun">,</span><span class="str">“soul”</span><span class="pun">))</span> <span class="com">//soul soul soul</span></li><br></ol><br></div><br></div><br><p>这里的/./当中的”.”就是代表任意字符 首先上面的案例匹配了a,b,c匹配到了三次 把a替换成了soul 把b替换成了soul 把c替换成了soul</p><br><p>所以会出现三个soul</p><br><p>来点复杂的范例4:过滤HTML标签</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str10</span><span class="pun">=</span><span class="str">“&lt;p&gt;dasdsa&lt;/p&gt;nice &lt;br&gt; test&lt;/br&gt;”</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re13</span><span class="pun">=</span><span class="str">/&lt;[^&lt;&gt;]+&gt;/</span><span class="pln">g</span></li><br><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">str10</span><span class="pun">.</span><span class="pln">replace</span><span class="pun">(</span><span class="pln">re13</span><span class="pun">,</span><span class="str">“”</span><span class="pun">))</span></li><br></ol><br></div><br></div><br><div>okay 先别急着看 我们先了解正则火星文中的量词.说白了就是出现次数</div><br><div><br><blockquote><br><div>量词:个数</div><br><div>{n}正好出现n次</div><br><div>[1-9]\d{8}只出现八次的数字 第一位为1-9数字</div><br><div>{n,m}最少n次最多m次</div><br><div>[1-9]\d{4,10}</div><br><div>{n,}最少n次，最多不限</div><br><div>+{1,}</div><br><div>?{0,1}最少0次最多一次</div><br><div>*{0,}可以有 最多可以有无限 0次也算  匹配不推荐用</div><br></blockquote><br><div>okay 从上表知道{n,m}代表量词 那么上面的范例其实也可以这样改造</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re13</span><span class="pun">=</span><span class="str">/&lt;[^&lt;&gt;]+&gt;/</span><span class="pln">g </span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re13</span><span class="pun">=</span><span class="str">/&lt;[^&lt;&gt;]{1,}&gt;/</span><span class="pln">g</span></li><br></ol><br></div><br></div><br></div><br><div>okay现在知道+号是什么意思了 现在来分析下这个正则</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> re13</span><span class="pun">=</span><span class="str">/&lt;[^&lt;&gt;]+&gt;/</span><span class="pln">g </span></li><br><li class="L1"><span class="pun">&lt;[^&lt;&gt;]+&gt;/</span><span class="pln">g </span><span class="pun">匹配尖括号&lt;[里除尖括号以外的所有字符]字符出现次数最少为一次&gt;</span></li><br></ol><br></div><br></div><br></div><br><div>如果不加那个+号会变成什么情况呢？ 这个问题留给大家思考一下</div><br></div><br><div>okay 学到这里正则基本上也就入门了. 现在回过头来看看文章开头提到的邮箱匹配正则</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="str">/(^\w+)@([a-z0-9]+).([a-z]+$)/</span><span class="pln">gi</span></li><br></ol><br></div><br></div><br></div><br><div><br><p>这里的()起一个分组的作用 你可以看成数学中的加减乘除所以上例的正则去掉圆括号意思其实是一样的 先分析@前面的正则</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">(^</span><span class="pln">\w</span><span class="pun">+)</span> <span class="com">//=^\w+ </span></li><br></ol><br></div><br></div><br></div><br><div>\w是啥意思？匹配任何字类字符，包括下划线。与“[A-Za-z0-9]”等效。 所以邮箱的@前可以有以上的字符并且出现的次数都不限定最少出现一次 但是我为什么要在正则前面加一个^ 这个问题放在后面再说 咋们继续</div><br><div></div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">([</span><span class="pln">a</span><span class="pun">-</span><span class="pln">z0</span><span class="pun">-</span><span class="lit">9</span><span class="pun">]+)</span><span class="pln">. </span><span class="com">//=[a-z0-9]+.</span></li><br></ol><br></div><br></div><br></div><br><div>这里用到了一个.意思为转义字符 我们知道正则中.是匹配任意字符，我们只需要匹配一个单纯的”.”号所以需要用到一个转义字符\ 当然匹配[]也是需要用到转义字符的 [ ]</div><br><div>@gtb123.xxx 这里的gtb123则是匹配到的内容 我们知道邮箱@号后面可以跟数字和字符所以我们要写上可以匹配到数字和字符</div><br><div></div><br><div>现在来看看.后面的正则</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">([</span><span class="pln">a</span><span class="pun">-</span><span class="pln">z</span><span class="pun">]+</span><span class="pln">$</span><span class="pun">)</span> <span class="com">//=[a-z]+$ </span></li><br></ol><br></div><br></div><br></div><br><div>我们知道.后面只能跟英文 比如 .com .cn .net</div><br><div>这里的$是啥意思？ 这里的$代表字符串的结尾 所以这个正则的意思就是 字符串的结尾必须 com net cn 英文结尾的</div><br><div></div><br><div>现在回过头来看看@开头的内容</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">(^</span><span class="pln">\w</span><span class="pun">+)</span> <span class="com">//=^\w+ </span></li><br></ol><br></div><br></div><br></div><br><div>这里的^不是代表否,非的意思了 在方括号里面[^0-9]的^代表否，非 那么没在方括号里面的代表的就是字符串开头</div><br><div>所以这个正则的意思就是 字符串必须是以下划线,数字,字母开头的</div><br><div></div><br><div>结合起来这串正则的意思就</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="str">/(^\w+)@([a-z0-9]+).([a-z]+$)/</span><span class="pln">gi</span></li><br><li class="L1"><span class="pun">下划线,数字,字母@字母,数字.英文</span></li><br><li class="L2"><span class="pun">比如</span></li><br><li class="L3"><span class="pln">test1213_123@AbDd</span><span class="pun">.</span><span class="pln">cn</span></li><br></ol><br></div><br></div><br></div><br><div>有了这个正则那么我们应该怎么用来判断呢？ js里有一个test方法</div><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str10</span><span class="pun">=</span><span class="str">“sd_blue@etst.com”</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re13</span><span class="pun">=</span><span class="str">/(^\w+)@([a-z0-9]+).([a-z]+$)/</span><span class="pln">gi</span></li><br><li class="L2"><span class="pln">console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">re13</span><span class="pun">.</span><span class="pln">test</span><span class="pun">(</span><span class="pln">str10</span><span class="pun">))</span><span class="com">// true</span></li><br></ol><br></div><br></div><br></div><br><div><br><p>js中的test方法 如果满足要求则符合true 注意就算字符串中的一部分符合要求也会返回true的.</p><br><p>&nbsp;</p><br><p>感谢周哥提出的一点关于圆括号的补充</p><br><p>@zhou–hua</p><br><p>这里有一篇周哥写的关于正则表达式深入的文章 有兴趣的读者可以去看看</p><br><p><a href="http://www.gbtags.com/gb/share/5404.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5404.htm</a></p><br><p>圆括号不仅仅有分组的意思 还涉及到一个捕获,我们知道match会返回一个数组 举个简单例子</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str19</span><span class="pun">=</span><span class="str">“20<em>30”</em></span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re19</span><span class="pun">=</span><span class="str">/\d+[+-\\/]\d+/</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> mat1</span><span class="pun">=</span><span class="pln">str19</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re19</span><span class="pun">)</span></li><br><li class="L3"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">mat1</span><span class="pun">)</span> <span class="com">//[“20<em>30”, index: 0, input: “20</em>30”]</span></li><br></ol><br></div><br></div><br><p>上面是一串匹配数字,符号,数字的正则 看起来比较奇怪 但是还是能够匹配到的. 返回的是一个数组 注意！这时我们加上一个圆括号来分组下</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str19</span><span class="pun">=</span><span class="str">“20<em>30”</em></span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re19</span><span class="pun">=</span><span class="str">/(\d+)([+-\\/])(\d+)/</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> mat1</span><span class="pun">=</span><span class="pln">str19</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re19</span><span class="pun">)</span></li><br><li class="L3"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">mat1</span><span class="pun">)</span> <span class="com">//[“20<em>30”, “20”, “</em>“, “30”, index: 0, input: “20<em>30”]</em></span></li><br></ol><br></div><br></div><br><p>这里返回的数组是[“2030”, “20”, “<em>“, “30”, index: 0, input: “20</em>30”]</p><br><p>0:”20<em>30”</em></p><br><p>1:”20”</p><br><p>2:”“</p><br><p>3:”30”</p><br><p>可以得出数组[0]为匹配元素 从1开始就得出了分组捕获的内容</p><br><p>上面的正则第一个圆括号分组捕获的是符号前面的数字 第二个圆括号捕获的是符号 第三个圆括号捕获的是符号后面的数字</p><br><p>捕获组还能反向引用，即在表达式中直接使用某个分组的内容。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str20</span><span class="pun">=</span><span class="str">“20-20”</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re20</span><span class="pun">=</span><span class="str">/(\d+)([+-*\/])(\1)/</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> mat2</span><span class="pun">=</span><span class="pln">str20</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re20</span><span class="pun">)</span></li><br><li class="L3"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">mat2</span><span class="pun">)</span> <span class="com">//[“20-20”, “20”, “-“, “20”, index: 0, input: “20-20”] </span></li><br></ol><br></div><br></div><br><p>这里第三个分组 也就是(\1)引用的是第一个分组(\d+)捕获到的内容 同理 如果要引用分组2捕获到的内容那么</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str20</span><span class="pun">=</span><span class="str">“20-20”</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re20</span><span class="pun">=</span><span class="str">/(\d+)([+-*\/])(\2)/</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> mat2</span><span class="pun">=</span><span class="pln">str20</span><span class="pun">.</span><span class="pln">match</span><span class="pun">(</span><span class="pln">re20</span><span class="pun">)</span></li><br><li class="L3"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">mat2</span><span class="pun">)</span> <span class="com">//[“20-20”, “20”, “-“, “20”, index: 0, input: “20-20”] </span></li><br></ol><br></div><br></div><br><p>改为\2即可 同理 引用3,4,5,… \n即可 别忘记了分组捕获是从1开始的 0为匹配内容</p><br><p>置换前、后两个数的位置</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="kwd">var</span><span class="pln"> str21</span><span class="pun">=</span><span class="str">“178-334”</span><span class="pun">;</span></li><br><li class="L1"><span class="kwd">var</span><span class="pln"> re21</span><span class="pun">=</span><span class="str">/(\d+)([+-*\/])(\d+)/</span></li><br><li class="L2"><span class="kwd">var</span><span class="pln"> rep3</span><span class="pun">=</span><span class="pln">str21</span><span class="pun">.</span><span class="pln">replace</span><span class="pun">(</span><span class="pln">re21</span><span class="pun">,</span><span class="str">“$3$2$1”</span><span class="pun">)</span></li><br><li class="L3"><span class="pln"> console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="pln">rep3</span><span class="pun">)</span><span class="com">//334-178</span></li><br></ol><br></div><br></div><br><p>在replace函数中用$1,2,3,n代表分组</p><br><p>&nbsp;</p><br><p>所谓师父领进门修行在个人</p><br><p>学到这里如果你看懂了80%那么恭喜你 你已经入门正则了, 如果要了解更多的正则，熟练使用正则还得在平时实践中加以练习</p><br><p>正则表达式手册:<a href="https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/ae5bf541(VS.80).aspx</a></p><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-31ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/31ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/31ver/">DOM编程艺术之表单验证</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:隐式提交<br>                -如:聚焦在输入框时按回车提交表单<br>                -满足以下任一条件<br>                    -表单有非禁用的提交按钮<br>                    -没有提交按钮时,只有一个input元素</pre></p>
-<pre><code>二:提交
-    -<span class="ruby">提交过程
-</span>        -<span class="ruby">根据表单enctype指定的值构建要提交的数据结构
-</span>        -<span class="ruby">使用method指定的方式发送数据到action指定的目标
-</span>    -<span class="ruby">构建提交数据
-</span>        -<span class="ruby">从可提交的元素中提取数据组装成指定的数据结构的过程
-</span>        -<span class="ruby">可提交元素<span class="symbol">:button</span>.input,keygen,object,select,textarea
-</span>    -<span class="ruby">编码方式(enctype)
-</span>        -<span class="ruby">application/x-www-form-urlencoded[默认]
-</span>            -<span class="ruby">a=a&amp;amp;b=b&amp;amp;c=c &amp;amp;分割键值对
-</span>        -<span class="ruby">multipare/form-data
-</span>            -<span class="ruby">数据格式组织成<span class="number">2388</span>文字流
-</span>        -<span class="ruby">text/plain
-</span>            -<span class="ruby">a=a b=b c=c 空格分割的键值对
-</span>    -<span class="ruby">特殊案例
-</span>        -<span class="ruby">name=<span class="string">"isindex"</span>&amp;amp;&amp;amp;type=<span class="string">"text"</span>
-</span>            -<span class="ruby">编码方式为application/x-www-form-urlencoded
-</span>            -<span class="ruby">作为表单的第一个提交元素
-</span>            -<span class="ruby">提交时只发送value值，不包含name
-</span>        -<span class="ruby">name=<span class="string">"_charset_"</span>&amp;amp;&amp;amp;type=<span class="string">"hidden"</span>
-</span>            -<span class="ruby">没有设置value值
-</span>            -<span class="ruby">提交时value自动用当前提交的字符集填充
-</span>    -<span class="ruby">submit()
-</span>        -<span class="ruby">提交表单
-</span>            -<span class="ruby">form.submit()
-</span>    -<span class="ruby">onsubmit
-</span>        -<span class="ruby">表单提交事件
-</span>        -<span class="ruby">提交之前的数据验证
-</span>        -<span class="ruby">阻止事件的默认行为可取消表单提交
-</span>        form.addEventListener("submit",function(event){
-            var noValid=false;
-            var elements=event.target.elements
-<span class="comment">            //TODO 处理自定义的验证规则</span>
-            if(noValid){
-                event.preventDefault()
+        }
+        -没有依赖声明
+        -使用全局状态
+
+四:字面量
+-math.js
+    <span class="keyword">var</span> math={
+        add:<span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        },
+        sub:<span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
+        }
+    }
+    -结构性好
+    -无访问控制
+- caculator.js
+    <span class="keyword">var</span> caculator={
+        action:<span class="string">"add"</span>,
+        compute:<span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
             }
-        })
-    -<span class="ruby">无刷新表单提交
-</span>        -<span class="ruby">form
-</span>        -<span class="ruby">target
-</span>        -<span class="ruby">iframe
-</span>        iframe指定一个name
-        form指定一个target指向iframe name&lt;/pre&gt;
+        }
+    }
+    -同样没有依赖声明
+
+五:IIFE
+    -caculator-<span class="number">1.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="keyword">return</span> {
+                compute: <span class="function"><span class="keyword">function</span> <span class="params">(a,b)</span></span>{
+                    <span class="keyword">switch</span>(action){
+                        <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                        <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
+                    }
+                }
+            }
+        })()
+    -访问控制
+    -无依赖声明
+
+    -caculator-<span class="number">2.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">(m)</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                <span class="keyword">switch</span>(action){
+                    <span class="keyword">case</span> <span class="string">"add"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                    <span class="keyword">case</span> <span class="string">"sub"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                }
+            }
+            <span class="keyword">return</span>{
+                compute:compute
+            }
+        })(math)
+        -显示了依赖声明
+        -仍然污染了全局变量
+        -必须手动进行依赖管理
+
+    六:命名空间
+        -math.js
+            <span class="keyword">namespace</span>(<span class="string">"math"</span>,[],<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+                <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a+b};
+                <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a-b}
+                <span class="keyword">return</span>{
+                    add:add,
+                    sub:sub
+                }
+            })
+            -无依赖声明
+
+        -caculator.js
+            <span class="keyword">namespace</span>(<span class="string">"caculator"</span>,[<span class="string">"math"</span>].<span class="keyword">function</span>(m){
+                <span class="keyword">var</span> action = <span class="string">"add"</span>
+                <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                    <span class="keyword">return</span> m[action](a,b)
+                }
+                <span class="keyword">return</span>{
+                    compute:compute
+                }
+            })
+            -依赖声明
+            -依赖注入&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-26ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/26ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/26ver/">产品前端构架之模块系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一：模块系统<br>                -依赖管理 加载/分析/注入/初始化<br>                -决定模块写法</pre></p>
+<pre><code>二:Commonjs/module 非浏览器环境的js
+    -<span class="ruby">math.js
+</span>        function add(a,b){
+            return a+b;
+        };
+        function sub(a,b){
+            return a-b
+        }
+        exports.add=add
+        exports.sub=sub
+    -<span class="ruby">caculator.js
+</span>        var math=require("./math");
+        function Caculator(container){
+            this.add=container.querySelector("xx")
+<span class="comment">            //do sth</span>
+        }
+        exports.Caculator=Caculator
+        优点
+        -<span class="ruby">依赖管理程度可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">运行时指出，模块定义非常简单
+</span>        -<span class="ruby">文件级的模块作用域隔离
+</span>        -<span class="ruby">可以处理循环依赖
+</span>        缺点
+        -<span class="ruby">不是标准组织的规范
+</span>        -<span class="ruby">同步的<span class="keyword">require</span>，没有考虑浏览器环境
+</span>
+    三:AMD
+        -<span class="ruby">math.js
+</span>            define([],function(){
+                function add(a,b){
+                    return a+b
+                }
+                function sub(a,b){
+                    return a-b
+                }
+<span class="comment">                //接口暴露</span>
+                return{
+                    add:add,
+                    sub:sub
+                }
+            })
+
+        -<span class="ruby">caculator.js
+</span><span class="comment">        //依赖声明</span>
+            define(["./math"],function(math){
+<span class="comment">                //do sth</span>
+                return{
+                    Caculator:Caculator
+                }
+            })
+        优点
+        -<span class="ruby">依赖管理成熟可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">转为异步<span class="constant">IO</span>环境打造，适合浏览器环境
+</span>        -<span class="ruby">支持类似<span class="constant">Commonjs</span>的书写方法
+</span>        -<span class="ruby">通过插件<span class="constant">API</span>可支持加载非<span class="constant">JS</span>资源
+</span>        -<span class="ruby">成熟的打包构建工具
+</span>        缺点
+        -<span class="ruby">模块定义繁琐，需要额外嵌套
+</span>        -<span class="ruby">只是库级别的支持，需要引入额外库
+</span>        -<span class="ruby">无法处理循环依赖
+</span>        -<span class="ruby">无法实现条件加载
+</span>
+    四:systemjs
+        -<span class="ruby">支持加载<span class="constant">AMD</span>
+</span>        -<span class="ruby">支持加载<span class="constant">Commonjs</span>
+</span>        -<span class="ruby">支持加载<span class="constant">ES6</span>
+</span>        -<span class="ruby">支持加载任何资源
+</span>    System.paths={
+        "app/*":"../es6/*.js"
+    }
+    System.import("app/caculator").then(function(c){
+        new c.Caculator(document.getElementById("caculator"))
+    })&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-21ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/21ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/21ver/">知道你们不想撸代码写PPT之可视化页面做一款炫酷的WEB PPT</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>推荐阅读地址:<a href="http://www.gbtags.com/gb/share/5743.htm" target="_blank" rel="external">我的极客标签社区</a></p><br><p>前段时间嘟嘟发布了一篇文章站在巨人的肩膀上——制作酷炫web幻灯片:<a href="http://www.gbtags.com/gb/share/5688.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5688.htm</a></p><br><p>给人第一眼感觉:卧槽!碉堡了;第二眼:卧槽！碉堡了;第三眼:卧槽！还要写代码！</p><br><p>于是在经过某些懒人的一番寻找找到了一个可视化的WEB PPT制作网页</p><br><p>地址:<a href="http://strut.io/editor/" target="_blank" rel="external">http://strut.io/editor/</a></p><br><p>点击本文的”在线演示2”也是okay的</p><br><p>保存演示文件到本地仅仅需要ctrl+s即可具体步骤如下</p><br><p>制作好以后 点击impress按钮 然后把当前页面保存ctrl+s到本地就okay了</p><br><ul><br><li>支持makedown</li><br><li>可视化开发界面</li><br><li>支持多种WEB PPT</li><br><li>支持impress</li><br><li>支持handouts</li><br><li>支持bespoke</li><br><li>多种WEB PPT效果切换</li><br><li>支持导入/导出strut项目文件</li><br><li>支持导出HTML文件</li><br><li>支持添加/修改class</li><br><li>支持添加文本,视频,网页,图片</li><br><li>内置10款图形</li><br></ul><br><div><br><p><img src="http://www.gbtags.com/gb/networks/uploadimg/b8777052-cb99-427c-af11-532e1529e67e.gif" data-original="http://www.gbtags.com/gb/networks/uploadimg/b8777052-cb99-427c-af11-532e1529e67e.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="700" height="830"></p><br><p><img src="http://www.gbtags.com/gb/networks/uploadimg/c79de29c-d9ae-4bec-8565-27eeb6365bc5.gif" data-original="http://www.gbtags.com/gb/networks/uploadimg/c79de29c-d9ae-4bec-8565-27eeb6365bc5.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="700" height="795"></p><br><p>&nbsp;</p><br></div><br><p>这里给出几份图片</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/84d48404-6d71-4e5b-af88-a68203a76aa3.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/84d48404-6d71-4e5b-af88-a68203a76aa3.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/84d48404-6d71-4e5b-af88-a68203a76aa3.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/34590d0f-6986-41f7-bd69-fbbb51814370.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/34590d0f-6986-41f7-bd69-fbbb51814370.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/34590d0f-6986-41f7-bd69-fbbb51814370.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/749ede60-0923-464c-b171-56271e64d6f5.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/749ede60-0923-464c-b171-56271e64d6f5.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/749ede60-0923-464c-b171-56271e64d6f5.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>最后:如果访问在线网页过慢,可以去git clone下项目git就可以本地运行了~</p><br><p>git地址:<a href="https://github.com/tantaman/Strut" target="_blank" rel="external">https://github.com/tantaman/Strut</a></p><br><p>如果嫌麻烦的可以直接下载本文章的演示素材本地运行即可</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-25ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/25ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/25ver/">产品前端构架之页面优化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:为什么要优化<br>                -提升网页相应速度<br>                -对搜索引擎，屏幕阅读器友好<br>                -提高可读性，可维护性</pre></p>
+<pre><code>二:如何优化
+    -<span class="ruby">减少请求
+</span>    -<span class="ruby">减少文件大小
+</span>    -<span class="ruby">页面性能
+</span>    -<span class="ruby">可读性，可维护性
+</span>
+三:减少请求
+    -<span class="ruby">图片合并
+</span>    -<span class="ruby"><span class="constant">CSS</span>文件合并
+</span>        -<span class="ruby">多个<span class="constant">CSS</span>文件合并为一个
+</span>        -<span class="ruby">少量<span class="constant">CSS</span>样式内联
+</span>        -<span class="ruby">避免使用import的方式引入css文件
+</span>
+四:减少文件大小
+    -<span class="ruby">减少图片大小
+</span>        -<span class="ruby">选择合适的图片格式
+</span>            -<span class="ruby"><span class="constant">PNG</span>
+</span>            -<span class="ruby"><span class="constant">JPG</span>
+</span>        -<span class="ruby">压缩图片
+</span>            -<span class="ruby"><span class="constant">ImageOptim</span>
+</span>            -<span class="ruby"><span class="constant">ImageAlpha</span>
+</span>
+        -<span class="ruby"><span class="constant">CSS</span>值缩写
+</span>            p{
+                margin:10px 10px 20px 30px;
+            }
+        -<span class="ruby">省略值为<span class="number">0</span>的单位
+</span>        -<span class="ruby">颜色值最短表示
+</span>            color:#ccc
+        -<span class="ruby"><span class="constant">CSS</span>选择器合并
+</span>        -<span class="ruby">文件压缩
+</span>            -<span class="ruby"><span class="constant">YUI</span> <span class="constant">Compressor</span>
+</span>            -<span class="ruby">cssmin
+</span>
+五:页面性能
+    -<span class="ruby">加载顺序
+</span>        -<span class="ruby"><span class="constant">Css</span>文件放在head里
+</span>        -<span class="ruby">script放在body底部
+</span>    -<span class="ruby">减少标签数量
+</span>    -<span class="ruby">选择器长度
+</span>    -<span class="ruby">耗性能属性
+</span>        -<span class="ruby">expression
+</span>        -<span class="ruby">filter
+</span>        -<span class="ruby">border-radius
+</span>        -<span class="ruby">box-shadow
+</span>        -<span class="ruby">gradients
+</span>    -<span class="ruby">图片设置宽高
+</span>    -<span class="ruby">所有表现用<span class="constant">CSS</span>实现
+</span>        elm.className="shrink"
+        .shrink li{width:100px}
+
+六:可读性，可维护性
+    -<span class="ruby">规范
+</span>    -<span class="ruby">语义化
+</span>    -<span class="ruby">尽量避免<span class="constant">Hack</span>
+</span>    -<span class="ruby">模块化
+</span>    -<span class="ruby">注释&lt;<span class="regexp">/pre&gt;</span></span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-24ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/24ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/24ver/">CSS布局之规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:规范<br>                -文件规范<br>                -注释规范<br>                -命名规范<br>                -书写规范<br>                -其他规范</pre></p>
+<pre><code>二:文件规范
+    -<span class="ruby">文件分类
+</span>        -<span class="ruby">通用类
+</span>            -<span class="ruby">reset.css jquery-ul.css
+</span>        -<span class="ruby">业务类
+</span>            -<span class="ruby">alibum toplist
+</span>    -<span class="ruby">文件引入
+</span>        -<span class="ruby">行内样式
+</span>            -<span class="ruby">不推荐
+</span>        -<span class="ruby">外联引入
+</span>            -<span class="ruby">link
+</span>        -<span class="ruby">内联引入
+</span>            -<span class="ruby">style
+</span>        -<span class="ruby">避免在<span class="constant">CSS</span>中使用import
+</span>    -<span class="ruby">文件本身
+</span>        -<span class="ruby">文件名
+</span>            -<span class="ruby">由小写字母，数字，中划线组成
+</span>        -<span class="ruby">编码
+</span>            -<span class="ruby">utf-<span class="number">8</span>
+</span>
+三:注释规范
+    -<span class="ruby">块状注释
+</span>        -<span class="ruby">统一缩进
+</span>        -<span class="ruby">在被注释对象之上
+</span>    -<span class="ruby">单行注释
+</span>        -<span class="ruby">文字两端空格
+</span>        -<span class="ruby">在被注释对象之上
+</span>    -<span class="ruby">行内注释
+</span>        -<span class="ruby">文字两端空格
+</span>        -<span class="ruby">在分号之后
+</span>
+四:命名规范
+    -<span class="ruby">分类命名
+</span>        -<span class="ruby">g-header
+</span>        -<span class="ruby">h-header
+</span>    -<span class="ruby">命名格式
+</span>        -<span class="ruby">大小写
+</span>        -<span class="ruby">长度
+</span>            -<span class="ruby">衡量长度和可读性
+</span>    -<span class="ruby">语义化命名
+</span>        -<span class="ruby">以内容语义命名
+</span>
+五:书写规范
+    -<span class="ruby">单行与多行
+</span>        -<span class="ruby">.logo{<span class="regexp">//do</span> sth}
+</span>        -<span class="ruby">.logo{
+</span>            padding://
+            color://
+        }
+        -<span class="ruby">二选一 遵守之
+</span>    -<span class="ruby">空格与分号
+</span>        -<span class="ruby">空格
+</span>            -<span class="ruby">缩进 <span class="number">2</span> <span class="keyword">or</span> <span class="number">4</span>
+</span>            -<span class="ruby">规则内空格
+</span>                -<span class="ruby">.logo{<span class="symbol">width:</span> <span class="number">200</span>px;<span class="symbol">height:</span> <span class="number">50</span>px;}
+</span>        -<span class="ruby">分号
+</span>            -<span class="ruby">保留最后一个属性值的分号
+</span>    -<span class="ruby">属性顺序
+</span>        -<span class="ruby">根据属性的重要性按顺序书写
+</span>            -<span class="ruby">显示属性
+</span>            -<span class="ruby">自身属性
+</span>            -<span class="ruby">文本属性和其他修饰
+</span>    -<span class="ruby"><span class="constant">Hack</span>方式
+</span>        -<span class="ruby">统一各个浏览器的<span class="constant">Hack</span>方式
+</span>            -<span class="ruby"><span class="constant">IE6</span><span class="symbol">:_pro</span><span class="symbol">:value</span>
+</span>            -<span class="ruby"><span class="constant">IE7</span><span class="symbol">:*pro</span><span class="symbol">:value</span>
+</span>        -<span class="ruby">不要滥用hack
+</span>    -<span class="ruby">值格式
+</span>        -<span class="ruby">统一属性值
+</span>            -<span class="ruby">color
+</span>                -<span class="ruby">white <span class="keyword">or</span> <span class="comment">#fff or rgb(255,255,255)</span>
+</span>            -<span class="ruby">url()
+</span>                -<span class="ruby">icon.png <span class="keyword">or</span> <span class="string">"icon.png"</span> <span class="keyword">or</span> <span class="string">'icon.png'</span>
+</span>六:其他规范
+    -<span class="ruby"><span class="constant">HTML</span>规范
+</span>        -<span class="ruby">文档声明
+</span>        -<span class="ruby">闭合
+</span>            -<span class="ruby">闭合标签
+</span>            -<span class="ruby">自闭合标签
+</span>        -<span class="ruby">属性
+</span>            -<span class="ruby">双引号与单引号
+</span>            -<span class="ruby">&amp;lt;input readonly&amp;gt; <span class="keyword">or</span> &amp;lt;input readonly=<span class="string">"readonly"</span>&amp;gt;
+</span>        -<span class="ruby">层级
+</span>            -<span class="ruby">用缩进体现层级，提高可读性
+</span>            -<span class="ruby">标签正确嵌套，但嵌套不宜太深
+</span>        -<span class="ruby">注释
+</span>            -<span class="ruby">&amp;lt;!-- <span class="constant">LOGO</span> --&amp;gt;
+</span>            -<span class="ruby">&amp;lt;!-- <span class="regexp">/LOGO--&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">大小写
+</span></span>            -<span class="ruby"><span class="regexp">标签，属性均小写
+</span></span>
+    -<span class="ruby"><span class="regexp">图片规范
+</span></span>        -<span class="ruby"><span class="regexp">文件名称
+</span></span>            -<span class="ruby"><span class="regexp">语义
+</span></span>            -<span class="ruby"><span class="regexp">长度
+</span></span>        -<span class="ruby"><span class="regexp">保留源文件
+</span></span>        -<span class="ruby"><span class="regexp">图片合并
+</span></span>            -<span class="ruby"><span class="regexp">尽量使用sprite技术
+</span></span>            -<span class="ruby"><span class="regexp">sprite图片可按模块，业务，页面来划分&lt;/pre</span>&gt;</span>
 </code></pre><p>&nbsp;</p>
 
 
