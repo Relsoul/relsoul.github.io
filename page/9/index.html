@@ -193,6 +193,61 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-131ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/131ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/131ver/">CSS3/JavaScript照片墙效果</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="color: #993366;"><strong>PS:JavaScript照片墙其实是一个很复杂的玩意…因为博主水平不够只能写出随机排列的照片墙.如果要排列比较美观的,推荐还是用CSS来固定排序吧。</strong></span></p><br><p>&nbsp;</p><br><p>JavaScript+CSS</p><br><h2>演示地址:</h2><br><h2><br><strong><span style="color: #cc99ff;"><a style="color: #cc99ff;" href="http://www.old.com/demo/CSS%E7%85%A7%E7%89%87%E5%A2%99/CSS%E7%85%A7%E7%89%87%E5%A2%99.html" target="_blank" rel="external">演示</a></span></strong></h2><br><h2><br><span style="color: #993366;">为了演示我把CSS效果代码注释掉了,有兴趣的可以下载源码进行查看</span><br><br><span style="color: #993366;"> <div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1eQngoaI" target="_blank">度娘下载</a></div></span></h2><br><p><span style="color: #993366;"> </span></p><br><blockquote><p><strong> CSS3技术点与分析</strong></p><br><p>&lt;!– 分析: 1.每张照片的位置不同 2.每张照片有一定旋转角度 3.照片阴影 缓慢旋转 缓慢放大特效 –&gt;</p><br><p>&lt;!– 技术点 1.box-shadow 阴影 2.position 定位 3.z-index 层序 4.transform:rotate 旋转角度 5.transform:scale 缩放倍数 6.transiton 动画实现时间 –&gt;</p></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;!– 分析:<br>    1.每张照片的位置不同<br>    2.每张照片有一定旋转角度<br>    3.照片阴影 缓慢旋转 缓慢放大特效 –&gt;<br><br>    &lt;!– 技术点<br>    1.box-shadow 阴影<br>    2.position 定位<br>    3.z-index 层序<br>    4.transform:rotate 旋转角度<br>    5.transform:scale 缩放倍数<br>    6.transiton 动画实现时间 –&gt;<br><br>    &lt;style type=”text/css”&gt;<br>    h1{text-align: center;}<br>    .container{<br>        width: 960px;<br>        height: 450px;<br>        margin: 60px auto;<br>        position: relative;<br>    }<br>    .container img{<br>        padding: 10px 10px 15px;<br>        background: #fff;<br>        border: 1px solid #ddd;<br>        width: 200px;<br>        height: 150px;<br>        position: absolute;<br>        transition:0.5s ;<br>        -webkit-transition:0.5s;<br>        z-index: 1;<br><br>    }<br><br>    .container img:hover{<br>        transform:rotate(0deg);<br>        -webkit-transform:rotate(0deg);<br>        transform:scale(1.2);<br>        -webkit-transform:scale(1.2);<br>        box-shadow: 10px 10px 15px #ccc;<br>        z-index:999;<br>    }<br><br><br>    body{<br>        background: #eee;<br>    }<br><br>    /<em>.pic1{<br>        left: 400px;<br>        top:0;<br>        -webkit-transform: rotate(25deg);<br>        transform: rotate(25deg);<br>    }<br><br>    .pic2{<br>    left: 300px;<br>        top:250px;<br>        -webkit-transform: rotate(10deg);<br>        transform: rotate(10deg);<br>    }<br>    .pic3{<br>        left: 650px;<br>        top:300px;<br>        -webkit-transform: rotate(15deg);<br>        transform: rotate(15deg);<br>    }<br>    .pic4{<br>        left: 520px;<br>        top:100px;<br>        -webkit-transform: rotate(45deg);<br>        transform: rotate(45deg);<br>    }<br>    .pic5{<br>        left: 800px;<br>        top:360px;<br>        -webkit-transform: rotate(0deg);<br>        transform: rotate(0deg);<br>    }<br>    .pic6{<br>        left: 220px;<br>        top:260px;<br>        -webkit-transform: rotate(8deg);<br>        transform: rotate(8deg);<br>    }<br>    .pic7{<br>        left: 310px;<br>        top:300px;<br>        -webkit-transform: rotate(18deg);<br>        transform: rotate(18deg);<br>    }<br>    .pic8{<br>        left: 320px;<br>        top:80px;<br>        -webkit-transform: rotate(22deg);<br>        transform: rotate(22deg);<br>    }<br>    .pic9{<br>        left: 300px;<br>        top:100px;<br>        -webkit-transform: rotate(13deg);<br>        transform: rotate(13deg);<br>    }<br>    .pic10{<br>        left: 220px;<br>        top:60px;<br>        -webkit-transform: rotate(4deg);<br>        transform: rotate(4deg);<br><br>    }</em>/<br>&lt;/style&gt;<br><br>&lt;script type=”text/javascript”&gt;<br>    window.onload=function(){<br><br>            var get_img=document.getElementById(“container”).getElementsByTagName(“img”);<br>            var road_rotate=null,road_top=null,road_left=null;<br>            for (var i = 0; i &lt; get_img.length; i++) {<br>                road()<br>                get_img[i].style.transform=”rotate(“ +road_rotate+”deg)”;<br>                get_img[i].style.top=road_top+”px”<br>                get_img[i].style.left=road_left+”px”<br><br>                if (i!=0) {<br>                    var before_left=parseInt(get_img[i-1].style.left);<br>                    var now_left=parseInt(get_img[i].style.left);<br>                    console.log(before_left+”|”+now_left);<br>                    if ((before_left-now_left)&lt;200) {<br>                        get_img[i].style.left=before_left+200+”px”<br>                    };<br><br>                }<br><br><br>            };<br><br>            function road(){<br>                road_rotate=Math.floor(Math.random()<em>40);<br>                road_top=Math.floor(Math.random()</em>500);<br>                road_left=Math.floor(Math.random(4)*800);<br>                if (road_left&lt;40) {<br>                    road()<br>                };<br>                return {<br>                    “road_rotate”:road_rotate,<br>                    “road_top”:road_top,<br>                    “road_left”:road_left,<br>                };<br>            }<br><br>    }<br><br><br><br><br><br>&lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;照片墙制作&lt;/h1&gt;<br>    &lt;div class=”container” id=”container”&gt;<br>        &lt;img class=”pic1” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic2” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic3” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic4”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic5”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic6”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic7”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic8”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic9”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic10”src=”img/1.jpg”&gt;<br><br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-132ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -665,61 +720,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>要理解闭包，首先必须理解Javascript特殊的变量作用域。</p><br><p>变量的作用域无非就是两种：全局变量和局部变量。</p><br><p>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</p><br><p>详细也可以参考这篇文章</p><br><p><a href="http://www.old.com/soul-get/soul-js/217" target="_blank" rel="external">http://www.old.com/soul-get/soul-js/217</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function outer(){<br>            var localVal=30;<br>            return localVal;<br>            //返回localVal变量<br>        }<br>        outer();//30<br><br>        //函数可以作为返回值 传参<br>        function outer_1(){<br>            var localVal=30;<br>            return function(){//返回一个匿名函数<br>                return localVal;<br>            }<br>        }<br>        var func=outer();<br>        console.log(func)//30 访问到外层的变量<br><br>        //常见错误之循环闭包<br>        function bo(){<br>            var get_div=document.getElementsByTagName(‘div’)<br>        for (var i = 0; i &lt; get_div.length; i++) {<br>            !function(i){<br>// 叹号后面跟函数!function和加号后面跟函数+function<br>// 都是跟(function(){})();这个函数是一个意思，都是告诉浏览器自动运行这个匿名函数的，因为!+()这些符号的运算符是最高的，所以会先运行它们后面的函数<br>                get_div[i].onclick=function(){<br>                alert(i)<br>                }<br>            }(i);<br>        };<br>    }<br><br>        //闭包之封装<br>        (function(){<br>            var _userId=222;<br>            var _typeId=”item”;<br>            var export1={};<br><br>            function converter(userId){<br>                return +userId;<br>            }<br>            export1.getUserId=function(){<br>                return converter(_userId);<br>            }<br>            export1.getTypeId=function(){<br>                return _typeId;<br>            }<br>            window.export1=export1;<br>            //用window.方式来把想要的输出出去<br><br>        }())<br><br>        export1.getUserId()//222;<br>        export1.getTypeId()//item;<br>        export1._userId;//undefined;<br>        export1._typeId;//undefined<br>        export1.converter;//undefined<br><br><br><br>        window.onload=function(){<br>            bo();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;aaa&lt;/div&gt;<br>    &lt;div&gt;bbb&lt;/div&gt;<br>    &lt;div&gt;ccc&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-141ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/141ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/141ver/">jquery:鼠标跟随动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>好吧,来写一个鼠标跟随事件.虽然网上有很多这样的博文..但是. 代码太多 太长不看.自己参考着网上的写了一篇..多动手很容易就理解了</p><br><p>&nbsp;</p><br><p>本次的任务是:</p><br><ol><br><li><del>获取神器</del></li><br><li><del>拯救世界</del></li><br><li><del>打倒大魔王</del></li><br></ol><br><p><span style="color: #993366;"><strong>真-本次任务</strong></span></p><br><ol><br><li>鼠标跟随的时候读取鼠标移入的那个元素的title属性同时把这个title属性显示出来</li><br></ol><br><p>&nbsp;</p><br><p><span style="color: #993366;"><strong>首先写html</strong></span></p><br><blockquote><p> 前略-天国的头部君</p><br><p>ok定义了几个P标签</p><br><pre class="lang:default decode:true">&lt;body&gt;<br>    &lt;p title=”hello”&gt;test&lt;/p&gt;<br><br>    &lt;p title=”soul”&gt;test&lt;/p&gt;<br><br>    &lt;p title=”seeker”&gt;test&lt;/p&gt;<br>&lt;/body&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p>二.开始写js文件</p><br><blockquote><p>引入了jquery(版本&gt;1.8)后先写个$(function(){}) 这样做是为了等网页加载完毕后再执行. 以下的内容就不写这个咯</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">var x=20;<br>var y=20;<br>$(‘p’).mouseover(function(event) {<br>            if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}<br>            this.mytitle=this.title;<br>            this.title=””;<br>            var newdiv=”&lt;div id=fllow&gt;”+this.mytitle+”&lt;/div&gt;”;<br>            $(‘body’).append(newdiv);<br>            $(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’},<br>                1000);<br><br>        })</pre><br><p>以上写了鼠标移入P元素事件,来一条一条分析</p><br><pre class="lang:default decode:true ">var x=20;<br>var y=20;</pre><br><p>x,y是为了后面加一点距离而定义的变量</p><br><pre class="lang:default decode:true">if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}</pre><br><p>这两条暂时不管，后面就知道了 先看下面的</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">this.mytitle=this.title;<br>            this.title=””;</pre><br><p>众所周知,浏览器会给默认的title标题一个提示的事件,为了避免这个事件 我们用一个mytitle属性来储存title，同时把title属性设置为空</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">var newdiv=”&lt;div id=fllow&gt;”+this.mytitle+”&lt;/div&gt;”;</pre><br><p>新建个div,把div的id设置为fllow 同时把mytitle</p><br><pre class="lang:default decode:true ">$(‘body’).append(newdiv);</pre><br><p>在body标签中添加上这个div.如果你不想在body中添加上这个标签 你也可以在其他标签里添加</p><br><p>&nbsp;</p><br><p>在这个时候得说一下fllow CSS设置了</p><br><pre class="lang:default decode:true ">#fllow{<br>        position: absolute;<br>        opacity: 1;<br>        display: block;<br>    }</pre><br><p>设置定位为绝对定位,透明度设置1，类型为块级元素</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">$(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’},<br>                1000);</pre><br><p>获取id为fllow的标签, .stop()函数是停止正在执行动画的元素, 然后为这个标签添加上动画</p><br><p>event是传递进来的参数, event.pageX获取到鼠标所在的X位置,event.pageY获取到鼠标所在的y位置.</p><br><p>然后动画执行的时间是1000毫秒也就是10秒</p><br><p><strong>这是鼠标移入事件,再来看鼠标移出事件</strong></p><br><p>&nbsp;</p><br><p>我用的是链式操作，所以前面有个点</p><br><pre class="lang:default decode:true">.mouseout(function(event) {<br>            this.title=this.mytitle;<br>            $(“#fllow”).stop().animate({<br>                opacity:0,<br>                display:’none’<br>            },500);<br>        })</pre><br><p>首先恢复标题内容 this.title=this.mytitle;</p><br><p>然后设置消失动画 透明度从0变为1,隐藏掉fllow元素，动画执行时间是500毫秒</p><br><p>&nbsp;</p><br><p>ok现在可以来分析上方的判断了</p><br><pre class="lang:default decode:true ">if(!this.title){return false};<br>            if($(‘#fllow’)){$(‘#fllow’).remove()}</pre><br><p>首先,我们隐藏掉fllow标签,但是没有删除掉,也就是说fllow标签还是在页面上的 我们先判断下鼠标移入的标签上有没有title标题,如果没有就直接跳出函数  然后再判断fllow标签是否存在,存在的话删除他</p><br><p>&nbsp;</p><br><p>现在来分析鼠标在标签上移动事件</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">.mousemove(function(event) {<br>            if(!$(“#fllow”).is(“:animated”)){<br>                $(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’}<br>                ,100);<br>            }<br><br>        });</pre><br><p>&nbsp;</p><br><pre class="lang:default decode:true">if(!$(“#fllow”).is(“:animated”))</pre><br><p>这句话判断 fllow标签没有正在执行动画 是的话则执行函数</p><br><pre class="lang:default decode:true ">$(“#fllow”).stop().animate({<br>                left: (event.pageX+x)+’px’,<br>                top:(event.pageY+y)+’px’}<br>                ,100);</pre><br><p>鼠标跟随事件,设置fllow标签的x y为鼠标所在的位置 同时加上一点点距离 动画执行时间是1s</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p>到此鼠标动画已经写完</p><br><p>&nbsp;</p>
 
 
 

@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-6ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-8ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/6ver/" class="article-date">
+      <a href="/2015/10/21/8ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/6ver/">angular新手入门必注意的一点！Argument &amp;#8216;xxx&amp;#8217; is not a function, got undefined,初学Angular的第一个坑</a>
+      <a class="article-title" href="/2015/10/21/8ver/">响应式WEB设计阅读笔记-仅github更新</a>
     </h1>
   
 
@@ -219,7 +219,222 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自BLOG：<a href="http://www.cnblogs.com/YikaJ/p/4226313.html" target="_blank" rel="external">http://www.cnblogs.com/YikaJ/p/4226313.html</a></p><br><p>图片加载不出请大家转自原文BLOG进行观看</p><br><p>Angular也是早有听说了啊，一直没闲下功夫研究，趁着放假，学一学。慕课网（www.imooc.com）里有一套教程，还是很不错的。但是真正上手编码的时候就发现，尼玛！例子都跑不起来，全是报错，Argument ‘xxx’ is not a function, got undefined是最显眼的错误。我们先来看看教程中的“错误”代码是怎样的。</p><br><p>来一个最简单的 Hello World 吧！</p><br><p>&nbsp;</p><br><p>我们一般接触到的第一个入门教程都是类似与这样的，代码简单。我们有个<em>ng-app</em>作为Angular的启动口，然后<em>ng-controller=”helloCtrl”</em>控制p标签。View层，则用双花括号出入数据greeting的message值。然后在下面的script定义了一个helloCtrl的函数，并为$scope.greeting赋了值。这一切看起来都是那么自然，想象中，浏览器就该出现，”Hello, World!”。可惜的是，浏览器给了我们这样的回复。</p><br><p>没错，这就是开头所说的那个。于是我弄不懂，为什么老师可以跑通，我却跑不通，大家都是Angular-1.3.0。国内不给力，很难找到答案，最后去StackOverflow找到了。<strong>因为从Angular-1.3.0 beta15开始，Angular不再支持全局的Controller！</strong>那么问题来了，如何在Angular里定义模块呢？</p><br><p>当然这篇blog是为了让大家学习Angular的时候别遇到闭门羹，我大致说一下。AngularJs里，有一个angular.module，模块机制就是靠这个来加载的。我们来看看如何可以重新出现梦寐以求的“Hello World”。</p><br><p>我们看看，改了什么，<em>ng-app=”myApp”</em>首先给入口赋了名字，然后再下面进行模块的初始化。在angular.module(String, moduleArray)函数里，第一个String参数是该模块的名字，第二个参数是所依赖的模块（这里暂时用不着），返回了myApp这个模块，然后再通过模块的controller方法定义helloCtrl控制器即可。</p><br><p>&nbsp;</p><br><p>当然我们要解释依赖模块的话，我们可以看一下稍作修改的第三版Demo</p><br><p>&nbsp;</p><br><p>仅仅是多定义一个helloController模块，这样myApp，就可以仅仅作为启动口，而不会混杂着控制器。我们可以定义多个js文件，清晰明确的通过模块梳理整个项目的结构。</p>
+        <p></p><p style="text-align: left;"><a href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8" target="_blank" rel="external">地址</a></p><p></p>
+<p></p><h3>HTML5，CSS3及响应式设计入门</h3><p></p>
+<p></p><h3><a id="user-content-概括" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#概括" target="_blank" rel="external"></a>概括</h3><p></p>
+<p></p><p>针对任意设备对网页内容进行完美布局的一种显示机制,如果需要根据不同设备提供特定的内容和功能，那就需要一个真正的“手机版”网页。</p><p></p>
+<p></p><h3><a id="user-content-html5导航" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#html5导航" target="_blank" rel="external"></a>HTML5导航</h3><p></p>
+<pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;ul id="nav-list"&gt;
+            &lt;li&gt;&lt;a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+<h3><a id="user-content-css3" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E5%93%8D%E5%BA%94%E5%BC%8FWEB%E8%AE%BE%E8%AE%A1/HTML5CSS3%E5%8F%8A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%85%A5%E9%97%A8#css3" target="_blank" rel="external"></a>CSS3</h3>
+<pre><code>background-image:linerar-gradient(red blue);//渐变
+border-radius:8px//圆角</code></pre>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-22ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/22ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/22ver/">百度ECharts学习笔记之折线图</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1>推荐阅读:<a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE" target="_blank" rel="external">我的github</a></h1><p></p>
+<p></p><h1></h1><p></p>
+<p></p><h1>折线图的一些说明</h1><p></p>
+<p></p><h3><a id="user-content-tooltip" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#tooltip" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Tooltip" target="_blank" rel="external">tooltip</a></h3><p></p>
+<p></p><p>提示框，鼠标悬浮交互时的信息提示，比如</p><p></p>
+<pre><code>{bollean}show true|false 显示|隐藏
+{number}showDelay 20 显示延迟
+</code></pre>
+<p>其他的信息请看官网<a href="http://echarts.baidu.com/doc/example/tooltip.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-legend" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#legend" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Legend" target="_blank" rel="external">legend</a></h3>
+<p>图例，每个图表最多仅有一个图例 官网<a href="http://echarts.baidu.com/doc/example/legend.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-toolbox" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#toolbox" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Toolbox" target="_blank" rel="external">toolbox</a></h3>
+<p>工具箱，每个图表最多仅有一个工具箱 官网<a href="http://echarts.baidu.com/doc/example/toolbox.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-calculable" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#calculable" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Calculable" target="_blank" rel="external">calculable</a></h3>
+<p>拖拽计算</p>
+<pre><code>{boolean} false，是否启用拖拽重计算特性，默认关闭
+</code></pre>
+<h3><a id="user-content-xaisyaxis" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#xaisyaxis" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Xaxis" target="_blank" rel="external">xAis/yAxis</a></h3>
+<p>点击标题参考文档</p>
+<h3><a id="user-content-series" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#series" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Series" target="_blank" rel="external">series</a></h3>
+<p>驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型 <strong>点击标题直接去官网看文档吧</strong></p>
+<h3><a id="user-content-总结" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#总结" target="_blank" rel="external"></a>总结</h3>
+<p><strong>一个图表有这几大块</strong> 第一:引入路径</p>
+<pre><code>require.config({
+                //引入百度的路径
+                paths:{
+                    echarts:"http://echarts.baidu.com/build/dist"
+                }
+            })
+</code></pre>
+<p>第二:引入需要的图表类型</p>
+<pre><code>    [
+                    //基类
+                    'echarts',
+                    //折线图
+                    'echarts/chart/line'
+        ],
+</code></pre>
+<p>第三:创建绘图所需的div</p>
+<pre><code>var myChart=ec.init(document.getElementById("main"));
+</code></pre>
+<p>第五:绘图</p>
+<pre><code>myChart.setOption(option);
+</code></pre>
+<p><strong>一个标准折线图图表有这几大元素</strong></p>
+<p>第一:标题</p>
+<pre><code>//标题
+                        title:{
+                            //文本
+                            text:"未来一周气温变化",
+                            //子标题
+                            subtext:"纯属虚构"
+                        },//!-文本
+
+</code></pre>
+<p>第二:鼠标移入上去的提示框</p>
+<pre><code>//提示框
+                        tooltip:{
+                            //坐标轴触发显示
+                            trigger:"axis"
+
+                        },
+</code></pre>
+<p>第三:图例</p>
+<pre><code>//图例 每个图表只能有一个
+                            legend:{
+                                data:['最高气温','最低气温']
+                            },//!-图例
+</code></pre>
+<p>第五:工具箱</p>
+<pre><code>//工具箱 每个图表只能有一个
+                            toolbox:{
+                                //是否显示工具箱 图表右上角的一系列开关
+                                show:true,
+                                //特效duang
+                                feature:{
+                                    //辅助线标志
+                                    mark:{show:true},
+                                    //数据视图 可以显示文本数据 
+                                    //是否仅读？NO
+                                    dataView:{show:true,readOnly:false},
+                                    //可以切换更多的图形特效吗？
+                                    //YSE! 可以切换line和bar类型
+                                    magicType:{show:true,type:["line",'bar']},
+                                    //卧槽！按错了，可以复原吗？
+                                    //YES!
+                                    restore:{show:"true"},
+                                    //是否可以保存为图片？
+                                    //YES!图片可以嵌入PPT里哦~
+                                    saveAsImage:{show:true}
+                                },//！-特效
+
+                            },//!-工具箱
+</code></pre>
+<p>第六:横坐标</p>
+<pre><code>xAxis:[
+                                {
+                                    //X轴为类目型
+                                    type:"category",
+                                    //是否两端留白？
+                                    boundaryGap:false,
+                                    //横坐标数据 
+                                    //只有类目型的才配拥有data属性！
+                                    data:["周一","周二","周三","周四","周五","周六","周日"]
+
+                                }
+                            ],//!-横坐标
+</code></pre>
+<p>第七:纵坐标</p>
+<pre><code>yAxis:[
+                                {
+                                    //Y轴类型为数值型
+                                    type:"value",
+                                    //Y轴的文本标签
+                                    //改成 万°C会不会被喷？
+                                    axisLabel:{
+                                        //间隔名称..实际上就是单位 
+                                        //{value}传递过来的就是值
+                                        formatter:"{value}°C"
+                                    }
+                                }
+                            ],
+                            //!-纵坐标
+</code></pre>
+<p>第八:图表数据</p>
+<pre><code>    series:[
+                            //数据一
+                                {
+                                    name:"最高气温",
+                                    //必要的参数
+                                    //不声明为line,电脑妹纸会知道你是个line？
+                                    type:"line",
+                                    //最高气温
+                                    //对应周一-周日
+                                    data:[11,11,15,13,12,13,10],
+                                    //标注 也就是图表上的那个类似于提示气泡的东西
+                                    markPoint:{
+                                        data:[
+                                            //会出现两个提示气泡
+                                            //一周类当中最高气温最大为多少
+                                            {type:"max",name:"最大值"},
+                                            //一周类最高气温最低为多少
+                                            {type:"min",name:"最小值"}
+                                        ]
+                                    },
+                                    //!-标注</code></pre>
 
 
 
@@ -392,10 +607,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-40ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-27ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/40ver/" class="article-date">
+      <a href="/2015/10/21/27ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -409,7 +624,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/40ver/">DOM编程艺术之事件分类</a>
+      <a class="article-title" href="/2015/10/21/27ver/">产品前端构架之模块化</a>
     </h1>
   
 
@@ -418,252 +633,117 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true">一:Event<br>        -load<br>        -unload<br>        -error<br>        -select<br>        -abort</pre></p>
-<pre><code>二:UIEvent
-    -<span class="ruby">resize
-</span>    -<span class="ruby">scroll;
-</span>
-三:FocusEvent
-    -<span class="ruby">blur
-</span>    -<span class="ruby">focus
-</span>    -<span class="ruby">focusin
-</span>    -<span class="ruby">focusout
-</span>
-四:InputEvent
-    -<span class="ruby">beforeinput
-</span>    -<span class="ruby">input
-</span>
-五:KeyboardEvent
-    -<span class="ruby">keydown
-</span>    -<span class="ruby">keyup
-</span>
-六:MouseEvent
-    -<span class="ruby">click
-</span>    -<span class="ruby">dbclick
-</span>    -<span class="ruby">mousedown
-</span>    -<span class="ruby">mouseenter;
-</span>    -<span class="ruby">mouseleave
-</span>    -<span class="ruby">mousemoved 
-</span>    -<span class="ruby">mouseout
-</span>    -<span class="ruby">mouseover
-</span>    -<span class="ruby">mouseup
-</span>
-七:WheelEvent
-    -<span class="ruby">wheel
-</span>
-八:MouseEvent对象
-    -<span class="ruby">属性
-</span>        -<span class="ruby">clientX,clientY /<span class="regexp">/页面
-</span></span>        -<span class="ruby"><span class="regexp">screenX,screenY /</span><span class="regexp">/系统的屏幕
-</span></span>        -<span class="ruby"><span class="regexp">ctrlKey,shiftKey,altKey /</span><span class="regexp">/按下去玩 true
-</span></span>        -<span class="ruby"><span class="regexp">button(0,1,2) /</span><span class="regexp">/鼠标 左键，中间，右键
-</span></span>
-九:MouseEvent顺序
-    -<span class="ruby"><span class="regexp">从元素A上方移过
-</span></span>        -<span class="ruby"><span class="regexp">mousemove-mouseover(A)-mouseenter(A)-mousemove(A)-mouseout(A)-mouseleave(A)
-</span></span>    -<span class="ruby"><span class="regexp">点击元素
-</span></span>        -<span class="ruby"><span class="regexp">mousedown-[mousemove]-mouseup-click
-</span></span>
-十:例子-拖拽div
-    -<span class="ruby"><span class="regexp">HTML
-</span></span>        -<span class="ruby"><span class="regexp">&amp;lt;div id="div1"&amp;gt;&amp;lt;/div</span>&amp;gt;
-</span>    -<span class="ruby"><span class="constant">CSS</span>
-</span><span class="comment">        -#div1{</span>
-            position:absolute;
-<span class="comment">            ///</span>
+        <p><pre class="lang:default decode:true ">一:模块组织JavaScript</pre></p>
+<pre><code>二:模块
+    -封装实现
+    -暴露接口
+    -声明依赖
+
+三:反模式
+    -math.js
+        <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        };
+        <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
         }
-    -<span class="ruby">js
-</span>        -<span class="ruby">var elem=document.getElementById(<span class="string">"div1"</span>)
-</span>        -<span class="ruby">var clientX,clientY,moving;
-</span>        -<span class="ruby">var mouseDownHandler=function(event){
-</span>            event=event||window.event
-            clientX=event.clientX;
-            clientY=event.clientY;
-            moving=!0;
-        }
-        -<span class="ruby">var mouseMoveHandler=function(event){
-</span>            if(!moving) return;
-            event=event||window.event
-            var newClientX=event.clientX
-            var newClientY=event.clientY
-            var left=parseInt(elem.style.left)||0,
-                   top=parseInt(elem.style.top)||0
-            elem.style.left=left+(newClientX-clientX)+"px";
-            elem.style.top=top+(newClientY-clientY)+"px";
-            clientX=newClientX;
-            clientY=newClientY;
-        }
-        -<span class="ruby">var mouseUpHandler=function(event){
-</span>            moving=!1;
-        }
-        addEvent(elem,'mousedown',mouseDownHandler)
-        addEvent(elem,"mousemove",mouseMoveHandler)
-        addEvent(elem,"mouseup",mouseUpHandler)
-
-
-十一:WheelEvent对象
-    -<span class="ruby">属性
-</span>        -<span class="ruby">daltaMode
-</span>        -<span class="ruby">daltaX
-</span>        -<span class="ruby">daltaY
-</span>        -<span class="ruby">daltaZ
-</span>
-十二:FocusEvent
-    -<span class="ruby">属性
-</span>        -<span class="ruby">relatedTarget/<span class="regexp">/失去焦点的元素
-</span></span>
-十三:InputEvent
-    -<span class="ruby"><span class="regexp">onpropertychange(IE)
-</span></span>
-十四:KeyboardEvent
-    -<span class="ruby"><span class="regexp">属性
-</span></span>        -<span class="ruby"><span class="regexp">key /</span><span class="regexp">/按下的什么键
-</span></span>        -<span class="ruby"><span class="regexp">code/</span><span class="regexp">/按键码
-</span></span>        -<span class="ruby"><span class="regexp">ctrlKey,shiftKey...
-</span></span>        -<span class="ruby"><span class="regexp">repeat/</span><span class="regexp">/按住不动的键 持续按键
-</span></span>        -<span class="ruby"><span class="regexp">keyCode 
-</span></span>        -<span class="ruby"><span class="regexp">charsetCode
-</span></span>        -<span class="ruby"><span class="regexp">which
-</span></span>
-十五:window
-    -<span class="ruby"><span class="regexp">load
-</span></span>    -<span class="ruby"><span class="regexp">unload
-</span></span>    -<span class="ruby"><span class="regexp">error
-</span></span>    -<span class="ruby"><span class="regexp">abort
-</span></span>
-十六:Image
-    -<span class="ruby"><span class="regexp">load
-</span></span>    -<span class="ruby"><span class="regexp">error
-</span></span>    -<span class="ruby"><span class="regexp">abort
-</span></span>    -<span class="ruby"><span class="regexp">&amp;lt;img src="xxx" onerror="this.scr='http:/</span><span class="regexp">/xxx.png"&amp;gt;
-</span></span>
-十七:UIEvent&lt;/pre&gt;
-</code></pre><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-DocusEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-661" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-DocusEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/DocusEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="DocusEvent" width="300" height="168"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-WheelEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-667" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-WheelEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/WheelEvent-300x172.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WheelEvent" width="300" height="172"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-UIEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-666" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-UIEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/UIEvent-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="UIEvent" width="300" height="169"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-MouseEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-665" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-MouseEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/MouseEvent-300x171.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="MouseEvent" width="300" height="171"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-KeyboardEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-664" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-KeyboardEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/KeyboardEvent-300x168.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="KeyboardEvent" width="300" height="168"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-InputEvent.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-663" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-InputEvent.png" data-original="http://www.old.com/wp-content/uploads/2015/06/InputEvent-300x170.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="InputEvent" width="300" height="170"></a> <a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-Event.png" target="_blank" rel="external"><img class=" size-medium wp-image-662 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-Event.png" data-original="http://www.old.com/wp-content/uploads/2015/06/Event-300x169.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="Event" width="300" height="169"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>图片打包下载:<a href="http://www.old.com/wp-content/uploads/2015/07/事件.zip" target="_blank" rel="external">事件</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-39ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/39ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/39ver/">DOM编程艺术之动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:实现方式<br>        -gif<br>        -flash<br>        -CSS3<br>        -JS</pre></p>
-<pre><code>二:三要素
-    -<span class="ruby">对象
-</span>        -<span class="ruby"><span class="constant">DOM</span>
-</span>    -<span class="ruby">属性
-</span>        -<span class="ruby">width
-</span>        -<span class="ruby">height
-</span>        -<span class="ruby"><span class="constant">Left</span>
-</span>        -<span class="ruby">....
-</span>    -<span class="ruby">定时器
-</span>        -<span class="ruby">setInterval
-</span>        -<span class="ruby">setTimeout
-</span>        -<span class="ruby">requestAnimationFrame
-</span>
-三:setInterval
-    -<span class="ruby">var timer=setInterval(func,delay)
-</span>                函数  触发定时器的间隔
-    -<span class="ruby">clearInterval(timer)
-</span>    -<span class="ruby">每隔一段时间执行
-</span>
-
-四:setTimeout
-    -<span class="ruby">var timer=setTimeout(func,delay)
-</span>    -<span class="ruby">clearTimeout(timer)
-</span>    -<span class="ruby">只会执行一次
-</span>
-五:requestAnimationFrame
-    -<span class="ruby">var timer=requestAnimationFrame(func)
-</span>    -<span class="ruby">cancelAnimationFrame(func)
-</span>    -<span class="ruby">间隔时间以显示器的频率决定
-</span>    -<span class="ruby">更流畅
-</span>
-六:常见动画
-    -<span class="ruby">形变
-</span>    -<span class="ruby">位移
-</span>    -<span class="ruby">旋转
-</span>    -<span class="ruby">透明度
-</span>    -<span class="ruby">...
-</span>
-七:动画函数
-    -<span class="ruby">var animation=function(ele,attr,from,to){
-</span>        var distance=Math.abs(to-from);
-        var stepLength=distance/100
-        var sign=(to-from)/distance
-        var offset=0;
-        var step=function(){
-            var tmpOffset=offset+stepLength;
-            if(tmpOffset&amp;lt;distance){
-                ele.style[attr]=from+tmpOffset*sign+'px'
-            }else{
-                ele.style[attr]=from+"px"
-                clearInterval(intervalId)
+        -封装无
+        -接口结构不明显
+    -caculator.js
+        <span class="keyword">var</span> action=<span class="string">"add"</span>
+        <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> add(a,b)
             }
         }
-        ele.style[attr]=from+"px";
-        var intervalId=setInterval(step,10)
-    }
+        -没有依赖声明
+        -使用全局状态
 
-    -<span class="ruby">var process=function(prcsswrap,drtn,intrvl,callback){
-</span>        var width=prcsswrap.clientWidth
-        var prcss=prcsswrap.getElementsByClassName('prcss')[0]
-        var count=drtn/intrvl
-        var offset=Math.floor(width/count)
-        var tmpCurrent=CURRENT
-        var step=function(){
-
+四:字面量
+-math.js
+    <span class="keyword">var</span> math={
+        add:<span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a+b;
+        },
+        sub:<span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">return</span> a-b
         }
-        var intervalId=setInterval(step,intrvl)
     }
-</code></pre><p></p>
-<p>&nbsp;</p>
+    -结构性好
+    -无访问控制
+- caculator.js
+    <span class="keyword">var</span> caculator={
+        action:<span class="string">"add"</span>,
+        compute:<span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+            <span class="keyword">switch</span>(action){
+                <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
+            }
+        }
+    }
+    -同样没有依赖声明
+
+五:IIFE
+    -caculator-<span class="number">1.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="keyword">return</span> {
+                compute: <span class="function"><span class="keyword">function</span> <span class="params">(a,b)</span></span>{
+                    <span class="keyword">switch</span>(action){
+                        <span class="keyword">case</span> <span class="string">"add"</span>:<span class="keyword">return</span> math.add(a,b)
+                        <span class="keyword">case</span> <span class="string">"sub"</span>:<span class="keyword">return</span> math.add(a,b)
+                    }
+                }
+            }
+        })()
+    -访问控制
+    -无依赖声明
+
+    -caculator-<span class="number">2.</span>js
+        -<span class="keyword">var</span> caculator=(<span class="function"><span class="keyword">function</span><span class="params">(m)</span></span>{
+            <span class="keyword">var</span> action=<span class="string">"add"</span>
+            <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                <span class="keyword">switch</span>(action){
+                    <span class="keyword">case</span> <span class="string">"add"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                    <span class="keyword">case</span> <span class="string">"sub"</span>:
+                        <span class="keyword">return</span> m.add(a,b)
+                }
+            }
+            <span class="keyword">return</span>{
+                compute:compute
+            }
+        })(math)
+        -显示了依赖声明
+        -仍然污染了全局变量
+        -必须手动进行依赖管理
+
+    六:命名空间
+        -math.js
+            <span class="keyword">namespace</span>(<span class="string">"math"</span>,[],<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+                <span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a+b};
+                <span class="function"><span class="keyword">function</span> <span class="title">sub</span><span class="params">(a,b)</span></span>{<span class="keyword">return</span> a-b}
+                <span class="keyword">return</span>{
+                    add:add,
+                    sub:sub
+                }
+            })
+            -无依赖声明
+
+        -caculator.js
+            <span class="keyword">namespace</span>(<span class="string">"caculator"</span>,[<span class="string">"math"</span>].<span class="keyword">function</span>(m){
+                <span class="keyword">var</span> action = <span class="string">"add"</span>
+                <span class="function"><span class="keyword">function</span> <span class="title">compute</span><span class="params">(a,b)</span></span>{
+                    <span class="keyword">return</span> m[action](a,b)
+                }
+                <span class="keyword">return</span>{
+                    compute:compute
+                }
+            })
+            -依赖声明
+            -依赖注入&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
 
 
 
@@ -692,10 +772,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-38ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-6ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/38ver/" class="article-date">
+      <a href="/2015/10/21/6ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -709,7 +789,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/38ver/">DOM编程艺术之事件代理</a>
+      <a class="article-title" href="/2015/10/21/6ver/">angular新手入门必注意的一点！Argument &amp;#8216;xxx&amp;#8217; is not a function, got undefined,初学Angular的第一个坑</a>
     </h1>
   
 
@@ -718,8 +798,65 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true  ">    一:事件代理<br>        -&lt;ul id=”myUi”&gt;&lt;li&gt;&lt;/ul&gt;<br>        -将事件注册到元素的父节点上<br>        -var myUl=document.getElementById(“myUl”);<br>        myUl.addEventListener(‘click’, function(event){<br>            var e=event||window.event;<br>            var target=e.target||e.srcElemnt<br>        })<br>        -优点<br>            -需要管理的handler更少<br>            -内存分配更少<br>            -增加/删除节点可以不处理事件<br>        -缺点<br>            -事件管理的逻辑更复杂</pre></p>
-<p>&nbsp;</p>
+        <p>转自BLOG：<a href="http://www.cnblogs.com/YikaJ/p/4226313.html" target="_blank" rel="external">http://www.cnblogs.com/YikaJ/p/4226313.html</a></p><br><p>图片加载不出请大家转自原文BLOG进行观看</p><br><p>Angular也是早有听说了啊，一直没闲下功夫研究，趁着放假，学一学。慕课网（www.imooc.com）里有一套教程，还是很不错的。但是真正上手编码的时候就发现，尼玛！例子都跑不起来，全是报错，Argument ‘xxx’ is not a function, got undefined是最显眼的错误。我们先来看看教程中的“错误”代码是怎样的。</p><br><p>来一个最简单的 Hello World 吧！</p><br><p>&nbsp;</p><br><p>我们一般接触到的第一个入门教程都是类似与这样的，代码简单。我们有个<em>ng-app</em>作为Angular的启动口，然后<em>ng-controller=”helloCtrl”</em>控制p标签。View层，则用双花括号出入数据greeting的message值。然后在下面的script定义了一个helloCtrl的函数，并为$scope.greeting赋了值。这一切看起来都是那么自然，想象中，浏览器就该出现，”Hello, World!”。可惜的是，浏览器给了我们这样的回复。</p><br><p>没错，这就是开头所说的那个。于是我弄不懂，为什么老师可以跑通，我却跑不通，大家都是Angular-1.3.0。国内不给力，很难找到答案，最后去StackOverflow找到了。<strong>因为从Angular-1.3.0 beta15开始，Angular不再支持全局的Controller！</strong>那么问题来了，如何在Angular里定义模块呢？</p><br><p>当然这篇blog是为了让大家学习Angular的时候别遇到闭门羹，我大致说一下。AngularJs里，有一个angular.module，模块机制就是靠这个来加载的。我们来看看如何可以重新出现梦寐以求的“Hello World”。</p><br><p>我们看看，改了什么，<em>ng-app=”myApp”</em>首先给入口赋了名字，然后再下面进行模块的初始化。在angular.module(String, moduleArray)函数里，第一个String参数是该模块的名字，第二个参数是所依赖的模块（这里暂时用不着），返回了myApp这个模块，然后再通过模块的controller方法定义helloCtrl控制器即可。</p><br><p>&nbsp;</p><br><p>当然我们要解释依赖模块的话，我们可以看一下稍作修改的第三版Demo</p><br><p>&nbsp;</p><br><p>仅仅是多定义一个helloController模块，这样myApp，就可以仅仅作为启动口，而不会混杂着控制器。我们可以定义多个js文件，清晰明确的通过模块梳理整个项目的结构。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-4ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/4ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/4ver/">angular学习笔记-个人初步学习感受</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h3>argular初始化</h3><p></p>
+<p><pre><code>//创建一个div 并在div上声明一个初始化属性<br>//ng-app:初始化<br>//ng-init:声明初始化的一些属性<br>//通过来输出绑定的属性<br>&lt;div ng-app=”” ng-init=”name=’hello’;data=[‘argular’,’one’]”&gt;<br> &lt;br&gt;<br><br>&lt;/div&gt;<br></code></pre></p>
+<p></p><h3><a id="user-content-argular绑定-ng-model" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#argular绑定-ng-model" target="_blank" rel="external"></a>argular绑定 ng-model</h3><p></p>
+<p>ng-model把相关处理事件绑定到指定标签上， 这样我们就可以不用在手工处理相关事件(比如change等)的条件下完成对数据的展现需求。</p><br><pre><code>//通过ng-model绑定数据 然后再通过输出<br>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;br&gt;<br>你输入的值为:<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-解析后生成数据-ng-bind" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#解析后生成数据-ng-bind" target="_blank" rel="external"></a>解析后生成数据 ng-bind</h3><br><p>在angular未解析完成之前会暴露模板比如这种字符串 所以可以采用ng-bind来实现绑定 ng-bind绑定的是这个值/数据 也就是下文的name, name可以算是一个数据了</p><br><pre><code>&lt;div ng-app=””&gt;<br>&lt;input ng-model=”name”&gt;<br>&lt;p&gt;你输入的是&lt;span ng-bind=”name”&gt;&lt;/span&gt;&lt;/p&gt;<br>&lt;/div&gt;<br></code></pre><br><h3><a id="user-content-单击事件-ng-click" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/angular/%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/readme-1.md#单击事件-ng-click" target="_blank" rel="external"></a>单击事件 ng-click</h3><br><p>ng-hide=”true”，设置HTML元素不可见。</p><br><pre><code>&lt;div ng-app=”” ng=init=”hide=false”&gt;<br>        &lt;button ng-click=”hide=!hide”&gt;click me&lt;/button&gt;<br>        &lt;div ng-hide=”hide”&gt;<br>            input you name&lt;input ng-model=”inputvalue”&gt;<br>            &lt;br&gt;<br>            &lt;span ng-bind=”inputvalue”&gt;&lt;/span&gt;<br>        &lt;/div&gt;<br>&lt;div&gt;<br></code></pre><br><p>&nbsp;</p>
 
 
 
@@ -991,10 +1128,10 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 
 
   
-    <article id="post-37ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-26ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/37ver/" class="article-date">
+      <a href="/2015/10/21/26ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -1008,7 +1145,7 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/37ver/">DOM编程艺术之BOM</a>
+      <a class="article-title" href="/2015/10/21/26ver/">产品前端构架之模块系统</a>
     </h1>
   
 
@@ -1017,155 +1154,82 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">    一:BOM<br>                -窗口对象模型<br>                -navigator<br>                    -浏览器信息<br>                -location<br>                    -浏览器定位和导航<br>                -history<br>                    -窗口浏览器历史<br>                -screen<br>                    -屏幕信息</pre></p>
-<pre><code>二:navigator
-    -<span class="ruby">浏览器信息
-</span>    -<span class="ruby">palform
-</span>        -<span class="ruby">运行在什么平台如<span class="constant">Win32</span>
-</span>    -<span class="ruby">userAgent
-</span>        -<span class="ruby">chrom
-</span>        -<span class="ruby">firefox
-</span>        -<span class="ruby"><span class="constant">IE</span>
-</span>三:location
-    -<span class="ruby">浏览器定位和导航
-</span>        -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
-</span>        -<span class="ruby">protocol
-</span>            -<span class="ruby">http
-</span>        -<span class="ruby">host
-</span>            -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
-</span>        -<span class="ruby">pathname
-</span>            -<span class="ruby">index.html
-</span>        -<span class="ruby">hostname
-</span>            -<span class="ruby">www.<span class="number">163</span>.com
-</span>        -<span class="ruby">port
-</span>            -<span class="ruby"><span class="number">8080</span>
-</span>        -<span class="ruby">search
-</span>            -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
-</span>        -<span class="ruby">hash
-</span>            -<span class="ruby">news
-</span>        -<span class="ruby">调用location会返回href
-</span>            -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/xxx.com/</span>
-</span>        -<span class="ruby">assign(url)
-</span>            -<span class="ruby">载入新的url，记录浏览历史
-</span>        -<span class="ruby">replace(url)
-</span>            -<span class="ruby">载入新的url，不记录浏览历史
-</span>        -<span class="ruby">reload()
-</span>            -<span class="ruby">重载当前页
+        <p><pre class="lang:default decode:true ">一：模块系统<br>                -依赖管理 加载/分析/注入/初始化<br>                -决定模块写法</pre></p>
+<pre><code>二:Commonjs/module 非浏览器环境的js
+    -<span class="ruby">math.js
+</span>        function add(a,b){
+            return a+b;
+        };
+        function sub(a,b){
+            return a-b
+        }
+        exports.add=add
+        exports.sub=sub
+    -<span class="ruby">caculator.js
+</span>        var math=require("./math");
+        function Caculator(container){
+            this.add=container.querySelector("xx")
+<span class="comment">            //do sth</span>
+        }
+        exports.Caculator=Caculator
+        优点
+        -<span class="ruby">依赖管理程度可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">运行时指出，模块定义非常简单
+</span>        -<span class="ruby">文件级的模块作用域隔离
+</span>        -<span class="ruby">可以处理循环依赖
+</span>        缺点
+        -<span class="ruby">不是标准组织的规范
+</span>        -<span class="ruby">同步的<span class="keyword">require</span>，没有考虑浏览器环境
 </span>
-四:history
-    -<span class="ruby">浏览器当前窗口的浏览历史
-</span>        -<span class="ruby">back()
-</span>        -<span class="ruby">forward();
-</span>        -<span class="ruby">go();<span class="regexp">//</span>负数后退 正数前进
-</span>五:screen
-    -<span class="ruby">屏幕信息
-</span>        -<span class="ruby">availHeight /<span class="regexp">/显示器可以用高度
-</span></span>        -<span class="ruby"><span class="regexp">height/</span><span class="regexp">/显示器高度
-</span></span>
-六:方法
-    -<span class="ruby"><span class="regexp">alert(),confirm(),prompt()/</span><span class="regexp">/三种对话框
-</span></span>    -<span class="ruby"><span class="regexp">setTimeout(),setInterval()/</span><span class="regexp">/计时器
-</span></span>    -<span class="ruby"><span class="regexp">open(),close()/</span><span class="regexp">/开新窗口，关闭窗口
-</span></span>
-七:三种对话框
-    -<span class="ruby"><span class="regexp">alert()/</span><span class="regexp">/确定按钮
-</span></span>    -<span class="ruby"><span class="regexp">confirm() /</span><span class="regexp">/确定返回true 取消返回false
-</span></span>    -<span class="ruby"><span class="regexp">prompt()/</span><span class="regexp">/输入框 返回用户输入的输入字符串
-</span></span>    -<span class="ruby"><span class="regexp">三种对话框都是阻塞用户进行浏览
-</span></span>
-八:开，关新窗口
-    -<span class="ruby"><span class="regexp">var w =window.open("url","name","width=400,height=350,status=yes,rezizable=yes")
-</span></span>    -<span class="ruby"><span class="regexp">父窗口调用w.close();
-</span></span>    -<span class="ruby"><span class="regexp">子窗口调用window.close();
-</span></span>
-九:事件
-    -<span class="ruby"><span class="regexp">load
-</span></span>        -<span class="ruby"><span class="regexp">文档和所有图片加载完毕时
-</span></span>    -<span class="ruby"><span class="regexp">unload
-</span></span>        -<span class="ruby"><span class="regexp">离开文档时
-</span></span>    -<span class="ruby"><span class="regexp">beforeunload
-</span></span>        -<span class="ruby"><span class="regexp">和unload类似，但他提供询问用户是否确定离开的机会
-</span></span>    -<span class="ruby"><span class="regexp">resize
-</span></span>        -<span class="ruby"><span class="regexp">拖动改变浏览器窗口大小
-</span></span>    -<span class="ruby"><span class="regexp">scroll
-</span></span>        -<span class="ruby"><span class="regexp">拖动滚动浏览器时</span></span>
-</code></pre><p></p>
-<p>&nbsp;</p>
+    三:AMD
+        -<span class="ruby">math.js
+</span>            define([],function(){
+                function add(a,b){
+                    return a+b
+                }
+                function sub(a,b){
+                    return a-b
+                }
+<span class="comment">                //接口暴露</span>
+                return{
+                    add:add,
+                    sub:sub
+                }
+            })
 
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-36ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/36ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/36ver/">DOM编程艺术之canvas</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">    一:基本用法<br>        -&lt;canvas id=”tutorial” width=”300” height=”150”&gt;&lt;/canvas&gt;</pre></p>
-<pre><code>二:渲染上下文
-    -<span class="keyword">var</span>  canvas=<span class="built_in">document</span>.getElementById(<span class="string">"tutorial"</span>)
-    -<span class="keyword">var</span> ctx=canvas.getContext(<span class="string">"2d"</span>)
-
-三:globalCompositeOperation
-    -ctx.globalCompositeOperation=<span class="string">'destination-over'</span><span class="comment">//两者都显示,后者在前者前面</span>
-
-四:基本绘图的步骤
-    -清除画笔-绘制图形-保存渲染上下文状态-绘制图形-渲染上下文状态
-    -<span class="keyword">var</span> sun=<span class="keyword">new</span> Image();
-    <span class="keyword">var</span> moon=<span class="keyword">new</span> Image();
-    <span class="keyword">var</span> earth=<span class="keyword">new</span> Image();
-    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{
-        sun.src=<span class="string">'Cancvas_sun.png'</span>;
-        moon.src=<span class="string">"Canvas_moon.png"</span>
-        earth.src=<span class="string">'Canvas_earth.png'</span>
-        <span class="built_in">window</span>.requestAnimationFrame(draw);
+        -<span class="ruby">caculator.js
+</span><span class="comment">        //依赖声明</span>
+            define(["./math"],function(math){
+<span class="comment">                //do sth</span>
+                return{
+                    Caculator:Caculator
+                }
+            })
+        优点
+        -<span class="ruby">依赖管理成熟可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">转为异步<span class="constant">IO</span>环境打造，适合浏览器环境
+</span>        -<span class="ruby">支持类似<span class="constant">Commonjs</span>的书写方法
+</span>        -<span class="ruby">通过插件<span class="constant">API</span>可支持加载非<span class="constant">JS</span>资源
+</span>        -<span class="ruby">成熟的打包构建工具
+</span>        缺点
+        -<span class="ruby">模块定义繁琐，需要额外嵌套
+</span>        -<span class="ruby">只是库级别的支持，需要引入额外库
+</span>        -<span class="ruby">无法处理循环依赖
+</span>        -<span class="ruby">无法实现条件加载
+</span>
+    四:systemjs
+        -<span class="ruby">支持加载<span class="constant">AMD</span>
+</span>        -<span class="ruby">支持加载<span class="constant">Commonjs</span>
+</span>        -<span class="ruby">支持加载<span class="constant">ES6</span>
+</span>        -<span class="ruby">支持加载任何资源
+</span>    System.paths={
+        "app/*":"../es6/*.js"
     }
-    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>)</span>{}
-    init();<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
+    System.import("app/caculator").then(function(c){
+        new c.Caculator(document.getElementById("caculator"))
+    })&lt;/pre&gt;
 </code></pre><p>&nbsp;</p>
 
 
@@ -1195,10 +1259,10 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
 
 
   
-    <article id="post-35ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-25ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/35ver/" class="article-date">
+      <a href="/2015/10/21/25ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -1212,7 +1276,7 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/35ver/">DOM编程艺术之数据通信-HTTP协议</a>
+      <a class="article-title" href="/2015/10/21/25ver/">产品前端构架之页面优化</a>
     </h1>
   
 
@@ -1221,91 +1285,65 @@ ld.detect();<span class="xml"><span class="tag">&lt;/<span class="title">pre</sp
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">一:HTTP<br>            -客户端向服务器发送包含命令和URL的HTTP请求报文<br>            -服务器返回一个包含事务结果的HTTP响应报文</pre></p>
-<pre><code>二:请求报文格式
-    -<span class="ruby">头行 
-</span>        -<span class="ruby"><span class="constant">GET</span> music.<span class="number">163</span>.com <span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>          方式  主机地址        版本
-    -<span class="ruby">头部
-</span>        -<span class="ruby">许多键值对构成
-</span>            -<span class="ruby"><span class="constant">Accept</span><span class="symbol">:</span>浏览器端接受的类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Encoding</span><span class="symbol">:</span>浏览器端编码类型
-</span>            -<span class="ruby"><span class="constant">Accept</span>-<span class="constant">Language</span><span class="symbol">:</span>浏览器端可以接受的语言类型
-</span>            -<span class="ruby"><span class="constant">Cache</span>-<span class="constant">Control</span><span class="symbol">:</span>浏览器是否可以缓存
-</span>            -<span class="ruby"><span class="constant">Connection</span><span class="symbol">:</span>是否持续链接
-</span>            -<span class="ruby"><span class="constant">Cookie</span><span class="symbol">:</span>浏览器向服务器端发送的cookie
-</span>            -<span class="ruby"><span class="constant">Host</span><span class="symbol">:</span>主机地址
-</span>            -<span class="ruby"><span class="constant">Pragma</span><span class="symbol">:</span>
-</span>            -<span class="ruby"><span class="constant">User</span>-<span class="constant">Agent</span><span class="symbol">:</span>浏览器版本
+        <p><pre class="lang:default decode:true ">一:为什么要优化<br>                -提升网页相应速度<br>                -对搜索引擎，屏幕阅读器友好<br>                -提高可读性，可维护性</pre></p>
+<pre><code>二:如何优化
+    -<span class="ruby">减少请求
+</span>    -<span class="ruby">减少文件大小
+</span>    -<span class="ruby">页面性能
+</span>    -<span class="ruby">可读性，可维护性
 </span>
-三:响应报文格式
-    -<span class="ruby">头行
-</span>        -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>  <span class="number">200</span>    <span class="constant">OK</span>
-</span>         HTTP版本  状态码    HTTP状态码描述
-    -<span class="ruby">头部
-</span>        -<span class="ruby"><span class="constant">Expires</span><span class="symbol">:</span>缓存有效时间
-</span>        -<span class="ruby"><span class="constant">Server</span><span class="symbol">:</span>服务器端<span class="constant">HTTP</span>服务器
-</span>    -<span class="ruby">主体
-</span>        -<span class="ruby">完整的<span class="constant">XML</span>页面
+三:减少请求
+    -<span class="ruby">图片合并
+</span>    -<span class="ruby"><span class="constant">CSS</span>文件合并
+</span>        -<span class="ruby">多个<span class="constant">CSS</span>文件合并为一个
+</span>        -<span class="ruby">少量<span class="constant">CSS</span>样式内联
+</span>        -<span class="ruby">避免使用import的方式引入css文件
 </span>
-四:常用HTTP方法
-    -<span class="ruby"><span class="constant">GET</span>
-</span>        -<span class="ruby">从服务器获取一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">POST</span>
-</span>        -<span class="ruby">向服务器发送需要处理的数据 包含主体
-</span>    -<span class="ruby"><span class="constant">PUT</span>
-</span>        -<span class="ruby">将请求的主体部分储存在服务器上 包含主体
-</span>    -<span class="ruby"><span class="constant">DELETE</span>
-</span>        -<span class="ruby">从服务器上删除一份稳定 不包含主体
-</span>    -<span class="ruby"><span class="constant">HEAD</span>
-</span>        -<span class="ruby">只从服务器获取文档的首部 不包含主体
-</span>    -<span class="ruby"><span class="constant">TRACE</span>
-</span>        -<span class="ruby">对可能经过代理服务器传送到服务器上的报文进行追踪 不包含主体
-</span>    -<span class="ruby"><span class="constant">OPTIONS</span>
-</span>        -<span class="ruby">决定可以在服务器上执行哪些方法 不包含主体
+四:减少文件大小
+    -<span class="ruby">减少图片大小
+</span>        -<span class="ruby">选择合适的图片格式
+</span>            -<span class="ruby"><span class="constant">PNG</span>
+</span>            -<span class="ruby"><span class="constant">JPG</span>
+</span>        -<span class="ruby">压缩图片
+</span>            -<span class="ruby"><span class="constant">ImageOptim</span>
+</span>            -<span class="ruby"><span class="constant">ImageAlpha</span>
 </span>
-五:URL构成
-    -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
-</span>    -<span class="ruby">protocol
-</span>        -<span class="ruby">http
-</span>    -<span class="ruby">host
-</span>        -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
-</span>    -<span class="ruby">pathname
-</span>        -<span class="ruby">index.html
-</span>    -<span class="ruby">hostname
-</span>        -<span class="ruby">www.<span class="number">163</span>.com
-</span>    -<span class="ruby">port
-</span>        -<span class="ruby"><span class="number">8080</span>
-</span>    -<span class="ruby">search
-</span>        -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
-</span>    -<span class="ruby">hash
-</span>        -<span class="ruby">news
+        -<span class="ruby"><span class="constant">CSS</span>值缩写
+</span>            p{
+                margin:10px 10px 20px 30px;
+            }
+        -<span class="ruby">省略值为<span class="number">0</span>的单位
+</span>        -<span class="ruby">颜色值最短表示
+</span>            color:#ccc
+        -<span class="ruby"><span class="constant">CSS</span>选择器合并
+</span>        -<span class="ruby">文件压缩
+</span>            -<span class="ruby"><span class="constant">YUI</span> <span class="constant">Compressor</span>
+</span>            -<span class="ruby">cssmin
 </span>
-六:HTTP版本
-    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>
-</span>        -<span class="ruby"><span class="number">1991</span>年 <span class="constant">HTTP</span>原型，有很多设计缺陷
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>
-</span>        -<span class="ruby">很快取代<span class="constant">HTTP</span>/<span class="number">0</span>.<span class="number">9</span>，成为第一个广泛应用的版本
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.0</span>+
-</span>        -<span class="ruby">添加持久的keep-alive连接，虚拟主机支持，以及代理连接支持，成为非官方的事实标准
-</span>    -<span class="ruby"><span class="constant">HTTP</span>/<span class="number">1.1</span>
-</span>        -<span class="ruby">校正了结构性缺点，明确语义，引入重要的性能优化措施，删除不好特性，是当前使用的版
-</span>
-七:常见HTTP状态码
-    -<span class="ruby"><span class="number">200</span>
-</span>        -<span class="ruby">请求成功。一般用于<span class="constant">GET</span>和<span class="constant">POST</span>方法 原因短语<span class="symbol">:OK</span>
-</span>    -<span class="ruby"><span class="number">301</span>
-</span>        -<span class="ruby">资源移动，所请求资源自动到新的<span class="constant">URL</span>，浏览器自动跳转到新的<span class="constant">URL</span> moved <span class="constant">Permanently</span>
-</span>    -<span class="ruby"><span class="number">304</span>
-</span>        -<span class="ruby">未修改。所请求资源未修改，浏览器读取缓存数据 <span class="constant">Not</span> <span class="constant">Modified</span>
-</span>    -<span class="ruby"><span class="number">400</span>
-</span>        -<span class="ruby">请求语法错误，服务器无法理解 <span class="constant">Bad</span> <span class="constant">Request</span>
-</span>    -<span class="ruby"><span class="number">404</span>
-</span>        -<span class="ruby">未找到资源，可以设置个性<span class="number">404</span>页面 <span class="constant">Not</span> <span class="constant">Found</span>
-</span>    -<span class="ruby"><span class="number">500</span>
-</span>        -<span class="ruby">内部服务器错误 <span class="constant">Internal</span> <span class="constant">Server</span> <span class="constant">Error</span></span>
-</code></pre><p></p>
-<p>&nbsp;</p>
+五:页面性能
+    -<span class="ruby">加载顺序
+</span>        -<span class="ruby"><span class="constant">Css</span>文件放在head里
+</span>        -<span class="ruby">script放在body底部
+</span>    -<span class="ruby">减少标签数量
+</span>    -<span class="ruby">选择器长度
+</span>    -<span class="ruby">耗性能属性
+</span>        -<span class="ruby">expression
+</span>        -<span class="ruby">filter
+</span>        -<span class="ruby">border-radius
+</span>        -<span class="ruby">box-shadow
+</span>        -<span class="ruby">gradients
+</span>    -<span class="ruby">图片设置宽高
+</span>    -<span class="ruby">所有表现用<span class="constant">CSS</span>实现
+</span>        elm.className="shrink"
+        .shrink li{width:100px}
+
+六:可读性，可维护性
+    -<span class="ruby">规范
+</span>    -<span class="ruby">语义化
+</span>    -<span class="ruby">尽量避免<span class="constant">Hack</span>
+</span>    -<span class="ruby">模块化
+</span>    -<span class="ruby">注释&lt;<span class="regexp">/pre&gt;</span></span>
+</code></pre><p>&nbsp;</p>
 
 
 

@@ -193,11 +193,11 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-64ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-101ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/64ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+      <a href="/2015/10/21/101ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/64ver/">页面制作之CSS布局</a>
+      <a class="article-title" href="/2015/10/21/101ver/">Jquery-生成页面顶端的滑动弹出式提示框效果</a>
     </h1>
   
 
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code class="brush:css;toolbar:false"> CSS布局<br><br>布局-元素的摆放模式</code></p><br><p>一: display //设置元素的显示方式<br><br>-block<br><br>-块级元素<br><br>-默认宽度为父元素宽度<br><br>-可设置宽高<br><br>-换行显示<br><br>-默认display:div,p,h1-h6,ul,form<br><br>-inline<br><br>-默认宽度为内容宽度<br><br>-不可设置宽高<br><br>-同行显示<br><br>-默认inline:span,a,label,cite,em</p><br><p>-inline-block<br><br>-默认宽度为内容宽度<br><br>-可设置宽高<br><br>-同行显示<br><br>-整块换行<br><br>-默认inline-block:input,textarea,select,button</p><br><p>-none<br><br>-设置元素不显示<br><br>-visibility：hidden //仍然在页面占据空间</p><br><p>二:块级元素水平居中<br><br>-margin:auto;width:978px;</p><br><p>三:居中导航<br><br>-通过ul li来设置HTML<br><br>-ul{text-align:center;height:30px;line-height:30px;}<br><br>-li,a{display:inline-block;width:80px;height:100%;}<br><br>——————————————————————————–<br><br>四:position 定位<br><br>-top,right,bottom,left,z-index -设置位置<br><br>-没有设置宽高 那么设置Position会被撑开<br><br>-元素边缘边缘距离参造物边缘的距离<br><br>-z-index<br><br>-Z轴上的排序<br><br>-z-index栈<br><br>-子级元素的Z-index是参考于父级的Z-index</p><br><p>五:position<br><br>-static|relative|absolute|fixed<br><br>-positon:relative;//相对定位<br><br>-仍在文档流中<br><br>-参造物为元素本身<br><br>-使用场景:绝对定位的参造物<br><br>-positon:absolute;//绝对定位<br><br>-默认宽度为内容宽度<br><br>-脱离了文档流<br><br>-参造物为第一个定位祖先/根元素<br><br>-position:fixed //固定定位<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-参造物为视窗</p><br><p>六:遮罩<br><br>-position:fixed;z-index:999;height:100%;width:100%</p><br><p>七:三行自适应布局<br><br>-.body{position:absolute;top:100px;left:0;bottom:100px;right:0;oveflow:auto}</p><br><p>八:float<br><br>-left|right|<br><br>-默认宽度为内容宽度<br><br>-脱离文档流<br><br>-向指定方向一直移动<br><br>-float的元素在同一文档流中<br><br>-float元素半脱离文档流<br><br>-对元素，脱离文档流;对内容，在文档流</p><br><p>九:clear<br><br>- both|left|right<br><br>-应用于后续元素<br><br>-应用于后续元素<br><br>-clearfix:after{content:”.”;display:block;clear:both;oveflow:hidden;}//在父级上加</p><br><p>十:两列布局<br><br>-边栏向右浮动,主栏向左浮动,给父级元素加上清除clearfix</p><br><p>三行自适应布局(position)+两列布局(flot)-&gt;两列自适应布局</p><br><p>十一:Flex布局(弹性布局)<br><br>-flex container 内容<br><br>-flex item 元素<br><br>-main axis 主轴<br><br>-cross axis 副轴</p><br><p>十二:flex item<br><br>-在文档流中的子元素 (position 除外) float也算文档流 ,子元素的子元素也除外</p><br><p>十三:flex-direction 方向<br><br>-row(行)|row-reverse(反向行)|column(列)|column-reverse(反向列)</p><br><p>十四:flex-wrap 换行<br><br>-nowarp|warp|wrap-reverse</p><br><p>十五:flex-flow 一次性设置方向与换行<br><br>-&lt;flex-direction&gt;||&lt;flex-wrap&gt;</p><br><p>十六:order 排列顺序<br><br>-order:&lt;number&gt;<br><br>-initial:0</p><br><p>十七:flex-basis 弹性基准<br><br>-设置flex item的初始宽/高<br><br>-flex-basis:main-size|&lt;width&gt;</p><br><p>十八:flex-grow 分配到剩余空间的比例 考虑flex-basis<br><br>-flex-grow:&lt;number&gt;<br><br>-initial:0</p><br><p>弹性布局元素宽度:flex-basis+flow-grow/sum(flow-grow)<em>remain</em></p><br><p>十九:flex-shrink 设置或检索弹性盒的收缩比率。<br><br>-flex-shrink:&lt;number&gt;<br><br>-initial:1<br><br>弹性布局元素宽度:flex-basis+flex-shrink/sum(flow-grow)remain</p><br><p>二十:flex<br><br>-&lt;flex-grow&gt;||&lt;flex-shrink&gt;||&lt;flex-basis&gt;<br><br>伸展因子 收缩因子 基准</p><br><p>二十一:justify-content 对齐剩余空间分配<br><br>-flex-start|flex-end|center|space-between|space-around</p><br><p>二十二:align-items<br><br>-设置cross-axis方向上对齐方式</p><br><p>二十三:align-self<br><br>-设置单个flex item在cross-axis方向上对齐方式</p><br><p>二十四:align-content<br><br>-设置cross-axis方向上行对齐方式</p><br><p>​</p>
+        <p>&nbsp;</p><br><p>参考给定的HTML，使用jQuery和相关CSS生成页面顶端滑动错误提示效果，具体效果如下：</p><br><blockquote><p>点击页面中的按钮“系统提示” ，生成一个背景色为#efb73e的页面顶端居中“错误提示框”（贴近页面顶端），宽度为页面宽度的80%，高度为35px，出现效果为整体向下滑动出现，点击“错误提示框”中的关闭元素（id=“close” 元素），自动向上滑动关闭页面顶端的“错误提示效果”（效果为整体向上滑动消失），参考如下UI设计图形</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/d3007eea-c2e3-40a0-b330-99e3d7814d39.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p></blockquote><br><p>&nbsp;</p><br><p>代码和预览地址<a href="http://www.gbtags.com/gb/rtreplayerpreview/843.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/843.htm</a></p>
 
 
 
@@ -248,10 +248,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-42ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-41ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/42ver/" class="article-date">
+      <a href="/2015/10/21/41ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -265,7 +265,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/42ver/">DOM编程艺术之事件流</a>
+      <a class="article-title" href="/2015/10/21/41ver/">DOM编程艺术之事件注册</a>
     </h1>
   
 
@@ -274,20 +274,47 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">一DOM事件<br>        -事件流<br>        -事件注册<br>        -事件对象<br>        -事件分类<br>        -事件代理</pre></p>
-<pre><code>二什么是DOM事件
-    -<span class="ruby">点击一个<span class="constant">DOM</span>元素
-</span>    -<span class="ruby">键盘按下一个健
-</span>    -<span class="ruby">输入框输入内容
-</span>    -<span class="ruby">页面加载完毕
-</span>
-三:事件流
-    -<span class="ruby">capture phase /<span class="regexp">/事件捕获
-</span></span>        -<span class="ruby"><span class="regexp">从window往下捕获到触发节点的父元素
-</span></span>    -<span class="ruby"><span class="regexp">target phase/</span><span class="regexp">/事件触发
-</span></span>        -<span class="ruby"><span class="regexp">目标节点的触发过程
-</span></span>    -<span class="ruby"><span class="regexp">bubble phase/</span><span class="regexp">/事件冒泡
-</span></span>        -<span class="ruby"><span class="regexp">从当前事件节点的父节点冒泡到window&lt;/pre</span>&gt;</span>
+        <p><pre class="lang:default decode:true ">一:事件注册<br>        -addEventListener(type, listener)//注册事件 默认为冒泡过程<br>        -使用element.onclick// 只能注册一个函数</pre></p>
+<pre><code>二:取消事件注册
+    -<span class="ruby">removeEventListener(type, listener)
+</span>    -<span class="ruby">element.onclick=null/<span class="regexp">/不推荐
+</span></span>
+三:事件触发
+    -<span class="ruby"><span class="regexp">dispatchEvent(event)/</span><span class="regexp">/触发事件
+</span></span>    -<span class="ruby"><span class="regexp">element.dispatchEvent('click')
+</span></span>
+四:浏览器兼容型
+    -<span class="ruby"><span class="regexp">事件注册与取消
+</span></span>        -<span class="ruby"><span class="regexp">attachEvent/detach</span>Event
+</span>    -<span class="ruby">事件触发
+</span>        -<span class="ruby">fireEvent(e)
+</span>    -<span class="ruby">no capture /<span class="regexp">/无捕获阶段
+</span></span>
+    var addEvent=document.addEventListener?function(elem,type,lis,useca){
+        elem.addEventListener(type,lis,useca)
+    }:function(elem,type,lis,useca){
+        elem.attachEvent('on'+type+lis)
+    }
+    -<span class="ruby"><span class="regexp">事件取消同上
+</span></span>
+五:事件对象
+    -<span class="ruby"><span class="regexp">var click=function(event){
+</span></span>
+    }
+    -<span class="ruby"><span class="regexp">IE低版本
+</span></span>        -<span class="ruby"><span class="regexp">var click=function(event){
+</span></span>            event=event||window.event
+        }
+    -<span class="ruby"><span class="regexp">属性
+</span></span>        -<span class="ruby"><span class="regexp">type /</span><span class="regexp">/事件类型
+</span></span>        -<span class="ruby"><span class="regexp">target(srcElement)/</span><span class="regexp">/目标元素
+</span></span>        -<span class="ruby"><span class="regexp">currentTarget/</span><span class="regexp">/父节点的元素
+</span></span>    -<span class="ruby"><span class="regexp">方法
+</span></span>        -<span class="ruby"><span class="regexp">stopPropagation/</span><span class="regexp">/阻止冒泡
+</span></span>            -<span class="ruby"><span class="regexp">event.cancelBubble=true /</span><span class="regexp">/IE
+</span></span>            -<span class="ruby"><span class="regexp">event.stopImmediatePropagation/</span><span class="regexp">/阻止本身和子节点事件传播
+</span></span>        -<span class="ruby"><span class="regexp">preventDefault/</span><span class="regexp">/阻止默认行为
+</span></span>            -<span class="ruby"><span class="regexp">returnValue=false /</span><span class="regexp">//</span><span class="constant">IE</span>&lt;<span class="regexp">/pre&gt;</span></span>
 </code></pre><p>&nbsp;</p>
 
 

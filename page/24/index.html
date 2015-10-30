@@ -193,206 +193,6 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-22ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/22ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/22ver/">百度ECharts学习笔记之折线图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h1>推荐阅读:<a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE" target="_blank" rel="external">我的github</a></h1><p></p>
-<p></p><h1></h1><p></p>
-<p></p><h1>折线图的一些说明</h1><p></p>
-<p></p><h3><a id="user-content-tooltip" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#tooltip" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Tooltip" target="_blank" rel="external">tooltip</a></h3><p></p>
-<p></p><p>提示框，鼠标悬浮交互时的信息提示，比如</p><p></p>
-<pre><code>{bollean}show true|false 显示|隐藏
-{number}showDelay 20 显示延迟
-</code></pre>
-<p>其他的信息请看官网<a href="http://echarts.baidu.com/doc/example/tooltip.html" target="_blank" rel="external">范例</a></p>
-<h3><a id="user-content-legend" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#legend" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Legend" target="_blank" rel="external">legend</a></h3>
-<p>图例，每个图表最多仅有一个图例 官网<a href="http://echarts.baidu.com/doc/example/legend.html" target="_blank" rel="external">范例</a></p>
-<h3><a id="user-content-toolbox" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#toolbox" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Toolbox" target="_blank" rel="external">toolbox</a></h3>
-<p>工具箱，每个图表最多仅有一个工具箱 官网<a href="http://echarts.baidu.com/doc/example/toolbox.html" target="_blank" rel="external">范例</a></p>
-<h3><a id="user-content-calculable" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#calculable" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Calculable" target="_blank" rel="external">calculable</a></h3>
-<p>拖拽计算</p>
-<pre><code>{boolean} false，是否启用拖拽重计算特性，默认关闭
-</code></pre>
-<h3><a id="user-content-xaisyaxis" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#xaisyaxis" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Xaxis" target="_blank" rel="external">xAis/yAxis</a></h3>
-<p>点击标题参考文档</p>
-<h3><a id="user-content-series" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#series" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Series" target="_blank" rel="external">series</a></h3>
-<p>驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型 <strong>点击标题直接去官网看文档吧</strong></p>
-<h3><a id="user-content-总结" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#总结" target="_blank" rel="external"></a>总结</h3>
-<p><strong>一个图表有这几大块</strong> 第一:引入路径</p>
-<pre><code>require.config({
-                //引入百度的路径
-                paths:{
-                    echarts:"http://echarts.baidu.com/build/dist"
-                }
-            })
-</code></pre>
-<p>第二:引入需要的图表类型</p>
-<pre><code>    [
-                    //基类
-                    'echarts',
-                    //折线图
-                    'echarts/chart/line'
-        ],
-</code></pre>
-<p>第三:创建绘图所需的div</p>
-<pre><code>var myChart=ec.init(document.getElementById("main"));
-</code></pre>
-<p>第五:绘图</p>
-<pre><code>myChart.setOption(option);
-</code></pre>
-<p><strong>一个标准折线图图表有这几大元素</strong></p>
-<p>第一:标题</p>
-<pre><code>//标题
-                        title:{
-                            //文本
-                            text:"未来一周气温变化",
-                            //子标题
-                            subtext:"纯属虚构"
-                        },//!-文本
-
-</code></pre>
-<p>第二:鼠标移入上去的提示框</p>
-<pre><code>//提示框
-                        tooltip:{
-                            //坐标轴触发显示
-                            trigger:"axis"
-
-                        },
-</code></pre>
-<p>第三:图例</p>
-<pre><code>//图例 每个图表只能有一个
-                            legend:{
-                                data:['最高气温','最低气温']
-                            },//!-图例
-</code></pre>
-<p>第五:工具箱</p>
-<pre><code>//工具箱 每个图表只能有一个
-                            toolbox:{
-                                //是否显示工具箱 图表右上角的一系列开关
-                                show:true,
-                                //特效duang
-                                feature:{
-                                    //辅助线标志
-                                    mark:{show:true},
-                                    //数据视图 可以显示文本数据 
-                                    //是否仅读？NO
-                                    dataView:{show:true,readOnly:false},
-                                    //可以切换更多的图形特效吗？
-                                    //YSE! 可以切换line和bar类型
-                                    magicType:{show:true,type:["line",'bar']},
-                                    //卧槽！按错了，可以复原吗？
-                                    //YES!
-                                    restore:{show:"true"},
-                                    //是否可以保存为图片？
-                                    //YES!图片可以嵌入PPT里哦~
-                                    saveAsImage:{show:true}
-                                },//！-特效
-
-                            },//!-工具箱
-</code></pre>
-<p>第六:横坐标</p>
-<pre><code>xAxis:[
-                                {
-                                    //X轴为类目型
-                                    type:"category",
-                                    //是否两端留白？
-                                    boundaryGap:false,
-                                    //横坐标数据 
-                                    //只有类目型的才配拥有data属性！
-                                    data:["周一","周二","周三","周四","周五","周六","周日"]
-
-                                }
-                            ],//!-横坐标
-</code></pre>
-<p>第七:纵坐标</p>
-<pre><code>yAxis:[
-                                {
-                                    //Y轴类型为数值型
-                                    type:"value",
-                                    //Y轴的文本标签
-                                    //改成 万°C会不会被喷？
-                                    axisLabel:{
-                                        //间隔名称..实际上就是单位 
-                                        //{value}传递过来的就是值
-                                        formatter:"{value}°C"
-                                    }
-                                }
-                            ],
-                            //!-纵坐标
-</code></pre>
-<p>第八:图表数据</p>
-<pre><code>    series:[
-                            //数据一
-                                {
-                                    name:"最高气温",
-                                    //必要的参数
-                                    //不声明为line,电脑妹纸会知道你是个line？
-                                    type:"line",
-                                    //最高气温
-                                    //对应周一-周日
-                                    data:[11,11,15,13,12,13,10],
-                                    //标注 也就是图表上的那个类似于提示气泡的东西
-                                    markPoint:{
-                                        data:[
-                                            //会出现两个提示气泡
-                                            //一周类当中最高气温最大为多少
-                                            {type:"max",name:"最大值"},
-                                            //一周类最高气温最低为多少
-                                            {type:"min",name:"最小值"}
-                                        ]
-                                    },
-                                    //!-标注</code></pre>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-34ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -555,6 +355,237 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-24ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/24ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/24ver/">CSS布局之规范</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:规范<br>                -文件规范<br>                -注释规范<br>                -命名规范<br>                -书写规范<br>                -其他规范</pre></p>
+<pre><code>二:文件规范
+    -<span class="ruby">文件分类
+</span>        -<span class="ruby">通用类
+</span>            -<span class="ruby">reset.css jquery-ul.css
+</span>        -<span class="ruby">业务类
+</span>            -<span class="ruby">alibum toplist
+</span>    -<span class="ruby">文件引入
+</span>        -<span class="ruby">行内样式
+</span>            -<span class="ruby">不推荐
+</span>        -<span class="ruby">外联引入
+</span>            -<span class="ruby">link
+</span>        -<span class="ruby">内联引入
+</span>            -<span class="ruby">style
+</span>        -<span class="ruby">避免在<span class="constant">CSS</span>中使用import
+</span>    -<span class="ruby">文件本身
+</span>        -<span class="ruby">文件名
+</span>            -<span class="ruby">由小写字母，数字，中划线组成
+</span>        -<span class="ruby">编码
+</span>            -<span class="ruby">utf-<span class="number">8</span>
+</span>
+三:注释规范
+    -<span class="ruby">块状注释
+</span>        -<span class="ruby">统一缩进
+</span>        -<span class="ruby">在被注释对象之上
+</span>    -<span class="ruby">单行注释
+</span>        -<span class="ruby">文字两端空格
+</span>        -<span class="ruby">在被注释对象之上
+</span>    -<span class="ruby">行内注释
+</span>        -<span class="ruby">文字两端空格
+</span>        -<span class="ruby">在分号之后
+</span>
+四:命名规范
+    -<span class="ruby">分类命名
+</span>        -<span class="ruby">g-header
+</span>        -<span class="ruby">h-header
+</span>    -<span class="ruby">命名格式
+</span>        -<span class="ruby">大小写
+</span>        -<span class="ruby">长度
+</span>            -<span class="ruby">衡量长度和可读性
+</span>    -<span class="ruby">语义化命名
+</span>        -<span class="ruby">以内容语义命名
+</span>
+五:书写规范
+    -<span class="ruby">单行与多行
+</span>        -<span class="ruby">.logo{<span class="regexp">//do</span> sth}
+</span>        -<span class="ruby">.logo{
+</span>            padding://
+            color://
+        }
+        -<span class="ruby">二选一 遵守之
+</span>    -<span class="ruby">空格与分号
+</span>        -<span class="ruby">空格
+</span>            -<span class="ruby">缩进 <span class="number">2</span> <span class="keyword">or</span> <span class="number">4</span>
+</span>            -<span class="ruby">规则内空格
+</span>                -<span class="ruby">.logo{<span class="symbol">width:</span> <span class="number">200</span>px;<span class="symbol">height:</span> <span class="number">50</span>px;}
+</span>        -<span class="ruby">分号
+</span>            -<span class="ruby">保留最后一个属性值的分号
+</span>    -<span class="ruby">属性顺序
+</span>        -<span class="ruby">根据属性的重要性按顺序书写
+</span>            -<span class="ruby">显示属性
+</span>            -<span class="ruby">自身属性
+</span>            -<span class="ruby">文本属性和其他修饰
+</span>    -<span class="ruby"><span class="constant">Hack</span>方式
+</span>        -<span class="ruby">统一各个浏览器的<span class="constant">Hack</span>方式
+</span>            -<span class="ruby"><span class="constant">IE6</span><span class="symbol">:_pro</span><span class="symbol">:value</span>
+</span>            -<span class="ruby"><span class="constant">IE7</span><span class="symbol">:*pro</span><span class="symbol">:value</span>
+</span>        -<span class="ruby">不要滥用hack
+</span>    -<span class="ruby">值格式
+</span>        -<span class="ruby">统一属性值
+</span>            -<span class="ruby">color
+</span>                -<span class="ruby">white <span class="keyword">or</span> <span class="comment">#fff or rgb(255,255,255)</span>
+</span>            -<span class="ruby">url()
+</span>                -<span class="ruby">icon.png <span class="keyword">or</span> <span class="string">"icon.png"</span> <span class="keyword">or</span> <span class="string">'icon.png'</span>
+</span>六:其他规范
+    -<span class="ruby"><span class="constant">HTML</span>规范
+</span>        -<span class="ruby">文档声明
+</span>        -<span class="ruby">闭合
+</span>            -<span class="ruby">闭合标签
+</span>            -<span class="ruby">自闭合标签
+</span>        -<span class="ruby">属性
+</span>            -<span class="ruby">双引号与单引号
+</span>            -<span class="ruby">&amp;lt;input readonly&amp;gt; <span class="keyword">or</span> &amp;lt;input readonly=<span class="string">"readonly"</span>&amp;gt;
+</span>        -<span class="ruby">层级
+</span>            -<span class="ruby">用缩进体现层级，提高可读性
+</span>            -<span class="ruby">标签正确嵌套，但嵌套不宜太深
+</span>        -<span class="ruby">注释
+</span>            -<span class="ruby">&amp;lt;!-- <span class="constant">LOGO</span> --&amp;gt;
+</span>            -<span class="ruby">&amp;lt;!-- <span class="regexp">/LOGO--&amp;gt;
+</span></span>        -<span class="ruby"><span class="regexp">大小写
+</span></span>            -<span class="ruby"><span class="regexp">标签，属性均小写
+</span></span>
+    -<span class="ruby"><span class="regexp">图片规范
+</span></span>        -<span class="ruby"><span class="regexp">文件名称
+</span></span>            -<span class="ruby"><span class="regexp">语义
+</span></span>            -<span class="ruby"><span class="regexp">长度
+</span></span>        -<span class="ruby"><span class="regexp">保留源文件
+</span></span>        -<span class="ruby"><span class="regexp">图片合并
+</span></span>            -<span class="ruby"><span class="regexp">尽量使用sprite技术
+</span></span>            -<span class="ruby"><span class="regexp">sprite图片可按模块，业务，页面来划分&lt;/pre</span>&gt;</span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-36ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/36ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/36ver/">DOM编程艺术之canvas</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">    一:基本用法<br>        -&lt;canvas id=”tutorial” width=”300” height=”150”&gt;&lt;/canvas&gt;</pre></p>
+<pre><code>二:渲染上下文
+    -<span class="keyword">var</span>  canvas=<span class="built_in">document</span>.getElementById(<span class="string">"tutorial"</span>)
+    -<span class="keyword">var</span> ctx=canvas.getContext(<span class="string">"2d"</span>)
+
+三:globalCompositeOperation
+    -ctx.globalCompositeOperation=<span class="string">'destination-over'</span><span class="comment">//两者都显示,后者在前者前面</span>
+
+四:基本绘图的步骤
+    -清除画笔-绘制图形-保存渲染上下文状态-绘制图形-渲染上下文状态
+    -<span class="keyword">var</span> sun=<span class="keyword">new</span> Image();
+    <span class="keyword">var</span> moon=<span class="keyword">new</span> Image();
+    <span class="keyword">var</span> earth=<span class="keyword">new</span> Image();
+    <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{
+        sun.src=<span class="string">'Cancvas_sun.png'</span>;
+        moon.src=<span class="string">"Canvas_moon.png"</span>
+        earth.src=<span class="string">'Canvas_earth.png'</span>
+        <span class="built_in">window</span>.requestAnimationFrame(draw);
+    }
+    <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>)</span>{}
+    init();<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-10ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -653,10 +684,10 @@ HTML&lt;br&gt;
 
 
   
-    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-37ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/33ver/" class="article-date">
+      <a href="/2015/10/21/37ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -670,7 +701,7 @@ HTML&lt;br&gt;
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
+      <a class="article-title" href="/2015/10/21/37ver/">DOM编程艺术之BOM</a>
     </h1>
   
 
@@ -679,167 +710,79 @@ HTML&lt;br&gt;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
-<pre><code>        }
-        .child{
-            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
-        }*/
-
-        /*<span class="keyword">table</span>+margin
-
-        .child{
-            <span class="keyword">display</span>: <span class="keyword">table</span>;
-            margin:<span class="number">0</span> auto;
-        }
-        */
-
-    /*    absolute+transform*/
-
-        /*.parent{
-            position: relative;
-        }
-        .child{
-            position: absolute; /*宽度由内容决定
-            left:<span class="number">50</span>%;
-            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
-
-
-        }
-        */
-
-/*        flex+justify-content*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; /*宽度为内容宽度
-            justify-content: center;
-        }
-
-        /*.child{
-                margin: <span class="number">0</span> auto
-        }  同样可以实现水平居中*/
-
-
-        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
-
-        /*.parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
-        }*/
-
-        /*垂直居中之absolute+transform
-        .parent{
-            position: relative;
-        }
-
-        .child{
-            position: absolute;
-            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
-            transform:translateY(-<span class="number">50</span>%);
-        }*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; 高度撑满整个容器
-            align-items: center; 垂直居中
-        }*/
-
-        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-
-        .parent{
-            text-align: center;
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle;
-        }
-
-        .child{
-            <span class="keyword">display</span>: inline-block;
-        }*/
-
-/*        居中之absolute+transform*/
-
-        /*.parent{
-            position:relative;
-        }
-        .child{
-            position:absolute;
-            left:<span class="number">50</span>%;
-            top:<span class="number">50</span>%;
-            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
-        }
-        */
-
-        居中之flex+justify-content+align-items
-        .parent{
-            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
-            justify-content: center; /*水平居中*/
-            align-items: center;/*垂直居中*/
-        }
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        居中布局 父元素 子元素宽/高度不固定
-
-        一：水平居中之inline-block+text-align
-            -兼容性非常好
-            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
-            -child会继承text-align:center，需要对子元素进行reset
-
-        二:水平居中之<span class="keyword">table</span>+margin
-            -<span class="keyword">table</span>元素宽度为内容宽度
-            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
-
-        三:水平居中之absolute+transform
-            -脱离文档流 不会对其他元素产生影响
-            -不兼容低版本IE
-
-        四:水平居中之flex+justify-content
-            -.child{
-                margin: <span class="number">0</span> auto
-            }
-            -不兼容低版本IE
-
-        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
-            -兼容到IE8以上
-            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
-
-        六:垂直居中之absolute+transform
-            -子元素不会干扰其他元素
-
-        七:垂直居中之flex+align-items
-            -不兼容低版本IE
-
-        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-            -兼容性比较高
-
-        九:居中之absolute+transform
-            -child不会影响其他元素
-            -不兼容性低版本IE
-
-        十:居中之flex+justify-content+align-items
-            -只需要设置parent
-            -不兼容低版本IE
-
-        十一:总结
-            -了解到CSS中的值和特性
-            -对问题进行分解
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
-         DOME
-         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-
-
-
-
-
-
-
-
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
+        <p><pre class="lang:default decode:true ">    一:BOM<br>                -窗口对象模型<br>                -navigator<br>                    -浏览器信息<br>                -location<br>                    -浏览器定位和导航<br>                -history<br>                    -窗口浏览器历史<br>                -screen<br>                    -屏幕信息</pre></p>
+<pre><code>二:navigator
+    -<span class="ruby">浏览器信息
+</span>    -<span class="ruby">palform
+</span>        -<span class="ruby">运行在什么平台如<span class="constant">Win32</span>
+</span>    -<span class="ruby">userAgent
+</span>        -<span class="ruby">chrom
+</span>        -<span class="ruby">firefox
+</span>        -<span class="ruby"><span class="constant">IE</span>
+</span>三:location
+    -<span class="ruby">浏览器定位和导航
+</span>        -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/www.163.com:8080/index</span>.html?=admin&amp;amp;lang=zh-<span class="constant">CN</span><span class="comment">#news</span>
+</span>        -<span class="ruby">protocol
+</span>            -<span class="ruby">http
+</span>        -<span class="ruby">host
+</span>            -<span class="ruby">www.<span class="number">163</span>.<span class="symbol">com:</span><span class="number">8080</span>
+</span>        -<span class="ruby">pathname
+</span>            -<span class="ruby">index.html
+</span>        -<span class="ruby">hostname
+</span>            -<span class="ruby">www.<span class="number">163</span>.com
+</span>        -<span class="ruby">port
+</span>            -<span class="ruby"><span class="number">8080</span>
+</span>        -<span class="ruby">search
+</span>            -<span class="ruby"><span class="string">?r</span>=admin&amp;amp;lang=zh-<span class="constant">CN</span>
+</span>        -<span class="ruby">hash
+</span>            -<span class="ruby">news
+</span>        -<span class="ruby">调用location会返回href
+</span>            -<span class="ruby"><span class="symbol">http:</span>/<span class="regexp">/xxx.com/</span>
+</span>        -<span class="ruby">assign(url)
+</span>            -<span class="ruby">载入新的url，记录浏览历史
+</span>        -<span class="ruby">replace(url)
+</span>            -<span class="ruby">载入新的url，不记录浏览历史
+</span>        -<span class="ruby">reload()
+</span>            -<span class="ruby">重载当前页
+</span>
+四:history
+    -<span class="ruby">浏览器当前窗口的浏览历史
+</span>        -<span class="ruby">back()
+</span>        -<span class="ruby">forward();
+</span>        -<span class="ruby">go();<span class="regexp">//</span>负数后退 正数前进
+</span>五:screen
+    -<span class="ruby">屏幕信息
+</span>        -<span class="ruby">availHeight /<span class="regexp">/显示器可以用高度
+</span></span>        -<span class="ruby"><span class="regexp">height/</span><span class="regexp">/显示器高度
+</span></span>
+六:方法
+    -<span class="ruby"><span class="regexp">alert(),confirm(),prompt()/</span><span class="regexp">/三种对话框
+</span></span>    -<span class="ruby"><span class="regexp">setTimeout(),setInterval()/</span><span class="regexp">/计时器
+</span></span>    -<span class="ruby"><span class="regexp">open(),close()/</span><span class="regexp">/开新窗口，关闭窗口
+</span></span>
+七:三种对话框
+    -<span class="ruby"><span class="regexp">alert()/</span><span class="regexp">/确定按钮
+</span></span>    -<span class="ruby"><span class="regexp">confirm() /</span><span class="regexp">/确定返回true 取消返回false
+</span></span>    -<span class="ruby"><span class="regexp">prompt()/</span><span class="regexp">/输入框 返回用户输入的输入字符串
+</span></span>    -<span class="ruby"><span class="regexp">三种对话框都是阻塞用户进行浏览
+</span></span>
+八:开，关新窗口
+    -<span class="ruby"><span class="regexp">var w =window.open("url","name","width=400,height=350,status=yes,rezizable=yes")
+</span></span>    -<span class="ruby"><span class="regexp">父窗口调用w.close();
+</span></span>    -<span class="ruby"><span class="regexp">子窗口调用window.close();
+</span></span>
+九:事件
+    -<span class="ruby"><span class="regexp">load
+</span></span>        -<span class="ruby"><span class="regexp">文档和所有图片加载完毕时
+</span></span>    -<span class="ruby"><span class="regexp">unload
+</span></span>        -<span class="ruby"><span class="regexp">离开文档时
+</span></span>    -<span class="ruby"><span class="regexp">beforeunload
+</span></span>        -<span class="ruby"><span class="regexp">和unload类似，但他提供询问用户是否确定离开的机会
+</span></span>    -<span class="ruby"><span class="regexp">resize
+</span></span>        -<span class="ruby"><span class="regexp">拖动改变浏览器窗口大小
+</span></span>    -<span class="ruby"><span class="regexp">scroll
+</span></span>        -<span class="ruby"><span class="regexp">拖动滚动浏览器时</span></span>
+</code></pre><p></p>
 <p>&nbsp;</p>
 
 
@@ -869,10 +812,10 @@ HTML&lt;br&gt;
 
 
   
-    <article id="post-32ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-38ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/32ver/" class="article-date">
+      <a href="/2015/10/21/38ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -886,7 +829,7 @@ HTML&lt;br&gt;
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/32ver/">DOM编程艺术之表单元素</a>
+      <a class="article-title" href="/2015/10/21/38ver/">DOM编程艺术之事件代理</a>
     </h1>
   
 
@@ -895,359 +838,8 @@ HTML&lt;br&gt;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;script type=”text/javascript”&gt;<br>            一:表单步骤<br>                -构建表单<br>                -服务器处理<br>                -配置表单</pre></p>
-<pre><code>        二:构建表单
-            -<span class="ruby">见<span class="constant">HTML</span>
-</span>
-        三:服务器处理
-            -<span class="ruby">服务器接口地址
-</span>            -<span class="ruby">url编码
-</span>            -<span class="ruby">接口参数信息
-</span>
-        四:内容
-            -<span class="ruby">元素
-</span>            -<span class="ruby">验证
-</span>            -<span class="ruby">提交
-</span>
-        五:form元素
-            -<span class="ruby">属性
-</span>                -<span class="ruby">autocomplete
-</span>                    -<span class="ruby"><span class="symbol">on:</span>自动提示功能
-</span>                    -<span class="ruby"><span class="symbol">off:</span>无
-</span>                -<span class="ruby">elements
-</span>                    -<span class="ruby">该表单子孙表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">button,input,keygen,select
-</span>                    -<span class="ruby">归属于该表单的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                        -<span class="ruby">&amp;lt;input name=<span class="string">"d"</span> form=<span class="string">"f"</span>&amp;gt;在input元素中规定了form也会出现在elements中
-</span>                    -<span class="ruby">动态节点集合
-</span>                -<span class="ruby">length
-</span>                    -<span class="ruby">elements.length
-</span>                -<span class="ruby">取form表单元素
-</span>                    -<span class="ruby">testForm.elements[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm.elements[<span class="string">"a"</span>];
-</span>                    -<span class="ruby">testForm[<span class="number">0</span>];
-</span>                    -<span class="ruby">testForm[<span class="string">"a"</span>]
-</span>
-                -<span class="ruby">form[name]
-</span>                    -<span class="ruby">返回id或name为指定名称的表单控件(除图片按钮input type=<span class="string">"image"</span>)
-</span>                    -<span class="ruby">如果结果为空，则返回id为指定名称的img元素
-</span>                    -<span class="ruby">如果有多个同名元素，则返回这些元素的动态节点集合
-</span>                    -<span class="ruby">一旦用指定名称取过该元素，则不管该元素的id或者name怎么变化，只要节点还在页面上均可以用原名获取该元素
-</span>                    -<span class="ruby">非动态集合所以可以取到已经设置过的元素如
-</span>                        -<span class="ruby">testForm[<span class="string">"a"</span>]=&amp;gt;name=<span class="string">"b"</span> testForm.elements[<span class="string">"a"</span>]=&amp;gt;null
-</span>                    -<span class="ruby">reset()
-</span>                        -<span class="ruby">可重置元素<span class="symbol">:input</span>,keygen,output,select,textarea
-</span>                        -<span class="ruby">触发表单reset事件，阻止该元素的默认行为可取消重置
-</span>                        -<span class="ruby">元素重置时不再触发元素上的change和input事件
-</span>                    -<span class="ruby">submit()
-</span>                    -<span class="ruby">checkValidity()
-</span>
-            六:lable元素
-                -<span class="ruby">htmlFor
-</span>                    -<span class="ruby">关联表单控件激活行为
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,input(除hidden外),keygen,meter,output,progress,select,txtarea
-</span>                    -<span class="ruby">通过设置label的css来构建input的<span class="constant">CSS</span>复杂效果
-</span>
-                -<span class="ruby">control
-</span>                    -<span class="ruby">如果指定了<span class="keyword">for</span>属性，则为该<span class="keyword">for</span>属性对应<span class="constant">ID</span>的可关联元素
-</span>                    -<span class="ruby">如果没有指定<span class="keyword">for</span>属性，则为第一个子孙可关联元素
-</span>                    -<span class="ruby"><span class="keyword">for</span>指定了一个不可关联元素,则lable.control=&amp;gt;null
-</span>
-                -<span class="ruby">form
-</span>                    -<span class="ruby">关联归属表单
-</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,fieldset,input,keygen,label,object,output,select,textarea
-</span>                    -<span class="ruby">只读属性，不可再程序中修改
-</span>                        -<span class="ruby">label.setAttribute(<span class="string">"form"</span>,<span class="string">"newFormId"</span>)
-</span>
-            七:input元素
-                -<span class="ruby">type
-</span>                    -<span class="ruby">控件外观
-</span>                    -<span class="ruby">数据类型
-</span>                    -<span class="ruby">默认为text
-</span>                -<span class="ruby">本地图片预览
-</span>                    -<span class="ruby">onchange
-</span>                    -<span class="ruby">accept
-</span>                        -<span class="ruby">audio/*
-</span>                        -<span class="ruby">video/*
-</span>                        -<span class="ruby">image/*
-</span>                        -<span class="ruby">不带<span class="string">";"</span>的<span class="constant">MIME</span> type以<span class="string">"."</span>开始的文件后缀名*<span class="regexp">/
-</span></span>                        -<span class="ruby"><span class="regexp">多个类型用逗号分隔
-</span></span>
-                    -<span class="ruby"><span class="regexp">multiple 可以多选
-</span></span>                    -<span class="ruby"><span class="regexp">files
-</span></span>                &amp;lt;input type="file" accept="image/*" multiple/&amp;gt;
-                file.addEventListener(
-                    "change",function(event){
-                        var file=Array.prototype.slice.call(event.target.files,0)
-                    };
-                    files.forEach(function(item){
-                        file2dataurl(item,function(url){
-                            var image=new Image()
-                            parent.appendChild(image)
-                            image.src=url
-                        })
-                    })
-                )
-
-            八:select元素
-                -<span class="ruby"><span class="regexp">&amp;lt;optgroup lable="name"&amp;gt; /</span><span class="regexp">/分组
-</span></span>                -<span class="ruby"><span class="regexp">name
-</span></span>                    -<span class="ruby"><span class="regexp">表单提交名称
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">第一个选中选项的value值
-</span></span>                -<span class="ruby"><span class="regexp">multiple
-</span></span>                    -<span class="ruby"><span class="regexp">多选
-</span></span>                -<span class="ruby"><span class="regexp">options
-</span></span>                    -<span class="ruby"><span class="regexp">动态的所有节点集合
-</span></span>                    -<span class="ruby"><span class="regexp">
-</span></span>                -<span class="ruby"><span class="regexp">selectedOptions
-</span></span>                    -<span class="ruby"><span class="regexp">已经选中选项的动态集合
-</span></span>                -<span class="ruby"><span class="regexp">selectedIndex
-</span></span>                    -<span class="ruby"><span class="regexp">选中的元素位置
-</span></span>                -<span class="ruby"><span class="regexp">add(element[,before])
-</span></span>                    -<span class="ruby"><span class="regexp">无参照物再最后添加选项
-</span></span>                -<span class="ruby"><span class="regexp">remove([index])
-</span></span>                    -<span class="ruby"><span class="regexp">删除选项
-</span></span>
-                -<span class="ruby"><span class="regexp">optgroup
-</span></span>                    -<span class="ruby"><span class="regexp">disabled
-</span></span>                        -<span class="ruby"><span class="regexp">当前分组选项是否可选
-</span></span>                    -<span class="ruby"><span class="regexp">label
-</span></span>                        -<span class="ruby"><span class="regexp">分组名称
-</span></span>
-                -<span class="ruby"><span class="regexp">option
-</span></span>                    -<span class="ruby"><span class="regexp">value
-</span></span>                    -<span class="ruby"><span class="regexp">text
-</span></span>                    -<span class="ruby"><span class="regexp">index
-</span></span>                    -<span class="ruby"><span class="regexp">selected
-</span></span>                        -<span class="ruby"><span class="regexp">是否选中
-</span></span>                    -<span class="ruby"><span class="regexp">defaultSelected
-</span></span>                        -<span class="ruby"><span class="regexp">默认选中
-</span></span>
-            九:select
-                -<span class="ruby"><span class="regexp">创建选项
-</span></span>                    -<span class="ruby"><span class="regexp">document.createElement()
-</span></span>                    -<span class="ruby"><span class="regexp">new Option()
-</span></span>                        -<span class="ruby"><span class="regexp">new Option("说明","1.2")
-</span></span>                -<span class="ruby"><span class="regexp">添加选项
-</span></span>                    -<span class="ruby"><span class="regexp">insertAdjacentElement
-</span></span>                    -<span class="ruby"><span class="regexp">select.add
-</span></span>                -<span class="ruby"><span class="regexp">删除选项
-</span></span>                    -<span class="ruby"><span class="regexp">removeChild()
-</span></span>                    -<span class="ruby"><span class="regexp">select.remove()
-</span></span>                -<span class="ruby"><span class="regexp">级联下拉选择器
-</span></span>                    -<span class="ruby"><span class="regexp">onchange
-</span></span>                    -<span class="ruby"><span class="regexp">remove
-</span></span>                    -<span class="ruby"><span class="regexp">add
-</span></span>                    -<span class="ruby"><span class="regexp">参考HTML
-</span></span>                    var chapters=[{text:"1.DOM基础",value:"1"},{text:"2.事件模型",value:"2"}]
-                    var sections={
-                        1:[
-                            {text:"1.1 文档树",value:"1.1"},
-                            {text:"1.2 节点操作,value:"1.2"},
-                            {text:"1.3 元素遍历",value:"1.3"},
-                        ],
-                        2:[
-                            {text:"2.1 事件类型",value:"2.1"},
-                            {text:"2.2 事件模型",value:"2.2"},
-                        ]
-
-                    }
-                    function fillSelect(select,list){
-<span class="comment">                        //删除原有选项,倒序遍历</span>
-                        for (var i=select.length-1;i&amp;gt;0;i--) {
-                            select.remove(i)
-                        }
-
-                        list.forEach(function(data){
-                            var option=new Option(data.text,data.value)
-                            select.add(option)
-                        })
-                    }
-                    fillSelect(chapterSelect,chapters);
-                    chapterSelect.addEventListener("change",function(event){
-                        var value=event.target.value,
-                            list=section[value]||[];
-                        fillSelect(sectionSelect,list)
-                    })
-
-            十:textarea
-                -<span class="ruby"><span class="regexp">name
-</span></span>                -<span class="ruby"><span class="regexp">value
-</span></span>                -<span class="ruby"><span class="regexp">select()
-</span></span>                -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容起始位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionEnd
-</span></span>                    -<span class="ruby"><span class="regexp">选中内容结束位置||光标所在位置
-</span></span>                -<span class="ruby"><span class="regexp">selectionDirection
-</span></span>                    -<span class="ruby"><span class="regexp">键盘方向键控制
-</span></span>                -<span class="ruby"><span class="regexp">setSelectionRange()
-</span></span>                    -<span class="ruby"><span class="regexp">选中某些内容
-</span></span>                -<span class="ruby"><span class="regexp">setRangeText()
-</span></span>                    -<span class="ruby"><span class="regexp">设置某个范围内容
-</span></span>                -<span class="ruby"><span class="regexp">@输入提示
-</span></span>                    -<span class="ruby"><span class="regexp">oninput
-</span></span>                    -<span class="ruby"><span class="regexp">selectionStart
-</span></span>                    -<span class="ruby"><span class="regexp">setRangeText
-</span></span>                    textarea.addEventListener("input",function(event){
-                        var target=event.target,
-                            curor=target.selectionStart;//拿到光标所在位置
-                            if(target.value.charAt(cursor-1)==="@"){//拿到光标前面一个字符
-                                doshowAtList(function(anme){
-                                    var end=cursor+name.length;
-                                        target.setRangeText(
-                                            name,cursor,end,"end"
-                                        )
-                                })
-                            }
-
-                    })
-
-
-
-
-
-
-
-    &amp;lt;/script&amp;gt;
-&amp;lt;/head&amp;gt;
-&amp;lt;body&amp;gt;
-    &amp;lt;!--构建&amp;amp;配置表单--&amp;gt;
-    &amp;lt;form method="post" action="https://pizza.xxx.com/ordia" enctype="application/x-www-for-urlencoded"&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label&amp;gt;姓名:&amp;lt;input type="" name="custname" id="" value="" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;电话:&amp;lt;input type="tel" name="custtel" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;
-        &amp;lt;label&amp;gt;邮箱:&amp;lt;input type="email" name="custemail" /&amp;gt;&amp;lt;/label&amp;gt;
-    &amp;lt;/p&amp;gt;    
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨大小&amp;lt;/legend&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="small"/&amp;gt;小&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="medium"&amp;gt;中&amp;lt;/label&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="large"/&amp;gt;大&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;fieldset id=""&amp;gt;
-        &amp;lt;legend&amp;gt;披萨配料&amp;lt;/legend&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="bacon"/&amp;gt;熏肉&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="cheese"/&amp;gt;奶酪&amp;lt;/label&amp;gt;
-        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="mushroom"/&amp;gt;蘑菇&amp;lt;/label&amp;gt;
-    &amp;lt;/fieldset&amp;gt;
-    &amp;lt;p&amp;gt;&amp;lt;label for=""&amp;gt;&amp;lt;input type="time" name="delivery" min="11:00" max="21:00" step="900" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
-    &amp;lt;p&amp;gt;&amp;lt;button&amp;gt;提交订单&amp;lt;/button&amp;gt;&amp;lt;/p&amp;gt;
-    &amp;lt;/form&amp;gt;
-
-    &amp;lt;!--级联下拉选择器--&amp;gt;
-    &amp;lt;form name="course"&amp;gt; 
-        &amp;lt;select name="chapter"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择章目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-        &amp;lt;select name="section"&amp;gt;
-            &amp;lt;option value=""&amp;gt;请选择节目录&amp;lt;/option&amp;gt;
-        &amp;lt;/select&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/body&amp;gt;
-</code></pre><p>&lt;/html&gt;<br></p>
+        <p><pre class="lang:default decode:true  ">    一:事件代理<br>        -&lt;ul id=”myUi”&gt;&lt;li&gt;&lt;/ul&gt;<br>        -将事件注册到元素的父节点上<br>        -var myUl=document.getElementById(“myUl”);<br>        myUl.addEventListener(‘click’, function(event){<br>            var e=event||window.event;<br>            var target=e.target||e.srcElemnt<br>        })<br>        -优点<br>            -需要管理的handler更少<br>            -内存分配更少<br>            -增加/删除节点可以不处理事件<br>        -缺点<br>            -事件管理的逻辑更复杂</pre></p>
 <p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-31ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/31ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/31ver/">DOM编程艺术之表单验证</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">一:隐式提交<br>                -如:聚焦在输入框时按回车提交表单<br>                -满足以下任一条件<br>                    -表单有非禁用的提交按钮<br>                    -没有提交按钮时,只有一个input元素</pre></p>
-<pre><code>二:提交
-    -<span class="ruby">提交过程
-</span>        -<span class="ruby">根据表单enctype指定的值构建要提交的数据结构
-</span>        -<span class="ruby">使用method指定的方式发送数据到action指定的目标
-</span>    -<span class="ruby">构建提交数据
-</span>        -<span class="ruby">从可提交的元素中提取数据组装成指定的数据结构的过程
-</span>        -<span class="ruby">可提交元素<span class="symbol">:button</span>.input,keygen,object,select,textarea
-</span>    -<span class="ruby">编码方式(enctype)
-</span>        -<span class="ruby">application/x-www-form-urlencoded[默认]
-</span>            -<span class="ruby">a=a&amp;amp;b=b&amp;amp;c=c &amp;amp;分割键值对
-</span>        -<span class="ruby">multipare/form-data
-</span>            -<span class="ruby">数据格式组织成<span class="number">2388</span>文字流
-</span>        -<span class="ruby">text/plain
-</span>            -<span class="ruby">a=a b=b c=c 空格分割的键值对
-</span>    -<span class="ruby">特殊案例
-</span>        -<span class="ruby">name=<span class="string">"isindex"</span>&amp;amp;&amp;amp;type=<span class="string">"text"</span>
-</span>            -<span class="ruby">编码方式为application/x-www-form-urlencoded
-</span>            -<span class="ruby">作为表单的第一个提交元素
-</span>            -<span class="ruby">提交时只发送value值，不包含name
-</span>        -<span class="ruby">name=<span class="string">"_charset_"</span>&amp;amp;&amp;amp;type=<span class="string">"hidden"</span>
-</span>            -<span class="ruby">没有设置value值
-</span>            -<span class="ruby">提交时value自动用当前提交的字符集填充
-</span>    -<span class="ruby">submit()
-</span>        -<span class="ruby">提交表单
-</span>            -<span class="ruby">form.submit()
-</span>    -<span class="ruby">onsubmit
-</span>        -<span class="ruby">表单提交事件
-</span>        -<span class="ruby">提交之前的数据验证
-</span>        -<span class="ruby">阻止事件的默认行为可取消表单提交
-</span>        form.addEventListener("submit",function(event){
-            var noValid=false;
-            var elements=event.target.elements
-<span class="comment">            //TODO 处理自定义的验证规则</span>
-            if(noValid){
-                event.preventDefault()
-            }
-        })
-    -<span class="ruby">无刷新表单提交
-</span>        -<span class="ruby">form
-</span>        -<span class="ruby">target
-</span>        -<span class="ruby">iframe
-</span>        iframe指定一个name
-        form指定一个target指向iframe name&lt;/pre&gt;
-</code></pre><p>&nbsp;</p>
 
 
 
@@ -1375,6 +967,64 @@ HTML&lt;br&gt;
 
 
   
+    <article id="post-23ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/23ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/23ver/">百度ECharts学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1>推荐阅读地址:<a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8" target="_blank" rel="external">我的github</a></h1><p></p>
+<p></p><p><a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8" target="_blank" rel="external">https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8</a></p><p></p>
+<p></p><h1>百度ECharts入门</h1><p></p>
+<h3><a id="user-content-1新建一个echartshtml文件为echarts准备一个具备大小宽高的dom" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#1新建一个echartshtml文件为echarts准备一个具备大小宽高的dom" target="_blank" rel="external"></a>1、新建一个echarts.html文件，为ECharts准备一个具备大小（宽高）的Dom。</h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-2新建script标签引入模块化单文件echartsjs" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#2新建script标签引入模块化单文件echartsjs" target="_blank" rel="external"></a>2、新建script标签引入模块化单文件echarts.js</h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-3新建script标签中为模块加载器配置echarts和所需图表的路径相对路径为从当前页面链接到echartsjs引入图表文件见引入echarts2" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#3新建script标签中为模块加载器配置echarts和所需图表的路径相对路径为从当前页面链接到echartsjs引入图表文件见引入echarts2" target="_blank" rel="external"></a>3、新建script标签中为模块加载器配置echarts和所需图表的路径（相对路径为从当前页面链接到echarts.js），引入图表文件见引入<a href="http://echarts.baidu.com/doc/doc.html#%E5%BC%95%E5%85%A5ECharts2" target="_blank" rel="external">ECharts2</a></h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        // 路径配置<br>        require.config({<br>            paths: {<br>                echarts: ‘<a href="http://echarts.baidu.com/build/dist" target="_blank" rel="external">http://echarts.baidu.com/build/dist</a>‘<br>            }<br>        });<br>    &lt;/script&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-4script标签内动态加载echarts和所需图表回调函数中可以初始化图表并驱动图表的生成option见api--doc" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#4script标签内动态加载echarts和所需图表回调函数中可以初始化图表并驱动图表的生成option见api--doc" target="_blank" rel="external"></a>4、script标签内动态加载echarts和所需图表，回调函数中可以初始化图表并驱动图表的生成，option见<a href="http://echarts.baidu.com/doc/doc.html#Option" target="_blank" rel="external">API &amp; Doc</a></h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        // 路径配置<br>        require.config({<br>            paths: {<br>                echarts: ‘<a href="http://echarts.baidu.com/build/dist" target="_blank" rel="external">http://echarts.baidu.com/build/dist</a>‘<br>            }<br>        });<br><br>        // 使用<br>        require(<br>            [<br>                ‘echarts’,<br>                ‘echarts/chart/bar’ // 使用柱状图就加载bar模块，按需加载<br>            ],<br>            function (ec) {<br>                // 基于准备好的dom，初始化echarts图表<br>                var myChart = ec.init(document.getElementById(‘main’));<br><br>                var option = {<br>                    tooltip: {<br>                        show: true<br>                    },<br>                    legend: {<br>                        data:[‘销量’]<br>                    },<br>                    xAxis : [<br>                        {<br>                            type : ‘category’,<br>                            data : [“衬衫”,”羊毛衫”,”雪纺衫”,”裤子”,”高跟鞋”,”袜子”]<br>                        }<br>                    ],<br>                    yAxis : [<br>                        {<br>                            type : ‘value’<br>                        }<br>                    ],<br>                    series : [<br>                        {<br>                            “name”:”销量”,<br>                            “type”:”bar”,<br>                            “data”:[5, 20, 40, 10, 10, 20]<br>                        }<br>                    ]<br>                };<br><br>                // 为echarts对象加载数据<br>                myChart.setOption(option);<br>            }<br>        );<br>    &lt;/script&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-5浏览器中打开查看" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#5浏览器中打开查看" target="_blank" rel="external"></a>5、浏览器中打开查看</h3>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-13ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1430,10 +1080,10 @@ HTML&lt;br&gt;
 
 
   
-    <article id="post-30ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-39ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/30ver/" class="article-date">
+      <a href="/2015/10/21/39ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -1447,7 +1097,7 @@ HTML&lt;br&gt;
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/30ver/">站在巨人的肩膀上——制作酷炫web幻灯片</a>
+      <a class="article-title" href="/2015/10/21/39ver/">DOM编程艺术之动画</a>
     </h1>
   
 
@@ -1456,129 +1106,76 @@ HTML&lt;br&gt;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>转自<a href="http://www.gbtags.com/gb/share/5688.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5688.htm</a></p><p></p>
-<div class="blogtags"><br><div><br><ul class="tag-list"><br><li><a class="wenzhang" href="http://www.gbtags.com/gb/tag/usertag/149519.htm" target="_blank" data-selftagflag="0" data-tagname="#文章">#文章</a></li><br><li><a href="http://www.gbtags.com/gb/tag/usertag/149516.htm" target="_blank" data-selftagflag="0" data-tagname="HTML5">HTML5</a></li><br><li><a href="http://www.gbtags.com/gb/tag/usertag/237957.htm" target="_blank" data-selftagflag="0" data-tagname="HTML">HTML</a></li><br></ul><br></div><br></div><br><div id="shareentry" class="arrow_box hidden"><br><ul class="demo"><br><li><a class="iconbefore gbdemobutton ui-state-hover" href="http://www.gbtags.com/gb/demoviewer/5688/036b036e-774a-4245-a6c3-681c882053bf/index.html.htm" target="_blank">在线演示1</a></li><br><li></li><br><li><a id="triggerdownloadbox" class="iconbefore gbdownloadbutton ui-state-hover" href="http://www.gbtags.com/gb/share/5688.htm#" target="_blank" rel="external">本地下载</a></li><br></ul><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><p>你是否还在用ppt做一些毫无意思的幻灯片？你是否在做ppt的时候绞尽脑汁想把效果做的吸引大家？你是否想通过一次ppt吸引领导的注意？那好吧！来学学怎么制作一款炫酷的web幻灯片~</p><br><p>ps：<strong>如果看到这里还不感兴趣就请先看看素材演示，这个演示是前些时候给组里新人介绍HTML5的时候自己做的一款幻灯片！</strong></p><br><h2>工具</h2><br><ol><br><li>一款最近版本的chrome浏览器（火狐，safari也可）</li><br><li>一款趁手的IDE工具</li><br><li>impress.js君（您也可下载本页素材进行自己需求的修改）</li><br></ol><br><div></div><br><h2>优点</h2><br><p>几乎不需要写任何JS，只需要在每个子页DOM处添加几个属性就可达到效果！至于CSS嘛，根据你的幻灯片需求，看情况写啦！</p><br><p>操作时候可以用键盘空格、光标或者鼠标滚轮控制幻灯片切换</p><br><p>&nbsp;</p><br><h2>原理</h2><br><p>看完效果大多数人应该就了解了原理，在这里还是罗嗦一下：其实每一个子页就是id为impress的div下的一级div，impress将他们每个起始位置或动画角度定好（由我们来配），当子页出现时候通过平滑的css动画过度到屏幕正向面前。就好像一张大纸上画了好几个div，屏幕就像一个放大镜焦点，从第一个div开始，挨个看div，在过程中不断平移或旋转这个大纸（3d效果动画另说）。</p><br><h2></h2><br><h2>HTML部分结构</h2><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;body&gt;</span></li><br><li class="L1"><span class="pln"> ….</span></li><br><li class="L2"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“impress”</span><span class="tag">&gt;</span></li><br><li class="L3"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step”</span><span class="tag">&gt;</span><span class="pln">子页一</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L4"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step”</span><span class="tag">&gt;</span><span class="pln">子页二</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L5"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step”</span><span class="tag">&gt;</span><span class="pln">子页三</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L6"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step”</span><span class="tag">&gt;</span><span class="pln">子页四</span><span class="tag">&lt;/div&gt;</span></li><br><li class="L7"><span class="pln"> ….</span></li><br><li class="L8"><span class="tag">&lt;/div&gt;</span></li><br><li class="L9"><span class="pln"> ….</span></li><br><li class="L0"><span class="tag">&lt;/body&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><h2>JS代码部分</h2><br><p>除了引入impress.js就是下面这句了：</p><br><div><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script&gt;</span><span class="pln"> impress</span><span class="pun">().</span><span class="pln">init</span><span class="pun">();</span> <span class="tag">&lt;/script&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br></div><br><h2></h2><br><h2>API</h2><br><ul><br><li>data-x：幻灯片的x坐标（子页面出现时候进行平移）</li><br><li>data-y：幻灯片的y坐标（子页面出现时候进行平移）</li><br><li>data-z：幻灯片的z坐标（子页面出现时候进行z轴深度的平移）</li><br><li>data-scale：缩放。通过指定一个值来进行缩放，将该子页出现时进行放大，同时其他子页就会相对变小</li><br><li>data-rotate：旋转。通过一个数字度数来确定旋转你的幻灯片</li><br><li>data-rotate-x：为3D用，这个数字度数是它应该相对x轴旋转多少度。（前倾/后仰）</li><br><li>data-rotate-y：为3D用，这个数字度数是它应该相对y轴旋转多少度。 （左摆/右摆）</li><br><li>data-rotate-z：为3D用，这个数字度数是它应该相对z轴旋转多少度。</li><br></ul><br><p>一共就这几个参数，配置在每个子页div的DOM上</p><br><p>&nbsp;</p><br><h2>DEMO</h2><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="pun">……</span></li><br><li class="L1"><span class="pun">…………</span></li><br><li class="L2"><span class="pun">&lt;</span><span class="pln">div id</span><span class="pun">=</span><span class="str">“title”</span> <span class="kwd">class</span><span class="pun">=</span><span class="str">“step”</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">x</span><span class="pun">=</span><span class="str">“0”</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">y</span><span class="pun">=</span><span class="str">“0”</span><span class="pln"> data</span><span class="pun">-</span><span class="pln">scale</span><span class="pun">=</span><span class="str">“4”</span><span class="pun">&gt;</span></li><br><li class="L3"><span class="pun">&lt;</span><span class="pln">span </span><span class="kwd">class</span><span class="pun">=</span><span class="str">“try”</span><span class="pun">&gt;进入正题&lt;/</span><span class="pln">span</span><span class="pun">&gt;</span></li><br><li class="L4"><span class="pln"> </span></li><br><li class="L5"><span class="str">&lt;h1&gt;</span><span class="pln">HTML </span><span class="str">&lt;sup&gt;</span><span class="lit">5</span><span class="pun">&lt;</span><span class="str">/sup&gt;&lt;/</span><span class="pln">h1</span><span class="pun">&gt;</span></li><br><li class="L6"><span class="pun">&lt;</span><span class="pln">span </span><span class="kwd">class</span><span class="pun">=</span><span class="str">“footnote”</span><span class="pun">&gt;&lt;</span><span class="pln">sup</span><span class="pun">&gt;*&lt;/</span><span class="pln">sup</span><span class="pun">&gt;</span><span class="pln">W3C</span><span class="pun">万维网联盟&lt;/</span><span class="pln">span</span><span class="pun">&gt;</span></li><br><li class="L7"><span class="pun">&lt;</span><span class="str">/div&gt;</span></li><br><li class="L8"><span class="str">&lt;div id=”yuyi” class=”step item” data-x=”850” data-y=”3000” data-rotate=”90” data-scale=”3”&gt;</span></li><br><li class="L9"><span class="str"> &lt;h3&gt;语义&lt;/</span><span class="pln">h3</span><span class="pun">&gt;</span></li><br><li class="L0"><span class="pun">&lt;</span><span class="pln">img src</span><span class="pun">=</span><span class="str">“img/yy.png”</span><span class="pln"> width</span><span class="pun">=</span><span class="str">“100%”</span><span class="pun">&gt;</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="pun">&lt;</span><span class="pln">p </span><span class="kwd">class</span><span class="pun">=</span><span class="str">“font6”</span><span class="pun">&gt;</span><span class="pln">HTML5 </span><span class="pun">引入了新的</span><span class="pln"> HTML </span><span class="pun">元素，通过使用这些元素，开发者可以更细致的描述文档结构，让文档更加易读，搜索引擎也能更好的理解页面中各部分间的关系，我们也可以搜索到更快，更准确的信息。</span></li><br><li class="L3"><span class="pun">&lt;</span><span class="str">/p&gt;</span></li><br><li class="L4"><span class="str">&lt;/</span><span class="pln">div</span><span class="pun">&gt;</span></li><br><li class="L5"><span class="pun">…………</span></li><br><li class="L6"><span class="pun">……</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br><div class="jspHorizontalBar"></div><br></div><br><p>这是幻灯片中的一个片段，截取了源码中两个子页代码，从这里可以读出3个要点：</p><br><ol><br><li>每个子页是一个div，必须有一个step作为class，如果没有，这个div将不会在幻灯片进行时候出现</li><br><li>api中的属性写在子页div中</li><br><li>每个子页的自定义css可以定义class或者id写在css文件中</li><br></ol><br><div></div><br><p>到这里，聪明的读者应该已经迫不及待的，想要靠自己的智慧想要去亲手做一个了。但是这时候我再废话几句我的源码：</p><br><ol><br><li><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step slide”</span> <span class="atn">data-x</span><span class="pun">=</span><span class="atv">“-1000”</span> <span class="atn">data-y</span><span class="pun">=</span><span class="atv">“-1500”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;img</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“img/h5.png”</span><span class="tag">&gt;</span></li><br><li class="L2"><span class="pln"> </span></li><br><li class="L3"><span class="tag">&lt;h1&gt;</span><span class="pln">HTML5 介绍</span><span class="tag">&lt;/h1&gt;</span></li><br><li class="L4"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>第一个子页这里data-x,data-y是可以从0开始的，之所以这样其实是想告诉大家这里可以不从0开始，哈哈！可以把定位在0子页之前的这种子页当成幻灯片前言</p></li><br><li><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“overview”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“step”</span> <span class="atn">data-x</span><span class="pun">=</span><span class="atv">“3000”</span> <span class="atn">data-y</span><span class="pun">=</span><span class="atv">“1500”</span> <span class="atn">data-scale</span><span class="pun">=</span><span class="atv">“10”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>源码最后的子页有个这个空的div，其实是为了展示出来“整张大纸”的全景，坐标是自己摸索出来的，放大倍数也是根据内容多少而大致试出来的。这个div其实定义了style：display:none，但是幻灯片还是会展示，只是个空的而已。也就是说即便对他设置了css让他隐藏，但只要有step这个class在，一样不会被忽略！</p></li><br></ol><br></div>
+        <p><pre class="lang:default decode:true ">一:实现方式<br>        -gif<br>        -flash<br>        -CSS3<br>        -JS</pre></p>
+<pre><code>二:三要素
+    -<span class="ruby">对象
+</span>        -<span class="ruby"><span class="constant">DOM</span>
+</span>    -<span class="ruby">属性
+</span>        -<span class="ruby">width
+</span>        -<span class="ruby">height
+</span>        -<span class="ruby"><span class="constant">Left</span>
+</span>        -<span class="ruby">....
+</span>    -<span class="ruby">定时器
+</span>        -<span class="ruby">setInterval
+</span>        -<span class="ruby">setTimeout
+</span>        -<span class="ruby">requestAnimationFrame
+</span>
+三:setInterval
+    -<span class="ruby">var timer=setInterval(func,delay)
+</span>                函数  触发定时器的间隔
+    -<span class="ruby">clearInterval(timer)
+</span>    -<span class="ruby">每隔一段时间执行
+</span>
 
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-16ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/16ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/16ver/">CSS之等分布局</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true  ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style type=”text/css”&gt;<br>        /<em>一:float<br>            .parent{<br>                margin-left:-20px 总宽度增加一个G<br>            }<br>            .column{<br>                float: left;<br>                width: 25%;<br>                padding-left: 20px;<br>                box-sizing: border-box; 包含了padding<br>            }</em>/</pre></p>
-<pre><code>        <span class="comment">/*二:table
-        .parent-fix{
-            margin-left: -20px;
+四:setTimeout
+    -<span class="ruby">var timer=setTimeout(func,delay)
+</span>    -<span class="ruby">clearTimeout(timer)
+</span>    -<span class="ruby">只会执行一次
+</span>
+五:requestAnimationFrame
+    -<span class="ruby">var timer=requestAnimationFrame(func)
+</span>    -<span class="ruby">cancelAnimationFrame(func)
+</span>    -<span class="ruby">间隔时间以显示器的频率决定
+</span>    -<span class="ruby">更流畅
+</span>
+六:常见动画
+    -<span class="ruby">形变
+</span>    -<span class="ruby">位移
+</span>    -<span class="ruby">旋转
+</span>    -<span class="ruby">透明度
+</span>    -<span class="ruby">...
+</span>
+七:动画函数
+    -<span class="ruby">var animation=function(ele,attr,from,to){
+</span>        var distance=Math.abs(to-from);
+        var stepLength=distance/100
+        var sign=(to-from)/distance
+        var offset=0;
+        var step=function(){
+            var tmpOffset=offset+stepLength;
+            if(tmpOffset&amp;lt;distance){
+                ele.style[attr]=from+tmpOffset*sign+'px'
+            }else{
+                ele.style[attr]=from+"px"
+                clearInterval(intervalId)
+            }
         }
-        .parent{
-            display: table;
-            width: 100%;
-            table-layout: fixed; 一:布局优先,加速渲染,二:单元格未设置宽度单元格则是平分
+        ele.style[attr]=from+"px";
+        var intervalId=setInterval(step,10)
+    }
+
+    -<span class="ruby">var process=function(prcsswrap,drtn,intrvl,callback){
+</span>        var width=prcsswrap.clientWidth
+        var prcss=prcsswrap.getElementsByClassName('prcss')[0]
+        var count=drtn/intrvl
+        var offset=Math.floor(width/count)
+        var tmpCurrent=CURRENT
+        var step=function(){
+
         }
-        .column{
-            display: table-cell;
-            padding-left: 20px;
-        }*/</span>
-
-        <span class="comment">/*三:flex
-        .parent{
-            display: flex;
-        }
-        .column{
-            flex: 1; 每一列宽度都会平均分配
-        }
-        .column+.column{
-            margin-left: 20px;
-        }*/</span>
-
-
-
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/style<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-        每列宽度，间距一样
-        总宽度为C,每列宽度为W,每列间距为G,多少列为N
-        则C+G=(W+G)*N 总宽度加上一个G
-
-        一:float
-            <span class="attribute">-IE7</span>以下兼容性不太好
-            -结构与样式有耦合性
-
-        二:table
-            -套一个<span class="keyword">parent</span><span class="attribute">-fix</span>来实现C+G的效果
-            -无耦合性
-
-        三:flex
-            -兼容性是个坑
-
-
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/script<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;/head<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;body<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"parent-fix"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"parent"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">1</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">2</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">3</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;div class=<span class="string">"column"</span><span class="subst">&amp;</span><span class="literal">gt</span>;
-        <span class="subst">&amp;</span><span class="literal">lt</span>;p<span class="subst">&amp;</span><span class="literal">gt</span>;<span class="number">4</span><span class="subst">&amp;</span><span class="literal">lt</span>;/p<span class="subst">&amp;</span><span class="literal">gt</span>;
-    <span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;/div<span class="subst">&amp;</span><span class="literal">gt</span>;
-<span class="subst">&amp;</span><span class="literal">lt</span>;/body<span class="subst">&amp;</span><span class="literal">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
+        var intervalId=setInterval(step,intrvl)
+    }
+</code></pre><p></p>
 <p>&nbsp;</p>
 
 

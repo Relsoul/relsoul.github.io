@@ -193,6 +193,121 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-177ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/177ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/177ver/">JavaScript-访问子结点childNodes</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1590" target="_blank" rel="external">http://www.imooc.com/code/1590</a></p><p></p>
+<p></p><p><a href="http://www.imooc.com/code/1591" target="_blank" rel="external">http://www.imooc.com/code/1591</a></p><p></p>
+<p></p><p>以前一直搞不懂childNodes是什么意思 现在来重新复习一下</p><p></p>
+<p></p><p>&nbsp;</p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">访问子结点childNodes</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>访问选定元素节点下的所有子节点的列表，返回的值可以看作是一个数组，他具有length属性。</p><br><p><strong>语法：</strong></p><br><pre class="code">elementNode.childNodes</pre><br><p><strong>注意：</strong></p><br><p>如果选定的节点没有子节点，则该属性返回不包含节点的 NodeList。</p><br><p><strong>我们来看看下面的代码:</strong></p><br><p><a href="http://img.mukewang.com/538405fa00010e6c05630357.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/538405fa00010e6c05630357.jpg" data-original="http://img.mukewang.com/538405fa00010e6c05630357.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><strong>运行结果:</strong></p><br><p><strong>IE:</strong></p><br><pre class="code">  UL子节点个数:3<br>  节点类型:1</pre><br><p><strong>其它浏览器:</strong></p><br><pre class="code">   UL子节点个数:7<br>   节点类型:3</pre><br><p><strong>注意:</strong></p><br><p>1. IE全系列、firefox、chrome、opera、safari兼容问题</p><br><p>2. 节点之间的空白符，在firefox、chrome、opera、safari浏览器是文本节点，所以IE是3，其它浏览器是7，如下图所示:</p><br><p><a href="http://img.mukewang.com/538d2b8a000163e303430127.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/538d2b8a000163e303430127.jpg" data-original="http://img.mukewang.com/538d2b8a000163e303430127.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><strong>如果把代码改成这样:</strong></p><br><p>&lt;ul&gt;&lt;li&gt;javascript&lt;/li&gt;&lt;li&gt;jQuery&lt;/li&gt;&lt;li&gt;PHP&lt;/li&gt;&lt;/ul&gt;</p><br><p><strong>运行结果:（IE和其它浏览器结果是一样的）</strong></p><br><pre class="code">  UL子节点个数:3<br>  节点类型:1</pre><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p><strong>试一试，在script标签内，获取子节点，并输出相应属性。</strong></p><br><p>1. 获取第一个DIV的子节点。</p><br><p>2. 使用for遍历每个节点。</p><br><p>3. 输出相应节点的属性。</p><br><p>注意: 输出内容可能和想的内容不同，想想为什么。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><pre class="lang:default decode:true">&lt;div&gt;<br>  javascript<br>  &lt;p&gt;javascript&lt;/p&gt;<br>  &lt;div&gt;jQuery&lt;/div&gt;<br>  &lt;h5&gt;PHP&lt;/h5&gt;<br>&lt;/div&gt;</pre><br><p><span style="color: #ff0000;">首先div里面有7个节点 </span></p><br><p><span style="color: #ff0000;">分别是 javascript(文本节点)</span></p><br><p><span style="color: #ff0000;">&lt;p&gt;(元素节点)</span></p><br><p><span style="color: #ff0000;">javascript(文本节点)</span></p><br><p><span style="color: #ff0000;">&lt;div&gt;(元素节点)</span></p><br><p><span style="color: #ff0000;">jQuery(文本节点)</span></p><br><p><span style="color: #ff0000;">&lt;h5&gt;(元素节点)</span></p><br><p><span style="color: #ff0000;">PHP(文本节点)</span></p><br><p><span style="color: #ff0000;">那么这样就好理解了</span></p><br><pre class="lang:default decode:true">document.getElementsByTagName(“div”)[0].childNodes</pre><br><p><span style="color: #ff0000;">文档下的第一个div元素([0]代表第一个)下的子节点</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;无标题文档&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div&gt;<br>  javascript<br>  &lt;p&gt;javascript&lt;/p&gt;<br>  &lt;div&gt;jQuery&lt;/div&gt;<br>  &lt;h5&gt;PHP&lt;/h5&gt;<br>&lt;/div&gt;<br>&lt;script type=”text/javascript”&gt;<br> var get_div_child=document.getElementsByTagName(“div”)[0].childNodes<br><br> for(var i=0;i&lt;get_div_child.length;i++){<br>     document.write(“字节点个数”+get_div_child.length+”&lt;br&gt;”)<br> document.write(“div下第”+i+”个子节点类型”+get_div_child[i].nodeType+”&lt;br&gt;”)<br><br>     }<br><br><br>&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><hr><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">访问子结点的第一和最后项</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>一、<strong><code class="marker">firstChild </code></strong>属性返回‘childNodes’数组的第一个子节点。如果选定的节点没有子节点，则该属性返回 NULL。</p><br><p><strong>语法：</strong></p><br><pre class="code">node.firstChild</pre><br><p><strong>说明：</strong>与elementNode.childNodes[0]是同样的效果。</p><br><p>二、<strong><code class="marker"> lastChild</code></strong> 属性返回‘childNodes’数组的最后一个子节点。如果选定的节点没有子节点，则该属性返回 NULL。</p><br><p><strong>语法：</strong></p><br><pre class="code">node.lastChild</pre><br><p><strong>说明：</strong>与elementNode.childNodes[elementNode.childNodes.length-1]是同样的效果。</p><br><p><strong>注意: </strong>上一节中，我们知道Internet Explorer 会忽略节点之间生成的空白文本节点，而其它浏览器不会。我们可以通过检测节点类型，过滤子节点。 (以后章节讲解)</p><br><p>&nbsp;</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p><strong>试一试，找到指定元素(div)的第一个和最后一个子节点。</strong></p><br><p>1. 第15行输出指定元素(div)的第一个子节点。</p><br><p>2. 第16行输出指定元素(div)的最后一个子节点。</p><br><p>3. 也许结果和你想象的不一样，试着调整代码，输出正确代码。</p><br><p><span style="color: #ff0000;"> 学习经验</span></p><br><p><span style="color: #ff0000;">首先我把</span></p><br><pre class="lang:default decode:true">&lt;div id=”con”&gt;&lt;p&gt;javascript&lt;/p&gt;</pre><br><p><span style="color: #ff0000;">中间没有留空格 输出来的第一个节点是元素节点</span></p><br><p><span style="color: #ff0000;">如果留空格了 那么输出的是text节点</span></p><br><p><span style="color: #ff0000;">&lt;div id=”con”&gt;&lt;p&gt;javascript&lt;/p&gt;</span><br><br><span style="color: #ff0000;"> &lt;div&gt;jQuery&lt;/div&gt;</span><br><br><span style="color: #ff0000;"> &lt;h5&gt;PHP&lt;/h5&gt;&lt;/div&gt;</span></p><br><p><span style="color: #ff0000;">如果最后一个也不留空格 那么输出的也是元素节点</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;无标题文档&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”con”&gt;&lt;p&gt;javascript&lt;/p&gt;<br>  &lt;div&gt;jQuery&lt;/div&gt;<br>  &lt;h5&gt;PHP&lt;/h5&gt;<br>&lt;/div&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var x=document.getElementById(“con”);<br>  var x_last=x.lastChild<br>  var x_first=x.firstChild<br>  document.write(x_last+”&lt;br&gt;”)<br>  document.write(x_first)<br>&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div><br></div><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-178ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/178ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/178ver/">JavaScript-通过数组的方法来设置元素</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/3251" target="_blank" rel="external">http://www.imooc.com/code/3251</a></p><br><p>1.在第27行处补充完整，实现当点击”全选”按钮时，将选中所有的复选项。</p><br><pre class="code"><strong>提示:</strong>document.getElementsByTagName(“input”)获取的是所有input标签，包括复选项和按钮，所以要判断是否是复选项，如是选中。</pre><br><p>2.在第33行处补充完整，实现当点击”全不选”按钮时，将取消所有选中的复选项。</p><br><p>3.在第40行处补充完整，在文本框中输入输入1-6数值，当点击”确定”按钮时，根据输入的数值，通过id选中相应的复选项。</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">因为任务需要. 在想 能不能不通过获取id的方式来获取.这样太麻烦了于是想用数组来获取.关键就这一条 savebox[i]=hobby[i]</span></p><br><p><span style="color: #ff0000;">通过savebox[i]来充当指针 指向元素的位置</span></p><br><p><span style="color: #ff0000;">然后再通过checkNum函数来设置复选框是否选中</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>        &lt;title&gt;无标题文档&lt;/title&gt;<br>    &lt;/head&gt;<br><br>    &lt;body&gt;<br>        &lt;form&gt;<br>          请选择你爱好:&lt;br&gt;<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby1”&gt;  音乐<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby2”&gt;  登山<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby3”&gt;  游泳<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby4”&gt;  阅读<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby5”&gt;  打球<br>          &lt;input type=”checkbox” name=”hobby” id=”hobby6”&gt;  跑步 &lt;br&gt;<br>          &lt;input type=”button” value = “全选” onclick = “checkall();”&gt;<br>          &lt;input type=”button” value = “全不选” onclick = “clearall();”&gt;<br>          &lt;p&gt;请输入您要选择爱好的序号，序号为1-6:&lt;/p&gt;<br>          &lt;input id=”wb” name=”wb” type=”text” &gt;<br>          &lt;input name=”ok” type=”button” value=”确定” onclick = “checkone();”&gt;<br>        &lt;/form&gt;<br>        &lt;script type=”text/javascript”&gt;<br>        function checkall(){<br>            var hobby = document.getElementsByTagName(“input”);<br>            var hobby_name=document.getElementsByName(“hobby”)<br><br>          for(var i=0;i&lt;hobby.length;i++){<br>              if(hobby[i].type==”checkbox”){<br>                  hobby[i].checked=true<br>              }<br><br>          }<br>        }<br>        function clearall(){<br>            var hobby = document.getElementsByName(“hobby”);<br>            for(var i=0;i&lt;hobby.length;i++){<br>                if(hobby[i].checked==true){<br>                    hobby[i].checked=false<br>                }<br>            }<br><br>         // 任务2<br><br>        }<br>       var savebox=[];<br>        function checkone(){<br>            var j=document.getElementById(“wb”).value;<br>            var hobby = document.getElementsByTagName(“input”);<br><br>       for(var i=0;i&lt;hobby.length;i++){<br>              if(hobby[i].type==”checkbox”){<br>                  savebox[i]=hobby[i]<br>              }<br><br>          }<br><br>          switch(j){<br>              case “1”:<br><br>                   checkNum(0);<br>                  break;<br>              case “2”:<br>                 checkNum(1);<br>                  break;<br>              case “3”:<br>                  checkNum(2);<br>                  break;<br>              case “4”:<br>                  checkNum(3);<br>              break;<br>              case “5”:<br>                  checkNum(4);<br>              break;<br>              case “6”:<br>                  checkNum(5);<br>              break;<br>              default:<br>                  alert(“请输入1-6的数字”)<br>                  break;<br>          }<br>        }<br><br>        function checkNum(n){<br>            if(savebox[n].checked==true){<br>                return savebox[n].checked=false<br><br>            }else{<br>                return savebox[n].checked=true<br>            }<br><br>        }<br><br>        &lt;/script&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-179ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -626,204 +741,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/187ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/187ver/">JavaScript对象初入-1:如何使用对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><p></p>
-<div class="code-desc co"><br><p>小伙伴们，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、定义”改变颜色”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.color<br>obj.style.backgroundColor</pre><br><p>二、定义”改变宽高”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.width<br>obj.style.height</pre><br><p>三、定义”隐藏内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”none”;</pre><br><p>四、定义”显示内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”block”;</pre><br><p>五、定义”取消设置”的函数</p><br><pre class="code"><strong>提示:<br></strong>使用confirm()确定框，来确认是否取消设置。<br>如是将以上所有的设置恢复原始值,否则不做操作。<br></pre><br><p>六、当点击相应按钮，执行相应操作，为按钮添加相应事件</p><br><p>&nbsp;</p><br><hr><br><p>完成这些任务对小伙伴来说都不是问题. 正好最近学到了对象,于是在想怎么把对象应用进去</p><br><p>根据 构造函数与原型对象混合使用 来构造一个对象</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” Content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;javascript&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{font-size:12px;}<br>#txt{<br>    height:400px;<br>    width:600px;<br>    border:#333 solid 1px;<br>    padding:5px;}<br>p{<br>    line-height:18px;<br>    text-indent:2em;}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;h2 id=”con”&gt;JavaScript课程&lt;/H2&gt;<br>  &lt;div id=”txt”&gt;<br>     &lt;h5&gt;JavaScript为网页添加动态效果并实现与用户交互的功能。&lt;/h5&gt;<br>        &lt;p&gt;1. JavaScript入门篇，让不懂JS的你，快速了解JS。&lt;/p&gt;<br>        &lt;p&gt;2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。&lt;/p&gt;<br>        &lt;p&gt;3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。&lt;/p&gt;<br>  &lt;/div&gt;<br>  &lt;form&gt;<br>  &lt;!–当点击相应按钮，执行相应操作，为按钮添加相应事件–&gt;<br>    &lt;input type=”button” value=”改变颜色” onclick=”changeElem.changeColor()”&gt;<br>    &lt;input type=”button” value=”改变宽高” onclick=”changeElem.changeWH()”&gt;<br>    &lt;input type=”button” value=”隐藏内容” onclick=”changeElem.hidden()”&gt;<br>    &lt;input type=”button” value=”显示内容” onclick=”changeElem.show()” &gt;<br>    &lt;input type=”button” value=”取消设置” onclick=”changeElem.back()”&gt;<br>  &lt;/form&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  function change (name) {<br>    this.elem=document.getElementById(name)<br>  }<br>  var changeElem=new change(“txt”)<br>//定义”改变颜色”的函数<br>change.prototype.changeColor = function(){<br>      this.elem.style.color=”red”;<br>      this.elem.style.backgroundColor=”black”;<br>};<br>//定义”改变宽高”的函数<br>change.prototype.changeWH=function() {<br>  this.elem.style.width=”300px”;<br>  this.elem.style.height=”300px”;<br>}<br>//定义”隐藏内容”的函数<br>change.prototype.hidden=function() {<br> this.elem.style.display=”none”;<br>}<br>//定义”显示内容”的函数<br>change.prototype.show=function() {<br> this.elem.style.display=”block”;<br>}<br><br>//定义”取消设置”的函数<br>change.prototype.back=function() {<br> var back_1=”是否取消设置”<br>    var back_2=confirm(back_1)<br>    if(back_2==true){<br>        this.elem.removeAttribute(“style”)<br>        alert(“System  initialise”)<br>    }<br>    else{<br>        alert(“手贱点了一下”)<br>    }<br>}<br>  &lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-188ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/188ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/188ver/">Html5+Css实现下拉菜单</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>比较考验Css基础…我这个半吊子快速入门的Css水平还有待提高啊.</p><p></p>
-<p></p><p>代码没啥难度 主要的是一个定位 绝对定位和相对定位.</p><p></p>
-<p></p><p>还有一个选择器</p><p></p>
-<p></p><p>#nav li:hover #nav2{<br><br>display: block;<br><br>}</p><p></p>
-<p></p><p>//鼠标经过一级菜单时候 设置二级菜单ul为块状</p><p></p>
-<p></p><p>#nav2{</p><p></p>
-<p></p><p>display:none;</p><p></p>
-<p></p><p>}</p><p></p>
-<p></p><p>//二级菜单默认是隐藏的</p><p></p>
-<p></p><p>然后就是细节方面的微调<br></p>
-<p><div class="down shortcodestyle icon-download"><a href=" http://pan.baidu.com/s/1o6MGghs " target="_blank">度娘下载</a></div></p><p></p>
-<p><blockquote><p>position：absolute 绝定定位 ,相对其最近的已定位的祖先元素(即是设置了非static的祖先元素)进行定位。如果元素没有已定位的祖先元素，那么它的位置则是相对于最初的包含块（body）。</p></blockquote></p>
-<p></p><p>&nbsp;</p><p></p>
-<pre class="lang:default decode:true">&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;HtmlCss实现下拉菜单&lt;/title&gt;
-    &lt;style type="text/css"&gt;
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    #nav{
-        background-color: gray;
-        margin: 0 auto;
-        width: 600px;
-        height: 60px;
-        list-style: none;
-        position: relative;
-
-    }
-    #nav li{
-        float: left;
-        line-height: 60px;/*设置垂直,也就是行高*/
-        text-align: center; /*设置垂直(因为上面设置了行高),和水平居中*/
-
-    }
-    #nav li:hover #nav2{
-        display: block;
-    }
-    #nav li a{
-         padding: 0 10px;
-        /* padding值加在 a标签里是为了防止li宽度加宽 a标签移动时背景颜色覆盖不全*/
-        text-decoration: none;
-        /*设置a标签下划线为空*/
-        color: black;
-        /*a标签颜色 黑色*/
-        display: block;
-        /*设置块状元素的原因是
-        鼠标经过a标签的时候
-        背景颜色可以覆盖整个a标签块*/
-    }
-    #nav li a:hover{
-        color: #FFF;
-        background: #2D2D29;
-    }
-    #nav2{
-        list-style: none;
-        position: absolute;
-        width: 85px;
-        display: none;
-    }
-    #nav2 li{
-        float: none;
-        top: 60px;
-        left: 0px;
-        background: #215A6D;
-        margin-top:2px;
-
-    }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;ul id="nav"&gt;
-        &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;灵魂城堡&lt;/a&gt;
-            &lt;ul id="nav2"&gt;
-                &lt;li&gt;&lt;a href="#"&gt;Soul&lt;/a&gt;&lt;/li&gt;
-                &lt;li&gt;&lt;a href="#"&gt;Seeker&lt;/a&gt;&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;放荡者茶会&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;记录的地平线&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</pre>
 
 
 

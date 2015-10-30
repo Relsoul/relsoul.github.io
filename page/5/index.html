@@ -193,6 +193,61 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-209ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/209ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/209ver/">JavaScript-内置对象-1:我们中出了一个对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>FBI WANNING！ 本文章包含以下内容</p><br><blockquote><br><ol><br><li>字符串对象</li><br><li>日期对象</li><br><li>日期小动画</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function soulObject(){<br>            //对象<br>            var soul =new Object();//创建了一个对象 名字是soul<br>            soul.name=”灵魂”;<br>            soul.height =”保密”;<br>            //对象字面量创建一个对象<br>            var soul_1 ={<br>                sex:”你猜”,//用逗号分隔<br>                “love”:”不是你就对了”,//对象名还可以是字符串<br>                age:”永远19岁”<br>            }<br><br>            console.log(“输出soul对象的name属性是:”+soul.name+”输出sou_1.sex对象:”+soul_1.sex+”输出soul_1.\’love\’对象:”+soul_1.love);<br>            var soul_1age=”age”;//注意记得加引号<br>            console.log(“通过方括号法来输出soul_1.age:”+soul_1[soul_1age]);<br><br><br>            //字符串对象因为是内置对象 并不会影响到字符串本身<br>            var soul_2=”Hello Soul”;//字符串从0开始，空格也算一个字符<br>            console.log(“字符串长度为:”+soul_2.length+”字符串第一次出现的位置\’o\’:”+soul_2.indexOf(“o”)+”|字符串\’o\’最后一次出现的位置”+soul_2.lastIndexOf(“o”));<br>            console.log(“查找字符串并且输出”+soul_2.match(“Hello”))//如果有hello这个字符串那么就输出hello 如果没有就输出null<br>            console.log(“替换soul为soul seeker:”+soul_2.replace(“Soul”, ‘soul seeker’));<br>            console.log(“将字符串转换为大写:”+soul_2.toUpperCase()+”将字符串转换为小写:”+soul_2.toLowerCase());<br>            var soul_2arr=soul_2.split(“ “);//用空格作为分隔符<br>            console.log(“输出soul_2arr数组中第二个元素:”+soul_2arr[1]);<br>        }<br><br><br>        function soulObject1(){<br>            //Date对象<br>            var soul_date= new Date();//创建一个日期对象<br>            console.log(“当前时间是:”+soul_date+”今年是多少年:”+soul_date.getFullYear()+”获取时间的毫秒:”+soul_date.getTime());<br>            soul_date.setFullYear(2014);//设置年份为2014年<br>            console.log(soul_date);<br><br>        }<br>        function soulObject2(){<br>            //Date对象之时钟<br>            //思路<br>            //1 获取到当前时间:小时,分,秒<br>            //2为了不改变长度,给分,秒前面加上一个0<br>            //递归调用函数（动画）<br>            soul_time =new Date();<br>            var soul_time_h=soul_time.getHours();//获取小时<br>            var soul_time_m=soul_time.getMinutes();//获取分钟<br>            var soul_time_s=soul_time.getSeconds();//获取秒<br>            soul_time_m=checkMS(soul_time_m);//把个位数的分钟加上0<br>            soul_time_s=checkMS(soul_time_s);//把个位数秒加上0<br>            var p_txt=createTime();//其实获取到p元素id再写入就ok了 为什么要这么复杂呢? 因为为了复习以前的知识嘛<br>            p_txt.innerHTML=soul_time_h+”:”+soul_time_m+”:”+soul_time_s;//给p元素写入小时，分钟，秒<br>            var anmi =setTimeout(function(){//setTimeout(函数,时间)<br>                soulObject2()//递归重复调用本次函数<br>            },1000);//1000秒调用一次<br><br><br>        }<br>        function createTime(){//获取到fh属性等于show_time的p元素是哪一个<br>            var get_p=document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                if(get_p[i].getAttribute(“fh”)==”show_time”){//如果fh属性等于 show_time<br>                    return get_p[i];//返回这个p元素位置<br>                }<br>            };<br><br>        }//PASS<br>        function checkMS(i){//传递一个参数<br>            if(i&lt;10){//如果这个参数小于10<br>                i=”0”+1;//i=”0”+i;<br>            }<br>            return i;//否则返回i<br>        }<br>        window.onload=function(){<br>            soulObject();<br>            soulObject1();<br>            soulObject2();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p fh=”show_time”&gt;&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-210ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -673,61 +728,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><span style="font-size: 18pt;">不太了解抽象的可以先看看</span></p><br><blockquote><br><h2 class="post-title"><span style="font-size: 12pt;"><a title="JavaScript-抽象:抽个大象出来？" href="http://www.old.com/soul-get/soul-js/145" target="_blank" rel="external">JavaScript-抽象:抽个大象出来？</a></span></h2><br><h2 class="post-title"><a title="JavaScript简单动画-2:初入动画" href="http://www.old.com/soul-get/soul-js/147" target="_blank" rel="external">JavaScript简单动画-2:初入动画</a> 没看过的去看看2</h2><br></blockquote><br><p>不废话,解释全在代码里 直接贴代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br><br>            var get_anmi_t =document.getElementById(“anmi_t”);//设置 get_anmi_t等于id属性为anmi_t的元素<br>            get_anmi_t.style.left=”500px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_t.style.top=”100px”;//要不然下面获取的时候会获取不到<br>            get_anmi_t.style.position=”absolute”;//设置定位为绝对定位<br><br>            CQ(“anmi_o”,200,200,10);//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>            CQ(“anmi_t”,400,200,10)//调用CQ函数 分别对应的是 elem,finall_x,finally_y.timenum<br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_p=document.getElementById(elem);//设置get_p等于id为elem参数,比如上面elem传递的是”anmi_o”那么就获取id为anmi_o的标签<br>             var porx=parseInt(get_p.style.left);//设置porx为get_p的左属性 并且只获取整数<br>            var pory=parseInt(get_p.style.top);//设置porx为get_p的上属性 并且只获取整数<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//前面解释过了就不再解释了<br>                porx++;<br><br>            }<br>            if(porx&gt;finally_x){<br>                porx–;<br><br>            }<br>            if(pory&lt;finally_y){<br>                pory++;<br><br>            }<br>            if(pory&gt;finally_y){<br>                pory–<br><br>            }<br>            get_p.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_p.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数<br><br><br>        }<br>        // function moveAnmi(){//定义移动函数<br>        //     var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>        //     var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>        //     var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>        //     if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>        //         return true;//返回true(停止运行函数)<br><br>        //     }<br>        //     if(xpor&lt;200){//如果左属性小于200<br>        //         xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>        //     }<br>        //     if(xpor&gt;200){//如果左属性大于200<br>        //         xpor–;//每次减一<br>        //     }<br>        //     if(ypor&lt;100){//如果上属性小于100<br>        //         ypor++;//每次加1<br><br>        //     }<br>        //     if(ypor&gt;100){//如果上属性大于100<br>        //         ypor–;//每次减一<br><br>        //     }<br>        //     get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>        //     get_anmi_o.style.left =xpor+”px”;//同上<br>        //     mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        // }<br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>    &lt;p id=”anmi_t”&gt;seeker&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-219ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/219ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/219ver/">JavaScript简单动画-2:初入动画</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为代码有点偏笔记向，所以没有对每个属性做出详细的解释了, 大家可以推度娘一下</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素<br>            get_anmi_o.style.left=”100px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_anmi_o.style.top=”20px”;//要不然下面获取的时候会获取不到<br>            get_anmi_o.style.position=”absolute”;//设置定位为绝对定位<br>        }<br>        function moveAnmi(){//定义移动函数<br>            var get_anmi_o =document.getElementById(“anmi_o”);//设置 get_anmi_o等于id属性为anmi_o的元素 因为在函数内是局部变量 不会影响到上面<br>            var ypor=parseInt(get_anmi_o.style.top);//parseInt的作用是 获取字符中的整数 比如”213soul” 他只会获取到213 soul不会获取、<br>            var xpor=parseInt(get_anmi_o.style.left);//获取到左和上属性 并且存储<br>            if(ypor == 100 &amp;&amp; xpor ==200){//如果上属性等于200 和 左属性等于200<br>                return true;//返回true(停止运行函数)<br><br>            }<br>            if(xpor&lt;200){//如果左属性小于200<br>                xpor++;//xpor++的意思是 xpor=xpor+1 每次加1<br>            }<br>            if(xpor&gt;200){//如果左属性大于200<br>                xpor–;//每次减一<br>            }<br>            if(ypor&lt;100){//如果上属性小于100<br>                ypor++;//每次加1<br><br>            }<br>            if(ypor&gt;100){//如果上属性大于100<br>                ypor–;//每次减一<br><br>            }<br>            get_anmi_o.style.top =ypor+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_anmi_o.style.left =xpor+”px”;//同上<br>            mov =setTimeout(“moveAnmi()”,10);//递归调用函数 每隔10毫秒执行moveAnimi()函数 然后moveAnimi函数再做判断<br>        }<br>        window.onload=function(){//网页加载完毕加载函数<br>            moveAnmi();<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”anmi_o”&gt;hello soul&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

@@ -193,6 +193,117 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-198ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/198ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/198ver/">JS-继承-1:继承者们</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>快混乱了,啃完JavaScript高级程序设计后 赶紧啃啃W3c的继承和对象教程压压惊..</p><br><p>推荐在看这篇文章的时候去看看W3c的继承和对象 这样相对而言比较好理解</p><br><p><a href="http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp" target="_blank" rel="external">http://www.w3school.com.cn/js/pro_js_inheritance_implementing.asp</a></p><br><p>本文最重要的第三点 也就是组合继承的最重要一点就是 call(this)理解了这句话估计也就掌握了继承</p><br><p>本章解释了继承的几种方法</p><br><blockquote><br><ol><br><li>继承之原型链 //原型链来继承 实例会公用原型链的属性</li><br><li>借用构造函数// 组合继承的初始版本</li><br><li>组合继承//学会这个就OK了..再看下去..我觉得你跟我一样会转晕的.用构造函数建立属性 原型建立方法</li><br></ol><br></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-继承-1-继承者们&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    //每个构造函数都有一个原型对象,原型对象都包含一个指向构造函数的指针,实例都包含一个指向原型对象内部的指针<br>    //继承之原型链<br><br>    function Soul1(){//构造函数 对象Soul1<br>        this.name=”soul1”<br>    }<br>    Soul1.prototype.getName = function(){//定义 Soul1的原型函数getName<br>        return this.name;//this指向调用这个函数的 变量，对象等等<br>    };<br>    function Soul2(){//构造函数 对象Soul2<br>        this.age=”19”<br>    }<br>    Soul2.prototype=new Soul1()//对象Soul2的原型等于Soul1<br><br>    Soul2.prototype.getAge=function(){//定义 Soul2的原型函数getAge<br>        return this.age<br>    }<br>    var soul1_1=new Soul2();<br>    var soul1_2=new Soul1();<br>    console.log(soul1_1.getAge())//ok 这是Soul2中的age 那么来试试Soul1中的name<br>    console.log(soul1_1.getName())//ok 获取到Soul1中的name<br>    // console.log(soul1_2.getAge())//error 不能越级访问..也就是说 Soul2定义的函数,属性 Soul1都不能访问到<br>    console.log(soul1_1 instanceof Object)//soul1_1是Object 所有的对象都是Object的实例<br>    console.log(soul1_1 instanceof Soul1)//true<br>    console.log(Object.prototype.isPrototypeOf(soul1_1))//soul1_1原型是Object<br><br>    //谨慎的定义方法<br>    Soul2.prototype.getName=function(){//重写超类型(指的是Soul1)中的getName函数 注意 这语句必须放Soul1_1=new Soul2()之下<br>        return this.age+this.name<br>    }<br>    console.log(soul1_1.getName())<br><br>    // Soul2.prototype={//用字面量添加新方法会导致Soul2.prototype=new Soul1() 失效<br>    //     this.name=name<br>    // }<br>    function Soul3(){//构造函数 Soul3<br>        this.color=[“红色”,”黑色”]//创建 颜色数组<br>    }<br>    function Soul4(){}//构造函数 Soul4<br><br>    Soul4.prototype=new Soul3()//Soul4的原型等于Soul3的原型<br><br>    var Soul3_1 = new Soul4()//创建Soul4的实例<br>    Soul3_1.color.push(“蓝色”)//在Soul3_1的颜色数组添加蓝色<br>    console.log(Soul3_1.color)//输出颜色数组<br><br>    var Soul3_2 = new Soul4()//创建Soul4的实例<br>    console.log(Soul3_2.color)//输出颜色数组<br>    //发现 创建了Soul3_1 和Soul3_2 两个实例都共享了color数组<br><br>    //组合继承(将原型和借用构造函数组合)<br>    //构造函数构造属性 原型建立方法<br>    function Soul5(name){<br>        this.name= name;<br>        this.color=[“蓝色”,”绿色”,”黄色”];<br>        }<br>    Soul5.prototype.sayName=function(){<br>        console.log(“Soul5名字”+this.name);<br>    }<br>    function Soul7(name,age){<br>        //关键代码就是call<br>        Soul5.call(this,name);//向Soul5传递this.name  比如Soul7_1用这个函数构建name属性的 this就相当于Soul7_1<br><br>        this.age=age;//age Soul7自己处理<br>    }<br>    //继承方法<br>    Soul7.prototype=new Soul5();<br>    Soul7.prototype.constructor=Soul7 //Soul7构造函数并不指向Soul5 而是指向自己<br>    Soul7.prototype.sayAge=function(){<br>        console.log(“Soul7年龄:”+this.age)<br>    }<br>    var Soul7_1 =new Soul7(“Soul7name”,”19”)//构造Soul7的实例Soul7_1<br>    Soul7_1.color.push(“Soul7_1红色”)//在Soul7_1实例中的color数组添加新元素<br>    Soul7_1.sayName();//Soul7_1是Soul7的实例 但是Soul7继承了Soul5的原型,所以Soul7_1继承了Soul5的方法和属性<br>    Soul7_1.sayAge();//同上<br>    console.log(Soul7_1.color)<br><br>    var Soul7_2=new Soul7(“Soul7_2的名字”,”18”)//同上<br>    Soul7_2.color.push(“Soul7_2黑色”)<br>    Soul7_2.sayName();<br>    Soul7_2.sayAge();<br>    console.log(Soul7_2.color)<br>    //以上代码都继承了 Soul5的原型 但是用构造函数创建属性 并且指定Soul7的原型构造函数等于Soul7<br>    //所以Soul7_1和Soul7_2公用构造函数Soul7但是这个构造函数Soul7的原型构造函数等于他本身,所以不会<br>    //重写Soul5构造函数的属性<br>    //…绕的有点多..多理解一下就ok了<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-199ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/199ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/199ver/">JavaScript this浅解:谁?是谁调戏(yong)了我</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p><!--StartFragment --></p><p></p>
+<div>&lt;a href=”abc” onclick=”function(){console.log(this.href)}” &gt;&lt;/a&gt;</div><br><div></div><br><div>this指向的就是A元素</div><br><div>function Soul2(){<br><br>this.age=”19”<br><br>}</div><br><div>var abc =new Soul2()</div><br><div>this指向的就是abc</div><br><div></div><br><div>看不懂？没关系来个简单的</div><br><div></div><br><div><!--StartFragment --><p></p><br><div>this的意思就相当于<br><br>我是员工<br><br>A BOSS调戏(yong)了我 就指向ABOSS<br><br>B BOSS调戏(yong)了我 就指向B BOSS</div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-200ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -605,116 +716,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本章介绍了数组内置对象的以下内置对象,可以复制代码保存到本地文件后观看哦</p><br><blockquote><br><ol><br><li>数组对象之长度对象</li><br><li>转换数组为字符串</li><br><li>数组的元素插入</li><br><li>数组之排序</li><br><li>数组之 相加</li><br><li>数组之 插入 替换 删除</li><br><li>数组之 位置</li><br><li>数组之迭代方法</li><br><li>归并数组</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-内置对象-2&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function soulArr(){<br>        //数组对象<br><br>        //数组对象之长度对象<br>        var soul_arr1=[“hello”,”soul”,”i\’m”,”soul seeker”]//这里使用了转义字符\’<br>        console.log(“soul_arr1长度是多少”+soul_arr1.length);//soul_arr1有四个元素输出4<br>        soul_arr1.length=3;//设置长度会删除后面的元素<br>        console.log(“设置长度是3,删除了最后一个长度,那么现在数组内容是:”+soul_arr1);<br>        soul_arr1[5]=”new soul”;<br>        console.log(“新增加了一个元素,那么现在数组内容是:”+soul_arr1);//hello,soul,i’m,,,new soul  中间多出了两个逗号 是因为我们在上次设置了长度为3 然后我们又在第5个添加了元素, 所以中间没有值要写逗号<br><br>        soul_arr2=[“hello”,”soul”];<br>        soul_arr2[soul_arr2.length]=”seeker”;<br>        console.log(“在数组最后添加一个元素”+soul_arr2);<br>        soul_arr2[soul_arr2.length-1]=”new seeker”//更改数组最后一个元素内容 为什么是-1 因为长度是2 但是数组从0开始 所以要-1<br>        console.log(“更改数组最后一个元素内容”+soul_arr2);<br><br>        //转换数组为字符串<br>        console.log(“转换数组为字符串”+soul_arr2.toString());<br>        console.log(“使用不同的符号来作为数组转为字符串的分隔符”+soul_arr2.join(“||”));<br><br>        //数组的元素插|入<br>        var soul_arr3=[“hello”];<br>        soul_arr3.push(“soul”,”seeker”);<br>        soul_arr3[3]=”new soul”;//稍微理解一下 数组是从0开始0,1,2(在最后添加了两个元素),[3]就是第4个元素<br>        console.log(“在数组的最后添加元素”+soul_arr3);<br>        soul_arr3.pop()<br>        console.log(“移除了最后一个元素”+soul_arr3);<br>        var fsoul_arr3=soul_arr3.shift();//取得数组的第一项并且删除第一项<br>        console.log(“数组取出的第一项是:”+fsoul_arr3+”|现在数组内容为:”+soul_arr3);<br>        var f1soul_arr3=soul_arr3.shift();//再取出第一项<br>        console.log(“数组取出的第一项是:”+f1soul_arr3+”|现在数组内容为:”+soul_arr3);<br>        soul_arr3.push(“new seeker”,”new shenshi”,”new hello”);//添加几个元素<br>        var nsoul_arr3=soul_arr3.unshift(“ok”,”yes”);<br>        console.log(“在数组前端推入两项 内容是:”+nsoul_arr3+”|当前数组内容为:”+soul_arr3);<br><br>        //数组之排序<br>        var soul_arr4=[“b”,”a”,”d”,”c”];<br>        soul_arr4.sort();//从低到高排序<br>        console.log(“从低到高排序”+soul_arr4);<br>        soul_arr4.reverse();//翻转数组排序<br>        console.log(“翻转数组排序”+soul_arr4);<br>        //sort排序有一个问题 在进行比较时 因为9位于15前面 所以会把9放后面<br>        //…下文数组不是排序好的嘛..为何还要多此一举<br>        var soul_arr5 =[5,9,15,20,25];<br>        soul_arr5.sort();<br>        console.log(“排序正确的数组再进行排序:”+soul_arr5);<br>        //怎么解决呢？编写了一个函数来判断<br>        soul_arr5.sort(compaer);//利用 -1 1 0就解决了<br>        console.log(“解决后:”+soul_arr5);//从低到高<br><br>        //数组之 相加<br>        var soul_arr6=[“hello”,”world”];<br>        var soul_arr7=[“none”];<br>        soul_arr6 += soul_arr7;//直接相加会发现会把数组转换为字符串再进行相加<br>        console.log(“直接相加”+soul_arr6+”类型”+typeof soul_arr6);<br><br>        var soul_arr6=[“我是一”,”我是二”,”我是三”,”我是四”];<br>        var soul_arr7=[“我是六”,”我是七”];<br>        var soul_arr8=soul_arr6.concat(soul_arr7);//相当于复制了一份 然后再在数组末尾插入soul_arr7 不会破坏原来的数组<br>        console.log(“在数组末尾插入一个数组”+soul_arr8);<br>        //数组之 插入 替换 删除<br>        //删除<br>        var soul_arr9=[“我是0”,”我是1”,”我是2”,”我是3”,”我是4”];<br>        var del_soul_arr9=soul_arr9.splice(0,2);//删除第一项与第二项 0与2之间不就是第一项和第二项嘛？<br>        console.log(“删除的数组为:”+del_soul_arr9+”当前数组内容为:”+soul_arr9);<br>        //插入<br>        var add_soul_arr9=soul_arr9.splice(2,0,”我是在\’我是4\’之前插入的”,”再插入一个”);//从第二项插入,因为上面删除了两项 所以第二项应该是”我是4”<br>        console.log(“插入的元素为:”+add_soul_arr9+”|当前数组内容为:”+soul_arr9);<br>        //替换<br>        var soul_arr10=[“我是0”,”我是1”,”我是2”,”我是3”,”我是4”];<br>        var rep_soul_arr10=soul_arr10.splice(0,1,”我是插入的”,”我是插入的-2”);<br>        console.log(“删除的元素为:”+rep_soul_arr10+”|当前数组内容:”+soul_arr10);//替换”我是0”后再插入一个元素<br><br>        //数组之 位置<br>        //从正向开始查找<br>        var soul_arr10=[“1”,4,”1”,1,2,3,”1”];<br>        console.log(“正向查找:”+soul_arr10.indexOf(“1”));//indexOf查找时会使用全等查找 并且查到到了后会输出元素在数组的位置<br>        //反向查找<br>        console.log(“反向查找:”+soul_arr10.lastIndexOf(“1”));//反向查找会查找到最远的那个<br>        //还有分段查询<br>        console.log(“从1开始查询而非0(数组第一个元素)”+soul_arr10.indexOf(“1”,1));//结果是2<br>        console.log(“从反向的6开始查询而非反向的0|”+soul_arr10.lastIndexOf(“1”,6))//结果是6<br><br>        //数组之迭代方法<br>        var soul_arr11=[1,2,3,4,5,6,7];<br>        //将大于5的元素组成数组<br>        var soul5_arr11=soul_arr11.filter(function(num){<br>            return(num&gt;5);<br>        })<br>        console.log(“新组成数组:”+soul5_arr11+”|原来的数组”+soul_arr11);//发现不会影响到原来的数组<br>        //将每个数组乘以2<br>        var soul2_arr11=soul_arr11.map(function(num){<br>            return(num*2);<br>        })<br>        console.log(“乘以后的数组:”+soul2_arr11);<br><br>        //归并数组<br>        //数组内容进行相加<br>        var soul_arr12=soul_arr11.reduce(function(q,h){//reduce是从正向开始相加 也可以从反向开始<br>            return(q+h);<br>        })//传递两个参数 q是前一个值,h是当前值<br>        console.log(“相加结果:”+soul_arr12);<br>        var soul_arr13=soul_arr11.reduceRight(function(q,h){<br>            return(q+h);<br>        })<br>        console.log(“反向相加,因为是简单相加所以都一样”+soul_arr13);<br><br><br>    }<br>    function compaer(a,b){<br>        if(a&gt;b){//比较两个值 如果前面的大于后面的<br>            return 1;//把后面的放前面 所以返回1<br><br>        }<br>        if(a&lt;b){//比较两个值 如果前面的小于后面的<br>            return -1;//把前面的放后面 返回-1<br><br>        }<br>        if(a=b){//如果相等<br>            return 0;//不做更改<br>        }<br>    }<br><br><br><br><br>    window.onload=function(){<br>        soulArr();<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-209ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/209ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/209ver/">JavaScript-内置对象-1:我们中出了一个对象</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>FBI WANNING！ 本文章包含以下内容</p><br><blockquote><br><ol><br><li>字符串对象</li><br><li>日期对象</li><br><li>日期小动画</li><br></ol><br></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-对象-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function soulObject(){<br>            //对象<br>            var soul =new Object();//创建了一个对象 名字是soul<br>            soul.name=”灵魂”;<br>            soul.height =”保密”;<br>            //对象字面量创建一个对象<br>            var soul_1 ={<br>                sex:”你猜”,//用逗号分隔<br>                “love”:”不是你就对了”,//对象名还可以是字符串<br>                age:”永远19岁”<br>            }<br><br>            console.log(“输出soul对象的name属性是:”+soul.name+”输出sou_1.sex对象:”+soul_1.sex+”输出soul_1.\’love\’对象:”+soul_1.love);<br>            var soul_1age=”age”;//注意记得加引号<br>            console.log(“通过方括号法来输出soul_1.age:”+soul_1[soul_1age]);<br><br><br>            //字符串对象因为是内置对象 并不会影响到字符串本身<br>            var soul_2=”Hello Soul”;//字符串从0开始，空格也算一个字符<br>            console.log(“字符串长度为:”+soul_2.length+”字符串第一次出现的位置\’o\’:”+soul_2.indexOf(“o”)+”|字符串\’o\’最后一次出现的位置”+soul_2.lastIndexOf(“o”));<br>            console.log(“查找字符串并且输出”+soul_2.match(“Hello”))//如果有hello这个字符串那么就输出hello 如果没有就输出null<br>            console.log(“替换soul为soul seeker:”+soul_2.replace(“Soul”, ‘soul seeker’));<br>            console.log(“将字符串转换为大写:”+soul_2.toUpperCase()+”将字符串转换为小写:”+soul_2.toLowerCase());<br>            var soul_2arr=soul_2.split(“ “);//用空格作为分隔符<br>            console.log(“输出soul_2arr数组中第二个元素:”+soul_2arr[1]);<br>        }<br><br><br>        function soulObject1(){<br>            //Date对象<br>            var soul_date= new Date();//创建一个日期对象<br>            console.log(“当前时间是:”+soul_date+”今年是多少年:”+soul_date.getFullYear()+”获取时间的毫秒:”+soul_date.getTime());<br>            soul_date.setFullYear(2014);//设置年份为2014年<br>            console.log(soul_date);<br><br>        }<br>        function soulObject2(){<br>            //Date对象之时钟<br>            //思路<br>            //1 获取到当前时间:小时,分,秒<br>            //2为了不改变长度,给分,秒前面加上一个0<br>            //递归调用函数（动画）<br>            soul_time =new Date();<br>            var soul_time_h=soul_time.getHours();//获取小时<br>            var soul_time_m=soul_time.getMinutes();//获取分钟<br>            var soul_time_s=soul_time.getSeconds();//获取秒<br>            soul_time_m=checkMS(soul_time_m);//把个位数的分钟加上0<br>            soul_time_s=checkMS(soul_time_s);//把个位数秒加上0<br>            var p_txt=createTime();//其实获取到p元素id再写入就ok了 为什么要这么复杂呢? 因为为了复习以前的知识嘛<br>            p_txt.innerHTML=soul_time_h+”:”+soul_time_m+”:”+soul_time_s;//给p元素写入小时，分钟，秒<br>            var anmi =setTimeout(function(){//setTimeout(函数,时间)<br>                soulObject2()//递归重复调用本次函数<br>            },1000);//1000秒调用一次<br><br><br>        }<br>        function createTime(){//获取到fh属性等于show_time的p元素是哪一个<br>            var get_p=document.getElementsByTagName(“p”);<br>            for (var i = 0; i &lt; get_p.length; i++) {<br>                if(get_p[i].getAttribute(“fh”)==”show_time”){//如果fh属性等于 show_time<br>                    return get_p[i];//返回这个p元素位置<br>                }<br>            };<br><br>        }//PASS<br>        function checkMS(i){//传递一个参数<br>            if(i&lt;10){//如果这个参数小于10<br>                i=”0”+1;//i=”0”+i;<br>            }<br>            return i;//否则返回i<br>        }<br>        window.onload=function(){<br>            soulObject();<br>            soulObject1();<br>            soulObject2();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p fh=”show_time”&gt;&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-162ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/162ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/162ver/">JavaScript-焦点轮播图效果</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习代码以及文章来自：<a href="http://www.imooc.com/code/3605" target="_blank" rel="external">http://www.imooc.com/code/3605</a></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">CSS这块..一直是个坑也就没分析了</span></p><br><p><span style="color: #ff0000;">这次主要是通过控制pic.style.top距离来判断是哪个li</span></p><br><p><span style="color: #ff0000;">170是div的高度 ，因为我们是通过一个div来显示的.</span></p><br><p><span style="color: #ff0000;">170<em>2=第二章图片</em></span></p><br><p><span style="color: #ff0000;">..这块没怎么写好.希望各位大神能够指点一下</span></p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">首先这个JS有几个函数或者方法呢？</span></p><br><p><span style="color: #ff0000;">if (timer) {//如果原来就有了这个定时器</span><br><br><span style="color: #ff0000;"> //先清除原来的定时器</span><br><br><span style="color: #ff0000;"> clearInterval(timer);</span><br><br><span style="color: #ff0000;"> timer=null;</span><br><br><span style="color: #ff0000;"> };</span></p><br><p><span style="color: #ff0000;">这是第一个方法 用来清除原来的定时器</span></p><br><p><span style="color: #ff0000;"> timer=setInterval(autoPlay,2000)</span></p><br><p><span style="color: #ff0000;">这是第二个 用来自动播放</span></p><br><pre class="lang:default decode:true"><span style="color: #ff0000;"> function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //</span></pre><br><p><span style="color: #ff0000;"> 这是第三个 自动播放该怎么播放的函数.默认是从1开始的.为什么不是0？ ..你默认显示的不就是0吗?</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;"> function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }</span></pre><br><p><span style="color: #ff0000;"> 这是第四个函数 你自动播放的时候肯定要去怎么切换这个图片吧</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true "><span style="color: #ff0000;">stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br></span></pre><br><p><span style="color: #ff0000;"> </span></p><br><p><span style="color: #ff0000;">这是第五个函数 鼠标移入的时候调用切换图片的函数 移出后重新开始设置定时器 也就是第二个方法</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style&gt;<br>  <em>{margin:0;<br>    padding:0;<br>    list-style:none;}<br>  .wrap{height:170px;<br>        width:490px;<br>        margin:60px auto;<br>        overflow: hidden;<br>        position: relative;<br>        margin:100px auto;}<br>  .wrap ul{position:absolute;}<br>  .wrap ul li{height:170px;}<br>  .wrap ol{position:absolute;<br>           right:5px;<br>           bottom:10px;}<br>  .wrap ol li{height:20px; width: 20px;<br>              background:#ccc;<br>              border:solid 1px #666;<br>              margin-left:5px;<br>              color:#000;<br>              float:left;<br>              line-height:center;<br>              text-align:center;<br>              cursor:pointer;}<br>  .wrap ol .on{background:#E97305;<br>               color:#fff;}<br><br>  &lt;/style&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  window.onload=function(){//网页加载完毕<br>    var wrap=document.getElementById(‘wrap’),<br>        pic=document.getElementById(‘pic’),<br>        //获取list列表<br>        list=document.getElementById(‘list’).getElementsByTagName(‘li’),<br>        //建立索引<br>        index=0,<br>        //设置定时器<br>        timer=null;<br><br><br>      //自动播放图片<br>      //在自动播放图片前加一个判断<br>      if (timer) {//如果原来就有了这个定时器<br>        //先清除原来的定时器<br>        clearInterval(timer);<br>        timer=null;<br>      };<br>      //再进行播放<br>      timer=setInterval(autoPlay,2000)<br><br>      function autoPlay(){<br>        //index+1<br>        index++;<br>        //如果index大于list条数<br>        if(index&gt;=list.length){<br>          //重置index<br>          index=0;<br>        }<br>        //调用图片切换函数<br>        changeImg(index);<br>      }<br>     //<br><br><br>      // 定义图片切换函数<br>      function changeImg(curindex){<br>        //首先遍历所有的list 把className设置空<br>        for (var i = 0; i &lt; list.length; i++) {<br>            list[i].className=” “<br>        };<br>        //根据传递过来的索引 比如index=0 那么list[0].className等于on<br>        list[curindex].className=’on’;<br>        //设置pic距离顶部的距离 根据距离顶部的多少来判断应该显示哪张图片<br>        //首先ul下有很多li li都是竖排排列的<br>        //所以只需要控制每张图片的大小<br>        //显示的div高度是170<br>        pic.style.top=’-‘+curindex</em>170+’px’;<br>        //把curindex赋值给index<br>        //这样做的目的是 如果我们鼠标移入的是list 3 那么更改index索引等于3<br>        index=curindex;<br><br>      }<br><br><br>     //建立停止自动播放以及鼠标移入移出事件函数<br>     stopPlay()<br><br>     function stopPlay(){<br>      //变量list并且设置fh等于d<br>      for (var d = 0; d &lt; list.length; d++) {<br>        list[d].setAttribute(“fh”, d)<br><br><br>        list[d].onmouseover=function(){<br>          //鼠标移入的时候 先清除下定时器timer<br>          //如果不清除那么他还是会一直自动播放下去<br>          clearInterval(timer)<br>          //然后调用更改图片的函数 并且传递的curindex等于鼠标移入的index<br>          changeImg(this.getAttribute(“fh”))<br>        }<br>        //设置鼠标移出事件<br>        list[d].onmouseout=function(){<br>          //既然鼠标已经移出了 那么重新开始设置定时器<br>          timer=setInterval(autoPlay,2000)<br>        }<br><br>      };<br>     }<br><br><br>   }<br><br>  &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;div class=”wrap” id=’wrap’&gt;<br>    &lt;ul id=”pic”&gt;<br>      &lt;li&gt;&lt;img  height=470 src=”<a href="http://img.mukewang.com/54111cd9000174cd04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111cd9000174cd04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111dac000118af04900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111dac000118af04900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d9c0001998204900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d9c0001998204900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d8a0001f41704900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d8a0001f41704900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;img height=470 src=”<a href="http://img.mukewang.com/54111d7d00018ba604900170.jpg" target="_blank" rel="external">http://img.mukewang.com/54111d7d00018ba604900170.jpg</a>“ alt=””&gt;&lt;/li&gt;<br>    &lt;/ul&gt;<br>    &lt;ol id=”list”&gt;<br>      &lt;li class=”on”&gt;1&lt;/li&gt;<br>      &lt;li&gt;2&lt;/li&gt;<br>      &lt;li&gt;3&lt;/li&gt;<br>      &lt;li&gt;4&lt;/li&gt;<br>      &lt;li&gt;5&lt;/li&gt;<br>    &lt;/ol&gt;<br>  &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

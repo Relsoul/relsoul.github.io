@@ -193,6 +193,204 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/187ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/187ver/">JavaScript对象初入-1:如何使用对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><p></p>
+<div class="code-desc co"><br><p>小伙伴们，请编写”改变颜色”、”改变宽高”、”隐藏内容”、”显示内容”、”取消设置”的函数，点击相应按钮执行相应操作，点击”取消设置”按钮后，提示是否取消设置，如是执行操作，否则不做操作。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>一、定义”改变颜色”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.color<br>obj.style.backgroundColor</pre><br><p>二、定义”改变宽高”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.width<br>obj.style.height</pre><br><p>三、定义”隐藏内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”none”;</pre><br><p>四、定义”显示内容”的函数</p><br><pre class="code"><strong>提示:</strong><br>obj.style.display=”block”;</pre><br><p>五、定义”取消设置”的函数</p><br><pre class="code"><strong>提示:<br></strong>使用confirm()确定框，来确认是否取消设置。<br>如是将以上所有的设置恢复原始值,否则不做操作。<br></pre><br><p>六、当点击相应按钮，执行相应操作，为按钮添加相应事件</p><br><p>&nbsp;</p><br><hr><br><p>完成这些任务对小伙伴来说都不是问题. 正好最近学到了对象,于是在想怎么把对象应用进去</p><br><p>根据 构造函数与原型对象混合使用 来构造一个对象</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” Content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;javascript&lt;/title&gt;<br>&lt;style type=”text/css”&gt;<br>body{font-size:12px;}<br>#txt{<br>    height:400px;<br>    width:600px;<br>    border:#333 solid 1px;<br>    padding:5px;}<br>p{<br>    line-height:18px;<br>    text-indent:2em;}<br>&lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>  &lt;h2 id=”con”&gt;JavaScript课程&lt;/H2&gt;<br>  &lt;div id=”txt”&gt;<br>     &lt;h5&gt;JavaScript为网页添加动态效果并实现与用户交互的功能。&lt;/h5&gt;<br>        &lt;p&gt;1. JavaScript入门篇，让不懂JS的你，快速了解JS。&lt;/p&gt;<br>        &lt;p&gt;2. JavaScript进阶篇，让你掌握JS的基础语法、函数、数组、事件、内置对象、BOM浏览器、DOM操作。&lt;/p&gt;<br>        &lt;p&gt;3. 学完以上两门基础课后，在深入学习JavaScript的变量作用域、事件、对象、运动、cookie、正则表达式、ajax等课程。&lt;/p&gt;<br>  &lt;/div&gt;<br>  &lt;form&gt;<br>  &lt;!–当点击相应按钮，执行相应操作，为按钮添加相应事件–&gt;<br>    &lt;input type=”button” value=”改变颜色” onclick=”changeElem.changeColor()”&gt;<br>    &lt;input type=”button” value=”改变宽高” onclick=”changeElem.changeWH()”&gt;<br>    &lt;input type=”button” value=”隐藏内容” onclick=”changeElem.hidden()”&gt;<br>    &lt;input type=”button” value=”显示内容” onclick=”changeElem.show()” &gt;<br>    &lt;input type=”button” value=”取消设置” onclick=”changeElem.back()”&gt;<br>  &lt;/form&gt;<br>  &lt;script type=”text/javascript”&gt;<br>  function change (name) {<br>    this.elem=document.getElementById(name)<br>  }<br>  var changeElem=new change(“txt”)<br>//定义”改变颜色”的函数<br>change.prototype.changeColor = function(){<br>      this.elem.style.color=”red”;<br>      this.elem.style.backgroundColor=”black”;<br>};<br>//定义”改变宽高”的函数<br>change.prototype.changeWH=function() {<br>  this.elem.style.width=”300px”;<br>  this.elem.style.height=”300px”;<br>}<br>//定义”隐藏内容”的函数<br>change.prototype.hidden=function() {<br> this.elem.style.display=”none”;<br>}<br>//定义”显示内容”的函数<br>change.prototype.show=function() {<br> this.elem.style.display=”block”;<br>}<br><br>//定义”取消设置”的函数<br>change.prototype.back=function() {<br> var back_1=”是否取消设置”<br>    var back_2=confirm(back_1)<br>    if(back_2==true){<br>        this.elem.removeAttribute(“style”)<br>        alert(“System  initialise”)<br>    }<br>    else{<br>        alert(“手贱点了一下”)<br>    }<br>}<br>  &lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-188ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/188ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/188ver/">Html5+Css实现下拉菜单</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>比较考验Css基础…我这个半吊子快速入门的Css水平还有待提高啊.</p><p></p>
+<p></p><p>代码没啥难度 主要的是一个定位 绝对定位和相对定位.</p><p></p>
+<p></p><p>还有一个选择器</p><p></p>
+<p></p><p>#nav li:hover #nav2{<br><br>display: block;<br><br>}</p><p></p>
+<p></p><p>//鼠标经过一级菜单时候 设置二级菜单ul为块状</p><p></p>
+<p></p><p>#nav2{</p><p></p>
+<p></p><p>display:none;</p><p></p>
+<p></p><p>}</p><p></p>
+<p></p><p>//二级菜单默认是隐藏的</p><p></p>
+<p></p><p>然后就是细节方面的微调<br></p>
+<p><div class="down shortcodestyle icon-download"><a href=" http://pan.baidu.com/s/1o6MGghs " target="_blank">度娘下载</a></div></p><p></p>
+<p><blockquote><p>position：absolute 绝定定位 ,相对其最近的已定位的祖先元素(即是设置了非static的祖先元素)进行定位。如果元素没有已定位的祖先元素，那么它的位置则是相对于最初的包含块（body）。</p></blockquote></p>
+<p></p><p>&nbsp;</p><p></p>
+<pre class="lang:default decode:true">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;HtmlCss实现下拉菜单&lt;/title&gt;
+    &lt;style type="text/css"&gt;
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #nav{
+        background-color: gray;
+        margin: 0 auto;
+        width: 600px;
+        height: 60px;
+        list-style: none;
+        position: relative;
+
+    }
+    #nav li{
+        float: left;
+        line-height: 60px;/*设置垂直,也就是行高*/
+        text-align: center; /*设置垂直(因为上面设置了行高),和水平居中*/
+
+    }
+    #nav li:hover #nav2{
+        display: block;
+    }
+    #nav li a{
+         padding: 0 10px;
+        /* padding值加在 a标签里是为了防止li宽度加宽 a标签移动时背景颜色覆盖不全*/
+        text-decoration: none;
+        /*设置a标签下划线为空*/
+        color: black;
+        /*a标签颜色 黑色*/
+        display: block;
+        /*设置块状元素的原因是
+        鼠标经过a标签的时候
+        背景颜色可以覆盖整个a标签块*/
+    }
+    #nav li a:hover{
+        color: #FFF;
+        background: #2D2D29;
+    }
+    #nav2{
+        list-style: none;
+        position: absolute;
+        width: 85px;
+        display: none;
+    }
+    #nav2 li{
+        float: none;
+        top: 60px;
+        left: 0px;
+        background: #215A6D;
+        margin-top:2px;
+
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul id="nav"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;灵魂城堡&lt;/a&gt;
+            &lt;ul id="nav2"&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Soul&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Seeker&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;放荡者茶会&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;记录的地平线&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-189ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -306,11 +504,11 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-191ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-170ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/191ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+      <a href="/2015/10/21/170ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
   
@@ -323,7 +521,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/191ver/">Css3:阴影 box-shadow（二）</a>
+      <a class="article-title" href="/2015/10/21/170ver/">JavaScript：addClass，removeClass，addLoadEvent</a>
     </h1>
   
 
@@ -332,9 +530,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p></p><p>学习文章以及代码来自<a href="http://www.imooc.com/code/5413" target="_blank" rel="external">http://www.imooc.com/code/5413</a></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="HTML">阴影 box-shadow（二）</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p><strong>1、阴影模糊半径与阴影扩展半径的区别</strong></p><br><p>阴影模糊半径：此参数可选，其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</p><br><p>阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</p><br><p><strong>2、X轴偏移量和Y轴偏移量值可以设置为负数</strong></p><br><pre class="code">box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];</pre><br><p>X轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:-4px 4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd91c000140a901540143.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd91c000140a901540143.jpg" data-original="http://img.mukewang.com/548fd91c000140a901540143.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Y轴偏移量为负数：</p><br><pre class="code">.boxshadow-outset{<br>    width:100px;<br>    height:100px;<br>    box-shadow:4px -4px 6px #666;<br>}</pre><br><p>效果图：</p><br><p><a href="http://img.mukewang.com/548fd93e00011dd101570142.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/548fd93e00011dd101570142.jpg" data-original="http://img.mukewang.com/548fd93e00011dd101570142.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br></div><br></div>
+        <p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">    function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br>//call the functions<br>addClass(document.getElementById(“test”), “test”);<br>removeClass(document.getElementById(“test”), “test”)<br>if(hasClass(document.getElementById(“test”), “test”)){//do something};<br>//该代码片段来自于: <a href="http://www.sharejs.com/codes/javascript/2521" target="_blank" rel="external">http://www.sharejs.com/codes/javascript/2521</a><br><br>    function addLoadEvent(elem){<br>     var oldelem=window.onload<br>     //保存老的window.onload函数<br>     if(typeof window.onload!=”function”){<br>         //如果window.onload不等于function<br>         //为什么呢？如果window.onload=get()<br>         //那么这就是一个函数<br>         //没有写window.onload当然就不是函数<br>         window.onload=elem//设置window.onloado<br><br>     }else{//否则<br><br>         window.onload=function(){<br>             //添加上老的函数，传入的函数<br>             oldelem()<br>             elem()<br>         }<br>     }<br> }</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
@@ -363,10 +559,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-169ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-167ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/169ver/" class="article-date">
+      <a href="/2015/10/21/167ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -380,7 +576,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/169ver/">JavaScript:网页定位导航特效</a>
+      <a class="article-title" href="/2015/10/21/167ver/">CSS清除浮动常用方法小结 CSS clear both {overflow:auto;zoom:1;}</a>
     </h1>
   
 
@@ -389,62 +585,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学习视频来自<a href="http://www.imooc.com/video/901" target="_blank" rel="external">http://www.imooc.com/video/901</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">分析-设计-实现</span></p><br><p>主要思路</p><br><p>1,先获取到每个item距离页面顶部高度</p><br><p>2.如果滑动滚动条的距离大于了item 也就是说过了item</p><br><p>3.给相应的item加上class同时遍历删除其他元素的class</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">注意事项</span></p><br><p>currentId=_item.id<br><br>//遍历因为是从0开始的<br><br>//所以这里就是设置相应的item id赋值</p><br><p>if(_href[_href.length-1]!=currentId){<br><br>//这句话的意思就是 每一次移动都会遍历删除<br><br>//其他a标签的class</p><br><p>removeClass(_menus,”current”)<br><br>//删除当前a标签的class属性()</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-垂直定位导航栏&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    <em>{<br>        margin: 0;<br>        padding: 0;<br>    }<br>    body{<br>        font-size: 12px;<br>        line-height: 1.7;<br>    }<br>    li{<br>        list-style: none;<br>    }<br>    #content{<br>        width: 800px;<br>        margin: 0 auto;<br>        padding: 20px;<br>    }<br>    #content h1{<br>        color: #0088bb;<br><br>    }<br>    #content .item{<br>        padding: 20px;<br>        margin-bottom: 20px;<br>        border: 1px dotted #0088bb;<br><br>    }<br>    #content .item h2{<br>        font-size: 16px;<br>        font-weight: bold;<br>        border-bottom: 2px solid #0088bb;<br>        margin-bottom: 10px;<br>    }<br>    #content .item li{<br>        display: inline;<br>        margin-right: 10px;<br>    }<br>    #content .item li a img {<br>        width:230px;<br>        height: 230px;<br>        border: none;<br>    }<br>    #menu{<br>        position: fixed;<br>        top:100px;<br>        left: 50%;<br>        margin-left: 400px;<br>        width: 80px;<br>    }<br>    #menu ul li a{<br>        display: block;<br>        margin:5px 0;<br>        font-size: 14px;<br>        font-weight: bold;<br>        color: #333;<br>        width: 80px;<br>        line-height: 50px;<br>        text-decoration: none;<br>        text-align: center;<br>    }<br>    #menu ul li a:hover,#menu ul li a.current{<br>        color: #fff;<br>        background: #0088bb;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function getClassName(obj,cls){<br>         //定义函数<br>         var elem=obj.getElementsByTagName(“</em>“)<br>         //获取到obj下的所有标签<br>         var ref=[];//设置数组<br>         for (var i = 0; i &lt; elem.length; i++) {<br>             //遍历elem<br>             if(elem[i].className==cls){<br>                 //如果elem的className等于cls<br>                 ref.push(elem[i])//向ref数组添加elem[i]<br>             }<br>         };<br>         return ref;//返回数组<br><br><br>     }<br><br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br><br>     function getScrolltop(){<br>         window.onscroll=function(){<br>             //scrollTop代表的是滚动条滚动的距离<br>             var top =document.documentElement.scrollTop||document.body.scrollTop<br>             console.log(top)<br>             var menus=document.getElementById(“menu”).getElementsByTagName(“a”)<br>             //设置menus等于menus下的a标签<br>             var items=getClassName(document.getElementById(“content”),”item”)<br>             //获取到content下classname为item的所有元素<br>             var currentId=””;//设置一个空字符<br>             for (var i = 0; i &lt; items.length; i++) {<br>                 //遍历classname为item的所有元素<br>                 var _item=items[i]<br>                 var _itemTop=_item.offsetTop<br>                 //获取到每个item标签距离页面顶部的距离<br>                 //比如item1 距离页面顶部是400<br><br>                 //offsetTop是item距离页面的高度 也就是说元素距离页面的高度<br><br>                 if(top&gt;_itemTop-200){<br>                     //如果滚动的距离大于元素距离页面的高度(-200是为了用户体验)<br>                     //举例 比如说 item1的举例顶部的高度是400<br>                     //滚动条滚动了250<br>                     //那么250肯定大于200对吧<br><br>                     currentId=_item.id<br>                     //设置currentId为item标签的id<br>                     //举个例子 item1的id就是 item1<br>                     console.log(currentId)<br><br>                 }else{<br>                     break;<br>                 }<br>             };<br>             if(currentId){//currentId存在<br>                     for (var j = 0; j &lt; menus.length; j++) {<br>                         //遍历menu下的 a标签<br>                         var _menus=menus[j]<br>                         //设置_menus等于a标签<br>                         // console.log(_menus.href)<br>                         var _href=_menus.href.split(“#”)<br>                         //因为我们在href属性中写的是# 所以页面的连接应该为<br>                         //<a href="http://xxx.com/#item1" target="_blank" rel="external">http://xxx.com/#item1</a><br>                         //我们需要分割一下数组<br>                         //<br>                         if(_href[_href.length-1]!=currentId){<br>                             //这句话的意思就是 每一次移动都会遍历删除<br>                             //其他a标签的class<br><br>                             removeClass(_menus,”current”)<br>                             //删除当前a标签的class属性()<br><br><br>                         }else{<br>                             //比如 移动到item1时 等于item1<br>                             //那么就给item1添加上class<br>                             addClass(_menus,”current”)<br><br>                         }<br><br>                     };<br><br>                 }<br><br><br>         }<br><br>     }<br>window.onload=function(){<br>    getScrolltop()<br>}<br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”menu”&gt;<br>&lt;ul&gt;<br>    &lt;li&gt;&lt;a href=”#item1” class=”current”&gt;1F 灵魂&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item2”&gt;2F 晶石&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item3”&gt;3F 装备&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item4”&gt;4F 经验&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item5”&gt;5F Hero&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;div id=”content”&gt;<br>    &lt;h1&gt;Soul&lt;/h1&gt;<br>    &lt;div id=”item1” class=”item”&gt;<br>        &lt;h2&gt;1F 灵魂&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item2” class=”item”&gt;<br>        &lt;h2&gt;2F 晶石&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item3” class=”item”&gt;<br>        &lt;h2&gt;3F 装备&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item4” class=”item”&gt;<br>        &lt;h2&gt;4F 经验&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item5” class=”item”&gt;<br>        &lt;h2&gt;5F Hero&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-166ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/166ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/166ver/">JavaScript:通过索引来创建个选项卡</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&nbsp;</p><br><p>演示页面：<a href="http://www.old.com/demo/%E9%80%89%E9%A1%B9%E5%8D%A1.html" target="_blank" rel="external">http://www.old.com/demo/%E9%80%89%E9%A1%B9%E5%8D%A1.html</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">跟上次那个垂直定位网页特效建立大同小异.</span></p><br><p><span style="color: #ff0000;">这次主要的代码是</span></p><br><pre class="lang:default decode:true"> get_p[i].id=i</pre><br><p><span style="color: #ff0000;">上面这句代码给每个 p标签都创建了一个id</span></p><br><p><span style="color: #ff0000;">每次移动鼠标都会给所有标签添加上display=”none”</span></p><br><pre class="lang:default decode:true"> get_menu_ul[this.id].style.display=”block”</pre><br><p><span style="color: #ff0000;">然后get_menu_ul</span></p><br><p><span style="color: #ff0000;">this.id的意思是当前鼠标移入的P标签id是多少  比如id是0</span></p><br><p><span style="color: #ff0000;">那么对应的ul标签也是0</span></p><br><p><span style="color: #ff0000;">通过get_p id来建立索引</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{margin:0;<br>     padding:0;<br>     font-size:13px;<br>     list-style:none;}<br><br>.menu{width:210px;<br>      margin:50px auto;<br>      border:1px solid #ccc;}<br><br>.menu p{height:25px;<br>        line-height:25px;<br>        font-weight:bold;<br>        background:#eee;<br>        border-bottom:1px solid #ccc;<br>        cursor:pointer;<br>        padding-left:5px;}<br><br>.menu div ul{display:none;}<br><br>.menu li{height:24px;<br>         line-height:24px;<br>         padding-left:5px;}<br>&lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br>    window.onload=function(){<br>        changeShow()<br><br>      // 将所有点击的标题和要显示隐藏的列表取出来<br><br>     // 遍历所有要点击的标题且给它们添加索引及绑定事件<br><br>     // 获取点击的标题上的索引属性，根据该索引找到对应的列表<br><br>     // 判断该列表，如果是显示的则将其隐藏，如果是隐藏的则将其显示出来<br><br>    }<br><br><br>    function changeShow(){<br>        var get_p=document.getElementsByTagName(“p”)<br>        var get_menu=document.getElementById(“menu”)<br>        var get_menu_ul=get_menu.getElementsByTagName(“ul”)<br>        for(var i=0;i&lt;get_p.length;i++){<br>            get_p[i].id=i<br>            get_p[i].onmouseover=function(){<br>                for(var j=0;j&lt;get_p.length;j++){<br>                    get_menu_ul[j].style.display=”none”<br>                }<br>             get_menu_ul[this.id].style.display=”block”<br><br>            }<br><br><br><br>        }<br><br><br>    }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”menu” id=”menu”&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;Web前端&lt;/p&gt;<br>            &lt;ul style=”display:block”&gt;<br>                &lt;li&gt;JavaScript&lt;/li&gt;<br>                &lt;li&gt;DIV+CSS&lt;/li&gt;<br>                &lt;li&gt;jQuery&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;后台脚本&lt;/p&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;PHP&lt;/li&gt;<br>                &lt;li&gt;ASP.net&lt;/li&gt;<br>                &lt;li&gt;JSP&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>        &lt;div&gt;<br>            &lt;p&gt;前端框架&lt;/p&gt;<br>            &lt;ul&gt;<br>                &lt;li&gt;Extjs&lt;/li&gt;<br>                &lt;li&gt;Esspress&lt;/li&gt;<br>                &lt;li&gt;YUI&lt;/li&gt;<br>            &lt;/ul&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p>转自 <a href="http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html" target="_blank" rel="external">http://www.cnblogs.com/fengzheng126/archive/2012/05/19/2508778.html</a></p><br><p><span style="color: #ff0000;">经验</span></p><br><p><span style="color: #ff0000;">浮动以后不会自动撑开父级的高度</span></p><br><p><strong>常用的清除浮动的方法有以下三种:</strong></p><br><p><strong>此为未清除浮动源代码，运行代码无法查看到父级元素浅黄色背景。</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>三种清除浮动方法如下：</p><br><p><strong>1、使用空标签清除浮动。</strong>我用了很久的一种方法，空标签可以是div标签，也可以是P标签。我习惯用&lt;P&gt;，够简短，也有很多人用&lt;hr&gt;，只是需要另外 为其清除边框，但理论上可以是任何标签。这种方式是在需要清除浮动的父级元素内部的所有浮动元素后添加这样一个标签清除浮动，并为其定义CSS代 码：clear:both。此方法的弊端在于增加了无意义的结构元素。</p><br><p><strong>对于使用额外标签清除浮动（闭合浮动元素），是W3C<span class="t_tag">推荐</span>的 做法。至于使用&lt;br /&gt;元素还是空&lt;div&gt;&lt;/div&gt;可以根据自己的喜好来选（当然你也可以使用其它块级元素）。不过要注意的 是，&lt;br /&gt;本身是有表现的，它会多出一个换行出来，所以要设定它的heigh为0，以隐藏它的表现。所以大多数情况下使用空&lt;div&gt;比较合 适。</strong></p><br><p>&nbsp;</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
+{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>.clr{clear:both;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;p class=”clr”&gt; &lt;/p&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>2、使用overflow属性。</strong>此方法有效地解决了通过空标签元素清除浮动而不得不增加无意代码的弊端。使用该方法是只需在需要清除浮动的元素中定义CSS属性：overflow:auto，即可！”zoom:1″用于兼容IE6,也可以用width:100%。</p><br><p><strong>不过使用overflow的时候，可能会对页面表现带来影响，而且这种影响是不确定的，你最好是能在多个浏览器上测试你的页面；</strong></p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–<br><em>{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;overflow:auto;zoom:1; }/</em> overflow:auto可以换成overflow:hidden，zoom:1可以换成width:100%<em>/<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</em></pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p><strong>3、使用after伪对象清除浮动。</strong> 该方法只适用于非IE浏览器 。具体写法可参照以下示例。使用中需注意以下几点。一、该方法中必须为需要清除浮动元素的伪对象中设置height:0，否则该元素会比实际高出若干像 素；二、content属性是必须的，但其值可以为空，蓝色理想讨论该方法的时候content属性的值设为”.”，但我发现为空亦是可以的。</p><br><div class="cnblogs_code"><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br><pre>&lt;style type=”text/css”&gt;<br>&lt;!–
+{margin:0;padding:0;}<br>body{font:36px bold; color:#F00; text-align:center;}<br>#layout{background:#FF9;}<br>#layout:after{display:block;clear:both;content:””;visibility:hidden;height:0;}<br>#left{float:left;width:20%;height:200px;background:#DDD;line-height:200px;}<br>#right{float:right;width:30%;height:80px;background:#DDD;line-height:80px;}<br>–&gt;<br>&lt;/style&gt;<br>&lt;div id=”layout”&gt;<br>&lt;div id=”left”&gt;Left&lt;/div&gt;<br>&lt;div id=”right”&gt;Right&lt;/div&gt;<br>&lt;/div&gt;</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a title="复制代码"><img src="http://common.cnblogs.com/images/copycode.gif" data-original="http://common.cnblogs.com/images/copycode.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="复制代码"></a></span></div><br></div><br><p>&nbsp;</p><br><p><strong>此三种方法各有利弊，使用时应择优选择，个人习惯于第一种，比较稳定可靠。</strong></p>
 
 
 
@@ -666,61 +809,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>很简单的一个展示效果,源码直接从网页复制就ok.</p><br><h2> 演示地址:<br><br><span style="color: #993366;"><strong><a style="color: #993366;" href="http://www.old.com/demo/%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C/%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">演示</a></strong></span></h2><br><blockquote><br><h2>分析</h2><br><p>利用css的hover伪类属性可以实现</p><br><p>也可以用js来实现.</p></blockquote><br><h2>代码展示:</h2><br><h2></h2><br><h2></h2><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{padding:0;margin:0;}<br>    .demo li{<br>        list-style-type: none;<br>        border: 6px solid #4f4e4b;<br>        float: left;<br>        background: #b3b3b3;<br>        position: relative;<br>        overflow: hidden;<br><br>    }<br>    .demo img{<br>        width: 400px;<br>        height: 400px;<br>        display: block;<br>    }<br><br>    .demo li:hover span{<br>        display:block;<br>    }<br>    .demo span{<br>        z-index: 33;<br>        position: absolute;<br>        top:370px;<br>        background: #fff;<br>        opacity: 0.5;<br>        width: 100%;<br>        height: 30px;<br>        font-size: 20px;<br>        font-family: ‘微软雅黑’;<br>        display:none;<br>    }<br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        // window.onload=function(){<br>        //     var get_2=document.getElementById(“2”)<br>        //     var get_3=document.getElementById(“3”)<br>        //     get_2.onmouseover=function(){<br>        //         get_3.style.display=”block”;<br><br>        //     }<br>        // }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”demo”&gt;<br>        &lt;ul&gt;<br>            &lt;li id=”2”&gt;<br>                &lt;a href=””&gt;<br>                    &lt;img src=”img/1.jpg”&gt;<br>                &lt;/a&gt;<br>                &lt;span id=”3”&gt;<br>                    瞧一瞧看一看咯<br>                &lt;/span&gt;<br>            &lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-131ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/131ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/131ver/">CSS3/JavaScript照片墙效果</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><span style="color: #993366;"><strong>PS:JavaScript照片墙其实是一个很复杂的玩意…因为博主水平不够只能写出随机排列的照片墙.如果要排列比较美观的,推荐还是用CSS来固定排序吧。</strong></span></p><br><p>&nbsp;</p><br><p>JavaScript+CSS</p><br><h2>演示地址:</h2><br><h2><br><strong><span style="color: #cc99ff;"><a style="color: #cc99ff;" href="http://www.old.com/demo/CSS%E7%85%A7%E7%89%87%E5%A2%99/CSS%E7%85%A7%E7%89%87%E5%A2%99.html" target="_blank" rel="external">演示</a></span></strong></h2><br><h2><br><span style="color: #993366;">为了演示我把CSS效果代码注释掉了,有兴趣的可以下载源码进行查看</span><br><br><span style="color: #993366;"> <div class="down shortcodestyle icon-download"><a href="http://pan.baidu.com/s/1eQngoaI" target="_blank">度娘下载</a></div></span></h2><br><p><span style="color: #993366;"> </span></p><br><blockquote><p><strong> CSS3技术点与分析</strong></p><br><p>&lt;!– 分析: 1.每张照片的位置不同 2.每张照片有一定旋转角度 3.照片阴影 缓慢旋转 缓慢放大特效 –&gt;</p><br><p>&lt;!– 技术点 1.box-shadow 阴影 2.position 定位 3.z-index 层序 4.transform:rotate 旋转角度 5.transform:scale 缩放倍数 6.transiton 动画实现时间 –&gt;</p></blockquote><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;!– 分析:<br>    1.每张照片的位置不同<br>    2.每张照片有一定旋转角度<br>    3.照片阴影 缓慢旋转 缓慢放大特效 –&gt;<br><br>    &lt;!– 技术点<br>    1.box-shadow 阴影<br>    2.position 定位<br>    3.z-index 层序<br>    4.transform:rotate 旋转角度<br>    5.transform:scale 缩放倍数<br>    6.transiton 动画实现时间 –&gt;<br><br>    &lt;style type=”text/css”&gt;<br>    h1{text-align: center;}<br>    .container{<br>        width: 960px;<br>        height: 450px;<br>        margin: 60px auto;<br>        position: relative;<br>    }<br>    .container img{<br>        padding: 10px 10px 15px;<br>        background: #fff;<br>        border: 1px solid #ddd;<br>        width: 200px;<br>        height: 150px;<br>        position: absolute;<br>        transition:0.5s ;<br>        -webkit-transition:0.5s;<br>        z-index: 1;<br><br>    }<br><br>    .container img:hover{<br>        transform:rotate(0deg);<br>        -webkit-transform:rotate(0deg);<br>        transform:scale(1.2);<br>        -webkit-transform:scale(1.2);<br>        box-shadow: 10px 10px 15px #ccc;<br>        z-index:999;<br>    }<br><br><br>    body{<br>        background: #eee;<br>    }<br><br>    /<em>.pic1{<br>        left: 400px;<br>        top:0;<br>        -webkit-transform: rotate(25deg);<br>        transform: rotate(25deg);<br>    }<br><br>    .pic2{<br>    left: 300px;<br>        top:250px;<br>        -webkit-transform: rotate(10deg);<br>        transform: rotate(10deg);<br>    }<br>    .pic3{<br>        left: 650px;<br>        top:300px;<br>        -webkit-transform: rotate(15deg);<br>        transform: rotate(15deg);<br>    }<br>    .pic4{<br>        left: 520px;<br>        top:100px;<br>        -webkit-transform: rotate(45deg);<br>        transform: rotate(45deg);<br>    }<br>    .pic5{<br>        left: 800px;<br>        top:360px;<br>        -webkit-transform: rotate(0deg);<br>        transform: rotate(0deg);<br>    }<br>    .pic6{<br>        left: 220px;<br>        top:260px;<br>        -webkit-transform: rotate(8deg);<br>        transform: rotate(8deg);<br>    }<br>    .pic7{<br>        left: 310px;<br>        top:300px;<br>        -webkit-transform: rotate(18deg);<br>        transform: rotate(18deg);<br>    }<br>    .pic8{<br>        left: 320px;<br>        top:80px;<br>        -webkit-transform: rotate(22deg);<br>        transform: rotate(22deg);<br>    }<br>    .pic9{<br>        left: 300px;<br>        top:100px;<br>        -webkit-transform: rotate(13deg);<br>        transform: rotate(13deg);<br>    }<br>    .pic10{<br>        left: 220px;<br>        top:60px;<br>        -webkit-transform: rotate(4deg);<br>        transform: rotate(4deg);<br><br>    }</em>/<br>&lt;/style&gt;<br><br>&lt;script type=”text/javascript”&gt;<br>    window.onload=function(){<br><br>            var get_img=document.getElementById(“container”).getElementsByTagName(“img”);<br>            var road_rotate=null,road_top=null,road_left=null;<br>            for (var i = 0; i &lt; get_img.length; i++) {<br>                road()<br>                get_img[i].style.transform=”rotate(“ +road_rotate+”deg)”;<br>                get_img[i].style.top=road_top+”px”<br>                get_img[i].style.left=road_left+”px”<br><br>                if (i!=0) {<br>                    var before_left=parseInt(get_img[i-1].style.left);<br>                    var now_left=parseInt(get_img[i].style.left);<br>                    console.log(before_left+”|”+now_left);<br>                    if ((before_left-now_left)&lt;200) {<br>                        get_img[i].style.left=before_left+200+”px”<br>                    };<br><br>                }<br><br><br>            };<br><br>            function road(){<br>                road_rotate=Math.floor(Math.random()<em>40);<br>                road_top=Math.floor(Math.random()</em>500);<br>                road_left=Math.floor(Math.random(4)*800);<br>                if (road_left&lt;40) {<br>                    road()<br>                };<br>                return {<br>                    “road_rotate”:road_rotate,<br>                    “road_top”:road_top,<br>                    “road_left”:road_left,<br>                };<br>            }<br><br>    }<br><br><br><br><br><br>&lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;h1&gt;照片墙制作&lt;/h1&gt;<br>    &lt;div class=”container” id=”container”&gt;<br>        &lt;img class=”pic1” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic2” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic3” src=”img/1.jpg”&gt;<br>        &lt;img class=”pic4”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic5”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic6”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic7”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic8”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic9”src=”img/1.jpg”&gt;<br>        &lt;img class=”pic10”src=”img/1.jpg”&gt;<br><br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
