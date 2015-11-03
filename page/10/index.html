@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-140ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/140ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/140ver/">JavaScript:深入浅出-闭包</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>要理解闭包，首先必须理解Javascript特殊的变量作用域。</p><br><p>变量的作用域无非就是两种：全局变量和局部变量。</p><br><p>Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。</p><br><p>详细也可以参考这篇文章</p><br><p><a href="http://www.old.com/soul-get/soul-js/217" target="_blank" rel="external">http://www.old.com/soul-get/soul-js/217</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function outer(){<br>            var localVal=30;<br>            return localVal;<br>            //返回localVal变量<br>        }<br>        outer();//30<br><br>        //函数可以作为返回值 传参<br>        function outer_1(){<br>            var localVal=30;<br>            return function(){//返回一个匿名函数<br>                return localVal;<br>            }<br>        }<br>        var func=outer();<br>        console.log(func)//30 访问到外层的变量<br><br>        //常见错误之循环闭包<br>        function bo(){<br>            var get_div=document.getElementsByTagName(‘div’)<br>        for (var i = 0; i &lt; get_div.length; i++) {<br>            !function(i){<br>// 叹号后面跟函数!function和加号后面跟函数+function<br>// 都是跟(function(){})();这个函数是一个意思，都是告诉浏览器自动运行这个匿名函数的，因为!+()这些符号的运算符是最高的，所以会先运行它们后面的函数<br>                get_div[i].onclick=function(){<br>                alert(i)<br>                }<br>            }(i);<br>        };<br>    }<br><br>        //闭包之封装<br>        (function(){<br>            var _userId=222;<br>            var _typeId=”item”;<br>            var export1={};<br><br>            function converter(userId){<br>                return +userId;<br>            }<br>            export1.getUserId=function(){<br>                return converter(_userId);<br>            }<br>            export1.getTypeId=function(){<br>                return _typeId;<br>            }<br>            window.export1=export1;<br>            //用window.方式来把想要的输出出去<br><br>        }())<br><br>        export1.getUserId()//222;<br>        export1.getTypeId()//item;<br>        export1._userId;//undefined;<br>        export1._typeId;//undefined<br>        export1.converter;//undefined<br><br><br><br>        window.onload=function(){<br>            bo();<br>        }<br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div&gt;aaa&lt;/div&gt;<br>    &lt;div&gt;bbb&lt;/div&gt;<br>    &lt;div&gt;ccc&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-141ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -668,64 +723,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习视频来自<a href="http://www.imooc.com/video/901" target="_blank" rel="external">http://www.imooc.com/video/901</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">分析-设计-实现</span></p><br><p>主要思路</p><br><p>1,先获取到每个item距离页面顶部高度</p><br><p>2.如果滑动滚动条的距离大于了item 也就是说过了item</p><br><p>3.给相应的item加上class同时遍历删除其他元素的class</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">注意事项</span></p><br><p>currentId=_item.id<br><br>//遍历因为是从0开始的<br><br>//所以这里就是设置相应的item id赋值</p><br><p>if(_href[_href.length-1]!=currentId){<br><br>//这句话的意思就是 每一次移动都会遍历删除<br><br>//其他a标签的class</p><br><p>removeClass(_menus,”current”)<br><br>//删除当前a标签的class属性()</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-垂直定位导航栏&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    <em>{<br>        margin: 0;<br>        padding: 0;<br>    }<br>    body{<br>        font-size: 12px;<br>        line-height: 1.7;<br>    }<br>    li{<br>        list-style: none;<br>    }<br>    #content{<br>        width: 800px;<br>        margin: 0 auto;<br>        padding: 20px;<br>    }<br>    #content h1{<br>        color: #0088bb;<br><br>    }<br>    #content .item{<br>        padding: 20px;<br>        margin-bottom: 20px;<br>        border: 1px dotted #0088bb;<br><br>    }<br>    #content .item h2{<br>        font-size: 16px;<br>        font-weight: bold;<br>        border-bottom: 2px solid #0088bb;<br>        margin-bottom: 10px;<br>    }<br>    #content .item li{<br>        display: inline;<br>        margin-right: 10px;<br>    }<br>    #content .item li a img {<br>        width:230px;<br>        height: 230px;<br>        border: none;<br>    }<br>    #menu{<br>        position: fixed;<br>        top:100px;<br>        left: 50%;<br>        margin-left: 400px;<br>        width: 80px;<br>    }<br>    #menu ul li a{<br>        display: block;<br>        margin:5px 0;<br>        font-size: 14px;<br>        font-weight: bold;<br>        color: #333;<br>        width: 80px;<br>        line-height: 50px;<br>        text-decoration: none;<br>        text-align: center;<br>    }<br>    #menu ul li a:hover,#menu ul li a.current{<br>        color: #fff;<br>        background: #0088bb;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function getClassName(obj,cls){<br>         //定义函数<br>         var elem=obj.getElementsByTagName(“</em>“)<br>         //获取到obj下的所有标签<br>         var ref=[];//设置数组<br>         for (var i = 0; i &lt; elem.length; i++) {<br>             //遍历elem<br>             if(elem[i].className==cls){<br>                 //如果elem的className等于cls<br>                 ref.push(elem[i])//向ref数组添加elem[i]<br>             }<br>         };<br>         return ref;//返回数组<br><br><br>     }<br><br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br><br>     function getScrolltop(){<br>         window.onscroll=function(){<br>             //scrollTop代表的是滚动条滚动的距离<br>             var top =document.documentElement.scrollTop||document.body.scrollTop<br>             console.log(top)<br>             var menus=document.getElementById(“menu”).getElementsByTagName(“a”)<br>             //设置menus等于menus下的a标签<br>             var items=getClassName(document.getElementById(“content”),”item”)<br>             //获取到content下classname为item的所有元素<br>             var currentId=””;//设置一个空字符<br>             for (var i = 0; i &lt; items.length; i++) {<br>                 //遍历classname为item的所有元素<br>                 var _item=items[i]<br>                 var _itemTop=_item.offsetTop<br>                 //获取到每个item标签距离页面顶部的距离<br>                 //比如item1 距离页面顶部是400<br><br>                 //offsetTop是item距离页面的高度 也就是说元素距离页面的高度<br><br>                 if(top&gt;_itemTop-200){<br>                     //如果滚动的距离大于元素距离页面的高度(-200是为了用户体验)<br>                     //举例 比如说 item1的举例顶部的高度是400<br>                     //滚动条滚动了250<br>                     //那么250肯定大于200对吧<br><br>                     currentId=_item.id<br>                     //设置currentId为item标签的id<br>                     //举个例子 item1的id就是 item1<br>                     console.log(currentId)<br><br>                 }else{<br>                     break;<br>                 }<br>             };<br>             if(currentId){//currentId存在<br>                     for (var j = 0; j &lt; menus.length; j++) {<br>                         //遍历menu下的 a标签<br>                         var _menus=menus[j]<br>                         //设置_menus等于a标签<br>                         // console.log(_menus.href)<br>                         var _href=_menus.href.split(“#”)<br>                         //因为我们在href属性中写的是# 所以页面的连接应该为<br>                         //<a href="http://xxx.com/#item1" target="_blank" rel="external">http://xxx.com/#item1</a><br>                         //我们需要分割一下数组<br>                         //<br>                         if(_href[_href.length-1]!=currentId){<br>                             //这句话的意思就是 每一次移动都会遍历删除<br>                             //其他a标签的class<br><br>                             removeClass(_menus,”current”)<br>                             //删除当前a标签的class属性()<br><br><br>                         }else{<br>                             //比如 移动到item1时 等于item1<br>                             //那么就给item1添加上class<br>                             addClass(_menus,”current”)<br><br>                         }<br><br>                     };<br><br>                 }<br><br><br>         }<br><br>     }<br>window.onload=function(){<br>    getScrolltop()<br>}<br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”menu”&gt;<br>&lt;ul&gt;<br>    &lt;li&gt;&lt;a href=”#item1” class=”current”&gt;1F 灵魂&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item2”&gt;2F 晶石&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item3”&gt;3F 装备&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item4”&gt;4F 经验&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item5”&gt;5F Hero&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;div id=”content”&gt;<br>    &lt;h1&gt;Soul&lt;/h1&gt;<br>    &lt;div id=”item1” class=”item”&gt;<br>        &lt;h2&gt;1F 灵魂&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item2” class=”item”&gt;<br>        &lt;h2&gt;2F 晶石&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item3” class=”item”&gt;<br>        &lt;h2&gt;3F 装备&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item4” class=”item”&gt;<br>        &lt;h2&gt;4F 经验&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item5” class=”item”&gt;<br>        &lt;h2&gt;5F Hero&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-168ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/168ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/168ver/">JavaScript-编程挑战:来写个简单的网页定位特效</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1506" target="_blank" rel="external">http://www.imooc.com/code/1506</a></p><br><p>看不懂的可以先看看<a href="http://www.old.com/soul-get/soul-js/288" target="_blank" rel="external">http://www.old.com/soul-get/soul-js/288</a></p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程挑战</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>本代码利用课程中所学的知识实现了简单的类似于天猫新首发页面的效果，天猫新首发页面在导航效果的基础上又加入了很多额外的特效，感兴趣的同学可以在此基础上发挥想象，把效果做得更加完善。</p><br><pre class="code"><strong>温馨提示:</strong>完成任务后，请验证是否与实践效果一致，如一致，恭喜您，你已经掌握此知识，否则，请重新学习些课程吆，直到与结果效果一致。</pre><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>1. 让右侧广告正确显示</p><br><pre class="code">注意: 选择正确的尺寸和滚动条的隐藏。</pre><br><p>&nbsp;</p><br><p>2. 让导航菜单在左侧绝对定位显示</p><br><pre class="code">注意: 定位和选择正确的position。</pre><br><p>&nbsp;</p><br><p>3. 让导航菜单实现在滚动条滚动的时候自动设置焦点</p><br><pre class="code">注意：注意用到教程中所学的知识，遍历items设置currentId，然后给菜单设置current类</pre><br></div><br></div><br></div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”/&gt;<br>&lt;title&gt;网页定位导航效果扩展案例&lt;/title&gt;<br>&lt;style&gt;<br>        <em> {<br>            margin: 0;<br>            padding: 0;<br>        }<br><br>        body {<br>            font-size: 12px;<br>            line-height: 1.7;<br>            background-color: #888;<br>        }<br><br>        li {<br>            list-style: none;<br>        }<br><br>        #content {<br>            width: 1000px;<br>            margin: 0 auto;<br>            padding-top: 100px;<br>            padding-bottom: 300px;<br>        }<br><br><br>   /</em>请补充此处代码，让右侧广告正确显示<em>/<br><br><br><br><br><br>        #content .item img {<br>            position: relative;<br>            top: 100px;<br>            left: 50%;<br>        }<br><br>        #content #item1 {<br>            background: url(“<a href="http://img.mukewang.com/536c9ea800013ae610000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9ea800013ae610000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item2 {<br>            background: url(“<a href="http://img.mukewang.com/536c9ecd0001606d10000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9ecd0001606d10000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item3 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f0a0001ccc310000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f0a0001ccc310000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item4 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f6700012e9010000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f6700012e9010000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item5 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f800001b28510000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f800001b28510000540.jpg</a>“) no-repeat center top;<br>        }<br><br><br>  /</em>请补充此处代码，让导航菜单在左侧绝对定位显示<em>/<br>        #menu{<br>            position: fixed;<br><br>        }<br><br>        #menu h1 {<br>            color: #fff;<br>            font-size: 14px;<br>            text-align: center;<br>            background: #ee1111;<br>            line-height: 30px;<br>        }<br><br>        #menu ul li a {<br>            display: block;<br>            margin: 5px 0;<br>            font-size: 12px;<br>            color: #ccc;<br>            width: 160px;<br>            padding: 10px 20px;<br>            text-decoration: none;<br>            text-align: left;<br>            border-bottom: 1px dashed #999;<br>        }<br><br>        #menu ul li a strong {<br>            color: #f1f1f1;<br>        }<br><br>        #menu ul li a:hover,<br>        #menu ul li a.current {<br>            color: #fff;<br>            background: #666;<br>        }<br><br>        /</em>ie6 hack<em>/
-        </em> html, <em> html body {<br>            background-image: url(about:blank);<br>            background-attachment: fixed;<br>        }
-
-        </em> html #menu {<br>            /<em>position: fixed;</em>/<br>            position: absolute;<br>            top: expression(((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+100+’px’);<br>        }<br><br>&lt;/style&gt;<br>&lt;script src=”<a href="http://libs.baidu.com/jquery/1.10.2/jquery.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://libs.baidu.com/jquery/1.10.2/jquery.js&quot;&gt;&lt;/script&amp;gt</a>;<br>&lt;script&gt;<br>       function getClassName(obj,cls){<br>        //定义函数<br>        var elem=obj.getElementsByTagName(“*”)<br>        //获取到obj下的所有标签<br>        var ref=[];//设置数组<br>        for (var i = 0; i &lt; elem.length; i++) {<br>            //遍历elem<br>            if(elem[i].className==cls){<br>                //如果elem的className等于cls<br>                ref.push(elem[i])//向ref数组添加elem[i]<br>            }<br>        };<br>        return ref;//返回数组<br><br><br>    }<br><br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br>// 请补充此处代码，让导航菜单实现在滚动条滚动的时候自动设置焦点<br>        function starGame(){<br>            window.onscroll=function(){<br>                var top=document.documentElement.scrollTop||document.body.scrollTop<br>                var get_content=document.getElementById(“content”)<br>                var get_menu_a=document.getElementById(“menu”).getElementsByTagName(“a”)<br>                var get_con_class=getClassName(get_content,”item”)<br>                var needcls=””;<br>                for (var i = 0; i &lt; get_con_class.length; i++) {<br>                    var itemTop=get_con_class[i].offsetTop<br>                    console.log(itemTop)<br>                    if(top&gt;itemTop-200){<br>                        needcls=get_con_class[i].id<br>                        console.log(needcls);<br>                    }else{<br>                        break;<br>                    }<br>                };<br>                if (needcls) {<br>                    for (var j = 0; j &lt; get_menu_a.length; j++) {<br>                        var _href=get_menu_a[j].href.split(“#”)<br>                        console.log(_href)<br>                        if(_href[_href.length-1]!=needcls){<br>                            removeClass(get_menu_a[j],”current”)<br>                        }else{<br>                            addClass(get_menu_a[j],”current”)<br><br>                        }<br>                    };<br><br><br>                };<br>            }<br><br><br>        }<br><br><br><br> window.onload=function(){<br>    starGame();<br> }<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”menu”&gt;<br>&lt;h1&gt;正在首发&lt;/h1&gt;<br>&lt;ul&gt;<br>&lt;li&gt;&lt;a href=”#item1” class=”current”&gt;&lt;strong&gt;2014.04.09&lt;/strong&gt;&lt;br&gt;施华蔻0元赢Smart&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item2”&gt;&lt;strong&gt;2014.04.05&lt;/strong&gt;&lt;br&gt;alienware机皇限量抢&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item3”&gt;&lt;strong&gt;2014.04.04&lt;/strong&gt;&lt;br&gt;联想Miix2 3G平板电脑&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item4”&gt;&lt;strong&gt;2014.04.03&lt;/strong&gt;&lt;br&gt;御爵厨房垃圾处理器&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item5”&gt;&lt;strong&gt;2014.04.01&lt;/strong&gt;&lt;br&gt;中兴天机GRAND S II&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;div id=”content”&gt;<br><br>&lt;div id=”item1” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca02800014e7105000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca02800014e7105000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item2” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca04b0001dbeb04520519.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca04b0001dbeb04520519.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item3” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca06200016a4d03950387.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca06200016a4d03950387.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item4” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca0ab0001c89205000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca0ab0001c89205000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item5” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca0830001b17f05000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca0830001b17f05000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 

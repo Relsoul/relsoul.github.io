@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,314 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-32ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/32ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/32ver/">DOM编程艺术之表单元素</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;script type=”text/javascript”&gt;<br>            一:表单步骤<br>                -构建表单<br>                -服务器处理<br>                -配置表单</pre></p>
+<pre><code>        二:构建表单
+            -<span class="ruby">见<span class="constant">HTML</span>
+</span>
+        三:服务器处理
+            -<span class="ruby">服务器接口地址
+</span>            -<span class="ruby">url编码
+</span>            -<span class="ruby">接口参数信息
+</span>
+        四:内容
+            -<span class="ruby">元素
+</span>            -<span class="ruby">验证
+</span>            -<span class="ruby">提交
+</span>
+        五:form元素
+            -<span class="ruby">属性
+</span>                -<span class="ruby">autocomplete
+</span>                    -<span class="ruby"><span class="symbol">on:</span>自动提示功能
+</span>                    -<span class="ruby"><span class="symbol">off:</span>无
+</span>                -<span class="ruby">elements
+</span>                    -<span class="ruby">该表单子孙表单控件(除图片按钮input type=<span class="string">"image"</span>)
+</span>                        -<span class="ruby">button,input,keygen,select
+</span>                    -<span class="ruby">归属于该表单的表单控件(除图片按钮input type=<span class="string">"image"</span>)
+</span>                        -<span class="ruby">&amp;lt;input name=<span class="string">"d"</span> form=<span class="string">"f"</span>&amp;gt;在input元素中规定了form也会出现在elements中
+</span>                    -<span class="ruby">动态节点集合
+</span>                -<span class="ruby">length
+</span>                    -<span class="ruby">elements.length
+</span>                -<span class="ruby">取form表单元素
+</span>                    -<span class="ruby">testForm.elements[<span class="number">0</span>];
+</span>                    -<span class="ruby">testForm.elements[<span class="string">"a"</span>];
+</span>                    -<span class="ruby">testForm[<span class="number">0</span>];
+</span>                    -<span class="ruby">testForm[<span class="string">"a"</span>]
+</span>
+                -<span class="ruby">form[name]
+</span>                    -<span class="ruby">返回id或name为指定名称的表单控件(除图片按钮input type=<span class="string">"image"</span>)
+</span>                    -<span class="ruby">如果结果为空，则返回id为指定名称的img元素
+</span>                    -<span class="ruby">如果有多个同名元素，则返回这些元素的动态节点集合
+</span>                    -<span class="ruby">一旦用指定名称取过该元素，则不管该元素的id或者name怎么变化，只要节点还在页面上均可以用原名获取该元素
+</span>                    -<span class="ruby">非动态集合所以可以取到已经设置过的元素如
+</span>                        -<span class="ruby">testForm[<span class="string">"a"</span>]=&amp;gt;name=<span class="string">"b"</span> testForm.elements[<span class="string">"a"</span>]=&amp;gt;null
+</span>                    -<span class="ruby">reset()
+</span>                        -<span class="ruby">可重置元素<span class="symbol">:input</span>,keygen,output,select,textarea
+</span>                        -<span class="ruby">触发表单reset事件，阻止该元素的默认行为可取消重置
+</span>                        -<span class="ruby">元素重置时不再触发元素上的change和input事件
+</span>                    -<span class="ruby">submit()
+</span>                    -<span class="ruby">checkValidity()
+</span>
+            六:lable元素
+                -<span class="ruby">htmlFor
+</span>                    -<span class="ruby">关联表单控件激活行为
+</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,input(除hidden外),keygen,meter,output,progress,select,txtarea
+</span>                    -<span class="ruby">通过设置label的css来构建input的<span class="constant">CSS</span>复杂效果
+</span>
+                -<span class="ruby">control
+</span>                    -<span class="ruby">如果指定了<span class="keyword">for</span>属性，则为该<span class="keyword">for</span>属性对应<span class="constant">ID</span>的可关联元素
+</span>                    -<span class="ruby">如果没有指定<span class="keyword">for</span>属性，则为第一个子孙可关联元素
+</span>                    -<span class="ruby"><span class="keyword">for</span>指定了一个不可关联元素,则lable.control=&amp;gt;null
+</span>
+                -<span class="ruby">form
+</span>                    -<span class="ruby">关联归属表单
+</span>                    -<span class="ruby">可关联元素<span class="symbol">:button</span>,fieldset,input,keygen,label,object,output,select,textarea
+</span>                    -<span class="ruby">只读属性，不可再程序中修改
+</span>                        -<span class="ruby">label.setAttribute(<span class="string">"form"</span>,<span class="string">"newFormId"</span>)
+</span>
+            七:input元素
+                -<span class="ruby">type
+</span>                    -<span class="ruby">控件外观
+</span>                    -<span class="ruby">数据类型
+</span>                    -<span class="ruby">默认为text
+</span>                -<span class="ruby">本地图片预览
+</span>                    -<span class="ruby">onchange
+</span>                    -<span class="ruby">accept
+</span>                        -<span class="ruby">audio/*
+</span>                        -<span class="ruby">video/*
+</span>                        -<span class="ruby">image/*
+</span>                        -<span class="ruby">不带<span class="string">";"</span>的<span class="constant">MIME</span> type以<span class="string">"."</span>开始的文件后缀名*<span class="regexp">/
+</span></span>                        -<span class="ruby"><span class="regexp">多个类型用逗号分隔
+</span></span>
+                    -<span class="ruby"><span class="regexp">multiple 可以多选
+</span></span>                    -<span class="ruby"><span class="regexp">files
+</span></span>                &amp;lt;input type="file" accept="image/*" multiple/&amp;gt;
+                file.addEventListener(
+                    "change",function(event){
+                        var file=Array.prototype.slice.call(event.target.files,0)
+                    };
+                    files.forEach(function(item){
+                        file2dataurl(item,function(url){
+                            var image=new Image()
+                            parent.appendChild(image)
+                            image.src=url
+                        })
+                    })
+                )
+
+            八:select元素
+                -<span class="ruby"><span class="regexp">&amp;lt;optgroup lable="name"&amp;gt; /</span><span class="regexp">/分组
+</span></span>                -<span class="ruby"><span class="regexp">name
+</span></span>                    -<span class="ruby"><span class="regexp">表单提交名称
+</span></span>                -<span class="ruby"><span class="regexp">value
+</span></span>                    -<span class="ruby"><span class="regexp">第一个选中选项的value值
+</span></span>                -<span class="ruby"><span class="regexp">multiple
+</span></span>                    -<span class="ruby"><span class="regexp">多选
+</span></span>                -<span class="ruby"><span class="regexp">options
+</span></span>                    -<span class="ruby"><span class="regexp">动态的所有节点集合
+</span></span>                    -<span class="ruby"><span class="regexp">
+</span></span>                -<span class="ruby"><span class="regexp">selectedOptions
+</span></span>                    -<span class="ruby"><span class="regexp">已经选中选项的动态集合
+</span></span>                -<span class="ruby"><span class="regexp">selectedIndex
+</span></span>                    -<span class="ruby"><span class="regexp">选中的元素位置
+</span></span>                -<span class="ruby"><span class="regexp">add(element[,before])
+</span></span>                    -<span class="ruby"><span class="regexp">无参照物再最后添加选项
+</span></span>                -<span class="ruby"><span class="regexp">remove([index])
+</span></span>                    -<span class="ruby"><span class="regexp">删除选项
+</span></span>
+                -<span class="ruby"><span class="regexp">optgroup
+</span></span>                    -<span class="ruby"><span class="regexp">disabled
+</span></span>                        -<span class="ruby"><span class="regexp">当前分组选项是否可选
+</span></span>                    -<span class="ruby"><span class="regexp">label
+</span></span>                        -<span class="ruby"><span class="regexp">分组名称
+</span></span>
+                -<span class="ruby"><span class="regexp">option
+</span></span>                    -<span class="ruby"><span class="regexp">value
+</span></span>                    -<span class="ruby"><span class="regexp">text
+</span></span>                    -<span class="ruby"><span class="regexp">index
+</span></span>                    -<span class="ruby"><span class="regexp">selected
+</span></span>                        -<span class="ruby"><span class="regexp">是否选中
+</span></span>                    -<span class="ruby"><span class="regexp">defaultSelected
+</span></span>                        -<span class="ruby"><span class="regexp">默认选中
+</span></span>
+            九:select
+                -<span class="ruby"><span class="regexp">创建选项
+</span></span>                    -<span class="ruby"><span class="regexp">document.createElement()
+</span></span>                    -<span class="ruby"><span class="regexp">new Option()
+</span></span>                        -<span class="ruby"><span class="regexp">new Option("说明","1.2")
+</span></span>                -<span class="ruby"><span class="regexp">添加选项
+</span></span>                    -<span class="ruby"><span class="regexp">insertAdjacentElement
+</span></span>                    -<span class="ruby"><span class="regexp">select.add
+</span></span>                -<span class="ruby"><span class="regexp">删除选项
+</span></span>                    -<span class="ruby"><span class="regexp">removeChild()
+</span></span>                    -<span class="ruby"><span class="regexp">select.remove()
+</span></span>                -<span class="ruby"><span class="regexp">级联下拉选择器
+</span></span>                    -<span class="ruby"><span class="regexp">onchange
+</span></span>                    -<span class="ruby"><span class="regexp">remove
+</span></span>                    -<span class="ruby"><span class="regexp">add
+</span></span>                    -<span class="ruby"><span class="regexp">参考HTML
+</span></span>                    var chapters=[{text:"1.DOM基础",value:"1"},{text:"2.事件模型",value:"2"}]
+                    var sections={
+                        1:[
+                            {text:"1.1 文档树",value:"1.1"},
+                            {text:"1.2 节点操作,value:"1.2"},
+                            {text:"1.3 元素遍历",value:"1.3"},
+                        ],
+                        2:[
+                            {text:"2.1 事件类型",value:"2.1"},
+                            {text:"2.2 事件模型",value:"2.2"},
+                        ]
+
+                    }
+                    function fillSelect(select,list){
+<span class="comment">                        //删除原有选项,倒序遍历</span>
+                        for (var i=select.length-1;i&amp;gt;0;i--) {
+                            select.remove(i)
+                        }
+
+                        list.forEach(function(data){
+                            var option=new Option(data.text,data.value)
+                            select.add(option)
+                        })
+                    }
+                    fillSelect(chapterSelect,chapters);
+                    chapterSelect.addEventListener("change",function(event){
+                        var value=event.target.value,
+                            list=section[value]||[];
+                        fillSelect(sectionSelect,list)
+                    })
+
+            十:textarea
+                -<span class="ruby"><span class="regexp">name
+</span></span>                -<span class="ruby"><span class="regexp">value
+</span></span>                -<span class="ruby"><span class="regexp">select()
+</span></span>                -<span class="ruby"><span class="regexp">selectionStart
+</span></span>                    -<span class="ruby"><span class="regexp">选中内容起始位置||光标所在位置
+</span></span>                -<span class="ruby"><span class="regexp">selectionEnd
+</span></span>                    -<span class="ruby"><span class="regexp">选中内容结束位置||光标所在位置
+</span></span>                -<span class="ruby"><span class="regexp">selectionDirection
+</span></span>                    -<span class="ruby"><span class="regexp">键盘方向键控制
+</span></span>                -<span class="ruby"><span class="regexp">setSelectionRange()
+</span></span>                    -<span class="ruby"><span class="regexp">选中某些内容
+</span></span>                -<span class="ruby"><span class="regexp">setRangeText()
+</span></span>                    -<span class="ruby"><span class="regexp">设置某个范围内容
+</span></span>                -<span class="ruby"><span class="regexp">@输入提示
+</span></span>                    -<span class="ruby"><span class="regexp">oninput
+</span></span>                    -<span class="ruby"><span class="regexp">selectionStart
+</span></span>                    -<span class="ruby"><span class="regexp">setRangeText
+</span></span>                    textarea.addEventListener("input",function(event){
+                        var target=event.target,
+                            curor=target.selectionStart;//拿到光标所在位置
+                            if(target.value.charAt(cursor-1)==="@"){//拿到光标前面一个字符
+                                doshowAtList(function(anme){
+                                    var end=cursor+name.length;
+                                        target.setRangeText(
+                                            name,cursor,end,"end"
+                                        )
+                                })
+                            }
+
+                    })
+
+
+
+
+
+
+
+    &amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;!--构建&amp;amp;配置表单--&amp;gt;
+    &amp;lt;form method="post" action="https://pizza.xxx.com/ordia" enctype="application/x-www-for-urlencoded"&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;label&amp;gt;姓名:&amp;lt;input type="" name="custname" id="" value="" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
+    &amp;lt;p&amp;gt;
+        &amp;lt;label&amp;gt;电话:&amp;lt;input type="tel" name="custtel" /&amp;gt;&amp;lt;/label&amp;gt;
+    &amp;lt;/p&amp;gt;    
+    &amp;lt;p&amp;gt;
+        &amp;lt;label&amp;gt;邮箱:&amp;lt;input type="email" name="custemail" /&amp;gt;&amp;lt;/label&amp;gt;
+    &amp;lt;/p&amp;gt;    
+    &amp;lt;fieldset id=""&amp;gt;
+        &amp;lt;legend&amp;gt;披萨大小&amp;lt;/legend&amp;gt;
+        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="small"/&amp;gt;小&amp;lt;/label&amp;gt;
+        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="medium"&amp;gt;中&amp;lt;/label&amp;gt;
+        &amp;lt;label&amp;gt;&amp;lt;input type="radio" name="size" value="large"/&amp;gt;大&amp;lt;/label&amp;gt;
+    &amp;lt;/fieldset&amp;gt;
+    &amp;lt;fieldset id=""&amp;gt;
+        &amp;lt;legend&amp;gt;披萨配料&amp;lt;/legend&amp;gt;
+        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="bacon"/&amp;gt;熏肉&amp;lt;/label&amp;gt;
+        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="cheese"/&amp;gt;奶酪&amp;lt;/label&amp;gt;
+        &amp;lt;label for=""&amp;gt;&amp;lt;input type="checkbox" name="topping" value="mushroom"/&amp;gt;蘑菇&amp;lt;/label&amp;gt;
+    &amp;lt;/fieldset&amp;gt;
+    &amp;lt;p&amp;gt;&amp;lt;label for=""&amp;gt;&amp;lt;input type="time" name="delivery" min="11:00" max="21:00" step="900" /&amp;gt;&amp;lt;/label&amp;gt;&amp;lt;/p&amp;gt;    
+    &amp;lt;p&amp;gt;&amp;lt;button&amp;gt;提交订单&amp;lt;/button&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;/form&amp;gt;
+
+    &amp;lt;!--级联下拉选择器--&amp;gt;
+    &amp;lt;form name="course"&amp;gt; 
+        &amp;lt;select name="chapter"&amp;gt;
+            &amp;lt;option value=""&amp;gt;请选择章目录&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+        &amp;lt;select name="section"&amp;gt;
+            &amp;lt;option value=""&amp;gt;请选择节目录&amp;lt;/option&amp;gt;
+        &amp;lt;/select&amp;gt;
+    &amp;lt;/form&amp;gt;
+&amp;lt;/body&amp;gt;
+</code></pre><p>&lt;/html&gt;<br></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-9ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -934,61 +1242,6 @@ var _hmt = _hmt || [];
       
         <p></p><h1><strong>推荐跳转至此链接观看<a href="http://www.gbtags.com/gb/share/5769.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5769.htm</a></strong></h1><p></p>
 <p>&nbsp;</p><br><div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/20b7f765-e655-47ee-ab8c-89b04009c00b.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>前言</p><br><ul><br><li>本文仅仅是做一个简单的弹幕播放器</li><br><li>本文弹幕播放器仅仅是演示一下发送弹幕功能</li><br><li>请跳转本文底部的在线调试代码进行调试</li><br></ul><br></blockquote><br><p>最终实现效果如下:</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Okay.首先你得找到一个弹幕开源库就是这个啦:<a href="https://github.com/jabbany/CommentCoreLibrary" target="_blank" rel="external">https://github.com/jabbany/CommentCoreLibrary</a></p><br><p>其次你得准备好一个HTML文件 准备完后lets do it</p><br><p>&nbsp;</p><br><p>引入两个重要的弹幕开源库文件 这里用了我blog的文件</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/CommentCoreLibrary.js" target="_blank" rel="external">http://www.old.com/cdn/CommentCoreLibrary.js</a>“</span> <span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L1"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/style.css" target="_blank" rel="external">http://www.old.com/cdn/style.css</a>“</span><span class="tag">/&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>编写好HTML 结构</p><br><p>这里解释一下这个弹幕开源库必须要一个HTML结构也就是</p><br><p>这两个结构是必须的 且class为abp和container也是不能改变的 这点从开源库的css文件就可以看出</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>添加一些视频元素和一个表单元素 HTML就okay了</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;video</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“abpVideo”</span> <span class="atn">poster</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg" target="_blank" rel="external">http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg</a>“</span> <span class="atn">controls</span><span class="pun">=</span><span class="atv">“none”</span><span class="tag">&gt;</span></li><br><li class="L2"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/mp4”</span><span class="tag">&gt;</span></li><br><li class="L3"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/webm”</span><span class="tag">&gt;</span></li><br><li class="L4"><span class="tag">&lt;p</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“warning”</span><span class="tag">&gt;</span><span class="pln">Your browser does not support HTML5 video.</span><span class="tag">&lt;/p&gt;</span></li><br><li class="L5"><span class="tag">&lt;/video&gt;</span></li><br><li class="L6"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L7"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“controls”</span><span class="tag">&gt;</span></li><br><li class="L8"><span class="tag">&lt;form</span> <span class="atn">action</span><span class="pun">=</span><span class="atv">“”</span><span class="tag">&gt;</span></li><br><li class="L9"><span class="tag">&lt;p&gt;</span><span class="pln">选择颜色:</span><span class="tag">&lt;select</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“chose”</span><span class="tag">&gt;</span></li><br><li class="L0"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xff0000”</span><span class="tag">&gt;</span><span class="pln">红色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L1"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0x7fff00”</span><span class="tag">&gt;</span><span class="pln">绿色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L2"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xffff56”</span><span class="tag">&gt;</span><span class="pln">黄色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L3"><span class="tag">&lt;/select&gt;</span></li><br><li class="L4"><span class="pln"> 输入内容:</span><span class="tag">&lt;input</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“”</span> <span class="tag">/&gt;</span> <span class="tag">&lt;button</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“send”</span><span class="tag">&gt;</span><span class="pln">发送</span><span class="tag">&lt;/button&gt;</span></li><br><li class="L5"><span class="tag">&lt;/p&gt;</span></li><br><li class="L6"><span class="tag">&lt;/form&gt;</span></li><br><li class="L7"><span class="tag">&lt;/div&gt;</span></li><br><li class="L8"></li><br><li class="L9"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p>设置一下CSS达到全屏的效果</p><br><p>这里说我遇到一个坑.在绘制的div也就是id=”commentCanvas” 他的css属性为position:absolute z-index=999 所以会覆盖在视频文件上方导致视频文件进度条无法按 -  -于是这里我采用了设置id=”commentCanvas”的height=80%来达到效果。当然肯定有更好的解决办法，希望大家能够踊跃讨论下。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;style</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> html</span><span class="pun">,</span><span class="pln">body</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L4"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pln"> body</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> overflow</span><span class="pun">-</span><span class="pln">y</span><span class="pun">:</span><span class="pln">scroll</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">container</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">90</span><span class="pun">%;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="com">#abpVideo{</span></li><br><li class="L4"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L5"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="pun">.</span><span class="pln">controls</span><span class="pun">{</span></li><br><li class="L9"><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="tag">&lt;/style&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>设置一些js属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">‘load’</span><span class="pun">,</span> <span class="kwd">function</span> <span class="pun">()</span> <span class="pun">{</span></li><br><li class="L2"><span class="com">// 在窗体载入完毕后再绑定</span></li><br><li class="L3"><span class="kwd">function</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">id</span><span class="pun">){</span></li><br><li class="L4"><span class="kwd">return</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> CM </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">CommentManager</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘commentCanvas’</span><span class="pun">));</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">init</span><span class="pun">();</span></li><br><li class="L8"><span class="com">// 先启用弹幕播放（之后可以停止）</span></li><br><li class="L9"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li><br><li class="L0"><span class="com">// 开放 CM 对象到全局这样就可以在 console 终端里操控</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">CM </span><span class="pun">=</span><span class="pln"> CM</span><span class="pun">;</span></li><br><li class="L2"><span class="com">//创建弹幕列表对象</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> list</span><span class="pun">={</span></li><br><li class="L4"><span class="com">//这些属性都可以在官网文档找到答案 这里就不详细说明了</span></li><br><li class="L5"><span class="str">“dur”</span><span class="pun">:</span> <span class="lit">10000</span><span class="pun">,</span></li><br><li class="L6"><span class="str">“size”</span><span class="pun">:</span> <span class="lit">25</span><span class="pun">,</span></li><br><li class="L7"><span class="str">“stime”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li><br><li class="L8"><span class="str">“mode”</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">,</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pln"> $</span><span class="pun">(</span><span class="str">“send”</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">“click”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li><br><li class="L2"><span class="com">//text属性为弹幕文字</span></li><br><li class="L3"><span class="pln"> list</span><span class="pun">.</span><span class="pln">text</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">“main”</span><span class="pun">).</span><span class="pln">value</span></li><br><li class="L4"><span class="com">//color为弹幕颜色同时转化为10进制</span></li><br><li class="L5"><span class="pln"> list</span><span class="pun">.</span><span class="pln">color</span><span class="pun">=(</span><span class="pln">parseInt</span><span class="pun">((</span><span class="pln">$</span><span class="pun">(</span><span class="str">“chose”</span><span class="pun">).</span><span class="pln">value</span><span class="pun">)));</span></li><br><li class="L6"><span class="com">//这条就是发送弹幕功能了</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">list</span><span class="pun">);</span></li><br><li class="L8"></li><br><li class="L9"><span class="pln"> event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li><br><li class="L0"><span class="pln"> event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li><br><li class="L1"><span class="pun">})</span></li><br><li class="L2"></li><br><li class="L3"><span class="pun">});</span></li><br><li class="L4"><span class="tag">&lt;/script&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1141.htm"></iframe>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来玩一下吗？<a href="http://www.gbtags.com/gb/rtreplayerpreview/1141.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1141.htm</a></p></blockquote><br><p>&nbsp;</p><br></div><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-20ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/20ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/20ver/">jquery源码分析-仅github更新</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/Relsoul/readbook/tree/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90" target="_blank" rel="external">github地址</a></p><br><h1>Jquery学习笔记一</h1><br><h3><a id="user-content-jquery挂载" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery挂载" target="_blank" rel="external"></a>jquery挂载</h3><br><p>形成一个局部的环境，防止与其他代码冲突</p><br><pre><code>(function(window,undefined){}(window)<br>//对外提供接口如<br>window.$=$<br></code></pre><br><p>(21-94)定义了一些变量与函数</p><br><pre><code>jquery=function(){}<br></code></pre><br><p>(8826) $挂载到window上</p><br><pre><code>if ( typeof window === “object” &amp;&amp; typeof window.document === “object” ) {<br>    window.jQuery = window.$ = jQuery;<br>}<br></code></pre><br><h3><a id="user-content-jquery原型" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery原型" target="_blank" rel="external"></a>jquery原型</h3><br><p>(96-283) 给Jquery对象添加一些方法与属性</p><br><h3><a id="user-content-jqueryextend" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryextend" target="_blank" rel="external"></a>jquery.extend</h3><br><p>(285-347) jquery的继承方法</p><br><h3><a id="user-content-jquery的工具方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的工具方法" target="_blank" rel="external"></a>jquery的工具方法</h3><br><p>(349-817)jQuery.extend():扩展一些工具方法</p><br><pre><code>//两种方法<br>//$()返回的是一个实例 也就是为实例的方法<br>//仅仅为jquery用<br>$().css();<br>$().html();<br>//$的静态方法 可以给jquery用和原生的js用<br>$.trim();<br>$.proxy;<br><br>//静态方法为jquery的最底层的，实例方法为上一层，<br>//实例方法调用底层的静态方法<br></code></pre><br><h3><a id="user-content-jquery的选择器" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的选择器" target="_blank" rel="external"></a>jquery的选择器</h3><br><p>(877-2856):jquery的选择器 Sizzle:复杂选择器的实现</p><br><pre><code>$(“ul li + p input.class”).css();<br></code></pre><br><h3><a id="user-content-jquery回调对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery回调对象" target="_blank" rel="external"></a>jquery回调对象</h3><br><p>(2880-3042) ：Callbacks:回调对象:对函数的一个统一管理</p><br><pre><code>//jquery的函数统一管理 Callbacks<br>    function fn1(){console.log(1)}<br>    function fn2(){console.log(2)}<br>    var cb=$.Callbacks();//<br>    cb.add(fn1)<br>    cb.add(fn2)<br>    console.log(cb)<br>    cb.fire()//1 2<br>    cb.remove(fn2)<br>    cb.fire()//1<br></code></pre><br><h3><a id="user-content-jquery的延迟对象" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的延迟对象" target="_blank" rel="external"></a>jquery的延迟对象</h3><br><p>(3043-3183):jquery的延迟对象：对异步的一个统一管理 如:定义器，dom加载等等。</p><br><pre><code>//jquery的延迟对象：对异步的一个统一管理<br>            //先会弹出2 后弹出“异步管理”<br>/<em>          setTimeout(function(){<br>                console.log(“异步管理”)<br>            },1000)<br>            console.log(2)</em>/<br><br>            //加上延迟对象，先弹出异步管理 后弹出2<br>            var dfd=$.Deferred()<br>            setTimeout(function(){<br>                console.log(“异步管理”)<br>                dfd.resolve()<br>            },1000)<br>            dfd.done(function(){<br>                console.log(2)<br>            })<br></code></pre><br><h3><a id="user-content-jquery功能检测" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery功能检测" target="_blank" rel="external"></a>jquery功能检测</h3><br><p>(3184-3295):support：功能检测 比如根据浏览器功能判断浏览器版本</p><br><pre><code>// Support: Safari 5.1, iOS 5.1, Android 4.x, Android 2.3<br>    // Check the default checkbox/radio value (“” on old WebKit; “on” elsewhere)<br>    //老版本WEBKIT默认的checkbox/radio value 为””<br>    //新版本返回的为true  老版本返回为false<br>    support.checkOn = input.value !== “”;<br></code></pre><br><h3><a id="user-content-jquery的data方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的data方法" target="_blank" rel="external"></a>jquery的data()方法</h3><br><p>(3308-3652):jquery的data()方法:数据缓存</p><br><pre><code>//jquery的data()方法:数据缓存<br>            $(“#div1”).data(‘name’,”hello”);<br>            console.log($(“#div1”).data(“name”))//hello<br></code></pre><br><h3><a id="user-content-jquery队列管理" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery队列管理" target="_blank" rel="external"></a>jquery队列管理</h3><br><p>(3653-3797)：queue():队列管理 dequeue():出队</p><br><pre><code>//jquery队列管理<br>            //先走left值-top-width<br>            $(“#div1”).animate({left:100});<br>            $(“#div1”).animate({top:100});<br>            $(“#div1”).animate({width:300});<br></code></pre><br><h3><a id="user-content-jquery的属性操作方法" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery的属性操作方法" target="_blank" rel="external"></a>jquery的属性操作方法</h3><br><p>(3803-4299):attr(),prop(),val(),addClass():对元素属性操作</p><br><h3><a id="user-content-jquery事件操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery事件操作" target="_blank" rel="external"></a>jquery事件操作</h3><br><p>(4300-5128):on(),trigger():事件操作相关方法</p><br><h3><a id="user-content-jquerydom操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquerydom操作" target="_blank" rel="external"></a>jqueryDOM操作</h3><br><p>(5140-6057):DOM操作方法:添加，删除，获取，包装，DOM筛选</p><br><h3><a id="user-content-jquery样式操作" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery样式操作" target="_blank" rel="external"></a>jquery样式操作</h3><br><p>(6058-6620):css()：样式操作</p><br><h3><a id="user-content-jqueryajax" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jqueryajax" target="_blank" rel="external"></a>jqueryAjax</h3><br><p>(6621-7854):提交的数据与ajax(); 如:ajax();load();getJson();</p><br><h3><a id="user-content-jquery运动" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery运动" target="_blank" rel="external"></a>jquery运动</h3><br><p>(7855-8584):animate():运动的方法</p><br><h3><a id="user-content-jquery位置与尺寸" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery位置与尺寸" target="_blank" rel="external"></a>jquery位置与尺寸</h3><br><p>(8585-8792):offset():位置与尺寸的方法</p><br><h3><a id="user-content-jquery模块化" class="anchor" href="https://github.com/Relsoul/readbook/blob/master/jquery%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/jquery%E5%A4%A7%E4%BD%93%E6%A1%86%E6%9E%B6.md#jquery模块化" target="_blank" rel="external"></a>jquery模块化</h3><br><p>(8804-8821):jquery支持模块化的模式</p>
 
 
 

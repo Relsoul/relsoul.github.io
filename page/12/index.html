@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-157ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/157ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/157ver/">win8.1 高级启动项无疑难解答</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2015年4月6日更新:</p><br><p>最后还是重装了一下系统 装winre的时候遇到了错误</p><br><p>即在最后一步的时候还是出现了</p><br><p>REAGENTC.EXE: 未找到目标 Windows 安装。</p><br><p>重装系统前推荐备份一下常用软件后重装即可</p><br><hr><br><p>&nbsp;</p><br><p>..今天安装驱动的时候安装不上 于是进入了高级启动项</p><br><p>高级启动项进入方式  <span style="color: #ff0000;">win+i 更改电脑设置-恢复-高级启动</span></p><br><p>进入后发现没有疑难解答项 于是推度娘了一下 发现是winre丢失</p><br><p>怎么检测winre丢失呢？</p><br><p>进入<span style="color: #ff0000;">管理员:命令提示符</span></p><br><p>输入Reagentc /enable 如果出现的消息是REAGENTC.EXE: 未找到目标 Windows 安装。</p><br><p>那么你就需要重新配置winRe了</p><br><p>怎么配置呢？ 我转载了一篇文章</p><br><p>转自<a href="http://www.iruanmi.com/installing-winre/" target="_blank" rel="external">http://www.iruanmi.com/installing-winre/</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>Windows恢复环境（WinRE）未能正常启动，一般有两个原因：一是恢复环境已配置，但未能正常加载，如图1所示；二是恢复环境丢失，可能是WinRE.wim映像丢失，如图2所示，也可能是厂商把恢复环境精简掉了，如图3所示。</p><br><p><a href="http://file.iruanmi.com/2014/08/winre-setup-01.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3973" src="http://file.iruanmi.com/2014/08/winre-setup-01.gif" data-original="http://file.iruanmi.com/2014/08/winre-setup-01.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="winre-setup-01" width="600" height="310"></a><br><br>图1  恢复环境已配置，但未能正常加载</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3974" src="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-02" width="600" height="320"></a><br><br>图2 恢复环境丢失（WinRE.wim映像丢失）</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3975" src="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-03" width="600" height="436"></a><br><br>图3 恢复环境精简掉了，在高级启动选项中找不到恢复环境相关选项</p><br><p><strong>如果你遇到了上述问题，可以尝试通过下面的方法来解决。</strong></p><br><p>鼠标右键单击屏幕左下角（或按Win+X组合键），打开“命令提示符（管理员）”。输入下面的命令，回车即可查看恢复环境配置信息</p><br><p>reagentc /info</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3976" src="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-04" width="600" height="186"></a></p><br><p>如上图所示，如果电脑配置了恢复环境，在Windows RE位置后面我们是可以看到WinRE映像存放位置的。</p><br><p>对于已配置恢复环境但未能正常加载这一问题，一般只需要先将其禁用然后再重新启用即可解决。依次运行以下两条命令</p><br><p>reagentc /disable<br><br>reagentc /enable</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3977" src="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-05" width="601" height="150"></a></p><br><p>这时候可以去测试一下好不好使了。</p><br><p>如果运行reagentc /info后，Windows RE位置显示为空，如下图所示</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3978" src="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-06" width="602" height="225"></a></p><br><p>这说明恢复环境已丢失，此时当我们运行reagentc /enable启用恢复环境的时候就会出现下图所示的提示。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3979" src="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-07" width="367" height="111"></a></p><br><p>这个时候我们就需要自己<strong>重新配置一下</strong><strong>Windows</strong><strong>恢复环境（WinRE</strong><strong>）</strong>了，具体方法如下：</p><br><p><strong>1</strong><strong>、创建恢复环境映像目录。</strong></p><br><p>在系统盘根目录新建名为Recovery的文件夹，然后再在Recovery文件夹内新建名为WindowsRE的文件夹。完整路径即为C:\Recovery\WindowsRE。</p><br><p><strong>2</strong><strong>、从微软原版ISO</strong><strong>镜像中获取WinRE.wim</strong><strong>映像。</strong></p><br><p>WinRE.wim映像位于原版ISO镜像的install.wim中，我们可以使用魔方压缩工具直接从install.wim中提取而不必“解压”install.wim。具体方法：</p><br><p>打开魔方软媒压缩工具（<a href="http://down.ruanmei.com/tweakcube/partner/tweakcubesetup_u68.exe" target="_blank">下载安装最新版魔方</a>），首先打开微软原版ISO镜像，再打开其中的sources目录，双击其中的install.wim就可以将其打开，然后再定位到windows/system32/recovery目录，如下图，这里就可以看到我们所需要的WinRE.wim映像了。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3980" src="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-08" width="602" height="182"></a><br><br>上图（点击可看大图）：选中winre.wim文件，点击上方的“解压到”，出现下图对话框，将路径更改为C:\Recovery\WindowsRE，点击“确定”开始复制。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3981" src="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-09" width="541" height="322"></a></p><br><p>复制完成后确认一下C:\Recovery\WindowsRE目录中已存在winre.wim文件，如下图所示</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3982" src="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-10" width="595" height="153"></a></p><br><p>注意一下，WinRE.wim为隐藏文件。提取后需要显示隐藏文件才能在C:\Recovery\WindowsRE中看到它。（→ <a href="http://file.iruanmi.com/2014/08/WinRE-setup.gif" target="_blank">显示隐藏文件的方法</a>）</p><br><p><strong>3</strong><strong>、将获取的WinRE.wim</strong><strong>配置为系统默认恢复环境启动映像。</strong></p><br><p>打开“命令提示符（管理员）”，输入下面的命令回车运行即可：</p><br><p>reagentc /setreimage /path C:\Recovery\WindowsRE</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3983" src="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-11" width="599" height="137"></a></p><br><p>设置成功后，还需将其开启</p><br><p>reagentc /enable</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3984" src="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-12" width="512" height="90"></a></p><br><p>OK，现在恢复环境就已经配置成功了，按Shift+重启试试看吧。</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-156ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -660,61 +715,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本次课程是零基础开始学bootstrap.因为这个框架比较流行,所以结合自己正在学的视频教程写一篇比较详细的文本型教程出来..文笔比较渣大家勿喷.如果遇到有什么错误请及时留言.我一定会努力改正</p><br><p>PS:这里的零基础指的是bootstrap零基础.要学习bootstrap只需要一定的HTML与CSS基础即可</p><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">一:bootstrap是什么？</span></strong></p><br><blockquote><p>这个问题问得好,bootstrap简单来说就是一个结合了各种黑科技的框架,用了这个框架你不用再考虑手机和电脑自适应的问题,而且最新的bootstrap V3对手机作了很大的优化.bootstrap本身也带了很多炫酷的交互效果特效,而且提供了源码.可以从深层去指定bootstrap.</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">二:如何引用bootstrap?</span></strong></p><br><blockquote><p>可以从官方的CDN服务器里引入,也可以从本地引入</p><br><p>本地引入只需要下载bootstrap文件了</p><br><p><a href="http://v3.bootcss.com/getting-started/#download" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#download</a></p><br><p>只需要在头部标签中加入</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”../css/bootstrap.min.css”&gt;<br><br>&lt;script type=”text/javascript” src=”../js/bootstrap.min.js”&gt;&lt;/script&gt;</p><br><p>如果你还需要用到bootstrap的 jquery效果 只需要在bootstrap.min.js前引入jquery.js就ok了</p><br><p>PS: .min是压缩后的文件 未加min的是未压缩的文件,两者效果都一样,只是文件大小不一样</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">三:注意事项</span></strong></p><br><blockquote><p>当然bootstrap注意事项比较多,大家可以去<a href="http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个" target="_blank" rel="external">http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个</a><strong>完整的适配手机版的Bootstrap需要加上一个meta标签的,如下例</strong></p><br><pre class="lang:default decode:true ">&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;<br>    &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;<br>    &lt;!– 上述3个meta标签<em>必须</em>放在最前面，任何其他内容都<em>必须</em>跟随其后！ –&gt;</pre><br><p>简单解释下 charset=”utf-8” //声明文档类型是utf-8</p><br><p>&lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;</p><br><p>IE浏览器中都有兼容模式.为了使浏览器使用最新的兼容模式都要写上这行meta标签</p><br><p>&nbsp;</p><br><p>最重要的应该是</p><br><p>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p><br><p>这样做就可以适配移动端了..不要问我为什么要加这条标签.加了就对了.</p><br><p>&nbsp;</p><br><p>当然你如果要禁用移动端的缩放功能.那么你可以加这一条</p><br><p><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">“viewport”</span> <span class="na">content=</span><span class="s">“width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”</span><span class="nt">&gt;</span></p><br><p>一般来说不推荐禁用移动端的缩放功能.不过谁呢排除特殊情况呢？</p><br><p>bootstrap对浏览器的兼容情况</p><br><p><a href="http://v3.bootcss.com/getting-started/#support" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#support</a></p><br><p>bootstrap是在HTML5下运行的哦.所以请使用HTML5的&lt;!DOCTYPE html&gt;</p></blockquote><br><p>&nbsp;</p><br><p>恩.起步就差不多了吧..今晚上或者明天再补第二章.关注一系列教程可以点击标签&lt;bootstrap零入门&gt;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-147ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/147ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/147ver/">零基础学bootstrap:栅格系统</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>bootstrap的栅格系统是一个重点..传说它把网页分成了12个栅格,只要集齐12个栅格就能召唤出一个完整的网页</p><br><p>&nbsp;</p><br><p>栅格系统的简介大家可以直接去官网查看文档.这里只列出一些栅格系统的重点</p><br><p><a href="http://v3.bootcss.com/css/#grid" target="_blank" rel="external">http://v3.bootcss.com/css/#grid</a></p><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">栅格系统简介:</span></strong></p><br><blockquote><br><ol><br><li>“行（row）”必须包含在 <code>.container</code> （固定宽度）或 <code>.container-fluid</code> （100% 宽度）中，以便为其赋予合适的排列（aligment）和内补（padding）。// 这样做的原因是方便bootstrap加上列的内部和外补..简单来说就是写在.container里或者.container-fluid方便排版</li><br><li>栅格内可以嵌套栅格.</li><br><li>一个网页分为12个栅格</li><br></ol><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><h2 id="grid-options"><strong><span style="color: #800080;">栅格参数</span></strong></h2><br><blockquote><p>通过下表可以详细查看 Bootstrap 的栅格系统是如何在多种屏幕设备上工作的。</p><br><div class="table-responsive"><br><table class="table table-bordered table-striped"><br><thead><br><tr><br><th>超小屏幕 <small>手机 (&lt;768px)</small></th><br><th>小屏幕 <small>平板 (≥768px)</small></th><br><th>中等屏幕 <small>桌面显示器 (≥992px)</small></th><br><th>大屏幕 <small>大桌面显示器 (≥1200px)</small></th><br></tr><br></thead><br><tbody><br><tr><br><th class="text-nowrap" scope="row">栅格系统行为</th><br><td>总是水平排列</td><br><td colspan="3">开始是堆叠在一起的，当大于这些阈值时将变为水平排列C</td><br></tr><br><tr><br><th class="text-nowrap" scope="row"><code>.container</code> 最大宽度</th><br><td>None （自动）</td><br><td>750px</td><br><td>970px</td><br><td>1170px</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">类前缀</th><br><td><code>.col-xs-</code></td><br><td><code>.col-sm-</code></td><br><td><code>.col-md-</code></td><br><td><code>.col-lg-</code></td><br></tr><br><tr><br><th class="text-nowrap" scope="row">列（column）数</th><br><td colspan="4">12</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">最大列（column）宽</th><br><td class="text-muted">自动</td><br><td>~62px</td><br><td>~81px</td><br><td>~97px</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">槽（gutter）宽</th><br><td colspan="4">30px （每列左右均有 15px）</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">可嵌套</th><br><td colspan="4">是</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">偏移（Offsets）</th><br><td colspan="4">是</td><br></tr><br><tr><br><th class="text-nowrap" scope="row">列排序</th><br><td colspan="4">是</td><br></tr><br></tbody><br></table><br></div><br><p>&nbsp;</p><br><p>.col就是列.row就是行.根据上表可以看到</p><br><p>手机中列是col-xs- 平板式的列是col-sm- …….</p><br><p>并且.container宽度也不一样 手机是自动的,平板是750px….</p><br><p>&nbsp;</p></blockquote><br><p>&nbsp;</p><br><p><span style="color: #800080;">简单的使用栅格系统</span></p><br><blockquote><p>首先我们通过上面可以知道网页被分成了12列,那么这样好办 开始写一个简单的栅格系统</p><br><p><span style="color: #800080;">一行12列</span></p><br><pre class="lang:default decode:true ">&lt;div class=”container”&gt;<br>        &lt;div class=”row”&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br>            &lt;div class=”col-md-1”&gt;.col-md-1&lt;/div&gt;<br><br>        &lt;/div&gt;<br><br>    &lt;/div&gt;</pre><br><p>一行(row)有12列(col) 如果再向这一行里添加一列 也就是13列,那么最后一列会向下添加并不会继续在一行里继续添加下去.</p><br><p>再来添加点样式</p><br><pre class="lang:default decode:true">&lt;style type=”text/css”&gt;<br>    .row{<br>        margin-bottom: 20px;<br>    }<br>    .row .row{<br>        margin-top: 10px;<br>        margin-bottom: 0px;<br>    }<br><br>    /<em>通配符</em>/<br>    [class<em>=’col-‘]{<br>        padding-top: 15px;<br>        padding-bottom: 15px;<br>        background-color: #eee;<br>        background-color: rgba(86,61,124,0.15);<br>        border: 1px solid #ddd;<br>        border: 1px solid rgba(86,61,124,0.2);<br>    }<br><br>    &lt;/style&gt;</em></pre><br><p>&nbsp;</p><br><p><span style="color: #800080;"> 一行三列(三列充满屏幕)</span></p><br><p>只需要再添加一行.再添加列就ok 每列是4</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-4”&gt;col-md-4&lt;/div&gt;<br>            &lt;div class=”col-md-4”&gt;col-md-4&lt;/div&gt;<br>            &lt;div class=”col-md-4”&gt;col-md-4&lt;/div&gt;<br><br><br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">一行非等比例布局</span></p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-4”&gt;col-md-4&lt;/div&gt;<br>            &lt;div class=”col-md-8”&gt;col-md-8&lt;/div&gt;<br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;"> 移动设备等分栅格</span></p><br><p>把你的浏览器窗口缩小就可以实现移动设备的效果了</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-xs-6 col-md-4”&gt;col-md-4&lt;/div&gt;<br>            &lt;div class=”col-xs-6 col-md-8”&gt;col-md-8&lt;/div&gt;<br><br>        &lt;/div&gt;</pre><br><p>我们在移动设备看到col-md-8是独占一行的.col-md-4也是独占一行的.</p><br><p>但是我们写上了col-xs-6.会发现这两列会等分的在移动设备显示</p><br><p>&nbsp;</p><br><p><span style="color: #800080;">在手机,平板,桌面上展示不同的效果</span></p><br><p>比如下面这段代码.在手机上显示的是一个占3列一个占9列.在平板上显示等分.</p><br><p>还是那句话 缩小你的浏览器窗口即可看到效果</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-xs-3 col-sm-6 col-md-4”&gt;col-md-4&lt;/div&gt;<br>            &lt;div class=”col-xs-9  col-sm-6 col-md-8”&gt;col-md-8&lt;/div&gt;<br><br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">当一列承载的内容过多的时候会怎么样？</span></p><br><p>下文代码字数很多,但是并不会扩展列的宽度.只会随文本增加而增加高度罢了</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-xs-3 col-sm-6 col-md-4”&gt;col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4col-md-4&lt;/div&gt;<br>            &lt;div class=”col-xs-9  col-sm-6 col-md-8”&gt;col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8col-md-8&lt;/div&gt;<br><br>        &lt;/div&gt;<br></pre><br><p>&nbsp;</p><br><p><span style="color: #800080;">栅格偏移量系统</span></p><br><p>上面发现..每行都是充满全屏.而事实上我们只需要一列占8列不充满全屏于是提出了偏移量系统</p><br><p>.col-md-offset- .col-xs-offset-<em></em></p><br><p>比如下文的代码 只有一列但是在md屏幕下是占8列,在xs屏幕下占4列</p><br><p>.然后col-md-offset-4偏移了4列 你也可以偏移一列.两列等等 不过最大不能超过12列 比如我占了8列,再偏移5列就不行了。</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-8 col-md-offset-4 col-xs-7 col-xs-offset-5”&gt;<br>                col-md-8 col-md-offset-4 col-xs-7 col-xs-offset-5<br>            &lt;/div&gt;<br><br>        &lt;/div&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #800080;">栅格嵌套与偏移</span></p><br><p>下文在col-md-9中又嵌套了一行,并且在这行中加了8列..大家可以在浏览器中自己动手编写来看看具体的效果.当然这里的嵌套偏移也不能超过12列</p><br><pre class="lang:default decode:true ">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-9”&gt;col-md-9<br>                &lt;div class=”row”&gt;<br>                    &lt;div class=”col-md-8 col-md-offset-4”&gt;col-md-8&lt;/div&gt;<br>                &lt;/div&gt;<br><br><br>            &lt;/div&gt;<br><br><br>        &lt;/div&gt;<br></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p><span style="color: #800080;">列排序</span></p><br><p>我们创建了一个9列,然后又创建一个3列. 我想把3列放前面,把9列放后面，这时可以用到col-md-push-与col-md-push-* 具体的方法也很简答</p><br><pre class="lang:default decode:true">&lt;div class=”row”&gt;<br>            &lt;div class=”col-md-9 col-md-push-3”&gt;col-md-9&lt;/div&gt;<br>            &lt;div class=”col-md-3 col-md-pull-9”&gt;col-md-3s&lt;/div&gt;<br><br><br><br>        &lt;/div&gt;</pre><br></blockquote><br><p>&nbsp;</p><br><p>简单的栅格系统以及差不多了.大家多动手撸代码.就能撸到深处鲁智深</p>
 
 
 

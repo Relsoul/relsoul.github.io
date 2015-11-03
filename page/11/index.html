@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,64 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-168ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/168ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/168ver/">JavaScript-编程挑战:来写个简单的网页定位特效</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码以及文章来自<a href="http://www.imooc.com/code/1506" target="_blank" rel="external">http://www.imooc.com/code/1506</a></p><br><p>看不懂的可以先看看<a href="http://www.old.com/soul-get/soul-js/288" target="_blank" rel="external">http://www.old.com/soul-get/soul-js/288</a></p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程挑战</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>本代码利用课程中所学的知识实现了简单的类似于天猫新首发页面的效果，天猫新首发页面在导航效果的基础上又加入了很多额外的特效，感兴趣的同学可以在此基础上发挥想象，把效果做得更加完善。</p><br><pre class="code"><strong>温馨提示:</strong>完成任务后，请验证是否与实践效果一致，如一致，恭喜您，你已经掌握此知识，否则，请重新学习些课程吆，直到与结果效果一致。</pre><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>1. 让右侧广告正确显示</p><br><pre class="code">注意: 选择正确的尺寸和滚动条的隐藏。</pre><br><p>&nbsp;</p><br><p>2. 让导航菜单在左侧绝对定位显示</p><br><pre class="code">注意: 定位和选择正确的position。</pre><br><p>&nbsp;</p><br><p>3. 让导航菜单实现在滚动条滚动的时候自动设置焦点</p><br><pre class="code">注意：注意用到教程中所学的知识，遍历items设置currentId，然后给菜单设置current类</pre><br></div><br></div><br></div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta charset=”utf-8”/&gt;<br>&lt;title&gt;网页定位导航效果扩展案例&lt;/title&gt;<br>&lt;style&gt;<br>        <em> {<br>            margin: 0;<br>            padding: 0;<br>        }<br><br>        body {<br>            font-size: 12px;<br>            line-height: 1.7;<br>            background-color: #888;<br>        }<br><br>        li {<br>            list-style: none;<br>        }<br><br>        #content {<br>            width: 1000px;<br>            margin: 0 auto;<br>            padding-top: 100px;<br>            padding-bottom: 300px;<br>        }<br><br><br>   /</em>请补充此处代码，让右侧广告正确显示<em>/<br><br><br><br><br><br>        #content .item img {<br>            position: relative;<br>            top: 100px;<br>            left: 50%;<br>        }<br><br>        #content #item1 {<br>            background: url(“<a href="http://img.mukewang.com/536c9ea800013ae610000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9ea800013ae610000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item2 {<br>            background: url(“<a href="http://img.mukewang.com/536c9ecd0001606d10000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9ecd0001606d10000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item3 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f0a0001ccc310000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f0a0001ccc310000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item4 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f6700012e9010000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f6700012e9010000540.jpg</a>“) no-repeat center top;<br>        }<br><br>        #content #item5 {<br>            background: url(“<a href="http://img.mukewang.com/536c9f800001b28510000540.jpg" target="_blank" rel="external">http://img.mukewang.com/536c9f800001b28510000540.jpg</a>“) no-repeat center top;<br>        }<br><br><br>  /</em>请补充此处代码，让导航菜单在左侧绝对定位显示<em>/<br>        #menu{<br>            position: fixed;<br><br>        }<br><br>        #menu h1 {<br>            color: #fff;<br>            font-size: 14px;<br>            text-align: center;<br>            background: #ee1111;<br>            line-height: 30px;<br>        }<br><br>        #menu ul li a {<br>            display: block;<br>            margin: 5px 0;<br>            font-size: 12px;<br>            color: #ccc;<br>            width: 160px;<br>            padding: 10px 20px;<br>            text-decoration: none;<br>            text-align: left;<br>            border-bottom: 1px dashed #999;<br>        }<br><br>        #menu ul li a strong {<br>            color: #f1f1f1;<br>        }<br><br>        #menu ul li a:hover,<br>        #menu ul li a.current {<br>            color: #fff;<br>            background: #666;<br>        }<br><br>        /</em>ie6 hack<em>/
+        </em> html, <em> html body {<br>            background-image: url(about:blank);<br>            background-attachment: fixed;<br>        }
+
+        </em> html #menu {<br>            /<em>position: fixed;</em>/<br>            position: absolute;<br>            top: expression(((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+100+’px’);<br>        }<br><br>&lt;/style&gt;<br>&lt;script src=”<a href="http://libs.baidu.com/jquery/1.10.2/jquery.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://libs.baidu.com/jquery/1.10.2/jquery.js&quot;&gt;&lt;/script&amp;gt</a>;<br>&lt;script&gt;<br>       function getClassName(obj,cls){<br>        //定义函数<br>        var elem=obj.getElementsByTagName(“*”)<br>        //获取到obj下的所有标签<br>        var ref=[];//设置数组<br>        for (var i = 0; i &lt; elem.length; i++) {<br>            //遍历elem<br>            if(elem[i].className==cls){<br>                //如果elem的className等于cls<br>                ref.push(elem[i])//向ref数组添加elem[i]<br>            }<br>        };<br>        return ref;//返回数组<br><br><br>    }<br><br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br>// 请补充此处代码，让导航菜单实现在滚动条滚动的时候自动设置焦点<br>        function starGame(){<br>            window.onscroll=function(){<br>                var top=document.documentElement.scrollTop||document.body.scrollTop<br>                var get_content=document.getElementById(“content”)<br>                var get_menu_a=document.getElementById(“menu”).getElementsByTagName(“a”)<br>                var get_con_class=getClassName(get_content,”item”)<br>                var needcls=””;<br>                for (var i = 0; i &lt; get_con_class.length; i++) {<br>                    var itemTop=get_con_class[i].offsetTop<br>                    console.log(itemTop)<br>                    if(top&gt;itemTop-200){<br>                        needcls=get_con_class[i].id<br>                        console.log(needcls);<br>                    }else{<br>                        break;<br>                    }<br>                };<br>                if (needcls) {<br>                    for (var j = 0; j &lt; get_menu_a.length; j++) {<br>                        var _href=get_menu_a[j].href.split(“#”)<br>                        console.log(_href)<br>                        if(_href[_href.length-1]!=needcls){<br>                            removeClass(get_menu_a[j],”current”)<br>                        }else{<br>                            addClass(get_menu_a[j],”current”)<br><br>                        }<br>                    };<br><br><br>                };<br>            }<br><br><br>        }<br><br><br><br> window.onload=function(){<br>    starGame();<br> }<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”menu”&gt;<br>&lt;h1&gt;正在首发&lt;/h1&gt;<br>&lt;ul&gt;<br>&lt;li&gt;&lt;a href=”#item1” class=”current”&gt;&lt;strong&gt;2014.04.09&lt;/strong&gt;&lt;br&gt;施华蔻0元赢Smart&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item2”&gt;&lt;strong&gt;2014.04.05&lt;/strong&gt;&lt;br&gt;alienware机皇限量抢&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item3”&gt;&lt;strong&gt;2014.04.04&lt;/strong&gt;&lt;br&gt;联想Miix2 3G平板电脑&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item4”&gt;&lt;strong&gt;2014.04.03&lt;/strong&gt;&lt;br&gt;御爵厨房垃圾处理器&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item5”&gt;&lt;strong&gt;2014.04.01&lt;/strong&gt;&lt;br&gt;中兴天机GRAND S II&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;div id=”content”&gt;<br><br>&lt;div id=”item1” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca02800014e7105000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca02800014e7105000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item2” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca04b0001dbeb04520519.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca04b0001dbeb04520519.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item3” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca06200016a4d03950387.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca06200016a4d03950387.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item4” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca0ab0001c89205000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca0ab0001c89205000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;div id=”item5” class=”item”&gt;<br>&lt;img src=”<a href="http://img.mukewang.com/536ca0830001b17f05000400.jpg&quot;&amp;gt" target="_blank" rel="external">http://img.mukewang.com/536ca0830001b17f05000400.jpg&quot;&amp;gt</a>;<br>&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-145ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -668,61 +726,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>win8/win8.1 开机启动项多出onekey</p><br><p>并且在系统启动项内查找不到onekey 一般使用</p><br><p>魔法优化大师（现已改名 软媒魔方)</p><br><p>非广告党 而是真的有效</p><br><p>打开魔方优化大师–设置–多系统设置</p><br><p>找到想要删除的 清除即可</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-157ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/157ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/157ver/">win8.1 高级启动项无疑难解答</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2015年4月6日更新:</p><br><p>最后还是重装了一下系统 装winre的时候遇到了错误</p><br><p>即在最后一步的时候还是出现了</p><br><p>REAGENTC.EXE: 未找到目标 Windows 安装。</p><br><p>重装系统前推荐备份一下常用软件后重装即可</p><br><hr><br><p>&nbsp;</p><br><p>..今天安装驱动的时候安装不上 于是进入了高级启动项</p><br><p>高级启动项进入方式  <span style="color: #ff0000;">win+i 更改电脑设置-恢复-高级启动</span></p><br><p>进入后发现没有疑难解答项 于是推度娘了一下 发现是winre丢失</p><br><p>怎么检测winre丢失呢？</p><br><p>进入<span style="color: #ff0000;">管理员:命令提示符</span></p><br><p>输入Reagentc /enable 如果出现的消息是REAGENTC.EXE: 未找到目标 Windows 安装。</p><br><p>那么你就需要重新配置winRe了</p><br><p>怎么配置呢？ 我转载了一篇文章</p><br><p>转自<a href="http://www.iruanmi.com/installing-winre/" target="_blank" rel="external">http://www.iruanmi.com/installing-winre/</a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>Windows恢复环境（WinRE）未能正常启动，一般有两个原因：一是恢复环境已配置，但未能正常加载，如图1所示；二是恢复环境丢失，可能是WinRE.wim映像丢失，如图2所示，也可能是厂商把恢复环境精简掉了，如图3所示。</p><br><p><a href="http://file.iruanmi.com/2014/08/winre-setup-01.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3973" src="http://file.iruanmi.com/2014/08/winre-setup-01.gif" data-original="http://file.iruanmi.com/2014/08/winre-setup-01.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="winre-setup-01" width="600" height="310"></a><br><br>图1  恢复环境已配置，但未能正常加载</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3974" src="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-02.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-02" width="600" height="320"></a><br><br>图2 恢复环境丢失（WinRE.wim映像丢失）</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3975" src="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-03.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-03" width="600" height="436"></a><br><br>图3 恢复环境精简掉了，在高级启动选项中找不到恢复环境相关选项</p><br><p><strong>如果你遇到了上述问题，可以尝试通过下面的方法来解决。</strong></p><br><p>鼠标右键单击屏幕左下角（或按Win+X组合键），打开“命令提示符（管理员）”。输入下面的命令，回车即可查看恢复环境配置信息</p><br><p>reagentc /info</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3976" src="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-04.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-04" width="600" height="186"></a></p><br><p>如上图所示，如果电脑配置了恢复环境，在Windows RE位置后面我们是可以看到WinRE映像存放位置的。</p><br><p>对于已配置恢复环境但未能正常加载这一问题，一般只需要先将其禁用然后再重新启用即可解决。依次运行以下两条命令</p><br><p>reagentc /disable<br><br>reagentc /enable</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3977" src="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-05.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-05" width="601" height="150"></a></p><br><p>这时候可以去测试一下好不好使了。</p><br><p>如果运行reagentc /info后，Windows RE位置显示为空，如下图所示</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3978" src="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-06.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-06" width="602" height="225"></a></p><br><p>这说明恢复环境已丢失，此时当我们运行reagentc /enable启用恢复环境的时候就会出现下图所示的提示。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3979" src="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-07.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-07" width="367" height="111"></a></p><br><p>这个时候我们就需要自己<strong>重新配置一下</strong><strong>Windows</strong><strong>恢复环境（WinRE</strong><strong>）</strong>了，具体方法如下：</p><br><p><strong>1</strong><strong>、创建恢复环境映像目录。</strong></p><br><p>在系统盘根目录新建名为Recovery的文件夹，然后再在Recovery文件夹内新建名为WindowsRE的文件夹。完整路径即为C:\Recovery\WindowsRE。</p><br><p><strong>2</strong><strong>、从微软原版ISO</strong><strong>镜像中获取WinRE.wim</strong><strong>映像。</strong></p><br><p>WinRE.wim映像位于原版ISO镜像的install.wim中，我们可以使用魔方压缩工具直接从install.wim中提取而不必“解压”install.wim。具体方法：</p><br><p>打开魔方软媒压缩工具（<a href="http://down.ruanmei.com/tweakcube/partner/tweakcubesetup_u68.exe" target="_blank">下载安装最新版魔方</a>），首先打开微软原版ISO镜像，再打开其中的sources目录，双击其中的install.wim就可以将其打开，然后再定位到windows/system32/recovery目录，如下图，这里就可以看到我们所需要的WinRE.wim映像了。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3980" src="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-08.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-08" width="602" height="182"></a><br><br>上图（点击可看大图）：选中winre.wim文件，点击上方的“解压到”，出现下图对话框，将路径更改为C:\Recovery\WindowsRE，点击“确定”开始复制。</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3981" src="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-09.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-09" width="541" height="322"></a></p><br><p>复制完成后确认一下C:\Recovery\WindowsRE目录中已存在winre.wim文件，如下图所示</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3982" src="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-10.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-10" width="595" height="153"></a></p><br><p>注意一下，WinRE.wim为隐藏文件。提取后需要显示隐藏文件才能在C:\Recovery\WindowsRE中看到它。（→ <a href="http://file.iruanmi.com/2014/08/WinRE-setup.gif" target="_blank">显示隐藏文件的方法</a>）</p><br><p><strong>3</strong><strong>、将获取的WinRE.wim</strong><strong>配置为系统默认恢复环境启动映像。</strong></p><br><p>打开“命令提示符（管理员）”，输入下面的命令回车运行即可：</p><br><p>reagentc /setreimage /path C:\Recovery\WindowsRE</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" target="_blank" rel="external"><img class="alignnone  wp-image-3983" src="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-11.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-11" width="599" height="137"></a></p><br><p>设置成功后，还需将其开启</p><br><p>reagentc /enable</p><br><p><a href="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" target="_blank" rel="external"><img class="alignnone size-full wp-image-3984" src="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" data-original="http://file.iruanmi.com/2014/08/WinRE-setup-12.gif" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="WinRE-setup-12" width="512" height="90"></a></p><br><p>OK，现在恢复环境就已经配置成功了，按Shift+重启试试看吧。</p>
 
 
 

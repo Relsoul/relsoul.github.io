@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,131 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-39ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/39ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/39ver/">DOM编程艺术之动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:实现方式<br>        -gif<br>        -flash<br>        -CSS3<br>        -JS</pre></p>
+<pre><code>二:三要素
+    -<span class="ruby">对象
+</span>        -<span class="ruby"><span class="constant">DOM</span>
+</span>    -<span class="ruby">属性
+</span>        -<span class="ruby">width
+</span>        -<span class="ruby">height
+</span>        -<span class="ruby"><span class="constant">Left</span>
+</span>        -<span class="ruby">....
+</span>    -<span class="ruby">定时器
+</span>        -<span class="ruby">setInterval
+</span>        -<span class="ruby">setTimeout
+</span>        -<span class="ruby">requestAnimationFrame
+</span>
+三:setInterval
+    -<span class="ruby">var timer=setInterval(func,delay)
+</span>                函数  触发定时器的间隔
+    -<span class="ruby">clearInterval(timer)
+</span>    -<span class="ruby">每隔一段时间执行
+</span>
+
+四:setTimeout
+    -<span class="ruby">var timer=setTimeout(func,delay)
+</span>    -<span class="ruby">clearTimeout(timer)
+</span>    -<span class="ruby">只会执行一次
+</span>
+五:requestAnimationFrame
+    -<span class="ruby">var timer=requestAnimationFrame(func)
+</span>    -<span class="ruby">cancelAnimationFrame(func)
+</span>    -<span class="ruby">间隔时间以显示器的频率决定
+</span>    -<span class="ruby">更流畅
+</span>
+六:常见动画
+    -<span class="ruby">形变
+</span>    -<span class="ruby">位移
+</span>    -<span class="ruby">旋转
+</span>    -<span class="ruby">透明度
+</span>    -<span class="ruby">...
+</span>
+七:动画函数
+    -<span class="ruby">var animation=function(ele,attr,from,to){
+</span>        var distance=Math.abs(to-from);
+        var stepLength=distance/100
+        var sign=(to-from)/distance
+        var offset=0;
+        var step=function(){
+            var tmpOffset=offset+stepLength;
+            if(tmpOffset&amp;lt;distance){
+                ele.style[attr]=from+tmpOffset*sign+'px'
+            }else{
+                ele.style[attr]=from+"px"
+                clearInterval(intervalId)
+            }
+        }
+        ele.style[attr]=from+"px";
+        var intervalId=setInterval(step,10)
+    }
+
+    -<span class="ruby">var process=function(prcsswrap,drtn,intrvl,callback){
+</span>        var width=prcsswrap.clientWidth
+        var prcss=prcsswrap.getElementsByClassName('prcss')[0]
+        var count=drtn/intrvl
+        var offset=Math.floor(width/count)
+        var tmpCurrent=CURRENT
+        var step=function(){
+
+        }
+        var intervalId=setInterval(step,intrvl)
+    }
+</code></pre><p></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-16ver" class="article article-type-post" itemscope itemprop="blogPost">
   

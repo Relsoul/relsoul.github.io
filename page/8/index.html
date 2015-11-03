@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/186ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/186ver/">JavaScript:编程挑战-1:运算符的那点事</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-187ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -754,61 +809,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>技术都比较初级,重点是理解如何利用CSS来生成小三角形.然后定位就ok了.</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>演示地址:<a href="http://www.old.com/demo/%E6%8A%98%E9%A1%B5.html" target="_blank" rel="external">http://www.old.com/demo/%E6%8A%98%E9%A1%B5.html</a></p><br><p>&nbsp;</p><br><p>代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{margin: 0;padding: 0;<br>        font-family: ‘微软雅黑’;}<br>        #mom li{<br>            list-style-type: none;<br>            text-align: center;<br>            margin: 10px;<br>            margin-top:20px;<br>        }<br>        #warp{<br>            background: #E5FCC2;<br>            margin: 100px auto;<br>            height: 400px;<br>            width: 960px;<br>            box-shadow: -5px 5px 30px black;<br><br><br>        }<br>        #mom{<br>            top: 30px;<br>            left: -20px;<br>            width: 100px;<br>            height: 250px;<br>            position: relative;<br>            background: #594F4F;<br>            border-radius: 0 15px 15px 0;<br>            box-shadow: 5px 5px 30px black;<br><br>        }<br><br>        #rord_bottom{<br>            position: relative;<br>            display: block;<br>            width: 0;<br>            height: 0;<br>            border-style:dashed solid dashed dashed;<br>            border-width:12px 20px;<br>            left:-40px;<br>            top: 19px;<br>               border-color:transparent #594F4F transparent transparent;<br>        }<br><br>        #rord_top{<br>            position: relative;<br>            display: block;<br>            width: 0;<br>            height: 0;<br>            border-style:dashed solid dashed dashed;<br>            border-width:12px 20px;<br>            left:-20px;<br>            top: -12px;<br>               border-color:transparent #594F4F transparent transparent;<br><br>        }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”warp”&gt;<br>        &lt;ul id=”mom”&gt;<br>            &lt;span id=”rord_top”&gt;&lt;/span&gt;<br>            &lt;li&gt;菜单1&lt;/li&gt;<br>            &lt;li&gt;菜单2&lt;/li&gt;<br>            &lt;li&gt;菜单3&lt;/li&gt;<br>            &lt;li&gt;菜单4&lt;/li&gt;<br>            &lt;li&gt;菜单5&lt;/li&gt;<br>        &lt;/ul&gt;<br>        &lt;span id=”rord_bottom”&gt;&lt;/span&gt;<br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-130ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/130ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/130ver/">CSS3/JavaScript:简单展示效果实现</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很简单的一个展示效果,源码直接从网页复制就ok.</p><br><h2> 演示地址:<br><br><span style="color: #993366;"><strong><a style="color: #993366;" href="http://www.old.com/demo/%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C/%E7%AE%80%E5%8D%95%E5%B1%95%E7%A4%BA%E6%95%88%E6%9E%9C.html" target="_blank" rel="external">演示</a></strong></span></h2><br><blockquote><br><h2>分析</h2><br><p>利用css的hover伪类属性可以实现</p><br><p>也可以用js来实现.</p></blockquote><br><h2>代码展示:</h2><br><h2></h2><br><h2></h2><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{padding:0;margin:0;}<br>    .demo li{<br>        list-style-type: none;<br>        border: 6px solid #4f4e4b;<br>        float: left;<br>        background: #b3b3b3;<br>        position: relative;<br>        overflow: hidden;<br><br>    }<br>    .demo img{<br>        width: 400px;<br>        height: 400px;<br>        display: block;<br>    }<br><br>    .demo li:hover span{<br>        display:block;<br>    }<br>    .demo span{<br>        z-index: 33;<br>        position: absolute;<br>        top:370px;<br>        background: #fff;<br>        opacity: 0.5;<br>        width: 100%;<br>        height: 30px;<br>        font-size: 20px;<br>        font-family: ‘微软雅黑’;<br>        display:none;<br>    }<br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        // window.onload=function(){<br>        //     var get_2=document.getElementById(“2”)<br>        //     var get_3=document.getElementById(“3”)<br>        //     get_2.onmouseover=function(){<br>        //         get_3.style.display=”block”;<br><br>        //     }<br>        // }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div class=”demo”&gt;<br>        &lt;ul&gt;<br>            &lt;li id=”2”&gt;<br>                &lt;a href=””&gt;<br>                    &lt;img src=”img/1.jpg”&gt;<br>                &lt;/a&gt;<br>                &lt;span id=”3”&gt;<br>                    瞧一瞧看一看咯<br>                &lt;/span&gt;<br>            &lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-77ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/77ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/77ver/">js程序设计之类型识别</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>类型识别</strong></p><br><p>一:识别代码</p><br><ul class=" list-paddingleft-2"><br><li>tyoeof</li><br><li>Object.prototype.toString</li><br><li>Constructor</li><br><li>instans of</li><br></ul><br><p>二:typeof</p><br><ul class=" list-paddingleft-2"><br><li>举例<br><p>-typeof null//object</p><br><p>-typeof {3}//object</p></li><br><li>typeof可以识别标准类型,除null之外</li><br><li>不能识别具体对象类型(Function除外)</li><br></ul><br><p>三:Object.prototype.toString</p><br><ul class=" list-paddingleft-2"><br><li>可以识别标准类型以及内置（build-in）对象类型</li><br><li>不能识别自定义类型（如:new peo()）;</li><br></ul><br><p>四:Constructor</p><br><ul class=" list-paddingleft-2"><br><li>识别标准类型（undefined、null除外）</li><br><li>识别内置对象类型</li><br></ul><br><p>五:instanceof</p><br><ul class=" list-paddingleft-2"><br><li>判别内置对象类型</li><br><li>不能判别原始对象类型</li><br><li>​判别自定义对象类型（以及自定义对象类型的父级）</li><br></ul><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-76ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -664,61 +719,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><code class="brush:css;toolbar:false"> CSS选择器<br><br>例如:<br><br>h1{<br><br>color:red;<br><br>}</code></p><br><p>一:标签选择器<br><br>-p{color:blue;}</p><br><p>二:类选择器<br><br>-.special{color:red;}<br><br>-.<br><br>-字母,数字,-,<em><br><br>-className必须以字母开头<br><br>-区分大小写<br><br>-可以出现多次</em></p><br><p>三:id选择器<br><br>-#banner{color:black;}<br><br>-#<br><br>-字母,数字,-，<br><br>-id必须以字母开头<br><br>-区分大小写<br><br>-只能出现一次</p><br><p>四:通配符选择器<br><br>-<em>{color:blue;}</em></p><br><p>五:属性选择器-[att]<br><br>-[disabled]{background: red;}<br><br>-[type=button]{color:blue;}<br><br>-#nav{}==[id=nav]{}<br><br>-[class~=sports]//class属性包含了sports<br><br>-[lang|=en]//选择lang为en或者中划线连接的<br><br>-[href^=”#”]{color:red;}//选择#元素<br><br>-[href$=pdf]//选取以pdf结尾的元素<br><br>-[href=”xxx”]//href包含了xxx值</p><br><p>六:伪类选择器<br><br>-伪类选择器以冒号开头<br><br>-a:link{color:red;}<br><br>-a:visited{}//访问过的连接颜色<br><br>-a:hover{}//用户鼠标移上去的时候<br><br>-a:active{}//用户鼠标点击上去的时候<br><br>-:enabled//元素可用<br><br>-:disabled//元素不可用<br><br>-:checked//选中元素<br><br>-li:first-child//选择元素第一项<br><br>-li:last-child//选择元素最后一项<br><br>-li:nth-child(3n+1)//n从0开始<br><br>-li:nth-last-child(3n+1)//n从最后一项开始计算<br><br>-:only-child//选择只有一个子元素的标签<br><br>-dd:first-of-type//选择第一个这种类型的元素<br><br>-dd:last-of-type//选择最后一个这种类型的元素<br><br>-dd:nth-of-type(2n)//<br><br>-:only-of-type//选择只有一个父级元素<br><br>-:empty//选择没有子元素的<br><br>-:root//选择html根标签html<br><br>-:not()//不包含某个选择器的元素</p><br><p>七:伪元素选择器<br><br>-::first-letter{color:red;}//选择第一个字母<br><br>-::first-line{}//选择第一行<br><br>-::before{content:;}//在元素内容前面插入<br><br>-::after{content: }//在元素后面插入<br><br>-::selection{}//用于被用户选中的内容</p><br><p>八:组合选择器;<br><br>-后代选择器<br><br>-.main h2{}//选取main下的h2<br><br>-子选择器:<br><br>-.main&gt;h2{}//选择.main第一级的子元素<br><br>-兄弟选择器:<br><br>-h2+p{}//选择相邻1的p<br><br>-h2~p{}//选择同级的</p><br><p>九:选择器分组<br><br>h1,h2,h3{}//逗隔开</p><br><p>十:继承<br><br>-body{font-family: “微软雅黑”}//属性的继承,子元素可以继承父级元素的属性<br><br>-继承属性<br><br>-color<br><br>-font<br><br>-text-align<br><br>-list-style<br><br>-非继承属性<br><br>-background<br><br>-border<br><br>-position</p><br><p>十一：CSS优先级<br><br>-计算方法<br><br>-a=行内样式<br><br>-b=ID选择器的数量<br><br>-c=类，伪类和属性选择器数量<br><br>-d=标签选择器和伪元素的数量</p><br><p>十二:CSS层叠;<br><br>-相同的属性会覆盖<br><br>-优先级<br><br>-后面覆盖前面<br><br>-不同的属性会合并</p><br><p>十三:CSS改变优先级;<br><br>-改变先后顺序<br><br>-提示选择器的优先级<br><br>-!import//在属性后面加<br><br>​</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-67ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/67ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/67ver/">页面制作之盒模型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code class="brush:css;toolbar:false"> CSS盒模型</code></p><br><p>一:盒子模型<br><br>-每个盒子都有:边距、边框、填充、内容四个属性<br><br>-每个属性都有:上、下、左。右四部分</p><br><p>二:CSS盒模型<br><br>-margin border padding content<br><br>-content=width<em>height<br><br>-border,padding,margin都有top right bottom left四部分</em></p><br><p>三:width<br><br>-width:&lt;length&gt;|&lt;precentage&gt;<br><br>-引申:max-width,min-width<br><br>-width:50%;</p><br><p>四:height<br><br>-&lt;length&gt;|&lt;precentage&gt;<br><br>-height:50%;<br><br>-引申:max-height,min-height</p><br><p>五:padding 填充<br><br>-[&lt;length&gt;|&lt;precentage&gt;]{1,4}<br><br>-padding:20px 20px 20px 20px<br><br>上 右 下 左<br><br>-也可以单独设置　padding-top:10px;<br><br>-引申:margin,border都有四个值</p><br><p>-值缩写<br><br>-padding:20px 10px (上下20px 左右10px)<br><br>-padding:20px 10px 30px=padding:20px 10px 30px 10px<br><br>-对面相等，后者省略，4面相等，只设一个</p><br><p>六:margin<br><br>-[&lt;length&gt;|&lt;precentage&gt;|auto]{1,4}<br><br>-引申:margin的TRBL,值缩写<br><br>-margin合并：<br><br>-相邻的元素外边距会合并,取较大的值<br><br>-父元素与第一个/最后一个子元素会合并</p><br><p>七:水平居中<br><br>-margin:0 auto;(水平居中)</p><br><p>八:border<br><br>-[&lt;border-width&gt;||&lt;border-style&gt;||&lt;border-color&gt;]<br><br>-border-width:[&lt;length&gt;]{1,4}<br><br>-border-style:[solid|dashed|dotted]{1,4}<br><br>-border-color:[&lt;color&gt;|transparent]{1,4}</p><br><p>九:border-radius(圆角)<br><br>-top-left,top-right,bottom-right,bottom-left<br><br>-[&lt;length&gt;|&lt;precentage&gt;]{1,4}[/&lt;length&gt;|&lt;precentage&gt;]{1,4}?<br><br>-border-radius:10px;(四个角都是10px)<br><br>-border-radius:0px 5px 10px 15px/20px 15px 10px 5px<br><br>top-L水平 -R水平 -L垂直 -R垂直<br><br>-border-radius:50%;//正圆<br><br>-border-top-left-radius:10px//左上角10px</p><br><p>十:overflow<br><br>-visible|hidden|scroll|auto<br><br>-overflow:visible//超出部分仍然显示<br><br>-overflow:hidden//超出部分隐藏<br><br>-overflow:scroll//显示滚动条<br><br>-overflow:auto//当元素内容超出显示滚动条<br><br>-引申:overflow-x,overflow-y</p><br><p>十一:box-sizing<br><br>-content-box|border-box<br><br>-border-box设置的是border的宽高<br><br>-content-box会把paddding也计算进入宽高里面<br><br>-设置width height指定的区域是哪个区域</p><br><p>十二:box-shadow (盒阴影)<br><br>-none|&lt;shadow&gt;[,shadow]..<br><br>-box-shadow: 4px 6px 3px 3px red<br><br>水平偏移 垂直偏移 模糊半径 阴影大小<br><br>-box-shadow:3px 3px 5px 2px //外阴影<br><br>-box-shadow: inset 0px 0px 5px red//内阴影<br><br>-box-shadow 3px 3px 5px 2px black,inset 0px 0px 5px red//多阴影<br><br>-阴影不占空间</p><br><p>十三:outline (轮廓)<br><br>-[&lt;outline-width&gt;||&lt;outline-style&gt;||&lt;outline-color&gt;]<br><br>-不占空间<br><br>-border外</p><br><p>关于CSS属性的浏览器兼容性，可以通过 caniuse 查询。<br><br>border-radius ie8及以下不支持<br><br>box-sizing ie7及以下不支持<br><br>box-shadow ie8及以下不支持<br><br>outline ie7及以下不支持<br><br>​</p>
 
 
 

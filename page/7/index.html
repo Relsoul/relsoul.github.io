@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,63 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-176ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/176ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/176ver/">JavaScript-通过父节点来访问元素</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1592" target="_blank" rel="external">http://www.imooc.com/code/1592</a></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">访问父节点parentNode</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>获取指定节点的父节点</p><br><p><strong>语法：</strong></p><br><pre class="code">elementNode.parentNode</pre><br><p><strong>注意:父节点只能有一个。</strong></p><br><p>看看下面的例子,获取 P 节点的父节点，代码如下:</p><br><pre class="code">&lt;div id=”text”&gt;<br>  &lt;p id=”con”&gt; parentNode 获取指点节点的父节点&lt;/p&gt;<br>&lt;/div&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var mynode= document.getElementById(“con”);<br>  document.write(mynode.<strong>parentNode</strong>.nodeName);<br>&lt;/script&gt;</pre><br><p>运行结果:</p><br><pre class="code">parentNode 获取指点节点的父节点<br>DIV</pre><br><p><strong>访问祖节点:</strong></p><br><pre class="code">elementNode.parentNode.parentNode</pre><br><p>看看下面的代码:</p><br><pre class="code">&lt;div id=”text”&gt;<br>  &lt;p&gt;<br>    parentNode<br>    &lt;span id=”con”&gt; 获取指点节点的父节点&lt;/span&gt;<br>  &lt;/p&gt;<br>&lt;/div&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var mynode= document.getElementById(“con”);<br>  document.write(mynode.<strong>parentNode.parentNode.</strong>nodeName);<br>&lt;/script&gt;</pre><br><p>运行结果:</p><br><pre class="code">parentNode获取指点节点的父节点<br>DIV</pre><br><p>注意: 浏览器兼容问题，chrome、firefox等浏览器标签之间的空白也算是一个文本节点。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p><strong>试一试，通过获取的mylist节点，使用访问父节点parentNode，将”HTML/CSS”课程内容输出。</strong></p><br><p>补充第30行代码，将”HTML/CSS”课程内容输出。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><pre class="lang:default decode:true"> var mylist_ul=mylist.parentNode<br>   var mylist_li=mylist_ul.parentNode//成功获取到ul的li lesson1节点<br>   var li_last=mylist_li.parentNode<br>   var li_les4=li_last.lastChild</pre><br><p><span style="color: #ff0000;"> mylast_ul等于mylist的父节点 也就是ul</span></p><br><p><span style="color: #ff0000;">li_last=ul的父节点也就是ul id=”con” 这个节点</span></p><br><p><span style="color: #ff0000;">这个节点的最后一个节点元素就是&lt;li id=”lesson4”&gt;</span></p><br><p><span style="color: #ff0000;">输出这个节点的innerHtml就得到想要的了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;无标题文档&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;ul id=”con”&gt;<br>&lt;li id=”lesson1”&gt;javascript<br>  &lt;ul&gt;<br>      &lt;li id=”tcon”&gt; 基础语法&lt;/li&gt;<br>      &lt;li&gt;流程控制语句&lt;/li&gt;<br>      &lt;li&gt;函数&lt;/li&gt;<br>      &lt;li&gt;事件&lt;/li&gt;<br>      &lt;li&gt;DOM&lt;/li&gt;<br>  &lt;/ul&gt;<br>&lt;/li&gt;<br>&lt;li id=”lesson2”&gt;das&lt;/li&gt;<br>&lt;li id=”lesson3”&gt;dadf&lt;/li&gt;<br>&lt;li id=”lesson4”&gt;HTML/CSS<br>  &lt;ul&gt;<br>    &lt;li&gt;文字&lt;/li&gt;<br>    &lt;li&gt;段落&lt;/li&gt;<br>    &lt;li&gt;表单&lt;/li&gt;<br>    &lt;li&gt;表格&lt;/li&gt;<br>  &lt;/ul&gt;<br>&lt;/li&gt;&lt;/ul&gt;<br>&lt;script  type=”text/javascript”&gt;<br>   var mylist = document.getElementById(“tcon”);<br>   var mylist_ul=mylist.parentNode<br>   var mylist_li=mylist_ul.parentNode//成功获取到ul的li lesson1节点<br>   var li_last=mylist_li.parentNode<br>   var li_les4=li_last.lastChild<br>   document.write(mylist_li.nodeName+”&lt;br&gt;”)<br>   document.write(li_les4.innerHTML)<br><br><br><br>&lt;/script&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-177ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -686,61 +743,6 @@ var _hmt = _hmt || [];
 <p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
 <p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
 <div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/186ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/186ver/">JavaScript:编程挑战-1:运算符的那点事</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习代码及文章来自 <a href="http://www.imooc.com/code/1660" target="_blank" rel="external">http://www.imooc.com/code/1660</a></p><br><p>代码没什么难度 ++a和a++</p><br><p>++a是先进行a+1再运算</p><br><p>a++是先运算再+1</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;JS基础&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br>  var a,b,sum;<br>  var  a  = 5;<br>  var  b  = 100%7;<br>  sum = a &gt; b &amp;&amp; a<em>b &gt; 0 ;<br>  document.write( “我认为 a 的值是:” + 5  + “ b的值是:” + 2 + “sum 的值是:” +　true+”&lt;br/&gt;”);<br>  document.write( “答案是,第一轮计算后，a 为：”+ a +”;b为：”+b +”;第一次计算sum为：”+ sum +”&lt;br/&gt;”);<br><br>  sum = ( (++a) + 3 ) / (2 - (–b) ) </em> 3;<br>  document.write( “再一次计算后，我认为 a 的值是:” +  6  + “ b的值是:” +  1 + “sum 的值是:” +  27 +”&lt;br/&gt;”);<br>  document.write( “答案是，第二轮计算后，a 为：” + a + “;b为：” + b +”;第二次计算sum为：”+ sum +”,sum的类型也发生变化了。”);<br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p>
 
 
 

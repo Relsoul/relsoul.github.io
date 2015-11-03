@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/了不起的nodejs读书笔记/" style="font-size: 10px;">了不起的nodejs读书笔记</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-229ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/229ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/229ver/">一个页面中多个window.onload = function(){}冲突问题解决方案</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文转自<a href="http://blog.csdn.net/zndxlxm/article/details/7878298" target="_blank" rel="external">http://blog.csdn.net/zndxlxm/article/details/7878298</a></p><br><pre class="lang:default decode:true">假如在一个js里面需要window.onload两个方法：<br>方法1：写成这样就可以了<br>window.onload=function(){function(a);function(b);}<br>也就是集中window.onload一次。<br><br>方法2：<br><br><br>window.onload=function(){   //创建一个页面加载完毕函数<br>   alert(“加载完成”);    //弹出加载完成<br>   onload2();    //加载onload2函数<br>   onload3();    //加载onloado3函数<br>//onload2()的()可以传递参数<br>}<br>function onload2(){<br>   alert(“onload2加载完成”);<br>}<br>function onload3(){<br>   alert(“onload3加载完成”);<br>}</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-230ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -664,61 +719,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>引文：用酷狗音乐已经好几年了，见证过酷狗一步步的前进，也见证过光辉落幕后的余韵。</p><br><hr><br><p><span style="color: #993366;">先说说为什么抛弃酷狗音乐而转战网易云音乐.</span></p><br><p>酷狗音乐给我的感受就是 磅礴的资源库,从经典到流行，从大众到猎奇，基本上音乐资源都可以在酷狗音乐里面搜索到,当搜索到市面上非常猎奇的资源后,觉得酷狗音乐真的是一大资源搜索神奇.</p><br><p><span style="color: #993366;">从这里开始,酷狗便伴随了我4年之久.</span></p><br><p>而我一边在享受余韵带来的温存的时候，更多的是黑暗带给我的那种不安,弹窗广告,歌词广告,VIP功能，每一项都想黑暗中的利剑,深深刺入余韵中的温存。</p><br><p><span style="color: #993366;">然而温存终有冷却一刻.</span></p><br><p>当我在黑暗中摸索时,微弱光芒都成了一颗救命稻草，当我顺着稻草往上爬，我发现了新世界的大门.</p><br><p><span style="color: #993366;">网易云音乐</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" target="_blank" rel="external"><img class=" size-medium wp-image-58 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" data-original="http://www.old.com/wp-content/uploads/2015/03/111-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="11" width="300" height="197"></a></p><br><p>简洁的UI界面，当然这算不算一大亮点，只是说贪欲虚空是无穷的.当发现新事物总会有一股新奇感，随后淡于平静.</p><br><p>惊浪波起,随后狂风暴雨</p><br><p>当从酷狗音乐列表导出文件转入网易云音乐后,第一感觉 没有烦人的广告，整个界面都清爽了许多，像是一简约的播放器。</p><br><p><span style="color: #993366;">简约而不简单</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" target="_blank" rel="external"><img class=" size-medium wp-image-60 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" data-original="http://www.old.com/wp-content/uploads/2015/03/122-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="12" width="300" height="197"></a></p><br><p>发现音乐-歌单,每一个分享的歌单都带有使你欢奇的音符,更有大咖分享的歌单,一支精准之箭直入心胸。</p><br><p><span style="color: #993366;">私人定制</span><span style="color: #800080;"><span style="color: #993366;">-更多的是</span>享受</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" target="_blank" rel="external"><img class=" size-medium wp-image-61 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" data-original="http://www.old.com/wp-content/uploads/2015/03/13-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="13" width="300" height="197"></a></p><br><p>当听完十几首自己喜欢的歌后，打开“私人FM”浓浓的个人情怀，包含了天空，大地，激昂，深沉。每一首都是你想要的。</p><br><p><span style="color: #993366;">繁华中的虚幻</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" target="_blank" rel="external"><img class=" size-medium wp-image-62 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" data-original="http://www.old.com/wp-content/uploads/2015/03/14-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="14" width="300" height="197"></a></p><br><p>外面的世界那么灯火通明，这里却这么宁静，繁华中黑白交错的虚幻.淡淡的光盘划痕,随着音乐律动而渐隐。</p><br><p><span style="color: #993366;">手机,更让你不忍释手</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" target="_blank" rel="external"><img class=" size-medium wp-image-65 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" data-original="http://www.old.com/wp-content/uploads/2015/03/15-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="15" width="169" height="300"></a></p><br><p>少女的红韵,蕴含着历史.</p><br><p><span style="color: #993366;">推荐-相同的Soul</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" target="_blank" rel="external"><img class=" size-medium wp-image-63 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" data-original="http://www.old.com/wp-content/uploads/2015/03/16-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="16" width="169" height="300"></a></p><br><p>发现更多的惊喜.</p><br><p><span style="color: #993366;">律动，伴随着音乐的沉浸</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" target="_blank" rel="external"><img class=" size-medium wp-image-68 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" data-original="http://www.old.com/wp-content/uploads/2015/03/171-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="171" width="169" height="300"></a></p><br><p>&nbsp;</p><br><p>按下<span style="color: #ff0000;">红色</span>的Start 带上Earplug 沉浸在灵魂的世界中。</p><br><blockquote><p>网易云音乐ID “Relsoul”</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-239ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/239ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/239ver/">一个月前和一个月后自己的设(chou)计(hua)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p style="text-align: center;">PS：大神勿喷,仅仅是个人经历</p><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="alignleft wp-image-44" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/7-300x213.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="7" width="294" height="211"></a></p><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="  wp-image-45 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/8-300x187.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="8" width="343" height="214"></a></p><br><div><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>两幅看起来都非常的low..然后再看看目前的设计.虽然也没好到哪去</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br></div><br><p style="text-align: left;"><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-10.png" target="_blank" rel="external"><img class=" size-medium wp-image-47 alignleft" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-10.png" data-original="http://www.old.com/wp-content/uploads/2015/03/10-300x199.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="10" width="300" height="199"></a><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" target="_blank" rel="external"><img class="  wp-image-46 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-03.png" data-original="http://www.old.com/wp-content/uploads/2015/03/9-300x184.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="9" width="324" height="199"></a></p><br><p style="text-align: left;">勉励吧.</p><br><p style="text-align: left;">为什么只有条条框框呢？因为这样最简单啦。</p>
 
 
 
