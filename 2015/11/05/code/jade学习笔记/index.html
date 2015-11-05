@@ -12,14 +12,14 @@ jade中的元素标签
 无需使用尖括号">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jade学习笔记">
-<meta property="og:url" content="http://emufan.com/2015/11/02/code/jade学习笔记/index.html">
+<meta property="og:url" content="http://emufan.com/2015/11/05/code/jade学习笔记/index.html">
 <meta property="og:site_name" content="Soul的随笔">
 <meta property="og:description" content="安装jadejade模板引擎
 安装至全局 npm install jade -gjade编译html1234jade file //压缩编译 如jade index.jadejade file -P //不压缩编译jade file -w //对文件状态监控 一但文件变化则会实时编译、jade file -w -P //两个指令 实时不压缩编译
 jade中的元素标签
 无需成对出现
 无需使用尖括号">
-<meta property="og:updated_time" content="2015-11-02T09:45:34.079Z">
+<meta property="og:updated_time" content="2015-11-05T03:39:26.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jade学习笔记">
 <meta name="twitter:description" content="安装jadejade模板引擎
@@ -207,8 +207,8 @@ var _hmt = _hmt || [];
       <div class="body-wrap"><article id="post-code/jade学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/02/code/jade学习笔记/" class="article-date">
-  	<time datetime="2015-11-02T09:45:34.079Z" itemprop="datePublished">2015-11-02</time>
+      <a href="/2015/11/05/code/jade学习笔记/" class="article-date">
+  	<time datetime="2015-11-05T03:39:26.179Z" itemprop="datePublished">2015-11-05</time>
 </a>
     </div>
   
@@ -250,6 +250,7 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <p>对应HTML<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>soul 学习笔记<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h1</span>&gt;</span>hello soul jade<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">section</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">hr</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h1 id="jade元素属性与值">jade元素属性与值</h1><p>用过emmet肯定很快速入门如何写属性与值<br>下面用一段代码快速入门<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">h1.title =&gt;&lt;h1 <span class="keyword">class</span>=<span class="string">"title"</span>&gt;</span><br><span class="line">h1#title.title.title2 =&gt; &lt;h1 id=<span class="string">"title"</span> <span class="keyword">class</span>=<span class="string">""</span>title title2"&gt;</span><br><span class="line">#id.classname =&gt; &lt;div id=<span class="string">"id"</span> <span class="keyword">class</span>=<span class="string">"classname"</span>&gt;</span><br><span class="line">#id.title2(<span class="keyword">class</span>=<span class="string">"title3"</span> data=<span class="string">"testdate"</span>) =&gt; &lt;div id=<span class="string">"id"</span> data=<span class="string">"testdate"</span> <span class="keyword">class</span>=<span class="string">"title2 title3"</span>&gt;</span><br><span class="line">a(href=<span class="string">"http://baidu.com"</span> title=<span class="string">"baidu title"</span> data-uid=<span class="string">"1000"</span>) =&gt; &lt;a href=<span class="string">"http://baidu.com"</span> title=<span class="string">"baidu title"</span> data-uid=<span class="string">"1000"</span>&gt;</span><br><span class="line"><span class="keyword">input</span>(name=<span class="string">"course"</span> <span class="keyword">type</span>=<span class="string">"text"</span> value=<span class="string">"hello jade"</span>) =&gt; &lt;<span class="keyword">input</span> name=<span class="string">"course"</span> <span class="keyword">type</span>=<span class="string">"text"</span> value=<span class="string">"hello jade"</span>&gt;</span><br><span class="line"><span class="keyword">input</span>(name=<span class="string">"box"</span> <span class="keyword">type</span>=<span class="string">"checkbox"</span> checked) =&gt; &lt;<span class="keyword">input</span> name=<span class="string">"box"</span> <span class="keyword">type</span>=<span class="string">"checkbox"</span> checked&gt;</span><br></pre></td></tr></table></figure></p>
 <h1 id="jade混合成段文本和标签">jade混合成段文本和标签</h1><p>jade有两种处理办法</p>
 <h2 id="第一种">第一种</h2><p>在p后面加一个<strong>.</strong> 注意<strong>.</strong>是紧挨着p的 然后换行写所需要的文字和标签就okay了<br>这种方法标签不能用jade形式来书写了 只能用原生的尖括号形式  jade是支持原生尖括号形式<br>当然缩进也是要注意的<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">p</span>.</span><br><span class="line">     <span class="number">1</span><span class="class">.aaa</span></span><br><span class="line">     <span class="number">2</span><span class="class">.bbb</span></span><br><span class="line">     <span class="number">3</span>.cccccc&lt;<span class="tag">a</span> href=<span class="string">"http://baidu.com"</span>&gt;</span><br><span class="line">     <span class="number">4</span>.            ddddddd</span><br><span class="line">     <span class="number">5</span>.&lt;p&gt;eeeeee&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;p&gt;</span><br><span class="line">      <span class="number">1</span><span class="class">.aaa</span></span><br><span class="line">      <span class="number">2</span><span class="class">.bbb</span></span><br><span class="line">      <span class="number">3</span>.cccccc&lt;<span class="tag">a</span> href=<span class="string">"http://baidu.com"</span>&gt;</span><br><span class="line">      <span class="number">4</span>.            ddddddd</span><br><span class="line">      <span class="number">5</span>.&lt;p&gt;eeeeee&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
@@ -339,7 +340,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="code/jade学习笔记" data-title="jade学习笔记" data-url="http://emufan.com/2015/11/02/code/jade学习笔记/"></div>
+	<div class="ds-thread" data-thread-key="code/jade学习笔记" data-title="jade学习笔记" data-url="http://emufan.com/2015/11/05/code/jade学习笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
