@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,108 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-47ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/47ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/47ver/">DOM编程艺术之节点操作</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一:获取节点<br>        -父子关系<br>            -parentNode<br>            -firstChild/lastChild/childNodes<br>            -childNodes/children<br>        -兄弟关系<br>            -previousSibling/nextSibling<br>            -previousElementSibling/nextElementSibling<br>        -通过关系获取可维护性差</pre></p>
+<pre><code>    -<span class="ruby">getElementById
+</span>        -<span class="ruby">element=document.getElementById(id)/<span class="regexp">/获取文档中指定id的元素
+</span></span>    -<span class="ruby"><span class="regexp">getElementsByTagName
+</span></span>        -<span class="ruby"><span class="regexp">collection=element.getElementsByTagName(tagName)/</span><span class="regexp">/从element获取指定标签名称
+</span></span>        -<span class="ruby"><span class="regexp">collection值为实时动态的
+</span></span>        -<span class="ruby"><span class="regexp">element.getElementsByTagName("*")/</span><span class="regexp">/获取element下所有的后代元素
+</span></span>    -<span class="ruby"><span class="regexp">getElementsByClassName
+</span></span>        -<span class="ruby"><span class="regexp">collection=element.getElementsByClassName(classname)
+</span></span>        -<span class="ruby"><span class="regexp">collection可以通过下标来获取指定的元素
+</span></span>
+    -<span class="ruby"><span class="regexp">querySelector/</span><span class="constant">All</span>
+</span>        -<span class="ruby">list=element.querySelector/<span class="constant">All</span>(selector)
+</span>        -<span class="ruby">var user=document.querySelector(<span class="string">"#uesrs"</span>)/<span class="regexp">/获取到单个元素
+</span></span>        -<span class="ruby"><span class="regexp">user.querySelectorAll(".user")/</span><span class="regexp">/获取到user下的class类
+</span></span>        -<span class="ruby"><span class="regexp">document.querySelectorAll("#users .user")/</span><span class="regexp">/同上
+</span></span>        -<span class="ruby"><span class="regexp">list不是实时动态的,获取后不会变化
+</span></span>
+二:创建节点
+    -<span class="ruby"><span class="regexp">element=document.createElement(tagName)
+</span></span>
+三:修改节点
+    -<span class="ruby"><span class="regexp">element.textContent
+</span></span>        -<span class="ruby"><span class="regexp">节点及其后代节点的文本内容 /</span><span class="regexp">/返回的是节点和后代节点所有的文本内容
+</span></span>        -<span class="ruby"><span class="regexp">user_last.textContent="tom"/</span><span class="regexp">/IE9以下不支持
+</span></span>    -<span class="ruby"><span class="regexp">element.innerText
+</span></span>        -<span class="ruby"><span class="regexp">节点及其后代节点内容的文本内容/</span><span class="regexp">/FF不支持
+</span></span>
+四:插入节点
+    -<span class="ruby"><span class="regexp">element.appendChild(achild)
+</span></span>        -<span class="ruby"><span class="regexp">在指定的元素后插入节点
+</span></span>    -<span class="ruby"><span class="regexp">element.insertBefore(achild,referenceChild)
+</span></span>        -<span class="ruby"><span class="regexp">在指定的子元素前插入一个节点
+</span></span>        -<span class="ruby"><span class="regexp">ul.insertBefore(li,ul.firstChild)
+</span></span>
+五:删除节点
+    -<span class="ruby"><span class="regexp">child=element.removeChild(child)
+</span></span>        -<span class="ruby"><span class="regexp">删除指定元素的子节点 /</span><span class="regexp">/需要在父节点进行操作
+</span></span>        -<span class="ruby"><span class="regexp">user2.parentNode.removeChild(child)
+</span></span>
+六:innerHTML
+    -<span class="ruby"><span class="regexp">节点的HTML内容
+</span></span>    -<span class="ruby"><span class="regexp">ul.innerHTML+="xx" /</span><span class="regexp">/会删除原来绑定的event事件
+</span></span>    -<span class="ruby"><span class="regexp">内存泄露
+</span></span>    -<span class="ruby"><span class="regexp">安全问题
+</span></span>    -<span class="ruby"><span class="regexp">建议仅用于新节点</span></span>
+</code></pre><p></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-46ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -842,222 +944,6 @@ var _hmt = _hmt || [];
 </span>    -<span class="ruby"><span class="number">500</span>
 </span>        -<span class="ruby">内部服务器错误 <span class="constant">Internal</span> <span class="constant">Server</span> <span class="constant">Error</span></span>
 </code></pre><p></p>
-<p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/33ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
-<pre><code>        }
-        .child{
-            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
-        }*/
-
-        /*<span class="keyword">table</span>+margin
-
-        .child{
-            <span class="keyword">display</span>: <span class="keyword">table</span>;
-            margin:<span class="number">0</span> auto;
-        }
-        */
-
-    /*    absolute+transform*/
-
-        /*.parent{
-            position: relative;
-        }
-        .child{
-            position: absolute; /*宽度由内容决定
-            left:<span class="number">50</span>%;
-            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
-
-
-        }
-        */
-
-/*        flex+justify-content*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; /*宽度为内容宽度
-            justify-content: center;
-        }
-
-        /*.child{
-                margin: <span class="number">0</span> auto
-        }  同样可以实现水平居中*/
-
-
-        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
-
-        /*.parent{
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
-        }*/
-
-        /*垂直居中之absolute+transform
-        .parent{
-            position: relative;
-        }
-
-        .child{
-            position: absolute;
-            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
-            transform:translateY(-<span class="number">50</span>%);
-        }*/
-
-        /*.parent{
-            <span class="keyword">display</span>: flex; 高度撑满整个容器
-            align-items: center; 垂直居中
-        }*/
-
-        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-
-        .parent{
-            text-align: center;
-            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
-            vertical-align: middle;
-        }
-
-        .child{
-            <span class="keyword">display</span>: inline-block;
-        }*/
-
-/*        居中之absolute+transform*/
-
-        /*.parent{
-            position:relative;
-        }
-        .child{
-            position:absolute;
-            left:<span class="number">50</span>%;
-            top:<span class="number">50</span>%;
-            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
-        }
-        */
-
-        居中之flex+justify-content+align-items
-        .parent{
-            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
-            justify-content: center; /*水平居中*/
-            align-items: center;/*垂直居中*/
-        }
-
-    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
-        居中布局 父元素 子元素宽/高度不固定
-
-        一：水平居中之inline-block+text-align
-            -兼容性非常好
-            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
-            -child会继承text-align:center，需要对子元素进行reset
-
-        二:水平居中之<span class="keyword">table</span>+margin
-            -<span class="keyword">table</span>元素宽度为内容宽度
-            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
-
-        三:水平居中之absolute+transform
-            -脱离文档流 不会对其他元素产生影响
-            -不兼容低版本IE
-
-        四:水平居中之flex+justify-content
-            -.child{
-                margin: <span class="number">0</span> auto
-            }
-            -不兼容低版本IE
-
-        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
-            -兼容到IE8以上
-            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
-
-        六:垂直居中之absolute+transform
-            -子元素不会干扰其他元素
-
-        七:垂直居中之flex+align-items
-            -不兼容低版本IE
-
-        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
-            -兼容性比较高
-
-        九:居中之absolute+transform
-            -child不会影响其他元素
-            -不兼容性低版本IE
-
-        十:居中之flex+justify-content+align-items
-            -只需要设置parent
-            -不兼容低版本IE
-
-        十一:总结
-            -了解到CSS中的值和特性
-            -对问题进行分解
-
-    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
-&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
-         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
-         DOME
-         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
-
-
-
-
-
-
-
-
-&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/html&gt;<br></p>
 <p>&nbsp;</p>
 
 

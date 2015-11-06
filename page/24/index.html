@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,137 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-26ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/26ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/26ver/">产品前端构架之模块系统</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">一：模块系统<br>                -依赖管理 加载/分析/注入/初始化<br>                -决定模块写法</pre></p>
+<pre><code>二:Commonjs/module 非浏览器环境的js
+    -<span class="ruby">math.js
+</span>        function add(a,b){
+            return a+b;
+        };
+        function sub(a,b){
+            return a-b
+        }
+        exports.add=add
+        exports.sub=sub
+    -<span class="ruby">caculator.js
+</span>        var math=require("./math");
+        function Caculator(container){
+            this.add=container.querySelector("xx")
+<span class="comment">            //do sth</span>
+        }
+        exports.Caculator=Caculator
+        优点
+        -<span class="ruby">依赖管理程度可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">运行时指出，模块定义非常简单
+</span>        -<span class="ruby">文件级的模块作用域隔离
+</span>        -<span class="ruby">可以处理循环依赖
+</span>        缺点
+        -<span class="ruby">不是标准组织的规范
+</span>        -<span class="ruby">同步的<span class="keyword">require</span>，没有考虑浏览器环境
+</span>
+    三:AMD
+        -<span class="ruby">math.js
+</span>            define([],function(){
+                function add(a,b){
+                    return a+b
+                }
+                function sub(a,b){
+                    return a-b
+                }
+<span class="comment">                //接口暴露</span>
+                return{
+                    add:add,
+                    sub:sub
+                }
+            })
+
+        -<span class="ruby">caculator.js
+</span><span class="comment">        //依赖声明</span>
+            define(["./math"],function(math){
+<span class="comment">                //do sth</span>
+                return{
+                    Caculator:Caculator
+                }
+            })
+        优点
+        -<span class="ruby">依赖管理成熟可靠
+</span>        -<span class="ruby">社区活跃，规范接受度高
+</span>        -<span class="ruby">转为异步<span class="constant">IO</span>环境打造，适合浏览器环境
+</span>        -<span class="ruby">支持类似<span class="constant">Commonjs</span>的书写方法
+</span>        -<span class="ruby">通过插件<span class="constant">API</span>可支持加载非<span class="constant">JS</span>资源
+</span>        -<span class="ruby">成熟的打包构建工具
+</span>        缺点
+        -<span class="ruby">模块定义繁琐，需要额外嵌套
+</span>        -<span class="ruby">只是库级别的支持，需要引入额外库
+</span>        -<span class="ruby">无法处理循环依赖
+</span>        -<span class="ruby">无法实现条件加载
+</span>
+    四:systemjs
+        -<span class="ruby">支持加载<span class="constant">AMD</span>
+</span>        -<span class="ruby">支持加载<span class="constant">Commonjs</span>
+</span>        -<span class="ruby">支持加载<span class="constant">ES6</span>
+</span>        -<span class="ruby">支持加载任何资源
+</span>    System.paths={
+        "app/*":"../es6/*.js"
+    }
+    System.import("app/caculator").then(function(c){
+        new c.Caculator(document.getElementById("caculator"))
+    })&lt;/pre&gt;
+</code></pre><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-25ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1110,61 +1241,6 @@ HTML&lt;br&gt;
 <p></p><p><a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8" target="_blank" rel="external">https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8</a></p><p></p>
 <p></p><h1>百度ECharts入门</h1><p></p>
 <h3><a id="user-content-1新建一个echartshtml文件为echarts准备一个具备大小宽高的dom" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#1新建一个echartshtml文件为echarts准备一个具备大小宽高的dom" target="_blank" rel="external"></a>1、新建一个echarts.html文件，为ECharts准备一个具备大小（宽高）的Dom。</h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br><br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-2新建script标签引入模块化单文件echartsjs" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#2新建script标签引入模块化单文件echartsjs" target="_blank" rel="external"></a>2、新建script标签引入模块化单文件echarts.js</h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-3新建script标签中为模块加载器配置echarts和所需图表的路径相对路径为从当前页面链接到echartsjs引入图表文件见引入echarts2" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#3新建script标签中为模块加载器配置echarts和所需图表的路径相对路径为从当前页面链接到echartsjs引入图表文件见引入echarts2" target="_blank" rel="external"></a>3、新建script标签中为模块加载器配置echarts和所需图表的路径（相对路径为从当前页面链接到echarts.js），引入图表文件见引入<a href="http://echarts.baidu.com/doc/doc.html#%E5%BC%95%E5%85%A5ECharts2" target="_blank" rel="external">ECharts2</a></h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        // 路径配置<br>        require.config({<br>            paths: {<br>                echarts: ‘<a href="http://echarts.baidu.com/build/dist" target="_blank" rel="external">http://echarts.baidu.com/build/dist</a>‘<br>            }<br>        });<br>    &lt;/script&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-4script标签内动态加载echarts和所需图表回调函数中可以初始化图表并驱动图表的生成option见api--doc" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#4script标签内动态加载echarts和所需图表回调函数中可以初始化图表并驱动图表的生成option见api--doc" target="_blank" rel="external"></a>4、script标签内动态加载echarts和所需图表，回调函数中可以初始化图表并驱动图表的生成，option见<a href="http://echarts.baidu.com/doc/doc.html#Option" target="_blank" rel="external">API &amp; Doc</a></h3><br><pre><code>&lt;!DOCTYPE html&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;title&gt;ECharts&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;!– 为ECharts准备一个具备大小（宽高）的Dom –&gt;<br>    &lt;div id=”main” style=”height:400px”&gt;&lt;/div&gt;<br>    &lt;!– ECharts单文件引入 –&gt;<br>    &lt;script src=”<a href="http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://echarts.baidu.com/build/dist/echarts.js&quot;&gt;&lt;/script&amp;gt</a>;<br>    &lt;script type=”text/javascript”&gt;<br>        // 路径配置<br>        require.config({<br>            paths: {<br>                echarts: ‘<a href="http://echarts.baidu.com/build/dist" target="_blank" rel="external">http://echarts.baidu.com/build/dist</a>‘<br>            }<br>        });<br><br>        // 使用<br>        require(<br>            [<br>                ‘echarts’,<br>                ‘echarts/chart/bar’ // 使用柱状图就加载bar模块，按需加载<br>            ],<br>            function (ec) {<br>                // 基于准备好的dom，初始化echarts图表<br>                var myChart = ec.init(document.getElementById(‘main’));<br><br>                var option = {<br>                    tooltip: {<br>                        show: true<br>                    },<br>                    legend: {<br>                        data:[‘销量’]<br>                    },<br>                    xAxis : [<br>                        {<br>                            type : ‘category’,<br>                            data : [“衬衫”,”羊毛衫”,”雪纺衫”,”裤子”,”高跟鞋”,”袜子”]<br>                        }<br>                    ],<br>                    yAxis : [<br>                        {<br>                            type : ‘value’<br>                        }<br>                    ],<br>                    series : [<br>                        {<br>                            “name”:”销量”,<br>                            “type”:”bar”,<br>                            “data”:[5, 20, 40, 10, 10, 20]<br>                        }<br>                    ]<br>                };<br><br>                // 为echarts对象加载数据<br>                myChart.setOption(option);<br>            }<br>        );<br>    &lt;/script&gt;<br>&lt;/body&gt;<br></code></pre><br><h3><a id="user-content-5浏览器中打开查看" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E5%85%A5%E9%97%A8#5浏览器中打开查看" target="_blank" rel="external"></a>5、浏览器中打开查看</h3>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-13ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/13ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/13ver/">【分享】GET 高清模糊化背景素材*100</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>某酷扒下来的.具体地址记不太清楚了.</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/6b4be47d-8af4-423e-bfe2-ca06f646f734.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>&nbsp;</p><br><p>下载地址: <a href="http://pan.baidu.com/s/1o61MHey" target="_blank" rel="external">http://pan.baidu.com/s/1o61MHey</a></p>
 
 
 

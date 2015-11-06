@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,62 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-175ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/175ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/175ver/">JavaScript访问兄弟节点</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h2 class="code-head" data-lang="Javascript">文章及学习代码来自<a href="http://www.imooc.com/code/1593" target="_blank" rel="external">http://www.imooc.com/code/1593</a></h2><p></p>
+<p>&nbsp;</p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">访问兄弟节点</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>1. nextSibling 属性可返回某个节点之后紧跟的节点（处于同一树层级中）。</p><br><p><strong>语法：</strong></p><br><pre class="code">nodeObject.nextSibling</pre><br><p><strong>说明：</strong>如果无此节点，则该属性返回 null。</p><br><p>2. previousSibling 属性可返回某个节点之前紧跟的节点（处于同一树层级中）。</p><br><p><strong>语法：</strong></p><br><pre class="code">nodeObject.previousSibling</pre><br><p><strong>说明：</strong>如果无此节点，则该属性返回 null。</p><br><p>注意: 两个属性获取的是节点。Internet Explorer 会忽略节点间生成的空白文本节点（例如，换行符号），而其它浏览器不会忽略。</p><br><p><strong>解决问题方法:</strong></p><br><p>判断节点nodeType是否为1, 如是为元素节点，跳过。</p><br><p><a href="http://img.mukewang.com/5386e3c80001c25607010856.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/5386e3c80001c25607010856.jpg" data-original="http://img.mukewang.com/5386e3c80001c25607010856.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><strong>运行结果:</strong></p><br><pre class="code">LI = javascript<br>nextsibling: LI = jquery</pre><br></div><br></div><br><p><span style="color: #ff0000;">学习经验</span></p><br><p>function get_previousSibling(elem){<br><br>if(elem.previousSibling.nodeType==1){<br><br>return elem.previousSibling<br><br>}else if(elem.previousSibling){<br><br>return get_previousSibling(elem.previousSibling)<br><br>}<br><br>return null</p><br><p>}</p><br><p><span style="color: #ff0000;">这句话的意思是 如果elem的上级元素是元素节点那么返回elem的上级节点,</span></p><br><p><span style="color: #ff0000;">如果elem的上级节点存在 再次调用get_previousSibling同时传递的是elem的上级节点</span></p><br><p><span style="color: #ff0000;">那么再次调用的时候if(elem.previousSibling.previousSibling.nodeType==1)</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;nextSibling&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;ul id=”u1”&gt;<br>            &lt;li id=”a”&gt;javascript&lt;/li&gt;<br>            &lt;li id=”b”&gt;jquery&lt;/li&gt;<br>            &lt;li id=”c”&gt;html&lt;/li&gt;<br>        &lt;/ul&gt;<br>        &lt;ul id=”u2”&gt;<br>            &lt;li id=”d”&gt;css3&lt;/li&gt;<br>            &lt;li id=”e”&gt;php&lt;/li&gt;<br>            &lt;li id=”f”&gt;java&lt;/li&gt;<br>        &lt;/ul&gt;<br>&lt;script type=”text/javascript”&gt;<br>    function get_nextSibling(n){<br>        var x=n.nextSibling;<br>        while (x &amp;&amp; x.nodeType!=1){<br>            x=x.nextSibling;<br>        }<br>        return x;<br>    }<br><br>    var x=document.getElementsByTagName(“li”)[0];<br>    document.write(x.nodeName);<br>    document.write(“ = “);<br>    document.write(x.innerHTML);<br><br>    var y=get_nextSibling(x);<br><br>    if(y!=null){<br>        document.write(“&lt;br /&gt;nextsibling: “);<br>        document.write(y.nodeName);<br>        document.write(“ = “);<br>        document.write(y.innerHTML+”&lt;br&gt;”);<br>    }else{<br>      document.write(“&lt;br&gt;已经是最后一个节点”);<br>    }<br>    function get_previousSibling(elem){<br>        if(elem.previousSibling.nodeType==1){<br>            return elem.previousSibling<br>        }else if(elem.previousSibling){<br>           return get_previousSibling(elem.previousSibling)<br>        }<br>        return null<br><br>    }<br>    var get_elem=document.getElementsByTagName(“li”)[1]<br>    var save=get_previousSibling(get_elem)<br>    document.write(save.nodeName+”&lt;br&gt;”)<br>    document.write(save.innerHTML+”&lt;br&gt;”)<br>&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-176ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -673,76 +729,6 @@ var _hmt = _hmt || [];
         <p></p><p>学习代码以及文章来自:<a href="http://www.imooc.com/code/1488" target="_blank" rel="external">http://www.imooc.com/code/1488</a></p><p></p>
 <p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
 <div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>使用JS完成一个简单的计算器功能。实现2个输入框中输入整数后，点击第三个输入框能给出2个整数的加减乘除。</p><br><p>提示：获取元素的值设置和获取方法为：例：赋值：document.getElementById(“id”）.value = 1； 取值：var 啊= document.getElementById(“id”）.value；</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 创建构建运算函数count()。</p><br><p>第二步： 获取两个输入框中的值和获取选择框的值。</p><br><pre class="code">提示：document.getElementById( id名 ).value 获取或设置 id名的值。</pre><br><p>第三步： 获取通过下拉框来选择的值来改变加减乘除的运算法则。</p><br><pre class="code">提示：使用switch判断运算法则。</pre><br><p>第四步：  通过 = 按钮来调用创建的函数，得到结果。</p><br><p><strong>注意:</strong> 使用parseInt()函数可解析一个字符串,并返回一个整数。</p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">value可以获取到标签的值 然后通过case处理来更改value值</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br> &lt;head&gt;<br>  &lt;title&gt; 事件&lt;/title&gt;<br>  &lt;script type=”text/javascript”&gt;<br>   function count(){<br>       var num1=document.getElementById(“txt1”)<br><br>       var num2=document.getElementById(“txt2”)<br>       var over=document.getElementById(“fruit”)<br>       var run=document.getElementById(“select”)<br>       switch(run.value){<br>           case “-“:over.value=parseInt(num1.value)-parseInt(num2.value);<br>           break;<br>           case “+”:over.value=parseInt(num1.value)+parseInt(num2.value);<br>           break;<br>           case “<em>“:over.value=parseInt(num1.value)</em>parseInt(num2.value);<br>           break;<br>           case “/“:over.value=parseInt(num1.value)/parseInt(num2.value);<br>           break;<br>       }<br><br><br>    //获取第一个输入框的值<br>    //获取第二个输入框的值<br>    //获取选择框的值<br>    //获取通过下拉框来选择的值来改变加减乘除的运算法则<br>    //设置结果输入框的值<br><br>   }<br>  &lt;/script&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br>   &lt;input type=’text’ id=’txt1’ /&gt;<br>   &lt;select id=’select’&gt;<br>        &lt;option value=’+’&gt;+&lt;/option&gt;<br>        &lt;option value=”-“&gt;-&lt;/option&gt;<br>        &lt;option value=”<em>“&gt;</em>&lt;/option&gt;<br>        &lt;option value=”/“&gt;/&lt;/option&gt;<br>   &lt;/select&gt;<br>   &lt;input type=’text’ id=’txt2’ /&gt;<br>   &lt;input type=’button’ value=’ = ‘ onclick=”count()”/&gt; &lt;!–通过 = 按钮来调用创建的函数，得到结果–&gt;<br>   &lt;input type=’text’ id=’fruit’  /&gt;<br> &lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-185ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/185ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/185ver/">JavaScript:2维数组+编程挑战:2次元赛高！</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><p>学习代码及文章来自<a href="http://www.imooc.com/code/1484" target="_blank" rel="external">http://www.imooc.com/code/1484</a></p><p></p>
-<p></p><p>二维数组一直没弄清楚.现在来详细的弄清楚下</p><p></p>
-<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..三维数组<br>        document.write(ew[1][2]);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”</pre></p>
-<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
-<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
-<p></p><p>再来输出二维数组</p><p></p>
-<p></p><p>值得注意的是[i].length因为第二个循环是要输出二维数组中二维的元素 所以先判断二维有多少个元素也就是</p><p></p>
-<p></p><p>[i]的长度 比如ew[1].length 就为3</p><p></p>
-<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..二维数组<br>        document.write(ew[1][2]+”&lt;/br&gt;”);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”<br>        for (var i = 0; i &lt; ew.length; i++) {<br>            for (var j = 0; j &lt;ew[i].length; j++) {<br>                document.write(ew[i][j]+”&lt;/br&gt;”)<br>                //判断ew[i]中有多少个元素然后再输出j<br>                //也就是输出二维数组<br>            };<br>        };</pre></p>
-<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
-</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
-<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
-<p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
-<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
-<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
 
 
 

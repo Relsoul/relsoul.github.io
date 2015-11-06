@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,222 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-33ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/33ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/33ver/">CSS实现居中布局的几种方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><pre class="lang:default decode:true ">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;meta charset=”utf-8”&gt;<br>        &lt;title&gt;&lt;/title&gt;<br>        &lt;style&gt;<br>            /<em>inline-block+text-align</em>/<br>            /*.parent{<br>                text-align: center;    </pre></p>
+<pre><code>        }
+        .child{
+            <span class="keyword">display</span>: inline-block; /*宽度变为内容宽度
+        }*/
+
+        /*<span class="keyword">table</span>+margin
+
+        .child{
+            <span class="keyword">display</span>: <span class="keyword">table</span>;
+            margin:<span class="number">0</span> auto;
+        }
+        */
+
+    /*    absolute+transform*/
+
+        /*.parent{
+            position: relative;
+        }
+        .child{
+            position: absolute; /*宽度由内容决定
+            left:<span class="number">50</span>%;
+            transform: translateX(-<span class="number">50</span>%); /*参照物为自身宽度的<span class="number">50</span>% 类似于margin-left:-<span class="number">50</span>%xxxpx(需知道元素大小);
+
+
+        }
+        */
+
+/*        flex+justify-content*/
+
+        /*.parent{
+            <span class="keyword">display</span>: flex; /*宽度为内容宽度
+            justify-content: center;
+        }
+
+        /*.child{
+                margin: <span class="number">0</span> auto
+        }  同样可以实现水平居中*/
+
+
+        /*垂直居中之<span class="keyword">table</span>-cell+vertical-align*/
+
+        /*.parent{
+            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
+            vertical-align: middle; /*作用在inline <span class="keyword">table</span>-cell inline-block
+        }*/
+
+        /*垂直居中之absolute+transform
+        .parent{
+            position: relative;
+        }
+
+        .child{
+            position: absolute;
+            top:<span class="number">50</span>%; 子容器上边对齐父元素中部
+            transform:translateY(-<span class="number">50</span>%);
+        }*/
+
+        /*.parent{
+            <span class="keyword">display</span>: flex; 高度撑满整个容器
+            align-items: center; 垂直居中
+        }*/
+
+        /*居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
+
+        .parent{
+            text-align: center;
+            <span class="keyword">display</span>: <span class="keyword">table</span>-cell;
+            vertical-align: middle;
+        }
+
+        .child{
+            <span class="keyword">display</span>: inline-block;
+        }*/
+
+/*        居中之absolute+transform*/
+
+        /*.parent{
+            position:relative;
+        }
+        .child{
+            position:absolute;
+            left:<span class="number">50</span>%;
+            top:<span class="number">50</span>%;
+            transform: translate(-<span class="number">50</span>% -<span class="number">50</span>%);
+        }
+        */
+
+        居中之flex+justify-content+align-items
+        .parent{
+            <span class="keyword">display</span>:flex;/*宽度变为自身宽度 高度充满整个容器*/
+            justify-content: center; /*水平居中*/
+            align-items: center;/*垂直居中*/
+        }
+
+    &amp;<span class="keyword">lt</span>;/style&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;script type="text/javascript"&amp;<span class="keyword">gt</span>;
+        居中布局 父元素 子元素宽/高度不固定
+
+        一：水平居中之inline-block+text-align
+            -兼容性非常好
+            -inline+zoom:<span class="number">1</span>  //兼容IE8以下
+            -child会继承text-align:center，需要对子元素进行reset
+
+        二:水平居中之<span class="keyword">table</span>+margin
+            -<span class="keyword">table</span>元素宽度为内容宽度
+            -只需要设置child ,IE6 <span class="number">7</span>可以child可以采用<span class="keyword">table</span>的方式如th tr来实现
+
+        三:水平居中之absolute+transform
+            -脱离文档流 不会对其他元素产生影响
+            -不兼容低版本IE
+
+        四:水平居中之flex+justify-content
+            -.child{
+                margin: <span class="number">0</span> auto
+            }
+            -不兼容低版本IE
+
+        五:垂直居中之<span class="keyword">table</span>-cell+vertical-align
+            -兼容到IE8以上
+            -兼容低版本HTML结构换成<span class="keyword">table</span>结构
+
+        六:垂直居中之absolute+transform
+            -子元素不会干扰其他元素
+
+        七:垂直居中之flex+align-items
+            -不兼容低版本IE
+
+        八:居中(水平垂直居中)之inline-block+text-align+<span class="keyword">table</span>-cell+vertical-align
+            -兼容性比较高
+
+        九:居中之absolute+transform
+            -child不会影响其他元素
+            -不兼容性低版本IE
+
+        十:居中之flex+justify-content+align-items
+            -只需要设置parent
+            -不兼容低版本IE
+
+        十一:总结
+            -了解到CSS中的值和特性
+            -对问题进行分解
+
+    &amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+&amp;<span class="keyword">lt</span>;/head&amp;<span class="keyword">gt</span>;
+&amp;<span class="keyword">lt</span>;body&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;div class="parent"&amp;<span class="keyword">gt</span>;
+         &amp;<span class="keyword">lt</span>;div class="child"&amp;<span class="keyword">gt</span>;
+         DOME
+         &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+    &amp;<span class="keyword">lt</span>;/div&amp;<span class="keyword">gt</span>;
+
+
+
+
+
+
+
+
+&amp;<span class="keyword">lt</span>;/body&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/html&gt;<br></p>
+<p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-32ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1186,62 +1402,6 @@ var _hmt = _hmt || [];
       
         <p></p><p>发布于<a href="http://www.gbtags.com/gb/share/5762.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5762.htm</a></p><p></p>
 <div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/fa2de7aa-f26a-41d1-8435-1838e1dcfda0.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>引文:今天在GitHub上看见了这个东西</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/7aa2ea0f-b4a3-4a5c-a2b2-56c98d438be4.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/252da59f-4767-4360-b5cc-99ba06c1d759.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/252da59f-4767-4360-b5cc-99ba06c1d759.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/252da59f-4767-4360-b5cc-99ba06c1d759.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/4d6676bc-07e8-4bfe-a067-09ecf916ac43.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>卧槽！能不能不这么狂拽炫酷吊炸天的好看，不能忍.于是花了一小时找啊找啊找啊找.</p><br><p>终于找到了如何生成和制作的.深夜1点赶来分享</p><br><p>&nbsp;</p></blockquote><br><p>勋章:<a href="http://shields.io/" target="_blank" rel="external">http://shields.io/</a></p><br><p>进度条:<a href="https://github.com/fehmicansaglam/progressed.io" target="_blank" rel="external">https://github.com/fehmicansaglam/progressed.io</a></p><br><p>&nbsp;</p><br><p>如何使用？</p><br><p>勋章请找到相应的svg,或者拉到屏幕最下面自定义勋章样式</p><br><p>进度条则采用<a href="http://progressed.io/bar/进度(数字)?title=(标题" target="_blank" rel="external">http://progressed.io/bar/进度(数字)?title=(标题</a>) 如<a href="http://progressed.io/bar/28?title=progress" target="_blank" rel="external">http://progressed.io/bar/28?title=progress</a></p><br><p>支持markdown语法引用</p><br><p>在线演示</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1138.htm"></iframe></p><br><p>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来调试下嘛:<a href="http://www.gbtags.com/gb/rtreplayerpreview/1138.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1138.htm</a></p></blockquote><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-28ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/28ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/28ver/">做个简单的本地弹幕播放器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h1><strong>推荐跳转至此链接观看<a href="http://www.gbtags.com/gb/share/5769.htm" target="_blank" rel="external">http://www.gbtags.com/gb/share/5769.htm</a></strong></h1><p></p>
-<p>&nbsp;</p><br><div id="shareentry" class="arrow_box hidden"><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/20b7f765-e655-47ee-ab8c-89b04009c00b.png" target="_blank" rel="external"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/20b7f765-e655-47ee-ab8c-89b04009c00b.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a><p></p><br><div class="clear"></div><br></div><br><div id="blogentry" class=""><br><blockquote><p>前言</p><br><ul><br><li>本文仅仅是做一个简单的弹幕播放器</li><br><li>本文弹幕播放器仅仅是演示一下发送弹幕功能</li><br><li>请跳转本文底部的在线调试代码进行调试</li><br></ul><br></blockquote><br><p>最终实现效果如下:</p><br><p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/a1e5d8dc-c91d-43bb-bc9b-a6e920bb643a.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>Okay.首先你得找到一个弹幕开源库就是这个啦:<a href="https://github.com/jabbany/CommentCoreLibrary" target="_blank" rel="external">https://github.com/jabbany/CommentCoreLibrary</a></p><br><p>其次你得准备好一个HTML文件 准备完后lets do it</p><br><p>&nbsp;</p><br><p>引入两个重要的弹幕开源库文件 这里用了我blog的文件</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/CommentCoreLibrary.js" target="_blank" rel="external">http://www.old.com/cdn/CommentCoreLibrary.js</a>“</span> <span class="tag">&gt;&lt;/script&gt;</span></li><br><li class="L1"><span class="tag">&lt;link</span> <span class="atn">rel</span><span class="pun">=</span><span class="atv">“stylesheet”</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span> <span class="atn">href</span><span class="pun">=</span><span class="atv">“<a href="http://www.old.com/cdn/style.css" target="_blank" rel="external">http://www.old.com/cdn/style.css</a>“</span><span class="tag">/&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>编写好HTML 结构</p><br><p>这里解释一下这个弹幕开源库必须要一个HTML结构也就是</p><br><p>这两个结构是必须的 且class为abp和container也是不能改变的 这点从开源库的css文件就可以看出</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L2"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>添加一些视频元素和一个表单元素 HTML就okay了</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“m20 abp”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“player”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="tag">&lt;video</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“abpVideo”</span> <span class="atn">poster</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg" target="_blank" rel="external">http://content.bitsontherun.com/thumbs/bkaovAYt-720.jpg</a>“</span> <span class="atn">controls</span><span class="pun">=</span><span class="atv">“none”</span><span class="tag">&gt;</span></li><br><li class="L2"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-52qL9xLP.mp4</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/mp4”</span><span class="tag">&gt;</span></li><br><li class="L3"><span class="tag">&lt;source</span> <span class="atn">src</span><span class="pun">=</span><span class="atv">“<a href="http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm" target="_blank" rel="external">http://content.bitsontherun.com/videos/bkaovAYt-27m5HpIu.webm</a>“</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“video/webm”</span><span class="tag">&gt;</span></li><br><li class="L4"><span class="tag">&lt;p</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“warning”</span><span class="tag">&gt;</span><span class="pln">Your browser does not support HTML5 video.</span><span class="tag">&lt;/p&gt;</span></li><br><li class="L5"><span class="tag">&lt;/video&gt;</span></li><br><li class="L6"><span class="tag">&lt;div</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“commentCanvas”</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“container”</span><span class="tag">&gt;&lt;/div&gt;</span></li><br><li class="L7"><span class="tag">&lt;div</span> <span class="atn">class</span><span class="pun">=</span><span class="atv">“controls”</span><span class="tag">&gt;</span></li><br><li class="L8"><span class="tag">&lt;form</span> <span class="atn">action</span><span class="pun">=</span><span class="atv">“”</span><span class="tag">&gt;</span></li><br><li class="L9"><span class="tag">&lt;p&gt;</span><span class="pln">选择颜色:</span><span class="tag">&lt;select</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“chose”</span><span class="tag">&gt;</span></li><br><li class="L0"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xff0000”</span><span class="tag">&gt;</span><span class="pln">红色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L1"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0x7fff00”</span><span class="tag">&gt;</span><span class="pln">绿色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L2"><span class="tag">&lt;option</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“0xffff56”</span><span class="tag">&gt;</span><span class="pln">黄色</span><span class="tag">&lt;/option&gt;</span></li><br><li class="L3"><span class="tag">&lt;/select&gt;</span></li><br><li class="L4"><span class="pln"> 输入内容:</span><span class="tag">&lt;input</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“”</span> <span class="atn">name</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“main”</span> <span class="atn">value</span><span class="pun">=</span><span class="atv">“”</span> <span class="tag">/&gt;</span> <span class="tag">&lt;button</span> <span class="atn">id</span><span class="pun">=</span><span class="atv">“send”</span><span class="tag">&gt;</span><span class="pln">发送</span><span class="tag">&lt;/button&gt;</span></li><br><li class="L5"><span class="tag">&lt;/p&gt;</span></li><br><li class="L6"><span class="tag">&lt;/form&gt;</span></li><br><li class="L7"><span class="tag">&lt;/div&gt;</span></li><br><li class="L8"></li><br><li class="L9"><span class="tag">&lt;/div&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p>设置一下CSS达到全屏的效果</p><br><p>这里说我遇到一个坑.在绘制的div也就是id=”commentCanvas” 他的css属性为position:absolute z-index=999 所以会覆盖在视频文件上方导致视频文件进度条无法按 -  -于是这里我采用了设置id=”commentCanvas”的height=80%来达到效果。当然肯定有更好的解决办法，希望大家能够踊跃讨论下。</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;style</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/css”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> html</span><span class="pun">,</span><span class="pln">body</span><span class="pun">{</span></li><br><li class="L2"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L3"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L4"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L5"></li><br><li class="L6"><span class="pun">}</span></li><br><li class="L7"><span class="pln"> body</span><span class="pun">{</span></li><br><li class="L8"><span class="pln"> overflow</span><span class="pun">-</span><span class="pln">y</span><span class="pun">:</span><span class="pln">scroll</span><span class="pun">;</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pun">.</span><span class="pln">container</span><span class="pun">{</span></li><br><li class="L1"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">90</span><span class="pun">%;</span></li><br><li class="L2"><span class="pun">}</span></li><br><li class="L3"><span class="com">#abpVideo{</span></li><br><li class="L4"><span class="pln"> width</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L5"><span class="pln"> height</span><span class="pun">:</span> <span class="lit">100</span><span class="pun">%;</span></li><br><li class="L6"><span class="pln"> overflow</span><span class="pun">:</span><span class="pln"> hidden</span><span class="pun">;</span></li><br><li class="L7"><span class="pun">}</span></li><br><li class="L8"><span class="pun">.</span><span class="pln">controls</span><span class="pun">{</span></li><br><li class="L9"><span class="pln"> text</span><span class="pun">-</span><span class="pln">align</span><span class="pun">:</span><span class="pln"> center</span><span class="pun">;</span></li><br><li class="L0"><span class="pun">}</span></li><br><li class="L1"><span class="pln"> </span></li><br><li class="L2"><span class="tag">&lt;/style&gt;</span></li><br></ol><br></div><br></div><br><p>&nbsp;</p><br><p>设置一些js属性</p><br><div class="jspContainer"><br><div class="jspPane"><br><ol class="linenums"><br><li class="L0"><span class="tag">&lt;script</span> <span class="atn">type</span><span class="pun">=</span><span class="atv">“text/javascript”</span><span class="tag">&gt;</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">‘load’</span><span class="pun">,</span> <span class="kwd">function</span> <span class="pun">()</span> <span class="pun">{</span></li><br><li class="L2"><span class="com">// 在窗体载入完毕后再绑定</span></li><br><li class="L3"><span class="kwd">function</span><span class="pln"> $</span><span class="pun">(</span><span class="pln">id</span><span class="pun">){</span></li><br><li class="L4"><span class="kwd">return</span><span class="pln"> document</span><span class="pun">.</span><span class="pln">getElementById</span><span class="pun">(</span><span class="pln">id</span><span class="pun">);</span></li><br><li class="L5"><span class="pun">}</span></li><br><li class="L6"><span class="kwd">var</span><span class="pln"> CM </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">CommentManager</span><span class="pun">(</span><span class="pln">$</span><span class="pun">(</span><span class="str">‘commentCanvas’</span><span class="pun">));</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">init</span><span class="pun">();</span></li><br><li class="L8"><span class="com">// 先启用弹幕播放（之后可以停止）</span></li><br><li class="L9"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span></li><br><li class="L0"><span class="com">// 开放 CM 对象到全局这样就可以在 console 终端里操控</span></li><br><li class="L1"><span class="pln"> window</span><span class="pun">.</span><span class="pln">CM </span><span class="pun">=</span><span class="pln"> CM</span><span class="pun">;</span></li><br><li class="L2"><span class="com">//创建弹幕列表对象</span></li><br><li class="L3"><span class="kwd">var</span><span class="pln"> list</span><span class="pun">={</span></li><br><li class="L4"><span class="com">//这些属性都可以在官网文档找到答案 这里就不详细说明了</span></li><br><li class="L5"><span class="str">“dur”</span><span class="pun">:</span> <span class="lit">10000</span><span class="pun">,</span></li><br><li class="L6"><span class="str">“size”</span><span class="pun">:</span> <span class="lit">25</span><span class="pun">,</span></li><br><li class="L7"><span class="str">“stime”</span><span class="pun">:</span> <span class="lit">0</span><span class="pun">,</span></li><br><li class="L8"><span class="str">“mode”</span><span class="pun">:</span> <span class="lit">1</span><span class="pun">,</span></li><br><li class="L9"><span class="pun">}</span></li><br><li class="L0"><span class="pln"> </span></li><br><li class="L1"><span class="pln"> $</span><span class="pun">(</span><span class="str">“send”</span><span class="pun">).</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">“click”</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">event</span><span class="pun">){</span></li><br><li class="L2"><span class="com">//text属性为弹幕文字</span></li><br><li class="L3"><span class="pln"> list</span><span class="pun">.</span><span class="pln">text</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">“main”</span><span class="pun">).</span><span class="pln">value</span></li><br><li class="L4"><span class="com">//color为弹幕颜色同时转化为10进制</span></li><br><li class="L5"><span class="pln"> list</span><span class="pun">.</span><span class="pln">color</span><span class="pun">=(</span><span class="pln">parseInt</span><span class="pun">((</span><span class="pln">$</span><span class="pun">(</span><span class="str">“chose”</span><span class="pun">).</span><span class="pln">value</span><span class="pun">)));</span></li><br><li class="L6"><span class="com">//这条就是发送弹幕功能了</span></li><br><li class="L7"><span class="pln"> CM</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="pln">list</span><span class="pun">);</span></li><br><li class="L8"></li><br><li class="L9"><span class="pln"> event</span><span class="pun">.</span><span class="pln">stopPropagation</span><span class="pun">();</span></li><br><li class="L0"><span class="pln"> event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li><br><li class="L1"><span class="pun">})</span></li><br><li class="L2"></li><br><li class="L3"><span class="pun">});</span></li><br><li class="L4"><span class="tag">&lt;/script&gt;</span></li><br></ol><br></div><br><div class="jspVerticalBar"></div><br></div><br><p>&nbsp;</p><br><p><iframe width="300" height="150" src="http://www.gbtags.com/gb/rtwidget-replayerpreview/1141.htm"></iframe>&nbsp;</p><br><blockquote><p>这么炫酷的代码不来玩一下吗？<a href="http://www.gbtags.com/gb/rtreplayerpreview/1141.htm" target="_blank" rel="external">http://www.gbtags.com/gb/rtreplayerpreview/1141.htm</a></p></blockquote><br><p>&nbsp;</p><br></div><br><p>&nbsp;</p>
 
 
 

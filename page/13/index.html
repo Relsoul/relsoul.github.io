@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-148ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/148ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/148ver/">零基础学bootstrap:起步</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本次课程是零基础开始学bootstrap.因为这个框架比较流行,所以结合自己正在学的视频教程写一篇比较详细的文本型教程出来..文笔比较渣大家勿喷.如果遇到有什么错误请及时留言.我一定会努力改正</p><br><p>PS:这里的零基础指的是bootstrap零基础.要学习bootstrap只需要一定的HTML与CSS基础即可</p><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">一:bootstrap是什么？</span></strong></p><br><blockquote><p>这个问题问得好,bootstrap简单来说就是一个结合了各种黑科技的框架,用了这个框架你不用再考虑手机和电脑自适应的问题,而且最新的bootstrap V3对手机作了很大的优化.bootstrap本身也带了很多炫酷的交互效果特效,而且提供了源码.可以从深层去指定bootstrap.</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">二:如何引用bootstrap?</span></strong></p><br><blockquote><p>可以从官方的CDN服务器里引入,也可以从本地引入</p><br><p>本地引入只需要下载bootstrap文件了</p><br><p><a href="http://v3.bootcss.com/getting-started/#download" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#download</a></p><br><p>只需要在头部标签中加入</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”../css/bootstrap.min.css”&gt;<br><br>&lt;script type=”text/javascript” src=”../js/bootstrap.min.js”&gt;&lt;/script&gt;</p><br><p>如果你还需要用到bootstrap的 jquery效果 只需要在bootstrap.min.js前引入jquery.js就ok了</p><br><p>PS: .min是压缩后的文件 未加min的是未压缩的文件,两者效果都一样,只是文件大小不一样</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">三:注意事项</span></strong></p><br><blockquote><p>当然bootstrap注意事项比较多,大家可以去<a href="http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个" target="_blank" rel="external">http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个</a><strong>完整的适配手机版的Bootstrap需要加上一个meta标签的,如下例</strong></p><br><pre class="lang:default decode:true ">&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;<br>    &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;<br>    &lt;!– 上述3个meta标签<em>必须</em>放在最前面，任何其他内容都<em>必须</em>跟随其后！ –&gt;</pre><br><p>简单解释下 charset=”utf-8” //声明文档类型是utf-8</p><br><p>&lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;</p><br><p>IE浏览器中都有兼容模式.为了使浏览器使用最新的兼容模式都要写上这行meta标签</p><br><p>&nbsp;</p><br><p>最重要的应该是</p><br><p>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p><br><p>这样做就可以适配移动端了..不要问我为什么要加这条标签.加了就对了.</p><br><p>&nbsp;</p><br><p>当然你如果要禁用移动端的缩放功能.那么你可以加这一条</p><br><p><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">“viewport”</span> <span class="na">content=</span><span class="s">“width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”</span><span class="nt">&gt;</span></p><br><p>一般来说不推荐禁用移动端的缩放功能.不过谁呢排除特殊情况呢？</p><br><p>bootstrap对浏览器的兼容情况</p><br><p><a href="http://v3.bootcss.com/getting-started/#support" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#support</a></p><br><p>bootstrap是在HTML5下运行的哦.所以请使用HTML5的&lt;!DOCTYPE html&gt;</p></blockquote><br><p>&nbsp;</p><br><p>恩.起步就差不多了吧..今晚上或者明天再补第二章.关注一系列教程可以点击标签&lt;bootstrap零入门&gt;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-147ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -668,65 +723,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><b>一:WEB发展</b></p><br><p>WEB1.0+ajax=WEB2.0(网易邮箱)+HTML5=WEB3.0（网易云音乐)</p><br><p><b>二：开发流程</b></p><br><p>策划-交互-视觉</p><br><p><b>                 ╲</b>┃</p><br><p><b>       </b>            前端╲ <b><br><br></b></p><br><p>┃     测试</p><br><p>后端╱</p><br><p>视觉稿:配色,图片,图标,logo,行高，宽等.</p><br><p>╲</p><br><p>╋        UI:页面制作:需要掌握的技能有:PS,HTML,CSS</p><br><p>交互稿:线框图,逻辑,行为</p><br><p>╲</p><br><p>∥         UI:页面逻辑开发:需要掌握的技能:PS,HTML,CSS，JavaScript(DOM)</p><br><p>UL</p><br><p><strong>三:学习流程</strong></p><br><p>页面制作-页面架构                              ╲</p><br><p>产品前端架构</p><br><p>JavaScript程序设计-DOM编程艺术  ╱</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-94ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/94ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.755Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/94ver/">第一次收到极客标签的奖品~好高兴</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h2>感谢极客标签提供的奖品~现在来进行拆包;</h2><p></p>
-<p><ul></ul></p>
-<p><li></li></p>
-<p></p><h1>先来喜闻乐见的拆包</h1><br><br><p></p>
-<p><a class="uploadimggrp" href="http://www.gbtags.com/gb/networks/uploadimg/fb4537d4-d11c-4845-80ff-106d5aa7a7fe.JPG" target="_blank"><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/fb4537d4-d11c-4845-80ff-106d5aa7a7fe.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/fb4537d4-d11c-4845-80ff-106d5aa7a7fe.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>使用了SF快递~并且是腾讯总部发出的~好期待是什么物品</p><br><p>&nbsp;</p><br><ul><br><li><br><h1><strong>解包</strong></h1><br></li><br></ul><br><p><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/6e9366b5-e1b9-4867-b8df-07dd606635c7.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/6e9366b5-e1b9-4867-b8df-07dd606635c7.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/3f3c8a6e-5b54-4a97-aab6-1e312548a0f1.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/3f3c8a6e-5b54-4a97-aab6-1e312548a0f1.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p>咦？竟然是大剑灵的盒子~估计里面应该也是跟剑灵相关的吧</p><br><ul><br><li><br><h1>背面</h1><br></li><br></ul><br><p><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/ac3dbb0e-8558-45e4-9af6-563a86a90a3d.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/ac3dbb0e-8558-45e4-9af6-563a86a90a3d.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p>果然是剑灵游戏礼盒~不过包装还是高大上的</p><br><div></div><br><ul><br><li><br><h1>拆盒</h1><br></li><br></ul><br><p><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/5386f1ad-da06-4e7d-84b7-06f90cd41e35.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/5386f1ad-da06-4e7d-84b7-06f90cd41e35.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p>哎？给我提供了一枚剑灵的一周年勋章~虽然不玩剑灵好多年了~</p><br><p>&nbsp;</p><br><ul><br><li><br><h1>礼包卡,U盘</h1><br></li><br></ul><br><p><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/6db4efa6-da48-429e-8165-b20abfae8259.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/6db4efa6-da48-429e-8165-b20abfae8259.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p>一个礼包卡<br><br><img src="http://www.gbtags.com/gb/networks/uploadimgthumb/74139eae-fa51-4ead-8225-6af8bcc7abea.JPG" data-original="http://www.gbtags.com/gb/networks/uploadimgthumb/74139eae-fa51-4ead-8225-6af8bcc7abea.JPG" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="" width="500" height="281"></p><br><p>以上就是礼包的全部内容~</p><br><p>顺带一提，剑灵的妹纸还是挺好看的</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><h2>.身为一名学习了前端没多久的孩纸,虽然只是一份小小的礼物。但当我收到礼物的那一刻,心里面还是受到了很大的冲击,我想这并不是一份小小的礼物，更是对我前端之路的支持与鼓励，也是一种自己对自己的认可，我相信我能以这份礼物为基石，不断的在前端之路上探索与追寻自己内心深处的梦想.</h2><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

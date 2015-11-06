@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-68ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/68ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/68ver/">页面制作之CSS选择器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code class="brush:css;toolbar:false"> CSS选择器<br><br>例如:<br><br>h1{<br><br>color:red;<br><br>}</code></p><br><p>一:标签选择器<br><br>-p{color:blue;}</p><br><p>二:类选择器<br><br>-.special{color:red;}<br><br>-.<br><br>-字母,数字,-,<em><br><br>-className必须以字母开头<br><br>-区分大小写<br><br>-可以出现多次</em></p><br><p>三:id选择器<br><br>-#banner{color:black;}<br><br>-#<br><br>-字母,数字,-，<br><br>-id必须以字母开头<br><br>-区分大小写<br><br>-只能出现一次</p><br><p>四:通配符选择器<br><br>-<em>{color:blue;}</em></p><br><p>五:属性选择器-[att]<br><br>-[disabled]{background: red;}<br><br>-[type=button]{color:blue;}<br><br>-#nav{}==[id=nav]{}<br><br>-[class~=sports]//class属性包含了sports<br><br>-[lang|=en]//选择lang为en或者中划线连接的<br><br>-[href^=”#”]{color:red;}//选择#元素<br><br>-[href$=pdf]//选取以pdf结尾的元素<br><br>-[href=”xxx”]//href包含了xxx值</p><br><p>六:伪类选择器<br><br>-伪类选择器以冒号开头<br><br>-a:link{color:red;}<br><br>-a:visited{}//访问过的连接颜色<br><br>-a:hover{}//用户鼠标移上去的时候<br><br>-a:active{}//用户鼠标点击上去的时候<br><br>-:enabled//元素可用<br><br>-:disabled//元素不可用<br><br>-:checked//选中元素<br><br>-li:first-child//选择元素第一项<br><br>-li:last-child//选择元素最后一项<br><br>-li:nth-child(3n+1)//n从0开始<br><br>-li:nth-last-child(3n+1)//n从最后一项开始计算<br><br>-:only-child//选择只有一个子元素的标签<br><br>-dd:first-of-type//选择第一个这种类型的元素<br><br>-dd:last-of-type//选择最后一个这种类型的元素<br><br>-dd:nth-of-type(2n)//<br><br>-:only-of-type//选择只有一个父级元素<br><br>-:empty//选择没有子元素的<br><br>-:root//选择html根标签html<br><br>-:not()//不包含某个选择器的元素</p><br><p>七:伪元素选择器<br><br>-::first-letter{color:red;}//选择第一个字母<br><br>-::first-line{}//选择第一行<br><br>-::before{content:;}//在元素内容前面插入<br><br>-::after{content: }//在元素后面插入<br><br>-::selection{}//用于被用户选中的内容</p><br><p>八:组合选择器;<br><br>-后代选择器<br><br>-.main h2{}//选取main下的h2<br><br>-子选择器:<br><br>-.main&gt;h2{}//选择.main第一级的子元素<br><br>-兄弟选择器:<br><br>-h2+p{}//选择相邻1的p<br><br>-h2~p{}//选择同级的</p><br><p>九:选择器分组<br><br>h1,h2,h3{}//逗隔开</p><br><p>十:继承<br><br>-body{font-family: “微软雅黑”}//属性的继承,子元素可以继承父级元素的属性<br><br>-继承属性<br><br>-color<br><br>-font<br><br>-text-align<br><br>-list-style<br><br>-非继承属性<br><br>-background<br><br>-border<br><br>-position</p><br><p>十一：CSS优先级<br><br>-计算方法<br><br>-a=行内样式<br><br>-b=ID选择器的数量<br><br>-c=类，伪类和属性选择器数量<br><br>-d=标签选择器和伪元素的数量</p><br><p>十二:CSS层叠;<br><br>-相同的属性会覆盖<br><br>-优先级<br><br>-后面覆盖前面<br><br>-不同的属性会合并</p><br><p>十三:CSS改变优先级;<br><br>-改变先后顺序<br><br>-提示选择器的优先级<br><br>-!import//在属性后面加<br><br>​</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-67ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -661,61 +716,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><code class="brush:css;toolbar:false">CSS动画<br><br>一:transition-property 动画过渡属性<br><br>-transition-property:none<br><br>-transition-property:all 所有属性都可以做过渡效果<br><br>-transition-property:left 只对left进行过渡效果<br><br>-transition-property:color,left 对Left color进行过渡效果</code></p><br><p>二:transition-duration 动画执行时间<br><br>-transition-duration 0s;<br><br>-transition-duration: 1s;</p><br><p>三:transition-timing-function 时间函数<br><br>-transition-timing-function:ease 慢-快-慢<br><br>-transition-timing-function:cubic-bezier(0.25,0.1,0.25,1);</p><br><p>四:transition-delay 延迟<br><br>-transition-delay:1s; 延迟一秒</p><br><p>五:transition<br><br>-transition:left 2s ease 1s ,color 2s;<br><br>颜色动画执行2s</p><br><p>六:animation-name 动画名称<br><br>-animation-name:abc name //应用两个动画效果<br><br>-animation自动运行 transition需要进行触发</p><br><p>七:animation-duration 动画执行时间<br><br>-animation-duration:1s;</p><br><p>八:animation-timing-function 动画执行函数<br><br>-animation-timing-function:ease</p><br><p>九:animation-iteration-count 动画执行次数<br><br>-animation-iteration-count:1,2,infinite //第一个动画执行一次 第二个动画执行两次 最后一个动画执行无限次</p><br><p>十:animation-direction 动画顺序<br><br>-animation-direction:reverse 反向执行<br><br>-animation-direction:alternate 往返执行</p><br><p>十一:animation-play-sate 动画播放状态<br><br>-animation-play-state:running</p><br><p>十二:animation-delay 动画延迟<br><br>-animation-delay:1s;</p><br><p>十三:animation-fill-mode 动画开始结尾状态<br><br>-animation-fill-mode:backwards//开始时保持动画第一帧状态<br><br>-animation-fill-mode:forwards//结束时保持动画最后一帧状态<br><br>-animation-fill-mode:both;</p><br><p>十四:@keyframes 关键帧定义<br><br>-@keyframes abc{<br><br>form{ //0%<br><br>width: 10px;<br><br>}<br><br>to{//100%<br><br>width: 200px;<br><br>}<br><br>}<br><br>-@keyframes flash{<br><br>0%,50%,100%{<br><br>opacity: 1;<br><br>}<br><br>25%,75%{<br><br>opacity: 0;<br><br>}<br><br>}</p><br><p>-animation:abc 0.5s both,flash 0.5s both;<br><br>​</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-58ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/58ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.754Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/58ver/">JS程序设计之闭包</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code class="brush:js;toolbar:false"> 闭包<br><br>function add(){<br><br>var i=0<br><br>return function(){<br><br>alert(i++)<br><br>}<br><br>}<br><br>var f=add();<br><br>f();<br><br>f();</code></p><br><p>-闭包由函数和与其相关引用环境的组合而成<br><br>-闭包允许函数访问其引用环境中的变量（又称自由变量）<br><br>-广义上来说，所有的JS函数都可以称为闭包，因为JS函数在创建时保存了当前的词法环境</p><br><p>二:闭包的应用-保存变量现场<br><br>var addH=function(nodes){<br><br>var help=function(i){<br><br>return function(){<br><br>alert(i)<br><br>}<br><br>}<br><br>for (var i = 0; i &lt; nodes.length; i++) {<br><br>nodes[i].onclick=help(i)<br><br>};</p><br><p>}</p><br><p>三:闭包的应用-封装<br><br>var obs=(function(){<br><br>var obsl=[]<br><br>return {<br><br>add:function(obj){<br><br>obsl.push(obj)<br><br>}<br><br>}<br><br>//do sth<br><br>})()<br><br>​</p>
 
 
 

@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-217ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/217ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/217ver/">JavaScript-简单动画4:实用的动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>稍微深入一下动画,代码是根据简单动画3而来的 如果没有看过的可以去看看</p><br><blockquote><br><h2 class="post-title"><a title="JavaScript简单动画3-动画与抽象结合" href="http://www.old.com/soul-get/soul-js/149" target="_blank" rel="external">JavaScript简单动画3-动画与抽象结合</a></h2><br></blockquote><br><p>这个动画可以达到快速移动的效果,并且可以清除鼠标快速移动达成的那种反复移动的效果</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-动画-1&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    #div_show{<br>        width: 200px;<br>        height: 200px;<br>        overflow: hidden;<br>        position:relative;<br>    }<br><br><br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function anmi(){//定义函数<br>            var get_img =document.getElementById(“show”);//设置 get_img等于id属性为show的img元素<br>            get_img.style.position=”absolute”;//设置定位为绝对定位<br>            get_img.style.left=”0px”;//先前编写的时候就出错在这 必须要设置左 和上的属性<br>            get_img.style.top=”0px”;//要不然下面获取的时候会获取不到<br>            var get_list =document.getElementById(“list”);//设置 get_list等于id为list的ol元素<br>            var get_link =get_list.getElementsByTagName(“a”);//设置get_link等于list下的a元素<br>            get_link[0].onmouseover =function(){//因为数组是从0开始的 设置第一个a元素当鼠标放上去的时候调用函数<br>                CQ(“show”,-400,0,10);//CQ(“需要传递的元素id”,最终大小x为-400,y为0,10毫秒间隔执行);<br>            }<br>            get_link[1].onmouseover =function(){//同上<br>                CQ(“show”,-1900,0,10);//同上<br>            }<br><br><br>        }<br>        function CQ(elem,finally_x,finally_y,timenum){//定义CQ函数 并且定义4个参数<br>            var get_elem=document.getElementById(elem);//设置get_elem等于id为elem参数,比如上面elem传递的是”show”那么就获取id为show的标签<br>             var porx=parseInt(get_elem.style.left);//设置porx为get_elem的左属性 并且只获取整数<br>            var pory=parseInt(get_elem.style.top);//设置porx为get_elem的上属性 并且只获取整数<br>            var dist=0;<br>            if(elem.anmi){//这里的elem.anmi的意思是 elel的anmi的属性存在,变量也可以跟标签一样加属性之类的.<br>                //不好理解可以这样看 假设elem是p标签 那么anmi就是p标签的属性 &lt;p anmi=””&gt;&lt;/p&gt;这样的形式<br>                clearTimeout(elem.anmi);//clearTimeout是清除动画的函数<br><br>            }<br>            if(porx == finally_x &amp;&amp; pory==finally_y){//如果porx等于finally_x参数比如200 pory等于传递下来的finally_y参数 比如200<br>                return true;//如果是 返回真<br><br>            }<br>            if(porx&lt;finally_x){//如果左属性小于最终需要的左属性<br>                dist=Math.ceil((finally_x-porx)/10);//设置dist等于 最终左属性减去当前的左属性然后再除以10 这个10可以自由设置<br>                //加Math.ceil的意思是 如果最后只剩下了 3/10 那么不就是小数点了吗？ 所以Math.ceil的意思是返回一个不小于dist的整数.<br>                porx=porx+dist;//设置porx等于porx+dist 这样就可以快速移动了<br><br>            }<br>            if(porx&gt;finally_x){//如果左属性大于最终需要的属性<br>                dist=Math.ceil((porx-finally_x)/10);//设置dist等于 当前的左属性减去最终需要的左属性再除以10<br>                porx=porx-dist;//设置porx等于porx减去dist 这样就可以快速移动<br>            }<br>            if(pory&lt;finally_y){//原理同上<br>                dist=Math.ceil((finally_y-pory)/10);<br>                pory=pory+dist;<br><br>            }<br>            if(pory&gt;finally_y){//原理同上<br>                dist=Math.ceil((pory-finally_y)/10);<br>                porx=porx-dist;<br><br>            }<br>            get_elem.style.left=porx+”px”;//因为parseInt获取到的是整数 所以需要再后面加个px<br>            get_elem.style.top=pory+”px”;//同时<br>            var rept=”CQ(‘“+elem+”‘,”+finally_x+”,”+finally_y+”,”+timenum+”)”;<br>            //这个+号的意思是拼接 凡是字符串与变量连接都需要用+号..不要问我为什么 因为我也不知道<br>            //并且’”+elem+”‘ 必须是单引号然后双引号 如果双引号放外面函数误认为是个新属性<br>            elem.anmi=setTimeout(rept,timenum);//递归函数 timenum是传递下来的参数 elem.anmi上文已经解释了<br><br><br>        }<br><br>        window.onload=function(){//网页加载完毕加载函数<br>            anmi();<br><br>        }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;ol id=”list”&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_01.jpg”&gt;Soul-1&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_02.jpg”&gt;Soul-2&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_03.jpg”&gt;Soul-3&lt;/a&gt;&lt;/li&gt;<br>        &lt;li&gt;&lt;a href=”../img/Pepsized_Blur_04.jpg”&gt;Soul-4&lt;/a&gt;&lt;/li&gt;<br>    &lt;/ol&gt;<br>    &lt;div id=”div_show”&gt;<br>        &lt;img src=”../img/2048.jpg” id=”show”&gt;<br>    &lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-218ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -662,62 +717,6 @@ var _hmt = _hmt || [];
         <p></p><p>学习代码以及文章来自<a href="http://www.imooc.com/code/1701" target="_blank" rel="external">http://www.imooc.com/code/1701</a></p><p></p>
 <p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">替换元素节点replaceChild()</h2><p></p>
 <div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>replaceChild 实现子节点(对象)的替换。返回被替换对象的引用。</p><br><p><strong>语法：</strong></p><br><pre class="code">node.replaceChild (newnode,oldnew )</pre><br><p><strong>参数：</strong></p><br><p>newnode : 必需，用于替换 oldnew 的对象。<br><br>oldnew : 必需，被 newnode 替换的对象。</p><br><p>我们来看看下面的代码:</p><br><p><a href="http://img.mukewang.com/539557d70001c3ee07190429.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/539557d70001c3ee07190429.jpg" data-original="http://img.mukewang.com/539557d70001c3ee07190429.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p>效果: 将文档中的 Java 改为 JavaScript。</p><br><p><strong>注意: </strong></p><br><p>1. 当 oldnode 被替换时，所有与之相关的属性内容都将被移除。</p><br><p>2. newnode 必须先被建立。</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>试一试，补充函数 replaceMessage() 代码，实现将 b 标签替换成 i 标签。</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><pre class="lang:default decode:true">oldnode.parentNode.replaceChild(new_i,oldnode)</pre><br><p><span style="color: #ff0000;"> oldnode.parentNode //oldnode的父节点就是div</span></p><br><p><span style="color: #ff0000;">如果不写oldnode的父节点的话 …你能把你自己给替换了吗？或者说升职加薪的事情都是上级决定的</span></p><br><p><span style="color: #ff0000;">所以要指引到父节点</span></p><br><pre class="lang:default decode:true">var save_old=oldnode.innerHTML</pre><br><p><span style="color: #ff0000;"> 这个是保存了oldnode的文本节点内容.</span></p><br><pre class="lang:default decode:true">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;无标题文档&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br><br>  &lt;div&gt;&lt;b id=”oldnode”&gt;JavaScript&lt;/b&gt;是一个很常用的技术，为网页添加动态效果。&lt;/div&gt;<br>  &lt;a href=”javascript:replaceMessage()”&gt; 将加粗改为斜体&lt;/a&gt;<br><br>    &lt;script type=”text/javascript”&gt;<br>      function replaceMessage(){<br>          var oldnode=document.getElementById(“oldnode”);<br>          var save_old=oldnode.innerHTML<br>          var new_i=document.createElement(“i”);<br>          oldnode.parentNode.replaceChild(new_i,oldnode)<br>         var new_i_txt=document.createTextNode(save_old)<br>         new_i.appendChild(new_i_txt)<br><br><br>       }<br>  &lt;/script&gt;<br><br> &lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br></div><br></div><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-175ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/175ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/175ver/">JavaScript访问兄弟节点</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p></p><h2 class="code-head" data-lang="Javascript">文章及学习代码来自<a href="http://www.imooc.com/code/1593" target="_blank" rel="external">http://www.imooc.com/code/1593</a></h2><p></p>
-<p>&nbsp;</p><br><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">访问兄弟节点</h2><br><div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>1. nextSibling 属性可返回某个节点之后紧跟的节点（处于同一树层级中）。</p><br><p><strong>语法：</strong></p><br><pre class="code">nodeObject.nextSibling</pre><br><p><strong>说明：</strong>如果无此节点，则该属性返回 null。</p><br><p>2. previousSibling 属性可返回某个节点之前紧跟的节点（处于同一树层级中）。</p><br><p><strong>语法：</strong></p><br><pre class="code">nodeObject.previousSibling</pre><br><p><strong>说明：</strong>如果无此节点，则该属性返回 null。</p><br><p>注意: 两个属性获取的是节点。Internet Explorer 会忽略节点间生成的空白文本节点（例如，换行符号），而其它浏览器不会忽略。</p><br><p><strong>解决问题方法:</strong></p><br><p>判断节点nodeType是否为1, 如是为元素节点，跳过。</p><br><p><a href="http://img.mukewang.com/5386e3c80001c25607010856.jpg" target="_blank" rel="external"><img src="http://img.mukewang.com/5386e3c80001c25607010856.jpg" data-original="http://img.mukewang.com/5386e3c80001c25607010856.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></a></p><br><p><strong>运行结果:</strong></p><br><pre class="code">LI = javascript<br>nextsibling: LI = jquery</pre><br></div><br></div><br><p><span style="color: #ff0000;">学习经验</span></p><br><p>function get_previousSibling(elem){<br><br>if(elem.previousSibling.nodeType==1){<br><br>return elem.previousSibling<br><br>}else if(elem.previousSibling){<br><br>return get_previousSibling(elem.previousSibling)<br><br>}<br><br>return null</p><br><p>}</p><br><p><span style="color: #ff0000;">这句话的意思是 如果elem的上级元素是元素节点那么返回elem的上级节点,</span></p><br><p><span style="color: #ff0000;">如果elem的上级节点存在 再次调用get_previousSibling同时传递的是elem的上级节点</span></p><br><p><span style="color: #ff0000;">那么再次调用的时候if(elem.previousSibling.previousSibling.nodeType==1)</span></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!DOCTYPE HTML&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8”&gt;<br>&lt;title&gt;nextSibling&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;ul id=”u1”&gt;<br>            &lt;li id=”a”&gt;javascript&lt;/li&gt;<br>            &lt;li id=”b”&gt;jquery&lt;/li&gt;<br>            &lt;li id=”c”&gt;html&lt;/li&gt;<br>        &lt;/ul&gt;<br>        &lt;ul id=”u2”&gt;<br>            &lt;li id=”d”&gt;css3&lt;/li&gt;<br>            &lt;li id=”e”&gt;php&lt;/li&gt;<br>            &lt;li id=”f”&gt;java&lt;/li&gt;<br>        &lt;/ul&gt;<br>&lt;script type=”text/javascript”&gt;<br>    function get_nextSibling(n){<br>        var x=n.nextSibling;<br>        while (x &amp;&amp; x.nodeType!=1){<br>            x=x.nextSibling;<br>        }<br>        return x;<br>    }<br><br>    var x=document.getElementsByTagName(“li”)[0];<br>    document.write(x.nodeName);<br>    document.write(“ = “);<br>    document.write(x.innerHTML);<br><br>    var y=get_nextSibling(x);<br><br>    if(y!=null){<br>        document.write(“&lt;br /&gt;nextsibling: “);<br>        document.write(y.nodeName);<br>        document.write(“ = “);<br>        document.write(y.innerHTML+”&lt;br&gt;”);<br>    }else{<br>      document.write(“&lt;br&gt;已经是最后一个节点”);<br>    }<br>    function get_previousSibling(elem){<br>        if(elem.previousSibling.nodeType==1){<br>            return elem.previousSibling<br>        }else if(elem.previousSibling){<br>           return get_previousSibling(elem.previousSibling)<br>        }<br>        return null<br><br>    }<br>    var get_elem=document.getElementsByTagName(“li”)[1]<br>    var save=get_previousSibling(get_elem)<br>    document.write(save.nodeName+”&lt;br&gt;”)<br>    document.write(save.innerHTML+”&lt;br&gt;”)<br>&lt;/script&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

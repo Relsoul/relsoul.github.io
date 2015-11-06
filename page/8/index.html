@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,76 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-185ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/185ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/185ver/">JavaScript:2维数组+编程挑战:2次元赛高！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><p>学习代码及文章来自<a href="http://www.imooc.com/code/1484" target="_blank" rel="external">http://www.imooc.com/code/1484</a></p><p></p>
+<p></p><p>二维数组一直没弄清楚.现在来详细的弄清楚下</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..三维数组<br>        document.write(ew[1][2]);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p>再来输出二维数组</p><p></p>
+<p></p><p>值得注意的是[i].length因为第二个循环是要输出二维数组中二维的元素 所以先判断二维有多少个元素也就是</p><p></p>
+<p></p><p>[i]的长度 比如ew[1].length 就为3</p><p></p>
+<p><pre class="lang:default decode:true">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-二维数组&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        //创建一个二维数组<br>        var ew=[[“二维数组第一个”,”二维数组第二个”,”不是二维数组的第三个”],<br>        [“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”],]<br>        //ok创建了一个..二维数组<br>        document.write(ew[1][2]+”&lt;/br&gt;”);<br>        //ew[1] 是[“二维数组第一个-1”,”二维数组第二个-2”,”不是二维数组的第三个-3”] 这个数组<br>        //ew[1][2]是上面数组中的 第三个元素”不是二维数组的第三个-3”<br>        for (var i = 0; i &lt; ew.length; i++) {<br>            for (var j = 0; j &lt;ew[i].length; j++) {<br>                document.write(ew[i][j]+”&lt;/br&gt;”)<br>                //判断ew[i]中有多少个元素然后再输出j<br>                //也就是输出二维数组<br>            };<br>        };</pre></p>
+<pre><code>&amp;<span class="keyword">lt</span>;/script&amp;<span class="keyword">gt</span>;
+</code></pre><p>&lt;/head&gt;<br>&lt;body&gt;</p>
+<p>&lt;/body&gt;<br>&lt;/html&gt;</p>
+<p></p><p><span style="color: #ff0000;">来点高难的的挑战</span></p><p></p>
+<p></p><h2 id="J_CodeLang" class="code-head" data-lang="Javascript">编程练习</h2><p></p>
+<div id="J_CodeDescr" class="code-description"><br><div class="code-desc co"><br><p>在一个大学的编程选修课班里，我们得到了一组参加该班级的学生数据，分别是姓名、性别、年龄和年级，接下来呢，我们要利用JavaScript的知识挑出其中所有是大一的女生的的名字哦。</p><br><p><strong>学生信息如下：</strong></p><br><p>(‘小A’,’女’,21,’大一’),  (‘小B’,’男’,23,’大三’),</p><br><p>(‘小C’,’男’,24,’大四’),  (‘小D’,’女’,21,’大一’),</p><br><p>(‘小E’,’女’,22,’大四’),  (‘小F’,’男’,21,’大一’),</p><br><p>(‘小G’,’女’,22,’大二’),  (‘小H’,’女’,20,’大三’),</p><br><p>(‘小I’,’女’,20,’大一’),  (‘小J’,’男’,20,’大三’)</p><br></div><br><div class="code-tips"><br><h3 class="code-tips-title">任务</h3><br><div class="co"><br><p>第一步： 把这些数据组成一个数组，方便我们之后操作哦。</p><br><pre class="code">提示: 使用二维数组。</pre><br><p>第二步： 筛选数据吧，首先找出都是大一的所有信息 ;</p><br><p>第三步： 最后再一次筛选上一步得到的数据，打印出都是女生的姓名 ;</p><br><p><span style="color: #ff0000;">任务经验</span></p><br><p><span style="color: #ff0000;">if判断的时候是if(infos[i][j])相当于逐个逐个元素的查找,因为我们只要姓名所以输出的时候输出了infos[i][0]</span></p><br><p><span style="color: #ff0000;">这样做比较耗性能,如果还要精准点来个循环判断只输出名字就ok了</span></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true">&lt;!DOCTYPE  HTML&gt;<br>&lt;html &gt;<br>&lt;head&gt;<br>&lt;meta http-equiv=”Content-Type” content=”text/html; charset=utf-8” /&gt;<br>&lt;title&gt;流程控制语句&lt;/title&gt;<br>&lt;script type=”text/javascript”&gt;<br><br> //第一步把之前的数据写成一个数组的形式,定义变量为 infos<br> var infos=[[‘小A’,’女’,21,’大一’],<br> [‘小B’,’男’,23,’大三’],[‘小C’,’男’,24,’大四’],[‘小D’,’女’,21,’大一’],[‘小E’,’女’,22,’大四’],[‘小F’,’男’,21,’大一’],<br> [‘小G’,’女’,22,’大二’],[‘小H’,’女’,20,’大三’],[‘小I’,’女’,20,’大一’],[‘小J’,’男’,20,’大三’]<br>     ]<br><br> //第一次筛选，找出都是大一的信息<br>for(var i=0;i&lt;infos.length;i++){<br>    for(var j=0;j&lt;infos[i].length;j++){<br>        if(infos[i][j]==”大一”){<br>            document.write(infos[i][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br> //第二次筛选，找出都是女生的信息<br>for(var n=0;n&lt;infos.length;n++){<br>    for(var m=0;m&lt;infos[n].length;m++){<br>        if(infos[n][m]==”女”){<br>            document.write(“女生:”+infos[n][0]+”&lt;/br&gt;”)<br>        }<br>    }<br><br>    }<br><br><br>&lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br><p>&nbsp;</p><br></div><br></div><br></div>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-186ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -754,61 +824,6 @@ var _hmt = _hmt || [];
       
         <p></p><h2>CSS border三角、圆角图形生成技术简介</h2><p></p>
 <div class="entry"><br><p>by <a href="http://www.zhangxinxu.com/" target="_blank" rel="external">zhangxinxu</a> from <a href="http://www.zhangxinxu.com/" target="_blank" rel="external">http://www.zhangxinxu.com</a><br><br>本文地址：<a href="http://www.zhangxinxu.com/wordpress/?p=794" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=794</a></p><br><h3>一、前言</h3><br><p>利用CSS的border属性可以生成一些图形，例如三角或是圆角。纯粹的CSS2的内容，没有兼容性的问题，我之前在<a href="http://www.zhangxinxu.com/wordpress/?p=651" target="_blank" rel="external">纯CSS实现各类气球泡泡对话框效果</a>一文中算是比较详细的讲述了CSS border属性生成三角的原理，以及实例。我觉得此技术相当实用的，故本文再次简单叙述一下，另外，本文还将展示可能并不为众人所知的CSS border圆角生成技术。好了，裹脚布的话就不说了，直接进入正题。</p><br><h3>二、CSS border生成三角技术简介</h3><br><p><strong>效果抢鲜</strong><br><br>下图为使用CSS的border属性实现的三角效果：<br><br><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" target="_blank" rel="external"><img class="imgpad mt10" title="相邻边框显示的效果 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="相邻边框显示的效果 张鑫旭-鑫空间-鑫生活" width="172" height="73"></a></p><br><div class="zxx_code"><br><pre>.test{width:0; height:0; border-width:20px 10px; border-style:solid; border-color:#ff3300 #ff3300 #ffffff #ffffff;}</pre><br></div><br><p>如何实现的，为何会有这样的效果，不急，take it easy!</p><br><p><strong>梯形图案</strong><br><br>看下面这段样式：</p><br><div class="zxx_code"><br><pre>.test{width:10px; height:10px; border:10px solid; border-color:#ff3300 #0000ff #339966 #00ff00;}</pre><br></div><br><p>当某个div应用了上面这个样式后，结果会如何？见下图（截自Firefox3.5，IE浏览器有细节上的差异）：<br><br><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_001825.png" target="_blank" rel="external"><img class="imgpad mt10" title="Firefox浏览器下边框交界处的显示 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_001825.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_001825.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="Firefox浏览器下边框交界处的显示 张鑫旭-鑫空间-鑫生活" width="185" height="66"></a></p><br><p><strong>更进一步 – 部分边框透明</strong><br><br>现在，设想一下，如果我们现在只保留一个一个上边框，其余边框均transparent透明（或与背景色同色），那么是不是就只显示一个上面红色的边框了，我们测试下，与上面类似的代码，只是修改下其余三个边框的颜色。</p><br><div class="zxx_code"><br><pre>.test{width:10px; height:10px; border:10px solid; border-color:#ff3300 #ffffff #ffffff #ffffff;}</pre><br></div><br><p>结果如下图（截自Firefox3.5）：<br><br><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" target="_blank" rel="external"><img class="imgpad mt10" title="边框色域背景色一致后的效果 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="边框色域背景色一致后的效果 张鑫旭-鑫空间-鑫生活" width="181" height="59"></a></p><br><div>得到的是一个梯形。</div><br><p><strong>从梯形到三角</strong><br><br>上面的是梯形，我要想得到一个三角图案该怎么办呢？显然，很简单，把div的高宽都变成0，只留一边，不就是三角了吗？如下代码：</p><br><div class="zxx_code"><br><pre>.test{width:0; height:0; border:10px solid; border-color:#ff3300 #ffffff #ffffff #ffffff;}</pre><br></div><br><p>结果如下（依旧截图自Firefox3.5）：<br><br><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_003545.png" target="_blank" rel="external"><img class="imgpad mt10" title="高宽置0后的显示 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_003545.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_003545.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="高宽置0后的显示 张鑫旭-鑫空间-鑫生活" width="176" height="49"></a></p><br><p><strong>从等腰直角三角形到普通等腰三角</strong><br><br>上图为等腰直角三角形，之所以为等腰直角，是因为所有的边框宽度是一样的，如果我们将边框宽度设置为不同，那会怎样？则会形成等腰三角形。如下代码：</p><br><div class="zxx_code"><br><pre>.test{width:0; height:0; border-width:20px 10px; border-style:solid; border-color:#ff3300 #ffffff #ffffff #ffffff;}</pre><br></div><br><p>得到的结果如下图：<br><br><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005156.png" target="_blank" rel="external"><img class="imgpad mt10" title="边框大小不一致后的显示 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005156.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005156.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="边框大小不一致后的显示 张鑫旭-鑫空间-鑫生活" width="197" height="66"></a></p><br><p><strong>从等腰到不等腰</strong><br><br>我们可以不局限于保留一条边框，我们可以保留两条，于是我们可以告别等腰，得到更加锐利的三角，正如一开始所展示的那个三角：</p><br><div class="zxx_code"><br><pre>.test{width:0; height:0; border-width:20px 10px; border-style:solid; border-color:#ff3300 #ff3300 #ffffff #ffffff;}</pre><br></div><br><p><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" target="_blank" rel="external"><img class="imgpad mt10" title="相邻边框显示的效果 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_005753.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="相邻边框显示的效果 张鑫旭-鑫空间-鑫生活" width="172" height="73"></a></p><br><p><strong>实际的应用</strong><br><br>关于应用，不多说，直接看图：</p><br><div><img class="alignnone" title="邻边边框尖角使用效果图 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_010328.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_010328.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="邻边边框尖角使用效果图 张鑫旭-鑫空间-鑫生活" width="464" height="90"></div><br><p><strong>说明：</strong><br><br>以上的测试代码纯粹为了说明原理，所以使用#ffffff白色边框，通过于背景融合来隐藏边框。在实际的操作中，应该使用transparent透明属性，例如<code>border-color:#ff3300 #ff3300 transparent transparent;</code>，这同样会有问题，IE6浏览器不支持transparent透明属性，不过没有关系，就border生成三角技术而言，直接设置对应的透明边框的border-style属性为dotted或是dashed即可解决这一问题，为什么使用dotted和dashed可以修复此问题呢？您有兴趣可以参见默尘的这篇文章<a title="Dotted&amp;Dashed终极分析及IE6透明边框" href="http://blog.silentash.com/2009/12/ie6-border-transparent/" target="_blank">Dotted&amp;Dashed终极分析及IE6透明边框</a>。</p><br><h3>三、CSS border圆角生成技术简介</h3><br><p><strong>我看圆角</strong><br><br>一提到圆角，我脑中闪过的词就是“定位”，“嵌套”，“模拟”，“渐进增强”，“滥用”。定位，也就是切四个角上下左右定位，这是淘宝首页的做法，但是面对IE6的奇偶bug只能当作看客；使用“嵌套”则不会有此问题，“嵌套”分图片背景嵌套和CSS边框嵌套，使用图片嵌套则图片的重用性，大小优化有待加强，边框嵌套则技术实现上有些难度；或使用“渐进增强”，CSS3 border-radius属性，而不要去鸟IE这类自我感觉良好的浏览器；或是学习Google使用CSS模拟，而一般的CSS模拟都是使用左右边框+背景色的方式1像素1像素的拼合成的。这类方法各有优缺点，需根据实际情况采用。对于满眼圆角的设计图我是很不喜欢的，该用则用，切勿为了圆角而圆角。</p><br><p><strong>border圆角图案生成法</strong><br><br>这里介绍的实现圆角的得到与上面提到的都是不一样的，虽然也属于CSS模拟的范畴，但是其高效的程度确实相当惊人的，可谓最佳实践之一。</p><br><p>我们先看看效果，见下图，截自Firefox3.6：</p><br><div><img class="imgpad" title="border属性生成圆角 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_153414.png" data-original="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_153414.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="border属性生成圆角 张鑫旭-鑫空间-鑫生活" width="520" height="120"></div><br><p>上述效果的实现仅仅使用了三个标签，如下代码：</p><br><div><strong>HTML:</strong><p></p><br><div class="zxx_code"><br><pre>&lt;div class=”box”&gt;<br>    &lt;div class=”top”&gt;&lt;/div&gt;<br>    &lt;div class=”center”&gt;我是一只小小鸟、小小鸟！&lt;/div&gt;<br>    &lt;div class=”bot”&gt;&lt;/div&gt;<br>&lt;/div&gt;</pre><br></div><br><p><strong>CSS:</strong></p><br><div class="zxx_code"><br><pre>.box{width:500px;}<br>.top{border-bottom:3px solid; border-top-color:#cc0000; border-bottom-color:#cc0000; border-left:3px dotted transparent; border-right:3px dotted transparent;}<br>.center{padding:10px 20px; color:white; font-size:14px; background:#cc0000;}<br>.bot{border-top:3px solid; border-top-color:#cc0000; border-bottom-color:#cccccc; border-left:3px dotted transparent; border-right:3px dotted transparent;}<br></pre><br></div><br></div><br><p>我们看看这段代码在IE6下的效果：</p><br><div><img class="imgpad" title="IE6下border属性生成圆角 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_154645.png" data-original="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_154645.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="IE6下border属性生成圆角 张鑫旭-鑫空间-鑫生活" width="522" height="99"></div><br><p>这里的高效在于，仅仅使用了一层标签就模拟了3像素的圆角，按照曾经我对CSS圆角模拟的理解，模拟1像素的圆角需要一层标签(background+borderLeft+borderRight)，两像素的需要两层标签，三像素的需要三层标签。</p><br><p>有点神奇，但是就像看刘谦的魔术一样，说穿了也就那么回事，其实这里的圆角模拟在本文的上面已经展示了，就是这样图片：</p><br><div><a href="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" target="_blank" rel="external"><img class="imgpad mt2" title="边框色域背景色一致后的效果 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" data-original="http://image.zhangxinxu.com/image/blog/201003/2010-03-13_002528.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="边框色域背景色一致后的效果 张鑫旭-鑫空间-鑫生活" width="181" height="59"></a></div><br><p>您可能会疑问，是不是搞错图片啦，这显然不是一个模样的，非也非也，就本质上而言，圆角的实现与上面的梯形图就是同样的东西。现在，盯着上面这张图，我们想象一下，用力的想象，用想花姑娘的那番劲头想象——上面的梯形宽度越来越宽（不是拉伸），一直宽到500像素，是不是与上面实现的圆角的下边缘一致啊？</p><br><p>也就是说，那个含有“我是一只小小鸟……”文字的圆角图形是有一个上梯形+矩形+下梯形组成的。参见下面的分离效果图：</p><br><div><img class="imgpad" title="圆角上下分离示意图 张鑫旭-鑫空间-鑫生活" src="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_161755.png" data-original="http://image.zhangxinxu.com/image/blog/201005/2010-05-05_161755.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="圆角上下分离示意图 张鑫旭-鑫空间-鑫生活" width="520" height="154"></div><br><p>您可以狠狠地点击这里：<a class="a_link" href="http://www.zhangxinxu.com/study/201004/border-round-shape.html" target="_blank">CSS border圆角生成demo</a></p><br><p><strong>局限性</strong><br><br>人无完人，金无足赤，此方法虽然简洁高效，兼容性上佳，但是依然有局限性，在实现实色背景的圆角效果时，此方法可谓首选；如果是纯粹的圆角边框，此方法也可以实现，需要用到边框重叠，但是标签数几乎要翻倍，其权衡效用将大打折扣，反不如其他圆角方法来的实在。</p><br><h3>四、结语</h3><br><p>如果在web制作中，需要用的一些直接可以使用CSS+单标签模拟的图片，我的建议是“毫不犹豫使用CSS模拟”，例如实色的三角，或是实现实色的圆角效果，这可以说是最高效，最利于扩展维护的前端实现方法了。我们需要开阔的思维，而不要仅仅局限于眼前的技术，武侠中所谓的“无招胜有招”还是有着一定的哲学道理的，长远来看，意识与海纳百川的心态比当下的一点技术更来得重要。我还羽翼未丰，青涩稚嫩，诚惶诚恐不敢随性多说。不管怎样，希望本文的内容能够对您的学习有所帮助，如果您发现文章中有表述不准确之处，欢迎指正。</p><br><p>原创文章，转载请注明来自<a href="http://www.zhangxinxu.com/" target="_blank" rel="external">张鑫旭-鑫空间-鑫生活</a>[<a href="http://www.zhangxinxu.com/" target="_blank" rel="external">http://www.zhangxinxu.com</a>]<br><br>本文地址：<a href="http://www.zhangxinxu.com/wordpress/?p=794" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/?p=794</a></p><br></div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-129ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/129ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/129ver/">CSS3的折页效果 小三角效果</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>技术都比较初级,重点是理解如何利用CSS来生成小三角形.然后定位就ok了.</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>演示地址:<a href="http://www.old.com/demo/%E6%8A%98%E9%A1%B5.html" target="_blank" rel="external">http://www.old.com/demo/%E6%8A%98%E9%A1%B5.html</a></p><br><p>&nbsp;</p><br><p>代码</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    *{margin: 0;padding: 0;<br>        font-family: ‘微软雅黑’;}<br>        #mom li{<br>            list-style-type: none;<br>            text-align: center;<br>            margin: 10px;<br>            margin-top:20px;<br>        }<br>        #warp{<br>            background: #E5FCC2;<br>            margin: 100px auto;<br>            height: 400px;<br>            width: 960px;<br>            box-shadow: -5px 5px 30px black;<br><br><br>        }<br>        #mom{<br>            top: 30px;<br>            left: -20px;<br>            width: 100px;<br>            height: 250px;<br>            position: relative;<br>            background: #594F4F;<br>            border-radius: 0 15px 15px 0;<br>            box-shadow: 5px 5px 30px black;<br><br>        }<br><br>        #rord_bottom{<br>            position: relative;<br>            display: block;<br>            width: 0;<br>            height: 0;<br>            border-style:dashed solid dashed dashed;<br>            border-width:12px 20px;<br>            left:-40px;<br>            top: 19px;<br>               border-color:transparent #594F4F transparent transparent;<br>        }<br><br>        #rord_top{<br>            position: relative;<br>            display: block;<br>            width: 0;<br>            height: 0;<br>            border-style:dashed solid dashed dashed;<br>            border-width:12px 20px;<br>            left:-20px;<br>            top: -12px;<br>               border-color:transparent #594F4F transparent transparent;<br><br>        }<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;div id=”warp”&gt;<br>        &lt;ul id=”mom”&gt;<br>            &lt;span id=”rord_top”&gt;&lt;/span&gt;<br>            &lt;li&gt;菜单1&lt;/li&gt;<br>            &lt;li&gt;菜单2&lt;/li&gt;<br>            &lt;li&gt;菜单3&lt;/li&gt;<br>            &lt;li&gt;菜单4&lt;/li&gt;<br>            &lt;li&gt;菜单5&lt;/li&gt;<br>        &lt;/ul&gt;<br>        &lt;span id=”rord_bottom”&gt;&lt;/span&gt;<br>    &lt;/div&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 

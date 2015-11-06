@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-139ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/139ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/139ver/">JavaScript:深入浅出-作用域</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript无块级作用域,<br><br>JavaScript作用域环境只有两种 全局与局部</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;Document&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>    var a=10;//全局<br>    (function(){<br>        var b=20;//函数作用域<br>    })();<br><br>    console.log(a);<br>    console.log(b)//error,b 未定义<br><br>    for(var item in{a:1,b:2}){<br>        //item在外级也可以访问到<br>        //JavaScript无块级作用域<br>        console.log(item);<br>    }<br>    console.log(item);//可以访问到<br><br>    eval(“var a=1”)<br><br>    //作用域链<br><br>    function outer2(){<br>        var local2=1;<br>        function outer1(){<br>            var local1=1;<br><br>        }<br>        outer1();<br>    }<br>    var global3=1;<br>    outer2();<br><br>    function outer3(){<br>        var i=1;<br>        var func=new Function(“console.log(typeof i);”);<br>        func();//undefined<br>    }<br>    outer3();<br><br>    //利用函数作用域封装<br>    (function(){<br>        //do sth<br>        var a,b;<br>    })();<br><br>    !function(){<br>        //do sth<br>        var a,b;<br>    }();<br><br>    &lt;/script&gt;<br><br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-140ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -668,61 +723,6 @@ var _hmt = _hmt || [];
 <p></p><p>我们的网页因为 CSS 而呈现千变万化的风格。这一看似简单的样式语言在使用中非常灵活，只要你发挥创意就能实现很多比人想象不到的效果。特别是随着 CSS3 的广泛使用，更多新奇的 CSS 作品涌现出来。</p><p></p>
 <p></p><p>今天给大家带来 CSS 三角形绘制方法<br><br><img src="http://files.jb51.net/file_images/article/201310/201310290941121.jpg?201392994443" data-original="http://files.jb51.net/file_images/article/201310/201310290941121.jpg?201392994443" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><p></p>
 <div class="codetitle"><a id="copybut56704" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code56704" class="codebody"><br>#triangle-up {<br><br>width: 0;<br><br>height: 0;<br><br>border-left: 50px solid transparent;<br><br>border-right: 50px solid transparent;<br><br>border-bottom: 100px solid red;<br><br>}</div><br><p><img src="http://files.jb51.net/file_images/article/201310/201310290941322.jpg?201392994757" data-original="http://files.jb51.net/file_images/article/201310/201310290941322.jpg?201392994757" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut48418" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code48418" class="codebody"><br>#triangle-down {<br><br>width: 0;<br><br>height: 0;<br><br>border-left: 50px solid transparent;<br><br>border-right: 50px solid transparent;<br><br>border-top: 100px solid red;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290941433.jpg?201392994835" data-original="http://files.jb51.net/file_images/article/201310/201310290941433.jpg?201392994835" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut26392" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code26392" class="codebody"><br>#triangle-left {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 50px solid transparent;<br><br>border-right: 100px solid red;<br><br>border-bottom: 50px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290941534.jpg?20139299495" data-original="http://files.jb51.net/file_images/article/201310/201310290941534.jpg?20139299495" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut65913" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code65913" class="codebody"><br>#triangle-right {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 50px solid transparent;<br><br>border-left: 100px solid red;<br><br>border-bottom: 50px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942025.jpg?201392994926" data-original="http://files.jb51.net/file_images/article/201310/201310290942025.jpg?201392994926" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut47350" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code47350" class="codebody"><br>#triangle-topleft {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 100px solid red;<br><br>border-right: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942136.jpg?201392994948" data-original="http://files.jb51.net/file_images/article/201310/201310290942136.jpg?201392994948" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut29596" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code29596" class="codebody"><br>#triangle-topright {<br><br>width: 0;<br><br>height: 0;<br><br>border-top: 100px solid red;<br><br>border-left: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942227.jpg?20139299509" data-original="http://files.jb51.net/file_images/article/201310/201310290942227.jpg?20139299509" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut56299" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code56299" class="codebody"><br>#triangle-bottomleft {<br><br>width: 0;<br><br>height: 0;<br><br>border-bottom: 100px solid red;<br><br>border-right: 100px solid transparent;<br><br>}</div><br><p><img id="theimg" src="http://files.jb51.net/file_images/article/201310/201310290942328.jpg?201392995028" data-original="http://files.jb51.net/file_images/article/201310/201310290942328.jpg?201392995028" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><div class="codetitle"><a id="copybut76189" class="copybut"></a><span style="text-decoration: underline;">复制代码</span>代码如下:</div><br><div id="code76189" class="codebody"><br>#triangle-bottomright {<br><br>width: 0;<br><br>height: 0;<br><br>border-bottom: 100px solid red;<br><br>border-left: 100px solid transparent;<br><br>}</div>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-169ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/169ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/169ver/">JavaScript:网页定位导航特效</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习视频来自<a href="http://www.imooc.com/video/901" target="_blank" rel="external">http://www.imooc.com/video/901</a></p><br><p><span style="color: #ff0000;">学习经验</span></p><br><p><span style="color: #ff0000;">分析-设计-实现</span></p><br><p>主要思路</p><br><p>1,先获取到每个item距离页面顶部高度</p><br><p>2.如果滑动滚动条的距离大于了item 也就是说过了item</p><br><p>3.给相应的item加上class同时遍历删除其他元素的class</p><br><p>&nbsp;</p><br><p><span style="color: #ff0000;">注意事项</span></p><br><p>currentId=_item.id<br><br>//遍历因为是从0开始的<br><br>//所以这里就是设置相应的item id赋值</p><br><p>if(_href[_href.length-1]!=currentId){<br><br>//这句话的意思就是 每一次移动都会遍历删除<br><br>//其他a标签的class</p><br><p>removeClass(_menus,”current”)<br><br>//删除当前a标签的class属性()</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-垂直定位导航栏&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>    <em>{<br>        margin: 0;<br>        padding: 0;<br>    }<br>    body{<br>        font-size: 12px;<br>        line-height: 1.7;<br>    }<br>    li{<br>        list-style: none;<br>    }<br>    #content{<br>        width: 800px;<br>        margin: 0 auto;<br>        padding: 20px;<br>    }<br>    #content h1{<br>        color: #0088bb;<br><br>    }<br>    #content .item{<br>        padding: 20px;<br>        margin-bottom: 20px;<br>        border: 1px dotted #0088bb;<br><br>    }<br>    #content .item h2{<br>        font-size: 16px;<br>        font-weight: bold;<br>        border-bottom: 2px solid #0088bb;<br>        margin-bottom: 10px;<br>    }<br>    #content .item li{<br>        display: inline;<br>        margin-right: 10px;<br>    }<br>    #content .item li a img {<br>        width:230px;<br>        height: 230px;<br>        border: none;<br>    }<br>    #menu{<br>        position: fixed;<br>        top:100px;<br>        left: 50%;<br>        margin-left: 400px;<br>        width: 80px;<br>    }<br>    #menu ul li a{<br>        display: block;<br>        margin:5px 0;<br>        font-size: 14px;<br>        font-weight: bold;<br>        color: #333;<br>        width: 80px;<br>        line-height: 50px;<br>        text-decoration: none;<br>        text-align: center;<br>    }<br>    #menu ul li a:hover,#menu ul li a.current{<br>        color: #fff;<br>        background: #0088bb;<br>    }<br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function getClassName(obj,cls){<br>         //定义函数<br>         var elem=obj.getElementsByTagName(“</em>“)<br>         //获取到obj下的所有标签<br>         var ref=[];//设置数组<br>         for (var i = 0; i &lt; elem.length; i++) {<br>             //遍历elem<br>             if(elem[i].className==cls){<br>                 //如果elem的className等于cls<br>                 ref.push(elem[i])//向ref数组添加elem[i]<br>             }<br>         };<br>         return ref;//返回数组<br><br><br>     }<br><br>function hasClass(ele,cls) {<br>    return ele.className.match(new RegExp(‘(\s|^)’+cls+’(\s|$)’));<br>}<br><br>function addClass(ele,cls) {<br>    if (!this.hasClass(ele,cls)) ele.className += “ “+cls;<br>}<br><br>function removeClass(ele,cls) {<br>    if (hasClass(ele,cls)) {<br>        var reg = new RegExp(‘(\s|^)’+cls+’(\s|$)’);<br>        ele.className=ele.className.replace(reg,’ ‘);<br>    }<br>}<br><br><br>     function getScrolltop(){<br>         window.onscroll=function(){<br>             //scrollTop代表的是滚动条滚动的距离<br>             var top =document.documentElement.scrollTop||document.body.scrollTop<br>             console.log(top)<br>             var menus=document.getElementById(“menu”).getElementsByTagName(“a”)<br>             //设置menus等于menus下的a标签<br>             var items=getClassName(document.getElementById(“content”),”item”)<br>             //获取到content下classname为item的所有元素<br>             var currentId=””;//设置一个空字符<br>             for (var i = 0; i &lt; items.length; i++) {<br>                 //遍历classname为item的所有元素<br>                 var _item=items[i]<br>                 var _itemTop=_item.offsetTop<br>                 //获取到每个item标签距离页面顶部的距离<br>                 //比如item1 距离页面顶部是400<br><br>                 //offsetTop是item距离页面的高度 也就是说元素距离页面的高度<br><br>                 if(top&gt;_itemTop-200){<br>                     //如果滚动的距离大于元素距离页面的高度(-200是为了用户体验)<br>                     //举例 比如说 item1的举例顶部的高度是400<br>                     //滚动条滚动了250<br>                     //那么250肯定大于200对吧<br><br>                     currentId=_item.id<br>                     //设置currentId为item标签的id<br>                     //举个例子 item1的id就是 item1<br>                     console.log(currentId)<br><br>                 }else{<br>                     break;<br>                 }<br>             };<br>             if(currentId){//currentId存在<br>                     for (var j = 0; j &lt; menus.length; j++) {<br>                         //遍历menu下的 a标签<br>                         var _menus=menus[j]<br>                         //设置_menus等于a标签<br>                         // console.log(_menus.href)<br>                         var _href=_menus.href.split(“#”)<br>                         //因为我们在href属性中写的是# 所以页面的连接应该为<br>                         //<a href="http://xxx.com/#item1" target="_blank" rel="external">http://xxx.com/#item1</a><br>                         //我们需要分割一下数组<br>                         //<br>                         if(_href[_href.length-1]!=currentId){<br>                             //这句话的意思就是 每一次移动都会遍历删除<br>                             //其他a标签的class<br><br>                             removeClass(_menus,”current”)<br>                             //删除当前a标签的class属性()<br><br><br>                         }else{<br>                             //比如 移动到item1时 等于item1<br>                             //那么就给item1添加上class<br>                             addClass(_menus,”current”)<br><br>                         }<br><br>                     };<br><br>                 }<br><br><br>         }<br><br>     }<br>window.onload=function(){<br>    getScrolltop()<br>}<br><br><br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=”menu”&gt;<br>&lt;ul&gt;<br>    &lt;li&gt;&lt;a href=”#item1” class=”current”&gt;1F 灵魂&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item2”&gt;2F 晶石&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item3”&gt;3F 装备&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item4”&gt;4F 经验&lt;/a&gt;&lt;/li&gt;<br>&lt;li&gt;&lt;a href=”#item5”&gt;5F Hero&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>&lt;/div&gt;<br>&lt;div id=”content”&gt;<br>    &lt;h1&gt;Soul&lt;/h1&gt;<br>    &lt;div id=”item1” class=”item”&gt;<br>        &lt;h2&gt;1F 灵魂&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2048.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item2” class=”item”&gt;<br>        &lt;h2&gt;2F 晶石&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/Pepsized_Blur_05.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item3” class=”item”&gt;<br>        &lt;h2&gt;3F 装备&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/2015.png” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item4” class=”item”&gt;<br>        &lt;h2&gt;4F 经验&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/jesus-light-578027_1920.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>    &lt;div id=”item5” class=”item”&gt;<br>        &lt;h2&gt;5F Hero&lt;/h2&gt;<br>        &lt;ul&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>            &lt;li&gt;&lt;a href=”#”&gt;&lt;img src=”./img/1.jpg” alt=””&gt;&lt;/a&gt;&lt;/li&gt;<br>        &lt;/ul&gt;<br>    &lt;/div&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

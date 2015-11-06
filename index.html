@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,69 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-code/mongoose学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/07/code/mongoose学习笔记/" class="article-date">
+  	<time datetime="2015-11-06T17:33:55.620Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/code/mongoose学习笔记/">mongoose学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="连接">连接</h1><p>引入mongoose后然后用connection连接就okay了<br>推荐一个可视化数据库软件robomongo<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="keyword">var</span> db=mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span><br><span class="line">db.connection.on(<span class="string">"error"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line">db.connection.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"okay"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Schema">Schema</h1><p>schema就像一个模块的框架.查询根据这个模板框架来查询,插入也根据这个模板框架来插入.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">"mongoose"</span>)</span><br><span class="line"><span class="keyword">var</span> testSchema=<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name :&#123;<span class="keyword">type</span>:<span class="built_in">String</span>&#125;,<span class="comment">//属性为name，类型为String</span></span><br><span class="line">    age:&#123;<span class="keyword">type</span>:<span class="built_in">Number</span>,<span class="keyword">default</span>:<span class="number">0</span>&#125;,<span class="comment">//属性为age 类型为Number 默认值为0</span></span><br><span class="line">    time:&#123;<span class="keyword">type</span>:<span class="built_in">Date</span>,<span class="keyword">default</span>:<span class="built_in">Date</span>.now&#125;,</span><br><span class="line">    email:&#123;<span class="keyword">type</span>:<span class="built_in">String</span>,<span class="keyword">default</span>:<span class="string">""</span>&#125;,</span><br><span class="line">    gender:&#123;<span class="keyword">type</span>:<span class="built_in">Boolean</span>,<span class="keyword">default</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Model">Model</h1><p>有了模板框架现在就可以生成模板了<br>test1是数据库中的集合名称 如果test1已经存在 则会保存到其目录下 如果不存在则会创建test1集合保存数据</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> db =mongoose.<span class="function"><span class="title">connect</span><span class="params">(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span></span></span><br><span class="line"><span class="tag">var</span> testmodel=db.<span class="function"><span class="title">model</span><span class="params">(<span class="string">"test1"</span>,testSchema)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="Entity_实体">Entity 实体</h1><p>有了模板就可以生成实体<br>这里没有传入time 所以默认time是当前时间.现在仅仅生成实体了 但是,还没有保存,<br>我们可以console.log打印一下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var testEntity=<span class="keyword">new</span> testmodel(&#123;</span><br><span class="line">        name:<span class="string">"soul"</span>,</span><br><span class="line">        age:<span class="number">18</span>,</span><br><span class="line">        email:<span class="string">"admin@emufan.com"</span>,</span><br><span class="line">        gender:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line">console.<span class="built_in">log</span>(testEntity.time)<span class="comment">//Fri Nov 06 2015 13:27:58 GMT+0800 (中国标准时间)</span></span><br><span class="line">console.<span class="built_in">log</span>(testEntity.age)<span class="comment">//18</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/">code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoose/">mongoose</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/07/code/mongoose学习笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-code/jade学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -700,61 +763,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>真的不得不佩服作者大大的思维.膜拜</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS-1&lt;/title&gt;<br>    &lt;style type=”text/css”&gt;<br>        table,th,td{<br>            border: 2px solid black;<br>            border-collapse:collapse;<br>            width: 100px;<br>        }<br><br>    &lt;/style&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function changeBg(){//定义函数<br>            var get_table =document.getElementsByTagName(“table”);//获取页面中的table标签<br>            var obb;//定义变量 obb(偶数)<br>            for (var i = 0; i &lt; get_table.length; i++) {//开始遍历table<br>                obb =false;//设置偶数行等于 假<br>                var get_table_tr=get_table[i].getElementsByTagName(“tr”);//设置get_table等于table中的tr元素<br>            for (var d = 0; d &lt; get_table_tr.length; d++) {//开始遍历tr<br>                if (obb==true) {//如果偶数行等于 真<br>                    get_table_tr[d].style.background=”red”;//设置tr的背景颜色为红色<br>                    obb=false;//设置obb等于 假<br>                }else{//否则<br>                    obb=true;//返回obb等于 真<br>                }<br>                }<br>            }<br>        }<br><br>    window.onload=function(){//页面加载完毕加载函数<br>        changeBg();<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>        &lt;table&gt;<br>            &lt;tr&gt;<br>                &lt;th&gt;名字&lt;/th&gt;<br>                &lt;th&gt;性别&lt;/th&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;soul&lt;/td&gt;<br>                &lt;td&gt;保密&lt;/td&gt;<br>            &lt;/tr&gt;<br>            &lt;tr&gt;<br>                &lt;td&gt;seeker&lt;/td&gt;<br>                &lt;td&gt;你猜&lt;/td&gt;<br>            &lt;/tr&gt;<br><br>        &lt;/table&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-228ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/228ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/228ver/">JavaScript操控CSS -1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>DOM编程艺术（第二版） 第九章, 根据书上的代码自己做了一下笔记</p><br><blockquote><p>getNextNode(node) 是检测元素节点类型，好像用到了递归..</p></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function testCSS(){<br>            var get_pid=document.getElementById(“pid”);<br>            alert(“p元素是个什么类型：”+typeof get_pid.nodeName);//type of判断函数是个什么类型 比如p就是str(字符串)型的 var num =1 用typeof判断就是数字类型<br>            alert(“style是什么类型:”+typeof get_pid.style);//style也是一个对象<br>            alert(“style颜色:”+get_pid.style.color);//获取pid颜色<br>            alert(“style字体:”+get_pid.style.fontFamily);//js里-号会被认为是运算符 所以采用驼峰式命名<br>            alert(“style字体大小:”+get_pid.style.fontSize);//获取字体大小;<br>            get_pid.style.color=”blue”;//设置pid颜色为蓝色<br>            alert(“style更改后的颜色”+get_pid.style.color);//获取更改后的颜色<br><br>        }<br>        function changecss(){//更改h1兄弟元素的style属性<br>            var css_h1=document.getElementsByTagName(“h1”);//获取文档中h1标签<br><br>            for (var i = 0; i &lt; css_h1.length; i++) {//遍历h1标签<br>                var elem =getNextNode(css_h1[i].nextSibling);//设置变量elem,调用getNextNode函数返回的结果 这里传递给getNextNode函数的属性是(h1标签的下一个节点);节点有三种类型 文本，属性，元素，<br>                //因为我们要更改元素的css属性，所以我只要获取到元素节点就行了。其他的都不行。<br>                elem.style.color=”blue”;//设置elem的颜色是蓝色<br>                elem.style.fontSize=”24px”;//设置elem字体大小为24px<br>            };<br>        }<br>        function getNextNode(node){//开始检测节点类型函数<br>            if (node.nodeType==1) {//nodeType有三种类型 1-元素节点 2-属性节点 3-文本节点 判断是否是元素节点<br>                return node;//是 返回node<br>            };<br>            if (node.nextSibling) {//检测node下一个节点是否存在 存在执行<br>                return getNextNode(node.nextSibling);//再次调用函数getNextNode函数 检测Node的下一个节点.<br>                //即h1的下一个节点的下一个节点，相当于再次循环.. 好好理解下 应该不难<br>            };<br>            return null;//如果node下一个节点不存在 返回空<br>        }<br>         window.onload=function(){//网页加载完毕加载函数<br>             // testCSS();<br>             changecss();<br><br>         }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”pid” style=”color: red; font-family: sans-serif;font-size: 24px;”&gt;hello soul&lt;/p&gt;<br>    &lt;h1&gt;测试文本1&lt;/h1&gt;<br>    &lt;p&gt;测试文本2&lt;/p&gt;<br>    &lt;p&gt;测试文本3&lt;/p&gt;<br>    &lt;h1&gt;测试文本4&lt;/h1&gt;<br>    &lt;p&gt;测试文本5&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 

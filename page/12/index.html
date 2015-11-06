@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -192,6 +192,61 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-158ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/158ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/158ver/">win8/win8.1 开机启动项多出onekey</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>win8/win8.1 开机启动项多出onekey</p><br><p>并且在系统启动项内查找不到onekey 一般使用</p><br><p>魔法优化大师（现已改名 软媒魔方)</p><br><p>非广告党 而是真的有效</p><br><p>打开魔方优化大师–设置–多系统设置</p><br><p>找到想要删除的 清除即可</p>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-157ver" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -660,61 +715,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习视频来自 <a href="http://www.imooc.com/video/6162" target="_blank" rel="external">http://www.imooc.com/video/6162</a></p><br><p>&nbsp;</p><br><p>构造数组</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-04.png" target="_blank" rel="external"><img class=" size-medium wp-image-347 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-04.png" data-original="http://www.old.com/wp-content/uploads/2015/04/数组-300x153.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="数组" width="300" height="153"></a></p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组是弱类型的,每个数组可以有不同的元素，如对象 其他数组<br>    var arr=[1,true,null,undefined,{x:1},[1,2,3]];<br><br>    arr[0]//1<br>    arr[4].x//1<br>    arr[5][0]//1<br>    var students=[{name:’soul’,age:27},{name:’test’}]<br>    var conArr1=[1,,2]//1,undefined,2<br>    var conArr2=[,,]//undefined,undefined,<br><br><br>    //对象构造器创建数组<br>    var arr1=new Array();<br>    var arrWithLength=new Array(100)//undefined*100<br>    var arrLinkesLiteral=new Array(true,false,null,1,2,’hi’)<br>    //等价[true,false,null,1,2,’hi’]</pre><br><p>&nbsp;</p><br><p>数组元素读写删减</p><br><pre class="lang:default decode:true ">//数组元素读写<br>    var arr3=[1,2,3];<br>    arr3[1]//2<br>    arr3.length//3<br><br>    delete arr[0];<br>    arr3[0]//undefined<br>    //delete 删除后数组长度不变 delete只相当于赋值了一个 undefined值<br><br>    //数组元素增删<br>    var arr4=[];<br>    arr4[0]=1;<br>    arr4[1]=2;<br>    arr4.push(3);<br>    //向数组末尾添加一个元素<br>    arr4;//[1,2,3];<br><br>    arr4[arr4.length]=4//相当于arr4.push(4)<br>    console.log(arr4);//[1,2,3,4]<br><br>    arr4.unshift(0);<br>    //在数组前面添加个元素<br>    arr4;//[0,1,2,3,4];<br><br>    delete arr4[2];<br>    arr4;//[0,1,undefined,3,4]<br>    arr4.length//5<br>    2 in arr4//false<br><br>    arr4.length -=1;<br>    //更改数组长度<br>    arr4;//[0,1,undefined,3]//4已经移除<br><br>    arr4.pop()//3 returned by pop<br>    //移除最后一个元素<br>    arr4//[0,1,undefined]//3已经移除<br><br>    arr4.shift()//0已经移除<br>    //移除最前面的元素<br>    arr4//[1,undefined]</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组迭代</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组迭代<br>    var i = 0;<br>    for (; i &lt; arr4.length; i++) {<br>        console.log(arr4[i]);//1,2,3,4,5<br>    };<br>    for(i in arr4){<br>        console.log(arr4[i])//1,2,3,4,5<br>    }<br><br><br>    Array.prototype.x=’inherited’<br><br>    for(i in arr4){<br>        //for in 会输出原型链上的属性<br>        console.log(arr4[i])//1,2,3,4,5,inherited<br>    }<br><br>    console.log(Array.prototype)<br><br>    for(i in arr4){<br>        if(arr4.hasOwnProperty(i)){<br>            //i是否是arr4本身对象<br>            console.log(arr[i])//1,2,3,4,5<br>        }<br>    }</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>二维数组与稀疏数组</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//二维数组<br><br>    var arr5=[[0,1],[2,3],[4,5]];<br><br>    var i=0,j=0;<br><br>    var row;<br>    for(; i&lt;arr5.length;i++){<br>        row=arr5[i];<br>        console.log(‘row’+i)<br>        for(j=0;j&lt;row.length;j++){<br>            //这里设置j=0,因为有好几个row,每次循环row都要重新设置j=0<br>            console.log(row[j])<br>        }<br><br>    }<br><br>    //稀疏数组<br><br>    //稀疏数组并不含有从0开始的连续索引一般length属性值比实际元素个数大<br><br>    var arr6=[undefined];<br>    var arr7=new Array(1);<br>    console.log(arr7)<br>    0 in arr6;//true;<br>    0 in arr7;//false<br>    arr6.length=100;<br>    arr6[99]=123<br>    99 in arr6//true<br>    98 in arr6//false<br><br>    var arr8=[,,];<br>    0 in arr8 //false</pre><br><p>&nbsp;</p><br><p>数组方法之转字符串</p><br><pre class="lang:default decode:true ">//数组方法<br><br>    //{}=&gt;Object.prototype<br>    //[]=&gt;Array.prototype<br><br>    //举例一些方法<br>    //Array.protorype.join<br>    //Array.prototype.foEach(Ec5)//ie9以上支持<br><br><br>    //将数组转化为字符串<br><br>    var arr9=[1,2,3];<br>    arr9.join();//‘1,2,3’<br>    arr9.join(‘_’)//‘1_2<em>3’<br><br>    function repeatString(str,n){<br>        return new Array(n+1).join(str);<br>        //n+1是数组长度<br>    }<br>    repeatString(‘a’,3);//‘aaa<br>    repeatString(‘HI’,5)//‘HIHIHIHIHI’</em></pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组方法之排序</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//将数组逆序<br><br>    var arr10=[1,2,3];<br>    arr10.reverse();//[3,2,1]<br>    //会对原数组进行修改<br>    arr10//[3,2,1]<br><br>    //数组排序<br>    var arr11=[‘a’,’d’,’c’,’b’];<br>    arr11.sort();//[‘a’,’b’,’c’,’d’]<br><br>    arr11=[13,24,51,3]<br>    arr11.sort()[13,24,3,51]<br>    arr11//[13,24,3,51]<br>    //原数组会被修改<br><br>    //sort会转化为字符串后再进行排序<br>    //[开头数组是1,2,3,5]<br><br><br>    arr11.sort(function(a,b){<br>        return a-b;<br>        //左边元素小于右边元素 返回负数<br>        //升序<br>    })//[3,13,24,51]<br><br><br><br>    arr11=[{age:25},{age:39},{age:99}];<br><br>    arr11.sort(function(a,b){<br>        return a.age-b.age<br>        //排序对象<br><br>    })<br><br>    arr11.forEach(function(item){<br>        console.log(‘age’,item.age)<br>        //forEach遍历<br>    })<br><br>    //age 25<br>    //age 39<br>    //age 99</pre><br><p>&nbsp;</p><br><p>数组方法之数组合并</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组合并<br><br>    var arr12=[1,2,3];<br>    arr12.concat(4,5)//[1.2.3.4.5]<br>    arr12;//[1,2,3]<br>    //并不会对原数组进行修改<br><br>    arr12.concat([10,11],13)<br>    //[1,2,3,10,11,13]<br>    //创建二维数组需要在方括号中再包裹一个方括号<br><br>    arr12.concat([1,[2,3]])<br>    //[1,2,3,1[2,3]]<br><br><br>    //返回部分数组<br><br>    var arr13=[1,2,3,4,5];<br>    arr13.slice(1,3)//[2,3]<br>    arr13.slice(1)//[2,3,4,5]<br>    arr13.slice(1,-1)//[2,3,4]<br>    arr13.slice(-4,-3)//[2]</pre><br><p>&nbsp;</p><br><p>数组拼接</p><br><pre class="lang:default decode:true ">//数组拼接<br>    //可以删除数组元素 也可以拼接<br><br>    var arr14=[1,2,3,4,5];<br>    arr14.splice(2)//returns [3,4,5]<br>    //从第三个元素删除<br>    arr14//[1,2]<br><br>    arr14=[1,2,3,4,5]<br>    arr14.splice(2,2)//returns [3,4]<br>    //从索引2开始 删除两个元素<br>    arr14;//[1,2,5];<br><br>    arr14=[1,2,3,4,5];<br>    arr14.splice(1,1,’a’,’b’)//return[2]<br>    //从第二个元素开始 删除掉一个元素<br>    arr14;//[1,’a’,’b’,3,4,5]</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组遍历</p><br><pre class="lang:default decode:true ">//数组遍历<br><br>    var arr15=[1,2,3,4,5];<br>    arr15.forEach(function(x,index,a){<br>        console.log(x+”|”+index+’|’+(a===arr15))<br>    });<br>    //1|0|true<br>    //2|1|true<br>    //3|2|true<br>    //4|3|true<br>    //5|4|true<br>    //a指向数组本身<br>    //ie9以上支持这个方法<br></pre><br><p>&nbsp;</p><br><p>数组映射与数组过滤</p><br><pre class="lang:default decode:true ">//数组映射<br><br>    var arr16=[1,2,3];<br>    arr16.map(function(x){<br>        return x+10;<br>    });//[11,12,13]<br>    arr16//[1,2,3]<br>    //原数组未被修改<br><br><br>    //数组过滤<br><br><br>    arr17=[1,2,3,4,5,6,7,8,9,10];<br>    arr17.filter(function(x,index){<br>        return index % 3 ===0||x&gt;=8;<br>    })//return[1,4,7,8,9,10]<br>    //同样未对原数组进行修改</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组判断</p><br><p>&nbsp;</p><br><pre class="lang:default decode:true ">//数组判断<br><br><br>    var arr18=[1,2,3,4,5];<br>    arr18.every(function(x){<br>        return x&lt;10;<br>    })//true<br><br>    arr18.every(function(x){<br>        return x&lt;3<br>    })//false<br><br>    //every会对数组每个元素进行判断,只要有一个不符合就返回false<br><br><br>    arr18.some(function(x){<br>        return x===3<br>    })//true<br>    //some元素只要数组中存在一个匹配的元素就会返回true<br><br>    var arr19=[1,2,3];<br>    var sum=arr19.reduce(function(x,y){<br>        return x+y<br>    },0)//6<br>    arr19//[1,2,3]<br>    //0这个参数第一次的时候把0传进来.<br>    //相加后1作为x<br><br><br>    arr20=[3,6,9];<br>    var max=arr20.reduce(function(x,y){<br>        console.log(x+”|”+y);<br>        return x&gt;y?x:y<br>    })<br><br>    //3|9<br>    //9|6<br>    max;//9</pre><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>数组检索</p><br><pre class="lang:default decode:true ">//数组检索<br><br>    var arr21=[1,2,3,2,1];<br>    arr21.indexOf(2)//1<br>    //查找元素2在位置<br>    arr21.indexOf(99)//-1<br>    //没有返回-1<br>    arr21.indexOf(1,1)//4<br>    //查找1,从第二个元素查找<br>    arr21.indexOf(1,-3)//4<br>    //从右到左查找<br>    arr21.indexOf(2,-1)//-1<br><br>    arr21.lastIndexOf(2)//3<br>    //从右到左查找<br>    arr21.lastIndexOf(2,-2)//3<br>    //<br>    arr21.lastIndexOf(2,-3)//1<br><br>    //判断是否为数组<br><br>    Array.isArray([]);//true<br><br>    [].instanceof Array//true<br>    ({}).toString.apply([])===’[object Array]’//true<br>    //调用对象的toString方法并且呼叫数组中的toString来处理<br>    [].constructor===Array//true<br>    //constructor 可以被修改<br><br>    //call<br>    var str=”soul”<br>    Array.prototype.join.call(str,’‘)</pre><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-148ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/148ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.756Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/148ver/">零基础学bootstrap:起步</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本次课程是零基础开始学bootstrap.因为这个框架比较流行,所以结合自己正在学的视频教程写一篇比较详细的文本型教程出来..文笔比较渣大家勿喷.如果遇到有什么错误请及时留言.我一定会努力改正</p><br><p>PS:这里的零基础指的是bootstrap零基础.要学习bootstrap只需要一定的HTML与CSS基础即可</p><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">一:bootstrap是什么？</span></strong></p><br><blockquote><p>这个问题问得好,bootstrap简单来说就是一个结合了各种黑科技的框架,用了这个框架你不用再考虑手机和电脑自适应的问题,而且最新的bootstrap V3对手机作了很大的优化.bootstrap本身也带了很多炫酷的交互效果特效,而且提供了源码.可以从深层去指定bootstrap.</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">二:如何引用bootstrap?</span></strong></p><br><blockquote><p>可以从官方的CDN服务器里引入,也可以从本地引入</p><br><p>本地引入只需要下载bootstrap文件了</p><br><p><a href="http://v3.bootcss.com/getting-started/#download" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#download</a></p><br><p>只需要在头部标签中加入</p><br><p>&lt;link rel=”stylesheet” type=”text/css” href=”../css/bootstrap.min.css”&gt;<br><br>&lt;script type=”text/javascript” src=”../js/bootstrap.min.js”&gt;&lt;/script&gt;</p><br><p>如果你还需要用到bootstrap的 jquery效果 只需要在bootstrap.min.js前引入jquery.js就ok了</p><br><p>PS: .min是压缩后的文件 未加min的是未压缩的文件,两者效果都一样,只是文件大小不一样</p></blockquote><br><p>&nbsp;</p><br><p><strong><span style="color: #800080;">三:注意事项</span></strong></p><br><blockquote><p>当然bootstrap注意事项比较多,大家可以去<a href="http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个" target="_blank" rel="external">http://v3.bootcss.com/getting-started/进行详细的查看,这里只稍微说一下比较重要的.首先在一个</a><strong>完整的适配手机版的Bootstrap需要加上一个meta标签的,如下例</strong></p><br><pre class="lang:default decode:true ">&lt;head&gt;<br>    &lt;meta charset=”utf-8”&gt;<br>    &lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;<br>    &lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;<br>    &lt;!– 上述3个meta标签<em>必须</em>放在最前面，任何其他内容都<em>必须</em>跟随其后！ –&gt;</pre><br><p>简单解释下 charset=”utf-8” //声明文档类型是utf-8</p><br><p>&lt;meta http-equiv=”X-UA-Compatible” content=”IE=edge”&gt;</p><br><p>IE浏览器中都有兼容模式.为了使浏览器使用最新的兼容模式都要写上这行meta标签</p><br><p>&nbsp;</p><br><p>最重要的应该是</p><br><p>&lt;meta name=”viewport” content=”width=device-width, initial-scale=1”&gt;</p><br><p>这样做就可以适配移动端了..不要问我为什么要加这条标签.加了就对了.</p><br><p>&nbsp;</p><br><p>当然你如果要禁用移动端的缩放功能.那么你可以加这一条</p><br><p><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">“viewport”</span> <span class="na">content=</span><span class="s">“width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no”</span><span class="nt">&gt;</span></p><br><p>一般来说不推荐禁用移动端的缩放功能.不过谁呢排除特殊情况呢？</p><br><p>bootstrap对浏览器的兼容情况</p><br><p><a href="http://v3.bootcss.com/getting-started/#support" target="_blank" rel="external">http://v3.bootcss.com/getting-started/#support</a></p><br><p>bootstrap是在HTML5下运行的哦.所以请使用HTML5的&lt;!DOCTYPE html&gt;</p></blockquote><br><p>&nbsp;</p><br><p>恩.起步就差不多了吧..今晚上或者明天再补第二章.关注一系列教程可以点击标签&lt;bootstrap零入门&gt;</p><br><p>&nbsp;</p>
 
 
 

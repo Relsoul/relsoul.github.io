@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/code/" style="font-size: 10px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
 					</div>
 				</section>
 				
@@ -193,10 +193,10 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
-    <article id="post-229ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-228ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/229ver/" class="article-date">
+      <a href="/2015/10/21/228ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -210,7 +210,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/229ver/">一个页面中多个window.onload = function(){}冲突问题解决方案</a>
+      <a class="article-title" href="/2015/10/21/228ver/">JavaScript操控CSS -1</a>
     </h1>
   
 
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文转自<a href="http://blog.csdn.net/zndxlxm/article/details/7878298" target="_blank" rel="external">http://blog.csdn.net/zndxlxm/article/details/7878298</a></p><br><pre class="lang:default decode:true">假如在一个js里面需要window.onload两个方法：<br>方法1：写成这样就可以了<br>window.onload=function(){function(a);function(b);}<br>也就是集中window.onload一次。<br><br>方法2：<br><br><br>window.onload=function(){   //创建一个页面加载完毕函数<br>   alert(“加载完成”);    //弹出加载完成<br>   onload2();    //加载onload2函数<br>   onload3();    //加载onloado3函数<br>//onload2()的()可以传递参数<br>}<br>function onload2(){<br>   alert(“onload2加载完成”);<br>}<br>function onload3(){<br>   alert(“onload3加载完成”);<br>}</pre><br><p>&nbsp;</p>
+        <p>DOM编程艺术（第二版） 第九章, 根据书上的代码自己做了一下笔记</p><br><blockquote><p>getNextNode(node) 是检测元素节点类型，好像用到了递归..</p></blockquote><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-操作CSS&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>        function testCSS(){<br>            var get_pid=document.getElementById(“pid”);<br>            alert(“p元素是个什么类型：”+typeof get_pid.nodeName);//type of判断函数是个什么类型 比如p就是str(字符串)型的 var num =1 用typeof判断就是数字类型<br>            alert(“style是什么类型:”+typeof get_pid.style);//style也是一个对象<br>            alert(“style颜色:”+get_pid.style.color);//获取pid颜色<br>            alert(“style字体:”+get_pid.style.fontFamily);//js里-号会被认为是运算符 所以采用驼峰式命名<br>            alert(“style字体大小:”+get_pid.style.fontSize);//获取字体大小;<br>            get_pid.style.color=”blue”;//设置pid颜色为蓝色<br>            alert(“style更改后的颜色”+get_pid.style.color);//获取更改后的颜色<br><br>        }<br>        function changecss(){//更改h1兄弟元素的style属性<br>            var css_h1=document.getElementsByTagName(“h1”);//获取文档中h1标签<br><br>            for (var i = 0; i &lt; css_h1.length; i++) {//遍历h1标签<br>                var elem =getNextNode(css_h1[i].nextSibling);//设置变量elem,调用getNextNode函数返回的结果 这里传递给getNextNode函数的属性是(h1标签的下一个节点);节点有三种类型 文本，属性，元素，<br>                //因为我们要更改元素的css属性，所以我只要获取到元素节点就行了。其他的都不行。<br>                elem.style.color=”blue”;//设置elem的颜色是蓝色<br>                elem.style.fontSize=”24px”;//设置elem字体大小为24px<br>            };<br>        }<br>        function getNextNode(node){//开始检测节点类型函数<br>            if (node.nodeType==1) {//nodeType有三种类型 1-元素节点 2-属性节点 3-文本节点 判断是否是元素节点<br>                return node;//是 返回node<br>            };<br>            if (node.nextSibling) {//检测node下一个节点是否存在 存在执行<br>                return getNextNode(node.nextSibling);//再次调用函数getNextNode函数 检测Node的下一个节点.<br>                //即h1的下一个节点的下一个节点，相当于再次循环.. 好好理解下 应该不难<br>            };<br>            return null;//如果node下一个节点不存在 返回空<br>        }<br>         window.onload=function(){//网页加载完毕加载函数<br>             // testCSS();<br>             changecss();<br><br>         }<br><br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p id=”pid” style=”color: red; font-family: sans-serif;font-size: 24px;”&gt;hello soul&lt;/p&gt;<br>    &lt;h1&gt;测试文本1&lt;/h1&gt;<br>    &lt;p&gt;测试文本2&lt;/p&gt;<br>    &lt;p&gt;测试文本3&lt;/p&gt;<br>    &lt;h1&gt;测试文本4&lt;/h1&gt;<br>    &lt;p&gt;测试文本5&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -248,10 +248,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-230ver" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-229ver" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/21/230ver/" class="article-date">
+      <a href="/2015/10/21/229ver/" class="article-date">
   	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
 </a>
     </div>
@@ -265,7 +265,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/230ver/">JavaScript创建元素+节点+遍历+设置属性综合使用</a>
+      <a class="article-title" href="/2015/10/21/229ver/">一个页面中多个window.onload = function(){}冲突问题解决方案</a>
     </h1>
   
 
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本次文章是把前几节的内容都融合了进来.. 没有看过前文的童鞋去看一下哦,虽然也是笔记向的代码（笑</p><br><blockquote><p><a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank" rel="external">JavaScript节点</a></p><br><p><a title="JavaScript遍历-1" href="http://www.old.com/soul-get/soul-js/115" target="_blank" rel="external">JavaScript遍历-1</a></p><br><p><a title="windows.onload弹性加载" href="http://www.old.com/soul-get/soul-js/100" target="_blank" rel="external">JavaScript window.onload</a></p><br><p><a title="DOM-编程艺术第二版（4.3）-JavaScript图片库" href="http://www.old.com/soul-get/soul-js/80" target="_blank" rel="external">JavaScript图片库</a></p></blockquote><br><p>做一个下图的,可以点击“输出图片库中图片”输出li列表中的图片</p><br><p>本文遵循了DOM编程艺术（第二版）中的分离JavaScript（实际上代码还未完全做到)<a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" target="_blank" rel="external"><img class=" size-medium wp-image-119 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-22.png" data-original="http://www.old.com/wp-content/uploads/2015/03/22-300x98.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="22" width="300" height="98"></a></p><br><p>&nbsp;</p><br><p>开始贴代码，代码量有点多，但是都是很简单的语句，逻辑理解起来也不困难（不过人家写的时候可能把代码写复杂了一点，不过不影响理解），我会做到每句代码都注释哦..笔记向代码,能够给大家带来一点帮助就行咯.</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”cn”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-创建元素+节点+遍历+设置属性综合使用&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br><br>    function createImg(){//定义createImg函数<br>        var sz_title=[];//设置全局变量sz_title,为什么要在这里设置全局变量呢？因为下面有两个for循环，两个for循环都需要调用<br>        var sz_txt=[];//设置全局变量sz_txt;<br>        var get_ul = document.getElementById(“ulid”);//设置get_ul等于标签id为 “ulid”的元素<br>        var get_ul_li =get_ul.getElementsByTagName(“li”);//设置get_ul_li等于ulid元素下的li元素<br>        // alert(get_ul_li)//测试ok 获取到get_ul_li属性<br>        for (var i = 0; i &lt; get_ul_li.length; i++) {//开始遍历<br>            var li_title =get_ul_li[i].getAttribute(“title”);//设置li_title等于li元素的title属性内容 第一次循环那么li_title=get_ul_li[0]的title属性 即li_title=”这是第一张图片_blur_1”<br>            var li_link =get_ul_li[i].getAttribute(“soul_link”);//设置li_link等于li元素的soul_link属性内容<br>            // alert(“|获取li soul_link属性:”+li_link+”|获取li tittle属性:”+li_title);<br>            //测试获取文本内容ok<br>            sz_title[li_link]=li_title;//设置sz_title数组下标等于soul_link,数组等于标题内容.<br>            //第一次循环sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            //其实可以这样写的sz_title[li_title]=li_link 看起来比较方便理解一点<br>        };<br>        for(li_link in sz_title){//开始遍历sz_title数组<br>            var new_img =document.createElement(“img”);//创建一个新的img元素<br>            var new_img_src=new_img.setAttribute(“src”,li_link);//设置img元素的”src”属性等于li_link;<br>            //第一次遍历的sz_title[li_link]换成理解的来说就是 sz_title[../img/Pepsized_Blur_01.jpg]设置src属性等于li_link就相当于 src=”../img/Pepsized_Blur_01.jpg”<br>            var new_img_src=new_img.setAttribute(“width”,”400”);//设置img元素的宽等于400<br>            var new_img_src=new_img.setAttribute(“height”,”400”);//设置img元素的高等于400<br>            var p_txt=sz_title[li_link];//设置p元素的文本等于li_title 第一次遍历sz_title[“../img/Pepsized_Blur_01.jpg”]=”这是第一张图片_blur_1”<br>            // alert(p_txt);//检测p元素文本内容获取是否正确<br>            var new_p=document.createElement(“p”);//创建一个p元素<br>            var new_p_txt=document.createTextNode(p_txt);//创建p元素的文本节点 文本节点内容等于p_txt<br>            new_p.appendChild(new_p_txt);//在p元素下面添加p文本节点<br>            document.body.appendChild(new_p);//在body标签所有元素最后添加p标签<br>            document.body.appendChild(new_img);//在body p标签后添加图片<br>        }<br><br><br>    }<br>    window.onload=function(){//页面加载完毕后执行函数<br>        var button_bid =document.getElementById(“bid”);//设置get_ul等于标签id为 “bid”的元素 其实这个文档就一个button元素 可以用document.getElementsByTagName<br>        button_bid.onclick=function(){ //在button标签添加一个onclick事件<br>            createImg();//添加函数<br>            //因为涉及到元素的创建和获取 所以需要再页面加载完毕后才为button绑定事件<br>        }<br><br><br>    }<br>    //实际上可以把li元素也在JavaScript中写了。<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;button id=”bid”&gt;输出图片库图片&lt;/button&gt;<br>    &lt;ul id=”ulid”&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_01.jpg” title=”这是第一张图片_blur_1”&gt;blur_1&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_02.jpg” title=”这是第一张图片_blur_2”&gt;blur_2&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_03.jpg” title=”这是第一张图片_blur_3”&gt;blur_3&lt;/li&gt;<br>        &lt;li soul_link=”../img/Pepsized_Blur_04.jpg” title=”这是第一张图片_blur_4”&gt;blur_4&lt;/li&gt;<br>    &lt;/ul&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p><br><p>&nbsp;</p>
+        <p>本文转自<a href="http://blog.csdn.net/zndxlxm/article/details/7878298" target="_blank" rel="external">http://blog.csdn.net/zndxlxm/article/details/7878298</a></p><br><pre class="lang:default decode:true">假如在一个js里面需要window.onload两个方法：<br>方法1：写成这样就可以了<br>window.onload=function(){function(a);function(b);}<br>也就是集中window.onload一次。<br><br>方法2：<br><br><br>window.onload=function(){   //创建一个页面加载完毕函数<br>   alert(“加载完成”);    //弹出加载完成<br>   onload2();    //加载onload2函数<br>   onload3();    //加载onloado3函数<br>//onload2()的()可以传递参数<br>}<br>function onload2(){<br>   alert(“onload2加载完成”);<br>}<br>function onload3(){<br>   alert(“onload3加载完成”);<br>}</pre><br><p>&nbsp;</p>
 
 
 
@@ -331,6 +331,61 @@ var _hmt = _hmt || [];
       
         <p></p><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">Pack One</span></p><p></p>
 <blockquote><p><span style="font-family: arial, helvetica, sans-serif; font-size: 12pt;">前几天在某下载站下载了sublime2作为开发文本工具.在下载插件的时候遇到了问题.</span></p><br><p><span style="font-size: 12pt;">使用一招分分钟解决</span></p><br><p><span style="font-size: 12pt;">删除Pristine Packages，data/Packages,data/Pristine Packages;原本汉化的<a href="https://packagecontrol/" target="_blank" rel="external">packagecontrol</a></span></p><br><p><span style="font-size: 12pt;">然后再去 <a href="https://packagecontrol.io/" target="_blank" rel="external">https://packagecontrol.io/</a> 下载放至data/Installed Packages下安装</span></p><br><p><span style="font-size: 12pt;">唯一缺点就是对英文</span>有<span style="text-decoration: underline;"><span style="font-size: 8pt;">不可视症 </span></span><span style="font-size: 12pt;">会感觉到一点点不舒服..</span></p></blockquote><br><p>Pack Two</p><br><blockquote><br><div>安装sublimecodeintel后弹出报错 插件-设置 用户 加入</div><br><div>, “detect_slow_plugins”:false即可 //<code>,逗号是用来分隔的 请务必加入<br><br>&lt;如果没加逗号报错 找到报错文件 加上逗号 OK</code><br></div><br></blockquote>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-231ver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/231ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/21/231ver/">JavaScript遍历-1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文针对有一定基础或者初学JavaScript的童鞋..其实就是自己的笔记罢了，哈哈</p><br><p>JavaScript遍历数组,也是从DOM 编程艺术书本上学到的,并且加以理解。</p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         bianLi();<br>         }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>看来难度不够，再加点难度 不过在加点难度之前请把节点这个内容理解哦 <a title="JavaScript节点" href="http://www.old.com/soul-get/soul-js/107" target="_blank">JavaScript节点</a></p><br><pre class="lang:default decode:true ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br><br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>再深入一点点</p><br><pre class="lang:default decode:true  ">&lt;!doctype html&gt;<br>&lt;html lang=”en”&gt;<br>&lt;head&gt;<br>    &lt;meta charset=”UTF-8”&gt;<br>    &lt;title&gt;JS-遍历-1&lt;/title&gt;<br>    &lt;script type=”text/javascript”&gt;<br>     function bianLi(){<br>         var bianli_p =document.getElementsByTagName(“p”);//设置变量bianlian_p等于文档中的p标签<br>         for (var i = 0; i &lt; bianli_p.length; i++) {//开始循环 如果i小于bianli_p标签的长度,比如这个文档p有三个长度，然后设置i=0 0肯定小于3对吧 然后开始循环<br>             var bianli_p_txt =bianli_p[i].firstChild.nodeValue;//设置bianlian_txt等于bianlian_p[i]的文本内容 [i]是0就是第一个，别忘了数组从0开始<br>             alert(“遍历第”+i+”次|内容为”+bianli_p_txt);//弹出遍历<br>         };<br>     }<br>     window.onload =function(){//网页加载完毕后加载函数<br>         // bianLi();<br>         // bianLiAdv();<br>         bianLiSR();<br>         }<br>    function bianLiAdv(){<br>        // var x,hello,soul;<br>        // var x=null;<br>        // var shuzu=[];<br>        // shuzu[hello]=”hello”;<br>        // shuzu[soul]=”hello2”;<br>        // for(x in shuzu){<br>        //     // var shuzu_into=shuzu[x];<br>        //     document.write(shuzu[x]);}<br>        //以上代码是我犯的一个错误代码,如果这样输出发现只能只能输出一个”hello2”<br>        //因为hello未加””双引号，因为浏览器会理解hello是一个数字，而hello没有赋值，实际上在某些浏览器这样运行会直接报错。<br>        //未赋值变量，很多情况下被强制转换成需要的类型，比如false，0，”” 等<br>        //你可以在var x,hello,soul下面写一句 var hello=0;那么发现能够正常输出<br>        //<br>        var x,hello,soul;//定义变量x,hello,soul未赋值的变量是undefined;<br>        var shuzu=[];//定义数组<br>        shuzu[“hello”]=”hello”;//加上双引号后就正常了<br>        shuzu[“soul”]=”hello2”;//设置数组下标<br>        for (x in shuzu){//开始遍历<br>            alert(“遍历下标为”+x+”数组内容为”+shuzu[x]);//弹出。<br>        }<br>    }<br>    //下面可以利用上面的来深入一点点<br>    function bianLiSR(){<br>        var shuzu=[]//设置数组，如果在for循环里面设置，每一次都会重新定义数组,最终只能得到最后一个内容.<br>        var get_p=document.getElementsByTagName(“p”);//设置变量get_p等于p标签<br>        for (var i = 0; i &lt; get_p.length; i++) {//开始遍历循环p标签<br>            var get_p_soul =get_p[i].getAttribute(“soul”);//设置get_p_soul等于get_p[i]的soul属性内容<br>            var get_p_xiabiao =get_p[i].getAttribute(“xiabiao”);<br>            // alert(get_p_soul+”|”+get_p_xiabiao);//测试弹出get_p_soul内容是否正确<br>            shuzu[get_p_soul]=get_p_xiabiao;//设置数组自定义下标 get_p_soul等于soul属性内容<br><br>            //get_p_xiabiao等于下标属性内容,那么第一次循环就是 shuzu[标题1]=[我是下标1];<br>            //具体的去测试就ok了<br>            // alert(shuzu[get_p_soul]);//测试shuzu[soul]=xiabiao内容是否正确<br>        };<br>        for(get_p_soul in shuzu){//开始遍历<br>            alert(“数组下标是:”+get_p_soul+”|数组内容是:”+shuzu[get_p_soul]);//弹出遍历内容.<br>        }<br><br>    }<br>    &lt;/script&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;p soul=”标题1” xiabiao=”我是下标1”&gt;Hello 我是文字&lt;/p&gt;<br>    &lt;p soul=”标题2” xiabiao=”我是下标2”&gt;hello 我是文字2&lt;/p&gt;<br>    &lt;p soul=”标题3” xiabiao=”我是下标3”&gt;hello 我是文字3&lt;/p&gt;<br><br>&lt;/body&gt;<br>&lt;/html&gt;</pre><br><p>&nbsp;</p>
 
 
 
@@ -664,61 +719,6 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>用惯了搜狗输入法，懒得换输入法了，用搜索输入法写代码的时候一时间把符号调成全角后，会发生一些莫名其妙的BUG。有时候排查要排查好久。</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-18.png" target="_blank" rel="external"><img class=" size-medium wp-image-76 alignright" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-18.png" data-original="http://www.old.com/wp-content/uploads/2015/03/18-300x209.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="18" width="300" height="209"></a></p><br><p>比如检查右图的代码都是编写正确的，但是运行的时候回莫名其妙的 报错</p><br><p>Uncaught SyntaxError: Unexpected token ILLEGAL</p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-19.png" target="_blank" rel="external"><img class="alignleft size-medium wp-image-77" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-19.png" data-original="http://www.old.com/wp-content/uploads/2015/03/19-300x161.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="19" width="300" height="161"></a></p><br><p>&nbsp;</p><br><p>&nbsp;</p><br><p>结果发现13行分号是全角。</p><br><p>囧！Damn！</p><br><p>&nbsp;</p>
-
-
-
-
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-238ver" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/21/238ver/" class="article-date">
-  	<time datetime="2015-10-21T14:57:05.758Z" itemprop="datePublished">2015-10-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/21/238ver/">简评音乐界一大新起之秀“网易云音乐”&amp;#8211;有没有那么一段词能够怀念起过去？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>引文：用酷狗音乐已经好几年了，见证过酷狗一步步的前进，也见证过光辉落幕后的余韵。</p><br><hr><br><p><span style="color: #993366;">先说说为什么抛弃酷狗音乐而转战网易云音乐.</span></p><br><p>酷狗音乐给我的感受就是 磅礴的资源库,从经典到流行，从大众到猎奇，基本上音乐资源都可以在酷狗音乐里面搜索到,当搜索到市面上非常猎奇的资源后,觉得酷狗音乐真的是一大资源搜索神奇.</p><br><p><span style="color: #993366;">从这里开始,酷狗便伴随了我4年之久.</span></p><br><p>而我一边在享受余韵带来的温存的时候，更多的是黑暗带给我的那种不安,弹窗广告,歌词广告,VIP功能，每一项都想黑暗中的利剑,深深刺入余韵中的温存。</p><br><p><span style="color: #993366;">然而温存终有冷却一刻.</span></p><br><p>当我在黑暗中摸索时,微弱光芒都成了一颗救命稻草，当我顺着稻草往上爬，我发现了新世界的大门.</p><br><p><span style="color: #993366;">网易云音乐</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" target="_blank" rel="external"><img class=" size-medium wp-image-58 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-111.png" data-original="http://www.old.com/wp-content/uploads/2015/03/111-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="11" width="300" height="197"></a></p><br><p>简洁的UI界面，当然这算不算一大亮点，只是说贪欲虚空是无穷的.当发现新事物总会有一股新奇感，随后淡于平静.</p><br><p>惊浪波起,随后狂风暴雨</p><br><p>当从酷狗音乐列表导出文件转入网易云音乐后,第一感觉 没有烦人的广告，整个界面都清爽了许多，像是一简约的播放器。</p><br><p><span style="color: #993366;">简约而不简单</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" target="_blank" rel="external"><img class=" size-medium wp-image-60 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-122.png" data-original="http://www.old.com/wp-content/uploads/2015/03/122-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="12" width="300" height="197"></a></p><br><p>发现音乐-歌单,每一个分享的歌单都带有使你欢奇的音符,更有大咖分享的歌单,一支精准之箭直入心胸。</p><br><p><span style="color: #993366;">私人定制</span><span style="color: #800080;"><span style="color: #993366;">-更多的是</span>享受</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" target="_blank" rel="external"><img class=" size-medium wp-image-61 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-13.png" data-original="http://www.old.com/wp-content/uploads/2015/03/13-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="13" width="300" height="197"></a></p><br><p>当听完十几首自己喜欢的歌后，打开“私人FM”浓浓的个人情怀，包含了天空，大地，激昂，深沉。每一首都是你想要的。</p><br><p><span style="color: #993366;">繁华中的虚幻</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" target="_blank" rel="external"><img class=" size-medium wp-image-62 alignnone" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-14.png" data-original="http://www.old.com/wp-content/uploads/2015/03/14-300x197.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="14" width="300" height="197"></a></p><br><p>外面的世界那么灯火通明，这里却这么宁静，繁华中黑白交错的虚幻.淡淡的光盘划痕,随着音乐律动而渐隐。</p><br><p><span style="color: #993366;">手机,更让你不忍释手</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" target="_blank" rel="external"><img class=" size-medium wp-image-65 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-15.png" data-original="http://www.old.com/wp-content/uploads/2015/03/15-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="15" width="169" height="300"></a></p><br><p>少女的红韵,蕴含着历史.</p><br><p><span style="color: #993366;">推荐-相同的Soul</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" target="_blank" rel="external"><img class=" size-medium wp-image-63 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-16.png" data-original="http://www.old.com/wp-content/uploads/2015/03/16-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="16" width="169" height="300"></a></p><br><p>发现更多的惊喜.</p><br><p><span style="color: #993366;">律动，伴随着音乐的沉浸</span></p><br><p><a href="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" target="_blank" rel="external"><img class=" size-medium wp-image-68 aligncenter" src="http://7xi9fb.com1.z0.glb.clouddn.com/mm/imgs/2015-10-21-171.png" data-original="http://www.old.com/wp-content/uploads/2015/03/171-169x300.png" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt="171" width="169" height="300"></a></p><br><p>&nbsp;</p><br><p>按下<span style="color: #ff0000;">红色</span>的Start 带上Earplug 沉浸在灵魂的世界中。</p><br><blockquote><p>网易云音乐ID “Relsoul”</p></blockquote><br><p>&nbsp;</p><br><p>&nbsp;</p>
 
 
 
