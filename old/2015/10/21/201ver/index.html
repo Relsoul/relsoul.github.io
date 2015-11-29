@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  【转】阮一峰大师的Javascript 面向对象编程（一）：封装 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  h">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:url" content="http://emufan.com/old/2015/10/21/201ver/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  【转】阮一峰大师的Javascript 面向对象编程（一）：封装 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  h">
+<meta property="og:image" content="http://image.beekka.com/blog/201005/bg2010051701.jpg">
+<meta property="og:image" content="http://image.beekka.com/blog/201005/bg2010051702.jpg">
+<meta property="og:updated_time" content="2015-11-29T08:27:39.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  【转】阮一峰大师的Javascript 面向对象编程（一）：封装 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  h">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/old">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/s">0</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/o">1</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/u">2</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/l">3</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/:">4</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/h">5</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/t">6</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/t">7</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/p">8</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/:">9</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/">10</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/">11</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/e">12</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/m">13</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/u">14</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/f">15</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/a">16</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/n">17</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/.">18</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/c">19</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/o">20</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/m">21</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/old">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/old/2015/10/21/201ver/index.html" class="article-date">
+  	<time datetime="2015-11-29T08:27:39.222Z" itemprop="datePublished">2015-11-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【转】阮一峰大师的Javascript 面向对象编程（一）：封装 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通俗易懂 转自http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html学习Javascript，最难的地方是什么？我觉得，Object（对象）最难。因为Javascript的Object模型很独特，和其他语言都不一样，初学者不容易掌握。下面就是我的学习笔记，希望对大家学习这个部分有所帮助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】阮一峰大师的Javascript 面向对象编程（一）：封装">
+<meta property="og:url" content="http://emufan.com/2015/10/21/201ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="通俗易懂 转自http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html学习Javascript，最难的地方是什么？我觉得，Object（对象）最难。因为Javascript的Object模型很独特，和其他语言都不一样，初学者不容易掌握。下面就是我的学习笔记，希望对大家学习这个部分有所帮助">
+<meta property="og:image" content="http://image.beekka.com/blog/201005/bg2010051701.jpg">
+<meta property="og:image" content="http://image.beekka.com/blog/201005/bg2010051702.jpg">
+<meta property="og:updated_time" content="2015-10-21T14:57:05.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转】阮一峰大师的Javascript 面向对象编程（一）：封装">
+<meta name="twitter:description" content="通俗易懂 转自http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html学习Javascript，最难的地方是什么？我觉得，Object（对象）最难。因为Javascript的Object模型很独特，和其他语言都不一样，初学者不容易掌握。下面就是我的学习笔记，希望对大家学习这个部分有所帮助">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-201ver" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/201ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.757Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【转】阮一峰大师的Javascript 面向对象编程（一）：封装
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通俗易懂 转自<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html</a></p><br><p>学习Javascript，最难的地方是什么？</p><br><p>我觉得，Object（对象）最难。因为Javascript的Object模型很独特，和其他语言都不一样，初学者不容易掌握。</p><br><p>下面就是我的学习笔记，希望对大家学习这个部分有所帮助。我主要参考了以下两本书籍：</p><br><p><img src="http://image.beekka.com/blog/201005/bg2010051701.jpg" data-original="http://image.beekka.com/blog/201005/bg2010051701.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><a href="https://www.packtpub.com/object-oriented-javascript-applications-libraries/book" target="_blank">《面向对象的Javascript》</a>（Object-Oriented JavaScript）</p><br><p><img src="http://image.beekka.com/blog/201005/bg2010051702.jpg" data-original="http://image.beekka.com/blog/201005/bg2010051702.jpg" onerror="this.onerror=null;this.src='http://www.old.com/wp-content/themes/BYMT/images/images_error.jpg'" alt=""></p><br><p><a href="http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-2nd-Edition.productCd-047022780X.html" target="_blank">《Javascript高级程序设计（第二版）》</a>（Professional JavaScript for Web Developers, 2nd Edition)</p><br><p>它们都是非常优秀的Javascript读物，推荐阅读。</p><br><p>笔记分成三部分。今天的第一部分是讨论”封装”（Encapsulation），后面的<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank">第二部分</a>和<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank">第三部分</a>讨论”继承”（Inheritance）。</p><br><p>============================</p><br><p><strong>Javascript 面向对象编程（一）：封装</strong></p><br><p>作者：阮一峰</p><br><p>Javascript是一种基于对象（object-based）的语言，你遇到的所有东西几乎都是对象。但是，它又不是一种真正的面向对象编程（OOP）语言，因为它的语法中没有class（类）。</p><br><p>那么，如果我们要把”属性”（property）和”方法”（method），封装成一个对象，甚至要从原型对象生成一个实例对象，我们应该怎么做呢？</p><br><p><strong>一、 生成对象的原始模式</strong></p><br><p>假定我们把猫看成一个对象，它有”名字”和”颜色”两个属性。</p><br><blockquote><p>　　var Cat = {</p><br><p>name : ‘’,</p><br><p>color : ‘’</p><br><p>}</p></blockquote><br><p>现在，我们需要根据这个原型对象的规格（schema），生成两个实例对象。</p><br><blockquote><p>　　var cat1 = {}; // 创建一个空对象</p><br><p>cat1.name = “大毛”; // 按照原型对象的属性赋值</p><br><p>cat1.color = “黄色”;</p><br><p>var cat2 = {};</p><br><p>cat2.name = “二毛”;</p><br><p>cat2.color = “黑色”;</p></blockquote><br><p>好了，这就是最简单的封装了，把两个属性封装在一个对象里面。但是，这样的写法有两个缺点，一是如果多生成几个实例，写起来就非常麻烦；二是实例与原型之间，没有任何办法，可以看出有什么联系。</p><br><p><strong>二、 原始模式的改进</strong></p><br><p>我们可以写一个函数，解决代码重复的问题。</p><br><blockquote><p>　　function Cat(name,color){</p><br><p>return {</p><br><p>name:name,</p><br><p>color:color</p><br><p>}</p><br><p>}</p></blockquote><br><p>然后生成实例对象，就等于是在调用函数：</p><br><blockquote><p>　　var cat1 = Cat(“大毛”,”黄色”);</p><br><p>var cat2 = Cat(“二毛”,”黑色”);</p></blockquote><br><p>这种方法的问题依然是，cat1和cat2之间没有内在的联系，不能反映出它们是同一个原型对象的实例。</p><br><p><strong>三、 构造函数模式</strong></p><br><p>为了解决从原型对象生成实例的问题，Javascript提供了一个构造函数（Constructor）模式。</p><br><p>所谓”构造函数”，其实就是一个普通函数，但是内部使用了<a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank">this变量</a>。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p><br><p>比如，猫的原型对象现在可以这样写，</p><br><blockquote><p>　　function Cat(name,color){</p><br><p>this.name=name;</p><br><p>this.color=color;</p><br><p>}</p></blockquote><br><p>我们现在就可以生成实例对象了。</p><br><blockquote><p>　　var cat1 = new Cat(“大毛”,”黄色”);</p><br><p>var cat2 = new Cat(“二毛”,”黑色”);</p><br><p>alert(cat1.name); // 大毛</p><br><p>alert(cat1.color); // 黄色</p></blockquote><br><p>这时cat1和cat2会自动含有一个constructor属性，指向它们的构造函数。</p><br><blockquote><p>　　alert(cat1.constructor == Cat); //true</p><br><p>alert(cat2.constructor == Cat); //true</p></blockquote><br><p>Javascript还提供了一个instanceof运算符，验证原型对象与实例对象之间的关系。</p><br><blockquote><p>　　alert(cat1 instanceof Cat); //true</p><br><p>alert(cat2 instanceof Cat); //true</p></blockquote><br><p><strong>四、构造函数模式的问题</strong></p><br><p>构造函数方法很好用，但是存在一个浪费内存的问题。</p><br><p>请看，我们现在为Cat对象添加一个不变的属性”type”（种类），再添加一个方法eat（吃老鼠）。那么，原型对象Cat就变成了下面这样：</p><br><blockquote><p>　　function Cat(name,color){</p><br><p>this.name = name;</p><br><p>this.color = color;</p><br><p>this.type = “猫科动物”;</p><br><p>this.eat = function(){alert(“吃老鼠”);};</p><br><p>}</p></blockquote><br><p>还是采用同样的方法，生成实例：</p><br><blockquote><p>　　var cat1 = new Cat(“大毛”,”黄色”);</p><br><p>var cat2 = new Cat (“二毛”,”黑色”);</p><br><p>alert(cat1.type); // 猫科动物</p><br><p>cat1.eat(); // 吃老鼠</p></blockquote><br><p>表面上好像没什么问题，但是实际上这样做，有一个很大的弊端。那就是对于每一个实例对象，type属性和eat()方法都是一模一样的内容，每一次生成一个实例，都必须为重复的内容，多占用一些内存。这样既不环保，也缺乏效率。</p><br><blockquote><p>　　alert(cat1.eat == cat2.eat); //false</p></blockquote><br><p>能不能让type属性和eat()方法在内存中只生成一次，然后所有实例都指向那个内存地址呢？回答是可以的。</p><br><p><strong>五、 Prototype模式</strong></p><br><p>Javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。</p><br><p>这意味着，我们可以把那些不变的属性和方法，直接定义在prototype对象上。</p><br><blockquote><p>　　function Cat(name,color){</p><br><p>this.name = name;</p><br><p>this.color = color;</p><br><p>}</p><br><p>Cat.prototype.type = “猫科动物”;</p><br><p>Cat.prototype.eat = function(){alert(“吃老鼠”)};</p></blockquote><br><p>然后，生成实例。</p><br><blockquote><p>　　var cat1 = new Cat(“大毛”,”黄色”);</p><br><p>var cat2 = new Cat(“二毛”,”黑色”);</p><br><p>alert(cat1.type); // 猫科动物</p><br><p>cat1.eat(); // 吃老鼠</p></blockquote><br><p>这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率。</p><br><blockquote><p>　　alert(cat1.eat == cat2.eat); //true</p></blockquote><br><p><strong>六、 Prototype模式的验证方法</strong></p><br><p>为了配合prototype属性，Javascript定义了一些辅助方法，帮助我们使用它。，</p><br><p><strong>6.1 isPrototypeOf()</strong></p><br><p>这个方法用来判断，某个proptotype对象和某个实例之间的关系。</p><br><blockquote><p>　　alert(Cat.prototype.isPrototypeOf(cat1)); //true</p><br><p>alert(Cat.prototype.isPrototypeOf(cat2)); //true</p></blockquote><br><p><strong>6.2 hasOwnProperty()</strong></p><br><p>每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。</p><br><blockquote><p>　　alert(cat1.hasOwnProperty(“name”)); // true</p><br><p>alert(cat1.hasOwnProperty(“type”)); // false</p></blockquote><br><p><strong>6.3 in运算符</strong></p><br><p>in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性。</p><br><blockquote><p>　　alert(“name” in cat1); // true</p><br><p>alert(“type” in cat1); // true</p></blockquote><br><p>in运算符还可以用来遍历某个对象的所有属性。</p><br><blockquote><p>　　for(var prop in cat1) { alert(“cat1[“+prop+”]=”+cat1[prop]); }</p></blockquote><br><p>未完，请继续阅读这个系列的第二部分<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank">《构造函数的继承》</a>和第三部分<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank">《非构造函数的继承》</a>。</p><br><p>（完）</p>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/21/200ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript对象-1:对象弹琴
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/21/202ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【转】JavaScript基础之对象</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="201ver" data-title="【转】阮一峰大师的Javascript 面向对象编程（一）：封装" data-url="http://emufan.com/2015/10/21/201ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://emufan.com/old/2015/10/21/201ver/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"5aa12667f2120c35747ccd069476a88e"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
