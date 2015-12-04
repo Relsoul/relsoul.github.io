@@ -1,5 +1,9 @@
 require([], function (){
 
+
+	
+	
+
 	var isMobileInit = false;
 	var loadMobile = function(){
 		require(['/js/mobile.js'], function(mobile){
@@ -104,7 +108,9 @@ require([], function (){
 	
 	//是否新窗口打开链接
 	if(yiliaConfig.open_in_new == true){
-		$(".article a[href]").attr("target", "_blank")
+		
 	}
+
+
 	
 });
