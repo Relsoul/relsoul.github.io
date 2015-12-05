@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>慕课网nodejs建站第一期 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="项目地址github
+引用的nodejs库
+express
+path
+mongoose
+underscore
+bodyParser
+
+目录结构
+models:用来存放mongoose model目录
+public：静态文件
+
+js:静态js库
+
+
+
+libs:公共静态资源库
+
+
+schemas：mongoose schemas目录
+views:视图模板目录
+
+includes:视图模板公共目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="慕课网nodejs建站第一期">
+<meta property="og:url" content="http://emufan.com/2015/12/06/慕课网nodejs建站第一期/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="项目地址github
+引用的nodejs库
+express
+path
+mongoose
+underscore
+bodyParser
+
+目录结构
+models:用来存放mongoose model目录
+public：静态文件
+
+js:静态js库
+
+
+
+libs:公共静态资源库
+
+
+schemas：mongoose schemas目录
+views:视图模板目录
+
+includes:视图模板公共目录">
+<meta property="og:updated_time" content="2015-12-05T16:57:28.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="慕课网nodejs建站第一期">
+<meta name="twitter:description" content="项目地址github
+引用的nodejs库
+express
+path
+mongoose
+underscore
+bodyParser
+
+目录结构
+models:用来存放mongoose model目录
+public：静态文件
+
+js:静态js库
+
+
+
+libs:公共静态资源库
+
+
+schemas：mongoose schemas目录
+views:视图模板目录
+
+includes:视图模板公共目录">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/old">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/s">0</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/o">1</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/u">2</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/l">3</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/:">4</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/h">5</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/t">6</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/t">7</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/p">8</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/:">9</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/">10</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/">11</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/e">12</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/m">13</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/u">14</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/f">15</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/a">16</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/n">17</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/.">18</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/c">19</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/o">20</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/m">21</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/old">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-慕课网nodejs建站第一期" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/06/慕课网nodejs建站第一期/" class="article-date">
+  	<time datetime="2015-12-05T16:40:24.000Z" itemprop="datePublished">2015-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      慕课网nodejs建站第一期
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="项目地址">项目地址</h1><p><a href="https://github.com/Relsoul/bdwork/tree/master/soul/%E6%85%95%E8%AF%BE%E7%BD%91nodejs%E5%BB%BA%E7%AB%99%E7%AC%AC%E4%B8%80%E6%9C%9F" target="_blank" rel="external">github</a></p>
+<h2 id="引用的nodejs库">引用的nodejs库</h2><ul>
+<li>express</li>
+<li>path</li>
+<li>mongoose</li>
+<li>underscore</li>
+<li>bodyParser</li>
+</ul>
+<h2 id="目录结构">目录结构</h2><ul>
+<li>models:用来存放mongoose model目录</li>
+<li>public：静态文件</li>
+<li><ul>
+<li>js:静态js库</li>
+</ul>
+</li>
+<li><ul>
+<li>libs:公共静态资源库</li>
+</ul>
+</li>
+<li>schemas：mongoose schemas目录</li>
+<li>views:视图模板目录</li>
+<li><ul>
+<li>includes:视图模板公共目录</li>
+</ul>
+</li>
+<li><ul>
+<li>pages:视图模板页面目录</li>
+</ul>
+</li>
+<li><ul>
+<li>layout.jade 视图主模板</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库构建">数据库构建</h2><a id="more"></a>
+<h3 id="schemas">schemas</h3><p><strong>数据存储结构</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">doctor</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">title</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">language</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">country</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">summary</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">flash</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">poster</span><span class="pseudo">:String</span>,</span><br><span class="line"><span class="tag">year</span><span class="pseudo">:Number</span>,</span><br><span class="line"><span class="tag">meta</span>:<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">createAt</span>:<span class="value">&#123;</span><br><span class="line">        type:Date,</span><br><span class="line">        default:Date.<span class="function">now</span>()</span><br><span class="line">    </span></span></span>&#125;,</span><br><span class="line">    <span class="tag">updateAt</span>:<span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">type</span>:<span class="value">Date,</span><br><span class="line">        default:Date.<span class="function">now</span>()</span><br><span class="line">    </span></span></span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>数据存储方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//每次存储数据都会调用这个函数 类似于路由中间件</span></span><br><span class="line">MovieSchema.pre(<span class="string">"save"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">next</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.isNew)&#123;</span><br><span class="line">        <span class="keyword">this</span>.meta.createAt=<span class="keyword">this</span>.meta.updateAt=<span class="built_in">Date</span>.now()</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.meta.updateAt=<span class="built_in">Date</span>.now()</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//经过模型编译后才会具有这些方法</span></span><br><span class="line">MovieSchema.statics=&#123;</span><br><span class="line">    fetch:<span class="function"><span class="keyword">function</span>(<span class="params">cb</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.find(&#123;&#125;).sort(<span class="string">"meta.updateAt"</span>).exec(cb)</span><br><span class="line">    &#125;,</span><br><span class="line">    findById:<span class="function"><span class="keyword">function</span>(<span class="params">id,cb</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.findOne(&#123;_id:id&#125;).sort(<span class="string">"meta.updateAt"</span>).exec(cb)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="models">models</h3><p>存储在Movie集合中,存储结构为schema<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> Movie=mongoose.<span class="function"><span class="title">model</span><span class="params">(<span class="string">"Movie"</span>,MovieSchema)</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="路由构建">路由构建</h2><h3 id="首页(index)路由">首页(index)路由</h3><p>访问首页的时候获取movie集合中所有的数据并且传递数据渲染index视图模板<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index page</span></span><br><span class="line">app.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> &#123;</span></span><br><span class="line">    Movie.fetch(<span class="function"><span class="keyword">function</span> <span class="params">(err, movies)</span> &#123;</span></span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            console.<span class="built_in">log</span>(err)</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">render</span>(<span class="string">"index"</span>, &#123;</span><br><span class="line">            title: <span class="string">"imooc 首页"</span>,</span><br><span class="line">            movies: movies</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="详情页(detail)路由">详情页(detail)路由</h3><p>当访问的方式为<code>/movie/:id //id为数据库中唯一存在的_id值</code><br>获取movie集合中_id为:id的数据并且渲染detail视图</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//detail page</span></span><br><span class="line">app.<span class="keyword">get</span>(<span class="string">"/movie/:id"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = req.params.id;</span><br><span class="line">    Movie.findById(id, <span class="function"><span class="keyword">function</span> <span class="params">(err, movie)</span> </span>&#123;</span><br><span class="line">        res.render(<span class="string">"detail"</span>, &#123;</span><br><span class="line">            title: <span class="string">"imooc "</span> + movie.title,</span><br><span class="line">            movie: movie</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="录入页(admin/movie)路由">录入页(admin/movie)路由</h3><p>渲染admin视图传递空字符串过去.</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//admin page</span></span><br><span class="line">app.<span class="keyword">get</span>(<span class="string">"/admin/movie"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> </span>&#123;</span><br><span class="line">    res.render(<span class="string">"admin"</span>, &#123;</span><br><span class="line">        title: <span class="string">"imooc 后台录入页"</span>,</span><br><span class="line">        movie: &#123;</span><br><span class="line">            title: <span class="string">""</span>,</span><br><span class="line">            doctor: <span class="string">""</span>,</span><br><span class="line">            country: <span class="string">""</span>,</span><br><span class="line">            year: <span class="string">""</span>,</span><br><span class="line">            poster: <span class="string">""</span>,</span><br><span class="line">            flash: <span class="string">""</span>,</span><br><span class="line">            summary: <span class="string">""</span>,</span><br><span class="line">            language: <span class="string">""</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="更新页(admin/update)路由">更新页(admin/update)路由</h3><p>获取传递的id同时渲染admin视图 把movie中找到的数据传递过去</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//admin <span class="operator"><span class="keyword">update</span> movie</span><br><span class="line">app.<span class="keyword">get</span>(<span class="string">"/admin/update/:id"</span>,<span class="keyword">function</span>(req,res)&#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">id</span>=req.params.<span class="keyword">id</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">id</span>)&#123;</span><br><span class="line">        Movie.findById(<span class="keyword">id</span>,<span class="keyword">function</span>(err,movie)&#123;</span><br><span class="line">            console.<span class="keyword">log</span>(<span class="number">72</span>,movie)</span><br><span class="line">            res.render(<span class="string">"admin"</span>,&#123;</span><br><span class="line">                title:<span class="string">"后台更新页"</span>,</span><br><span class="line">                movie:movie</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据更新(post,update)路由">数据更新(post,update)路由</h3><p>当更新页/录入页 点击<code>录入</code>的时候传递表单内容至/admin/movie/new<br>判断传递过来的id是否存在,如果存在则认为不是新录入.更新数据后调用model.save方法保存到数据库<br>如果不存在则调用model.save方法直接保存到数据库</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"> //admin post <span class="keyword">movie</span><br><span class="line"></span><span class="label">app.post</span>(<span class="string">"/admin/movie/new"</span>, <span class="preprocessor">function</span> (req, res) &#123;</span><br><span class="line">    var id = req.<span class="keyword">body.movie._id;</span><br><span class="line"></span>    var <span class="keyword">movieObj </span>= req.<span class="keyword">body.movie;</span><br><span class="line"></span>    var _movie</span><br><span class="line">    //判断电影是否新加入的</span><br><span class="line">    <span class="preprocessor">if</span> (id !== <span class="string">"undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">Movie.findById(id, </span><span class="preprocessor">function</span> (err, <span class="keyword">movie) </span>&#123;</span><br><span class="line">            <span class="preprocessor">if</span> (err) &#123;</span><br><span class="line">                console.log(err)</span><br><span class="line">            &#125;</span><br><span class="line">            //更新变量</span><br><span class="line">            _movie = _.extend(<span class="keyword">movie, </span><span class="keyword">movieObj);</span><br><span class="line"></span>            _movie.save(<span class="preprocessor">function</span> (err, <span class="keyword">movie) </span>&#123;</span><br><span class="line">                <span class="preprocessor">if</span> (err) &#123;</span><br><span class="line">                    console.log(err)</span><br><span class="line">                &#125;</span><br><span class="line">                res.redirect(<span class="string">"/movie/"</span> + <span class="keyword">movie._id)</span><br><span class="line"></span>            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">        _movie = new <span class="keyword">Movie(&#123;</span><br><span class="line"></span><span class="label">            doctor:</span> <span class="keyword">movieObj.doctor,</span><br><span class="line"></span><span class="label">            title:</span> <span class="keyword">movieObj.title,</span><br><span class="line"></span><span class="label">            country:</span> <span class="keyword">movieObj.country,</span><br><span class="line"></span><span class="label">            language:</span> <span class="keyword">movieObj.language,</span><br><span class="line"></span><span class="label">            year:</span> <span class="keyword">movieObj.year,</span><br><span class="line"></span><span class="label">            poster:</span> <span class="keyword">movieObj.poster,</span><br><span class="line"></span><span class="label">            summary:</span> <span class="keyword">movieObj.summary,</span><br><span class="line"></span><span class="label">            flash:</span> <span class="keyword">movieObj.flash,</span><br><span class="line"></span>        &#125;)</span><br><span class="line">        _movie.save(<span class="preprocessor">function</span> (err, <span class="keyword">movie) </span>&#123;</span><br><span class="line">            <span class="preprocessor">if</span> (err) &#123;</span><br><span class="line">                console.log(err)</span><br><span class="line">            &#125;</span><br><span class="line">                res.redirect(<span class="string">"/movie/"</span>+<span class="keyword">movie._id)</span><br><span class="line"></span>        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="后台列表页(/admin/list)路由">后台列表页(/admin/list)路由</h2><p>传递所有的movie渲染list视图<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//list page</span></span><br><span class="line">app.get(<span class="string">"/admin/list"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> &#123;</span></span><br><span class="line">    Movie.fetch(<span class="function"><span class="keyword">function</span> <span class="params">(err, movies)</span> &#123;</span></span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            console.<span class="built_in">log</span>(err)</span><br><span class="line">        &#125;</span><br><span class="line">        res.<span class="built_in">render</span>(<span class="string">"list"</span>, &#123;</span><br><span class="line">            title: <span class="string">"imooc 列表页"</span>,</span><br><span class="line">            movies:movies</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="列表页删除(delete,/admin/list)路由">列表页删除(delete,/admin/list)路由</h2><p>当在列表页点击<code>删除</code>时发起一段ajax请求 如果成功后台返回success:1</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="keyword">delete</span>(<span class="string">"/admin/list"</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id=req.query.id</span><br><span class="line">    <span class="keyword">if</span>(id)&#123;</span><br><span class="line">        Movie.remove(&#123;</span><br><span class="line">            _id:id</span><br><span class="line">        &#125;,<span class="function"><span class="keyword">function</span><span class="params">(err,movie)</span></span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                    console.log(err)</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    res.json(&#123;success:<span class="number">1</span>&#125;)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="结尾">结尾</h1><p>因为是第一期所以没实现用户，权限管理登内容…有啥问题直接blog留言即可</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/04/nodejs爬虫-笨笨兔的故事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs爬虫-笨笨兔的故事</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="慕课网nodejs建站第一期" data-title="慕课网nodejs建站第一期" data-url="http://emufan.com/2015/12/06/慕课网nodejs建站第一期/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"5aa12667f2120c35747ccd069476a88e"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
