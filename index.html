@@ -213,7 +213,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="自用nodejs版七牛上传下载功能">自用nodejs版七牛上传下载功能</h1><p><a href="http://emufan.com">Blog</a></p>
-<p><a href="http://cdn.emufan.com/img/七牛-1.png" target="_blank" rel="external">list</a><br><a href="http://cdn.emufan.com/img/七牛-2.png" target="_blank" rel="external">get</a><br><a href="http://cdn.emufan.com/img/七牛-3.png" target="_blank" rel="external">upload</a></p>
+<p><a href="http://cdn.emufan.com/img/七牛-1.png">list</a><br><a href="http://cdn.emufan.com/img/七牛-2.png">get</a><br><a href="http://cdn.emufan.com/img/七牛-3.png">upload</a></p>
 <h2 id="自用功能">自用功能</h2><p>自动对比服务器文件上传,<br>自动获取服务器文件下载,<br>获取服务器上所有文件</p>
 <p>依赖模块</p>
 <ul>
@@ -222,49 +222,6 @@
 <li>npm install underscore</li>
 </ul>
 <p>JS中最下方的初始化<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">AK</span>: <span class="string">你的七牛AK,</span></span><br><span class="line"><span class="attribute">SK</span>: <span class="string">你的七牛SK,</span></span><br><span class="line"><span class="attribute">path</span>: <span class="string">需要同步文件夹以当前文件夹下的文件夹,非绝对路径如:"/uploadQN"指的是当前文件夹下的uploadQN,</span></span><br><span class="line"><span class="attribute">bucket</span>: <span class="string">你的七牛空间,</span></span><br><span class="line"><span class="attribute">domain</span>: <span class="string">你的七牛CDN域名 用来下载</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="指令">指令</h2><p>目前仅仅支持get,list,upload</p>
-<h3 id="get">get</h3><figure class="highlight"><figcaption><span>uploadQN.js get ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#33719;&#21462;&#30446;&#24405;&#19979;&#30340;&#25152;&#26377;&#25991;&#20214;&#20197;&#21450;&#25991;&#20214;&#22841;&#10;&#10;### list&#10;```nodejs uploadQN.js list</span><br></pre></td></tr></table></figure>
-<p>获取服务器上的所有文件</p>
-<h3 id="upload">upload</h3><figure class="highlight"><figcaption><span>uploadQN.js upload ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#19978;&#20256;&#21516;&#27493;&#25991;&#20214;&#22841;&#19979;&#30340;&#25152;&#26377;&#25991;&#20214;&#33267;&#26381;&#21153;&#22120;&#10;&#10;&#10;---&#10;&#10;# &#23398;&#20064;&#31508;&#35760;&#10;&#10;&#26412;&#27425;&#20889;&#36825;&#20010;&#23567;&#21151;&#33021;&#36935;&#21040;&#26368;&#22823;&#30340;&#38556;&#30861;&#23601;&#26159;nodejs&#20013;&#30340;&#24322;&#27493;&#24490;&#29615;&#33719;&#21462;&#30446;&#24405;&#10;&#27604;&#22914;&#20320;&#30340;&#25991;&#20214;&#22841;&#30446;&#24405;&#32467;&#26500;&#20026;&#10;- upload&#10;-- imgs&#10;--- xxx.png&#10;-- mm&#10;--- imgs&#10;---- xxx.png&#10;&#10;&#38656;&#35201;&#20570;&#30340;&#20107;&#24773;&#20026;&#36882;&#24402;&#36941;&#21382;&#21516;&#27493;&#25991;&#20214;&#22841;=&#62;&#24322;&#27493;&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#20026;&#25991;&#20214;=&#62;&#22914;&#26524;&#26159;&#25991;&#20214;&#22841;=&#62;&#20877;&#27425;&#36882;&#24402;&#24490;&#29615;&#10;&#36882;&#24402;&#26469;&#36882;&#24402;&#21435;&#24456;&#23481;&#26131;&#35843;&#20837;&#19968;&#20010;&#22353;</span><br></pre></td></tr></table></figure>
-<p>getDir: function (cb) {<br>            var path = node_path.join(__dirname, dir_path)<br>            var dirs = [];<br>            //用来存储最后获得的目录<br>            var over_dir=[];<br>            //获取存储最后获得的文件<br>            var over=[];<br>            //初始化<br>            dirs.push(path);</p>
-<pre><code>    <span class="function"><span class="keyword">function</span> <span class="title">forFiles</span><span class="params">(files, file_path)</span> </span>{ <span class="comment">// 循环目录下所有文件</span>
-        <span class="keyword">var</span> fixdir = [];
-        <span class="keyword">var</span> arrlength=files.length;
-        files.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span> <span class="params">(e, i)</span> </span>{
-            <span class="keyword">var</span> e = node_path.join(file_path,e);
-            fs.stat(e, <span class="function"><span class="keyword">function</span> <span class="params">(err, stat)</span> </span>{
-                arrlength--
-                <span class="keyword">if</span> (stat.isDirectory()) { <span class="comment">// 为目录则给over_dir添加目录</span>
-                    fixdir.push(e)
-                    over_dir.push(e)
-                }<span class="keyword">else</span>{ <span class="comment">// 给over添加文件</span>
-                    over.push(e)
-                };
-                <span class="keyword">if</span>(arrlength==<span class="number">0</span>){
-                    <span class="keyword">if</span>(file_path==over_dir[over_dir.length-<span class="number">1</span>]){ <span class="comment">// 当次循环的目录是否等于over_dir的最后一个目录</span>
-                         cb(over,over_dir)
-                    }
-                    <span class="keyword">if</span>(fixdir.length&gt;<span class="number">0</span>){ <span class="comment">//如果获取到文件夹</span>
-                        forDir(fixdir)
-                    }
-                }
-             <span class="comment">/*   if (i == files.length - 1) { // 当次循环目录结束
-
-                }*/</span>
-            })
-        })
-    }
-    <span class="function"><span class="keyword">function</span> <span class="title">forDir</span><span class="params">(dirs)</span> </span>{
-        dirs.<span class="keyword">forEach</span>(<span class="function"><span class="keyword">function</span> <span class="params">(e, i)</span> </span>{
-            fs.readdir(e, <span class="function"><span class="keyword">function</span> <span class="params">(err, files)</span> </span>{
-                forFiles(files,e)
-            })
-        })
-    }
-    forDir(dirs)
-}
-</code></pre><p>```</p>
-
       
     </div>
     
@@ -277,6 +234,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/16/自用七牛上传下载/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
