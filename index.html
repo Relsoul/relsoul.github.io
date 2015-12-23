@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 15px;">angularJS</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,237 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-window-0x8e5e03fe" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/23/window-0x8e5e03fe/" class="article-date">
+  	<time datetime="2015-12-23T10:29:57.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/23/window-0x8e5e03fe/">window10-0x8e5e03fe处理办法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0x8e5e03fe是什么">0x8e5e03fe是什么</h1><p>谷歌翻墙了一下得出的结论是软件冲突,导致服务不能正常安装</p>
+<h1 id="NET3-5_0x8e5e03fe">NET3.5 0x8e5e03fe</h1><p>今天安装NET3.5的时候就报了这个错误,很纳闷,百度了一下得出的基本都是进行<a href="https://support.microsoft.com/zh-cn/kb/929135" target="_blank" rel="external">干净模式</a>然后安装<br>但是这个办法对我无效,重启后安装还是报0x8e5e03fe</p>
+<h1 id="解决">解决</h1><p><a href="http://answers.microsoft.com/en-us/windows/forum/all/problem-with-windows-update-windowsupdate8e5e03fe/fde9a1d4-02b5-4c20-be5c-1878565214cd" target="_blank" rel="external">这篇文章</a>有个解决方案,<br>以管理员模式运行cmd 然后输入以下的指令<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="winutils">net</span> stop wuauserv</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> stop cryptSvc</span><br><span class="line"> </span><br><span class="line"><span class="winutils">net</span> stop bits</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> stop msiserver</span><br><span class="line"></span><br><span class="line"><span class="winutils">ren</span> C:\Windows\SoftwareDistribution SoftwareDistribution.old</span><br><span class="line"></span><br><span class="line"><span class="winutils">ren</span> C:\Windows\System32\catroot2 catroot2.old</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> wuauserv</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> cryptSvc</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> bits</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> msiserver</span><br></pre></td></tr></table></figure></p>
+<p>我输入net stop msiserver的时候就报错 没有启动 Windows Installer 服务。<br>这时候我大致清楚了无法安装NET3.5的原因应该是Windows Installer 服务没启动 于是我仅仅启动了Windows Installer 服务然后安装NET3.5就okay了</p>
+<h1 id="NET3-5的离线安装">NET3.5的离线安装</h1><p><a href="http://jingyan.baidu.com/article/a501d80ceda2d5ec630f5eb3.html" target="_blank" rel="external">百度经验</a><br>下载win10原版ISO然后提取出sxs文件就行了</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/win10/">win10</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
+<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
+<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-MVC/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-MVC/">angular学习笔记-MVC</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="代码">代码</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span> <span class="attribute">ng-app</span>=<span class="value">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"myCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"msg"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">msg</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    <span class="keyword">var</span> app=angular.module(<span class="string">"app"</span>,[])</span><br><span class="line">    app.controller(<span class="string">"myCtrl"</span>,<span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</span><br><span class="line">        $scope.msg=<span class="string">"请输入"</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="M(modle)">M(modle)</h1><p>M层即为数据层也就是modle<br>上例代码中$scope.msg=”请输入”这个就是一个modle层</p>
+<p><input type="text" ng-model="msg"><br>这个msg也是modle层 因为angularJS为双向数据绑定<br>当输入框的文字变化,下面的div文字也会变化</p>
+<h1 id="V(view)">V(view)</h1><p>V层即为视图层.</p>
+<p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
+<h1 id="C(controller)">C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-可维护的JavaScript笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/可维护的JavaScript笔记/" class="article-date">
+  	<time datetime="2015-12-22T03:47:27.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/可维护的JavaScript笔记/">可维护的JavaScript笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-mongoose连表查询" class="article article-type-post" itemscope itemprop="blogPost">
   
