@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular学习笔记-简介 | Soul,灵魂,凌魂,零魂,</title>
+  <title>socket.io 1.0中的to与in | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+  <meta name="description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular学习笔记-简介">
-<meta property="og:url" content="http://emufan.com/2015/12/22/angular学习笔记-简介/index.html">
+<meta property="og:title" content="socket.io 1.0中的to与in">
+<meta property="og:url" content="http://emufan.com/2015/12/28/socket中的to与in/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
-<meta property="og:updated_time" content="2015-12-22T13:02:16.257Z">
+<meta property="og:description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
+<meta property="og:updated_time" content="2015-12-28T09:01:54.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular学习笔记-简介">
-<meta name="twitter:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+<meta name="twitter:title" content="socket.io 1.0中的to与in">
+<meta name="twitter:description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -188,11 +185,11 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-socket中的to与in" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/28/socket中的to与in/" class="article-date">
+  	<time datetime="2015-12-28T08:46:27.000Z" itemprop="datePublished">2015-12-28</time>
 </a>
     </div>
   
@@ -205,7 +202,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
         
   
     <h1 class="article-title" itemprop="name">
-      angular学习笔记-简介
+      socket.io 1.0中的to与in
     </h1>
   
 
@@ -214,7 +211,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
 	</div>
 
         
@@ -225,10 +222,12 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+        <h1 id="socket_1-0中的to_与in">socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新建个房间</span></span><br><span class="line">io<span class="built_in">.</span>of(<span class="string">"/chat"</span>)<span class="built_in">.</span><span class="keyword">on</span>(<span class="string">"connection"</span>,function(socket)&#123;</span><br><span class="line">    <span class="comment">//针对chat发送hello事件</span></span><br><span class="line">    socket<span class="built_in">.</span>broadcast<span class="built_in">.</span><span class="keyword">to</span>(<span class="string">'chat'</span>)<span class="built_in">.</span>emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接到这个房间</span></span><br><span class="line">socket<span class="built_in">.</span><span class="keyword">join</span>(<span class="string">"chat"</span>)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>但是,我们一般都不会这么去做..如果有100个房间那么要处理100个room<br>所以一般都是一个总连接内直接分组不手动分组处理<br>比如<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">socket</span>.on(<span class="string">"connection"</span>,<span class="function"><span class="keyword">function</span>(<span class="title">socket</span>)&#123;</span></span><br><span class="line">   <span class="comment"> //加入hello房间 /分组到hello</span></span><br><span class="line">    <span class="built_in">socket</span>.join(<span class="string">"hello"</span>)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>现在坑的一步来了 在socket.io 1.0版本中或者所在所有版本中强烈推荐这样写不容易掉坑<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给hello分组发送hello事件</span></span><br><span class="line">socket<span class="built_in">.</span>broadcast<span class="built_in">.</span><span class="keyword">to</span>(<span class="string">'hello'</span>)<span class="built_in">.</span>emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</span><br></pre></td></tr></table></figure></p>
+<p>很抱歉上面那一步根本行不通！请相信一位因这个bug而找了一小时的资料的苦逼程序猿<br>所以推荐用这种写法<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">io<span class="built_in">.</span>sockets<span class="built_in">.</span><span class="keyword">to</span>(<span class="string">'hello'</span>)<span class="built_in">.</span>emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</span><br></pre></td></tr></table></figure></p>
+<p>获取所有的连接然后找到hello这个分组发送hello事件<br>to和in是一样的意思 把to换成in也是一样的</p>
 
       
     </div>
@@ -238,18 +237,9 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
 <nav id="article-nav">
   
-    <a href="/2015/12/23/window-0x8e5e03fe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          window10-0x8e5e03fe处理办法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/22/angular学习笔记-MVC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">angular学习笔记-MVC</div>
+    <a href="/2015/12/23/window-0x8e5e03fe/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">window10-0x8e5e03fe处理办法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -278,7 +268,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="angular学习笔记-简介" data-title="angular学习笔记-简介" data-url="http://emufan.com/2015/12/22/angular学习笔记-简介/"></div>
+	<div class="ds-thread" data-thread-key="socket中的to与in" data-title="socket.io 1.0中的to与in" data-url="http://emufan.com/2015/12/28/socket中的to与in/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

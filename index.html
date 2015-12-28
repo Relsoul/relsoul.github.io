@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 15px;">angularJS</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 15px;">angularJS</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 10px;">socket.io</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,64 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-socket中的to与in" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/28/socket中的to与in/" class="article-date">
+  	<time datetime="2015-12-28T08:46:27.000Z" itemprop="datePublished">2015-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/28/socket中的to与in/">socket.io 1.0中的to与in</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="socket_1-0中的to_与in">socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新建个房间</span></span><br><span class="line">io<span class="built_in">.</span>of(<span class="string">"/chat"</span>)<span class="built_in">.</span><span class="keyword">on</span>(<span class="string">"connection"</span>,function(socket)&#123;</span><br><span class="line">    <span class="comment">//针对chat发送hello事件</span></span><br><span class="line">    socket<span class="built_in">.</span>broadcast<span class="built_in">.</span><span class="keyword">to</span>(<span class="string">'chat'</span>)<span class="built_in">.</span>emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接到这个房间</span></span><br><span class="line">socket<span class="built_in">.</span><span class="keyword">join</span>(<span class="string">"chat"</span>)</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/28/socket中的to与in/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-window-0x8e5e03fe" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -764,70 +822,10 @@
 
 
   
-    <article id="post-nodejs爬虫-笨笨兔的故事" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/12/04/nodejs爬虫-笨笨兔的故事/" class="article-date">
-  	<time datetime="2015-12-04T05:37:32.000Z" itemprop="datePublished">2015-12-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/04/nodejs爬虫-笨笨兔的故事/">nodejs爬虫-笨笨兔的故事</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##起始<br>想找个笨笨兔的故事txt版的放kindle上 无奈网上都是pdf版的,不过倒是有在线阅读的<br><code>http://www.linuxidc.com/Linux/2010-12/30786.htm</code><br>于是打算自己用nodejs写个爬虫来爬一下网站内容生成txt传输到kindle<br>具体请参考我的<a href="https://github.com/Relsoul/bdwork/tree/master/soul/%E7%AC%A8%E5%85%94%E5%85%94%E7%9A%84%E6%95%85%E4%BA%8B%E7%88%AC%E8%99%AB">github</a></p>
-<h2 id="开始编写">开始编写</h2><p>用到的库有</p>
-<ul>
-<li>superagent //request请求</li>
-<li>async         //并发(异步)流程控制库 用来控制并发数    </li>
-<li>cheerio    //nodejs的jquery</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/04/nodejs爬虫-笨笨兔的故事/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
