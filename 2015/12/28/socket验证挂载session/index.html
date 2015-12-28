@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular学习笔记-简介 | Soul,灵魂,凌魂,零魂,</title>
+  <title>socket.io验证挂载session | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+  <meta name="description" content="socket.io 1.0验证挂载session根据客户端的cookie中的connect.sid获取服务端中的session服务端采用的是mongodb-session获取失败返回callback(err,false);获取成功返回callback(null,true);12345678910111213141516171819202122//验证设置session   io.set(&quot;auth">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular学习笔记-简介">
-<meta property="og:url" content="http://emufan.com/2015/12/22/angular学习笔记-简介/index.html">
+<meta property="og:title" content="socket.io验证挂载session">
+<meta property="og:url" content="http://emufan.com/2015/12/28/socket验证挂载session/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
-<meta property="og:updated_time" content="2015-12-22T13:02:16.257Z">
+<meta property="og:description" content="socket.io 1.0验证挂载session根据客户端的cookie中的connect.sid获取服务端中的session服务端采用的是mongodb-session获取失败返回callback(err,false);获取成功返回callback(null,true);12345678910111213141516171819202122//验证设置session   io.set(&quot;auth">
+<meta property="og:updated_time" content="2015-12-28T09:16:30.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular学习笔记-简介">
-<meta name="twitter:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+<meta name="twitter:title" content="socket.io验证挂载session">
+<meta name="twitter:description" content="socket.io 1.0验证挂载session根据客户端的cookie中的connect.sid获取服务端中的session服务端采用的是mongodb-session获取失败返回callback(err,false);获取成功返回callback(null,true);12345678910111213141516171819202122//验证设置session   io.set(&quot;auth">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -188,11 +185,11 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-socket验证挂载session" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/28/socket验证挂载session/" class="article-date">
+  	<time datetime="2015-12-28T09:08:43.000Z" itemprop="datePublished">2015-12-28</time>
 </a>
     </div>
   
@@ -205,7 +202,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
         
   
     <h1 class="article-title" itemprop="name">
-      angular学习笔记-简介
+      socket.io验证挂载session
     </h1>
   
 
@@ -214,7 +211,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
 	</div>
 
         
@@ -225,10 +222,8 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+        <h1 id="socket-io_1-0验证挂载session">socket.io 1.0验证挂载session</h1><p>根据客户端的cookie中的connect.sid获取服务端中的session<br>服务端采用的是mongodb-session<br>获取失败返回callback(err,false);<br>获取成功返回callback(null,true);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证设置session</span></span><br><span class="line">   io.set(<span class="string">"authorization"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">handshakeData, callback</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//解析cookie</span></span><br><span class="line">       handshakeData.cookie = cookie.parse(handshakeData.headers.cookie)</span><br><span class="line">       <span class="built_in">console</span>.log(handshakeData.cookie)</span><br><span class="line">       <span class="keyword">var</span> sessionid = handshakeData.cookie[<span class="string">'connect.sid'</span>]</span><br><span class="line">       <span class="keyword">if</span> (sessionid) &#123;</span><br><span class="line">           <span class="keyword">var</span> sid = sessionid.split(<span class="string">':'</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>];</span><br><span class="line">           <span class="comment">//用mongodb查询语法</span></span><br><span class="line">           mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">               collection.find(&#123;_id: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">                   <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                       callback(err, <span class="literal">false</span>)</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       handshakeData.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</span><br><span class="line">                       <span class="built_in">console</span>.log(<span class="number">23</span>, handshakeData.session)</span><br><span class="line">                       callback(<span class="literal">null</span>, <span class="literal">true</span>)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注意其中的handshakeData.session = JSON.parse(results[0].session)<br>这段就是给socket挂载上一个session属性 这样是行得通的 但是要在socket获取不能采用<br>socket.handshake.session而要采用socket.request.session<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">io.sockets.on(<span class="string">"connection"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(socket)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">//获取用户session</span></span><br><span class="line">     <span class="keyword">var</span> _name=socket.request.session.user.name;</span><br><span class="line"></span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -238,18 +233,9 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
 <nav id="article-nav">
   
-    <a href="/2015/12/23/window-0x8e5e03fe/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          window10-0x8e5e03fe处理办法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/22/angular学习笔记-MVC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">angular学习笔记-MVC</div>
+    <a href="/2015/12/28/angular中的cookie操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">angular中的cookie操作</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -278,7 +264,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="angular学习笔记-简介" data-title="angular学习笔记-简介" data-url="http://emufan.com/2015/12/22/angular学习笔记-简介/"></div>
+	<div class="ds-thread" data-thread-key="socket验证挂载session" data-title="socket.io验证挂载session" data-url="http://emufan.com/2015/12/28/socket验证挂载session/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

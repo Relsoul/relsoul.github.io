@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular学习笔记-简介 | Soul,灵魂,凌魂,零魂,</title>
+  <title>angular中的cookie操作 | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+  <meta name="description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular学习笔记-简介">
-<meta property="og:url" content="http://emufan.com/2015/12/22/angular学习笔记-简介/index.html">
+<meta property="og:title" content="angular中的cookie操作">
+<meta property="og:url" content="http://emufan.com/2015/12/28/angular中的cookie操作/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
-<meta property="og:updated_time" content="2015-12-22T13:02:16.257Z">
+<meta property="og:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
+<meta property="og:updated_time" content="2015-12-28T09:08:31.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular学习笔记-简介">
-<meta name="twitter:description" content="简介angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1
-ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app12345678910&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;hello&quot;&amp;gt;&amp;lt;head&amp;gt;  &amp;lt;tit">
+<meta name="twitter:title" content="angular中的cookie操作">
+<meta name="twitter:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -188,11 +185,11 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-angular中的cookie操作" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2015/12/28/angular中的cookie操作/" class="article-date">
+  	<time datetime="2015-12-28T09:08:29.000Z" itemprop="datePublished">2015-12-28</time>
 </a>
     </div>
   
@@ -205,7 +202,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
         
   
     <h1 class="article-title" itemprop="name">
-      angular学习笔记-简介
+      angular中的cookie操作
     </h1>
   
 
@@ -214,7 +211,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJs/">angularJs</a></li></ul>
 	</div>
 
         
@@ -225,10 +222,8 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+        <h1 id="angular1-4-8中的cookie操作">angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br><a id="more"></a><br>比如下面这段就是 <strong>行不通</strong> 的<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</span><br><span class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookieStore'</span>, <span class="keyword">function</span>(<span class="variable">$cookieStore</span>) &#123;</span><br><span class="line">  // Put cookie</span><br><span class="line">  <span class="variable">$cookieStore</span>.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</span><br><span class="line">  // Get cookie</span><br><span class="line">  var favoriteCookie = <span class="variable">$cookieStore</span>.get(<span class="string">'myFavorite'</span>);</span><br><span class="line">  // Removing a cookie</span><br><span class="line">  <span class="variable">$cookieStore</span>.remove(<span class="string">'myFavorite'</span>);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
+<p>利用$cookieStore操作cookie会报循环获取xxx错误具体大家试试就行了<br>只需要改一处地方代码就可以完美运行那就是把 <strong>$cookieStore</strong>改为<strong>$cookies</strong><br>其他操作方法不变<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</span><br><span class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookies'</span>, <span class="keyword">function</span>(<span class="variable">$cookies</span>) &#123;</span><br><span class="line">  // Put cookie</span><br><span class="line">  <span class="variable">$cookies</span>.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</span><br><span class="line">  // Get cookie</span><br><span class="line">  var favoriteCookie = <span class="variable">$cookies</span>.get(<span class="string">'myFavorite'</span>);</span><br><span class="line">  // Removing a cookie</span><br><span class="line">  <span class="variable">$cookies</span>.remove(<span class="string">'myFavorite'</span>);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -238,18 +233,18 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
     
 <nav id="article-nav">
   
-    <a href="/2015/12/23/window-0x8e5e03fe/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/28/socket验证挂载session/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          window10-0x8e5e03fe处理办法
+          socket.io验证挂载session
         
       </div>
     </a>
   
   
-    <a href="/2015/12/22/angular学习笔记-MVC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">angular学习笔记-MVC</div>
+    <a href="/2015/12/28/socket中的to与in/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">socket.io 1.0中的to与in</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -278,7 +273,7 @@ ngApp在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="angular学习笔记-简介" data-title="angular学习笔记-简介" data-url="http://emufan.com/2015/12/22/angular学习笔记-简介/"></div>
+	<div class="ds-thread" data-thread-key="angular中的cookie操作" data-title="angular中的cookie操作" data-url="http://emufan.com/2015/12/28/angular中的cookie操作/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
