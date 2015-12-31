@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 15px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 15px;">socket.io</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 13.33px;">socket.io</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,65 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/01/angular解析属性中的特殊符号/" class="article-date">
+  	<time datetime="2015-12-31T16:39:43.000Z" itemprop="datePublished">2016-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/01/angular解析属性中的特殊符号/">angular解析属性中的特殊符号</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又掉入一个坑了…例子如下</p>
+<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
+<p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
+<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-socket验证挂载session" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -417,64 +476,6 @@
 
 
   
-    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -507,6 +508,64 @@
 <h1 id="V(view)">V(view)</h1><p>V层即为视图层.</p>
 <p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
 <h1 id="C(controller)">C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
+<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
+<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
 
       
     </div>
@@ -616,6 +675,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="mongoose中的连表查询">mongoose中的连表查询</h1><p><a href="https://github.com/Relsoul/readbook/tree/master/mongoose" target="_blank" rel="external">github地址</a><br><a href="http://mongoosejs.com/docs/populate.html" target="_blank" rel="external">population API</a></p>
+<h1 id="当找不到外链ID会跳过此ID">当找不到外链ID会跳过此ID</h1><p>比如 Name1中有三个_id分别为<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">     test:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">ref</span>:<span class="type">Name2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Name2中以_id来索引表分别为<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span></span><br><span class="line">    name:<span class="number">1</span></span><br><span class="line"></span></span></span>&#125;,</span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">2</span></span><br><span class="line">    name:<span class="number">2</span></span><br><span class="line"></span></span></span>&#125;,</span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">3</span></span><br><span class="line">    name:<span class="number">3</span></span><br><span class="line"></span></span></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>现在删除Name2中的_id:2但是不删除Name1中的test外键中的_id:2<br>这样索引出来会索引出_id:1 _id:3并且不会报错.</p>
 <h2 id="建立关联表">建立关联表</h2><p>表一:Name<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="type">ObjectId</span>=mongoose.<span class="type">Schema</span>.<span class="type">Types</span>.<span class="type">ObjectId</span></span><br><span class="line"><span class="keyword">var</span> <span class="type">NameSchema</span>=new mongoose.<span class="type">Schema</span>(&#123;</span><br><span class="line">    name:<span class="type">String</span>,</span><br><span class="line">    age:&#123;<span class="keyword">type</span>:<span class="type">Number</span>,default:<span class="number">18</span>&#125;,</span><br><span class="line">    classId:[&#123;<span class="keyword">type</span>:<span class="type">ObjectId</span>,<span class="keyword">ref</span>:<span class="string">"ClassName"</span>&#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>表二:ClassName<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ClassSchema=<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">        className:&#123;</span><br><span class="line">            <span class="keyword">type</span>:<span class="built_in">String</span>,</span><br><span class="line">            unique:<span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        credit:<span class="built_in">Number</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
 <p>表一中有个字段为 classId 其中存储的类型是ObjectId,并且通过ref与ClassName表建立起关系</p>
@@ -718,74 +780,6 @@
 
 
   
-    <article id="post-gulp学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/13/gulp学习笔记/" class="article-date">
-  	<time datetime="2015-12-13T13:51:06.000Z" itemprop="datePublished">2015-12-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/13/gulp学习笔记/">gulp学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="gulp学习笔记">gulp学习笔记</h1><p>本渣渣来学习gulp了！为什么不用grunt？因为gulp他字短啊！字短..短…..</p>
-<h1 id="什么是gulp">什么是gulp</h1><p>在我看来gulp就是一个未完成的人,so.什么是人？有感情有思想的才是人.对了还有肉体.<br>但是这个”未完成的人”给我提供了四个工具</p>
-<ul>
-<li>gulp.src</li>
-<li>gulp.dest</li>
-<li>gulp.task</li>
-<li>gulp.watch</li>
-</ul>
-<p>有了这四个工具我就可以拿起锤子打造肉体，拿起斧头打造脑袋…<br>但是..你打造肉体总得有啥材料吧，你做个极品武器不是还要一堆稀有神器材料.<br>so.gulp开发者给我们提供了一大堆的材料,而且你只需要去找一位名叫nodejs的npc接一个名为安装的任务，<br>这位npc就会给你一个npm强化+13的神器.哦不对！是史诗.<br>所以,我们可以在npm找到很多跟gulp有关的插件.没有插件光有个gulp也没啥用啊.</p>
-<h1 id="人体实验——打造WEB开发人员">人体实验——打造WEB开发人员</h1><h2 id="安装gulp">安装gulp</h2><p>安装到办公室里:<figure class="highlight"><figcaption><span>install -g gulp ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20877;&#25226;&#20182;&#23433;&#35013;&#21040;&#33258;&#24049;&#21150;&#20844;&#26700;&#19978;:``` npm install  gulp</span><br></pre></td></tr></table></figure></p>
-<p>okay,现在可以在办公桌上进行人体实验了.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/13/gulp学习笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -796,7 +790,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 soul
+    		&copy; 2016 soul
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
