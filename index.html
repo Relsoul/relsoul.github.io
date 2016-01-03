@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 13.33px;">socket.io</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 15px;">socket.io</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,84 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-angular做个简单的音乐播放器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/03/angular做个简单的音乐播放器/" class="article-date">
+  	<time datetime="2016-01-03T08:54:16.000Z" itemprop="datePublished">2016-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/03/angular做个简单的音乐播放器/">angular做个简单的音乐播放器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="指令与服务">指令与服务</h1><p>因为音乐播放器需要操纵DOM元素,所以不应该在控制器中直接操控,于是可以利用服务和指令来实现.这里利用指令来实现</p>
+<h1 id="模板样式">模板样式</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"music-play"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">now</span>_<span class="variable">music.name</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">audio</span> <span class="attribute">class</span>=<span class="value">"music_audio"</span> <span class="attribute">ng-src</span>=<span class="value">"</span></span></span><span class="expression">&#123;&#123;<span class="variable">now</span>_<span class="variable">music.src</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span><span class="tag">&lt;/<span class="title">audio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"bar "</span> <span class="attribute">style</span>=<span class="value">"width: 100%"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"bar-bg"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"bar-on music-play-progress"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"music-play-ctrl"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"btn-group"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"btn btn-default"</span> <span class="attribute">ng-click</span>=<span class="value">"musicPref()"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon glyphicon-step-backward"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"btn btn-default"</span> <span class="attribute">ng-click</span>=<span class="value">"musicPlay()"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon "</span> <span class="attribute">ng-class</span>=<span class="value">"playClass?'glyphicon-pause':'glyphicon-play'"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"btn btn-default"</span> <span class="attribute">ng-click</span>=<span class="value">"musicNext()"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon glyphicon-step-forward"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"list-group roomNumber"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"list-group-item "</span> <span class="attribute">ng-repeat</span>=<span class="value">"music in music_list "</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-7"</span> <span class="attribute">ng-click</span>=<span class="value">"play(music)"</span> <span class="attribute">ng-class</span>=<span class="value">"now_music==music?'now_play':'ttt' "</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">music.name</span>&#125;&#125;</span><span class="xml"></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>其中now_music为当前歌曲 为一个object;<br>music_list为歌曲列表</p>
+<h1 id="写个指令">写个指令</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.directive(<span class="string">"musicPlayer"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$timeout</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        restrict: <span class="string">'EA'</span>,</span><br><span class="line">        templateUrl: <span class="string">'/musicPlay.html'</span>,</span><br><span class="line">        controller: <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$scope</span>)</span> </span>&#123;</span><br><span class="line">          <span class="comment">//数据交换操纵</span></span><br><span class="line">        &#125;,</span><br><span class="line">        link: <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attr)</span> </span>&#123;</span><br><span class="line">          <span class="comment">//DOM操纵</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>指令这块写的不是太好 因为就算是DOM操纵也涉及到了一部分的数据交换,仅仅是把涉及到DOM操纵的数据交换放link里,毕竟link一但编译后就不变动了<br>比如你在link里写个代码<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"p"</span>).html(<span class="variable">$scope</span>.name)</span><br></pre></td></tr></table></figure></p>
+<p>然后在controller里写个定时器 每秒加1<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.name=<span class="number">0</span></span><br><span class="line"><span class="variable">$timeout</span>(<span class="keyword">function</span>()&#123;</span><br><span class="line">    <span class="variable">$scope</span>.name++</span><br><span class="line">  &#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure></p>
+<p>然后刷新下页面后,发现在p标签中有个0,但是一秒后这个0并不会变</p>
+<h1 id="controller数据交换">controller数据交换</h1><h2 id="添加歌曲列表">添加歌曲列表</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.<span class="variable">$on</span>(<span class="string">"musicList"</span>, <span class="keyword">function</span> (event,data) &#123;</span><br><span class="line">    <span class="variable">$scope</span>.music_list = data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我采用的是广播的形式来获取歌曲列表 实际上也可以通过ajax获取后赋值,<br>因为要拿到值后才能做剩下的动作 所以controller层的所有代码都在 $scope.$on里</p>
+<h2 id="设置当前歌曲时间信息">设置当前歌曲时间信息</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.pointer = <span class="number">0</span> //歌曲指针</span><br><span class="line"><span class="variable">$scope</span>.now_music = <span class="variable">$scope</span>.music_list[<span class="variable">$scope</span>.pointer] //当前歌曲</span><br><span class="line"></span><br><span class="line">//歌曲当前时间</span><br><span class="line"><span class="variable">$scope</span>.progress_time = &#123;</span><br><span class="line">    now: <span class="number">0</span>,</span><br><span class="line">    true_time: <span class="number">0</span>,</span><br><span class="line">    end: <span class="number">0</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>true_time用来判断歌曲剩下的时间</p>
+<h2 id="播放与暂停">播放与暂停</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//播放与暂停</span><br><span class="line"><span class="variable">$scope</span>.musicPlay = <span class="keyword">function</span> () &#123;</span><br><span class="line">    //只有当歌曲触发了<span class="string">"canplay"</span>事件才能点击</span><br><span class="line">    if (<span class="variable">$scope</span>.progress_time.end == <span class="number">0</span>) &#123;</span><br><span class="line">        console.log(<span class="string">"未准备"</span>)</span><br><span class="line">        return false</span><br><span class="line">    &#125; else if (<span class="variable">$scope</span>.playClass) &#123;</span><br><span class="line">        <span class="variable">$scope</span>.audio.pause();</span><br><span class="line">        <span class="variable">$scope</span>.playClass = false</span><br><span class="line">        <span class="variable">$scope</span>.clearAudioProgress();</span><br><span class="line">        console.log(<span class="string">"暂停"</span>)</span><br><span class="line">    &#125; else if (<span class="variable">$scope</span>.playClass == false) &#123;</span><br><span class="line">        //获取歌曲当前时间</span><br><span class="line">        <span class="variable">$scope</span>.getNowTime()</span><br><span class="line">        <span class="variable">$scope</span>.progress_time.true_time = (<span class="variable">$scope</span>.progress_time.end - <span class="variable">$scope</span>.progress_time.now) * <span class="number">1000</span></span><br><span class="line">        <span class="variable">$scope</span>.setAudioProgress(<span class="variable">$scope</span>.progress_time.true_time)</span><br><span class="line">        <span class="variable">$scope</span>.audio.play();</span><br><span class="line">        <span class="variable">$scope</span>.playClass = true;</span><br><span class="line">        console.log(<span class="string">"开始"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为播放涉及到一个audio标签的事件也就是”canplay”,所以这里的播放暂停是针对 触发了canplay后的暂停与播放 什么意思呢？<br>比如歌曲没触发canplay事件之前 暂停与播放都是返回false<br>至于$scope.clearAudioProgress()和setAudioProgress()看下面代码<br>当歌曲触发了canplay事件后会设置$scope.progress_time.end<br>playClass为播放按钮样式,</p>
+<h2 id="下一曲">下一曲</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//下一曲</span><br><span class="line"><span class="variable">$scope</span>.musicNext = <span class="keyword">function</span> () &#123;</span><br><span class="line"></span><br><span class="line">    if (<span class="variable">$scope</span>.pointer &gt;= <span class="variable">$scope</span>.music_list.length - <span class="number">1</span>) &#123;</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //设置歌曲与进度条为初始状态</span><br><span class="line">    <span class="variable">$scope</span>.clearAudioProgress(true)</span><br><span class="line">    <span class="variable">$scope</span>.setNowTime(<span class="number">0</span>)</span><br><span class="line">    <span class="variable">$scope</span>.pointer++</span><br><span class="line">    <span class="variable">$scope</span>.now_music = <span class="variable">$scope</span>.music_list[<span class="variable">$scope</span>.pointer]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先判断歌曲是否为列表最后一个歌曲了,如果不是那就设置一下进度条更新下now_music</p>
+<h2 id="上一曲">上一曲</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    //上一曲</span><br><span class="line">    <span class="variable">$scope</span>.musicPref = <span class="keyword">function</span> () &#123;</span><br><span class="line">        if (<span class="variable">$scope</span>.pointer &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            return false</span><br><span class="line">        &#125;</span><br><span class="line">        //设置歌曲与进度条为初始状态</span><br><span class="line">        <span class="variable">$scope</span>.clearAudioProgress(true)</span><br><span class="line">        <span class="variable">$scope</span>.setNowTime(<span class="number">0</span>)</span><br><span class="line">        <span class="variable">$scope</span>.pointer--</span><br><span class="line">        <span class="variable">$scope</span>.now_music = <span class="variable">$scope</span>.music_list[<span class="variable">$scope</span>.pointer]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>同 下一曲 </p>
+<h1 id="link_DOM操纵区">link DOM操纵区</h1><h2 id="获取audio标签和进度条标签">获取audio标签和进度条标签</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//关于DOM操作都在这块</span></span><br><span class="line">scope.audio = $(<span class="string">".music_audio"</span>)[<span class="number">0</span>]</span><br><span class="line">scope.audio_progress = $(<span class="string">".music-play-progress"</span>)[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="触发了canplay事件">触发了canplay事件</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当歌曲触发了canplay事件才能播放</span></span><br><span class="line">$(<span class="keyword">scope</span>.audio).on(<span class="string">"canplay"</span>, <span class="built_in">function</span> () &#123;</span><br><span class="line">    <span class="comment">//重置歌曲信息</span></span><br><span class="line">    <span class="keyword">scope</span>.progress_time.now = <span class="keyword">scope</span>.audio.currentTime = <span class="number">0</span></span><br><span class="line">    <span class="keyword">scope</span>.progress_time.true_time = <span class="number">0</span></span><br><span class="line">    <span class="keyword">scope</span>.progress_time.end = <span class="keyword">scope</span>.audio.duration</span><br><span class="line">    <span class="comment">//清除进度条</span></span><br><span class="line">    <span class="keyword">scope</span>.clearAudioProgress()</span><br><span class="line">    <span class="keyword">scope</span>.audio.play()</span><br><span class="line">    <span class="keyword">scope</span>.playClass = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//设置进度条</span></span><br><span class="line">    <span class="keyword">scope</span>.progress_time.true_time = (<span class="keyword">scope</span>.progress_time.end - <span class="keyword">scope</span>.progress_time.now) * <span class="number">1000</span></span><br><span class="line">    <span class="keyword">scope</span>.setAudioProgress(<span class="keyword">scope</span>.progress_time.true_time)</span><br><span class="line">    <span class="keyword">scope</span>.$apply()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="清除进度条当前状态">清除进度条当前状态</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//清除进度条当前状态</span></span><br><span class="line"> scope.clearAudioProgress = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">     $(scope.audio_progress).stop(<span class="literal">true</span>)</span><br><span class="line">     <span class="keyword">if</span> (val) &#123;</span><br><span class="line">         $(scope.audio_progress).width(<span class="number">0</span>)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>传递了不为false的val会清除进度条 否则仅仅是停止进度条动画</p>
+<h2 id="进度条动画">进度条动画</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置进度条</span></span><br><span class="line">scope.setAudioProgress = <span class="function"><span class="keyword">function</span> (<span class="params">time, cb</span>) </span>&#123;</span><br><span class="line">    $(scope.audio_progress).stop(<span class="literal">true</span>)</span><br><span class="line">    $(scope.audio_progress).animate(&#123;</span><br><span class="line">        width: <span class="string">"100%"</span></span><br><span class="line">    &#125;, time, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        scope.musicNext()</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取与设置歌曲当前时间">获取与设置歌曲当前时间</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取歌曲当前时间</span></span><br><span class="line"><span class="keyword">scope</span>.getNowTime = <span class="built_in">function</span> () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">scope</span>.progress_time.now = <span class="keyword">scope</span>.audio.currentTime</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置歌曲当前时间</span></span><br><span class="line"><span class="keyword">scope</span>.setNowTime = <span class="built_in">function</span> (val) &#123;</span><br><span class="line">    <span class="keyword">scope</span>.progress_time.now = <span class="keyword">scope</span>.audio.currentTime = val</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="后记">后记</h1><p>其实这个例子待改进的地方很多 在link区可以var一个object然后$scope.musicServer=object 返回一个object 这样就不会暴露很多的函数.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -698,73 +776,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-自用七牛上传下载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/16/自用七牛上传下载/" class="article-date">
-  	<time datetime="2015-12-16T14:58:37.000Z" itemprop="datePublished">2015-12-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/16/自用七牛上传下载/">自用七牛上传下载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自用nodejs版七牛上传下载功能">自用nodejs版七牛上传下载功能</h1><p><a href="http://emufan.com">Blog</a></p>
-<p><img src="http://cdn.emufan.com/img/七牛-1.png" alt="list"><br><img src="http://cdn.emufan.com/img/七牛-2.png" alt="get"><br><img src="http://cdn.emufan.com/img/七牛-3.png" alt="upload"></p>
-<h2 id="自用功能">自用功能</h2><p>自动对比服务器文件上传,<br>自动获取服务器文件下载,<br>获取服务器上所有文件</p>
-<p>依赖模块</p>
-<ul>
-<li>npm install qiniu</li>
-<li>npm install request</li>
-<li>npm install underscore</li>
-</ul>
-<p>JS中最下方的初始化<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">AK</span>: <span class="string">你的七牛AK,</span></span><br><span class="line"><span class="attribute">SK</span>: <span class="string">你的七牛SK,</span></span><br><span class="line"><span class="attribute">path</span>: <span class="string">需要同步文件夹以当前文件夹下的文件夹,非绝对路径如:"/uploadQN"指的是当前文件夹下的uploadQN,</span></span><br><span class="line"><span class="attribute">bucket</span>: <span class="string">你的七牛空间,</span></span><br><span class="line"><span class="attribute">domain</span>: <span class="string">你的七牛CDN域名 用来下载</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/16/自用七牛上传下载/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
