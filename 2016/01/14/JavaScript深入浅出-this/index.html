@@ -5,19 +5,22 @@
   
   <title>JavaScript深入浅出-this | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
-一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
+  <meta name="description" content="this跟作用域并没有什么关系,this指向的是调用者！自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.
+全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910functio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入浅出-this">
 <meta property="og:url" content="http://emufan.com/2016/01/14/JavaScript深入浅出-this/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
-一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
-<meta property="og:updated_time" content="2016-01-14T05:24:00.748Z">
+<meta property="og:description" content="this跟作用域并没有什么关系,this指向的是调用者！自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.
+全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910functio">
+<meta property="og:updated_time" content="2016-01-14T05:30:07.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入浅出-this">
-<meta name="twitter:description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
-一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
+<meta name="twitter:description" content="this跟作用域并没有什么关系,this指向的是调用者！自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.
+全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910functio">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -225,9 +228,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="全局的this(浏览器)">全局的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)<span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)<span class="comment">//37</span></span><br></pre></td></tr></table></figure>
+        <p>this跟作用域并没有什么关系,this指向的是调用者！<br>自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.</p>
+<h1 id="全局的this(浏览器)">全局的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)<span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)<span class="comment">//37</span></span><br></pre></td></tr></table></figure>
 <h1 id="一般函数的this(浏览器)">一般函数的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f1()===<span class="built_in">window</span><span class="comment">//true,global object</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="pi">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f2()===<span class="literal">undefined</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="作为对象方法的函数this">作为对象方法的函数this</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">    prop:<span class="number">37</span>,</span><br><span class="line">    f:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.prop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o.f());<span class="comment">//logs 37</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> o=&#123;prop:<span class="number">37</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">independent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.prop</span><br><span class="line">&#125;</span><br><span class="line">o.f=independent;</span><br><span class="line"><span class="built_in">console</span>.log(o.f())<span class="comment">//logs 37</span></span><br></pre></td></tr></table></figure>
+<h1 id="对象原型链上的this">对象原型链上的this</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">    f:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a+<span class="keyword">this</span>.b</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p=<span class="built_in">Object</span>.create(o);</span><br><span class="line">p.a=<span class="number">1</span>;</span><br><span class="line">p.b=<span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(p.f());<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<p>p的原型是o,p.f()调用的是原型链上的方法,当调用的时候原型链上的this也可以指向p这个对象</p>
+
       
     </div>
     

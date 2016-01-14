@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://emufan.com/2016/01/13/一次有意思的JavaScript试验题/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
 <meta property="og:description" content="今天群里的朋友发了一段代码,问最后的结果1234567891011121314151617var a=1;var b=&amp;#123;    a:2,    b:function()&amp;#123;        alert(this.a);    &amp;#125;(),    f:this.f=function()&amp;#123;        alert(this.a);    &amp;#125;&amp;#125;;fu">
-<meta property="og:updated_time" content="2016-01-14T05:24:48.818Z">
+<meta property="og:updated_time" content="2016-01-14T05:39:21.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一次有意思的JavaScript试验题">
 <meta name="twitter:description" content="今天群里的朋友发了一段代码,问最后的结果1234567891011121314151617var a=1;var b=&amp;#123;    a:2,    b:function()&amp;#123;        alert(this.a);    &amp;#125;(),    f:this.f=function()&amp;#123;        alert(this.a);    &amp;#125;&amp;#125;;fu">
@@ -224,6 +224,7 @@
       
         <p>今天群里的朋友发了一段代码,问最后的结果<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    b:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;(),</span><br><span class="line">    f:<span class="keyword">this</span>.f=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="number">3</span>);</span><br><span class="line">&#125;   </span><br><span class="line">f();</span><br><span class="line">b.f();</span><br><span class="line">(b.f)();</span><br><span class="line">(<span class="number">0</span>, b.f)();</span><br></pre></td></tr></table></figure></p>
 <p>在浏览器中运行的结果是1,1,2,2,1<br>跟我自己脑补的不一样…可能是技术还不够吧…于是在浏览器中运行并且分析了下.</p>
+<a id="more"></a>
 <p>第一次a是因为匿名函数自执行的缘故,this指向window,那么this.a就是window.a于是会弹出第一个1</p>
 <h3 id="f()">f()</h3><p><del>在定义的时候也就是创建作用域的时候是在window下创建的,那么因为函数声明的缘故,首先是</del><br><del>function f(){}被声明 随后在定义b的时候发现有个this.f,因为未在b中调用也就是说在创建作用域的时候</del><br><del>还未有b这个作用域,那么this.f就等于window相当于window.f=function(){}</del><br><del>简单来说就是在创建b作用域的时候this是指向window的因为b作用域还未创建.于是覆盖了function f(){}弹出的是1</del></p>
 <p>对象并没有作用域,其中this.f可以这样写<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">888</span>;</span><br><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">    a:<span class="number">24</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">this</span>.f=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line">o.f=<span class="keyword">this</span>.f</span><br><span class="line">o.f()</span><br></pre></td></tr></table></figure></p>
@@ -232,6 +233,13 @@
 <h3 id="(0,b-f)()">(0,b.f)()</h3><p><del>这个有点意思,匿名函数检测到多个函数会调用apply(window,arguments),于是每个函数的作用域都变了就算你指向的是b 在运行的时候会调用apply方法.</del><br><del>要实现这个效果其实挺简单的(b.f).bind(window)() 这样就改变了指向 类似于b.f.bind(window)</del></p>
 <p>另外(0,b.f)()之所以指向window,应该是因为“,”逗号操作符的影响，逗号操作符的规则是求值，并且等于逗号右侧的值，函数被求值后就是函数本身了，没有了调用者，指向window</p>
 <p>个人分析和理解~大牛轻点</p>
+<hr>
+<p>以下是蒋大神的回复</p>
+<p>b变量是对象，只是最内层作用域的一部分，它没有作用域。赋值操作时先右后左。this独立于作用域链指向函数调用者，这里只有赋值没有调用，即使有，也是遵循先右后左跟对象无关。<br>作用域链是function被解析时的[[scope]]属性，函数被调用时会引用该[[scope]]，产生一个活动对象，并加上自己内部的环境一并构成作用域链。全局就是一个活动对象，这里分析f()时出现的 this.f，外层的活动对象是全局活动对象。<br>我们研究的作用域链上都是基于活动对象的引用，在活动对象里才会有解析的过程，才会产生函数对象，从而产生[[scope]]，scope上引用的都是活动对象。<br>每个函数只有被解析时有一个函数对象，却可以有很多活动对象，之所以可以存在很多，是因为有函数对象引用了该活动对象的作用域并挂载在了外层变量上<br>this是独立于这个系统的，在函数执行生成活动对象时被初始化，指向调用者或window，作为该活动对象最内侧作用层的一个变量。</p>
+<p>另外(0,b.f)()之所以指向window,应该是因为“,”逗号操作符的影响，逗号操作符的规则是求值，并且等于逗号右侧的值，函数被求值后就是函数本身了，没有了调用者，指向window</p>
+<p>活动对象初始化的时候内部作用域会扫描函数声明、var定义的函数、形参、arguments、this，形成自己的环境，然后加上该活动对象对应的函数对象的[[scope]]，所以this的指定跟[[scope]]没有关系，scope上的每一层都是活动对象，活动对象都有环境，都有自己的this。执行流继续往下执行到对象，只会改变变量的赋值，扫描到函数，又会生成新的函数对象，产生[[scope]]属性，这个属性就是该活动对象的作用域。该函数被调用时会产生活动对象重复该过程</p>
+<p>我想说明：<br>①this跟作用域链没关系，他是当前作用域环境的一份子<br>②对象跟作用域也没关系，他赋给的变量也是当前作用域环境的一份子<br>③函数不管定义在哪里，对象里还是别处，执行到都会初始化产生作用域链引用，一旦挂载外部，函数退出也不会销毁啦<br>④函数初始化为函数对象，函数体会作为一个属性，内部细节不会被扫描解析产生化学反应的。只在执行产生活动对象才会进入内部</p>
+<p>所以有些现象不是对象引起的，只是对象里刚好赋值了函数，都是函数的化学反应</p>
 
       
     </div>
