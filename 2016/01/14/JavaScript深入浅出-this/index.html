@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular解析属性中的特殊符号 | Soul,灵魂,凌魂,零魂,</title>
+  <title>JavaScript深入浅出-this | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="又掉入一个坑了…例子如下
-ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope.usr=&quot;http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3&quot;
-上例的代码运行会爆插值错误也就是Error: $interpolate:interrInterpolation">
+  <meta name="description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular解析属性中的特殊符号">
-<meta property="og:url" content="http://emufan.com/2016/01/01/angular解析属性中的特殊符号/index.html">
+<meta property="og:title" content="JavaScript深入浅出-this">
+<meta property="og:url" content="http://emufan.com/2016/01/14/JavaScript深入浅出-this/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="又掉入一个坑了…例子如下
-ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope.usr=&quot;http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3&quot;
-上例的代码运行会爆插值错误也就是Error: $interpolate:interrInterpolation">
-<meta property="og:updated_time" content="2015-12-31T16:44:07.725Z">
+<meta property="og:description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
+<meta property="og:updated_time" content="2016-01-14T05:24:00.748Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular解析属性中的特殊符号">
-<meta name="twitter:description" content="又掉入一个坑了…例子如下
-ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope.usr=&quot;http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3&quot;
-上例的代码运行会爆插值错误也就是Error: $interpolate:interrInterpolation">
+<meta name="twitter:title" content="JavaScript深入浅出-this">
+<meta name="twitter:description" content="全局的this(浏览器)1234console.log(this)//windowconsole.log(this===window)//truethis.a=37;console.log(window.a)//37
+一般函数的this(浏览器)12345678910function f1()&amp;#123;    return this&amp;#125;f1()===window//true,global">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -191,11 +188,11 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JavaScript深入浅出-this" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/01/angular解析属性中的特殊符号/" class="article-date">
-  	<time datetime="2015-12-31T16:39:43.000Z" itemprop="datePublished">2016-01-01</time>
+      <a href="/2016/01/14/JavaScript深入浅出-this/" class="article-date">
+  	<time datetime="2016-01-14T04:20:41.000Z" itemprop="datePublished">2016-01-14</time>
 </a>
     </div>
   
@@ -208,7 +205,7 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
         
   
     <h1 class="article-title" itemprop="name">
-      angular解析属性中的特殊符号
+      JavaScript深入浅出-this
     </h1>
   
 
@@ -217,7 +214,7 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
 	</div>
 
         
@@ -228,12 +225,9 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>又掉入一个坑了…例子如下</p>
-<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
-<p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
-<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
-
+        <h1 id="全局的this(浏览器)">全局的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)<span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)<span class="comment">//37</span></span><br></pre></td></tr></table></figure>
+<h1 id="一般函数的this(浏览器)">一般函数的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f1()===<span class="built_in">window</span><span class="comment">//true,global object</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="pi">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f2()===<span class="literal">undefined</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h1 id="作为对象方法的函数this">作为对象方法的函数this</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o=&#123;</span><br><span class="line">    prop:<span class="number">37</span>,</span><br><span class="line">    f:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.prop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o.f());<span class="comment">//logs 37</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">var</span> o=&#123;prop:<span class="number">37</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">independent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.prop</span><br><span class="line">&#125;</span><br><span class="line">o.f=independent;</span><br><span class="line"><span class="built_in">console</span>.log(o.f())<span class="comment">//logs 37</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -242,18 +236,9 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
     
 <nav id="article-nav">
   
-    <a href="/2016/01/03/angular做个简单的音乐播放器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          angular做个简单的音乐播放器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/28/socket验证挂载session/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">socket.io验证挂载session</div>
+    <a href="/2016/01/14/JavaScript深入浅出-闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript深入浅出-闭包</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -282,7 +267,7 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="angular解析属性中的特殊符号" data-title="angular解析属性中的特殊符号" data-url="http://emufan.com/2016/01/01/angular解析属性中的特殊符号/"></div>
+	<div class="ds-thread" data-thread-key="JavaScript深入浅出-this" data-title="JavaScript深入浅出-this" data-url="http://emufan.com/2016/01/14/JavaScript深入浅出-this/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
