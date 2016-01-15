@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 12.5px;">JavaScript深入浅出</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12.5px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 17.5px;">JavaScript深入浅出</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12.5px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,131 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JavaScript深入浅出-执行上下文" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/15/JavaScript深入浅出-执行上下文/" class="article-date">
+  	<time datetime="2016-01-15T11:35:54.000Z" itemprop="datePublished">2016-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/15/JavaScript深入浅出-执行上下文/">JavaScript深入浅出-执行上下文</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>JavaScript作用域<ul>
+<li>全局</li>
+<li>函数</li>
+<li>eval</li>
+</ul>
+</li>
+</ul>
+<p>每次调用函数都是重新生成一个作用域</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/15/JavaScript深入浅出-执行上下文/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript深入浅出-作用域" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/15/JavaScript深入浅出-作用域/" class="article-date">
+  	<time datetime="2016-01-15T11:26:24.000Z" itemprop="datePublished">2016-01-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/15/JavaScript深入浅出-作用域/">JavaScript深入浅出-作用域</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="全局-函数,eval">全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</span><br></pre></td></tr></table></figure>
+<p>JavaScript无块级作用域,只有函数作用域.<br>如 匿名立即执行作用域</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/15/JavaScript深入浅出-作用域/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-JavaScript深入浅出-this" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -643,121 +768,6 @@
         <p class="article-more-link">
           <a  href="/2016/01/03/angular做个简单的音乐播放器/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/01/angular解析属性中的特殊符号/" class="article-date">
-  	<time datetime="2015-12-31T16:39:43.000Z" itemprop="datePublished">2016-01-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/01/angular解析属性中的特殊符号/">angular解析属性中的特殊符号</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>又掉入一个坑了…例子如下</p>
-<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
-<p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
-<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-socket验证挂载session" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/28/socket验证挂载session/" class="article-date">
-  	<time datetime="2015-12-28T09:08:43.000Z" itemprop="datePublished">2015-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/28/socket验证挂载session/">socket.io验证挂载session</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="socket-io_1-0验证挂载session">socket.io 1.0验证挂载session</h1><p>根据客户端的cookie中的connect.sid获取服务端中的session<br>服务端采用的是mongodb-session<br>获取失败返回callback(err,false);<br>获取成功返回callback(null,true);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证设置session</span></span><br><span class="line">   io.set(<span class="string">"authorization"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">handshakeData, callback</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//解析cookie</span></span><br><span class="line">       handshakeData.cookie = cookie.parse(handshakeData.headers.cookie)</span><br><span class="line">       <span class="built_in">console</span>.log(handshakeData.cookie)</span><br><span class="line">       <span class="keyword">var</span> sessionid = handshakeData.cookie[<span class="string">'connect.sid'</span>]</span><br><span class="line">       <span class="keyword">if</span> (sessionid) &#123;</span><br><span class="line">           <span class="keyword">var</span> sid = sessionid.split(<span class="string">':'</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>];</span><br><span class="line">           <span class="comment">//用mongodb查询语法</span></span><br><span class="line">           mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">               collection.find(&#123;_id: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">                   <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                       callback(err, <span class="literal">false</span>)</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       handshakeData.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</span><br><span class="line">                       <span class="built_in">console</span>.log(<span class="number">23</span>, handshakeData.session)</span><br><span class="line">                       callback(<span class="literal">null</span>, <span class="literal">true</span>)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>注意其中的handshakeData.session = JSON.parse(results[0].session)<br>这段就是给socket挂载上一个session属性 这样是行得通的 但是要在socket获取不能采用<br>socket.handshake.session而要采用socket.request.session<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">io.sockets.on(<span class="string">"connection"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(socket)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">//获取用户session</span></span><br><span class="line">     <span class="keyword">var</span> _name=socket.request.session.user.name;</span><br><span class="line"></span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket-io/">socket.io</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
