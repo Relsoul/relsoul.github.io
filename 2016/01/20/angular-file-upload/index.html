@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angular-file-upload使用笔记 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
+构建表单12345678&amp;lt;form name=&apos;test&apos;&amp;gt;&amp;lt;div class=&quot;btn btn-default &quot; ngf-select ng-m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular-file-upload使用笔记">
+<meta property="og:url" content="http://emufan.com/2016/01/20/angular-file-upload/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
+构建表单12345678&amp;lt;form name=&apos;test&apos;&amp;gt;&amp;lt;div class=&quot;btn btn-default &quot; ngf-select ng-m">
+<meta property="og:updated_time" content="2016-01-20T15:15:08.773Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular-file-upload使用笔记">
+<meta name="twitter:description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
+构建表单12345678&amp;lt;form name=&apos;test&apos;&amp;gt;&amp;lt;div class=&quot;btn btn-default &quot; ngf-select ng-m">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/oldBlog">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/oldBlog">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-angular-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/20/angular-file-upload/" class="article-date">
+  	<time datetime="2016-01-20T14:56:55.000Z" itemprop="datePublished">2016-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      angular-file-upload使用笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引入">引入</h1><p><a href="https://github.com/danialfarid/ng-file-upload" target="_blank" rel="external">github</a><br>Bower:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="operator"><span class="keyword">install</span> ng-<span class="keyword">file</span>-upload-shim <span class="comment">--save(for non html5 suppport)</span></span><br><span class="line">bower <span class="keyword">install</span> ng-<span class="keyword">file</span>-upload <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="构建表单">构建表单</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">form</span> name=<span class="string">'test'</span>&gt;</span><br><span class="line">&lt;<span class="tag">div</span> class=<span class="string">"btn btn-default "</span> ngf-select ng-model=<span class="string">"upload_img"</span></span><br><span class="line">     name=<span class="string">"upload_img"</span> ngf-pattern=<span class="string">"'image/*'"</span> ngf-accept=<span class="string">"'image/*'"</span></span><br><span class="line">     ngf-max-size=<span class="string">"2MB"</span> ngf-<span class="attribute">min-height</span>=<span class="string">"100"</span>&gt;Select</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;<span class="tag">button</span> ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>在文档中看见,可以用input,button,div等方式来构建,但是我推荐用Button,因为可以自己设置样式.</p>
+<h1 id="使用">使用</h1><p>其中div标签必须的是 ngf-select与ng-model和name这三个属性.其他的都是可选性,如果你上传的是图片,你可以用ngf-thumbnail来预览.<br>并且可以在ngf-thumbnail中嵌入其他数据<br>比如<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">img</span> ngf-thumbnail=<span class="string">"upload_img||user_info.avatarUrl"</span> class=<span class="string">""</span> alt=<span class="string">""</span> <span class="attribute">width</span>=<span class="string">"100"</span> <span class="attribute">height</span>=<span class="string">"100"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="如何在controller获取到">如何在controller获取到</h1><p>推荐在提交的时候传递参数,这里我已经躺了一个坑了,官方加了一个$号,我这里用$upload_img没用<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.submitForm=<span class="keyword">function</span>(upload_img)&#123;</span><br><span class="line">    console.log(upload_img)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="上传文件">上传文件</h1><p>这里只演示单文件上传,其实上传也挺简单的.采用POST上传<br>Upload需要在controller注入.<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.submitForm=<span class="keyword">function</span>(_upload_img)&#123;</span><br><span class="line">    Upload.upload(</span><br><span class="line">        &#123;</span><br><span class="line">            url: <span class="string">'/api/user/'</span>+<span class="variable">$stateParams</span>.id,</span><br><span class="line">            data: &#123;file: _upload_img, <span class="string">'user_info'</span>: <span class="variable">$scope</span>.user_info&#125;,</span><br><span class="line">            method:<span class="string">'POST'</span></span><br><span class="line">        &#125;).then(function (data) &#123;</span><br><span class="line">            data=data.data</span><br><span class="line">            if(data.err)&#123;</span><br><span class="line">                <span class="variable">$scope</span>.user_err=data.err</span><br><span class="line">                <span class="variable">$timeout</span>(function()&#123;</span><br><span class="line">                    <span class="variable">$window</span>.location.reload()</span><br><span class="line">                &#125;,<span class="number">1500</span>)</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                <span class="variable">$scope</span>.user_err=data.info</span><br><span class="line">                <span class="variable">$timeout</span>(function()&#123;</span><br><span class="line">                    <span class="variable">$window</span>.location.reload()</span><br><span class="line">                &#125;,<span class="number">1500</span>)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里的url为post地址,后面的then可以接受几个function,第一个是成功,第二个是失败,第三个是事件触发,具体可以参考官网</p>
+<h1 id="nodejs获取">nodejs获取</h1><p>这里顺便把这个坑给说了.</p>
+<h2 id="引入_multer">引入 multer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>);</span><br><span class="line"><span class="keyword">var</span> storage = multer.diskStorage(&#123;</span><br><span class="line">    destination: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">        cb(<span class="literal">null</span>, <span class="string">'./public/upload/avatar/'</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    filename: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</span><br><span class="line">        cb(<span class="literal">null</span>,<span class="built_in">Date</span>.now()+<span class="string">'-'</span>+file.originalname)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> upload = multer(&#123; storage: storage &#125;)</span><br><span class="line"><span class="keyword">var</span> upload_avatar=upload.single(<span class="string">'file'</span>)</span><br></pre></td></tr></table></figure>
+<p>具体的大家可以去看一下multer官网文档,这里简单说说.<br>storage是定义存储的一些相关信息,destination为存储地址,filename为存储名字<br>那么upload.single就比较重要了,这点就是定义需要解析的body段.<br>在upload上传的时候我们在其中附加了一个字段 也就是file：_upload_img,也就是file这个字段就需要被multer来解析,解析后我们就可以拿到file了</p>
+<h1 id="获取file">获取file</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="built_in">post</span>(<span class="string">"/api/xxxxxx"</span>,<span class="function"><span class="keyword">function</span>(<span class="title">req</span>,<span class="title">res</span>)&#123;</span></span><br><span class="line">    console.<span class="built_in">log</span>(req.<span class="built_in">file</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>即可以拿到里面的文件了.<br>目前就这么多吧.有坑再填</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/15/JavaScript深入浅出-执行上下文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript深入浅出-执行上下文</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="angular-file-upload" data-title="angular-file-upload使用笔记" data-url="http://emufan.com/2016/01/20/angular-file-upload/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
