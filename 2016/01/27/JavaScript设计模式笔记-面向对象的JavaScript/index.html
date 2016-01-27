@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript设计模式笔记-面向对象的JavaScript | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.1动态类型语言和鸭子类型动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型12var a=1;// numbervar str=&apos;123&apos;;//string
+静态类型的语言在编译时就已经确定好值了12int b;//numberstring c;//string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-面向对象的JavaScript">
+<meta property="og:url" content="http://emufan.com/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="1.1动态类型语言和鸭子类型动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型12var a=1;// numbervar str=&apos;123&apos;;//string
+静态类型的语言在编译时就已经确定好值了12int b;//numberstring c;//string">
+<meta property="og:updated_time" content="2016-01-27T16:14:07.049Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式笔记-面向对象的JavaScript">
+<meta name="twitter:description" content="1.1动态类型语言和鸭子类型动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型12var a=1;// numbervar str=&apos;123&apos;;//string
+静态类型的语言在编译时就已经确定好值了12int b;//numberstring c;//string">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/oldBlog">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 10px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/oldBlog">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-面向对象的JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript/" class="article-date">
+  	<time datetime="2016-01-27T11:47:58.000Z" itemprop="datePublished">2016-01-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-面向对象的JavaScript
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-1动态类型语言和鸭子类型">1.1动态类型语言和鸭子类型</h1><p>动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> a</span>=<span class="number">1</span>;<span class="comment">// number</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> str</span>='<span class="number">123</span>';<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
+<p>静态类型的语言在编译时就已经确定好值了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b;<span class="comment">//number</span></span><br><span class="line"><span class="built_in">string</span> c;<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="鸭子类型">鸭子类型</h2><p>如果它走起来路像鸭子,叫起来也是鸭子,那么它就是鸭子.<br>内涵就是:<strong>我们只关注对象的行为,而不关注对象本身</strong><br>用代码来模拟一下鸭子类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck=&#123;</span><br><span class="line">        duckSinging:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> chicken=&#123;</span><br><span class="line">        duckSinging:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> choir=[];<span class="comment">//合唱团</span></span><br><span class="line">    <span class="keyword">var</span> joinChoir=<span class="function"><span class="keyword">function</span>(<span class="params">animal</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(animal &amp;&amp;<span class="keyword">typeof</span> animal.duckSinging===<span class="string">'function'</span>)&#123;</span><br><span class="line">            choir.push(animal);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'恭喜加入合唱团'</span>,<span class="string">'目前合唱团数量为'</span>+choir.length)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    joinChoir(duck);</span><br><span class="line">    joinChoir(chicken);</span><br></pre></td></tr></table></figure></p>
+<p>利用鸭子类型的思想,不必借助超类型的帮助就能实现一个原则:’面向接口编程,而不是面向实现编程’</p>
+<h1 id="1-2_多态">1.2 多态</h1><p>多态的含义是:同一操作作用于不同对象上面,可以产生不同的解释和不同的执行结果.</p>
+<h2 id="1-2-1_一段多态的JavaScript代码">1.2.1 一段多态的JavaScript代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> makeSound=<span class="function"><span class="keyword">function</span>(<span class="params">animal</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(animal <span class="keyword">instanceof</span> Duck)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(animal <span class="keyword">instanceof</span> Chicken)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'咯咯咯'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> Duck=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> Chicken=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    makeSound(<span class="keyword">new</span> Duck()) <span class="comment">//嘎嘎嘎</span></span><br><span class="line">    makeSound(<span class="keyword">new</span> Chicken()) <span class="comment">//咯咯咯</span></span><br></pre></td></tr></table></figure>
+<p>可以从这段代码看出,我们仅仅只写了一个函数 通过判断object的instanceof来发送不同的消息,这就是多态.<br>多态的背后是将’做什么’和’谁去做以及怎么样去做’分离开来.将可变的与不可变的分离开来,比如 叫声是不会变的,所以我们写了个function,但是动物的类型是会变的.</p>
+<h2 id="1-2-2_对象的多态性">1.2.2 对象的多态性</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> makeSound=<span class="function"><span class="keyword">function</span>(<span class="params">animal</span>)</span>&#123;</span><br><span class="line">    animal.sound()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Duck=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Duck.prototype.sound=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Chicken=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Chicken.prototype.sound=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'咯咯咯'</span>)</span><br><span class="line">&#125;</span><br><span class="line">makeSound(<span class="keyword">new</span> Duck())<span class="comment">//嘎嘎嘎</span></span><br><span class="line">makeSound(<span class="keyword">new</span> Chicken())<span class="comment">//咯咯咯</span></span><br><span class="line"><span class="comment">//增加一只动物</span></span><br><span class="line"><span class="keyword">var</span> Dog=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Dog.prototype.sound=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'汪汪汪'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把不变的分离开来 也就是建立Makesound函数,把可变的封装起来 也就是sound函数。这样如果要添加其他的功能就不用更改核心函数了.</p>
+<h2 id="1-2-3_类型检查和多态">1.2.3 类型检查和多态</h2><p>在静态类语言会检查类型类型而导致传递的变量只能接受超类也就是继承类.比如上述的makeSound在java中会检查传递进来的animal类型.</p>
+<h2 id="1-2-4_使用继承得到多态的效果">1.2.4 使用继承得到多态的效果</h2><p>java跪了..这部分可以理解为 静态类需要通过继承然后得到同一类的超类 然后调用makeSound函数实现多态.</p>
+<h2 id="1-2-5_JavaScript多态">1.2.5 JavaScript多态</h2><p>要实现多态必须得消除类型之间的耦合关系,也就是makeSound不能规定某个函数,比如makeSound只接受Duck,这就是一种耦合性.<br>某一种动物能否发出叫声,只取决于它有没有makeSound方法,而不取决于它是否是某种类型的对象.也就是消除类型耦合.</p>
+<h2 id="1-2-6_多态在面向对象程序设计中的作用">1.2.6 多态在面向对象程序设计中的作用</h2><p>多态的最根本的作用就是通过把过程化的条件分支语句转化为对象的多态性,从而消除这些条件分支语句….原来如此…<br>用现实中的例子来举例,我们要编写一个地图应用,有两家API可以选择,过程化的函数是这么写的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gooleMap=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'开始渲染谷歌地图'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> renderMap=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gooleMap.show()</span><br><span class="line">&#125;</span><br><span class="line">renderMap()</span><br></pre></td></tr></table></figure></p>
+<p>后来因为某些原因需要用百度地图.同时让renderMap支持两种地图<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> baiduMap=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'开始渲染百度地图'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> renderMap=<span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(type ===<span class="string">'google'</span>)&#123;</span><br><span class="line">        googleMap.show()</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(type ==== <span class="string">'baidu'</span>)&#123;</span><br><span class="line">        baiduMap.show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">renderMap(<span class="string">'google'</span>)</span><br><span class="line">renderMap(<span class="string">'baidu'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>抽象化这个函数<br>把相同的地方抽象出来,也就是显示某个地图<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> renderMap=<span class="function"><span class="keyword">function</span><span class="params">(map)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(map.show <span class="keyword">instanceof</span> <span class="function"><span class="keyword">Function</span>)</span>&#123;</span><br><span class="line">        map.show()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样抽象后,我们就不用关心map是什么地图了,就算是soso地图我们只需要增加一个sosoMap对象就行了.<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sosoMap=&#123;</span><br><span class="line">    show:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//do sth</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">renderMap(sosoMap)</span><br></pre></td></tr></table></figure></p>
+<p>实际开发中需要借助适配器模式来解决问题</p>
+<h2 id="1-2-7_设计模式与多态">1.2.7 设计模式与多态</h2><p>在JavaScript中,函数作为一等公民,函数的本身也是对象,函数用来封装行为并且可以四处传递,当我们对一些函数发出’调用’的消息时,这些函数会返回不同的执行结果,这就是多态性的一种表现.利用高阶函数来实现设计模式.</p>
+<h1 id="1-3_封装">1.3 封装</h1><p>封装的目的就是将信息隐藏</p>
+<h2 id="1-3-1_封装数据">1.3.1 封装数据</h2><p>许多语言提供了static,public,private来实现封装某些属性,但是JavaScript中没有这些关键字,所以只能通过函数创建作用域来封装数据<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject=(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _name=<span class="string">'sven'</span>;<span class="comment">//私有变量</span></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        getName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> _name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(myObject.getName());<span class="comment">//sven</span></span><br><span class="line"><span class="built_in">console</span>.log(myObject._name);<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-2_封装实现">1.3.2 封装实现</h2><p>封装使得对象之间的耦合性变得松散,对象之间只通过暴露的API接口来通信,当我们修改一个对象时就可以随便修改它的内部实现,只要对外的接口没有变化,就不会影响到程序的其他功能.比如each函数.</p>
+<h2 id="1-3-3_封装类型">1.3.3 封装类型</h2><p>JavaScript在这方面是解脱~解脱~脱！</p>
+<h2 id="1-3-4_封装变化">1.3.4 封装变化</h2><p>通过封装变化,把系统中稳定不变的部分和容易变化的部分隔离开来,在系统的演变过程中,我们只需要替换那些容易变化的部分,如果这些部分是已经封装好的,替换起来也比较方便.</p>
+<h1 id="1-4_原型模式和基于原型继承的JavaScript对象系统">1.4 原型模式和基于原型继承的JavaScript对象系统</h1><p>在原型编程思想中,类不是必须要的,对象未必需要从类中创建而来.<br>原型模式不单是一种设计模式,也称为一种编程泛型</p>
+<h2 id="1-4-1_使用克隆的原型模式">1.4.1 使用克隆的原型模式</h2><p>从设计模式的角度讲,原型模式是用于创建对象的一种模式.<br>比如我们在编写一个飞机大战游戏,飞机拥有分身技能,在原型模式中我们只需要克隆一个飞机当前的信息来创建出一个新的飞机.<br>原型模式的实现关键在于语言是否提供了clone功能,在ECMAScript5中提供了Object.create<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Plane=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.blood=<span class="number">100</span>;</span><br><span class="line">    <span class="keyword">this</span>.attackLevel=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.defenseLevel=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Plane=<span class="keyword">new</span> Plane();</span><br><span class="line">Plane.blood=<span class="number">500</span>;</span><br><span class="line">Plane.attackLevel=<span class="number">10</span>;</span><br><span class="line">Plane.defenseLevel=<span class="number">7</span>;</span><br><span class="line"><span class="keyword">var</span> clonePlane=<span class="built_in">Object</span>.create(Plane);</span><br><span class="line"><span class="built_in">console</span>.log(clonePlane);<span class="comment">// object&#123;blood:500,....&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>不支持Object.create方法中可以用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create=<span class="built_in">Object</span>.create||<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    F.prototype=obj</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-4-2_克隆是创建对象的手段">1.4.2 克隆是创建对象的手段</h2><p>原型模式的真正目的并非在于需要得到一个一模一样的对象,克隆只是创建这个对象的过程和手段</p>
+<p>——中间略了IO语言那块 直接写总结</p>
+<p>原型模式编程泛型</p>
+<ul>
+<li>所有的数据都是对象</li>
+<li>要得到一个对象,不是通过实例化类,而是找到一个对象作为原型并克隆它</li>
+<li>对象会记住它的原型</li>
+<li>如果对象无法响应某个请求,它会把这个请求委托给它自己的原型</li>
+</ul>
+<h2 id="1-4-5_JavaScript的原型继承">1.4.5 JavaScript的原型继承</h2><p>1.所有的数据都是对象<br>JavaScript中有以下几种类型 number,boolean,string,object,function.除了undefined以外一切都为对象.按照这么说,JavaScript也有一个根对象.那么就是Object,所有的类型都是通过Object.prototype所克隆而来的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getProwotypeOf(obj1)===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getProwotypeOf(obj2)===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>2.要得到一个对象,不是通过实例化类,而是找到一个对象并且作为原型克隆它<br>JavaScript的克隆有var obj1=new Object()或者var obj2={}<br>利用new运算符来从构造器中得到一个对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> Person(<span class="string">'sven'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a.name)<span class="comment">//sven</span></span><br><span class="line"><span class="built_in">console</span>.log(a.getName())<span class="comment">//sven</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getProwotypeOf(a)===Person.prototype)<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>实际上当new运算符来调用函数时,此时的函数就是一个构造器,用new运算符来创建对象的过程,实际上也只是先克隆Object.prototype对象,再进行一些其他额外的操作罢了.利用<strong>proto</strong>属性来理解<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> objectFactory=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>(),<span class="comment">//从Object.prototype上克隆一个新的对象</span></span><br><span class="line">    Constructor=[].shift.call(<span class="built_in">arguments</span>);<span class="comment">//取得外部传入的构造器,此例是Person</span></span><br><span class="line">    obj.__proto__=Constructor.prototype;<span class="comment">//指向正确的原型</span></span><br><span class="line">    <span class="keyword">var</span> ret=Constructor.apply(obj,<span class="built_in">arguments</span>);<span class="comment">//借用外部传入的构造器给obj设置属性</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> ret===<span class="string">'object'</span>?ret:obj;<span class="comment">//确保构造器总是会返回一个对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=objectFactory(Person,<span class="string">'sven'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a.name);<span class="comment">//sven</span></span><br><span class="line"><span class="built_in">console</span>.log(a.getName());<span class="comment">//sven</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getProwotypeOf(a)===Person.prototype);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>var a=objectFactory(Person,’sven’)等同于var a=new Person(‘sven’)</p>
+<p>3 对象会记住它的原型<br>JavaScript不能说对象有原型,而是对象的构造器有原型.<br>在JavaScript给对象提供了一个<strong>proto</strong>隐藏属性,某个对象的<strong>proto</strong>属性会默认指向它构造器的原型对象,即{Constructor}.prototype<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__===<span class="built_in">Object</span>.prototype);<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>实际上,<strong>proto</strong>就是对象跟’对象构造器的原型‘联系起来的纽带,正是因为对象要通过<strong>proto</strong>属性来记住它的构造器原型,所以上一节的ObjectFactory函数需要手动设置<strong>proto</strong>的指向.<br>obj.<strong>proto</strong>=Constructor.prototype<br>这样就让obj,<strong>proto</strong>指向构造器的prototype而不是Object.prototype</p>
+<p>4 如果对象无法响应某个请求,它会把这个请求委托给它自己的原型<br>虽然JavaScript的对象最初都是由Object.prototype克隆而来的,但对象的构造器的原型并不仅仅限于Object.prototype上,可以动态指向其他对象.这样一来可以有选择性的把对象a的构造器的原型指向对象b,从而来达到继承的效果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;name:<span class="string">'sven'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> A=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">A.prototype=obj;</span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> A();</span><br><span class="line"><span class="built_in">console</span>.log(a.name);</span><br></pre></td></tr></table></figure></p>
+<p>引擎在解析这段代码的时候做了以下的事情</p>
+<ul>
+<li>首先,尝试遍历对象a中的所有属性,但没有找到name这个属性.</li>
+<li>查找name属性的这个请求被委托给对象a的构造器原型,它被a.<strong>proto</strong>记录着并且指向A.prototype,而A.prototype被设置为对象obj.</li>
+<li>在对象obj中找到了name属性,并返回它的值</li>
+</ul>
+<p>比如继承类<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A类</span></span><br><span class="line"><span class="keyword">var</span> A=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">A.prototype=&#123;name:<span class="string">'sven'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//B类继承A类</span></span><br><span class="line"><span class="keyword">var</span> B=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">B.prototype=<span class="keyword">new</span> A();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b=<span class="keyword">new</span> B()</span><br><span class="line"><span class="built_in">console</span>.log(b.name);<span class="comment">//sven</span></span><br></pre></td></tr></table></figure></p>
+<p>引擎在解析这段代码的时候做了以下的事情</p>
+<ul>
+<li>首先,尝试遍历对象b中的所有属性,但没有找到name这个属性.</li>
+<li>查找name属性的请求被委托给对象b的构造器原型,它被b.<strong>proto</strong>记录着并且指向B.prototype,而B.prototype被设置为通过new A()创建出来的对象.</li>
+<li>在该对象中依然没有找到name属性,于是请求被继续委托给对象构造器的原型A.prototype</li>
+<li>在A.prototype找到了name属性,并且返回它的值</li>
+</ul>
+<p>A.prototype的构造器原型为Object.prototype,Object.prototype的构造器原型为null 所以会在这里打住</p>
+<h2 id="1-4-6_原型继承的未来">1.4.6 原型继承的未来</h2><p>期待ES6吧！</p>
+<h1 id="总结">总结</h1><p>第一章讲述了多态在设计模式的重要性,同时讲述了封装的概念与JavaScript中的原型模式,这样都是有助于我们更好的去了解JavaScript如何实现设计模式.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/20/angular-file-upload/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">angular-file-upload使用笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-面向对象的JavaScript" data-title="JavaScript设计模式笔记-面向对象的JavaScript" data-url="http://emufan.com/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
