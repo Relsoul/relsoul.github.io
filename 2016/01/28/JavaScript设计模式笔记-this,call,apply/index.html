@@ -11,9 +11,7 @@
 作为对象的方法调用
 作为普通函数调用
 构造器调用
-Function.prototype.call或者Function.prototype.apply调用
-
-1.作为对象的方法调用当作为对象的方法调用,this指向该">
+Function.prototype.call或者Function.prototype.apply调用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript设计模式笔记-this,call,apply">
 <meta property="og:url" content="http://emufan.com/2016/01/28/JavaScript设计模式笔记-this,call,apply/index.html">
@@ -24,10 +22,8 @@ Function.prototype.call或者Function.prototype.apply调用
 作为对象的方法调用
 作为普通函数调用
 构造器调用
-Function.prototype.call或者Function.prototype.apply调用
-
-1.作为对象的方法调用当作为对象的方法调用,this指向该">
-<meta property="og:updated_time" content="2016-01-28T09:56:37.703Z">
+Function.prototype.call或者Function.prototype.apply调用">
+<meta property="og:updated_time" content="2016-01-28T10:03:52.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript设计模式笔记-this,call,apply">
 <meta name="twitter:description" content="2.1 thisJavaScript中的this总是指向一个对象,而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的.
@@ -36,9 +32,7 @@ Function.prototype.call或者Function.prototype.apply调用
 作为对象的方法调用
 作为普通函数调用
 构造器调用
-Function.prototype.call或者Function.prototype.apply调用
-
-1.作为对象的方法调用当作为对象的方法调用,this指向该">
+Function.prototype.call或者Function.prototype.apply调用">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -254,6 +248,7 @@ Function.prototype.call或者Function.prototype.apply调用
 <li>构造器调用</li>
 <li>Function.prototype.call或者Function.prototype.apply调用</li>
 </ul>
+<a id="more"></a>
 <p>1.作为对象的方法调用<br>当作为对象的方法调用,this指向该对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    getA:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>===obj);<span class="comment">//true</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);<span class="comment">//1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getA()</span><br></pre></td></tr></table></figure></p>
 <p>2.作为普通函数调用<br>当函数不作为对象的属性调用,也就是我们常说的用普通函数方法,此时的this总是指向全局对象,浏览器中是window<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.name=<span class="string">'globalname'</span>;</span><br><span class="line"><span class="keyword">var</span> getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getName());<span class="comment">//globalname</span></span><br></pre></td></tr></table></figure></p>
 <p>但是在事件类部函数里定义一个函数并且调用,因为普通函数方法this是永远指向window的,比如下例的问题<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">'div1'</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">$(<span class="string">'div1'</span>).onclick=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.id);<span class="comment">//div1</span></span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">callback</span>=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        console.log(<span class="keyword">this</span>.id)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">callback</span>();<span class="comment">//window</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
