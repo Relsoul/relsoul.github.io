@@ -3,17 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,</title>
+  <title>JavaScript设计模式笔记-this,call,apply | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:url" content="http://emufan.com/index.html">
+  <meta name="description" content="2.1 thisJavaScript中的this总是指向一个对象,而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的.
+2.1.1 this的指向this的指向大致分为以下4种
+
+作为对象的方法调用
+作为普通函数调用
+构造器调用
+Function.prototype.call或者Function.prototype.apply调用
+
+1.作为对象的方法调用当作为对象的方法调用,this指向该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-this,call,apply">
+<meta property="og:url" content="http://emufan.com/2016/01/28/JavaScript设计模式笔记-this,call,apply/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description">
+<meta property="og:description" content="2.1 thisJavaScript中的this总是指向一个对象,而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的.
+2.1.1 this的指向this的指向大致分为以下4种
+
+作为对象的方法调用
+作为普通函数调用
+构造器调用
+Function.prototype.call或者Function.prototype.apply调用
+
+1.作为对象的方法调用当作为对象的方法调用,this指向该">
+<meta property="og:updated_time" content="2016-01-28T09:56:37.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript设计模式笔记-this,call,apply">
+<meta name="twitter:description" content="2.1 thisJavaScript中的this总是指向一个对象,而具体指向哪个对象是在运行时基于函数的执行环境动态绑定的.
+2.1.1 this的指向this的指向大致分为以下4种
+
+作为对象的方法调用
+作为普通函数调用
+构造器调用
+Function.prototype.call或者Function.prototype.apply调用
+
+1.作为对象的方法调用当作为对象的方法调用,this指向该">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -184,65 +209,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-nginx反向代理websocket" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/28/nginx反向代理websocket/" class="article-date">
-  	<time datetime="2016-01-27T17:19:26.000Z" itemprop="datePublished">2016-01-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/28/nginx反向代理websocket/">nginx反向代理websocket</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://nginx.org/en/docs/http/websocket.html" target="_blank" rel="external">参考url</a></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        location /chat/ &#123;</span><br><span class="line">            proxy_pass http://backend;</span><br><span class="line">            proxy_http_version <span class="number">1.1</span>;</span><br><span class="line">            proxy_set_header Upgrade <span class="variable">$http</span>_upgrade;</span><br><span class="line">            proxy_set_header Connection <span class="variable">$connection</span>_upgrade;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-this,call,apply" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-this,call,apply" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/01/28/JavaScript设计模式笔记-this,call,apply/" class="article-date">
@@ -258,12 +225,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/28/JavaScript设计模式笔记-this,call,apply/">JavaScript设计模式笔记-this,call,apply</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-this,call,apply
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -299,516 +277,71 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-面向对象的JavaScript - 副本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/" class="article-date">
-  	<time datetime="2016-01-27T11:47:58.000Z" itemprop="datePublished">2016-01-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/01/28/nginx反向代理websocket/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/">JavaScript设计模式笔记-面向对象的JavaScript</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-1动态类型语言和鸭子类型">1.1动态类型语言和鸭子类型</h1><p>动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> a</span>=<span class="number">1</span>;<span class="comment">// number</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> str</span>='<span class="number">123</span>';<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
-<p>静态类型的语言在编译时就已经确定好值了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b;<span class="comment">//number</span></span><br><span class="line"><span class="built_in">string</span> c;<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/20/angular-file-upload/" class="article-date">
-  	<time datetime="2016-01-20T14:56:55.000Z" itemprop="datePublished">2016-01-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+          nginx反向代理websocket
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/20/angular-file-upload/">angular-file-upload使用笔记</a>
-    </h1>
   
+    <a href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-面向对象的JavaScript</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="引入">引入</h1><p><a href="https://github.com/danialfarid/ng-file-upload">github</a><br>Bower:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="operator"><span class="keyword">install</span> ng-<span class="keyword">file</span>-upload-shim <span class="comment">--save(for non html5 suppport)</span></span><br><span class="line">bower <span class="keyword">install</span> ng-<span class="keyword">file</span>-upload <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
-<h1 id="构建表单">构建表单</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">form</span> name=<span class="string">'test'</span>&gt;</span><br><span class="line">&lt;<span class="tag">div</span> class=<span class="string">"btn btn-default "</span> ngf-select ng-model=<span class="string">"upload_img"</span></span><br><span class="line">     name=<span class="string">"upload_img"</span> ngf-pattern=<span class="string">"'image/*'"</span> ngf-accept=<span class="string">"'image/*'"</span></span><br><span class="line">     ngf-max-size=<span class="string">"2MB"</span> ngf-<span class="attribute">min-height</span>=<span class="string">"100"</span>&gt;Select</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;<span class="tag">button</span> ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>在文档中看见,可以用input,button,div等方式来构建,但是我推荐用Button,因为可以自己设置样式.</p>
-<h1 id="使用">使用</h1><p>其中div标签必须的是 ngf-select与ng-model和name这三个属性.其他的都是可选性,如果你上传的是图片,你可以用ngf-thumbnail来预览.<br>并且可以在ngf-thumbnail中嵌入其他数据<br>比如<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">img</span> ngf-thumbnail=<span class="string">"upload_img||user_info.avatarUrl"</span> class=<span class="string">""</span> alt=<span class="string">""</span> <span class="attribute">width</span>=<span class="string">"100"</span> <span class="attribute">height</span>=<span class="string">"100"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
-<h1 id="如何在controller获取到">如何在controller获取到</h1><p>推荐在提交的时候传递参数,这里我已经躺了一个坑了,官方加了一个$号,我这里用$upload_img没用<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.submitForm=<span class="keyword">function</span>(upload_img)&#123;</span><br><span class="line">    console.log(upload_img)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/20/angular-file-upload/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-JavaScript深入浅出-执行上下文" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/15/JavaScript深入浅出-执行上下文/" class="article-date">
-  	<time datetime="2016-01-15T11:35:54.000Z" itemprop="datePublished">2016-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/15/JavaScript深入浅出-执行上下文/">JavaScript深入浅出-执行上下文</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>JavaScript作用域<ul>
-<li>全局</li>
-<li>函数</li>
-<li>eval</li>
-</ul>
-</li>
-</ul>
-<p>每次调用函数都是重新生成一个作用域</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/15/JavaScript深入浅出-执行上下文/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
-
-
-
-
-  
-    <article id="post-JavaScript深入浅出-作用域" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/15/JavaScript深入浅出-作用域/" class="article-date">
-  	<time datetime="2016-01-15T11:26:24.000Z" itemprop="datePublished">2016-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/15/JavaScript深入浅出-作用域/">JavaScript深入浅出-作用域</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="全局-函数,eval">全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</span><br></pre></td></tr></table></figure>
-<p>JavaScript无块级作用域,只有函数作用域.<br>如 匿名立即执行作用域</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/15/JavaScript深入浅出-作用域/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-this,call,apply" data-title="JavaScript设计模式笔记-this,call,apply" data-url="http://emufan.com/2016/01/28/JavaScript设计模式笔记-this,call,apply/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-  
-    <article id="post-JavaScript深入浅出-this" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/14/JavaScript深入浅出-this/" class="article-date">
-  	<time datetime="2016-01-14T04:20:41.000Z" itemprop="datePublished">2016-01-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/JavaScript深入浅出-this/">JavaScript深入浅出-this</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>this跟作用域并没有什么关系,this指向的是调用者！<br>自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.</p>
-<h1 id="全局的this(浏览器)">全局的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)<span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)<span class="comment">//37</span></span><br></pre></td></tr></table></figure>
-<h1 id="一般函数的this(浏览器)">一般函数的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f1()===<span class="built_in">window</span><span class="comment">//true,global object</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="pi">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f2()===<span class="literal">undefined</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/14/JavaScript深入浅出-this/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript深入浅出-闭包" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/14/JavaScript深入浅出-闭包/" class="article-date">
-  	<time datetime="2016-01-14T03:58:15.000Z" itemprop="datePublished">2016-01-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/JavaScript深入浅出-闭包/">JavaScript深入浅出-闭包</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="例子">例子</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> localVal;</span><br><span class="line">&#125;</span><br><span class="line">outer()<span class="comment">//30</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> localVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func=outer();</span><br><span class="line">func();<span class="comment">//30;</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">// all are 4!</span></span><br><span class="line">        &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;</span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">//随机1-4出现 因为异步的关系,但是并不是4</span></span><br><span class="line">        &#125;,<span class="number">1000</span>)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/14/JavaScript深入浅出-闭包/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-どうせあなたもわからないのか？ 反正你也不懂" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/" class="article-date">
-  	<time datetime="2016-01-13T15:48:57.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/">どうせあなたもわからないのか？ 反正你也不懂</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>どうせあなたもわからないのか？ 反正你也不懂<br><img src="http://cdn.emufan.com/img/post-acg (1).png" alt=""><br><img src="http://cdn.emufan.com/img/post-acg (2).png" alt=""><br><img src="http://cdn.emufan.com/img/post-acg (3).png" alt=""><br><img src="http://cdn.emufan.com/img/post-acg (4).png" alt=""><br><img src="http://cdn.emufan.com/img/post-acg (5).png" alt=""><br><img src="http://cdn.emufan.com/img/post-acg (6).png" alt=""><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-一次有意思的JavaScript试验题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/一次有意思的JavaScript试验题/" class="article-date">
-  	<time datetime="2016-01-13T14:20:48.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/一次有意思的JavaScript试验题/">一次有意思的JavaScript试验题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天群里的朋友发了一段代码,问最后的结果<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    b:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;(),</span><br><span class="line">    f:<span class="keyword">this</span>.f=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    alert(<span class="number">3</span>);</span><br><span class="line">&#125;   </span><br><span class="line">f();</span><br><span class="line">b.f();</span><br><span class="line">(b.f)();</span><br><span class="line">(<span class="number">0</span>, b.f)();</span><br></pre></td></tr></table></figure></p>
-<p>在浏览器中运行的结果是1,1,2,2,1<br>跟我自己脑补的不一样…可能是技术还不够吧…于是在浏览器中运行并且分析了下.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/一次有意思的JavaScript试验题/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -832,8 +365,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
