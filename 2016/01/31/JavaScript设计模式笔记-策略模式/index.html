@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript设计模式笔记-策略模式 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义策略模式的定义是:定义一系列算法,把它们一个个封装起来,并且使它们可以互相替换.通俗来讲就是用一个盒子装很多颗糖果 如果有需要了那么让一个人去拿 这样如果我们想增加不同的糖果只需要往盒子里面放就行了
+5.1 使用策略模式计算奖金绩效S的人年终奖有4倍工资,A的是3倍,B的是2倍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-策略模式">
+<meta property="og:url" content="http://emufan.com/2016/01/31/JavaScript设计模式笔记-策略模式/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="定义策略模式的定义是:定义一系列算法,把它们一个个封装起来,并且使它们可以互相替换.通俗来讲就是用一个盒子装很多颗糖果 如果有需要了那么让一个人去拿 这样如果我们想增加不同的糖果只需要往盒子里面放就行了
+5.1 使用策略模式计算奖金绩效S的人年终奖有4倍工资,A的是3倍,B的是2倍">
+<meta property="og:updated_time" content="2016-01-31T15:06:31.406Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式笔记-策略模式">
+<meta name="twitter:description" content="定义策略模式的定义是:定义一系列算法,把它们一个个封装起来,并且使它们可以互相替换.通俗来讲就是用一个盒子装很多颗糖果 如果有需要了那么让一个人去拿 这样如果我们想增加不同的糖果只需要往盒子里面放就行了
+5.1 使用策略模式计算奖金绩效S的人年终奖有4倍工资,A的是3倍,B的是2倍">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/oldBlog">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 18px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/oldBlog">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-策略模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/31/JavaScript设计模式笔记-策略模式/" class="article-date">
+  	<time datetime="2016-01-31T13:21:47.000Z" itemprop="datePublished">2016-01-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-策略模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义">定义</h1><p>策略模式的定义是:定义一系列算法,把它们一个个封装起来,并且使它们可以互相替换.<br>通俗来讲就是用一个盒子装很多颗糖果 如果有需要了那么让一个人去拿 这样如果我们想增加不同的糖果只需要往盒子里面放就行了</p>
+<h1 id="5-1_使用策略模式计算奖金">5.1 使用策略模式计算奖金</h1><p>绩效S的人年终奖有4倍工资,A的是3倍,B的是2倍</p>
+<a id="more"></a>
+<h3 id="1-最初代码的实现">1.最初代码的实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var calculateBonus=function(per,salary)&#123;</span><br><span class="line">    <span class="keyword">if</span>(per===<span class="string">'S'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> salary*<span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">if</span>(per===<span class="string">'A'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> salary*<span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">if</span>(per===<span class="string">'B'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> salary*<span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    calculateBonus( <span class="string">'B'</span>, <span class="number">20000</span> ); <span class="comment">// 输出：40000</span></span><br><span class="line">    calculateBonus( <span class="string">'S'</span>, <span class="number">6000</span> ); <span class="comment">// 输出：24000</span></span><br></pre></td></tr></table></figure>
+<p>这样写的话.如果要增加绩效C的话 需要再写一个if else分支. 前文说了..设计模式就是为了消除这一大堆分支所出现的.</p>
+<h3 id="2-使用组合函数重构代码">2.使用组合函数重构代码</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> performanceS = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary * <span class="number">4</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> performanceA = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary * <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> performanceB = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary * <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> calculateBonus = <span class="function"><span class="keyword">function</span><span class="params">( performanceLevel, salary )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( performanceLevel === <span class="string">'S'</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> performanceS( salary );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( performanceLevel === <span class="string">'A'</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> performanceA( salary );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( performanceLevel === <span class="string">'B'</span> )&#123;</span><br><span class="line">        <span class="keyword">return</span> performanceB( salary );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">calculateBonus( <span class="string">'A'</span> , <span class="number">10000</span> ); <span class="comment">// 输出：30000</span></span><br></pre></td></tr></table></figure>
+<p>这样虽然得到一定的改善了.那么calculateBonus越来越大 if分支也会越来越多</p>
+<h3 id="3-使用策略模式重构代码">3.使用策略模式重构代码</h3><p>一个基于策略的模式程序至少有两部分组成,第一个部分是一组策略类,策略类封装了具体的算法,并且负责具体的计算过程.<br>第二部分是环境类Context,Context接受客户的请求,随后把请求委托给某一个策略类,要做到这点,说明Context要维持对某个策略对象的引用<br>用传统的OOP语言来实现<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义策略类</span></span><br><span class="line">    <span class="keyword">var</span> performanceS = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    performanceS.prototype.calculate = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">4</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> performanceA = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    performanceA.prototype.calculate = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">3</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> performanceB = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    performanceB.prototype.calculate = <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">2</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="comment">//定义奖金类</span></span><br><span class="line">    <span class="keyword">var</span> Bonus=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.salary=<span class="literal">null</span>;<span class="comment">//原始工资</span></span><br><span class="line">        <span class="keyword">this</span>.strategy=<span class="literal">null</span>;<span class="comment">//对应的策略类,也就是Context要维持对某个策略对象的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">    Bonus.prototype.setSalary=<span class="function"><span class="keyword">function</span><span class="params">(salary)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.salary=salary</span><br><span class="line">    &#125;</span><br><span class="line">    Bonus.prototype.setStrategy=<span class="function"><span class="keyword">function</span><span class="params">(strategy)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.strategy=strategy</span><br><span class="line">    &#125;</span><br><span class="line">    Bonus.prototype.getBonuns=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.strategy.calculate(<span class="keyword">this</span>.salary)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>定义一系列算法,把它们各自封装成策略类,算法被封装在策略类内部的方法里.在客户对Context发起请求的时候,Context总是把请求委托给这些策略对象中间的某一个进行计算.<br>那么基于上述的话,我们完成剩下的代码, 创建一个策略类,然后对Bonus也就是Context发起请求,Bonus会把这个请求委托给策略类中的某个算法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bonus=<span class="keyword">new</span> Bonus();</span><br><span class="line">bonus.setStrategy( <span class="keyword">new</span> performanceS() ); <span class="comment">// 设置策略对象</span></span><br><span class="line"><span class="built_in">console</span>.log( bonus.getBonus() ); <span class="comment">// 输出：40000</span></span><br><span class="line">bonus.setStrategy( <span class="keyword">new</span> performanceA() ); <span class="comment">// 设置策略对象</span></span><br><span class="line"><span class="built_in">console</span>.log( bonus.getBonus() ); <span class="comment">// 输出：30000</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="5-2_JavaScript中的策略模式">5.2 JavaScript中的策略模式</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> strategies = &#123;</span><br><span class="line">    <span class="string">"S"</span>: <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">4</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"A"</span>: <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">3</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"B"</span>: <span class="function"><span class="keyword">function</span><span class="params">( salary )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Context并没有要求要用类来表示,那么可以用函数来实现<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> calculateBonus=<span class="function"><span class="keyword">function</span>(<span class="params">level,salary</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> strategies[level](salary)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( calculateBonus( <span class="string">'S'</span>, <span class="number">20000</span> ) ); <span class="comment">// 输出：80000</span></span><br><span class="line"><span class="built_in">console</span>.log( calculateBonus( <span class="string">'A'</span>, <span class="number">10000</span> ) ); <span class="comment">// 输出：30000</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="5-3_多态在策略模式中的体现">5.3 多态在策略模式中的体现</h1><p>在使用策略模式重构时,我们消除了原程序中大片的ifelse.所有跟奖金计算有关的逻辑都放在策略类中,Context仅仅是遵守单一职责,把这些请求委托给策略类.</p>
+<h1 id="5-4_使用策略模式实现缓动动画">5.4 使用策略模式实现缓动动画</h1><h2 id="5-4-1_实现动画效果的原理">5.4.1 实现动画效果的原理</h2><p>实际上就是更改元素的CSS如 left top background-position.</p>
+<h2 id="5-4-2_思路和一些准备工作">5.4.2 思路和一些准备工作</h2><p>我们的目标是编写一个动画类和一些缓动算法,让小球以各种各样的缓动效果在页面中运动<br>在运动开始之前,我们得获取一些信息</p>
+<ul>
+<li>动画开始时候,小球所在的原始位置</li>
+<li>小球移动的目标位置</li>
+<li>动画开始时的准确时间点</li>
+<li>小球运动持续的时间</li>
+</ul>
+<p>随后我们会用setInterval创建一个定时器,每隔19ms执行一次,执行的时候会通过算法更新小球运动的信息.</p>
+<h3 id="5-4-3_让小球运动起来">5.4.3 让小球运动起来</h3><p>首先我们可以从flash移植缓动算法封装成策略类<br>t:动画已经消耗的时间<br>b:小球原始位置<br>c:小球目标位置<br>d:动画持续的总时间<br>返回的是小球应该处于的当前位置<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tween = &#123;</span><br><span class="line">    linear: <span class="function"><span class="keyword">function</span><span class="params">( t, b, c, d )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c*t/d + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    easeIn: <span class="function"><span class="keyword">function</span><span class="params">( t, b, c, d )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ( t /= d ) * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    strongEaseIn: <span class="function"><span class="keyword">function</span><span class="params">(t, b, c, d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ( t /= d ) * t * t * t * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    strongEaseOut: <span class="function"><span class="keyword">function</span><span class="params">(t, b, c, d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ( ( t = t / d - <span class="number">1</span>) * t * t * t * t + <span class="number">1</span> ) + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    sineaseIn: <span class="function"><span class="keyword">function</span><span class="params">( t, b, c, d )</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ( t /= d) * t * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    sineaseOut: <span class="function"><span class="keyword">function</span><span class="params">(t,b,c,d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ( ( t = t / d - <span class="number">1</span>) * t * t + <span class="number">1</span> ) + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>编写HTML<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> style=<span class="string">"position:absolute;background:blue"</span> <span class="property">id</span>=<span class="string">"div"</span>&gt;我是<span class="keyword">div</span>&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>随后我们来定义一个animate类也就是Context 由Context来委托请求<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Animate=<span class="function"><span class="keyword">function</span>(<span class="params">dom</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dom=dom;<span class="comment">//进行运动的dom节点</span></span><br><span class="line">    <span class="keyword">this</span>.startTime=<span class="number">0</span>;<span class="comment">//动画开始的时间</span></span><br><span class="line">    <span class="keyword">this</span>.startPos=<span class="number">0</span>;<span class="comment">//动画开始时候 DOM节点的位置,即DOM的初始位置</span></span><br><span class="line">    <span class="keyword">this</span>.endPos=<span class="number">0</span>;<span class="comment">//动画结束时,DOM节点的位置,即DOM的结束位置</span></span><br><span class="line">    <span class="keyword">this</span>.propertyName=<span class="literal">null</span>;<span class="comment">//dom节点需要被改变的css属性名</span></span><br><span class="line">    <span class="keyword">this</span>.easing=<span class="literal">null</span>;<span class="comment">//缓动算法</span></span><br><span class="line">    <span class="keyword">this</span>.duration=<span class="literal">null</span>;<span class="comment">//动画持续的时间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animate.prototype.start=<span class="function"><span class="keyword">function</span>(<span class="params">propertyName,endPos,duration,easing</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.startTime=+<span class="keyword">new</span> <span class="built_in">Date</span>;<span class="comment">//动画启动时间</span></span><br><span class="line">    <span class="keyword">this</span>.startPos=<span class="keyword">this</span>.dom.getBoundingClientRect()[propertyName];<span class="comment">//这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。分别表示元素各边与页面上边和左边的距离。</span></span><br><span class="line">    <span class="keyword">this</span>.propertyName=propertyName;<span class="comment">//dom节点需要被改变的css属性名</span></span><br><span class="line">    <span class="keyword">this</span>.endPos=endPos;<span class="comment">//动画结束位置</span></span><br><span class="line">    <span class="keyword">this</span>.duration=duration;<span class="comment">//动画持续时间</span></span><br><span class="line">    <span class="keyword">this</span>.easing=tween[easing];<span class="comment">//缓动算法</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> timeId=setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(self.step()===<span class="literal">false</span>)&#123;</span><br><span class="line">            clearInterval(timeId)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,<span class="number">19</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>propertyName:需要改变的css</li>
+<li>endPos:结束位置</li>
+<li>duration:持续时间</li>
+<li>easing:缓动算法</li>
+</ul>
+<p>接下来定义step方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Animate.prototype.step=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> t=+<span class="keyword">new</span> <span class="built_in">Date</span>;<span class="comment">//获取当前时间</span></span><br><span class="line">    <span class="keyword">if</span>(t&gt;=<span class="keyword">this</span>.startTime+<span class="keyword">this</span>.duration)&#123; <span class="comment">//如果动画已经执行完毕 也就是持续时间</span></span><br><span class="line">        <span class="keyword">this</span>.update(<span class="keyword">this</span>.endPos);<span class="comment">//为了防止有一些位置没有移动</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> pos=<span class="keyword">this</span>.easing(t-<span class="keyword">this</span>.startTime,<span class="keyword">this</span>.startPos,<span class="keyword">this</span>.endPos-<span class="keyword">this</span>.startPos,<span class="keyword">this</span>.duration);</span><br><span class="line">    <span class="keyword">this</span>.update(pos)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来定义update方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Animate.prototype.update=<span class="function"><span class="keyword">function</span>(<span class="params">pos</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dom.style[<span class="keyword">this</span>.propertyName]=pos+<span class="string">'px'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById( <span class="string">'div'</span> );</span><br><span class="line">    <span class="keyword">var</span> animate = <span class="keyword">new</span> Animate( div );</span><br><span class="line">    animate.start( <span class="string">'left'</span>, <span class="number">500</span>, <span class="number">1000</span>, <span class="string">'strongEaseOut'</span> );</span><br><span class="line">    <span class="comment">// animate.start( 'top', 1500, 500, 'strongEaseIn' );</span></span><br></pre></td></tr></table></figure></p>
+<p>策略模式实现并不复杂,关键是如何从策略模式的实现背后,找到封装变化,委托和多态性这些思想的价值.</p>
+<h1 id="5-5_更广义的算法">5.5 更广义的算法</h1><p>从定义上看策略模式是封装算法的.但是在实际开发中,使用策略模式也可以用来封装一系列的’业务规则’,只要这些业务规则指向的目标一致,并且可以被替换使用,我们就可以用策略模式来封装它们</p>
+<h1 id="5-6_表单验证">5.6 表单验证</h1><p>比如我们需要实现以下几条验证</p>
+<ul>
+<li>用户名不为空</li>
+<li>密码长度不能少于6位</li>
+<li>手机号码必须符合格式</li>
+</ul>
+<h3 id="5-6-1表单校验的第一个版本">5.6.1表单校验的第一个版本</h3><p>未引入策略模式<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    &lt;form action=<span class="string">"http:// xxx.com/register"</span> id=<span class="string">"registerForm"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">        请输入用户名：&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"userName"</span>/ &gt;</span><br><span class="line">        请输入密码：&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"password"</span>/ &gt;</span><br><span class="line"></span><br><span class="line">        请输入手机号码：&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> name=<span class="string">"phoneNumber"</span>/ &gt;</span><br><span class="line">        &lt;button&gt;提交&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">————————</span><br><span class="line">    var registerForm = document.getElementById( <span class="string">'registerForm'</span> );</span><br><span class="line">        registerForm.onsubmit = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">if</span> ( registerForm.userName.value === <span class="string">''</span> )&#123;</span><br><span class="line">                alert ( <span class="string">'用户名不能为空'</span> );</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ( registerForm.password.value.length &lt; <span class="number">6</span> )&#123;</span><br><span class="line">                alert ( <span class="string">'密码长度不能少于6 位'</span> );</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ( !/(^<span class="number">1</span>[<span class="number">3</span>|<span class="number">5</span>|<span class="number">8</span>][<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">9</span>&#125;$)/.test( registerForm.phoneNumber.value ) )&#123;</span><br><span class="line">                alert ( <span class="string">'手机号码格式不正确'</span> );</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先看到一大堆ifelse那么基本上可以断定这个程序是有被重构的余地的.</p>
+<h3 id="5-6-2策略模式重构代码">5.6.2策略模式重构代码</h3><p>首先创建一个策略类用来保存业务逻辑<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> strategies=&#123;</span><br><span class="line">    isNonEmpty:<span class="function"><span class="keyword">function</span>(<span class="params">value,errorMsg</span>)</span>&#123;<span class="comment">//不为空</span></span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    minLength: <span class="function"><span class="keyword">function</span>(<span class="params"> value, length, errorMsg </span>)</span>&#123; <span class="comment">// 限制最小长度</span></span><br><span class="line">        <span class="keyword">if</span> ( value.length &lt; length )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">            <span class="number">82</span> 第<span class="number">5</span> 章 策略模式</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    isMobile: <span class="function"><span class="keyword">function</span>(<span class="params"> value, errorMsg </span>)</span>&#123; <span class="comment">// 手机号码格式</span></span><br><span class="line">        <span class="keyword">if</span> ( !<span class="regexp">/(^1[3|5|8][0-9]&#123;9&#125;$)/</span>.test( value ) )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其次我们实现Context也就是Validator类,负责接收用户的请求并且委托给strategy对象.<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Validator=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cache=[];<span class="comment">//保存校验规则</span></span><br><span class="line">&#125;</span><br><span class="line">Validator.prototype.add=<span class="function"><span class="keyword">function</span><span class="params">(dom,rule,errorMsg)</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ary=rule.split(<span class="string">':'</span>);<span class="comment">//通过:来获取参数</span></span><br><span class="line">    <span class="keyword">this</span>.cache.push(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">//把校验的步骤用空函数包装起来</span></span><br><span class="line">        <span class="keyword">var</span> strategy=ary.shift();<span class="comment">//用户挑选的strategy</span></span><br><span class="line">        ary.unshift(dom.value);<span class="comment">//把input的value添加进参数列表</span></span><br><span class="line">        ary.push(errorMsg);<span class="comment">//自定义错误消息</span></span><br><span class="line">        <span class="keyword">return</span> strategies[strategy].apply(dom,ary);<span class="comment">//策略类中的this指向的是dom元素</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">Validator.prototype.start=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,validatorFunc;validatorFunc=<span class="keyword">this</span>.cache[i++];)&#123;</span><br><span class="line">        <span class="keyword">var</span> msg=validatorFunc();<span class="comment">//开始校验,并且取得校验后的结果</span></span><br><span class="line">        <span class="keyword">if</span>(msg)&#123; <span class="comment">//如果有错误信息那么就没校验通过,返回错误信息</span></span><br><span class="line">            <span class="keyword">return</span> msg</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>执行和添加校验规则<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> validateFunc=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> validator=<span class="keyword">new</span> Validator();<span class="comment">//创建一个validator对象</span></span><br><span class="line">    <span class="comment">//添加一些校验规则</span></span><br><span class="line">    validator.add( registerForm.userName, <span class="string">'isNonEmpty'</span>, <span class="string">'用户名不能为空'</span> );</span><br><span class="line">    validator.add( registerForm.password, <span class="string">'minLength:6'</span>, <span class="string">'密码长度不能少于6 位'</span> );</span><br><span class="line">    validator.add( registerForm.phoneNumber, <span class="string">'isMobile'</span>, <span class="string">'手机号码格式不正确'</span> );</span><br><span class="line">    <span class="keyword">var</span> errorMsg = validator.start(); <span class="comment">// 获得校验结果</span></span><br><span class="line">    <span class="keyword">return</span> errorMsg; <span class="comment">// 返回校验结果</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> registerForm = <span class="built_in">document</span>.getElementById( <span class="string">'registerForm'</span> );</span><br><span class="line">registerForm.onsubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> errorMsg = validataFunc(); <span class="comment">// 如果errorMsg 有确切的返回值，说明未通过校验</span></span><br><span class="line">    <span class="keyword">if</span> ( errorMsg )&#123;</span><br><span class="line">        alert ( errorMsg );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 阻止表单提交</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>首先这个策略模式 定义了策略类也就是校验规则 其实用了一个对象Context委托请求给策略类 也就是Validator函数 至于validateFunc这个函数是用来启动策略模式的.</p>
+<h2 id="5-6-3_给某个文本输入框添加多种规则">5.6.3 给某个文本输入框添加多种规则</h2><p>如果我们期望一个文本框用户名不能为空,且它输入的长度不小于10呢?我们期望这样<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">validator.add( registerForm.userName, [&#123;</span><br><span class="line">    strategy: <span class="string">'isNonEmpty'</span>,</span><br><span class="line">    errorMsg: <span class="string">'用户名不能为空'</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">    strategy: <span class="string">'minLength:6'</span>,</span><br><span class="line">    errorMsg: <span class="string">'用户名长度不能小于10 位'</span></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
+<p>实际要改写也很简单 我们只需要改动Context委托对象,也就是Valiprototype.add函数<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Validator.prototype.add=<span class="function"><span class="keyword">function</span><span class="params">(dom,rules)</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self=<span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;rule;rule=rules[i++])&#123;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span><span class="params">(rule)</span></span>&#123;</span><br><span class="line">            <span class="keyword">var</span> ary=rule.strategy.split(<span class="string">':'</span>);<span class="comment">//通过:来获取参数</span></span><br><span class="line">            <span class="keyword">var</span> errorMsg=rule.errorMsg;</span><br><span class="line">            <span class="keyword">this</span>.cache.push(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;<span class="comment">//把校验的步骤用空函数包装起来</span></span><br><span class="line">                <span class="keyword">var</span> strategy=ary.shift();<span class="comment">//用户挑选的strategy</span></span><br><span class="line">                ary.unshift(dom.value);<span class="comment">//把input的value添加进参数列表</span></span><br><span class="line">                ary.push(errorMsg);<span class="comment">//自定义错误消息</span></span><br><span class="line">                <span class="keyword">return</span> strategies[strategy].apply(dom,ary);<span class="comment">//策略类中的this指向的是dom元素</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)(rule)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>只需要加一层闭包添加多重验证就okay了.完整代码参考<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***********************策略对象**************************/</span></span><br><span class="line"><span class="keyword">var</span> strategies = &#123;</span><br><span class="line">    isNonEmpty: <span class="function"><span class="keyword">function</span>(<span class="params"> value, errorMsg </span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">277</span>,<span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">if</span> ( value === <span class="string">''</span> )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    minLength: <span class="function"><span class="keyword">function</span>(<span class="params"> value, length, errorMsg </span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( value.length &lt; length )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    isMobile: <span class="function"><span class="keyword">function</span>(<span class="params"> value, errorMsg </span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( !<span class="regexp">/(^1[3|5|8][0-9]&#123;9&#125;$)/</span>.test( value ) )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/***********************Validator 类**************************/</span></span><br><span class="line"><span class="keyword">var</span> Validator = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cache = [];</span><br><span class="line">&#125;;</span><br><span class="line">Validator.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params"> dom, rules </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>, rule; rule = rules[ i++ ]; )&#123;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span>(<span class="params"> rule </span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> strategyAry = rule.strategy.split( <span class="string">':'</span> );</span><br><span class="line">            <span class="keyword">var</span> errorMsg = rule.errorMsg;</span><br><span class="line">            self.cache.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="keyword">var</span> strategy = strategyAry.shift();</span><br><span class="line">                strategyAry.unshift( dom.value );</span><br><span class="line">                strategyAry.push( errorMsg );</span><br><span class="line">                <span class="keyword">return</span> strategies[ strategy ].apply( dom, strategyAry );</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)( rule )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Validator.prototype.start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>, validatorFunc; validatorFunc = <span class="keyword">this</span>.cache[ i++ ]; )&#123;</span><br><span class="line">        <span class="keyword">var</span> errorMsg = validatorFunc();</span><br><span class="line">        <span class="keyword">if</span> ( errorMsg )&#123;</span><br><span class="line">            <span class="keyword">return</span> errorMsg;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/***********************客户调用代码**************************/</span></span><br><span class="line"><span class="keyword">var</span> registerForm = <span class="built_in">document</span>.getElementById( <span class="string">'registerForm'</span> );</span><br><span class="line"><span class="keyword">var</span> validataFunc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> validator = <span class="keyword">new</span> Validator();</span><br><span class="line">    validator.add( registerForm.userName, [&#123;</span><br><span class="line">        strategy: <span class="string">'isNonEmpty'</span>,</span><br><span class="line">        errorMsg: <span class="string">'用户名不能为空'</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        strategy: <span class="string">'minLength:6'</span>,</span><br><span class="line">        errorMsg: <span class="string">'用户名长度不能小于10 位'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">    validator.add( registerForm.password, [&#123;</span><br><span class="line">        strategy: <span class="string">'minLength:6'</span>,</span><br><span class="line">        errorMsg: <span class="string">'密码长度不能小于6 位'</span></span><br><span class="line">    &#125;]);</span><br><span class="line">    <span class="keyword">var</span> errorMsg = validator.start();</span><br><span class="line">    <span class="keyword">return</span> errorMsg;</span><br><span class="line">&#125;</span><br><span class="line">registerForm.onsubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> errorMsg = validataFunc();</span><br><span class="line">    <span class="keyword">if</span> ( errorMsg )&#123;</span><br><span class="line">        alert ( errorMsg );</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="5-7策略模式的优缺点">5.7策略模式的优缺点</h1><ul>
+<li>策略模式利用组合，委托和多态等技术和思想,可以有效的避免多重条件选择语句.</li>
+<li>策略模式提供了对外开发-封闭原则的完美支持,将算法封装在独立的strategy中,使得它们易于切换,易于理解，易于扩展</li>
+<li>策略模式中的算法也可以复用在系统的其他地方,从而避免许多重复的复制粘贴工作</li>
+<li>在策略模式中利用组合和委托来让Context拥有执行算法能力,这也是继承的一种更轻便的代替方案</li>
+</ul>
+<p>当然策略模式也有一些缺点,但并不严重<br>首先使用策略模式会增加许多策略类火灾策略对象,但实际上这比把它们负责的逻辑堆砌在Context中要好</p>
+<h1 id="5-8_一等函数对象与策略模式">5.8 一等函数对象与策略模式</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> S=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary*<span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> A=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary*<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> B=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> salary*<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> calculateBonus=<span class="function"><span class="keyword">function</span><span class="params">(func,salary)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> func(salary)</span><br><span class="line">&#125;</span><br><span class="line">calculateBonus(S,<span class="number">10000</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/01/30/JavaScript设计模式笔记-单例模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-单例模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-策略模式" data-title="JavaScript设计模式笔记-策略模式" data-url="http://emufan.com/2016/01/31/JavaScript设计模式笔记-策略模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
