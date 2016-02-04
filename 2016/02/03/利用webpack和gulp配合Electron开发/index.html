@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript深入浅出-作用域 | Soul,灵魂,凌魂,零魂,</title>
+  <title>Electron开发笔记 | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
+  <meta name="description" content="github
+目录简介目录挺简单的,dev为开发目录.dev/client/:为客户端目录 dev/service/为服务端目录因为后期打算用angular开发,所以用gulp打包和webpack做依赖">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript深入浅出-作用域">
-<meta property="og:url" content="http://emufan.com/2016/01/15/JavaScript深入浅出-作用域/index.html">
+<meta property="og:title" content="Electron开发笔记">
+<meta property="og:url" content="http://emufan.com/2016/02/03/利用webpack和gulp配合Electron开发/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
-<meta property="og:updated_time" content="2016-01-15T11:44:15.426Z">
+<meta property="og:description" content="github
+目录简介目录挺简单的,dev为开发目录.dev/client/:为客户端目录 dev/service/为服务端目录因为后期打算用angular开发,所以用gulp打包和webpack做依赖">
+<meta property="og:updated_time" content="2016-02-04T13:14:39.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript深入浅出-作用域">
-<meta name="twitter:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
+<meta name="twitter:title" content="Electron开发笔记">
+<meta name="twitter:description" content="github
+目录简介目录挺简单的,dev为开发目录.dev/client/:为客户端目录 dev/service/为服务端目录因为后期打算用angular开发,所以用gulp打包和webpack做依赖">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -185,11 +188,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-JavaScript深入浅出-作用域" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-利用webpack和gulp配合Electron开发" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/15/JavaScript深入浅出-作用域/" class="article-date">
-  	<time datetime="2016-01-15T11:26:24.000Z" itemprop="datePublished">2016-01-15</time>
+      <a href="/2016/02/03/利用webpack和gulp配合Electron开发/" class="article-date">
+  	<time datetime="2016-02-03T05:53:07.000Z" itemprop="datePublished">2016-02-03</time>
 </a>
     </div>
   
@@ -202,7 +205,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript深入浅出-作用域
+      Electron开发笔记
     </h1>
   
 
@@ -211,7 +214,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
 	</div>
 
         
@@ -222,12 +225,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="全局-函数,eval">全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</span><br></pre></td></tr></table></figure>
-<p>JavaScript无块级作用域,只有函数作用域.<br>如 匿名立即执行作用域</p>
+        <p><a href="https://github.com/Relsoul/mcstart" target="_blank" rel="external">github</a></p>
+<h1 id="目录简介">目录简介</h1><p>目录挺简单的,dev为开发目录.dev/client/:为客户端目录 dev/service/为服务端目录<br>因为后期打算用angular开发,所以用gulp打包和webpack做依赖</p>
 <a id="more"></a>
-<h1 id="作用域链">作用域链</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> local2=<span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">outer1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> local=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    outer1();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> global3=<span class="number">1</span>;</span><br><span class="line">outer2();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> func=<span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'console.log(typeof i)'</span>)</span></span>;</span><br><span class="line">    func();<span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line">outer()</span><br></pre></td></tr></table></figure>
-<p>在outer1函数中可以访问到 outer2,global<br>用new Function去构造一个函数 实际上这个函数的作用域是全局作用域而非当前函数的作用域</p>
-<h1 id="利用函数作用域封装">利用函数作用域封装</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do sth</span></span><br><span class="line">    <span class="keyword">var</span> a,b;</span><br><span class="line">&#125;)();</span><br><span class="line">!<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// do sth </span></span><br><span class="line">    <span class="keyword">var</span> a,b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="gulp">gulp</h1><p>比较重要的一点是利用gulp-shell来启动.<br>注册了一个reload任务<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="function"><span class="title">task</span><span class="params">(<span class="string">"reload"</span>,[<span class="string">'webpack:compile'</span>], p.shell.task([<span class="string">'electron .'</span>])</span></span>)</span><br></pre></td></tr></table></figure></p>
+<p>但是这个任务有个缺陷就是 你每次更改代码都需要手动关闭Electron 也就是说这个配置不会帮你自动关闭界面 但是能帮你自动启动</p>
+<h1 id="webpack">webpack</h1><p>webpack只做client依赖管理<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="module"><span class="keyword">module</span>.exports=</span>&#123;</span><br><span class="line">    <span class="comment">//开发js都放置在/dev/js下 同时/dev/js下有个主目录用来做主文件</span></span><br><span class="line">    entry:<span class="string">'./dev/start.js'</span>,</span><br><span class="line">    output:&#123;</span><br><span class="line">        <span class="comment">//利用gulp调用webpack,webpack仅做依赖管理</span></span><br><span class="line">        filename:<span class="string">'mcstart.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="module"><span class="keyword">module</span>:</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先dev/js下有个start.js 这个就是专门用来引用客户端的文件 然后最终打包只需要调用一次这文件</p>
+<p><del>剩下的貌似没什么好说了.. 有啥坑以后再补</del></p>
+<h1 id="打包Electron">打包Electron</h1><p>打包是用electron-packager打包的 所以你需要npm安装这个electron-packager到项目文件夹中<br>然后可以去参考下<a href="https://github.com/maxogden/electron-packager" target="_blank" rel="external">官方文档</a><br>在package.json的script新增加个属性<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"echo \"</span><span class="keyword">Error</span>: <span class="keyword">no</span> <span class="keyword">test</span> specified\<span class="string">" &amp;&amp; exit 1"</span>,</span><br><span class="line">  <span class="string">"package"</span>: <span class="string">"electron-packager ./ soulMc --platform=win32 --arch=all --out D:/Project/build --version 0.36.7 --overwrite "</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>以后打包只需要npm run-script package 就okay了<br>下面来说说上述命令的意思<br>./:打包的目录 这里为当前目录<br>soulMc:名称<br>–platform=win32:需要打包的平台 这里为win32你也可以写all<br>–arch=all:打包平台的版本 比如window 64和32 这里是生成64和32<br>–out D:/Project/build：输出路径<br>–version 0.36.7:打包软件也就是electron-packager版本 最新的就是0.36.7了<br>–overwrite:覆盖安装D:/Project/build下的文件<br>打包完成后就可以运行了…</p>
+<p>剩下的坑以后再补</p>
 
       
     </div>
@@ -237,18 +245,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/15/JavaScript深入浅出-执行上下文/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JavaScript深入浅出-执行上下文
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/14/JavaScript深入浅出-this/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript深入浅出-this</div>
+    <a href="/2016/02/01/JavaScript设计模式笔记-代理模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-代理模式</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -277,7 +276,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JavaScript深入浅出-作用域" data-title="JavaScript深入浅出-作用域" data-url="http://emufan.com/2016/01/15/JavaScript深入浅出-作用域/"></div>
+	<div class="ds-thread" data-thread-key="利用webpack和gulp配合Electron开发" data-title="Electron开发笔记" data-url="http://emufan.com/2016/02/03/利用webpack和gulp配合Electron开发/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
