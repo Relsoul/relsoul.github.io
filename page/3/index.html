@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 12.5px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 17.5px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12.5px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,64 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-angular做个简单的音乐播放器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/03/angular做个简单的音乐播放器/" class="article-date">
+  	<time datetime="2016-01-03T08:54:16.000Z" itemprop="datePublished">2016-01-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/03/angular做个简单的音乐播放器/">angular做个简单的音乐播放器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="指令与服务">指令与服务</h1><p>因为音乐播放器需要操纵DOM元素,所以不应该在控制器中直接操控,于是可以利用服务和指令来实现.这里利用指令来实现</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/03/angular做个简单的音乐播放器/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -476,6 +534,64 @@
 
 
   
+    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
+<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
+<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -508,64 +624,6 @@
 <h1 id="V(view)">V(view)</h1><p>V层即为视图层.</p>
 <p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
 <h1 id="C(controller)">C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介">简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp">ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">ng-app</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="angular-module">angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> app=angular.<span class="function"><span class="title">module</span><span class="params">(<span class="string">"hello"</span>,[])</span></span></span><br></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
 
       
     </div>
@@ -700,73 +758,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-自用七牛上传下载" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/16/自用七牛上传下载/" class="article-date">
-  	<time datetime="2015-12-16T14:58:37.000Z" itemprop="datePublished">2015-12-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/16/自用七牛上传下载/">自用七牛上传下载</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自用nodejs版七牛上传下载功能">自用nodejs版七牛上传下载功能</h1><p><a href="http://emufan.com">Blog</a></p>
-<p><img src="http://cdn.emufan.com/img/七牛-1.png" alt="list"><br><img src="http://cdn.emufan.com/img/七牛-2.png" alt="get"><br><img src="http://cdn.emufan.com/img/七牛-3.png" alt="upload"></p>
-<h2 id="自用功能">自用功能</h2><p>自动对比服务器文件上传,<br>自动获取服务器文件下载,<br>获取服务器上所有文件</p>
-<p>依赖模块</p>
-<ul>
-<li>npm install qiniu</li>
-<li>npm install request</li>
-<li>npm install underscore</li>
-</ul>
-<p>JS中最下方的初始化<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">AK</span>: <span class="string">你的七牛AK,</span></span><br><span class="line"><span class="attribute">SK</span>: <span class="string">你的七牛SK,</span></span><br><span class="line"><span class="attribute">path</span>: <span class="string">需要同步文件夹以当前文件夹下的文件夹,非绝对路径如:"/uploadQN"指的是当前文件夹下的uploadQN,</span></span><br><span class="line"><span class="attribute">bucket</span>: <span class="string">你的七牛空间,</span></span><br><span class="line"><span class="attribute">domain</span>: <span class="string">你的七牛CDN域名 用来下载</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/16/自用七牛上传下载/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

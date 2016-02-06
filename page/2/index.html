@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 12.5px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 17.5px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 20px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12.5px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
 					</div>
 				</section>
 				
@@ -185,6 +185,68 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-angular-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/20/angular-file-upload/" class="article-date">
+  	<time datetime="2016-01-20T14:56:55.000Z" itemprop="datePublished">2016-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/20/angular-file-upload/">angular-file-upload使用笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引入">引入</h1><p><a href="https://github.com/danialfarid/ng-file-upload">github</a><br>Bower:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="operator"><span class="keyword">install</span> ng-<span class="keyword">file</span>-upload-shim <span class="comment">--save(for non html5 suppport)</span></span><br><span class="line">bower <span class="keyword">install</span> ng-<span class="keyword">file</span>-upload <span class="comment">--save</span></span></span><br></pre></td></tr></table></figure></p>
+<h1 id="构建表单">构建表单</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">form</span> name=<span class="string">'test'</span>&gt;</span><br><span class="line">&lt;<span class="tag">div</span> class=<span class="string">"btn btn-default "</span> ngf-select ng-model=<span class="string">"upload_img"</span></span><br><span class="line">     name=<span class="string">"upload_img"</span> ngf-pattern=<span class="string">"'image/*'"</span> ngf-accept=<span class="string">"'image/*'"</span></span><br><span class="line">     ngf-max-size=<span class="string">"2MB"</span> ngf-<span class="attribute">min-height</span>=<span class="string">"100"</span>&gt;Select</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;<span class="tag">button</span> ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>在文档中看见,可以用input,button,div等方式来构建,但是我推荐用Button,因为可以自己设置样式.</p>
+<h1 id="使用">使用</h1><p>其中div标签必须的是 ngf-select与ng-model和name这三个属性.其他的都是可选性,如果你上传的是图片,你可以用ngf-thumbnail来预览.<br>并且可以在ngf-thumbnail中嵌入其他数据<br>比如<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">img</span> ngf-thumbnail=<span class="string">"upload_img||user_info.avatarUrl"</span> class=<span class="string">""</span> alt=<span class="string">""</span> <span class="attribute">width</span>=<span class="string">"100"</span> <span class="attribute">height</span>=<span class="string">"100"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="如何在controller获取到">如何在controller获取到</h1><p>推荐在提交的时候传递参数,这里我已经躺了一个坑了,官方加了一个$号,我这里用$upload_img没用<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.submitForm=<span class="keyword">function</span>(upload_img)&#123;</span><br><span class="line">    console.log(upload_img)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/20/angular-file-upload/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-JavaScript深入浅出-执行上下文" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -710,64 +772,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular做个简单的音乐播放器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/03/angular做个简单的音乐播放器/" class="article-date">
-  	<time datetime="2016-01-03T08:54:16.000Z" itemprop="datePublished">2016-01-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/03/angular做个简单的音乐播放器/">angular做个简单的音乐播放器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="指令与服务">指令与服务</h1><p>因为音乐播放器需要操纵DOM元素,所以不应该在控制器中直接操控,于是可以利用服务和指令来实现.这里利用指令来实现</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/03/angular做个简单的音乐播放器/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
