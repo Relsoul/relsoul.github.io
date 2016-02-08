@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  mongoose学习笔记 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.baidu.c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:url" content="http://emufan.com/oldBlog/2015/11/07/code/mongoose学习笔记/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  mongoose学习笔记 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.baidu.c">
+<meta property="og:image" content="http://cdn.emufan.com/img/db.png">
+<meta property="og:updated_time" content="2015-11-29T08:27:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  mongoose学习笔记 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.baidu.c">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/oldBlog">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/oldBlog">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/oldBlog/2015/11/07/code/mongoose学习笔记/index.html" class="article-date">
+  	<time datetime="2015-12-12T14:53:27.181Z" itemprop="datePublished">2015-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mongoose学习笔记 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="连接引入mongoose后然后用connection连接就okay了推荐一个可视化数据库软件robomongo12345678var mongoose=require(&quot;mongoose&quot;);var db=mongoose.connect(&quot;mongodb://127.0.0.1:27017/test&quot;)db.connection.on(&quot;error&quot;,function(err)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongoose学习笔记">
+<meta property="og:url" content="http://emufan.com/2015/11/07/code/mongoose学习笔记/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="连接引入mongoose后然后用connection连接就okay了推荐一个可视化数据库软件robomongo12345678var mongoose=require(&quot;mongoose&quot;);var db=mongoose.connect(&quot;mongodb://127.0.0.1:27017/test&quot;)db.connection.on(&quot;error&quot;,function(err)&amp;#123;">
+<meta property="og:image" content="http://cdn.emufan.com/img/db.png">
+<meta property="og:updated_time" content="2015-11-06T17:33:55.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongoose学习笔记">
+<meta name="twitter:description" content="连接引入mongoose后然后用connection连接就okay了推荐一个可视化数据库软件robomongo12345678var mongoose=require(&quot;mongoose&quot;);var db=mongoose.connect(&quot;mongodb://127.0.0.1:27017/test&quot;)db.connection.on(&quot;error&quot;,function(err)&amp;#123;">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-code/mongoose学习笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/07/code/mongoose学习笔记/" class="article-date">
+  	<time datetime="2015-11-06T17:33:55.620Z" itemprop="datePublished">2015-11-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongoose学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/">code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoose/">mongoose</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="连接">连接</h1><p>引入mongoose后然后用connection连接就okay了<br>推荐一个可视化数据库软件robomongo<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="keyword">var</span> db=mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span><br><span class="line">db.connection.on(<span class="string">"error"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br><span class="line">db.connection.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"okay"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Schema">Schema</h1><p>schema就像一个模块的框架.查询根据这个模板框架来查询,插入也根据这个模板框架来插入.<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">"mongoose"</span>)</span><br><span class="line"><span class="keyword">var</span> testSchema=<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name :&#123;<span class="keyword">type</span>:<span class="built_in">String</span>&#125;,<span class="comment">//属性为name，类型为String</span></span><br><span class="line">    age:&#123;<span class="keyword">type</span>:<span class="built_in">Number</span>,<span class="keyword">default</span>:<span class="number">0</span>&#125;,<span class="comment">//属性为age 类型为Number 默认值为0</span></span><br><span class="line">    time:&#123;<span class="keyword">type</span>:<span class="built_in">Date</span>,<span class="keyword">default</span>:<span class="built_in">Date</span>.now&#125;,</span><br><span class="line">    email:&#123;<span class="keyword">type</span>:<span class="built_in">String</span>,<span class="keyword">default</span>:<span class="string">""</span>&#125;,</span><br><span class="line">    gender:&#123;<span class="keyword">type</span>:<span class="built_in">Boolean</span>,<span class="keyword">default</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Model">Model</h1><p>有了模板框架现在就可以生成模板了<br>test1是数据库中的集合名称 如果test1已经存在 则会保存到其目录下 如果不存在则会创建test1集合保存数据</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> db =mongoose.<span class="function"><span class="title">connect</span><span class="params">(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span></span></span><br><span class="line"><span class="tag">var</span> testmodel=db.<span class="function"><span class="title">model</span><span class="params">(<span class="string">"test1"</span>,testSchema)</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="Entity_实体">Entity 实体</h1><p>有了模板就可以生成实体<br>这里没有传入time 所以默认time是当前时间.现在仅仅生成实体了 但是,还没有保存,<br>我们可以console.log打印一下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var testEntity=<span class="keyword">new</span> testmodel(&#123;</span><br><span class="line">        name:<span class="string">"soul"</span>,</span><br><span class="line">        age:<span class="number">18</span>,</span><br><span class="line">        email:<span class="string">"admin@emufan.com"</span>,</span><br><span class="line">        gender:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line">console.<span class="built_in">log</span>(testEntity.time)<span class="comment">//Fri Nov 06 2015 13:27:58 GMT+0800 (中国标准时间)</span></span><br><span class="line">console.<span class="built_in">log</span>(testEntity.age)<span class="comment">//18</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="创建集合(保存)">创建集合(保存)</h1><p>直接调用save方法就可以保存了<br>返回的doc如下<br>其中_id是每次保存随机给你生成的<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">testEntity</span><span class="class">.save</span>(<span class="function">function</span>(err,doc)&#123;</span><br><span class="line">    <span class="tag">if</span>(err) &#123;</span><br><span class="line">        <span class="tag">console</span><span class="class">.log</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="tag">console</span><span class="class">.log</span>(doc)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="tag">doc</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="attribute">age</span>: <span class="number">18</span>,</span><br><span class="line">  <span class="attribute">time</span>: Fri Nov <span class="number">06</span> <span class="number">2015</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">57</span> GMT+<span class="number">0800</span> (中国标准时间),</span><br><span class="line">  <span class="attribute">email</span>: <span class="string">'admin@emufan.com'</span>,</span><br><span class="line">  <span class="attribute">gender</span>: true,</span><br><span class="line">  <span class="attribute">_id</span>: <span class="number">563</span>c3b89458e8e6d8c7e2588,</span><br><span class="line">  <span class="attribute">name</span>: <span class="string">'soul'</span>,</span><br><span class="line">  <span class="attribute">__v</span>: <span class="number">0</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>在 robomongo中显示为</p>
+<p><img src="http://cdn.emufan.com/img/db.png" alt="db"></p>
+<h1 id="查询">查询</h1><p>记得我们生成了一个model 模板吗？ 我们就根据这个模板去查询<br>类似于我们这个model就相当于test1集合的映像了<br>下面是查询test1集合中所有的数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">testmodel.find(&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">doc</span><br><span class="line"></span><br><span class="line">[ &#123; age: <span class="number">18</span>,</span><br><span class="line">    time: Fri Nov <span class="number">06</span> <span class="number">2015</span> <span class="number">13</span>:<span class="number">32</span>:<span class="number">37</span> GMT+<span class="number">0800</span> (中国标准时间),</span><br><span class="line">    email: <span class="string">'admin@emufan.com'</span>,</span><br><span class="line">    gender: <span class="literal">true</span>,</span><br><span class="line">    __v: <span class="number">0</span>,</span><br><span class="line">    name: <span class="string">'soul'</span>,</span><br><span class="line">    _id: <span class="number">563</span>c3b75258fa05d79c14df4 &#125; ]</span><br></pre></td></tr></table></figure>
+<h1 id="保存的两种方法">保存的两种方法</h1><h2 id="Model-create">Model.create</h2><p>我们用Model.create再保存一条数据，<br>上面我们说过了 testmodel就相当于test1集合 那么我们可以对这个集合做一些事情 如更新一条数据<br>返回的doc相信大家都很清楚了<br>保存多条数据则可以用[obj,obj,obj..]这样来存储<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">testmodel.create(&#123;</span><br><span class="line">    name:<span class="string">"soul二号"</span>,</span><br><span class="line">    age:<span class="number">18</span>,</span><br><span class="line">    email:<span class="string">"emufan@qq.com"</span>,</span><br><span class="line">    gender:<span class="literal">false</span></span><br><span class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="entity-save">entity.save</h2><p>同时我们也可以先生成一个实体后再进行保存,<br>两种方法都可以实现保存。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testEntity=<span class="keyword">new</span> testmodel(&#123;</span><br><span class="line">        name:<span class="string">"soul"</span>,</span><br><span class="line">        age:<span class="number">18</span>,</span><br><span class="line">        email:<span class="string">"admin@emufan.com"</span>,</span><br><span class="line">        gender:<span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">testEntity.save(<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="更新数据">更新数据</h1><p>更新数据可以用save 也可以用update</p>
+<p>第一种方法用 model.update(find,value,callback)<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">testmodel.<span class="keyword">update</span>(&#123;name:<span class="string">"soul二号"</span>&#125;,&#123;<span class="variable">$set</span>:&#123;age:<span class="number">22</span>&#125;&#125;,<span class="keyword">function</span>(err)&#123;</span><br><span class="line">    console.log(<span class="string">"update success"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>第二种方法用save<br>用find查询传递回来的是一个数组[obj,obj]<br>用findOne查询返回的是一个obj<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">testmodel.find(&#123;name:<span class="string">"soul二号"</span>&#125;,<span class="keyword">function</span>(err,<span class="annotation">doc</span>)&#123;</span><br><span class="line">    console.log(<span class="annotation">doc</span>)</span><br><span class="line">    <span class="annotation">doc</span>[<span class="number">0</span>].email=<span class="string">"23333@qq.com"</span>;</span><br><span class="line">        <span class="annotation">doc</span>[<span class="number">0</span>].save(<span class="keyword">function</span>(err,<span class="annotation">doc</span>)&#123;</span><br><span class="line">            console.log(<span class="annotation">doc</span>.email)</span><br><span class="line">        &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="删除数据">删除数据</h1><p>model.remove(find,callback)<br>删除是把整个集合的数据都删除.、<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">testmodel.remove(&#123;name:<span class="string">"soul二号"</span>&#125;,<span class="keyword">function</span>(<span class="built_in">err</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">err</span>)&#123;console.<span class="built_in">log</span>(<span class="built_in">err</span>)&#125;</span><br><span class="line">    console.<span class="built_in">log</span>(<span class="string">"删除成功"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="简单查询">简单查询</h1><h2 id="增加测试数据">增加测试数据</h2><p>在test数据库里面新增一个test2集合<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">var mongoose=require(<span class="string">"mongoose"</span>);</span><br><span class="line">var db=mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span><br><span class="line"></span><br><span class="line">var test2=<span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line"><span class="label">    name:</span>String,</span><br><span class="line"><span class="label">    age:</span>Number,</span><br><span class="line"><span class="label">    email:</span>&#123;<span class="string">type:</span>String,<span class="string">default:</span><span class="string">""</span>&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">var test2Model=db.model(<span class="string">"test2"</span>,test2)</span><br><span class="line"></span><br><span class="line">test2Model.create(</span><br><span class="line">    [</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test1"</span>, <span class="string">age:</span><span class="number">20</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test2"</span>, <span class="string">age:</span><span class="number">30</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test3"</span>, <span class="string">age:</span><span class="number">24</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test4"</span>, <span class="string">age:</span><span class="number">18</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test5"</span>, <span class="string">age:</span><span class="number">60</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test6"</span>, <span class="string">age:</span><span class="number">50</span>, <span class="string">email:</span><span class="string">"t6@qq.com"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test7"</span>, <span class="string">age:</span><span class="number">40</span>, <span class="string">email:</span><span class="string">"t7@163.com"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test8"</span>, <span class="string">age:</span><span class="number">27</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test9"</span>, <span class="string">age:</span><span class="number">27</span>, <span class="string">email:</span><span class="string">"t9@yeah.net"</span> &#125;,</span><br><span class="line">    &#123; <span class="string">name:</span><span class="string">"test10"</span>,<span class="string">age:</span><span class="number">65</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">,function(err,docs) &#123;</span><br><span class="line">        <span class="keyword">if</span> (err) &#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(docs)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="find_查询">find 查询</h2><p>model.find(Conditions,field,callback);</p>
+<ul>
+<li>conditions:查询方法</li>
+<li>field:返回过滤 需要返回的数据 可以不写</li>
+<li>callback 回调函数</li>
+</ul>
+<p>field可以选择性的返回属性 如果不写则返回全部属性 true则为返回 false则为不返回<br>下例会返回name和age 却不会返回_id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test2Model.find(&#123;&#125;,&#123;name:<span class="literal">true</span>,_id:<span class="literal">false</span>,age:<span class="literal">true</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="findOne查询">findOne查询</h2><p>如果有多条相同数据只返回一个当前相同数据中的第一个数组<br>doc为obj而不是arr 因为只有一条数据</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">test2Model</span><span class="class">.findOne</span>(<span class="rules">&#123;<span class="rule"><span class="attribute">age</span>:<span class="value"><span class="number">27</span>&#125;,<span class="function">function</span>(err,doc)&#123;</span><br><span class="line">    console.<span class="function">log</span>(doc)</span><br><span class="line">&#125;)</span></span></span></span><br></pre></td></tr></table></figure>
+<h2 id="findById查询">findById查询</h2><p>model.findById(obj.id,callback)<br>仅仅接受_id进行查询<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test2Model.findById(<span class="string">"563cbb7aec048261537b2530"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(doc)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="高级查询">高级查询</h1><h2 id="$gt、$lt简述">$gt、$lt简述</h2><p> $gt(&gt;)、$lt(&lt;)、$lte(&lt;=)、$gte(&gt;=)<br> 其中如果写多条则为且 比如<br> {age:{$gt:18,$lt:60}} //大于18 小于60<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*       <span class="variable">$gt</span> &gt;</span><br><span class="line">*       <span class="variable">$lt</span> &lt;</span><br><span class="line">*       <span class="variable">$lte</span> &lt;=</span><br><span class="line">*       <span class="variable">$gte</span> &gt;=</span><br><span class="line">*</span><br><span class="line">*</span><br><span class="line">* */</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$gt</span>:<span class="number">18</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">        //查询所有age大于<span class="number">18</span>的数据 返回arr</span><br><span class="line">        console.log(docs)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$lt</span>:<span class="number">60</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    //查询所有age小于<span class="number">60</span>的数据 返回arr</span><br><span class="line">    console.log(docs)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$gt</span>:<span class="number">18</span>,<span class="variable">$lt</span>:<span class="number">60</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    //查询所有age大于<span class="number">18</span>且小于<span class="number">60</span>的数据 返回arr</span><br><span class="line">    console.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="$ne">$ne</h2><p>$ne类似于js中的!= 也就是非</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*</span><br><span class="line">* <span class="variable">$ne</span>(!=)</span><br><span class="line">*</span><br><span class="line">* */</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$ne</span>:<span class="number">24</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">        //查询age不等于<span class="number">24</span>的所有数据</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;name:&#123;<span class="variable">$ne</span>:<span class="string">"tom"</span>&#125;,age:&#123;<span class="variable">$gte</span>:<span class="number">18</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    //查询name不等于tom,age&gt;=<span class="number">18</span>的所有数据</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="$in">$in</h2><p>$in 包含,等于 用数组来做分组(或)</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$in</span>:<span class="number">20</span>&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">        //查询age等于<span class="number">20</span>的数据</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;age:&#123;<span class="variable">$in</span>:[<span class="number">20</span>,<span class="number">30</span>]&#125;,name:&#123;<span class="variable">$in</span>:[<span class="string">"test1"</span>,<span class="string">"test2"</span>,<span class="string">"test3"</span>]&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    console.log(docs)</span><br><span class="line">    //查询 age等于<span class="number">20</span>或者<span class="number">30</span> ,name为 test1或者test2,test3 中的数据 </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="$or">$or</h2><p>$or：或　满足一个值就可以返回<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test2Model.find(&#123;<span class="variable">$or</span>:[&#123;<span class="string">"name"</span>:<span class="string">"test1"</span>&#125;,&#123;<span class="string">"age"</span>:<span class="number">28</span>&#125;]&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">        //查询name为test1 或 age为<span class="number">28</span>的全部文档</span><br><span class="line">    console.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="$exists">$exists</h2><p>$exists: 存在  存在为true 不存在为false</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var test2Model=db.model(<span class="string">"test2"</span>,test2)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;name:&#123;<span class="variable">$exists</span>:true&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    //查询所有name存在的文档</span><br><span class="line">    //console.log(docs)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;email:&#123;<span class="variable">$exists</span>:false&#125;&#125;,<span class="keyword">function</span>(err,docs)&#123;</span><br><span class="line">    //查询email不存在的所有文档</span><br><span class="line">    //console.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="游标">游标</h1><h2 id="限制返回数量">限制返回数量</h2><p>有时候查询数据量过大我们得限制一下返回数量<br>find(Conditions,fields,options,callback);<br>options:游标配置 如限制返回数量</p>
+<p>{limit:4}//限制返回4条<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test2Model.find(&#123;&#125;,<span class="literal">null</span>,&#123;limit:<span class="number">4</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//限制返回4条</span></span><br><span class="line">        <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="skip_跳过返回数量">skip 跳过返回数量</h2><p>skip：设置返回下限<br>跳过匹配结果的前几条结果<br>如果返回结果达不到这个数值 则不返回;</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">test2Model</span><span class="class">.find</span>(&#123;&#125;,null,&#123;<span class="tag">skip</span><span class="pseudo">:4</span>&#125;,<span class="tag">function</span>(err,docs)&#123;</span><br><span class="line">        <span class="comment">//如果匹配的结果小于4个 则不返回任何结果</span></span><br><span class="line">        <span class="comment">//跳过匹配结果的前两条 返回剩下的结果</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="sort排序">sort排序</h2><p>sort -1为降序,1为升序<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">* sort -1为降序</span><br><span class="line">* sort 1为升序</span><br><span class="line">*</span><br><span class="line">* */</span></span><br><span class="line"></span><br><span class="line">test2Model.find(&#123;&#125;,<span class="literal">null</span>,&#123;sort:&#123;age:-<span class="number">1</span>&#125;,limit:<span class="number">4</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//按照年龄降序排序 同时限制返回数量为4</span></span><br><span class="line">        <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="属性方法">属性方法</h1><h2 id="ObjectId简述">ObjectId简述</h2><p>存储在mongodb集合中的每个文档（document）都有一个默认的主键_id，这个主键名称是固定的，它可以是mongodb支持的任何数据类型，默认<br>ObjectId。该类型的值由系统自己生成，从某种意义上几乎不会重复，生成过程比较复杂，有兴趣的朋友可以查看源码。</p>
+<p>使用过MySQL等关系型数据库的友友们都知道，主键都是设置成自增的。但在分布式环境下，这种方法就不可行了，会产生冲突。为此，MongoDB采用了<br>一个称之为ObjectId的类型来做主键。ObjectId是一个12字节的 BSON 类型字符串。按照字节顺序，一次代表：<br>4字节：UNIX时间戳<br>3字节：表示运行MongoDB的机器<br>2字节：表示生成此_id的进程<br>3字节：由一个随机数开始的计数器生成的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"><span class="keyword">var</span> tSchema = <span class="keyword">new</span> mongoose.Schema(&#123;&#125;); <span class="comment">//默认_id:ObjectId类型</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加属性">添加属性</h2><p>支持在同一集合中添加字段,如下例<br>第一次生成只有name和age这个属性 插入的数据也只有这两个属性<br>后来增加了一个email属性 后来插入的都具有email这个属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose=<span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"><span class="keyword">var</span> db=mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> tSchema=<span class="keyword">new</span> mongoose.Schema(&#123;name:<span class="string">"String"</span>,age:<span class="string">"Number"</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> tModel=db.model(<span class="string">"test3"</span>,tSchema)</span><br><span class="line"></span><br><span class="line">tModel.create(&#123;name:<span class="string">"hello"</span>,age:<span class="number">20</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">tSchema.add(&#123;email:<span class="string">"String"</span>&#125;)</span><br><span class="line">tModel.create(&#123;name:<span class="string">"ss"</span>,age:<span class="number">25</span>,email:<span class="string">"ww@ww.com"</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="实例方法">实例方法</h2><p>利用method来配置实例方法,每个生成的实例都具有这个方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> saySchema = <span class="keyword">new</span> mongoose.Schema(&#123;name : <span class="built_in">String</span>&#125;);</span><br><span class="line"></span><br><span class="line">saySchema.method(<span class="string">'say'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Trouble Is A Friend'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> say = mongoose.model(<span class="string">'say'</span>, saySchema);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> lenka = <span class="keyword">new</span> say();</span><br><span class="line"></span><br><span class="line">lenka.say(); <span class="comment">//Trouble Is A Friend</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="静态方法">静态方法</h2><p>静态方法不能在实例上用 如果生成一个实例<br>如 var ss=new TestModel({})<br>ss.findByName() // undefined is not a function<br>会报错<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name : &#123; type:<span class="built_in">String</span> &#125;,</span><br><span class="line">    age  : &#123; type:<span class="built_in">Number</span>, <span class="keyword">default</span>:<span class="number">0</span> &#125;,</span><br><span class="line">    email: &#123; type:<span class="built_in">String</span>, <span class="keyword">default</span>:<span class="string">""</span> &#125;,</span><br><span class="line">    time : &#123; type:<span class="built_in">Date</span>, <span class="keyword">default</span>:<span class="built_in">Date</span>.now &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">TestSchema.static(<span class="string">'findByName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">name, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.find(&#123; name: name &#125;, callback);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">"test1"</span>, TestSchema );</span><br><span class="line"></span><br><span class="line">TestModel.findByName(<span class="string">'tom'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, docs</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//docs所有名字叫tom的文档结果集</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="追加方法">追加方法</h2><p>Schema中以前定义的say方法是已经定义好了<br>如果要追加方法可以用Schema.methods.name来定义<br>这样在实例中就可以使用了<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> db = mongoose.connect(<span class="string">"mongodb://127.0.0.1:27017/test"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    name : &#123; <span class="keyword">type</span>:<span class="built_in">String</span> &#125;,</span><br><span class="line">    age  : &#123; <span class="keyword">type</span>:<span class="built_in">Number</span>, <span class="keyword">default</span>:<span class="number">0</span> &#125;,</span><br><span class="line">    email: &#123; <span class="keyword">type</span>:<span class="built_in">String</span>, <span class="keyword">default</span>:<span class="string">""</span> &#125;,</span><br><span class="line">    time : &#123; <span class="keyword">type</span>:<span class="built_in">Date</span>, <span class="keyword">default</span>:<span class="built_in">Date</span>.now &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">TestSchema.methods.speak = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'我的名字叫'</span>+<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestModel = db.model(<span class="string">'test1'</span>,TestSchema);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TestEntity = <span class="keyword">new</span> TestModel(&#123;name:<span class="string">'Lenka'</span>&#125;);</span><br><span class="line"></span><br><span class="line">TestEntity.speak();<span class="comment">//我的名字叫Lenka</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/05/code/jade学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jade学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="code/mongoose学习笔记" data-title="mongoose学习笔记" data-url="http://emufan.com/2015/11/07/code/mongoose学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://emufan.com/oldBlog/2015/11/07/code/mongoose学习笔记/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

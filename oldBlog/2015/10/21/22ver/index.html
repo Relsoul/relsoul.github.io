@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  百度ECharts学习笔记之折线图 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.bai">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:url" content="http://emufan.com/oldBlog/2015/10/21/22ver/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  百度ECharts学习笔记之折线图 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.bai">
+<meta property="og:updated_time" content="2015-11-29T08:27:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,">
+<meta name="twitter:description" content="&amp;lt;!DOCTYPE html&amp;gt;
+
+
+  
+  
+  百度ECharts学习笔记之折线图 | Soul的随笔
+  
+  
+
+
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+  
+  
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement(&quot;script&quot;);
+  hm.src = &quot;//hm.bai">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/oldBlog">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/oldBlog">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/oldBlog/2015/10/21/22ver/index.html" class="article-date">
+  	<time datetime="2015-12-12T14:53:26.845Z" itemprop="datePublished">2015-12-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>百度ECharts学习笔记之折线图 | Soul的随笔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="推荐阅读:我的github
+
+折线图的一些说明
+tooltip
+提示框，鼠标悬浮交互时的信息提示，比如
+{bollean}show true|false 显示|隐藏
+{number}showDelay 20 显示延迟
+
+其他的信息请看官网范例
+legend
+图例，每个图表最多仅有一个图例 官网范例
+toolbox
+工具箱，每个图表最多仅有一个工具箱 官网范例
+calculable
+拖拽计算
+{bo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百度ECharts学习笔记之折线图">
+<meta property="og:url" content="http://emufan.com/2015/10/21/22ver/index.html">
+<meta property="og:site_name" content="Soul的随笔">
+<meta property="og:description" content="推荐阅读:我的github
+
+折线图的一些说明
+tooltip
+提示框，鼠标悬浮交互时的信息提示，比如
+{bollean}show true|false 显示|隐藏
+{number}showDelay 20 显示延迟
+
+其他的信息请看官网范例
+legend
+图例，每个图表最多仅有一个图例 官网范例
+toolbox
+工具箱，每个图表最多仅有一个工具箱 官网范例
+calculable
+拖拽计算
+{bo">
+<meta property="og:updated_time" content="2015-10-21T14:57:05.753Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="百度ECharts学习笔记之折线图">
+<meta name="twitter:description" content="推荐阅读:我的github
+
+折线图的一些说明
+tooltip
+提示框，鼠标悬浮交互时的信息提示，比如
+{bollean}show true|false 显示|隐藏
+{number}showDelay 20 显示延迟
+
+其他的信息请看官网范例
+legend
+图例，每个图表最多仅有一个图例 官网范例
+toolbox
+工具箱，每个图表最多仅有一个工具箱 官网范例
+calculable
+拖拽计算
+{bo">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul的随笔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa495dca780db3bca4942d20b6eda966";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/code/" style="font-size: 15px;">code</a> <a href="/tags/jade/" style="font-size: 10px;">jade</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/了不起的nodejs/" style="font-size: 20px;">了不起的nodejs</a> <a href="/tags/自言语/" style="font-size: 10px;">自言语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com/">soul随笔</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-22ver" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/21/22ver/" class="article-date">
+  	<time datetime="2015-10-21T14:57:05.753Z" itemprop="datePublished">2015-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      百度ECharts学习笔记之折线图
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1>推荐阅读:<a href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE" target="_blank" rel="external">我的github</a></h1><p></p>
+<p></p><h1></h1><p></p>
+<p></p><h1>折线图的一些说明</h1><p></p>
+<p></p><h3><a id="user-content-tooltip" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#tooltip" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Tooltip" target="_blank" rel="external">tooltip</a></h3><p></p>
+<p></p><p>提示框，鼠标悬浮交互时的信息提示，比如</p><p></p>
+<pre><code>{bollean}show true|false 显示|隐藏
+{number}showDelay 20 显示延迟
+</code></pre>
+<p>其他的信息请看官网<a href="http://echarts.baidu.com/doc/example/tooltip.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-legend" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#legend" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Legend" target="_blank" rel="external">legend</a></h3>
+<p>图例，每个图表最多仅有一个图例 官网<a href="http://echarts.baidu.com/doc/example/legend.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-toolbox" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#toolbox" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Toolbox" target="_blank" rel="external">toolbox</a></h3>
+<p>工具箱，每个图表最多仅有一个工具箱 官网<a href="http://echarts.baidu.com/doc/example/toolbox.html" target="_blank" rel="external">范例</a></p>
+<h3><a id="user-content-calculable" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#calculable" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Calculable" target="_blank" rel="external">calculable</a></h3>
+<p>拖拽计算</p>
+<pre><code>{boolean} false，是否启用拖拽重计算特性，默认关闭
+</code></pre>
+<h3><a id="user-content-xaisyaxis" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#xaisyaxis" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Xaxis" target="_blank" rel="external">xAis/yAxis</a></h3>
+<p>点击标题参考文档</p>
+<h3><a id="user-content-series" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#series" target="_blank" rel="external"></a><a href="http://echarts.baidu.com/doc/doc.html#Series" target="_blank" rel="external">series</a></h3>
+<p>驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型 <strong>点击标题直接去官网看文档吧</strong></p>
+<h3><a id="user-content-总结" class="anchor" href="https://github.com/Relsoul/readbook/tree/master/%E7%99%BE%E5%BA%A6ECharts/%E6%8A%98%E7%BA%BF%E5%9B%BE#总结" target="_blank" rel="external"></a>总结</h3>
+<p><strong>一个图表有这几大块</strong> 第一:引入路径</p>
+<pre><code>require.config({
+                //引入百度的路径
+                paths:{
+                    echarts:"http://echarts.baidu.com/build/dist"
+                }
+            })
+</code></pre>
+<p>第二:引入需要的图表类型</p>
+<pre><code>    [
+                    //基类
+                    'echarts',
+                    //折线图
+                    'echarts/chart/line'
+        ],
+</code></pre>
+<p>第三:创建绘图所需的div</p>
+<pre><code>var myChart=ec.init(document.getElementById("main"));
+</code></pre>
+<p>第五:绘图</p>
+<pre><code>myChart.setOption(option);
+</code></pre>
+<p><strong>一个标准折线图图表有这几大元素</strong></p>
+<p>第一:标题</p>
+<pre><code>//标题
+                        title:{
+                            //文本
+                            text:"未来一周气温变化",
+                            //子标题
+                            subtext:"纯属虚构"
+                        },//!-文本
+
+</code></pre>
+<p>第二:鼠标移入上去的提示框</p>
+<pre><code>//提示框
+                        tooltip:{
+                            //坐标轴触发显示
+                            trigger:"axis"
+
+                        },
+</code></pre>
+<p>第三:图例</p>
+<pre><code>//图例 每个图表只能有一个
+                            legend:{
+                                data:['最高气温','最低气温']
+                            },//!-图例
+</code></pre>
+<p>第五:工具箱</p>
+<pre><code>//工具箱 每个图表只能有一个
+                            toolbox:{
+                                //是否显示工具箱 图表右上角的一系列开关
+                                show:true,
+                                //特效duang
+                                feature:{
+                                    //辅助线标志
+                                    mark:{show:true},
+                                    //数据视图 可以显示文本数据 
+                                    //是否仅读？NO
+                                    dataView:{show:true,readOnly:false},
+                                    //可以切换更多的图形特效吗？
+                                    //YSE! 可以切换line和bar类型
+                                    magicType:{show:true,type:["line",'bar']},
+                                    //卧槽！按错了，可以复原吗？
+                                    //YES!
+                                    restore:{show:"true"},
+                                    //是否可以保存为图片？
+                                    //YES!图片可以嵌入PPT里哦~
+                                    saveAsImage:{show:true}
+                                },//！-特效
+
+                            },//!-工具箱
+</code></pre>
+<p>第六:横坐标</p>
+<pre><code>xAxis:[
+                                {
+                                    //X轴为类目型
+                                    type:"category",
+                                    //是否两端留白？
+                                    boundaryGap:false,
+                                    //横坐标数据 
+                                    //只有类目型的才配拥有data属性！
+                                    data:["周一","周二","周三","周四","周五","周六","周日"]
+
+                                }
+                            ],//!-横坐标
+</code></pre>
+<p>第七:纵坐标</p>
+<pre><code>yAxis:[
+                                {
+                                    //Y轴类型为数值型
+                                    type:"value",
+                                    //Y轴的文本标签
+                                    //改成 万°C会不会被喷？
+                                    axisLabel:{
+                                        //间隔名称..实际上就是单位 
+                                        //{value}传递过来的就是值
+                                        formatter:"{value}°C"
+                                    }
+                                }
+                            ],
+                            //!-纵坐标
+</code></pre>
+<p>第八:图表数据</p>
+<pre><code>    series:[
+                            //数据一
+                                {
+                                    name:"最高气温",
+                                    //必要的参数
+                                    //不声明为line,电脑妹纸会知道你是个line？
+                                    type:"line",
+                                    //最高气温
+                                    //对应周一-周日
+                                    data:[11,11,15,13,12,13,10],
+                                    //标注 也就是图表上的那个类似于提示气泡的东西
+                                    markPoint:{
+                                        data:[
+                                            //会出现两个提示气泡
+                                            //一周类当中最高气温最大为多少
+                                            {type:"max",name:"最大值"},
+                                            //一周类最高气温最低为多少
+                                            {type:"min",name:"最小值"}
+                                        ]
+                                    },
+                                    //!-标注</code></pre>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/21/8ver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          响应式WEB设计阅读笔记-仅github更新
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/21/11ver/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">产品前端构架之git命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="22ver" data-title="百度ECharts学习笔记之折线图" data-url="http://emufan.com/2015/10/21/22ver/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
+      
+    </div>
+    
+  </div>
+  
+    
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://emufan.com/oldBlog/2015/10/21/22ver/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"soul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
