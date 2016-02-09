@@ -197,6 +197,62 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-nginx反向代理websocket" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/nginx反向代理websocket/" class="article-date">
+  	<time datetime="2016-01-27T17:19:26.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/28/nginx反向代理websocket/">nginx反向代理websocket</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://nginx.org/en/docs/http/websocket.html" target="_blank" rel="external">参考url</a></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        location /chat/ &#123;</span><br><span class="line">            proxy_pass http://backend;</span><br><span class="line">            proxy_http_version <span class="number">1.1</span>;</span><br><span class="line">            proxy_set_header Upgrade <span class="variable">$http</span>_upgrade;</span><br><span class="line">            proxy_set_header Connection <span class="variable">$connection</span>_upgrade;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript设计模式笔记-this,call,apply" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -728,60 +784,6 @@ var _hmt = _hmt || [];
         <p class="article-more-link">
           <a  href="/2016/01/13/一次有意思的JavaScript试验题/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-web全栈开发工程师笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/11/web全栈开发工程师笔记-1/" class="article-date">
-  	<time datetime="2016-01-11T09:34:14.000Z" itemprop="datePublished">2016-01-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/11/web全栈开发工程师笔记-1/">web全栈开发工程师笔记-1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web全栈开发工程师笔记/">web全栈开发工程师笔记</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
