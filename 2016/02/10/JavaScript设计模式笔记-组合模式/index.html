@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript设计模式笔记-组合模式 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="10.1 回顾宏命令1234567891011121314151617181920212223242526272829303132333435var closeDoorCommand=&amp;#123;    execute:function()&amp;#123;        console.log(&quot;关门&quot;)    &amp;#125;&amp;#125;var openPcCommand=&amp;#123;    execu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-组合模式">
+<meta property="og:url" content="http://emufan.com/2016/02/10/JavaScript设计模式笔记-组合模式/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="10.1 回顾宏命令1234567891011121314151617181920212223242526272829303132333435var closeDoorCommand=&amp;#123;    execute:function()&amp;#123;        console.log(&quot;关门&quot;)    &amp;#125;&amp;#125;var openPcCommand=&amp;#123;    execu">
+<meta property="og:updated_time" content="2016-02-10T14:14:30.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式笔记-组合模式">
+<meta name="twitter:description" content="10.1 回顾宏命令1234567891011121314151617181920212223242526272829303132333435var closeDoorCommand=&amp;#123;    execute:function()&amp;#123;        console.log(&quot;关门&quot;)    &amp;#125;&amp;#125;var openPcCommand=&amp;#123;    execu">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/10/JavaScript设计模式笔记-组合模式/" class="article-date">
+  	<time datetime="2016-02-10T12:01:14.000Z" itemprop="datePublished">2016-02-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-组合模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="10-1_回顾宏命令">10.1 回顾宏命令</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> closeDoorCommand=&#123;</span><br><span class="line">    execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"关门"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> openPcCommand=&#123;</span><br><span class="line">    execute=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"开电脑"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> openQQCommand=&#123;</span><br><span class="line">    execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"登陆QQ"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> MacroCommand=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        commandsList:[],</span><br><span class="line">        add:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.commandsList.push(command)</span><br><span class="line">        &#125;,</span><br><span class="line">        execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,command;command=<span class="keyword">this</span>.commandsList[i++])&#123;</span><br><span class="line">                command.execute()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> macroCommand = MacroCommand();</span><br><span class="line">macroCommand.add( closeDoorCommand );</span><br><span class="line">macroCommand.add( openPcCommand );</span><br><span class="line">macroCommand.add( openQQCommand );</span><br><span class="line">macroCommand.execute();</span><br></pre></td></tr></table></figure>
+<p>宏命令对象包含了一组具体的子命令对象,不管是宏命令对象,还是子命令对象都有一个execute方法负责执行命令.<br>通过观察这个宏命令可以发现这是一颗很简单的树.<br>其中marcoCommand被称为组合对象,closeDoorCommand,openPcCommand,openQQCommand都是叶对象.在macroCommand的execute方法中,并不执行真正的操作,而是遍历它所包含的叶对象,把真正的execute请求1委托给这些叶对象.<br>MarcoCommand实际上只是一组命令的代理,并非真正的代理.macroCommand只负责传递请求给叶对象,它的目的不在于控制对叶对象的访问.</p>
+<a id="more"></a>
+<h1 id="10-2_组合模式的用途">10.2 组合模式的用途</h1><p>组合模式将对象组合成树形结构,以表示“部分-整体”的层次结构.</p>
+<ul>
+<li>表示树形结构.提供了一种遍历树形结构的方案,通过调用组合对象的execute方法,程序就会递归调用组合对象下面的叶对象的execute方法,只需要执行一次execute操作即可.</li>
+<li>利用对象多态性统一对待组合对象和单个对象.利用对象的多态性表现，可以使客户端忽略组合对象和单个对象的不同.</li>
+</ul>
+<p>当我们往“万能遥控器”添加一个命令的时候,并不需要关心这个命令是宏命令还是普通命令.我们只需要确定它是一个命令,并且这个命令拥有可执行的execute方法那么这个命令就可以被添加进万能遥控器.</p>
+<h1 id="10-3_请求在树中传递个过程">10.3 请求在树中传递个过程</h1><p>图略.请购买正版图书 相信我这本书绝对物有所值.<br>以宏命令为例,请求从树最顶端往下传递,如果当前处理请求的对象是叶对象(普通子命令),叶对象自身会对请求作出相应的处理;如果当前处理对象是组合对象(宏命令),则组合对象会遍历它下属子节点,将请求继续传递给这些子节点.<br>组合对象嵌套组合对象 的这种形式</p>
+<h1 id="10-4_更为强大的宏命令">10.4 更为强大的宏命令</h1><p>比如我们要实现一个遥控器,有以下功能</p>
+<ul>
+<li>打开空调</li>
+<li>打开电视和音响</li>
+<li>关门,开电脑,登陆QQ</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">'button'</span>&gt;</span>click me<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> MacroCommand=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> command_list=[];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> add=<span class="function"><span class="keyword">function</span>(<span class="params">command</span>)</span>&#123;</span><br><span class="line">            command_list.push(command)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> execute=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            command_list.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e,i</span>)</span>&#123;</span><br><span class="line">                e.execute()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span>&#123;</span><br><span class="line">            add:add,</span><br><span class="line">            execute:execute</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> openAcCommand=&#123;</span><br><span class="line">        execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"打开空调"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//打开电视和音响</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> openTvCommand=&#123;</span><br><span class="line">        execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"打开电视"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> openSoundCommand=&#123;</span><br><span class="line">        execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"打开音响"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> macroCommand1=MacroCommand();</span><br><span class="line">    macroCommand1.add(openTvCommand);</span><br><span class="line">    macroCommand1.add(openSoundCommand);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//关门,开电脑,登陆QQ</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> closeDoorCommand = &#123;</span><br><span class="line">    execute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'关门'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> openPcCommand = &#123;</span><br><span class="line">    execute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'开电脑'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> openQQCommand = &#123;</span><br><span class="line">    execute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'登录QQ'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> macroCommand2 = MacroCommand();</span><br><span class="line">    macroCommand2.add( closeDoorCommand );</span><br><span class="line">    macroCommand2.add( openPcCommand );</span><br><span class="line">    macroCommand2.add( openQQCommand );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//组合成超级宏命令</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> superMacroCommand=MacroCommand();</span><br><span class="line">    superMacroCommand.add(macroCommand1);</span><br><span class="line">    superMacroCommand.add(macroCommand2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//绑定按钮</span></span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"button"</span>).onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        superMacroCommand.execute()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个例子中,基本对象被组合成了更为复杂的组合对象,组合对象又可以被组合.最终只需要调用上层的execute方法即可.每当最上层的对象进行一次请求时,实际上是在对整个树进行深度优先的搜索.而创建组合对象的程序猿并不关心这些内在的细节.往这棵树里面添加一些新的节点对象是非常容易的事.</p>
+<h1 id="10-5_抽象类在组合模式中的作用">10.5 抽象类在组合模式中的作用</h1><p>java跪了.这块说的是java实现组合模式.这里不做笔记(实际上是看不懂 笑 哈哈哈哈哈哈)<br>因为在JavaScript中,对象的多态性是与生俱来的,所以不会用JavaScript模拟一个怪异的抽象类.虽然少了一些严谨性.</p>
+<h1 id="10-6_透明性带来的安全问题">10.6 透明性带来的安全问题</h1><p>组合模式的透明性使得发起请求的客户不用去顾忌树中组合对象和叶对象的区别,但它们在本质上是有区别的.<br>组合对象可以拥有子节点,叶对象下面就没有子节点.比如试图往叶对象下面添加子节点..这样就行不通.通常我们会给这个问题抛出一个异常来提醒客户.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MacroCommand = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        commandsList: [],</span><br><span class="line">        add: <span class="function"><span class="keyword">function</span>(<span class="params"> command </span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.commandsList.push( command );</span><br><span class="line">        &#125;,</span><br><span class="line">        execute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>, command; command = <span class="keyword">this</span>.commandsList[ i++ ]; )&#123;</span><br><span class="line">                command.execute();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> openTvCommand = &#123;</span><br><span class="line">    execute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'打开电视'</span> );</span><br><span class="line">    &#125;,</span><br><span class="line">    add: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'叶对象不能添加子节点'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> macroCommand = MacroCommand();</span><br><span class="line">macroCommand.add( openTvCommand );</span><br><span class="line">openTvCommand.add( macroCommand ) <span class="comment">// Uncaught Error: 叶对象不能添加子节点</span></span><br></pre></td></tr></table></figure></p>
+<p>实际上就给叶对象添加一个add方法 然后这个方法会抛出异常.</p>
+<h1 id="10-7_组合模式的例子——扫描文件夹">10.7 组合模式的例子——扫描文件夹</h1><p>文件夹和文件之间的关系,非常适合用组合模式来描述,文件夹里面既可以包含文件又可以包含其他文件夹,最终可能组合成一棵树（DOM不就是这样么）,</p>
+<ul>
+<li>例如想把移动硬盘的学习资料移动到F盘的学习资料文件夹,在复制这些电子书的时候,我并不需要考虑这批文件的类型,不管他们是单独的电子书还是被放在了文件夹中.组合模式让Ctrl+V，Ctrl+成为了一个统一的操作.</li>
+<li>当我用杀毒软件扫描该文件夹的时候,往往不会关心里面有多少文件和子文件夹,组合模式使得我们只需要操作最外层的文件夹进行扫描.</li>
+</ul>
+<p>首先定义好Folder和File这两个类<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// Folder类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Folder=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name=name</span><br><span class="line">    <span class="keyword">var</span> files=[];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> add=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        files.add(file)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> scan=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"开始扫描文件夹"</span>+name)</span><br><span class="line">        files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e,i</span>)</span>&#123;</span><br><span class="line">            e.scan();<span class="comment">//嗅探文件</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        add:add,</span><br><span class="line">        scan:scan</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// File类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> File=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name=name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> scan=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"当前文件名为"</span>+name)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> add=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"当前是文件无法再继续添加"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        scan:scan,</span><br><span class="line">        add:add</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来创建一些文件夹和文件对象,并且让它们组合成一棵树,这棵树就是我们F盘里的现有文件夹目录结构<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> folder</span>=Folder(<span class="string">"学习资料"</span>)</span><br><span class="line"><span class="variable"><span class="keyword">var</span> folder1</span>=Folder(<span class="string">"JavaScript"</span>)</span><br><span class="line"><span class="variable"><span class="keyword">var</span> folder2</span>=Folder(<span class="string">"jQuery"</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable"><span class="keyword">var</span> file1</span>=File(<span class="string">"JavaScript设计模式与开发实践"</span>)</span><br><span class="line"><span class="variable"><span class="keyword">var</span> file2</span>=File(<span class="string">"精通jquery"</span>)</span><br><span class="line"><span class="variable"><span class="keyword">var</span> file3</span>=File(<span class="string">"重构与模式"</span>)</span><br><span class="line"></span><br><span class="line">folder1.add(file1);</span><br><span class="line">folder2.add(file2);</span><br><span class="line"></span><br><span class="line">folder.add(folder1);</span><br><span class="line">folder.add(folder2);</span><br><span class="line">folder.add(file3);</span><br></pre></td></tr></table></figure></p>
+<p>现在的需求是把移动硬盘里的文件和文件夹都复制到这棵树中,假设我们已经得到了这些文件对象<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> folder3</span>=Folder(<span class="string">"Nodejs"</span>);</span><br><span class="line"><span class="variable"><span class="keyword">var</span> file4</span>=File(<span class="string">"深入浅出Node.js"</span>);</span><br><span class="line">folder3.add(file);</span><br><span class="line"></span><br><span class="line"><span class="variable"><span class="keyword">var</span> file5</span>=File(<span class="string">"JavaScript语言精髓与编程实践"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>接下来就是把这些文件都添加到原有的树中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">folder</span><span class="class">.add</span>(<span class="tag">folder3</span>);</span><br><span class="line"><span class="tag">folder</span><span class="class">.add</span>(<span class="tag">file5</span>);</span><br></pre></td></tr></table></figure></p>
+<p>在添加一批文件的操作过程中,客户不用分辨它们到底是文件还是文件夹,新增加的文件和文件夹能够很容易的添加到原来的树结构中,和树里已有的对象一起工作.<br>运用到组合模式之后,扫描整个文件夹的操作也是轻而易举的,我们只需要操作树的最顶端对象:<br>folder.scan();</p>
+<h1 id="10-8_一些值得注意的地方">10.8 一些值得注意的地方</h1><h3 id="1-组合模式不是父子关系">1.组合模式不是父子关系</h3><p>组合模式的树形结构容易让人误以为组合对象和叶对象是父子关系.</p>
+<h3 id="2-对叶对象操作的一致性">2.对叶对象操作的一致性</h3><p>组合模式除了组合对象和叶对象拥有相同的接口之外,还有一个必要条件是对一组叶对象的操作必须具有一致性.<br>比如公司要给全体员工发放元旦过节费1000块,这个场景就可以运用组合模式,但如果公司要给今天过生日的员工发送一封生日祝福邮件,除非把这些生日员工挑选出来,否则组合模式就没有用武之地了.只有用一致的方式对待列表中的每个叶对象的时候才适合使用组合模式</p>
+<h3 id="3-双向映射关系">3.双向映射关系</h3><p>发放过节费的通知步骤是从公司到各个部门,再到各个小组,最后到每个员工的邮箱里,比如某个人即属于开发组又属于架构组,那么这个人很可能会收到两份过节费。<br>这种复合的情况我们必须给父节点和子节点建立双向映射的关系,一个简单的方法是给小组和员工对象都增加集合来保存对方的引用.但是这种集合引用相当复杂,而且对象之间产生了过多的耦合性,此时我们可以引用中介者模式来管理</p>
+<h3 id="4-用职责链模式提高组合模式的性能">4.用职责链模式提高组合模式的性能</h3><p>比如原型继承就是一种职责链模式. 这里作者没详细展开讲. </p>
+<h1 id="10-9_引用父对象">10.9 引用父对象</h1><p>比如我们需要添加一个删除文件的功能,实际上是从这个文件夹所在的上层文件夹中删除文件的.现在来改写扫描文件夹的代码.<br>如果用闭包来实现的话 需要手动写一个get,set方法…..要不然你是无法获取到闭包内部的内容的,但是面向对象的写法不同 通过this就可以获取了.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Folder=<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">    <span class="keyword">this</span>.parent=<span class="literal">null</span>;<span class="comment">//增加this.parent属性</span></span><br><span class="line">    <span class="keyword">this</span>.files=[];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Folder.prototype.add=<span class="function"><span class="keyword">function</span>(<span class="params">file</span>)</span>&#123;</span><br><span class="line">    file.parent=<span class="keyword">this</span>;<span class="comment">//设置文件或者文件夹的父对象</span></span><br><span class="line">    <span class="keyword">this</span>.files.push(file)<span class="comment">//添加文件或者文件夹</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Folder.prototype.scan=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"正在扫描文件夹:"</span>+<span class="keyword">this</span>.name)</span><br><span class="line">    <span class="keyword">this</span>.files.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e,i</span>)</span>&#123;</span><br><span class="line">        e.scan();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>接下来增加Folder.prototype.remove方法<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Folder.prototype.remove=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">this</span>.parent)&#123;<span class="comment">//文件夹为根节点或者树外游离的节点</span></span><br><span class="line">        <span class="keyword">return</span> </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.parent.files.forEach(<span class="function"><span class="keyword">function</span><span class="params">(e,i)</span></span>&#123;<span class="comment">//从上层文件夹删除该文件夹</span></span><br><span class="line">        <span class="keyword">if</span>(e===<span class="keyword">this</span>)&#123;<span class="comment">//如果上层文件夹找到了该文件夹则删除</span></span><br><span class="line">            <span class="keyword">this</span>.parent.files.splice(i,<span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>File类实现基本上一致<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> File = <span class="function"><span class="keyword">function</span>(<span class="params"> name </span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.parent = <span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    File.prototype.add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'不能添加在文件下面'</span> );</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    File.prototype.scan = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'开始扫描文件: '</span> + <span class="keyword">this</span>.name );</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    File.prototype.remove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( !<span class="keyword">this</span>.parent )&#123; <span class="comment">//根节点或者树外的游离节点</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">var</span> files = <span class="keyword">this</span>.parent.files, l = files.length - <span class="number">1</span>; l &gt;=<span class="number">0</span>; l-- )&#123;</span><br><span class="line">            <span class="keyword">var</span> file = files[ l ];</span><br><span class="line">            <span class="keyword">if</span> ( file === <span class="keyword">this</span> )&#123;</span><br><span class="line">                files.splice( l, <span class="number">1</span> );</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> folder = <span class="keyword">new</span> Folder( <span class="string">'学习资料'</span> );</span><br><span class="line">    <span class="keyword">var</span> folder1 = <span class="keyword">new</span> Folder( <span class="string">'JavaScript'</span> );</span><br><span class="line">    <span class="keyword">var</span> file1 = <span class="keyword">new</span> Folder ( <span class="string">'深入浅出Node.js'</span> );</span><br><span class="line"></span><br><span class="line">    folder1.add( <span class="keyword">new</span> File( <span class="string">'JavaScript 设计模式与开发实践'</span> ) );</span><br><span class="line">    folder.add( folder1 );</span><br><span class="line">    folder.add( file1 );</span><br><span class="line">    folder1.remove(); <span class="comment">//移除文件夹</span></span><br><span class="line">    folder.scan();</span><br></pre></td></tr></table></figure></p>
+<p>在folder1.remove()的时候实际上是从folder1的父文件夹也就是folder.files中移除这个文件夹的 那么文件原理也是一样的<br>通过this来判断删除文件/文件夹的</p>
+<h1 id="10-10_何时使用组合模式">10.10 何时使用组合模式</h1><ul>
+<li>表示对象的部分-整体层次结构,组合模式可以方便的构造一棵树来表示对象的部分-整体结构,特别是我们在开发期间不确定这棵树到底存在多少层次的时候,在树构造最终完成之后只需要通过请求树的最顶层对象,便能对整个树做统一的操作.</li>
+<li>客户希望统一对待树中的所有对象,组合模式使客户忽略组合对象和叶对象的区别,客户在面对这堆树的时候,不需要关心当前正在处理的是组合对象还是叶对象.组合对象和叶对象会各自做自己正确的事情.</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/09/JavaScript设计模式笔记-命令模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-命令模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-组合模式" data-title="JavaScript设计模式笔记-组合模式" data-url="http://emufan.com/2016/02/10/JavaScript设计模式笔记-组合模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
