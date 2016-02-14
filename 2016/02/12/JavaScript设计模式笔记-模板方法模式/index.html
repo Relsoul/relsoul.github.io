@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript设计模式笔记-模板方法模式 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="11.1 定义与组成模板方法由两部分组成,第一部分是抽象父类,第二部分是具体实现的子类,通常在抽象父类中封装了子类的算法框架,也包括公共方法和所以方法执行的顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法.
+应用一般在于我们有一些平行的子类,各个子类之间有一些相同的行为,也有一些不同的行为,如果相同和不同的行为都混合在各个子类中实现,说明这些相同的行为会在各个子类中出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-模板方法模式">
+<meta property="og:url" content="http://emufan.com/2016/02/12/JavaScript设计模式笔记-模板方法模式/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="11.1 定义与组成模板方法由两部分组成,第一部分是抽象父类,第二部分是具体实现的子类,通常在抽象父类中封装了子类的算法框架,也包括公共方法和所以方法执行的顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法.
+应用一般在于我们有一些平行的子类,各个子类之间有一些相同的行为,也有一些不同的行为,如果相同和不同的行为都混合在各个子类中实现,说明这些相同的行为会在各个子类中出">
+<meta property="og:updated_time" content="2016-02-12T13:16:28.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式笔记-模板方法模式">
+<meta name="twitter:description" content="11.1 定义与组成模板方法由两部分组成,第一部分是抽象父类,第二部分是具体实现的子类,通常在抽象父类中封装了子类的算法框架,也包括公共方法和所以方法执行的顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法.
+应用一般在于我们有一些平行的子类,各个子类之间有一些相同的行为,也有一些不同的行为,如果相同和不同的行为都混合在各个子类中实现,说明这些相同的行为会在各个子类中出">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-模板方法模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/12/JavaScript设计模式笔记-模板方法模式/" class="article-date">
+  	<time datetime="2016-02-12T12:06:46.000Z" itemprop="datePublished">2016-02-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-模板方法模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="11-1_定义与组成">11.1 定义与组成</h1><p>模板方法由两部分组成,第一部分是抽象父类,第二部分是具体实现的子类,通常在抽象父类中封装了子类的算法框架,也包括公共方法和所以方法执行的顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法.</p>
+<p>应用一般在于我们有一些平行的子类,各个子类之间有一些相同的行为,也有一些不同的行为,如果相同和不同的行为都混合在各个子类中实现,说明这些相同的行为会在各个子类中出现.这些相同的行为实际上可以被搬移到另外一个单一的地方.</p>
+<h2 id="11-2_Coffee_or_Tea">11.2 Coffee or Tea</h2><a id="more"></a>
+<h2 id="11-2-1_先泡一杯咖啡">11.2.1 先泡一杯咖啡</h2><p>步骤如下</p>
+<ol>
+<li>用水煮沸</li>
+<li>用沸水冲泡咖啡</li>
+<li>把咖啡倒进杯子</li>
+<li>加糖和牛奶</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Coffee=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Coffee.prototype.boilWater=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Coffee.prototype.brewCoffeeGriends=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"用沸水冲泡咖啡"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Coffee.prototype.pourInCup=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"把咖啡倒进杯子"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Coffee.prototype.addSugarAndMilk=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'加糖和牛奶'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Coffee.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.boilWater()</span><br><span class="line">    <span class="keyword">this</span>.brewCoffeeGriends()</span><br><span class="line">    <span class="keyword">this</span>.pourInCup()</span><br><span class="line">    <span class="keyword">this</span>.addSugarAndMilk</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> coffee=<span class="keyword">new</span> Coffee()</span><br><span class="line">coffee.init()</span><br></pre></td></tr></table></figure>
+<h2 id="11-2-2_泡一壶茶">11.2.2 泡一壶茶</h2><ol>
+<li>把水煮沸</li>
+<li>用沸水浸泡茶叶</li>
+<li>把茶水倒进杯子</li>
+<li>加柠檬</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Tea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">Tea.prototype.boilWater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'把水煮沸'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.steepTeaBag = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'用沸水浸泡茶叶'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.pourInCup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'把茶水倒进杯子'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.addLemon = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'加柠檬'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.boilWater();</span><br><span class="line">    <span class="keyword">this</span>.steepTeaBag();</span><br><span class="line">    <span class="keyword">this</span>.pourInCup();</span><br><span class="line">    <span class="keyword">this</span>.addLemon();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> Tea();</span><br><span class="line">tea.init();</span><br></pre></td></tr></table></figure>
+<h2 id="11-2-3_分离出共同点">11.2.3 分离出共同点</h2><table><br>    <tr><br>        <th>泡咖啡</th><br>        <th>泡茶</th><br>    </tr><br>    <tr><br>        <th>把水煮沸</th><br>        <th>用沸水冲泡咖啡</th><br>    </tr><br>    <tr><br>        <th>用沸水冲泡咖啡</th><br>        <th>用沸水浸泡茶叶</th><br>    </tr><br>    <tr><br>        <th>把咖啡倒进杯子</th><br>        <th>把茶水倒进杯子</th><br>    </tr><br>    <tr><br>        <th>加糖和牛奶</th><br>        <th>加柠檬</th><br>    </tr><br></table>
+
+<p>我们找到泡咖啡和泡茶主要有以下几点不同</p>
+<ul>
+<li>原料不同</li>
+<li>泡的方式不同</li>
+<li>加入的调料不同</li>
+</ul>
+<p>经过抽象之后我们可以整理为以下四步</p>
+<ol>
+<li>把水煮沸</li>
+<li>用沸水冲泡饮料</li>
+<li>把饮料倒入杯子</li>
+<li>加调料</li>
+</ol>
+<p>所以不管是冲泡还是浸泡都能给它一个新的方法名称比如说brew().<br>现在可以用一个抽象父类来表示泡一杯饮料的整个过程<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Beverage=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">Beverage.prototype.boilWater=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Beverage.prototype.brew=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//空方法,由子类重写</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.pourInCup=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//空方法,由子类重写</span></span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.addCondiments=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//空方法,由子类重写</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">Beverage.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.boilWater();</span><br><span class="line">    <span class="keyword">this</span>.brew();</span><br><span class="line">    <span class="keyword">this</span>.pourInCup();</span><br><span class="line">    <span class="keyword">this</span>.addCondiments();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="11-2-4_创建Coffee子类和Tea子类">11.2.4 创建Coffee子类和Tea子类</h2><p>上面的抽象类方法对我们来说是没有意义的,因为世界上能喝的东西没有一种真正叫饮料的,饮料在这里还是一个抽象类的存在,所以我们要创建茶类和咖啡类.<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Coffee=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">Coffee.prototype=<span class="keyword">new</span> Beverage();</span><br></pre></td></tr></table></figure></p>
+<p>接下来重写抽象父类中的一些方法,只有’把水煮沸’这个行为可以直接使用父类的Beverage中的boilWater方法,其他需要在子类中重写.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Coffee.prototype.brew=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"用沸水冲泡咖啡"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Coffee.prototype.pourInCup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'把咖啡倒进杯子'</span> );</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">Coffee.prototype.addCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'加糖和牛奶'</span> );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> Coffee = <span class="keyword">new</span> Coffee();</span><br><span class="line">Coffee.init();</span><br></pre></td></tr></table></figure></p>
+<p>至此我们的Coffee类就已经完成了,当调用init的方法会顺着原型链上去找到父类的init方法.而父类的init方法已经规定好了冲泡饮料的顺序,所以我们能成功的泡出一杯咖啡<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beverage.prototype.init=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.boilWater();</span><br><span class="line">    <span class="keyword">this</span>.brew();</span><br><span class="line">    <span class="keyword">this</span>.pourInCup();</span><br><span class="line">    <span class="keyword">this</span>.addCondiments();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么tea类也是同理<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Tea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">Tea.prototype = <span class="keyword">new</span> Beverage();</span><br><span class="line">Tea.prototype.brew = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'用沸水浸泡茶叶'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.pourInCup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'把茶倒进杯子'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">Tea.prototype.addCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'加柠檬'</span> );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> Tea();</span><br><span class="line">tea.init();</span><br></pre></td></tr></table></figure></p>
+<p>本章讨论的是模板方法模式.上例子中 Beverage.prototype.init被称为模板方法,原因是 该方法中封装了子类的算法框架,它作为一个算法模板,指导子类以何种顺序去执行哪些方法.</p>
+<h1 id="11-3_抽象类">11.3 抽象类</h1><p>模板方法是一种严重依赖抽象类的设计模式,JavaScript在语言层面并没有提供对抽象类的支持,我们也很难模拟抽象类的实现。</p>
+<h2 id="11-3-1_抽象类的作用">11.3.1 抽象类的作用</h2><p>在java中 类分为两种 一种是具体类 一种是抽象类.具体类可以被实例化,抽象类不能被实例化.<br>抽象类可以表示一种契约,继承了这个抽象类的子类必须要重写以上的方法 抽象类只是个框架 具体的填充还得有子类来填充 同时控制权也在抽象类的模板方法中.<br>就拿上例来说,如果coffee类没有重写抽象类需求的4个函数中的一个 那么饮料是无法泡成功的.</p>
+<h2 id="11-3-2_抽象方法和具体方法">11.3.2 抽象方法和具体方法</h2><p>抽象方法被声明在抽象类中,抽象方法并没有具体实现过程,当子类继承了这个抽象类时,必须重写父类的抽象方法.<br>除了抽象方法外,如果每个子类中有一些同样的具体实现方法,那么这些方法也可以选择放在抽象类中.这里可以节省代码已达到复用的效果.这些方法叫做具体方法.比如饮料中的boilWater方法,假设冲泡所有的饮料之前都需要把水煮沸.那我们自然可以把boilWater方法放在抽象类Beverage中</p>
+<h2 id="11-3-3_java实现Coffee_or_Tea_例子">11.3.3 java实现Coffee or Tea 例子</h2><p>略,毕竟java大法好.</p>
+<h2 id="11-3-4_JavaScript没有抽象类的缺点和解决方案-">11.3.4 JavaScript没有抽象类的缺点和解决方案.</h2><p>这段的意思是.如果某个baka程序猿忘记重写父类的某个抽象类的,如果处理?一般来说在JavaScript都会选择抛出一段异常来提醒程序猿 比如.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Beverage.prototype.brew=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写brew方法"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="11-4_模板方法使用的场景">11.4 模板方法使用的场景</h2><p>从大的方面讲 模板方法模式常被架构师用于搭建项目的框架,构架师定好了框架的骨架,程序猿继承框架的结构之后,负责往里面填空.<br>在web开发中也能找到很多模板方法适用的场景 比如构建一系列的UI组件这些组件构建的过程一般如下所示:</p>
+<ol>
+<li>初始化一个div容器</li>
+<li>通过ajax请求拉取相应的数据;</li>
+<li>把数据渲染到div容器里面,完成组件的构造;</li>
+<li>通知用户组件渲染完毕.</li>
+</ol>
+<p>我们可以看到,任何组件的构建都遵循上面的4步,其中1,4是相同的 2,3可以通过子类重写.</p>
+<h1 id="11-5_钩子方法">11.5 钩子方法</h1><p>我们在父类中封装了子类的算法框架,这些算法在正常的状态下是适用的,但是有一些个性的子类,比如在冲泡饮料Beverage这个类中封装了以下算法.</p>
+<ol>
+<li>把水煮沸</li>
+<li>用沸水冲泡饮料</li>
+<li>把饮料倒进杯子</li>
+<li>加调料</li>
+</ol>
+<p>这4个冲泡饮料的步骤适用于咖啡和茶,但如果有一些客人喝咖啡是不加调料的,那有什么办法让子类不受这个约束呢?</p>
+<p>钩子(hook)方法就是用来解决这个问题.钩子可以有一个默认的实现,究竟要不要挂钩由子类来决定.钩子方法的返回结果决定了模板方法后面部分的执行步骤.这样一来,程序就有了变化的可能.比如来解决上述问题.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Beverage = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    Beverage.prototype.boilWater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'把水煮沸'</span> );</span><br><span class="line">    &#125;;</span><br><span class="line">    Beverage.prototype.brew = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'子类必须重写brew 方法'</span> );</span><br><span class="line">    &#125;;</span><br><span class="line">    Beverage.prototype.pourInCup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'子类必须重写pourInCup 方法'</span> );</span><br><span class="line">    &#125;;</span><br><span class="line">    Beverage.prototype.addCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>( <span class="string">'子类必须重写addCondiments 方法'</span> );</span><br><span class="line">    &#125;;</span><br><span class="line">    Beverage.prototype.customerWantsCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 默认需要调料</span></span><br><span class="line">    &#125;;</span><br><span class="line">    Beverage.prototype.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.boilWater();</span><br><span class="line">        <span class="keyword">this</span>.brew();</span><br><span class="line">        <span class="keyword">this</span>.pourInCup();</span><br><span class="line">    <span class="keyword">if</span> ( <span class="keyword">this</span>.customerWantsCondiments() )&#123; <span class="comment">// 如果挂钩返回true，则需要调料</span></span><br><span class="line">        <span class="keyword">this</span>.addCondiments();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> CoffeeWithHook = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">CoffeeWithHook.prototype = <span class="keyword">new</span> Beverage();</span><br><span class="line">CoffeeWithHook.prototype.brew = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'用沸水冲泡咖啡'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">CoffeeWithHook.prototype.pourInCup = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'把咖啡倒进杯子'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">CoffeeWithHook.prototype.addCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'加糖和牛奶'</span> );</span><br><span class="line">&#125;;</span><br><span class="line">CoffeeWithHook.prototype.customerWantsCondiments = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">window</span>.confirm( <span class="string">'请问需要调料吗？'</span> );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> coffeeWithHook = <span class="keyword">new</span> CoffeeWithHook();</span><br><span class="line">coffeeWithHook.init()</span><br></pre></td></tr></table></figure></p>
+<h1 id="11-6_好莱坞原则">11.6 好莱坞原则</h1><p>实际上就控制权在父类手里 不在子类手里 或者说在发布者手里不在订阅者手里<br>比如订阅-发布模式 控制权在发布者手里 什么时候触发订阅消息,什么时候订阅者才能收到.<br>回调函数也是同理</p>
+<h1 id="11-7_真的需要继承吗">11.7 真的需要继承吗</h1><p>JavaScript实际上没有提供真正的类式继承.继承是通过对象与对象之间的委托来实现的.也就是我们在形式上借鉴了类似继承的语言,但本章学习到的模板方法并不正宗.而且在JavaScript这种函数为一等公民的情况下..真的需要继承这种核武器么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Beverage=<span class="function"><span class="keyword">function</span>(<span class="params">param</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> boilWater=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"把水煮沸"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> brew=param.brew||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写 brew方法"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> pourInCup=param.pourInCup||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写 pourInCup方法"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> addCondiments=param.addCondiments||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"子类必须重写 addCondiments方法"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> F=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    F.prototype.init=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        boilWater();</span><br><span class="line">        brew();</span><br><span class="line">        pourInCup();</span><br><span class="line">        addCondiments();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> F;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Coffee = Beverage(&#123;</span><br><span class="line">    brew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'用沸水冲泡咖啡'</span> );</span><br><span class="line">    &#125;,</span><br><span class="line">    pourInCup: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'把咖啡倒进杯子'</span> );</span><br><span class="line">    &#125;,</span><br><span class="line">    addCondiments: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'加糖和牛奶'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Tea = Beverage(&#123;</span><br><span class="line">    brew: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'用沸水浸泡茶叶'</span> );</span><br><span class="line">    &#125;,</span><br><span class="line">    pourInCup: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'把茶倒进杯子'</span> );</span><br><span class="line">    &#125;,</span><br><span class="line">    addCondiments: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'加柠檬'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> coffee = <span class="keyword">new</span> Coffee();</span><br><span class="line">coffee.init();</span><br><span class="line"><span class="keyword">var</span> tea = <span class="keyword">new</span> Tea();</span><br><span class="line">tea.init();</span><br></pre></td></tr></table></figure></p>
+<h1 id="11-8_小结">11.8 小结</h1><p>模板方法模式是一种典型的通过封装变化提高系统扩展性的设计模式.通过增加新的子类,我们便可以给系统增加新的功能,并不需要改动抽象父类以及其他子类,也这是符合开发-封闭原则的.<br>在JavaScript中 高阶函数是更好的选择</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/13/JavaScript设计模式笔记-亨元模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          JavaScript设计模式笔记-亨元模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/10/JavaScript设计模式笔记-组合模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-组合模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-模板方法模式" data-title="JavaScript设计模式笔记-模板方法模式" data-url="http://emufan.com/2016/02/12/JavaScript设计模式笔记-模板方法模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
