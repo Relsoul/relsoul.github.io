@@ -224,7 +224,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="定义">定义</h1><p>亨元模式是一种用于性能优化的模式,亨元模式的核心是运用共享技术来有效的支持大量细粒度的对象.</p>
-<h1 id="12-1_初始亨元模式">12.1 初始亨元模式</h1>
+<h1 id="12-1_初始亨元模式">12.1 初始亨元模式</h1><p>假设有个内衣厂 有50种男式内衣和50种女式内衣,然后找男生和女生各自穿上一张照片拍照,不使用亨元模式的情况下.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Model=<span class="function"><span class="keyword">function</span>(<span class="params">sex,underwear</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sex=sex;</span><br><span class="line">    <span class="keyword">this</span>.underwear=underwear;</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.takePhoto=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sex="</span>+<span class="keyword">this</span>.sex+<span class="string">"underwear"</span>+<span class="keyword">this</span>.underwear)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">50</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"male"</span>,i)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">1</span>;j&lt;=<span class="number">50</span>;j++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"female"</span>,j)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>每次要得到一张照片都需要传递sex和underwear参数.上述的例子new了100个对象…如果数据量太大 就瞬间爆炸了.</p>
       
     </div>
     
@@ -233,6 +234,10 @@ var _hmt = _hmt || [];
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/15/JavaScript设计模式笔记-亨元模式/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
