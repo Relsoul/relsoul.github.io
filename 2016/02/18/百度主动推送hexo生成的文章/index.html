@@ -5,19 +5,19 @@
   
   <title>百度主动推送hexo生成的文章 | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="github推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.
-利用插件这里利用到了一款插件hexo-generator-baidu-sitemap设置很简单 只需要在.config.yml添加一些数据即可, 下面附上我的添加数据 theme这个可以随意更改 下面的copy即">
+  <meta name="description" content="github脚本地址
+推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百度主动推送hexo生成的文章">
 <meta property="og:url" content="http://emufan.com/2016/02/18/百度主动推送hexo生成的文章/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description" content="github推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.
-利用插件这里利用到了一款插件hexo-generator-baidu-sitemap设置很简单 只需要在.config.yml添加一些数据即可, 下面附上我的添加数据 theme这个可以随意更改 下面的copy即">
-<meta property="og:updated_time" content="2016-02-18T14:34:40.907Z">
+<meta property="og:description" content="github脚本地址
+推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.">
+<meta property="og:updated_time" content="2016-02-18T14:52:22.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百度主动推送hexo生成的文章">
-<meta name="twitter:description" content="github推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.
-利用插件这里利用到了一款插件hexo-generator-baidu-sitemap设置很简单 只需要在.config.yml添加一些数据即可, 下面附上我的添加数据 theme这个可以随意更改 下面的copy即">
+<meta name="twitter:description" content="github脚本地址
+推送今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -232,7 +232,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="github">github</h1><h1 id="推送">推送</h1><p>今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.</p>
+        <h1 id="github">github</h1><p><a href="https://github.com/Relsoul/bdwork/tree/master/soul/hexo%E7%99%BE%E5%BA%A6%E4%B8%BB%E5%8A%A8%E4%B8%8A%E4%BC%A0" target="_blank" rel="external">脚本地址</a></p>
+<h1 id="推送">推送</h1><p>今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.</p>
+<a id="more"></a>
 <h2 id="利用插件">利用插件</h2><p>这里利用到了一款插件<br><a href="https://github.com/coneycode/hexo-generator-baidu-sitemap" target="_blank" rel="external">hexo-generator-baidu-sitemap</a><br>设置很简单 只需要在.config.yml添加一些数据即可, 下面附上我的添加数据 theme这个可以随意更改 下面的copy即可<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Extensions</span></span><br><span class="line"><span class="preprocessor">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="preprocessor">## Themes: http://hexo.io/themes/</span></span><br><span class="line"><span class="label">theme:</span> yilia</span><br><span class="line"><span class="label">baidusitemap:</span></span><br><span class="line"><span class="label">path:</span> baidusitemap.xml</span><br></pre></td></tr></table></figure></p>
 <h2 id="运行">运行</h2><p>然后hexo g 生成一下数据 会在public下面发现一个文件名为baidusitemap.xml</p>
 <h1 id="脚本">脚本</h1><p>这里用nodejs写了一款脚本 大概流程是 获取baidusitemap.xml里面的内容 然后读取本地的一个site_file.json这个文件 这个文件存储的是上一次数据 与上一次数据进行对比 如果对比发现新数据那么就上传新数据 否则全部上传.</p>
