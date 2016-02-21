@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript设计模式笔记-职责链模式 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义职责链模式的定义是:使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,直到有一个对象处理它为止.
+13.1 现实中的职责链
+公交车上.人比较多.你从后门上车,经常找不到售票员在哪.因为太挤了.于是你得把公交卡拿出来 交给前面的人 让前面的人给你刷 但是前面的人也不知道 于是前面的人继续往前面传递 直到传递到售票员那里.售票员给">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-职责链模式">
+<meta property="og:url" content="http://emufan.com/2016/02/20/JavaScript设计模式笔记-职责链模式/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="定义职责链模式的定义是:使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,直到有一个对象处理它为止.
+13.1 现实中的职责链
+公交车上.人比较多.你从后门上车,经常找不到售票员在哪.因为太挤了.于是你得把公交卡拿出来 交给前面的人 让前面的人给你刷 但是前面的人也不知道 于是前面的人继续往前面传递 直到传递到售票员那里.售票员给">
+<meta property="og:updated_time" content="2016-02-21T11:59:20.256Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript设计模式笔记-职责链模式">
+<meta name="twitter:description" content="定义职责链模式的定义是:使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,直到有一个对象处理它为止.
+13.1 现实中的职责链
+公交车上.人比较多.你从后门上车,经常找不到售票员在哪.因为太挤了.于是你得把公交卡拿出来 交给前面的人 让前面的人给你刷 但是前面的人也不知道 于是前面的人继续往前面传递 直到传递到售票员那里.售票员给">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-职责链模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/20/JavaScript设计模式笔记-职责链模式/" class="article-date">
+  	<time datetime="2016-02-20T07:40:46.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-职责链模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义">定义</h1><p>职责链模式的定义是:使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,直到有一个对象处理它为止.</p>
+<h1 id="13-1_现实中的职责链">13.1 现实中的职责链</h1><ul>
+<li>公交车上.人比较多.你从后门上车,经常找不到售票员在哪.因为太挤了.于是你得把公交卡拿出来 交给前面的人 让前面的人给你刷 但是前面的人也不知道 于是前面的人继续往前面传递 直到传递到售票员那里.售票员给你刷卡.</li>
+<li>期末考试 你坐在第一排 突然有个问题卡住了.于是你写了一张小纸条往后传 后面的童鞋也不知道 于是再往后传 直到有人会做这个问题为止.</li>
+</ul>
+<p>职责链模式的优点就是:请求发送者只需要知道链中的第一个节点,从而弱化了发送者和一组接收者之间的强联系</p>
+<a id="more"></a>
+<h1 id="13-2_实际开发中的职责链模式">13.2 实际开发中的职责链模式</h1><p>比如我们现在负责做一家售卖手机的电商网站. 在正式购买之后,已经支付过500元定金的用户会收到100元的商城优惠卷,200元定金的用户会收到50元的优惠卷,而之前没有支付定金的用户只能进入普通购买模式,也就是没有优惠卷,而且在库存有限的情况下不一定保证能够买到.<br>页面加载之初,PHP会传递给页面几个字段</p>
+<ul>
+<li>orderType: 1为500元用户 2为200元 3为普通用户</li>
+<li>pay: 用户是否已经支付过定金,值为true或者false</li>
+<li>stock: 表示当前用于普通用户购买的手机库存数量,已经支付了500元或者200元定金的用户不受此限制<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var order=function(orderType,pay,stock)&#123;</span><br><span class="line">    <span class="keyword">if</span>(orderType===<span class="number">1</span>)&#123;<span class="comment">//500元定金购买模式</span></span><br><span class="line">        <span class="keyword">if</span>(pay===<span class="literal">true</span>)&#123;<span class="comment">//已经支付定金</span></span><br><span class="line">            console.<span class="built_in">log</span>(<span class="string">"500元定金购买,获得100元优惠卷"</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stock&gt;<span class="number">0</span>)&#123;<span class="comment">//未支付定金 降级为普通购买模式</span></span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"普通购买 无优惠卷"</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"手机库存不足"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(orderType===<span class="number">2</span>)&#123;<span class="comment">//200元定金购买模式</span></span><br><span class="line">         <span class="keyword">if</span>(pay===<span class="literal">true</span>)&#123;<span class="comment">//已经支付定金</span></span><br><span class="line">            console.<span class="built_in">log</span>(<span class="string">"200元定金购买,获得50元优惠卷"</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(stock&gt;<span class="number">0</span>)&#123;<span class="comment">//未支付定金 降级为普通购买模式</span></span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"普通购买 无优惠卷"</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"手机库存不足"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(orderType===<span class="number">3</span>)&#123;<span class="comment">//普通用户购买</span></span><br><span class="line">            <span class="keyword">if</span>(stock&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"普通购买 无优惠卷"</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                console.<span class="built_in">log</span>(<span class="string">"手机库存不足"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">order(<span class="number">1</span>,<span class="literal">true</span>,<span class="number">500</span>)<span class="comment">//500元定金购买,获得100元优惠卷</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>很显然..这段代码可读性基本上为零</p>
+<h1 id="13-3_用职责链模式重构代码">13.3 用职责链模式重构代码</h1><p>先把500元,200元,普通用户分成三个函数.然后把三个参数先传递给500元的 如果不符合要求那么传递给200元的..<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//500元订单</span></span><br><span class="line"></span><br><span class="line">var order500=function(orderType,pay,stock)&#123;</span><br><span class="line">    <span class="keyword">if</span>(orderType===<span class="number">1</span>&amp;&amp;pay===<span class="literal">true</span>)&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"500元定金购买,获得100元优惠卷"</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        order200(orderType,pay,stock)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//200元订单</span></span><br><span class="line">var order200=function(orderType,pay,stock)&#123;</span><br><span class="line">    <span class="keyword">if</span>(orderType===<span class="number">2</span>&amp;&amp;pay===<span class="literal">true</span>)&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"200元定金购买,获得50元优惠卷"</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        orderNormal(orderType,pay,stock)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//普通购买订单</span></span><br><span class="line">var orderNormal=function(orderType,pay,stock)&#123;</span><br><span class="line">    <span class="keyword">if</span>(orderType===<span class="number">3</span>&amp;&amp;pay==<span class="literal">true</span>)&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"普通用户购买"</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"库存不足"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">// 测试结果：</span></span><br><span class="line">    order500( <span class="number">1</span> , <span class="literal">true</span>, <span class="number">500</span>); <span class="comment">// 输出：500 元定金预购, 得到100 优惠券</span></span><br><span class="line">    order500( <span class="number">1</span>, <span class="literal">false</span>, <span class="number">500</span> ); <span class="comment">// 输出：普通购买, 无优惠券</span></span><br><span class="line">    order500( <span class="number">2</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：200 元定金预购, 得到500 优惠券</span></span><br><span class="line">    order500( <span class="number">3</span>, <span class="literal">false</span>, <span class="number">500</span> ); <span class="comment">// 输出：普通购买, 无优惠券</span></span><br><span class="line">    order500( <span class="number">3</span>, <span class="literal">false</span>, <span class="number">0</span> ); <span class="comment">// 输出：手机库存不足</span></span><br></pre></td></tr></table></figure></p>
+<p>虽然这段代码看起来很不错了.但是还存在耦合性 传递请求的代码被耦合在了业务函数之中.<br>这显然是违反开放-封闭原则的.假如哪天要增加300元订单或者200订单,意味着就必须更改这些业务函数内部.</p>
+<h1 id="13-4_灵活可拆分的职责链模式">13.4 灵活可拆分的职责链模式</h1><p>本节采用一种更加灵活的方法来改进上面的职责链模式,目标是让链中的各个节点可以灵活拆分和重组.<br>首先需要改写一下分别表示3种购买模式的节点函数.我们约定如果某个节点不能处理请求则返回一个特定字符串”nextSuccessor”来表示该请求需要继续往后传递.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> order500 = <span class="function"><span class="keyword">function</span>(<span class="params"> orderType, pay, stock </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( orderType === <span class="number">1</span> &amp;&amp; pay === <span class="literal">true</span> )&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'500 元定金预购，得到100 优惠券'</span> );</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'nextSuccessor'</span>; <span class="comment">// 我不知道下一个节点是谁，反正把请求往后面传递</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> order200 = <span class="function"><span class="keyword">function</span>(<span class="params"> orderType, pay, stock </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( orderType === <span class="number">2</span> &amp;&amp; pay === <span class="literal">true</span> )&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'200 元定金预购，得到50 优惠券'</span> );</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'nextSuccessor'</span>; <span class="comment">// 我不知道下一个节点是谁，反正把请求往后面传递</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> orderNormal = <span class="function"><span class="keyword">function</span>(<span class="params"> orderType, pay, stock </span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( stock &gt; <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'普通购买，无优惠券'</span> );</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log( <span class="string">'手机库存不足'</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>接下来需要把函数包装进职责链节点.我们定义一个构造函数Chain.在new Chain的时候传递的参数即是要被需要包装的函数.同时它还拥有一个实例属性 this.nextSuccessor,表示在链中的下一个节点<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Chain=<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.fn=fn;</span><br><span class="line">    <span class="keyword">this</span>.successor=<span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">Chain.prototype.setNextSuccessor=<span class="function"><span class="keyword">function</span>(<span class="params">successor</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.successor=successor</span><br><span class="line">&#125;</span><br><span class="line">Chain.prototype.passRequest=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ret=<span class="keyword">this</span>.fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);<span class="comment">//运行new时传递进来的函数</span></span><br><span class="line">    <span class="keyword">if</span>(ret==<span class="string">"nextSuccessor"</span>)&#123;<span class="comment">//如果函数返回的是 nextSuccessor 那么执行下一个函数的passRequest</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.successor&amp;&amp;<span class="keyword">this</span>.successor.passRequest.apply(<span class="keyword">this</span>.successor,<span class="built_in">arguments</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后把三个订单函数包装成职责链的节点<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chainOrder500=<span class="keyword">new</span> Chain(order500);</span><br><span class="line"><span class="keyword">var</span> chainOrder200=<span class="keyword">new</span> Chain(order200);</span><br><span class="line"><span class="keyword">var</span> chainNormal=<span class="keyword">new</span> Chain(orderNormal);</span><br></pre></td></tr></table></figure></p>
+<p>设置函数在职责链模式中的顺序<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">chainOrder500</span><span class="class">.setNextSuccessor</span>(<span class="tag">chainOrder200</span>);</span><br><span class="line"><span class="tag">chainOrder200</span><span class="class">.setNextSuccessor</span>(<span class="tag">chainNormal</span>);</span><br></pre></td></tr></table></figure></p>
+<p>执行函数<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chainOrder500.passRequest( <span class="number">1</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：500 元定金预购，得到100 优惠券</span></span><br><span class="line">chainOrder500.passRequest( <span class="number">2</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：200 元定金预购，得到50 优惠券</span></span><br><span class="line">chainOrder500.passRequest( <span class="number">3</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：普通购买，无优惠券</span></span><br><span class="line">chainOrder500.passRequest( <span class="number">1</span>, <span class="literal">false</span>, <span class="number">0</span> ); <span class="comment">// 输出：手机库存不足</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="13-5_异步的职责链">13.5 异步的职责链</h2><p>异步的时候返回nextSuccessor已经是没有意义的了.那么需要构造一个函数Chain.prototype.next 表示手动传递请求给职责链的下一个节点<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Chain.prototype.next=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.successor&amp;&amp;<span class="keyword">this</span>.successor.passRequest.apply(<span class="keyword">this</span>.successor,<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是一个异步职责链的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn1=<span class="keyword">new</span> Chain(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"nextSuccessor"</span>    </span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> fn2=<span class="keyword">new</span> Chain(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">var</span> self=<span class="keyword">this</span>;<span class="comment">//指向Chain</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        self.next()</span><br><span class="line">    &#125;,<span class="number">1000</span>)   </span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> fn3=<span class="keyword">new</span> Chain(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">fn1.setNextSuccessor(fn2).setNextSuccessor(fn3)</span><br><span class="line">fn1.passRequest();</span><br></pre></td></tr></table></figure></p>
+<p>..这里的异步链式调用会出错 应该还要改写setNextSuccessor函数<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Chain.prototype.setNextSuccessor=<span class="function"><span class="keyword">function</span><span class="params">(successor)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.successor=successor</span><br><span class="line">    <span class="keyword">return</span> successor</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="13-6_职责链模式的优缺点">13.6 职责链模式的优缺点</h1><p>职责链模式最大的优点就是解耦了请求发送者和N个接收者之间的复杂关系.由于不知道链中的哪个节点可以处理你发出的请求,所以你需要把请求传递给下一个节点.<br>其次 我们可以手动指定一个节点 比如当天的优惠活动全部搞完了 那么剩下的都是普通用户 我们就可以用普通用户函数来处理<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chainNormal(<span class="number">1</span>,<span class="literal">false</span>,<span class="number">500</span>);<span class="comment">//普通购买 无优惠</span></span><br></pre></td></tr></table></figure></p>
+<p>当然 职责链模式的缺点就是 如果查找完整个链条都找不到接收者.那么就会报错. 如果链条太长会带来性能问题.</p>
+<h1 id="13-7_用AOP实现职责链">13.7 用AOP实现职责链</h1><p>利用JavaScript函数式特性,我们在3.2.3中创建了一个Function.prototype.after函数.这里改写这个函数 使得第一个函数返回”nextSuccessor”时将请求继续传递给下一个函数.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.after=<span class="function"><span class="keyword">function</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self=<span class="keyword">this</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">212</span>,self)</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ret=self.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">214</span>,<span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">if</span>(ret===<span class="string">"nextSuccessor"</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">var</span> order = order500yuan.after( order200yuan ).after( orderNormal );</span><br><span class="line">    order( <span class="number">1</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：500 元定金预购，得到100 优惠券</span></span><br><span class="line">    order( <span class="number">2</span>, <span class="literal">true</span>, <span class="number">500</span> ); <span class="comment">// 输出：200 元定金预购，得到50 优惠券</span></span><br><span class="line">    order( <span class="number">1</span>, <span class="literal">false</span>, <span class="number">500</span> ); <span class="comment">// 输出：普通购买，无优惠券</span></span><br></pre></td></tr></table></figure></p>
+<p>这里的after中的self是第一个函数 fn是第二函数 比如上例中 after(order200yuan)中的self是order500yuan 其中self.apply(this,arguments)这里的this指向的是这个匿名函数调用者的环境.也就是window. fn指向的是第二个函数也就是order200yuan</p>
+<h1 id="13-8_用职责链模式来获取文件上传对象">13.8 用职责链模式来获取文件上传对象</h1><p>在第7章有一个用迭代器获取文件上传对象的例子.这里用职责链模式可以更简单<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getActiveUpload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"xxxx"</span>)<span class="comment">//IE上传控件</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"nextSuccessor"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getFlashUploadObj=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(supportFlash())&#123;</span><br><span class="line">        <span class="keyword">return</span> $(<span class="string">"&lt;div&gt;xxx&lt;/div&gt;"</span>).appendTo($(<span class="string">"body"</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"nextSuccessor"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getUploadObj=getActiveUpload.after(getFlashUploadObj)</span><br><span class="line">getUploadObj()<span class="comment">//上传方案</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="小结">小结</h1><p>职责链模式还可以与组合模式一起使用 这样威力更大.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/18/百度主动推送hexo生成的文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">百度主动推送hexo生成的文章</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-职责链模式" data-title="JavaScript设计模式笔记-职责链模式" data-url="http://emufan.com/2016/02/20/JavaScript设计模式笔记-职责链模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

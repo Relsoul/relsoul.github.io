@@ -197,6 +197,67 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Electron开发Minecraft启动器" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/05/Electron开发Minecraft启动器/" class="article-date">
+  	<time datetime="2016-02-05T14:00:27.000Z" itemprop="datePublished">2016-02-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/05/Electron开发Minecraft启动器/">Electron开发Minecraft启动器</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>点击tags就可以看到上篇文章了<br><a href="https://github.com/Relsoul/mcstart">github</a></p>
+<p>目录设置的有点不合理..不过没关系啦…不打算改了..<br>因为最近在看JavaScript设计模式.虽然功能不多,但是我尽量都模块化了~</p>
+<h1 id="创建一个Electron(app-js)">创建一个Electron(app.js)</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> electron</span> = require('electron');  <span class="comment">// 控制应用生命周期的模块。</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> app</span>=electron.app</span><br><span class="line"><span class="variable"><span class="keyword">var</span> BrowserWindow</span> = electron.BrowserWindow;  <span class="comment">// 创建原生浏览器窗口的模块</span></span><br></pre></td></tr></table></figure>
+<p>因为新版的创建方式改了..所以这个坑我踩了然后跳出来了.<br>创建浏览器窗口和设置标题等等…这些都能在官方API上找到<br><a href="https://github.com/maxogden/electron-packager">官方文档</a><br>其中模板是通过mainWindow.loadURL一个file链接…<br>这些都能在官方那个快速入门找到代码..实际上我也是搬抄过来的..没啥要说的.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Electron/">Electron</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/05/Electron开发Minecraft启动器/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Electron开发笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -717,72 +778,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/01/20/angular-file-upload/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript深入浅出-执行上下文" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/15/JavaScript深入浅出-执行上下文/" class="article-date">
-  	<time datetime="2016-01-15T11:35:54.000Z" itemprop="datePublished">2016-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/15/JavaScript深入浅出-执行上下文/">JavaScript深入浅出-执行上下文</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>JavaScript作用域<ul>
-<li>全局</li>
-<li>函数</li>
-<li>eval</li>
-</ul>
-</li>
-</ul>
-<p>每次调用函数都是重新生成一个作用域</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/15/JavaScript深入浅出-执行上下文/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
