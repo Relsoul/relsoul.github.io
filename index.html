@@ -197,6 +197,62 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bootstrap中的container与col" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/21/bootstrap中的container与col/" class="article-date">
+  	<time datetime="2016-02-21T12:29:20.000Z" itemprop="datePublished">2016-02-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/21/bootstrap中的container与col/">bootstrap中的container row与col</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>比较好奇bootstarp是如何写响应式的也就是container row col是怎么形成的.<br>先来看看container代码</p>
+<h1 id="container">container</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> auto</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">750px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">970px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1170px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.container-fluid</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> auto</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这里是bootstrap中的container. 在正常的PC也就是大于1200px的情况下 container宽度是1170px  但是无论是1200px还是992,768px.这里都给container设置了一个margin-left,right:auto和paading-left,right:15px。 为什么? 先不急 我们来看看row是怎么写的</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/21/bootstrap中的container与col/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript设计模式笔记-职责链模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -706,65 +762,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/02/08/JavaScript设计模式笔记-发布-订阅模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/" class="article-date">
-  	<time datetime="2016-02-06T12:47:20.000Z" itemprop="datePublished">2016-02-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/">JavaScript设计模式笔记-迭代器模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义">定义</h1><p>迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表现.迭代器模式可以把迭代的过程从业务逻辑中分离出来,在使用迭代器模式之后,即时不关心对象的内部构造,也可以按照顺序访问其中的每个元素.</p>
-<h1 id="7-1_jquery中的迭代器">7.1 jquery中的迭代器</h1><p>迭代器模式无非就是循环访问聚合对象中的各个元素.比如jquery的$.each函数 其中i为当前索引,n为当前元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.each([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">i,n</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前下标为:'</span>+i)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'当前值为:'</span>+n)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
