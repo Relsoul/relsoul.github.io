@@ -3,17 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,</title>
+  <title>JavaScript设计模式笔记-中介者模式 | Soul,灵魂,凌魂,零魂,</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:url" content="http://emufan.com/index.html">
+  <meta name="description" content="定义中介者模式的作用就是解除对象与对象之间的紧耦合关系.增加一个中介者对象之后,所有的相关对象都通过中介者对象来通信.而不是互相引用.所以当一个对象发生改变时候,只需要通知中介者对象即可.
+14.1 现实中的中介者
+机场指挥塔
+博彩公司
+
+14.2 中介者模式的例子——泡泡堂游戏初期泡泡堂只支持双人对战.我们来定义一个构造函数 有三个方法Play.prototype.win,Play.protot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript设计模式笔记-中介者模式">
+<meta property="og:url" content="http://emufan.com/2016/02/25/JavaScript设计模式笔记-中介者模式/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
-<meta property="og:description">
+<meta property="og:description" content="定义中介者模式的作用就是解除对象与对象之间的紧耦合关系.增加一个中介者对象之后,所有的相关对象都通过中介者对象来通信.而不是互相引用.所以当一个对象发生改变时候,只需要通知中介者对象即可.
+14.1 现实中的中介者
+机场指挥塔
+博彩公司
+
+14.2 中介者模式的例子——泡泡堂游戏初期泡泡堂只支持双人对战.我们来定义一个构造函数 有三个方法Play.prototype.win,Play.protot">
+<meta property="og:updated_time" content="2016-02-25T16:09:22.444Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript设计模式笔记-中介者模式">
+<meta name="twitter:description" content="定义中介者模式的作用就是解除对象与对象之间的紧耦合关系.增加一个中介者对象之后,所有的相关对象都通过中介者对象来通信.而不是互相引用.所以当一个对象发生改变时候,只需要通知中介者对象即可.
+14.1 现实中的中介者
+机场指挥塔
+博彩公司
+
+14.2 中介者模式的例子——泡泡堂游戏初期泡泡堂只支持双人对战.我们来定义一个构造函数 有三个方法Play.prototype.win,Play.protot">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
   
@@ -197,9 +213,7 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-JavaScript设计模式笔记-中介者模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JavaScript设计模式笔记-中介者模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/02/25/JavaScript设计模式笔记-中介者模式/" class="article-date">
@@ -215,12 +229,23 @@ var _hmt = _hmt || [];
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/25/JavaScript设计模式笔记-中介者模式/">JavaScript设计模式笔记-中介者模式</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript设计模式笔记-中介者模式
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -272,550 +297,62 @@ var _hmt = _hmt || [];
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/21/bootstrap中的container与col/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bootstrap中的container row与col</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-      
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript设计模式笔记-中介者模式" data-title="JavaScript设计模式笔记-中介者模式" data-url="http://emufan.com/2016/02/25/JavaScript设计模式笔记-中介者模式/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-  
-    <article id="post-bootstrap中的container与col" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/21/bootstrap中的container与col/" class="article-date">
-  	<time datetime="2016-02-21T12:29:20.000Z" itemprop="datePublished">2016-02-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/21/bootstrap中的container与col/">bootstrap中的container row与col</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>比较好奇bootstarp是如何写响应式的也就是container row col是怎么形成的.<br>先来看看container代码</p>
-<h1 id="container">container</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> auto</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">750px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">970px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) </span>&#123;</span><br><span class="line">  <span class="class">.container</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">1170px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class">.container-fluid</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">15px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> auto</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> auto</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>这里是bootstrap中的container. 在正常的PC也就是大于1200px的情况下 container宽度是1170px  但是无论是1200px还是992,768px.这里都给container设置了一个margin-left,right:auto和paading-left,right:15px。 为什么? 先不急 我们来看看row是怎么写的</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/21/bootstrap中的container与col/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-职责链模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/20/JavaScript设计模式笔记-职责链模式/" class="article-date">
-  	<time datetime="2016-02-20T07:40:46.000Z" itemprop="datePublished">2016-02-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/20/JavaScript设计模式笔记-职责链模式/">JavaScript设计模式笔记-职责链模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义">定义</h1><p>职责链模式的定义是:使多个对象都有机会处理请求,从而避免请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,直到有一个对象处理它为止.</p>
-<h1 id="13-1_现实中的职责链">13.1 现实中的职责链</h1><ul>
-<li>公交车上.人比较多.你从后门上车,经常找不到售票员在哪.因为太挤了.于是你得把公交卡拿出来 交给前面的人 让前面的人给你刷 但是前面的人也不知道 于是前面的人继续往前面传递 直到传递到售票员那里.售票员给你刷卡.</li>
-<li>期末考试 你坐在第一排 突然有个问题卡住了.于是你写了一张小纸条往后传 后面的童鞋也不知道 于是再往后传 直到有人会做这个问题为止.</li>
-</ul>
-<p>职责链模式的优点就是:请求发送者只需要知道链中的第一个节点,从而弱化了发送者和一组接收者之间的强联系</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/20/JavaScript设计模式笔记-职责链模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-百度主动推送hexo生成的文章" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/18/百度主动推送hexo生成的文章/" class="article-date">
-  	<time datetime="2016-02-18T14:25:18.000Z" itemprop="datePublished">2016-02-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/百度主动推送hexo生成的文章/">百度主动推送hexo生成的文章</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="github">github</h1><p><a href="https://github.com/Relsoul/bdwork/tree/master/soul/hexo%E7%99%BE%E5%BA%A6%E4%B8%BB%E5%8A%A8%E4%B8%8A%E4%BC%A0">脚本地址</a></p>
-<h1 id="推送">推送</h1><p>今天发现百度没收录我的站..主要是我的站点换来换去的..估计被ban了..然后想用sitemap来推送一下..结果发现github禁用了百度爬虫..没办法只能主动推送了.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/18/百度主动推送hexo生成的文章/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-亨元模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/15/JavaScript设计模式笔记-亨元模式/" class="article-date">
-  	<time datetime="2016-02-15T12:11:45.000Z" itemprop="datePublished">2016-02-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/15/JavaScript设计模式笔记-亨元模式/">JavaScript设计模式笔记-亨元模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义">定义</h1><p>亨元模式是一种用于性能优化的模式,亨元模式的核心是运用共享技术来有效的支持大量细粒度的对象.</p>
-<h1 id="12-1_初始亨元模式">12.1 初始亨元模式</h1><p>假设有个内衣厂 有50种男式内衣和50种女式内衣,然后找男生和女生各自穿上一张照片拍照,不使用亨元模式的情况下.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Model=<span class="function"><span class="keyword">function</span>(<span class="params">sex,underwear</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sex=sex;</span><br><span class="line">    <span class="keyword">this</span>.underwear=underwear;</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.takePhoto=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sex="</span>+<span class="keyword">this</span>.sex+<span class="string">"underwear"</span>+<span class="keyword">this</span>.underwear)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">50</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"male"</span>,i)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">1</span>;j&lt;=<span class="number">50</span>;j++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"female"</span>,j)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每次要得到一张照片都需要传递sex和underwear参数.上述的例子new了100个对象…如果数据量太大 就瞬间爆炸了.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/15/JavaScript设计模式笔记-亨元模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-情人节-程序猿如何new好对象-about-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/" class="article-date">
-  	<time datetime="2016-02-14T10:25:31.000Z" itemprop="datePublished">2016-02-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/">情人节,程序猿如何new好对象-about JavaScript</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="情人节">情人节</h1><p>在今天还在看这篇文章的各位单身汪们,大家情人节..星期日好.为什么不说情人节?对于单身汪来说这不就是个星期天吗？哦对了.还有就是今天各位单身汪都上班了吧,今天真是一个值得庆祝的日子.一边要受到恩爱狗带来的会心一击,一边受到上班带来的debuff.请大家务必要坚持下去,生活这么的美好.何必要跳楼呢?</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-模板方法模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/12/JavaScript设计模式笔记-模板方法模式/" class="article-date">
-  	<time datetime="2016-02-12T12:06:46.000Z" itemprop="datePublished">2016-02-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/12/JavaScript设计模式笔记-模板方法模式/">JavaScript设计模式笔记-模板方法模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="11-1_定义与组成">11.1 定义与组成</h1><p>模板方法由两部分组成,第一部分是抽象父类,第二部分是具体实现的子类,通常在抽象父类中封装了子类的算法框架,也包括公共方法和所以方法执行的顺序.子类通过继承这个抽象类,也继承了整个算法结构,并且可以选择重写父类的方法.</p>
-<p>应用一般在于我们有一些平行的子类,各个子类之间有一些相同的行为,也有一些不同的行为,如果相同和不同的行为都混合在各个子类中实现,说明这些相同的行为会在各个子类中出现.这些相同的行为实际上可以被搬移到另外一个单一的地方.</p>
-<h2 id="11-2_Coffee_or_Tea">11.2 Coffee or Tea</h2>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/12/JavaScript设计模式笔记-模板方法模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/10/JavaScript设计模式笔记-组合模式/" class="article-date">
-  	<time datetime="2016-02-10T12:01:14.000Z" itemprop="datePublished">2016-02-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/10/JavaScript设计模式笔记-组合模式/">JavaScript设计模式笔记-组合模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="10-1_回顾宏命令">10.1 回顾宏命令</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> closeDoorCommand=&#123;</span><br><span class="line">    execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"关门"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> openPcCommand=&#123;</span><br><span class="line">    execute=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"开电脑"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> openQQCommand=&#123;</span><br><span class="line">    execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"登陆QQ"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> MacroCommand=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        commandsList:[],</span><br><span class="line">        add:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.commandsList.push(command)</span><br><span class="line">        &#125;,</span><br><span class="line">        execute:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,command;command=<span class="keyword">this</span>.commandsList[i++])&#123;</span><br><span class="line">                command.execute()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> macroCommand = MacroCommand();</span><br><span class="line">macroCommand.add( closeDoorCommand );</span><br><span class="line">macroCommand.add( openPcCommand );</span><br><span class="line">macroCommand.add( openQQCommand );</span><br><span class="line">macroCommand.execute();</span><br></pre></td></tr></table></figure>
-<p>宏命令对象包含了一组具体的子命令对象,不管是宏命令对象,还是子命令对象都有一个execute方法负责执行命令.<br>通过观察这个宏命令可以发现这是一颗很简单的树.<br>其中marcoCommand被称为组合对象,closeDoorCommand,openPcCommand,openQQCommand都是叶对象.在macroCommand的execute方法中,并不执行真正的操作,而是遍历它所包含的叶对象,把真正的execute请求1委托给这些叶对象.<br>MarcoCommand实际上只是一组命令的代理,并非真正的代理.macroCommand只负责传递请求给叶对象,它的目的不在于控制对叶对象的访问.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/10/JavaScript设计模式笔记-组合模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-命令模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/09/JavaScript设计模式笔记-命令模式/" class="article-date">
-  	<time datetime="2016-02-09T13:27:02.000Z" itemprop="datePublished">2016-02-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/09/JavaScript设计模式笔记-命令模式/">JavaScript设计模式笔记-命令模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义">定义</h1><p>假设有一个快餐店,我们会把每个客户的需求全部记录在一个清单上,这样用户不必关系是那个厨师来负责而是关系自己点的餐能不能收到.<br>这些清单就是命令模式</p>
-<h1 id="9-1_命令模式的用途">9.1 命令模式的用途</h1><p>命令模式最常见的应用场景是:有些时候需要向某些对象发送请求,但是并不知道请求的接受者是谁,也不知道被请求的操作是什么.此时希望用一种松耦合的方式来设计程序,使得请求发送者和请求接受者能够消除彼此之间的耦合关系.<br>命令模式把客人订餐的请求封装成command对象,也就是订餐中的订单对象.这个对象可以在程序中被四处传递,就像订单可以从服务员手中传到厨师的手中,这样一来,客人不需要知道厨师的名字,从而解开了请求调用者和请求接受者之间的耦合关系.</p>
-<h1 id="9-2_命令模式的例子——菜单程序">9.2 命令模式的例子——菜单程序</h1><p>假设我们要编写一个有数十个button的菜单界面,某些程序猿负责绘制按钮样式,某些程序猿负责编写点击按钮后的具体行为.那么当完成这个按钮的绘制之后,应该如何给它绑定onclick事件呢?<br>回想一下命令模式的应用场景:</p>
-<blockquote>
-<p>有些时候需要向某些对象发送请求,但是并不知道请求的接受者是谁,也不知道被请求的操作是什么.此时希望用一种松耦合的方式来设计程序,使得请求发送者和请求接受者能够消除彼此之间的耦合关系.</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/09/JavaScript设计模式笔记-命令模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-为什么我会推荐读书" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/08/为什么我会推荐读书/" class="article-date">
-  	<time datetime="2016-02-08T15:56:18.000Z" itemprop="datePublished">2016-02-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/08/为什么我会推荐读书/">为什么我会推荐读书</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我以前是特别反感读书的,语文英语数学 这些不感兴趣的人肯定反感,当然我也不例外,我也不会去看这些书籍 因为除了对科研方面的人有帮助外 对我们大众来说是没什么帮助的 .<br>因为这些书籍是属于论述类的书籍而不是实用类的 关于这两个分类你可以去参考《如何阅读一本书》 这里面的片段 这里不摘录。<br>话说回来了 涉及到一个研究性的问题,我们喜欢看什么书？<br>很简单就能得出答案 语言幽默轻松——段子, 富有剧情,轻松阅读——网络小说/小说,视频和漫画这个不属于这个问题的范围就不谈了。<br>很显然,那些 人生哲理,科普文,历史科研文 并不在我们喜欢的范畴之类.为什么我们会在段子与科普文之间会选择段子? 因为我们不愿意去挑战自己,我们都是追求轻松.之所以不挑战是因为想不到这个挑战能给我自己带来什么好处。<br>so.这就回到了正题 为什么要去读这些书籍.为什么要去挑战原本我们不愿意接触的书籍 这些书籍能给我们带来什么。相比于段子,网络小说以及那些网络上的碎片化知识 这些能带来什么好处。<br>首先吧,看书都是为了打发时间,工具类的书籍除外.简而言之就是无聊才会去看的.有事做的时候谁会跑去看书.是这样对吧? 但是如果把看书当成一件事去做的时候.这能说成是打发时间吗? 如果要继续谈下去又得谈到打发时间这个概念..<br>所以要讲述的就是看书并不等于打发时间或者说浪费青春.当你看了一本比较有意思的书,无关类型.能够让内心感到舒畅或者能引发深思,这就算得到收获了.</p>
-<p>一本消遣或者娱乐性的书可能会给我带来一时的欢愉,但是除了享乐之外,我也不可能从中得到其他的收获了.<br>读一本好书,回得到两种回馈：第一,当我成功的阅读了一本难度的好书之后,我的阅读技巧必然增进了.第二——一本好书能够教我了解这个世界以及我自己,我不仅仅是更懂得如何读的更好,还更懂得生命,我变得更有智慧,而不只是更有知识——像只提供讯息的书所形成的那样.你会成为一位智者,对人类生命中永恒真理有更深刻的认识<br>以上摘录《如何阅读一本书》 </p>
-<p> 当然不能强求每个人都做到这一点.否则世界上不是人人都是智者的吗<br>要说明的是 读一本非消遣类型的书籍能给有助于我们理解能力的增长.甚至让我们学会了深层次的阅读更加能体会到书所想表达的意思<br>感觉貌似对自己没啥用对吧?<br>阅读一本非消遣类型的书籍并不代表去看那高深莫测的哲学类书籍.甚至一本教你如何与儿童相处的小孩类书籍都能从中得到知识<br>读书只是为了获取知识的一种方法,但这种方法得到知识比看漫画,电影得到的知识要长久深刻得多.<br>说到这里要表达的意思就是 读书能给我们带来一堆的好处 这些好处不是立即就可以拿到的,而是潜移默化的. 至于什么好处..每个人读每本书都有不同的体会.要我说我也说不出来.<br>但是一开始也说了 读书是一种挑战性的活动.并不强求每个人都去挑战读书.那样反而会适得其反.读的轻松读的愉快才是读书.<br>《如何阅读一本书》这本书绝对值得一看.更多啥的我也说不上了.让我扯这么多都是绞尽脑汁的..因为自己读的书还不够多 哈哈</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -839,8 +376,8 @@ var _hmt = _hmt || [];
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
