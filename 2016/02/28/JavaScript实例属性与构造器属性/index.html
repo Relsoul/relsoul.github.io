@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript实例属性与构造器属性 | Soul,灵魂,凌魂,零魂,</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在构造器上设置属性首先在js中函数也是对象,所以在js中函数也可以挂载属性和方法123456789101112function Bar()&amp;#123;&amp;#125;Bar.name=&quot;i m bar&quot;;Bar.sayname=function()&amp;#123;    console.log(this.name)&amp;#125;Bar.sayname();//Bar;var sum=Bar;sum.sayn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript实例属性与构造器属性">
+<meta property="og:url" content="http://emufan.com/2016/02/28/JavaScript实例属性与构造器属性/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,">
+<meta property="og:description" content="在构造器上设置属性首先在js中函数也是对象,所以在js中函数也可以挂载属性和方法123456789101112function Bar()&amp;#123;&amp;#125;Bar.name=&quot;i m bar&quot;;Bar.sayname=function()&amp;#123;    console.log(this.name)&amp;#125;Bar.sayname();//Bar;var sum=Bar;sum.sayn">
+<meta property="og:updated_time" content="2016-02-28T16:25:39.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript实例属性与构造器属性">
+<meta name="twitter:description" content="在构造器上设置属性首先在js中函数也是对象,所以在js中函数也可以挂载属性和方法123456789101112function Bar()&amp;#123;&amp;#125;Bar.name=&quot;i m bar&quot;;Bar.sayname=function()&amp;#123;    console.log(this.name)&amp;#125;Bar.sayname();//Bar;var sum=Bar;sum.sayn">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂," type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 12px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">soul,soul,soul</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-JavaScript实例属性与构造器属性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/28/JavaScript实例属性与构造器属性/" class="article-date">
+  	<time datetime="2016-02-28T13:52:32.000Z" itemprop="datePublished">2016-02-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript实例属性与构造器属性
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="在构造器上设置属性">在构造器上设置属性</h1><p>首先在js中函数也是对象,所以在js中函数也可以挂载属性和方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Bar.name=<span class="string">"i m bar"</span>;</span><br><span class="line">Bar.sayname=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line">Bar.sayname();<span class="comment">//Bar;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum=Bar;</span><br><span class="line">sum.sayname=<span class="string">"no this function"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(Bar.sayname);<span class="comment">//"no this function"</span></span><br><span class="line">Bar=<span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(sum.sayname);<span class="comment">//no this function</span></span><br></pre></td></tr></table></figure></p>
+<p>首先Bar.sayname()结果并不是”i m bar”而是一个”Bar” 而且你是无法改写这个name属性的 说明函数自身就带了一个name属性,保存的是他的名字.所以弹出的会是”Bar”<br>下面我们声明了一个变量sum并且把Bar赋值给他.同时改写了一下sum的sayname属性.然后调用了Bar.sayname得出的结果是”no this function” 接着我们把Bar设置为null 然后再调用一下sum的.sayname方法发现还是存在的。</p>
+<a id="more"></a>
+<p>JavaScript高级程序设计里有段话说的挺好的 #110</p>
+<blockquote>
+<p>由于函数名仅仅是指向函数的指针,因此函数名与包含对象指针的其他变量没有什么不同.换句话说函数可能会有多个名字.即时我们将Bar设置为null但是sum是他的另外一个名字.</p>
+</blockquote>
+<h1 id="构造器的属性去哪了?">构造器的属性去哪了?</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.testname=<span class="string">"i m test name"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Bar.sayTestName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"%c "</span>+<span class="keyword">this</span>.testname,<span class="string">"color:red;"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Bar.sayTestName();<span class="comment">//i m test name</span></span><br><span class="line">Bar <span class="keyword">instanceof</span> <span class="built_in">Function</span><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>okay,我们知道Function的<em>proto</em>是指向Function的原型的.那么我们把属性挂载到原型.那么函数就是Function的实例,实例中找不到的属性自然就会顺着原型链去原型上面找了.</p>
+<h2 id="在Object-prototype和Object添加会产生什么效果?">在Object.prototype和Object添加会产生什么效果?</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.testname=<span class="string">"i m ObjectEntry name"</span>;</span><br><span class="line"><span class="built_in">Object</span>.prototype.testname=<span class="string">"i m Object prototype name "</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Bar.sayTestName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"%c "</span>+<span class="keyword">this</span>.testname,<span class="string">"color:red;"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Bar.sayTestName();<span class="comment">//i m Object prototype name</span></span><br></pre></td></tr></table></figure>
+<p>首先我们知道所有的Function.prototype都来自于Object.prototype那么在Function.prototype找不到的自然就会去Object.prototype上面寻找了.<br>Object是Object的实例所以并不会在这上面找.实例的方法与原型的方法是相隔的.具体解释看下面的</p>
+<h1 id="new_构造器是什么鬼?">new 构造器是什么鬼?</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.testname=<span class="string">"i m test name"</span>;</span><br><span class="line"><span class="built_in">Object</span>.prototype.testname=<span class="string">"i m bar object name"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sayTrueName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"%c "</span>+<span class="keyword">this</span>.testname,<span class="string">"color:green;"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Bar.sayTestName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"%c "</span>+<span class="keyword">this</span>.testname,<span class="string">"color:red;"</span>)</span><br><span class="line">&#125;</span><br><span class="line">Bar.sayTestName();<span class="comment">//i m test name</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar=<span class="keyword">new</span> Bar()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"can you find bar.sayname ?"</span>,bar.sayname);<span class="comment">//undefined</span></span><br><span class="line">bar.sayTrueName();<span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p>okay.从上述代码我们可以看出了一些道理了</p>
+<ul>
+<li>new 一个函数 实际上是创建了Object的一个实例</li>
+<li>声明一个函数实际上是创建了一个Function实例</li>
+</ul>
+<h2 id="写点继承来理解下实例与构造器">写点继承来理解下实例与构造器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> XiaoMing=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.info=<span class="string">"i m xiaoming today i  choose death"</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayHello=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.info)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XiaoMing.prototype.goToDie=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">" go die"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> XiaoHong=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=<span class="string">"xiaohong"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XiaoHong.prototype=<span class="keyword">new</span> XiaoMing();</span><br><span class="line"><span class="keyword">var</span> xiaohong=<span class="keyword">new</span> XiaoHong();</span><br><span class="line">xiaohong.goToDie();<span class="comment">//xiaohong go die;</span></span><br><span class="line">xiaohong.sayHello();<span class="comment">//i m xiaoming today i  choose death;</span></span><br></pre></td></tr></table></figure>
+<p>通过设置XiaoHong的原型来构建成一条原型链,下面来大概解释下<br>new XiaoHong=&gt;XiaoHong.prototype=&gt;new XiaoMing()=&gt;XiaoMing.prototype=&gt;Object.prototype=&gt;null;<br>首先我们实例化小明的时候.那么小明会有以下的属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">xiaoming</span>:<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">info</span>:<span class="value"><span class="string">"i m xiaoming today i  choose death"</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">sayHello</span>:<span class="value"><span class="function">function</span>()&#123;</span><br><span class="line">        console.<span class="function">log</span>(this.info)</span><br><span class="line">    </span></span></span>&#125;</span><br><span class="line">    _<span class="tag">proto_</span><span class="pseudo">:xiaoming</span><span class="class">.prototype</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">xiaoming</span><span class="class">.prototype</span>:<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">goToDie</span>:<span class="value"><span class="function">function</span>()&#123;</span><br><span class="line">        ....</span><br><span class="line">    </span></span></span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么实例化小红的时候也是同理.<br>当调用xiaohong的goToDie()方法实际上是去顺着<em>proto</em>这个属性来寻找.</p>
+<ul>
+<li>A:xiaohong本身(this)有没有这个goToDie方法啊? </li>
+<li>B:不好意思,没有</li>
+<li>A:那麻烦你去xiaohong的原型链(prototype)上找找好不到</li>
+<li>B:okay let me find… oh. i find new XiaoMing..i must instantiate(实例化)  XiaoMing</li>
+<li>B:我在实例化XiaoMing..让我在实例化的XiaoMing本身找找…恩..貌似没有.但是它有<em>proto</em>让我去它原型链上找找</li>
+<li>B:找到了!在实例化XiaoMing的原型链上 来给你</li>
+<li>A:thanks</li>
+</ul>
+<p>(正在学习英语..让我写几句渣渣英语 大神勿喷..)</p>
+<p>大概就是这么一个寻找过程..如果在中间任何一个环节找到了就不会继续往下寻找了.<br>那么我们也可以通过设置原型链的模式来继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> XiaoMing=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.info=<span class="string">"i m xiaoming today i  choose death"</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayHello=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.info)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XiaoMing.prototype.goToDie=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">" go die"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> XiaoHong=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=<span class="string">"xiaohong"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XiaoHong.prototype=XiaoMing.prototype;</span><br><span class="line"><span class="keyword">var</span> xiaohong=<span class="keyword">new</span> XiaoHong();</span><br><span class="line"><span class="built_in">console</span>.log(xiaohong)</span><br><span class="line">xiaohong.goToDie();<span class="comment">//xiaohong go die;</span></span><br><span class="line">xiaohong.sayHello();<span class="comment">//error;</span></span><br></pre></td></tr></table></figure>
+<p>通过设置XiaoHong.prototype来获得继承也是可以的.</p>
+<p>同时实例之间的属性并不会相互影响 下面摘录JavaScript高级程序设计中的代码 #150<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=<span class="string">"123"</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2=<span class="keyword">new</span> Person();</span><br><span class="line">person2.name=<span class="string">"456"</span></span><br><span class="line">person1.sayName()<span class="comment">//123</span></span><br><span class="line">person2.sayName()<span class="comment">//456</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName===person2.sayName)<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>但是通过构造函数实例化后.不同实例上的同名函数是不想等的.但是原型就不同了.下面把上面的例子改写一下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name=<span class="string">"123"</span>;</span><br><span class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> person2=<span class="keyword">new</span> Person();</span><br><span class="line">person2.name=<span class="string">"456"</span>;</span><br><span class="line">person1.sayName()<span class="comment">//123</span></span><br><span class="line">person2.sayName()<span class="comment">//456</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName===person2.sayName)<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+<p>当然原型上的属性是不会相等的.</p>
+<p>所以我们会这样称呼上述的属性 代码转自<a href="http://yanhaijing.com/javascript/2014/05/15/a-code-explain-javascript-oop/" target="_blank" rel="external">here</a><br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//私有静态成员</span></span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">""</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//私有静态方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateStaticMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    Box = <span class="function"><span class="keyword">function</span><span class="params">(value)</span></span>&#123;</span><br><span class="line">        <span class="comment">//私有成员</span></span><br><span class="line">        privateStaticUser = value; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//这个是私有方法</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">privateMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//公有方法，因为能访问私有成员，也可以说是特权函数，也可以说是实例方法</span></span><br><span class="line">        <span class="keyword">this</span>.getUser = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> user;</span><br><span class="line">        &#125;;      </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//公有成员</span></span><br><span class="line">        <span class="keyword">this</span>.user = <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有共享访问</span></span><br><span class="line">    Box.prototype.sharedMethod = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有共享属性</span></span><br><span class="line">    Box.prototype.sharedProperty = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态方法 </span></span><br><span class="line">    Box.staticMethod = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//公有静态成员</span></span><br><span class="line">    Box.staticProperty = <span class="number">1</span>; </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>那么问题来了</p>
+<h1 id="什么是公有共享_公有静态?">什么是公有共享 公有静态?</h1><p>首先私有的很好理解 就是外面不能访问到的.<br>那么公有共享就是原型链上面的方法和属性了 包括函数内部的this.xxx 因为在实例化后都能访问到  这些都是公有共享<br>那么公有静态是什么？<br>公有静态是直接挂载到函数上的还是用一段代码来演示 转自<a href="http://www.jb51.net/article/20236.htm" target="_blank" rel="external">here</a><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function <span class="keyword">Man</span>(name, age) &#123; </span><br><span class="line"><span class="comment">//定义实例属性 </span></span><br><span class="line">this.name = name; </span><br><span class="line">this.age = age; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//定义静态属性。默认性别是男，不排除变性，^v^ </span></span><br><span class="line"><span class="keyword">Man</span>.sex = '男'; </span><br><span class="line"><span class="comment">//定义原型属性 </span></span><br><span class="line"><span class="keyword">Man</span>.prototype.phone = '123456'; </span><br><span class="line"><span class="comment">//除了name.sex和Man.prototype.phone其余全部是Undefined </span></span><br><span class="line">alert(<span class="keyword">Man</span>.sex + <span class="string">"-----"</span> + <span class="keyword">Man</span>.prototype.phone + <span class="string">"--"</span> + <span class="keyword">Man</span>.name + <span class="string">"--"</span> + <span class="keyword">Man</span>.age + <span class="string">"--"</span> + <span class="keyword">Man</span>.phone); </span><br><span class="line"><span class="keyword">var</span> <span class="keyword">man</span> = new <span class="keyword">Man</span>(<span class="string">"Tom"</span>, 24); </span><br><span class="line">alert(<span class="keyword">Man</span>.sex + <span class="string">"--"</span> + <span class="keyword">man</span>.name + <span class="string">"--"</span> + <span class="keyword">man</span>.age + <span class="string">"--"</span> + <span class="keyword">man</span>.phone); </span><br><span class="line"><span class="comment">/** </span><br><span class="line">* 通过例子说明：原型属性在实例化之后作为类的实例属性。 </span><br><span class="line">* 但是实例属性在实例化之后却不能作为原型属性。 </span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>okay 上面有两个公有属性 this.name和this.age 一个公有共享的属性Man.prototype.phone 一个公有静态方法 Man.sex<br>那么没有实例化之前 我们只能访问到prototype和Man.sex 其他的都需要实例化后才能获取到.<br>实例化后.我们能够访问到Man.sex但是访问不到man(实例).sex 因为公有静态方法是不会通过原型继承的.而公有共享和公有方法是可以通过原型继承的.</p>
+<p>今天就说这么多吧.有什么坑后续再填</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/28/JavaScript设计模式笔记-装饰者模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript设计模式笔记-装饰者模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript实例属性与构造器属性" data-title="JavaScript实例属性与构造器属性" data-url="http://emufan.com/2016/02/28/JavaScript实例属性与构造器属性/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
