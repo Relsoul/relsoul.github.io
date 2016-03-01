@@ -221,7 +221,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/01/微博开发笔记/">微博开发笔记</a>
+      <a class="article-title" href="/2016/03/01/微博开发笔记/">nodejs与微博开发笔记</a>
     </h1>
   
 
@@ -230,7 +230,15 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="微博开发API">微博开发API</h1>
+        <h1 id="微博开发API">微博开发API</h1><p><a href="http://open.weibo.com/">地址</a><br><a href="http://t.cn/RGl5xGh">github</a><br>开发工具 nodejs+express+request</p>
+<h1 id="申请微博API">申请微博API</h1><p>首先去微博开发地址注册个开发者账号,然后填写个人身份认证下. 个人只能选微链接,不能选择微服务.</p>
+<h1 id="网站接入">网站接入</h1><p>我申请的是网站接入..可以先不提交审核拿来用..不知道为啥我审核总是不过.说是需要部署微博组件..囧 不过没关系我们主要关注以下的几个重要的内容.</p>
+<ul>
+<li>网站信息-基本信息中的 App Key 与 App Secret </li>
+<li>网站信息-测试账号中的 已关联测试账号</li>
+<li>接口管理-授权机制中的 授权回调页和取消授权回调页</li>
+</ul>
+<p>首先我们需要设置已关联账号和设置授权回调页和取消授权回调页<br>设置关联账号就设置你个人微博 输入你个人微博名称即可.<br>授权回调页我设置的是htttp://t.relsoul.com/oauth<br>取消回调页我设置的是<a href="http://t.relsoul.com/calceloauth">http://t.relsoul.com/calceloauth</a></p>
       
     </div>
     
@@ -243,6 +251,10 @@ var _hmt = _hmt || [];
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/01/微博开发笔记/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
