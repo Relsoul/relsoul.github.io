@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>你不知道的JavaScript-上卷 读书笔记-part1 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+作用域编译器原理简释var a=2当我们看到var a=2的时候引擎和编译器会做什么呢?
+
+遇到var a,编译器会询问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的JavaScript-上卷 读书笔记-part1">
+<meta property="og:url" content="http://emufan.com/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+作用域编译器原理简释var a=2当我们看到var a=2的时候引擎和编译器会做什么呢?
+
+遇到var a,编译器会询问">
+<meta property="og:updated_time" content="2016-03-04T04:41:52.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的JavaScript-上卷 读书笔记-part1">
+<meta name="twitter:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+作用域编译器原理简释var a=2当我们看到var a=2的时候引擎和编译器会做什么呢?
+
+遇到var a,编译器会询问">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16.67px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18.33px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18.33px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 11.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-你不知道的JavaScript-上卷 读书笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/" class="article-date">
+  	<time datetime="2016-03-03T15:52:42.000Z" itemprop="datePublished">2016-03-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      你不知道的JavaScript-上卷 读书笔记-part1
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/" target="_blank" rel="external">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="作用域">作用域</h1><h2 id="编译器原理简释">编译器原理简释</h2><p><code>var a=2</code><br>当我们看到var a=2的时候引擎和编译器会做什么呢?</p>
+<ol>
+<li>遇到var a,编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的合集中.如果是.编译器会忽略该声明,继续进行编译.否则它会要求作用域在当前的作用域合集中声明一个新的变量,并且命名为a.</li>
+<li>接下来编译器会为这个引擎生成运行时所需的代码,这些代码被用来处理a = 2这个赋值操作.引擎运行时会首先询问作用域,在当前的作用域合集中是否存在一个叫a的变量,如果否,引擎就会使用这个变量;如果不是,引擎就会继续查找该变量.</li>
+</ol>
+<a id="more"></a>
+<h2 id="引擎与作用域的对话">引擎与作用域的对话</h2><p>RHS引用是找到这个变量所在的地址,但是不赋值 赋值是等号做的事情<br>LHS引用是赋值时把RHS找到的地址赋值给LHS</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>把这段代码想象成一段对话是这样的</p>
+<ul>
+<li>引擎:我说作用域,我需要为foo进行RHS引用,你见过他吗?</li>
+<li>作用域:别说,我还真见过,编译器那小子刚刚声明了它.它是一个函数,给你.</li>
+<li>引擎: 哥们太够意思了！好吧,我来执行以下foo.</li>
+<li>引擎:作用域还有个事,我需要为a(函数传参中的a)进行LHS引用,这个你见过吗?</li>
+<li>作用域:这个也见过,编译器最近把它声明为foo的一个形式参数,拿去吧.</li>
+<li>引擎:大恩不言谢,你总是这么棒,现在我要把2赋值给a.</li>
+<li>引擎:哥们,不好意思又来打扰你.我需要为console进行RHS引用.你见过它吗?</li>
+<li>作用域:咋们谁跟谁啊.console是个内置对象,给你</li>
+<li>引擎:么么哒,我的看看这里面是不是有个log(…).太好了,找到了,是一个函数.</li>
+<li>引擎:哥们,能再帮我找一下对a的RHS引用吗?虽然我记得它,但想再确认一次.</li>
+<li>作用域:放心吧.这个变量也没有变动过.拿走.不谢.</li>
+<li>引擎:真棒,我来把a的值,也就是2.传递进log(…)</li>
+</ul>
+<h2 id="作用域嵌套">作用域嵌套</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">2</span>;</span><br><span class="line">foo(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>首先在浏览器中最顶端的作用域就是window也就是全局作用域.那么上述代码在全局作用域中创建了一个作用域叫foo.当引擎去解析执行的时候.对b进行RHS引用的时候在当前foo作用域是找不到的.于是去foo的上级作用域即全局作用域去查找b这个变量.</p>
+<h2 id="异常">异常</h2><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a)</span><span class="comment">&#123;</span><br><span class="line">    console.log(a+b);</span><br><span class="line">    b=a;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">foo</span><span class="params">(2)</span></span></span><br></pre></td></tr></table></figure>
+<p>如果RHS遍历了所有的嵌套作用域都找不到该变量,引擎就会抛出ReferenceError异常.<br>如果执行的是LHS查询时.如果在顶层(全局作用域)中也无法找到目标变量,那么全局作用域中就会创建一个具有该名称的变量.并且将其返回给引擎<br>ReferenceError异常的意思是作用域判别失败相关.<br>TypeError则代表作用域判别成功,但是对结果的操作是非法或不合理的.</p>
+<h1 id="词法作用域">词法作用域</h1><h2 id="词法阶段">词法阶段</h2><p>词法作用域也叫静态作用域.其作用域只在引擎初始化的时候就已经定好了.不会跟随代码的执行而动态改变作用域<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b=a*<span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a,b,c);</span><br><span class="line">    &#125;</span><br><span class="line">    bar(b*<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">2</span>);<span class="comment">//2,4,12</span></span><br></pre></td></tr></table></figure></p>
+<p>这里面有三个嵌套的作用域 这里来分析一下</p>
+<ul>
+<li>window(全局作用域)</li>
+<li>window=&gt;foo</li>
+<li>window=&gt;foo=&gt;bar</li>
+</ul>
+<p>作用域是嵌套的,上面也说了当编译器在当前作用域找不到的时候会在当前作用域创建一个变量.赋值的时候则会逐级递归查找当前作用域是否存在当前变量.不存在则会创建全局变量.<br>因为作用域是嵌套的.嵌套中的作用域可以访问上层作用域的值.所以在bar这个函数里,并没有a变量.但是它会从它上层作用域foo去查找.<br>全局变量自动会成为window(浏览器)的属性.比如上述的foo(2)可以用<code>window.foo(2)</code> 来写<br><strong>无论函数在哪里被调用,也无论它如何被调用,它的词法作用域都只由函数被声明时所处的位置决定</strong><br>词法作用域只会查找一级标识符.比如上述的foo.bar.baz,词法作用域查找只会试图查找foo标识符.找到这个变量后.对象属性访问规则会分别接管对bar和baz属性的访问.</p>
+<h2 id="欺骗词法">欺骗词法</h2><p><strong>欺骗词法作用域会导致性能下降</strong></p>
+<h3 id="eval">eval</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">str,a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">eval</span>(str);<span class="comment">//欺骗</span></span><br><span class="line">    <span class="built_in">console</span>.log(a,b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b=<span class="number">2</span>;</span><br><span class="line">foo(<span class="string">"var b=3;"</span>,<span class="number">1</span>);<span class="comment">//1,3</span></span><br></pre></td></tr></table></figure>
+<p>eval动态在foo作用域中创建了一个b变量,并且遮蔽掉了外部(window)中的b变量</p>
+<h3 id="with">with</h3><p>with通常被当做重复引用同一个对象中的多个属性的快捷方式,可以不需要重复引用对象本身<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">    a:<span class="number">1</span>,</span><br><span class="line">    b:<span class="number">2</span>,</span><br><span class="line">&#125;</span><br><span class="line">with(obj)&#123;</span><br><span class="line">    a=<span class="number">3</span>;</span><br><span class="line">    b=<span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但实际上这不仅仅是为了方便访问对象属性.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">with</span>(obj)&#123;</span><br><span class="line">        a=<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> o1=&#123;</span><br><span class="line">    a:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o2=&#123;</span><br><span class="line">    b:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">foo(o1);</span><br><span class="line"><span class="built_in">console</span>.log(o1.a);<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">foo(o2);</span><br><span class="line"><span class="built_in">console</span>.log(o2.a);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2 泄露到全局作用域中了</span></span><br></pre></td></tr></table></figure></p>
+<p>之所以o1能够正确被赋值是因为o1存在a这个属性.o2不存在a这个属性.所以with中引擎找不到这个属性的时候则会使用正常的LHS引用.所以泄露到全局中了</p>
+<h1 id="函数作用域与块状作用域">函数作用域与块状作用域</h1><p>这一节主要讲述的是如何利用匿名函数来创建作用域,这样就不会污染全局命名空间了<br>匿名函数是可以具名的,并且效果一样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timeoutHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"i waited 1 second"</span>)</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如果用匿名函数在运行的过程中报错了那么浏览器只会返回一个anonymous function 如果具名的话那么会返回当前那个函数的名称<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">""</span>)&#125;)()</span><br><span class="line"><span class="comment">//结果</span></span><br><span class="line">(anonymous <span class="function"><span class="keyword">function</span>)    @   <span class="title">VM419</span>:2</span><br><span class="line">(<span class="params">anonymous function</span>)    @   <span class="title">VM419</span>:2</span><br><span class="line"><span class="title">InjectedScript</span>.<span class="title">_evaluateOn</span>  @   <span class="title">VM410</span>:904</span><br><span class="line"><span class="title">InjectedScript</span>.<span class="title">_evaluateAndWrap</span> @   <span class="title">VM410</span>:837</span><br><span class="line"><span class="title">InjectedScript</span>.<span class="title">evaluate</span> @   <span class="title">VM410</span>:693</span></span><br></pre></td></tr></table></figure></p>
+<p>JavaScript的块级作用域有三个 一个是ifelse创建的 一个是try catch 还有一个是with 用with从对象创建出的作用域仅在with声明中而非外部作用域中有效</p>
+<h1 id="提升">提升</h1><p>JavaScript有两种提升 一种是var xxx;一种是函数提升 function xxx(){}<br>其中函数提升的优先级要大于var<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo();<span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译器首先会提升function声明至作用域顶端 然后再运行foo()<br>并且函数提升无法被if else所控制<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">foo();<span class="comment">//a</span></span><br><span class="line"><span class="keyword">var</span> a=<span class="literal">true</span></span><br><span class="line"><span class="keyword">if</span>(a)&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"a"</span>)&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">"b"</span>)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>无论作用域的声明出现在什么地方,都将在代码本身被执行前<strong>首先</strong>进行处理.可以将这个过程形象地想象成所有的声明(变量和函数)都会被”移动”到各自作用域的最顶端.这个过程被称为提升</p>
+<h1 id="作用域闭包">作用域闭包</h1><p>具体的闭包这里不再做笔记了,这里只做如何用闭包来实现module(模块)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> something=<span class="string">"cool"</span>;</span><br><span class="line">    <span class="keyword">var</span> another=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(something)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doAnother</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(another.join(<span class="string">"!"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        doSomething:doSomething,</span><br><span class="line">        doAnother:doAnother</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo=CoolModule();</span><br><span class="line">foo.doSomething();<span class="comment">//cool</span></span><br><span class="line">foo.doAnother();<span class="comment">//1!2!3!</span></span><br></pre></td></tr></table></figure></p>
+<p>这个模式在JavaScript称为模块,上述的返回值可以看成模块的公共API.<br>实际上从模块返回一个实际的对象并不是必须的,也可以直接返回一个内部函数.jquery和$就是一个很好的例子.jquery与$就是jquery模块的公共API,但它们本身都是函数(由于函数也是对象,它们本身也可以拥有属性)</p>
+<p>模块模式需要具备两个必须条件</p>
+<ol>
+<li>必须有外部的封闭函数,该函数必须至少被调用一次(每次调用都会创建一个新的模块实例).</li>
+<li>封闭函数必须返回至少一个内部函数,这样内部函数才能在私有作用域中形成闭包.并且可以访问或者修改私有的状态.</li>
+</ol>
+<p>一个具有函数属性的对象本身并不是真正的模块,从方便观察的角度看.一个从函数调用所返回的,只有数据属性而没有闭包函数的对象并不是真正的模块.<br>模块也可以轻而易举的实现单例模式 只需要改成IIFE(匿名函数立即执行)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=CoolModule()&#123;</span><br><span class="line">    <span class="keyword">var</span> something=<span class="string">"cool"</span>;</span><br><span class="line">    <span class="keyword">var</span> another=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(something)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">doAnother</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(another.join(<span class="string">"!"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        doSomething:doSomething,</span><br><span class="line">        doAnother:doAnother</span><br><span class="line">    &#125;</span><br><span class="line">&#125;()</span><br><span class="line">foo.doSomething()<span class="comment">//cool</span></span><br><span class="line">foo.doAnother();<span class="comment">//1!2!3!</span></span><br></pre></td></tr></table></figure></p>
+<p>模块模式另一个简单但强大的变化用法是.命名将要作为公共API返回的对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=(<span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//修改公共API</span></span><br><span class="line">            publicAPI.identify=identify2;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">identifty1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(id)</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">identifty2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(id.toUpperCase());</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> publicAPI=&#123;</span><br><span class="line">            change:change,</span><br><span class="line">            identifty:identifty1</span><br><span class="line">        &#125;     </span><br><span class="line">&#125;)(<span class="string">"foo module"</span>);</span><br><span class="line"></span><br><span class="line">foo.identifty();<span class="comment">//foo module</span></span><br><span class="line">foo.change();</span><br><span class="line">foo.identifty();<span class="comment">//FOO MODULE</span></span><br></pre></td></tr></table></figure></p>
+<p>通过在模块实例内部保留对公共API对象的内部引用,可以从内部对模块实例进行修改,包括添加或者删除方法和属性已经修改他们的值</p>
+<h2 id="现代的模块机制">现代的模块机制</h2><p>这里简略实现下模块引入机制<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyModule=(<span class="function"><span class="keyword">function</span> <span class="title">Manager</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> modules=&#123;&#125;;</span><br><span class="line">    <span class="comment">//name 定义的模块名字</span></span><br><span class="line">    <span class="comment">//deps 需要加载引入的模块名字</span></span><br><span class="line">    <span class="comment">//impl 新的模块函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">define</span><span class="params">(name,deps,impl)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;deps.length;i++)&#123;</span><br><span class="line">            deps[i]=modules[deps[i]]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//存储模块 执行impl同时传递deps的返回值</span></span><br><span class="line">        modules[name]=impl.apply(impl,deps)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">(name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mdoules[name]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        define:define,</span><br><span class="line">        <span class="keyword">get</span>:<span class="keyword">get</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>使用就不演示了,比较简单的一段代码.<br>模块有两个主要特征</p>
+<ul>
+<li>为创建内部作用域而调用了一个包装函数;</li>
+<li>包装函数的返回值必须至少包括一个内部函数的引用,这样就会创建涵盖整个包装函数内部作用域的闭包</li>
+</ul>
+<h1 id="this">this</h1><p>首先需要明白 this并不是总是指向函数本身.this在任何情况下都不指向函数的词法作用域.this指向的是对象.在JavaScript内部,作用域的确和对象相似.可见的标识符都是它的数学.但是作用域”对象”无法通过JavaScript代码访问,它存在于JavaScript引擎内部</p>
+<h2 id="this到底是什么">this到底是什么</h2><p>this是运行时进行绑定的.并不是在编写时绑定的,它的上下文取决于函数调用时的各种条件.this的绑定和函数声明的位置没有任何关系.只取决于函数的调用方式.<br>当一个函数被调用时,会创建一个活动记录(上下文),这个记录会包含函数在哪里被调用(调用栈),函数的调用方法,传入的参数等信息,this就是记录其中的一个属性,会在函数执行的过程中用到</p>
+<h2 id="this的调用位置">this的调用位置</h2><p>调用位置就是函数在代码中被调用的位置而不是声明的位置.<br>最重要的是分析调用栈(就是为了到达当前执行位置所调用的所有函数)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//调用栈:baz</span></span><br><span class="line">    <span class="comment">//调用位置 全局作用域</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"baz"</span>);</span><br><span class="line">    bar();<span class="comment">// bar的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 调用栈 baz-&gt;bar</span></span><br><span class="line">    <span class="comment">// 调用位置在bar中</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"bar"</span>);</span><br><span class="line">    foo()<span class="comment">// foo的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 调用栈 bz-&gt;bar-&gt;foo</span></span><br><span class="line">    <span class="comment">// 调用位置 bar</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"foo"</span>);</span><br><span class="line">&#125;</span><br><span class="line">baz();<span class="comment">// baz的调用位置</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="this的默认绑定">this的默认绑定</h2><p>this默认是绑定在window下的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="this的隐式绑定">this的隐式绑定</h2><p>对象属性引用链中最有最顶层或者最后一层会影响调用位置<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span><span class="comment">&#123;</span><br><span class="line">    console.log(this.a);</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">var</span> <span class="title">obj2</span>=<span class="comment">&#123;</span><br><span class="line">    a:42,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">var</span> <span class="title">obj1</span>=<span class="comment">&#123;</span><br><span class="line">    a:2,</span><br><span class="line">    obj2:obj2</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">obj1</span>.<span class="title">obj2</span>.<span class="title">foo</span><span class="params">()</span>;</span><span class="comment">//42</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="隐式丢失">隐式丢失</h3><p>被隐式绑定的函数会丢失绑定对象,也就是说它会应用默认绑定.从而把this绑定到全局对象中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doFoo</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// fn其实是引用的foo</span></span><br><span class="line">    fn();<span class="comment">//调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="string">"oops,global"</span>;</span><br><span class="line">doFoo(obj.foo);<span class="comment">//"oops,global"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="this的显式绑定">this的显式绑定</h2><p>利用call和apply来修复this绑定对象</p>
+<h3 id="硬绑定">硬绑定</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    a:<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    foo.call(obj)</span><br><span class="line">&#125;</span><br><span class="line">bar();<span class="comment">//2</span></span><br><span class="line"><span class="comment">//硬绑定的bar不可能再修改它的this</span></span><br><span class="line">bar.call(<span class="built_in">window</span>);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>上述是封装了一层也就是在bar内强制性的绑定了一个对象 所以外界怎么修改bar的调用位置都不可能印象到foo函数<br>另外ES5的bind就是一种硬绑定</p>
+<h2 id="new绑定">new绑定</h2><p>使用new来调用函数,或者发生构造函数调用时,会自动执行下面的操作</p>
+<ol>
+<li>创建(或者说构造)一个全新的对象.</li>
+<li>这个新对象会被执行[[原型]]连接</li>
+<li>这个新对象会绑定到函数调用的this</li>
+<li>如果函数没有返回其他对象,那么new表达式中的函数调用会自动返回这个新对象</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a=a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar=<span class="keyword">new</span> foo(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bar.a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<h2 id="优先级">优先级</h2><p>1.函数是否在new中调用(new 绑定)?如果是的话this绑定的是新创建的对象<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> <span class="tag">var</span> = new <span class="function"><span class="title">foo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>函数是否通过call,apply(显式绑定)或者硬绑定调用?如果是的话,this绑定的是指定对象</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> bar = foo.<span class="function"><span class="title">call</span><span class="params">(obj2)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数是否在某个上下文对象中调用(隐式绑定)?如果是的话,this绑定的是那个上下文对象</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> bar=obj1.<span class="function"><span class="title">foo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果都不是的话,那么使用默认绑定.非严格模式下绑定到全局</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> bar=<span class="function"><span class="title">foo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果call,apply传递的是null那么实际上应用的是默认绑定规则</p>
+<h2 id="间接引用">间接引用</h2><p>间接引用最容易发生在赋值的时候<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span><span class="comment">&#123;</span><br><span class="line">    console.log(this.a)</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">var</span> <span class="title">a</span>=2;</span></span><br><span class="line"><span class="keyword">var</span> o=<span class="comment">&#123;a:3,foo:foo&#125;</span>;</span><br><span class="line"><span class="keyword">var</span> p=<span class="comment">&#123;a:4&#125;</span>;</span><br><span class="line">o.foo();<span class="comment">//3</span></span><br><span class="line">(p.foo=o.foo)();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<p>赋值表达式p.foo=o.foo的返回值是目标函数的引用,因此调用位置是foo而不是p.foo()或者o.foo().根据我们之前说过的这里会引用默认绑定</p>
+<h2 id="软绑定">软绑定</h2><p>硬绑定是把this强制性绑定到指定的对象(除了new),问题在于硬绑定会大大降低函数的灵活性.使用硬绑定之后就无法使用隐式绑定或者显式绑定来修改this<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Function</span>.prototype.softBind)&#123;</span><br><span class="line">    <span class="built_in">Function</span>.prototype.softBind=<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> fn=<span class="keyword">this</span>;<span class="comment">//当前函数</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> curried=[].slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> bound=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//如果不存在this或者默认的this指向全局 那么则动态设置this为传递进来的obj否则就默认绑定的this</span></span><br><span class="line">            <span class="keyword">return</span> fn.apply((!<span class="keyword">this</span>||<span class="keyword">this</span>===(<span class="built_in">window</span>||global))?obj:<span class="keyword">this</span>,curried.concate.apply(curried,<span class="built_in">arguments</span>))</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//继承fn</span></span><br><span class="line">        bound.prototype.Object.create(fn.prototype)</span><br><span class="line">        <span class="keyword">return</span> bound</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面来看看softBind是否实现了软绑定功能<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"name"</span>+<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj=&#123;name:<span class="string">"obj1"</span>&#125;,</span><br><span class="line">    obj2=&#123;name:<span class="string">"obj2"</span>&#125;,</span><br><span class="line">    obj3=&#123;name:<span class="string">"obj3"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fooObj=foo.softBind(obj);</span><br><span class="line">fooObj();<span class="comment">//name:obj</span></span><br><span class="line"></span><br><span class="line">obj2.foo=foo.softBind(obj);</span><br><span class="line">obj2.foo();<span class="comment">//name:obj2  //这里的this不等于window 所以绑定的是调用者也就是obj2</span></span><br><span class="line"></span><br><span class="line">fooObj.call(obj3);<span class="comment">//name:obj3 //这里的this等于window 所以应用的是obj</span></span><br><span class="line"></span><br><span class="line">setTimeout(obj2.foo,<span class="number">10</span>);<span class="comment">//name:obj  这里的this为window但是因为没有执行这个函数 所有这里引用的是obj 这里的代码可以这样分析</span></span><br><span class="line"></span><br><span class="line">obj2.foo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fn.apply((!<span class="keyword">this</span>||<span class="keyword">this</span>===(<span class="built_in">window</span>||global))?obj:<span class="keyword">this</span>,curried.concate.apply(curried,<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="this词法">this词法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self=<span class="keyword">this</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(self.a)</span><br><span class="line">        &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    a:<span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">foo.call(obj);<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>如果你经常编写this风格的代码,但是绝大部分都会至用self=this来否定this的机制,那你或许应该</p>
+<ol>
+<li>只使用词法作用域并完全抛弃错误this风格的代码(如module模式)</li>
+<li>完成采用this风格,在必要时使用bind(…),尽量避免使用self=this</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/01/微博开发笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs与微博开发笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="你不知道的JavaScript-上卷 读书笔记-1" data-title="你不知道的JavaScript-上卷 读书笔记-part1" data-url="http://emufan.com/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
