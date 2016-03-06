@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>你不知道的JavaScript-上卷-读书笔记-part3 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象关联[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的JavaScript-上卷-读书笔记-part3">
+<meta property="og:url" content="http://emufan.com/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象关联[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续">
+<meta property="og:updated_time" content="2016-03-06T07:23:23.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的JavaScript-上卷-读书笔记-part3">
+<meta name="twitter:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象关联[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 12px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 14px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-你不知道的JavaScript-上卷-读书笔记-part3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/" class="article-date">
+  	<time datetime="2016-03-06T07:21:19.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      你不知道的JavaScript-上卷-读书笔记-part3
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/" target="_blank" rel="external">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象关联">对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
+<h2 id="创建关联">创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=&#123;</span><br><span class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</span><br><span class="line">bar.something();<span class="comment">//tell me</span></span><br></pre></td></tr></table></figure>
+<p>Object.create会创建一个新对象(bar)并且把它关联到我们指定的对象(foo).<br>Object.create(null)会创建一个null[[prototype]]链接的对象,由于这个对象没有原型链,所以用instanceof无法进行判断,总是会返回false.这样无[[prototype]]的对象通常被称为”字典”,它们完全不会受到原型链的干扰,因此非常适合用来存储数据.</p>
+<a id="more"></a>
+<h3 id="Object的polyfill(兼容)代码">Object的polyfill(兼容)代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">Object</span>.create)&#123;</span><br><span class="line">    <span class="built_in">Object</span>.create=<span class="function"><span class="keyword">function</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">        f.prototype=o;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="行为委托">行为委托</h1><p>如果在第一个对象上没有找到需要的属性或者方法引用,引擎就会继续在[[prototype]]关联的对象上进行查找.同理.如果在后者中也没有找到需要的引用就会继续查找它的[[prototype]],以此类推.这一系列对象的链接被称为原型链.<br>换句话说.JavaScript这个机制的本质就是对象之间的关联关系.</p>
+<h2 id="委托理论">委托理论</h2><p>看代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Task=&#123;</span><br><span class="line">    setId:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id=ID</span><br><span class="line">    &#125;,</span><br><span class="line">    outputId:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.id)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//让XYZ委托Task</span></span><br><span class="line"><span class="keyword">var</span> XYZ=<span class="built_in">Object</span>.prototype(Task);</span><br><span class="line"></span><br><span class="line">XYZ.prepareTask=<span class="function"><span class="keyword">function</span>(<span class="params">ID,Label</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setID(ID);</span><br><span class="line">    <span class="keyword">this</span>.label=Label;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">XYZ.outpurTaskDetails=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.outputID();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.label);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ABC=<span class="built_in">Object</span>.create(Task);</span><br></pre></td></tr></table></figure></p>
+<p>这种编码风格称为”对象关联”,我们真正关系的只是XYZ对象(和ABC对象)委托了Task对象.<br>如果是类设计的话 那我们会在XYZ这个类上面重写一次output但是这对象关联风格上并不需要,我们只需要委托即可<br>对象关联风格还有一些不同之处</p>
+<ol>
+<li><p>在上述代码中,id与label数据成员都是直接存储在XYZ上(而不是Task).通常来说在委托设计中最好把状态保存在委托者(XYZ,ABC)而不是委托目标(Task)上.</p>
+</li>
+<li><p>在类设计模式中,我们故意让父类(Task)和子类(XYZ)中都有outputTask方法,这样就可以利用重写(多态)的优势.但是在委托行为中恰好相反:我们会尽量避免在原型链中的不同级别使用相同的命名,否则就需要消除引用歧异.</p>
+</li>
+<li><p>this.setID(ID);XYZ中的方法首先会寻找XYZ自身是否含有setID(),但是XYZ中并没有这个方法名,因此会通过原型链委托关联的Tas寻找.</p>
+</li>
+</ol>
+<p>在API接口设计中,委托最好在内部实现,不要直接暴露出去,在之前的例子中,我们并没有让开发者通过API直接调用XYZ.setID().相反我们把委托隐藏在了API内部</p>
+<h2 id="比较思维模式">比较思维模式</h2><p>下面是典型的(“原型”)面向对象风格<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">who</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.me=who;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo.prototype.identify=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"i am "</span>+<span class="keyword">this</span>.me;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params">who</span>)</span>&#123;</span><br><span class="line">    Foo.call(<span class="keyword">this</span>,who);<span class="comment">//耦合了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Bar.prototype=<span class="built_in">Object</span>.create(Foo.protorype);</span><br><span class="line"></span><br><span class="line">Bar.prototype.speak=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"hello"</span>+<span class="keyword">this</span>.identify()+<span class="string">"."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b1=<span class="keyword">new</span> Bar(<span class="string">"b1"</span>);</span><br><span class="line"><span class="keyword">var</span> b2=<span class="keyword">new</span> Bar(<span class="string">"b2"</span>);</span><br><span class="line"></span><br><span class="line">b1.speak();</span><br><span class="line">b2.speak();</span><br></pre></td></tr></table></figure></p>
+<p>子类Bar继承了父类Foo,然后生成了b1和b2两个实例.b1委托了Bar.protorype.后者委托了Foo.protorype</p>
+<p>下面来看如何使用对象关联风格来编写功能完全相同的代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Foo=&#123;</span><br><span class="line">    init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.me=who</span><br><span class="line">    &#125;,</span><br><span class="line">    identify:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"i am"</span>+<span class="keyword">this</span>.me</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Bar=<span class="built_in">Object</span>.create(Foo);</span><br><span class="line"></span><br><span class="line">Bar.speak=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">"hello"</span>+<span class="keyword">this</span>.identify()+<span class="string">"."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b1=<span class="built_in">Object</span>.create(Bar);</span><br><span class="line">b1.init(<span class="string">"b1"</span>);</span><br><span class="line"><span class="keyword">var</span> b2=<span class="built_in">Object</span>.create(Bar);</span><br><span class="line">b2.init(<span class="string">"b2"</span>);</span><br><span class="line">b1.speak();</span><br><span class="line">b2.speak();</span><br></pre></td></tr></table></figure></p>
+<p>这段代码中,我们同样利用原型链把b1委托给了Bar并把Bar委托给了Foo.我们只是把对象关联起来,并不需要哪些复杂的模仿类行为(构造函数,原型,new)</p>
+<h1 id="类与对象">类与对象</h1><h2 id="控件”类”">控件”类”</h2><p>下面用纯JavaScript实现类风格的代码<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// 父类</span><br><span class="line"><span class="keyword">function</span> Widget(width,height)&#123;</span><br><span class="line">    this.width=width||<span class="number">50</span>;</span><br><span class="line">    this.height=height||<span class="number">50</span>;</span><br><span class="line">    this.<span class="variable">$elem</span>=null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget.protorype.render=<span class="keyword">function</span>(<span class="variable">$where</span>)&#123;</span><br><span class="line">    if(this.<span class="variable">$elem</span>)&#123;</span><br><span class="line">        this.<span class="variable">$elem</span>.css(&#123;</span><br><span class="line">            width:this.width+<span class="string">"px"</span>,</span><br><span class="line">            height:this.height+<span class="string">"px"</span>,    </span><br><span class="line">        &#125;).appendTo(<span class="variable">$where</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//子类</span><br><span class="line"><span class="keyword">function</span> Button(width,height,label)&#123;</span><br><span class="line">    //调用<span class="string">"super"</span>构造函数</span><br><span class="line">    Widget.call(this,width,height);</span><br><span class="line">    this.label=label||<span class="string">"Default"</span>;</span><br><span class="line"></span><br><span class="line">    this.<span class="variable">$elem</span>=$(<span class="string">"\&lt;button\&gt;"</span>).text(this.label)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//让Button继承<span class="string">"Widget"</span></span><br><span class="line">Button.prototype=Object.create(Widget.protorype)</span><br><span class="line"></span><br><span class="line">//重写render(..)</span><br><span class="line">Button.protorype.render=<span class="keyword">function</span>(<span class="variable">$where</span>)&#123;</span><br><span class="line">    //<span class="string">"super"</span>调用</span><br><span class="line">    Widget.prototype.render.call(this,<span class="variable">$where</span>);</span><br><span class="line">    this.<span class="variable">$elem</span>.click(this.onClick.Bind(this))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Button.prototype.onClcik=<span class="keyword">function</span>()&#123;</span><br><span class="line">    console.log(<span class="string">"Button"</span>+this.label+<span class="string">"clicked"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(document).ready(<span class="keyword">function</span>()&#123;</span><br><span class="line">    var <span class="variable">$body</span>=$(document.body);</span><br><span class="line">    var btn1=new Button(<span class="number">125</span>,<span class="number">30</span>,<span class="string">"Hello"</span>);</span><br><span class="line">    var btn2=new Button(<span class="number">150</span>,<span class="number">40</span>,<span class="string">"World"</span>);</span><br><span class="line"></span><br><span class="line">    btn1.render(<span class="variable">$body</span>);</span><br><span class="line">    btn2.render(<span class="variable">$body</span>);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在面向对象设计模式中,我们需要在父类中定义基础的render,然后在子类中重写它,子类并不会替换基础的render,只是添加一些按钮特有的行为.</p>
+<h2 id="委托控件对象">委托控件对象</h2><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">var Widget=&#123;</span><br><span class="line">    init:function()&#123;</span><br><span class="line">        this.width=width||<span class="number">50</span>;</span><br><span class="line">        this.height=height||<span class="number">50</span>;</span><br><span class="line">        this.<span class="variable">$elem</span>=null;</span><br><span class="line">    &#125;,</span><br><span class="line">    insert:function()&#123;</span><br><span class="line">        if(this.<span class="variable">$elem</span>)&#123;</span><br><span class="line">        this.<span class="variable">$elem</span>.css(&#123;</span><br><span class="line">                width:this.width+<span class="string">"px"</span>,</span><br><span class="line">                height:this.height+<span class="string">"px"</span>,    </span><br><span class="line">            &#125;).appendTo(<span class="variable">$where</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var Button=Object.create(Widget);</span><br><span class="line"></span><br><span class="line">Button.setup=<span class="keyword">function</span>(width,height,label)&#123;</span><br><span class="line">    // 委托调用</span><br><span class="line">    this.init(width,height);</span><br><span class="line">    this.label=label||<span class="string">"Default"</span>;</span><br><span class="line">    this.<span class="variable">$elem</span>.click(this.onClick.Bind(this))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Button.build=<span class="keyword">function</span>(<span class="variable">$where</span>)&#123;</span><br><span class="line">    //委托调用</span><br><span class="line">    this.insert(<span class="variable">$where</span>)</span><br><span class="line">    this.<span class="variable">$elem</span>.click(this.onClick.bind(this));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Button.onClick=<span class="keyword">function</span>(evt)&#123;</span><br><span class="line">   console.log(<span class="string">"Button"</span>+this.label+<span class="string">"clicked"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(document).ready(<span class="keyword">function</span>()&#123;</span><br><span class="line">    var <span class="variable">$body</span>=$(document.body);</span><br><span class="line">    var btn1=Object.create(Button);</span><br><span class="line">    btn1.setup(<span class="number">125</span>,<span class="number">30</span>,<span class="string">"Hello"</span>);</span><br><span class="line"></span><br><span class="line">    var btn2=Object.create(Button);</span><br><span class="line">    btn2.setup(<span class="number">150</span>,<span class="number">40</span>,<span class="string">"World"</span>);</span><br><span class="line"></span><br><span class="line">    btn1.build(<span class="variable">$body</span>);</span><br><span class="line">    btn2.build(<span class="variable">$body</span>);   </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用对象关联风格来编写代码时不需要把Widget和Button当做父类和子类.相反,Widget只是一个对象,包含一组通用的函数,任何类型的控件都可以委托,Button同样只是一个对象.</p>
+<p>从设计模式的角度来说,我们并没有像类一样在两个对象中都定义了相同的方法名Render()相反,我们定义了两个更具有描述性的方法名.<br>从语法角度来说,我们统一没有使用任何的构造函数,.protorype或者new,实际上也没有必要使用它们.</p>
+<p>但是之前的一次调用<code>new Button()</code>变成了两次 <code>var btn1=Object.create(Button);btn1.setup(125,30,&quot;Hello&quot;);</code><br>使用类构造函数的话,需要在同一个步骤实现构造和初始化,而然许多情况下把这两步分开更加灵活<br><strong>对象关联可以更好的支持关注分离原则,创建和初始化并不需要合并为一个步骤</strong></p>
+<h1 id="更简洁的设计">更简洁的设计</h1><p>在传统类的设计模式中,我们会把基础的函数定义在名为Controller的类中,然后派生两个子类LoginController和AuthController,它们都继承自Controller并且重写了一些基础行为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Controller</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.errors=[];</span><br><span class="line">&#125;;</span><br><span class="line">Controller.prototype.showDialog=<span class="function"><span class="keyword">function</span>(<span class="params">title,msg</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//给用户显示标题和消息</span></span><br><span class="line">&#125;;</span><br><span class="line">Controller.prototype.success=<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.showDialog(<span class="string">"Sucess"</span>,msg);</span><br><span class="line">&#125;;</span><br><span class="line">Controller.prototype.failure=<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.errors.push(err);</span><br><span class="line">    <span class="keyword">this</span>.showDialog(<span class="string">"Error"</span>,err)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">LoginController</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    Controller.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//把子类关联到父类</span></span><br><span class="line">LoginController.prototype=<span class="built_in">Object</span>.create(Controller.prototype);</span><br><span class="line"></span><br><span class="line">LoginController.prototype.getUser=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(<span class="string">"login_username"</span>).value;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">LoginController.prototype.getPassword=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(<span class="string">"login_password"</span>).value</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LoginController.prototype.validateEntry=<span class="function"><span class="keyword">function</span>(<span class="params">user,pw</span>)</span>&#123;</span><br><span class="line">    user=user||<span class="keyword">this</span>.getUser();</span><br><span class="line">    pw=pw||<span class="keyword">this</span>.getPassword();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!(user&amp;&amp;pw))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.failure(<span class="string">"please enter a username &amp; password!"</span>)</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(user.length&lt;<span class="number">5</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.failure(<span class="string">"Password must be 5+ characters"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果执行到这里说明通过验证</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写基础的failure()</span></span><br><span class="line">LoginController.prototype.failure=<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//"super"调用</span></span><br><span class="line">    Controller.prototype.failure.call(<span class="keyword">this</span>,<span class="string">"Login invalid:"</span>+err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AuthController</span>(<span class="params">login</span>)</span>&#123;</span><br><span class="line">    Controller.call(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//合成</span></span><br><span class="line">    <span class="keyword">this</span>.login=login</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把子类关联到父类</span></span><br><span class="line">AuthController.prototype=<span class="built_in">Object</span>.create(Controller.protorype)</span><br><span class="line"></span><br><span class="line">AuthController.protorype.server=<span class="function"><span class="keyword">function</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.ajax(&#123;</span><br><span class="line">        url:url,</span><br><span class="line">        data:data</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">AuthController.prototype.checkAuth=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user=<span class="keyword">this</span>.login.getUser;</span><br><span class="line">    <span class="keyword">var</span> pw=<span class="keyword">this</span>.login.getPassword();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.login.validateEntry(user,pw))&#123;</span><br><span class="line">        <span class="keyword">this</span>.server(<span class="string">"/check-auth"</span>,&#123;</span><br><span class="line">            user:user,</span><br><span class="line">            pw:pw    </span><br><span class="line">        &#125;).then(<span class="keyword">this</span>.success.bind(<span class="keyword">this</span>)).fail(<span class="keyword">this</span>.failure.bind(<span class="keyword">this</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写基础的success()</span></span><br><span class="line">AuthController.prototype.success=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// "super"调用</span></span><br><span class="line">    Controller.prototype.success.call(<span class="keyword">this</span>,<span class="string">"Authenticated!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重写基础的failure()</span></span><br><span class="line">AuthController.prototype.failure=<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//"super"调用</span></span><br><span class="line">    Controller.prototype.failure.call(<span class="keyword">this</span>,<span class="string">"Auth Failed:"</span>+err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> auth=<span class="keyword">new</span> AuthController();</span><br><span class="line">auth.checkAuth(<span class="keyword">new</span> LoginController());<span class="comment">//除了继承我们还需要合成</span></span><br></pre></td></tr></table></figure></p>
+<p>所有控制器共享的基础行为是success(),failure和showDialog.子类LoginController和AuthController通过重写failure()和success来扩展默认基础类行为.此外,AuthController需要一个LoginController的实例来进行登录表单交互,因此这个实例变成了一个数据属性.<br>另一个需要注意的是我们在基础的基础上进行了一些合成.AuthController需要使用LoginController,因此我们实例化后者并用一个类的成员属性this.login来引用它,这样AuthController就可以调用LoginController的行为.</p>
+<h1 id="反类设计">反类设计</h1><p>对象关联来设计<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LoginController=&#123;</span><br><span class="line">    errors=[],</span><br><span class="line">    getUser:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(<span class="string">"login_username"</span>).value</span><br><span class="line">    &#125;,</span><br><span class="line">    getPassword:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(<span class="string">"login_password"</span>).value</span><br><span class="line">    &#125;,</span><br><span class="line">    validateEntry:<span class="function"><span class="keyword">function</span>(<span class="params">user,pw</span>)</span>&#123;</span><br><span class="line">        user=user||<span class="keyword">this</span>.getUser();</span><br><span class="line">        pw=pw||<span class="keyword">this</span>.getPassword();</span><br><span class="line">        <span class="keyword">if</span>(!(user&amp;&amp;pw))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.failure&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.failure(<span class="string">"Please enter a username &amp; password"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(user.length&lt;<span class="number">5</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.failure(<span class="string">"Password must be 5+ characters"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    showDialog:<span class="function"><span class="keyword">function</span>(<span class="params">title,msg</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//给用户显示标题和消息</span></span><br><span class="line">    &#125;,</span><br><span class="line">    failure:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.errors.push(err);</span><br><span class="line">        <span class="keyword">this</span>.showDialog(<span class="string">"Error"</span>,<span class="string">"Login invalid"</span>+err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//让 AuthController委托LoginController</span></span><br><span class="line"><span class="keyword">var</span> AuthController=<span class="built_in">Object</span>.create(LoginController);</span><br><span class="line"></span><br><span class="line">AuthController.errors=[];</span><br><span class="line">AuthController.checkAuth=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user=<span class="keyword">this</span>.getUser();</span><br><span class="line">    <span class="keyword">var</span> pw=<span class="keyword">this</span>.getPassword();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.validateEntry(user,pw))&#123;</span><br><span class="line">        <span class="keyword">this</span>.server(<span class="string">"/check-auth"</span>,&#123;</span><br><span class="line">            user:user,</span><br><span class="line">            pw:pw</span><br><span class="line">        &#125;).then(<span class="keyword">this</span>.accepted.bind(<span class="keyword">this</span>)).fail(<span class="keyword">this</span>.rejected.bind(<span class="keyword">this</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">AuthController.server=<span class="function"><span class="keyword">function</span>(<span class="params">url,data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $.ajax(&#123;</span><br><span class="line">        url:url,</span><br><span class="line">        data:data</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">AuthController.accepted=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.showDialog(<span class="string">"Success"</span>,<span class="string">"Authenticated!"</span>)</span><br><span class="line">&#125;</span><br><span class="line">AuthController.rejected=<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.showDialog(<span class="string">"Auth Failed"</span>+err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于AuthController只是一个对象,LoginController也一样.因为我们不需要实例化,只需要一行代码 <code>AuthController.checkAuth()</code><br>借助对象关联可以简单的向委托链上添加一个或者多个对象,而且同样不需要实例化<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> controller1=<span class="built_in">Object</span>.create(AuthController);</span><br><span class="line"><span class="keyword">var</span> controller2=<span class="built_in">Object</span>.create(AuthController);</span><br></pre></td></tr></table></figure></p>
+<p>在行为委托模式中,AuthController和LoginController只是对象,他们之间是兄弟关系,并不是父类和子类关系,代码中AuthController委托了LoginController,反向委托也没问题.<br>这样我们避免了需要新建一个controller来共享两个实体之间的行为,因为委托足以满足我们需要的功能,并且也不需要实例化,因为它们根本不是类,他们只是对象,此外,我们也不需要合成,因为两个对象可以通过委托进行合作<br>我们用一种极其简单的设计实现了相同的功能,这就是对象关联风格代码和行为委托设计模式的力量</p>
+<h1 id="笔记总结">笔记总结</h1><p>..码字好累..这本书特别好,尤其是对象关联风格模式代码.后续的博文我会尝试着用这种风格去实现设计模式</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">你不知道的JavaScript-上卷 读书笔记-part2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="你不知道的JavaScript-上卷-读书笔记-part3" data-title="你不知道的JavaScript-上卷-读书笔记-part3" data-url="http://emufan.com/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

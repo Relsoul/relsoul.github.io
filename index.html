@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16.67px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18.33px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18.33px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 11.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 12px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 14px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
 					</div>
 
 				</section>
@@ -208,6 +208,148 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-你不知道的JavaScript-上卷-读书笔记-part3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/" class="article-date">
+  	<time datetime="2016-03-06T07:21:19.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/">你不知道的JavaScript-上卷-读书笔记-part3</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象关联">对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
+<h2 id="创建关联">创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=&#123;</span><br><span class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</span><br><span class="line">bar.something();<span class="comment">//tell me</span></span><br></pre></td></tr></table></figure>
+<p>Object.create会创建一个新对象(bar)并且把它关联到我们指定的对象(foo).<br>Object.create(null)会创建一个null[[prototype]]链接的对象,由于这个对象没有原型链,所以用instanceof无法进行判断,总是会返回false.这样无[[prototype]]的对象通常被称为”字典”,它们完全不会受到原型链的干扰,因此非常适合用来存储数据.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-你不知道的JavaScript-上卷-读书笔记-part2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/" class="article-date">
+  	<time datetime="2016-03-04T14:14:52.000Z" itemprop="datePublished">2016-03-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/">你不知道的JavaScript-上卷 读书笔记-part2</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象">对象</h1><h2 id="类型">类型</h2><p>JavaScript有六种主要类型</p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>object</li>
+</ul>
+<p>简单基本类型(string,number,boolean,null,undefined)本身并不是对象,null有时候会被当做一种对象类型,但其实这是一个语言本身的bug,typeof null 的时候会返回字符串”object”,实际上null本身是基本类型.<br>JavaScript万物并不都是对象.<br>JavaScript本身有许多特殊的对象子类型,我们可以称之为复杂基本类型.<br>函数就是对象的一个子类型.数组也是对象的一种类型,具备一些额外的行为.</p>
+<h3 id="JavaScript内置对象">JavaScript内置对象</h3><p>JavaScript还有一些对象子类型,通常被称为内置对象</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Object</li>
+<li>Function</li>
+<li>Array</li>
+<li>Date</li>
+<li>RegExp</li>
+<li>Error</li>
+</ul>
+<p>在JavaScript中,这些内置函数可以当做构造函数.JavaScript在访问对象属性的时候会自动把字符串字面量转换为一个对象 比如</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-你不知道的JavaScript-上卷 读书笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -679,119 +821,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JavaScript设计模式笔记-亨元模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/15/JavaScript设计模式笔记-亨元模式/" class="article-date">
-  	<time datetime="2016-02-15T12:11:45.000Z" itemprop="datePublished">2016-02-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/15/JavaScript设计模式笔记-亨元模式/">JavaScript设计模式笔记-亨元模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义">定义</h1><p>亨元模式是一种用于性能优化的模式,亨元模式的核心是运用共享技术来有效的支持大量细粒度的对象.</p>
-<h1 id="12-1_初始亨元模式">12.1 初始亨元模式</h1><p>假设有个内衣厂 有50种男式内衣和50种女式内衣,然后找男生和女生各自穿上一张照片拍照,不使用亨元模式的情况下.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Model=<span class="function"><span class="keyword">function</span>(<span class="params">sex,underwear</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sex=sex;</span><br><span class="line">    <span class="keyword">this</span>.underwear=underwear;</span><br><span class="line">&#125;</span><br><span class="line">Model.prototype.takePhoto=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sex="</span>+<span class="keyword">this</span>.sex+<span class="string">"underwear"</span>+<span class="keyword">this</span>.underwear)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">50</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"male"</span>,i)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">1</span>;j&lt;=<span class="number">50</span>;j++)&#123;</span><br><span class="line">    <span class="keyword">var</span> maleModel=<span class="keyword">new</span> Model(<span class="string">"female"</span>,j)</span><br><span class="line">    maleModel.takePhoto();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>每次要得到一张照片都需要传递sex和underwear参数.上述的例子new了100个对象…如果数据量太大 就瞬间爆炸了.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/15/JavaScript设计模式笔记-亨元模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-情人节-程序猿如何new好对象-about-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/" class="article-date">
-  	<time datetime="2016-02-14T10:25:31.000Z" itemprop="datePublished">2016-02-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/">情人节,程序猿如何new好对象-about JavaScript</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="情人节">情人节</h1><p>在今天还在看这篇文章的各位单身汪们,大家情人节..星期日好.为什么不说情人节?对于单身汪来说这不就是个星期天吗？哦对了.还有就是今天各位单身汪都上班了吧,今天真是一个值得庆祝的日子.一边要受到恩爱狗带来的会心一击,一边受到上班带来的debuff.请大家务必要坚持下去,生活这么的美好.何必要跳楼呢?</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/14/情人节-程序猿如何new好对象-about-JavaScript/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

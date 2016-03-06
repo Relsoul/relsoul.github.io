@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16.67px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18.33px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18.33px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 11.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 12px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 14px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
 					</div>
 
 				</section>
@@ -208,6 +208,125 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JavaScript设计模式笔记-代理模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/01/JavaScript设计模式笔记-代理模式/" class="article-date">
+  	<time datetime="2016-02-01T12:33:26.000Z" itemprop="datePublished">2016-02-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/01/JavaScript设计模式笔记-代理模式/">JavaScript设计模式笔记-代理模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义">定义</h1><p>代码模式是为一个对象提供一个代用品或者占位符,以便控制对它的访问.<br>比如最常见的就是生活中的经纪人与明星.<br>代理模式的关键在于,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制这个对象的访问,客户实际上访问的是替身对象。</p>
+<h1 id="6-1_第一个例子——小明追MM方式">6.1 第一个例子——小明追MM方式</h1><p>因为小明胆子小不敢直接送花给MM于是让MM与他的的好友B来送给MM<br>先来看看不用代理模式的情况<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Flower=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> xiaoming=&#123;</span><br><span class="line">    sendFlower:<span class="function"><span class="keyword">function</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> flower=<span class="keyword">new</span> Flower();</span><br><span class="line">        target.receiveFlower(flower)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> A=&#123;</span><br><span class="line">    receiveFlower:<span class="function"><span class="keyword">function</span>(<span class="params">flower</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'收到花'</span>+flower)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xiaoming.sendFlower(A)</span><br></pre></td></tr></table></figure></p>
+<p>接下来我们引入代理B,既小明通过B来送给A花</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式笔记-代理模式/">JavaScript设计模式笔记-代理模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/01/JavaScript设计模式笔记-代理模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript设计模式笔记-策略模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/31/JavaScript设计模式笔记-策略模式/" class="article-date">
+  	<time datetime="2016-01-31T13:21:47.000Z" itemprop="datePublished">2016-01-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/31/JavaScript设计模式笔记-策略模式/">JavaScript设计模式笔记-策略模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义">定义</h1><p>策略模式的定义是:定义一系列算法,把它们一个个封装起来,并且使它们可以互相替换.<br>通俗来讲就是用一个盒子装很多颗糖果 如果有需要了那么让一个人去拿 这样如果我们想增加不同的糖果只需要往盒子里面放就行了</p>
+<h1 id="5-1_使用策略模式计算奖金">5.1 使用策略模式计算奖金</h1><p>绩效S的人年终奖有4倍工资,A的是3倍,B的是2倍</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/31/JavaScript设计模式笔记-策略模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-JavaScript设计模式笔记-单例模式" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -692,127 +811,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-JavaScript深入浅出-this" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/14/JavaScript深入浅出-this/" class="article-date">
-  	<time datetime="2016-01-14T04:20:41.000Z" itemprop="datePublished">2016-01-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/JavaScript深入浅出-this/">JavaScript深入浅出-this</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>this跟作用域并没有什么关系,this指向的是调用者！<br>自己已经踏入这个坑好多次了…总是以为this跟作用域有关系.</p>
-<h1 id="全局的this(浏览器)">全局的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//window</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>===<span class="built_in">window</span>)<span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a=<span class="number">37</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)<span class="comment">//37</span></span><br></pre></td></tr></table></figure>
-<h1 id="一般函数的this(浏览器)">一般函数的this(浏览器)</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f1()===<span class="built_in">window</span><span class="comment">//true,global object</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="pi">    'use strict'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line">f2()===<span class="literal">undefined</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/14/JavaScript深入浅出-this/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript深入浅出-闭包" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/14/JavaScript深入浅出-闭包/" class="article-date">
-  	<time datetime="2016-01-14T03:58:15.000Z" itemprop="datePublished">2016-01-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/14/JavaScript深入浅出-闭包/">JavaScript深入浅出-闭包</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="例子">例子</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> localVal;</span><br><span class="line">&#125;</span><br><span class="line">outer()<span class="comment">//30</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> localVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func=outer();</span><br><span class="line">func();<span class="comment">//30;</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">// all are 4!</span></span><br><span class="line">        &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;</span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">//随机1-4出现 因为异步的关系,但是并不是4</span></span><br><span class="line">        &#125;,<span class="number">1000</span>)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript深入浅出/">JavaScript深入浅出</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/14/JavaScript深入浅出-闭包/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>你不知道的JavaScript-上卷 读书笔记-part2 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象类型JavaScript有六种主要类型
+
+string
+number
+boolean
+null
+undefined">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的JavaScript-上卷 读书笔记-part2">
+<meta property="og:url" content="http://emufan.com/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象类型JavaScript有六种主要类型
+
+string
+number
+boolean
+null
+undefined">
+<meta property="og:updated_time" content="2016-03-06T07:23:32.440Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的JavaScript-上卷 读书笔记-part2">
+<meta name="twitter:description" content="书评豆瓣这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it
+对象类型JavaScript有六种主要类型
+
+string
+number
+boolean
+null
+undefined">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 12px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 16px;">JavaScript深入浅出</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 18px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 18px;">nodejs</a> <a href="/tags/socket-io/" style="font-size: 12px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 12px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/读书笔记/" style="font-size: 14px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-你不知道的JavaScript-上卷-读书笔记-part2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/" class="article-date">
+  	<time datetime="2016-03-04T14:14:52.000Z" itemprop="datePublished">2016-03-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      你不知道的JavaScript-上卷 读书笔记-part2
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/" target="_blank" rel="external">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象">对象</h1><h2 id="类型">类型</h2><p>JavaScript有六种主要类型</p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>object</li>
+</ul>
+<p>简单基本类型(string,number,boolean,null,undefined)本身并不是对象,null有时候会被当做一种对象类型,但其实这是一个语言本身的bug,typeof null 的时候会返回字符串”object”,实际上null本身是基本类型.<br>JavaScript万物并不都是对象.<br>JavaScript本身有许多特殊的对象子类型,我们可以称之为复杂基本类型.<br>函数就是对象的一个子类型.数组也是对象的一种类型,具备一些额外的行为.</p>
+<h3 id="JavaScript内置对象">JavaScript内置对象</h3><p>JavaScript还有一些对象子类型,通常被称为内置对象</p>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Object</li>
+<li>Function</li>
+<li>Array</li>
+<li>Date</li>
+<li>RegExp</li>
+<li>Error</li>
+</ul>
+<p>在JavaScript中,这些内置函数可以当做构造函数.JavaScript在访问对象属性的时候会自动把字符串字面量转换为一个对象 比如</p>
+<a id="more"></a>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">str</span>=<span class="string">"hello"</span></span><br><span class="line"><span class="keyword">str</span>.length;<span class="comment">//转换为String对象</span></span><br></pre></td></tr></table></figure>
+<p>之所以能够访问到属性和方法,是因为引擎把字面量转换为String对象,所以可以访问属性和方法.</p>
+<h2 id="内容">内容</h2><p>存储在对象容器内部的是这些属性的名称,他们就像指针(从技术角度来说就是引用)一样,指向这些值的真正存储位置.<br>实际上这里要补充一些<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=&#123;a:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> <span class="built_in">c</span>=b.a;</span><br><span class="line"><span class="built_in">c</span>=<span class="number">4</span>;</span><br><span class="line">console.log(b);<span class="comment">//&#123;a:1&#125;</span></span><br><span class="line">console.log(<span class="built_in">c</span>);<span class="comment">//4</span></span><br></pre></td></tr></table></figure></p>
+<p>首先我们知道基本类型,string,number,boolean这些是单独开辟一个空间存储的 就算引用也不是说引用地址而是直接开辟一块新的空间,但是对象不同了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var s=&#123;a:<span class="number">233</span>&#125;;</span><br><span class="line">var vv=s;</span><br><span class="line">vv.a=<span class="number">555</span>;</span><br><span class="line">console.<span class="built_in">log</span>(vv.a);<span class="comment">//555</span></span><br><span class="line">console.<span class="built_in">log</span>(s.a);<span class="comment">//555</span></span><br></pre></td></tr></table></figure></p>
+<p>对象仅仅是引用,包括你在函数中传参也是一样的<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="comment">&#123;a:1&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setObj</span><span class="params">(o)</span><span class="comment">&#123;</span><br><span class="line">    o.a=444;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">setObj</span><span class="params">(obj)</span></span><br><span class="line"><span class="title">console</span>.<span class="title">log</span><span class="params">(obj)</span>;</span><span class="comment">//&#123;a:444&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>在对象中,属性名永远都是字符串,如果你使用string(字面量)以外的其他值作为属性名,那它首先会被转换为一个字符串.即使是数字也不例外.虽然在数组下标中使用的的确是数组,但是在对象属性名中数字会被转换为字符串</p>
+<h2 id="属性与方法">属性与方法</h2><p>从技术角度来说,函数永远不会”属于”一个对象,所以把对象内部引用的函数称为”方法”似乎有点不妥.就算是this也仅仅是在运行的时候根据调用位置动态绑定的.所以函数与对象的关系最多也就是简介关系.<br>即使在对象中声明一个函数表达式,这个函数也不会”属于”这个对象——它们只是对于相同函数的多个引用.<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var myObject=&#123;</span><br><span class="line">    foo:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        console.log(<span class="string">"foo"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var someFoo=myObject.foo;</span><br><span class="line">someFoo;//<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">myObject.foo;//<span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="数组">数组</h3><p>以字符串的形式往数组中添加属性length是不会变的.但是属性会存在<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> myArray</span>=[<span class="string">"hello"</span>,<span class="number">2</span>,<span class="string">"world"</span>];</span><br><span class="line">myArray.bar=<span class="string">"bar"</span></span><br><span class="line">myArray.length;<span class="comment">//3</span></span><br><span class="line">myArray.bar;<span class="comment">//bar</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="对象的复制">对象的复制</h2><p>通过上面我们可以看到,js的对象默认都是引用的,但是基本属性都是直接开辟内存不会去引用.来看这一段代码<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var b=&#123;arr:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],s:<span class="string">"str"</span>,<span class="keyword">bool</span>:<span class="literal">true</span>&#125;</span><br><span class="line">var c=b.arr;</span><br><span class="line">c.push(<span class="number">6</span>);</span><br><span class="line">b;<span class="comment">//&#123;arr:[1,2,3,4,5,6],s:"str",bool:true&#125;</span></span><br><span class="line">c;<span class="comment">//[1,2,3,4,5,6]</span></span><br><span class="line"></span><br><span class="line">var z=&#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(var k in b)&#123;</span><br><span class="line">   z[k]=b[k]</span><br><span class="line">&#125;</span><br><span class="line">z.s=<span class="string">"zStr"</span>;</span><br><span class="line">z.<span class="keyword">bool</span>=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">z.arr.push(<span class="number">7</span>);</span><br><span class="line">z;<span class="comment">//&#123;arr:[1,2,3,4,5,6,7],s:"zStr",bool:false&#125;</span></span><br><span class="line">c;<span class="comment">//[1,2,3,4,5,6,7]</span></span><br><span class="line">b;<span class="comment">//&#123;arr:[1,2,3,4,5,6,7],s:"str",bool:true&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>但是如果我们直接访问对象中的属性,那么访问到的就是地址而不是引用了.再来看一段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b=&#123;arr:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],s:<span class="string">"str"</span>,bool:<span class="literal">true</span>&#125;</span><br><span class="line"><span class="keyword">var</span> over=&#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> b)&#123;</span><br><span class="line"> <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(b[k])==<span class="string">"[object Array]"</span>)&#123;</span><br><span class="line">        b[k].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e,i</span>)</span>&#123;over[k]=[];over[k][i]=e&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">over.arr.push(<span class="number">666</span>)</span><br><span class="line">over.arr;<span class="comment">//arr:[1,2,3,4,5,666]</span></span><br><span class="line">b.arr;<span class="comment">//arr:[1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
+<p>还有一种复制方法,那就是利用JSON来解析出一个一模一样的对象,但是这样做必须要保证这段JSON文件是安全的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newObj=<span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(b))</span><br><span class="line">newObj.arr.push(<span class="number">7777</span>);</span><br><span class="line">newObj.arr;<span class="comment">//arr:[1,2,3,4,5,7777]</span></span><br><span class="line">b.arr;<span class="comment">//arr:[1,2,3,4,5]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="存在性">存在性</h2><p>我们可以在不访问属性值的情况下判断对象中是否存在这个属性<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> myObject</span>=&#123;</span><br><span class="line">    a:<span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">(<span class="string">"a"</span> <span class="keyword">in</span> myObject);<span class="comment">//true</span></span><br><span class="line">(<span class="string">"b"</span> <span class="keyword">in</span> myObject);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line">myObject.hasOwnProperty(<span class="string">"a"</span>);<span class="comment">//true</span></span><br><span class="line">myObject.hasOwnProperty(<span class="string">"b"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p>in操作符会检查属性是否在对象以及[[Prototype]]原型链中.相比之下,hasOwnProperty(…)只会检查属性是否在myObject对象中,不会检查[[prototype]]链</p>
+<h1 id="类">类</h1><p>类/继承描述了一种代码的组织结构形式——一种在软件中对真实世界中问题领域建模方法.<br>面向对象编程强调的是数据与操作数据行为本质上是互相关联的(当然,不同的数据有不同的行为),因此好的设计就是把数据以及和它相关的行为打包(或者说封装)起来,这在正式计算机科学中有时被称为数据结构.</p>
+<p>举例来说,用来表示一个单词或者短语的一串字符通常被称为字符串,字符就是数据,但是你关心的往往不是数据是什么.而是可以对数据做什么.所有可以应用在这种数据上的行为(计算长度,添加数据,搜索)都被设计成String类的方法.<br>所有字符串都是String类的一个实例,也就是说它是一个包裹(封装),包含字符数据和我们可以应用在数据上的函数.</p>
+<p>“汽车”可以被看做”交通工具”的一种特例,后者是更广泛的类.<br>我们可以在软件中定义一个Vehicle类和Car类来对这种关系进行建模.</p>
+<p>Vehicle的定义可能是包含推进器(引擎),载入能力等等,这些都是Vehicle的行为.我们在Vehicle中定义的是(几乎)所有类型的交通工具(飞机,火车,汽车)都包含的东西.在我们的软件中,对不同交通工具重复定义”载入能力”是没有意义的.相反,我们只在Vehicle中定义一次,定义Car时,只要声明它继承(或者扩展)了Vehicle这个基础定义就行,Car的定义就是对通用Vehicle定义的特殊化.</p>
+<p>虽然Vehicle和Car会定义相同的方法,但是在实例中的数据可能是不同的,比如每辆车独一无二的VIN(车辆识别号码)</p>
+<p>类的另一个核心概念就是多态.这个概念是说父类的通用行为可以被子类用更特殊的行为重写.实际上相对多态性允许我们重写行为中引用基础行为<br>类也是一种设计模式.<br>一个类就是一张蓝图.为了获得真正可以交互的对象,我们必须按照类来建造(实例化)一个东西，这个东西通常被称为实例,有需要的话,我们可以直接在实例上调用方法并访问其所有的公共数据属性</p>
+<blockquote>
+<p>写到这里,我突然想到了对自己某次开发实践中的经验补充,那次实践是做一个筛选栏(下拉栏)然后根据下拉的选项不同来获得不同的地图数据<br>首先那些下拉框都是一个大类把它定义为PullDown<br>    这个PullDown有一些prototype方法.<br>    PullDown.protorype.Onchange=function(){}<br>    那么每一个下拉框都是一个子类<br>    每一个子类都有这个Onchange方法.当子类变动的时候可以把this.val存储起来到子类的属性中<br>    那么搜索按钮是一个单独类 因为它只有click事件不用去处理变动问题<br>    当它点击了click事件,那么就遍历PullDown的子类获取到所有的val 然后通过搜索按钮类的PULLAJAX方法来获取结果 获取到结果后再把结果显示到地图显示类(showMapClass)<br>    地图显示类也有一些方法 比如根据click传递过来的参数显示地图<br>    中间的数据交换可以用PUB-SUB方式来获取数据.<br>    如果当中牵扯到很多的数据交换 那么可以用中介者或者单独用个类来保存数据<br>    遍历PullDown子类可以用一个工厂模式 每次新建一个子类的时候都保存到工厂模式的 allObject中<br>    从这里我发现了一个问题就是 以后设计软件不能直接动手干了 要先分析然后再动手<br>    如果就是几十行代码的一个文件就没有必要用类了..因为会带来很多不必要的代码<br>    所以还是要分析。。<br>    而分析这块..我还是处于空白状态。。。</p>
+</blockquote>
+<p>JavaScript中函数无法(用标准,可靠的方法)真正的复制,所以只能复制对共享函数的引用(函数就是对象),如果你修改了共享函数对象,比如添加了一个属性,那么引用这个函数的所有变量/对象都将受到影响</p>
+<h1 id="原型">原型</h1><p>前段时间自己写了一篇<a href="http://emufan.com/2016/02/28/JavaScript%E5%AE%9E%E4%BE%8B%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%9E%84%E9%80%A0%E5%99%A8%E5%B1%9E%E6%80%A7/">文章</a>稍微分析了一下可以参考</p>
+<p>JavaScript访问属性的时候会调用一个[[get]]方法,当这个方法在当前对象找不到该属性那么就会顺着[[prototype]]向上一级对象去找.<br>用in操作符来检查属性在对象中是否存在时,同样会查找对象整条原型链(无论属性是否可枚举)</p>
+<h2 id="Object-prototype">Object.prototype</h2><p>所有普通的[[prototype]]链最终都会指向内置的Object.prototype<br>所有我们才能在没有那些toString方法的实例上调用这个方法</p>
+<h1 id="JavaScript中的类">JavaScript中的类</h1><p>JavaScript只有对象.</p>
+<h2 id="类函数">类函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> Foo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getProtorype===Foo.Prototype;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>在面向类的语言中,类可以被复制多次,而在JavaScript中,没有类似复制的机制.你不能创建一个类的多个实例,只能创建多个对象,他们的[[prototype]]是同一个对象.但是在默认情况下并不会进行复制,因此这些对象之间并不会完全失去联系,它们是互相关联的.</p>
+<p>new Foo()会生成一个新对象(这里称为a),这个新对象的内部链接[[prototype]]关联的是Foo.prototype对象.<br>最后我们得到两个对象,它们之间相互关联.就这样,我们没有初始化一个类,实际上我们并没有从”类”中复制任何行为到一个对象中,只是让两个对象相互关联.<br>实际上new Foo()这个函数调用实际上没有直接创建关联,这个关联只是一个意外的副作用,但是间接的完成了我们的目的:一个关联到其他对象的新对象</p>
+<h2 id="构造函数">构造函数</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span><span class="params">()</span><span class="comment">&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="title">Foo</span>.<span class="title">prototype</span>.<span class="title">constructor</span>===<span class="title">Foo</span>;</span><span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> Foo();</span><br><span class="line">a.<span class="keyword">constructor</span>===Foo;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>Foo.prototype默认有一个公用并且不可枚举的属性.constructor,这个属性引用的是对象关联的函数.实际上a本身没有这个.constructor属性,虽然a.constructor的确指向Foo函数,但是这个属性并不表示a由Foo”构造”.<br>实际上Foo和程序中的其他函数没有任何区别,函数本身不是构造函数,然而,当你在普通的函数调用前面加上new关键词后,就会把这个函数调用变成一个”构造函数调用”.实际上,new会劫持所有的普通函数并且构造对象的形式来调用它.<br>换句话说,在JavaScript中对于构造函数的最准确解释是:所有带new的函数调用.函数不是构造函数,但是当且仅当使用new时,函数调用会变成”构造函数调用”</p>
+<h2 id="constructor-NaN">constructor</h2><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span><span class="params">()</span><span class="comment">&#123;&#125;</span></span><br><span class="line"><span class="title">Foo</span>.<span class="title">prototype</span>=<span class="comment">&#123;&#125;</span>;</span><span class="comment">//创建一个新原型对象</span></span><br><span class="line"><span class="keyword">var</span> a1=new Foo();</span><br><span class="line">a1.<span class="keyword">constructor</span>===Foo;<span class="comment">//false</span></span><br><span class="line">a1.<span class="keyword">constructor</span>===<span class="keyword">Object</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>a1本身没有这个.constructor属性.于是会委托到[[prototype]]上的Foo.prototype.但是这个对象也没有.constructor属性(不过默认Foo.prototype对象有这个属性),所以会继续委托,这次会委托给链顶端的Object.prototype这个对象有.constructor属性.即指向Object()函数<br>要修复这个问题只需要在Foo.prototype加上这个属性即可<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Object</span><span class="class">.defineProperty</span>(Foo.prototype,<span class="string">"constructor"</span>,&#123;</span><br><span class="line">    <span class="attribute">enumerable</span>:false,<span class="comment">//不可枚举</span></span><br><span class="line">    <span class="attribute">writable</span>:true,<span class="comment">//可写</span></span><br><span class="line">    <span class="attribute">configurable</span>:true,</span><br><span class="line">    <span class="attribute">value</span>:Foo</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>实际上对象的.constructor属性会默认指向一个函数,这个函数可以通过对象的.prototype引用.但是最好记住一点”constructor并不表示被构造”</p>
+<h1 id="原型继承">原型继承</h1><p>下面来写一段典型的原型风格继承<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name=name;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.myName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params">name,label</span>)</span>&#123;</span><br><span class="line">    Foo.call(<span class="keyword">this</span>,name)</span><br><span class="line">    <span class="keyword">this</span>.label=label;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们创建了一个新的Bar.prototype对象并关联到Foo.prototype</span></span><br><span class="line">Bar.prototype=<span class="built_in">Object</span>.create(Foo.prototype);</span><br><span class="line"></span><br><span class="line"><span class="comment">//注意！现在没有Bar.prototype.constructor了</span></span><br><span class="line"><span class="comment">//如果你需要这个属性的话可能需要手动修复一下它</span></span><br><span class="line"></span><br><span class="line">Bar.prototype.myLabel=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.label</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> Bar(<span class="string">"a"</span>,<span class="string">"obj a"</span>);</span><br><span class="line"></span><br><span class="line">a.myName();<span class="comment">//"a"</span></span><br><span class="line">a.myLabel();<span class="comment">//"obj a"</span></span><br></pre></td></tr></table></figure></p>
+<p>用 Object.create()会凭空创建一个”新”对象并把新对象内部的[[prototype]]关联到你指定的对象(本例中是Foo.prototype); </p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//和你想要的机制不一样</span></span><br><span class="line"><span class="constant">Bar.prototype</span>=Foo.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">//基本满足你的需求,但是可能会产生一些副作用</span></span><br><span class="line"><span class="constant">Bar.prototype</span>=new Foo();</span><br></pre></td></tr></table></figure>
+<p>Bar.prototype=Foo.prototype并不会创建一个关联到Bar.prototype的新对象它只是让Bar.prototype直接引用Foo.protorype对象,因此如果修改Bar.protorype属性如添加方法或者删除属性,都会直接修改Foo.prototype本身.<br>Bar.protorype=new Foo()的确会创建一个关联到Bar.prototype的新对象.但是它使用了Foo()的”构造函数调用”,如果函数Foo有一些副作用(比如写日志,修改状态,注册到其他对象.给this添加数据属性..)就会影响到Bar()的后代.<br>因此要创建一个合适的关联对象,我们必须使用Object.create()这样做的唯一缺点就是需要创建一个新对象,然后把旧对象抛弃掉,不能直接修改已有的默认对象.</p>
+<h2 id="检查”类”关系">检查”类”关系</h2><h3 id="instanceof判断">instanceof判断</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.blah=..;</span><br><span class="line"><span class="keyword">var</span> a=<span class="keyword">new</span> Foo();</span><br><span class="line"></span><br><span class="line">a <span class="keyword">instanceof</span> Foo;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>这个方法只能处理对象(a)和函数(带.prototype引用的Foo)之间的关系.如果你想判断两个对象(a,b)直接是否通过[[prototype]]联系,只用instanceof无法实现.</p>
+<h3 id="isPrototypeOf-NaN">isPrototypeOf</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Foo.prototype.isPrototypeOf<span class="comment">(a)</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>比如判断c的原型链是否有b<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">b</span>.<span class="function"><span class="title">isPrototypeOf</span><span class="params">(c)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这个方法不需要使用函数(“类”)直接用b与c之间的对象引用来判断它们的关系.</p>
+<h3 id="getProtorype">getProtorype</h3><p>ES5的标准方法<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.getProtorype<span class="comment">(a)</span>===Foo.protorype;<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          你不知道的JavaScript-上卷-读书笔记-part3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">你不知道的JavaScript-上卷 读书笔记-part1</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="你不知道的JavaScript-上卷-读书笔记-part2" data-title="你不知道的JavaScript-上卷 读书笔记-part2" data-url="http://emufan.com/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
