@@ -3,22 +3,40 @@
 <head>
   <meta charset="utf-8">
   
-  <title>nginx反向代理websocket | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>手撸页面笔记 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="参考url
-123456789server &amp;#123;        ...        location /chat/ &amp;#123;            proxy_pass http://backend;            proxy_http_version 1.1;            proxy_set_header Upgrade $http_upgrade;">
+  <meta name="description" content="算是一篇水文了..最近手撸了一个页面地址为here.同时得出了一些笔记和一些疑问
+笔记
+媒体查询不应该嵌套在内,应该放在外.
+wrap-center应该在内部嵌套一个div而不是直接放在外部div
+rest css然后基于rem设计
+媒体查询可以建立函数查询
+
+疑问用sass写的时候 是否应该一直嵌套下去?rem设计指的是整体rem还是文字rem?媒体查询是600一个档次还是分多个档次查询？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx反向代理websocket">
-<meta property="og:url" content="http://emufan.com/2016/01/28/nginx反向代理websocket/index.html">
+<meta property="og:title" content="手撸页面笔记">
+<meta property="og:url" content="http://emufan.com/2016/03/26/手撸页面笔记/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="参考url
-123456789server &amp;#123;        ...        location /chat/ &amp;#123;            proxy_pass http://backend;            proxy_http_version 1.1;            proxy_set_header Upgrade $http_upgrade;">
-<meta property="og:updated_time" content="2016-01-27T17:20:01.325Z">
+<meta property="og:description" content="算是一篇水文了..最近手撸了一个页面地址为here.同时得出了一些笔记和一些疑问
+笔记
+媒体查询不应该嵌套在内,应该放在外.
+wrap-center应该在内部嵌套一个div而不是直接放在外部div
+rest css然后基于rem设计
+媒体查询可以建立函数查询
+
+疑问用sass写的时候 是否应该一直嵌套下去?rem设计指的是整体rem还是文字rem?媒体查询是600一个档次还是分多个档次查询？">
+<meta property="og:updated_time" content="2016-03-25T16:45:01.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx反向代理websocket">
-<meta name="twitter:description" content="参考url
-123456789server &amp;#123;        ...        location /chat/ &amp;#123;            proxy_pass http://backend;            proxy_http_version 1.1;            proxy_set_header Upgrade $http_upgrade;">
+<meta name="twitter:title" content="手撸页面笔记">
+<meta name="twitter:description" content="算是一篇水文了..最近手撸了一个页面地址为here.同时得出了一些笔记和一些疑问
+笔记
+媒体查询不应该嵌套在内,应该放在外.
+wrap-center应该在内部嵌套一个div而不是直接放在外部div
+rest css然后基于rem设计
+媒体查询可以建立函数查询
+
+疑问用sass写的时候 是否应该一直嵌套下去?rem设计指的是整体rem还是文字rem?媒体查询是600一个档次还是分多个档次查询？">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
   
@@ -211,11 +229,11 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-nginx反向代理websocket" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-手撸页面笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/28/nginx反向代理websocket/" class="article-date">
-  	<time datetime="2016-01-27T17:19:26.000Z" itemprop="datePublished">2016-01-28</time>
+      <a href="/2016/03/26/手撸页面笔记/" class="article-date">
+  	<time datetime="2016-03-25T16:42:11.000Z" itemprop="datePublished">2016-03-26</time>
 </a>
     </div>
   
@@ -228,7 +246,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      nginx反向代理websocket
+      手撸页面笔记
     </h1>
   
 
@@ -237,7 +255,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript笔记/">JavaScript笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
 	</div>
 
         
@@ -248,8 +266,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://nginx.org/en/docs/http/websocket.html" target="_blank" rel="external">参考url</a></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        location /chat/ &#123;</span><br><span class="line">            proxy_pass http://backend;</span><br><span class="line">            proxy_http_version <span class="number">1.1</span>;</span><br><span class="line">            proxy_set_header Upgrade <span class="variable">$http</span>_upgrade;</span><br><span class="line">            proxy_set_header Connection <span class="variable">$connection</span>_upgrade;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+        <p>算是一篇水文了..最近手撸了一个页面地址为<a href="http://relsoul.com/tajem_master/" target="_blank" rel="external">here</a>.<br>同时得出了一些笔记和一些疑问</p>
+<h1 id="笔记">笔记</h1><ol>
+<li>媒体查询不应该嵌套在内,应该放在外.</li>
+<li>wrap-center应该在内部嵌套一个div而不是直接放在外部div</li>
+<li>rest css然后基于rem设计</li>
+<li>媒体查询可以建立函数查询</li>
+</ol>
+<h1 id="疑问">疑问</h1><p>用sass写的时候 是否应该一直嵌套下去?<br>rem设计指的是整体rem还是文字rem?<br>媒体查询是600一个档次还是分多个档次查询？</p>
 
       
     </div>
@@ -259,18 +283,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2016/01/29/JavaScript设计模式笔记-闭包和高阶函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          JavaScript设计模式笔记-闭包和高阶函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/01/28/JavaScript设计模式笔记-this,call,apply/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript设计模式笔记-this,call,apply</div>
+    <a href="/2016/03/08/react入门三部曲/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react入门三部曲</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -299,7 +314,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="nginx反向代理websocket" data-title="nginx反向代理websocket" data-url="http://emufan.com/2016/01/28/nginx反向代理websocket/"></div>
+	<div class="ds-thread" data-thread-key="手撸页面笔记" data-title="手撸页面笔记" data-url="http://emufan.com/2016/03/26/手撸页面笔记/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
