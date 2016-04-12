@@ -209,6 +209,72 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaScript设计模式笔记-发布-订阅模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/08/JavaScript设计模式笔记-发布-订阅模式/" class="article-date">
+  	<time datetime="2016-02-08T11:36:17.000Z" itemprop="datePublished">2016-02-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/08/JavaScript设计模式笔记-发布-订阅模式/">JavaScript设计模式笔记-发布-订阅模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>新年快乐~</p>
+<h1 id="定义">定义</h1><p>发布-订阅模式又叫观察者模式,它定义对象间的一种一对多的依赖关系，当一个对象的状态发送改变时,所有依赖于它的对象都讲得到通知.</p>
+<h1 id="8-1_现实中的发布-订阅模式">8.1 现实中的发布-订阅模式</h1><p>比如买房,售楼处与买房者的关系.不可能买房者整天打电话过去 而是售楼处记录下这些买房者的电话 一但有合适的楼层再打电话过去.</p>
+<h1 id="8-2_发布-订阅模式的作用">8.2 发布-订阅模式的作用</h1><p>在上述的例子中使用发布-订阅模式有显而易见的优点</p>
+<ul>
+<li>购房者不用再每天给售楼处打电话咨询问题.售楼处会作为发布者通知这些消息订阅者</li>
+<li>购房者和售楼处之间不再强耦合在一起,当有新的购房者出现的时候,他只需要把手机号留给售楼处.不管售楼处换了几个售楼MM离职都不会影响购房者</li>
+</ul>
+<p>第一点说明发布-订阅模式可以广泛应用各种异步编程中,这是一种替代传递回调函数的方案.比如ajax请求中的error,succ事件.<br>第二点说明发布-订阅模式可以取代对象之间的硬编码的通知机制.一个对象不再显式调用另一个对象的某个接口.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/08/JavaScript设计模式笔记-发布-订阅模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript设计模式笔记-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -728,65 +794,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/01/28/JavaScript设计模式笔记-this,call,apply/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-面向对象的JavaScript - 副本" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/" class="article-date">
-  	<time datetime="2016-01-27T11:47:58.000Z" itemprop="datePublished">2016-01-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/">JavaScript设计模式笔记-面向对象的JavaScript</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-1动态类型语言和鸭子类型">1.1动态类型语言和鸭子类型</h1><p>动态类型的程序变量需要到程序运行时候,被赋值后才会有某种类型<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> a</span>=<span class="number">1</span>;<span class="comment">// number</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> str</span>='<span class="number">123</span>';<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
-<p>静态类型的语言在编译时就已经确定好值了<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b;<span class="comment">//number</span></span><br><span class="line"><span class="built_in">string</span> c;<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

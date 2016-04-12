@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mongodb中的aggregate(聚合查询) | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="什么是aggregateaggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..
+文档MongoDB聚合官方APIMongoDB aggregate 运用篇 个人总结 - fycayy案例一案例二案例三
+案例那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb中的aggregate(聚合查询)">
+<meta property="og:url" content="http://emufan.com/2016/03/31/mongodb中的aggregate-聚合查询/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="什么是aggregateaggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..
+文档MongoDB聚合官方APIMongoDB aggregate 运用篇 个人总结 - fycayy案例一案例二案例三
+案例那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合">
+<meta property="og:updated_time" content="2016-03-31T16:05:34.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb中的aggregate(聚合查询)">
+<meta name="twitter:description" content="什么是aggregateaggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..
+文档MongoDB聚合官方APIMongoDB aggregate 运用篇 个人总结 - fycayy案例一案例二案例三
+案例那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 13.33px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-mongodb中的aggregate-聚合查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/31/mongodb中的aggregate-聚合查询/" class="article-date">
+  	<time datetime="2016-03-31T15:25:12.000Z" itemprop="datePublished">2016-03-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongodb中的aggregate(聚合查询)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是aggregate">什么是aggregate</h1><p>aggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..</p>
+<h1 id="文档">文档</h1><p><a href="http://www.runoob.com/mongodb/mongodb-aggregate.html" target="_blank" rel="external">MongoDB聚合</a><br><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/" target="_blank" rel="external">官方API</a><br><a href="http://www.tuicool.com/articles/eAFjUbB" target="_blank" rel="external">MongoDB aggregate 运用篇 个人总结 - fycayy</a><br><a href="http://stackoverflow.com/questions/17744297/aggregate-request-mongodb" target="_blank" rel="external">案例一</a><br><a href="https://jira.mongodb.org/browse/SERVER-14876" target="_blank" rel="external">案例二</a><br><a href="http://stackoverflow.com/questions/18052594/elemmatch-dosent-work-after-unwind-in-mongodb-aggregation-framework" target="_blank" rel="external">案例三</a></p>
+<h1 id="案例">案例</h1><p>那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合</p>
+<a id="more"></a>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集合一</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="label">    _id:</span><span class="number">1</span>,</span><br><span class="line"><span class="label">    list:</span>[</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"x"</span>,<span class="string">age:</span><span class="number">11</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"y"</span>,<span class="string">age:</span><span class="number">12</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"z"</span>,<span class="string">age:</span><span class="number">13</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"n"</span>,<span class="string">age:</span><span class="number">14</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//集合二</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="label">    _id:</span><span class="number">2</span>,</span><br><span class="line"><span class="label">    list:</span>[</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"q"</span>,<span class="string">age:</span><span class="number">15</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"w"</span>,<span class="string">age:</span><span class="number">16</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"e"</span>,<span class="string">age:</span><span class="number">17</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"r"</span>,<span class="string">age:</span><span class="number">18</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//集合三</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="label">     _id:</span><span class="number">3</span>,</span><br><span class="line"><span class="label">    list:</span>[</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"a"</span>,<span class="string">age:</span><span class="number">19</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"s"</span>,<span class="string">age:</span><span class="number">20</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"d"</span>,<span class="string">age:</span><span class="number">21</span>,<span class="string">sex:</span><span class="string">"girl"</span>&#125;,</span><br><span class="line">        &#123;<span class="string">name:</span><span class="string">"f"</span>,<span class="string">age:</span><span class="number">22</span>,<span class="string">sex:</span><span class="string">"boy"</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们想筛选出list中sex为boy的集合.理所当然我们会这样写<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.testName.find(&#123;<span class="string">"list"</span>:&#123;<span class="string">"$elemMatch"</span>:&#123;<span class="string">"sex"</span>:<span class="string">"boy"</span>&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>当然这样写是能拿到结果的.拿到的是什么结果呢?结果会返回所有的sex=boy的集合,并且sex=girl的数据也包含在内.但是我们只想要sex=boy的数据.这时候就可以用聚合查询了</p>
+<h1 id="聚合查询">聚合查询</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db.testName.aggregate(</span><br><span class="line">    &#123;<span class="string">"<span class="variable">$unwind</span>"</span>:<span class="string">"<span class="variable">$list</span>"</span>&#125;,</span><br><span class="line">    &#123;<span class="string">"<span class="variable">$match</span>"</span>:&#123;<span class="string">"list.sex"</span>:&#123;<span class="string">"<span class="variable">$eq</span>"</span>:<span class="string">"boy"</span>&#125;&#125;&#125;,     </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"<span class="variable">$group</span>"</span>:&#123;</span><br><span class="line">            <span class="string">"_id"</span>:<span class="string">"<span class="variable">$_id</span>"</span>,</span><br><span class="line">            <span class="string">"results"</span>:&#123;</span><br><span class="line">                <span class="string">"<span class="variable">$push</span>"</span>&#123;<span class="string">"name"</span>:<span class="string">"<span class="variable">$list</span>.name"</span>,<span class="string">"age"</span>:<span class="string">"<span class="variable">$list</span>.age"</span>,<span class="string">"sex"</span>:<span class="string">"<span class="variable">$list</span>.sex"</span>&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>okay,不要怕.我们慢慢来分析 首先从$unwind来分析.$unwind会拆分数组元素拆分成一个一个集合那么这条参数执行后会得到什么结果呢？<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span>,</span><br><span class="line">    list:&#123;name:<span class="string">"x"</span>,age:<span class="number">11</span>,sex:<span class="string">"boy"</span></span></span></span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span>,</span><br><span class="line">    list:&#123;name:<span class="string">"y"</span>,age:<span class="number">12</span>,sex:<span class="string">"girl"</span></span></span></span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span>,</span><br><span class="line">    list:&#123;name:<span class="string">"z"</span>,age:<span class="number">13</span>,sex:<span class="string">"boy"</span></span></span></span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>会拆分成一条条的临时集合,这个临时集合的名称就是$list,这就相当于第一道工艺程序把数组拆分开.接下来交给第二道程序{“$match”:{“list.sex”:{“$eq”:”boy”}}} 这条语句作用是啥呢？想必大家也知道了.就是对临时的集合进行一个查询,类似于db.$list.find(),那么查询到的肯定就是sex=boy的数据了 现在返回的数据就是 不会有sex=girl的存在了<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span>,</span><br><span class="line">    list:&#123;name:<span class="string">"x"</span>,age:<span class="number">11</span>,sex:<span class="string">"boy"</span></span></span></span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">_id</span>:<span class="value"><span class="number">1</span>,</span><br><span class="line">    list:&#123;name:<span class="string">"z"</span>,age:<span class="number">13</span>,sex:<span class="string">"boy"</span></span></span></span>&#125;,</span><br><span class="line">&#125;</span><br><span class="line">....</span><br></pre></td></tr></table></figure></p>
+<p>接下来就是要把这些组合在一起,也就是第三道工艺程序<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"$group"</span>:&#123;</span><br><span class="line">        <span class="string">"_id"</span>:<span class="string">"$_id"</span>,</span><br><span class="line">        <span class="string">"results"</span>:&#123;</span><br><span class="line">            <span class="string">"$push"</span>&#123;<span class="string">"name"</span>:<span class="string">"$list.name"</span>,<span class="string">"age"</span>:<span class="string">"$list.age"</span>,<span class="string">"sex"</span>:<span class="string">"$list.sex"</span>&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line">```  </span><br><span class="line">其实也很好理解,<span class="variable">$group</span>就是组合的意思,把这些零散的数据以我们想要的形式组合起来.这个$_id指的就是临时集合中的_id.那么<span class="variable">$list</span>就是临时集合中的list,以_id为首把这些零散的list给组合成一个新的数组就是聚合.<span class="variable">$push</span>是添加一个对象,当然也有更简单的方式</span><br></pre></td></tr></table></figure></p>
+<p>{<br>    “$group”:{<br>        “_id”:”$_id”,<br>        “results”:{<br>            “$push”:”$list”<br>        }<br>    }<br>}<br>```<br>这样就直接把整个list对象给push到一个数组中.那么这样查询最终返回的结果就是我们想要的结果了</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gulp+webpack+vue.js打造vue.js框架自动化</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mongodb中的aggregate-聚合查询" data-title="mongodb中的aggregate(聚合查询)" data-url="http://emufan.com/2016/03/31/mongodb中的aggregate-聚合查询/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
