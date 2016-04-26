@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>Iterator与Generator学习笔记 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:url" content="http://emufan.com/index.html">
+  <meta name="description" content="本文阅读资料来自阮一峰ES6入门自己仅仅根据自己需要整理了自己所阅读的笔记
+IteratorIterator就是一个遍历器,可以手动控制遍历.在js中for循环都是直接遍历的,如果我们想手动控制遍历还得自己写函数包装.阮一峰的Blog给出了一个模拟Iterator方法12345678910111213141516var it = makeIterator([&apos;a&apos;, &apos;b&apos;]);it.next()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Iterator与Generator学习笔记">
+<meta property="og:url" content="http://emufan.com/2016/04/14/Iterator与Generator学习笔记/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta property="og:description" content="本文阅读资料来自阮一峰ES6入门自己仅仅根据自己需要整理了自己所阅读的笔记
+IteratorIterator就是一个遍历器,可以手动控制遍历.在js中for循环都是直接遍历的,如果我们想手动控制遍历还得自己写函数包装.阮一峰的Blog给出了一个模拟Iterator方法12345678910111213141516var it = makeIterator([&apos;a&apos;, &apos;b&apos;]);it.next()">
+<meta property="og:updated_time" content="2016-04-25T15:58:32.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta name="twitter:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta name="twitter:title" content="Iterator与Generator学习笔记">
+<meta name="twitter:description" content="本文阅读资料来自阮一峰ES6入门自己仅仅根据自己需要整理了自己所阅读的笔记
+IteratorIterator就是一个遍历器,可以手动控制遍历.在js中for循环都是直接遍历的,如果我们想手动控制遍历还得自己写函数包装.阮一峰的Blog给出了一个模拟Iterator方法12345678910111213141516var it = makeIterator([&apos;a&apos;, &apos;b&apos;]);it.next()">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
   
@@ -207,66 +211,7 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-bootstrap实践笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/25/bootstrap实践笔记/" class="article-date">
-  	<time datetime="2016-04-25T15:59:02.000Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/25/bootstrap实践笔记/">bootstrap实践笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>长期更新,前辈总结的bootstrap经验</p>
-<h1 id="如何部署container与container-fluid">如何部署container与container-fluid</h1><p>为了方便更改,在body标签下部署container-fluid,因为container不能嵌套container原则,如果想内容居中则可以使用.limiter这个class.具体参考如下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container-fluid"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"limiter"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-12"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.limiter</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">max-width</span>:<span class="value"><span class="number">1170px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span> auto</span></span>; </span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="row与col之间的布局">row与col之间的布局</h1><p>原则上一个section应该只有一个row.一个row下面可以有多个(总数超过12列)的col,那么要实现col与col之间padding为0 应该用一个额外的class如.no-gutters来实现<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row .no-gutters"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span>  <span class="attr_selector">[class^="col-"]</span>,</span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span>  <span class="attr_selector">[class*=" col-"]</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="设置h1-h6之间margin为0">设置h1-h6之间margin为0</h1><p>为了美观与方便设计.应该设置h1-h6之间margin为0,需要的时候再额外设置</p>
-<h1 id="col与col之间的border">col与col之间的border</h1><p>因为col与col width都是设置好的 如果多出1px的border那么会导致其他的col列下移 解决方案如下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.box</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">max-width</span>:<span class="value"> <span class="number">96%</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>应该用一个额外的div来包裹整个内容 同时给这个div设置最大宽度</p>
-<h1 id="如有需要应该在col中加上一个class">如有需要应该在col中加上一个class</h1><p>请小心在row上加class,row上的class仅仅用来处理颜色等内容而不应该设置position<br>col上的class也仅起定位作用</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Iterator与Generator学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Iterator与Generator学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/14/Iterator与Generator学习笔记/" class="article-date">
@@ -282,12 +227,19 @@ var _hmt = _hmt || [];
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/14/Iterator与Generator学习笔记/">Iterator与Generator学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      Iterator与Generator学习笔记
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -382,531 +334,71 @@ var _hmt = _hmt || [];
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/25/bootstrap实践笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          bootstrap实践笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/31/mongodb中的aggregate-聚合查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongodb中的aggregate(聚合查询)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-mongodb中的aggregate-聚合查询" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/31/mongodb中的aggregate-聚合查询/" class="article-date">
-  	<time datetime="2016-03-31T15:25:12.000Z" itemprop="datePublished">2016-03-31</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/31/mongodb中的aggregate-聚合查询/">mongodb中的aggregate(聚合查询)</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="什么是aggregate">什么是aggregate</h1><p>aggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..</p>
-<h1 id="文档">文档</h1><p><a href="http://www.runoob.com/mongodb/mongodb-aggregate.html">MongoDB聚合</a><br><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/">官方API</a><br><a href="http://www.tuicool.com/articles/eAFjUbB">MongoDB aggregate 运用篇 个人总结 - fycayy</a><br><a href="http://stackoverflow.com/questions/17744297/aggregate-request-mongodb">案例一</a><br><a href="https://jira.mongodb.org/browse/SERVER-14876">案例二</a><br><a href="http://stackoverflow.com/questions/18052594/elemmatch-dosent-work-after-unwind-in-mongodb-aggregation-framework">案例三</a></p>
-<h1 id="案例">案例</h1><p>那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/31/mongodb中的aggregate-聚合查询/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-gulp-webpack-vue-js打造vue-js框架自动化" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/" class="article-date">
-  	<time datetime="2016-03-29T11:19:18.000Z" itemprop="datePublished">2016-03-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/">gulp+webpack+vue.js打造vue.js框架自动化</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Babel,Vue,Gulp,WebPack">安装Babel,Vue,Gulp,WebPack</h1><h2 id="Babel">Babel</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">npm</span> install <span class="keyword">babel-core </span><span class="keyword">babel-loader </span><span class="keyword">babel-plugin-transform-runtime </span><span class="keyword">babel-preset-es2015 </span><span class="keyword">babel-runtime </span>--save-dev</span><br></pre></td></tr></table></figure>
-<h2 id="Vue">Vue</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> vue-hot-reload-api vue-html-loader vue-loader vue-<span class="keyword">style</span>-loader css-loader <span class="keyword">file</span>-loader inject-loader <span class="keyword">template</span>-html-loader <span class="keyword">url</span>-loader <span class="comment">--save-dev</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="Gulp">Gulp</h2><p>Gulp我用了sass 并不在vue中写style..还是不太习惯 哈哈. 并且用gulp-livereload做服务端 而不用webpack自带的<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp gulp-livereload gulp-sass gulp-webpack --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="WebPack">WebPack</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> webpack</span><br></pre></td></tr></table></figure>
-<h1 id="-babelrc">.babelrc</h1><p>这个文件很重要 如果不在项目根目录添加这个文件夹会导致webpack loader的时候报错<br>文件内容为<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">presets</span>": <span class="value">[<span class="string">"es2015"</span>]</span>,</span><br><span class="line">  "<span class="attribute">plugins</span>": <span class="value">[<span class="string">"transform-runtime"</span>]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>意思就是转es2015并且加载插件</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-手撸页面笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/26/手撸页面笔记/" class="article-date">
-  	<time datetime="2016-03-25T16:42:11.000Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/手撸页面笔记/">手撸页面笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算是一篇水文了..最近手撸了一个页面地址为<a href="http://relsoul.com/tajem_master/" target="_blank" rel="external">here</a>.<br>同时得出了一些笔记和一些疑问</p>
-<h1 id="笔记">笔记</h1><ol>
-<li>媒体查询不应该嵌套在内,应该放在外.</li>
-<li>wrap-center应该在内部嵌套一个div而不是直接放在外部div</li>
-<li>rest css然后基于rem设计</li>
-<li>媒体查询可以建立函数查询</li>
-</ol>
-<h1 id="疑问">疑问</h1><p>用sass写的时候 是否应该一直嵌套下去?<br>rem设计指的是整体rem还是文字rem?<br>媒体查询是600一个档次还是分多个档次查询？</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript笔记/">JavaScript笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
-
-
-
-
-  
-    <article id="post-react入门三部曲" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/08/react入门三部曲/" class="article-date">
-  	<time datetime="2016-03-08T15:02:02.000Z" itemprop="datePublished">2016-03-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/08/react入门三部曲/">react入门三部曲</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="参考文章">参考文章</h1><p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html">React 入门实例教程-阮一峰</a><br><a href="http://www.imooc.com/learn/504">React入门-慕课网</a><br><a href="http://reactjs.cn/react/docs/getting-started.html">React文档-中文</a></p>
-<h1 id="github">github</h1><p><a href="https://github.com/Relsoul/react-study">github</a></p>
-<hr>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/08/react入门三部曲/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Iterator与Generator学习笔记" data-title="Iterator与Generator学习笔记" data-url="http://emufan.com/2016/04/14/Iterator与Generator学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-装饰者模式-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/" class="article-date">
-  	<time datetime="2016-03-07T12:57:42.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/">JavaScript设计模式笔记-装饰者模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="最常见的装饰者模式">最常见的装饰者模式</h1><p>比如我们要给onload增加新的方法,我们又不能改动内部的代码,如果改动了那么就违反了开放-封闭原则<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> _onload=<span class="built_in">window</span>.onload||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    _onload();</span><br><span class="line">    alert(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-你不知道的JavaScript-上卷-读书笔记-part3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/" class="article-date">
-  	<time datetime="2016-03-06T07:21:19.000Z" itemprop="datePublished">2016-03-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/">你不知道的JavaScript-上卷-读书笔记-part3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="对象关联">对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
-<h2 id="创建关联">创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=&#123;</span><br><span class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</span><br><span class="line">bar.something();<span class="comment">//tell me</span></span><br></pre></td></tr></table></figure>
-<p>Object.create会创建一个新对象(bar)并且把它关联到我们指定的对象(foo).<br>Object.create(null)会创建一个null[[prototype]]链接的对象,由于这个对象没有原型链,所以用instanceof无法进行判断,总是会返回false.这样无[[prototype]]的对象通常被称为”字典”,它们完全不会受到原型链的干扰,因此非常适合用来存储数据.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/06/你不知道的JavaScript-上卷-读书笔记-part3/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-你不知道的JavaScript-上卷-读书笔记-part2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/" class="article-date">
-  	<time datetime="2016-03-04T14:14:52.000Z" itemprop="datePublished">2016-03-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/">你不知道的JavaScript-上卷 读书笔记-part2</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="对象">对象</h1><h2 id="类型">类型</h2><p>JavaScript有六种主要类型</p>
-<ul>
-<li>string</li>
-<li>number</li>
-<li>boolean</li>
-<li>null</li>
-<li>undefined</li>
-<li>object</li>
-</ul>
-<p>简单基本类型(string,number,boolean,null,undefined)本身并不是对象,null有时候会被当做一种对象类型,但其实这是一个语言本身的bug,typeof null 的时候会返回字符串”object”,实际上null本身是基本类型.<br>JavaScript万物并不都是对象.<br>JavaScript本身有许多特殊的对象子类型,我们可以称之为复杂基本类型.<br>函数就是对象的一个子类型.数组也是对象的一种类型,具备一些额外的行为.</p>
-<h3 id="JavaScript内置对象">JavaScript内置对象</h3><p>JavaScript还有一些对象子类型,通常被称为内置对象</p>
-<ul>
-<li>String</li>
-<li>Number</li>
-<li>Boolean</li>
-<li>Object</li>
-<li>Function</li>
-<li>Array</li>
-<li>Date</li>
-<li>RegExp</li>
-<li>Error</li>
-</ul>
-<p>在JavaScript中,这些内置函数可以当做构造函数.JavaScript在访问对象属性的时候会自动把字符串字面量转换为一个对象 比如</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-你不知道的JavaScript-上卷 读书笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/" class="article-date">
-  	<time datetime="2016-03-03T15:52:42.000Z" itemprop="datePublished">2016-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/">你不知道的JavaScript-上卷 读书笔记-part1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="作用域">作用域</h1><h2 id="编译器原理简释">编译器原理简释</h2><p><code>var a=2</code><br>当我们看到var a=2的时候引擎和编译器会做什么呢?</p>
-<ol>
-<li>遇到var a,编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的合集中.如果是.编译器会忽略该声明,继续进行编译.否则它会要求作用域在当前的作用域合集中声明一个新的变量,并且命名为a.</li>
-<li>接下来编译器会为这个引擎生成运行时所需的代码,这些代码被用来处理a = 2这个赋值操作.引擎运行时会首先询问作用域,在当前的作用域合集中是否存在一个叫a的变量,如果否,引擎就会使用这个变量;如果不是,引擎就会继续查找该变量.</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -930,8 +422,8 @@ var _hmt = _hmt || [];
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
