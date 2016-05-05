@@ -4,13 +4,85 @@
 
     
   <url>
+    <loc>http://emufan.com/2015/12/16/%E8%87%AA%E7%94%A8%E4%B8%83%E7%89%9B%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</loc>
+    <lastmod>2016-05-05T06:03:50.820Z</lastmod>
+    <data>
+        <display>
+        <title>自用七牛上传下载</title>
+        <pubTime>2015-12-16T14:58:37.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/05/04/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2016-05-04T12:39:32.904Z</lastmod>
+    <data>
+        <display>
+        <title>mysql学习笔记1——</title>
+        <pubTime>2016-05-04T12:02:59.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/04/14/Iterator%E4%B8%8EGenerator%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2016-05-03T14:31:57.520Z</lastmod>
+    <data>
+        <display>
+        <title>Iterator与Generator学习笔记</title>
+        <pubTime>2016-04-14T15:42:35.000Z</pubTime>
+        
+        <tag>es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://emufan.com/2016/04/26/promise%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2016-04-27T02:41:05.789Z</lastmod>
+    <lastmod>2016-05-03T14:31:49.994Z</lastmod>
     <data>
         <display>
         <title>promise学习笔记</title>
         <pubTime>2016-04-26T04:37:54.000Z</pubTime>
         
+        <tag>es6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/05/03/async%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2016-05-03T14:31:40.311Z</lastmod>
+    <data>
+        <display>
+        <title>async学习笔记</title>
+        <pubTime>2016-05-03T14:31:15.000Z</pubTime>
+        
+        <tag>es6</tag>
+         
          
            
         </display>
@@ -25,21 +97,6 @@
         <display>
         <title>bootstrap实践笔记</title>
         <pubTime>2016-04-25T15:59:02.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://emufan.com/2016/04/14/Iterator%E4%B8%8EGenerator%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2016-04-26T04:27:10.093Z</lastmod>
-    <data>
-        <display>
-        <title>Iterator与Generator学习笔记</title>
-        <pubTime>2016-04-14T15:42:35.000Z</pubTime>
         
          
            
@@ -932,23 +989,6 @@
         <pubTime>2015-12-22T03:47:27.000Z</pubTime>
         
         <tag>JavaScript</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://emufan.com/2015/12/16/%E8%87%AA%E7%94%A8%E4%B8%83%E7%89%9B%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD/</loc>
-    <lastmod>2015-12-22T03:37:21.261Z</lastmod>
-    <data>
-        <display>
-        <title>自用七牛上传下载</title>
-        <pubTime>2015-12-16T14:58:37.000Z</pubTime>
-        
-        <tag>nodejs</tag>
          
          
            
