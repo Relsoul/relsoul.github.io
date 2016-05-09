@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 11.43px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.57px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15.71px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 17.14px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 12.86px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 17.14px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.43px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 14.29px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 12.86px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 12.86px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 15px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 
 				</section>
@@ -208,6 +208,75 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mysql学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/05/mysql学习笔记2/" class="article-date">
+  	<time datetime="2016-05-05T14:31:50.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/mysql学习笔记2/">mysql学习笔记2-</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="约束">约束</h1><ul>
+<li>约束保证数据的完整性与一致性</li>
+<li>约束分为表级约束和列级约束</li>
+<li>约束类型包括<br>– NOT NULL (非空约束)<br>– PRIMARY KEY (主键约束)<br>– UNIQUE KEY (唯一约束)<br>– DEFAULT (默认约束)<br>– FOREIGN KEY (外键约束)</li>
+</ul>
+<h1 id="外键约束的要求解析">外键约束的要求解析</h1><p>FOREIGN KEY<br>保证数据的一致性,完整性.<br>实现一对一或一对多关系</p>
+<ul>
+<li>父表与子表必须使用相同的存储引擎,而且禁止使用临时表.</li>
+<li>数据表的存储引擎只能为InnoDB</li>
+<li>外键列和参照列必须具有相似的数据类型.其中数字的长度或者是否有符号位必须相同;而字符的长度则可以不同.</li>
+<li>外键列和参照列必须创建索引.如果外键列不存在索引的话,MySQL将自动创建索引</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/05/mysql学习笔记2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-mysql学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -730,64 +799,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/03/08/react入门三部曲/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-装饰者模式-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/" class="article-date">
-  	<time datetime="2016-03-07T12:57:42.000Z" itemprop="datePublished">2016-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/">JavaScript设计模式笔记-装饰者模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="最常见的装饰者模式">最常见的装饰者模式</h1><p>比如我们要给onload增加新的方法,我们又不能改动内部的代码,如果改动了那么就违反了开放-封闭原则<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> _onload=<span class="built_in">window</span>.onload||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    _onload();</span><br><span class="line">    alert(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/07/JavaScript设计模式笔记-装饰者模式-1/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
