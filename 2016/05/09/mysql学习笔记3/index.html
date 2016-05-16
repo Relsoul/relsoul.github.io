@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mysql学习笔记3 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="插入记录 INSERT1INSERT [INTO] tbl_name [(col_name,...)] &amp;#123;VALUES|VALUE&amp;#125; (&amp;#123;expr|DEFAULT&amp;#125;,...),(...),...
+插入记录-范例12345678910111213CREATE TABLE users(        id SMALLINT UNSIGNED PRIMARY KE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql学习笔记3">
+<meta property="og:url" content="http://emufan.com/2016/05/09/mysql学习笔记3/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="插入记录 INSERT1INSERT [INTO] tbl_name [(col_name,...)] &amp;#123;VALUES|VALUE&amp;#125; (&amp;#123;expr|DEFAULT&amp;#125;,...),(...),...
+插入记录-范例12345678910111213CREATE TABLE users(        id SMALLINT UNSIGNED PRIMARY KE">
+<meta property="og:updated_time" content="2016-05-16T10:47:22.071Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql学习笔记3">
+<meta name="twitter:description" content="插入记录 INSERT1INSERT [INTO] tbl_name [(col_name,...)] &amp;#123;VALUES|VALUE&amp;#125; (&amp;#123;expr|DEFAULT&amp;#125;,...),(...),...
+插入记录-范例12345678910111213CREATE TABLE users(        id SMALLINT UNSIGNED PRIMARY KE">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-mysql学习笔记3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/09/mysql学习笔记3/" class="article-date">
+  	<time datetime="2016-05-09T10:02:43.000Z" itemprop="datePublished">2016-05-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mysql学习笔记3
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="插入记录_INSERT">插入记录 INSERT</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name [(col_name,...)] &#123;<span class="keyword">VALUES</span>|<span class="keyword">VALUE</span>&#125; (&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...),(...),...</span></span><br></pre></td></tr></table></figure>
+<h2 id="插入记录-范例">插入记录-范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</span><br><span class="line">        <span class="keyword">id</span> <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">        <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">        age TINYINT <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span>,</span><br><span class="line">        sex <span class="built_in">BOOLEAN</span></span><br><span class="line">    );</span> </span><br><span class="line"></span><br><span class="line">//插入几条记录</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</span></span><br><span class="line">//写入多条记录</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"JOHN"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>),(<span class="literal">NULL</span>,<span class="string">"Rose"</span>,<span class="keyword">md5</span>(<span class="string">"123"</span>),<span class="keyword">DEFAULT</span>,<span class="number">0</span>);</span></span><br></pre></td></tr></table></figure>
+<p>如果想要id遵守默认的编号 只需要设置该列为NULL或者DEFAULT即可.<br>如果有字段设置过DEFAULT 那么该列可以添加DEFAULT;</p>
+<h1 id="插入记录,使用子查询">插入记录,使用子查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name <span class="keyword">SET</span> col_name=&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...</span></span><br></pre></td></tr></table></figure>
+<p>只能一次性插入一条记录</p>
+<h2 id="范例">范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">SET</span> username=<span class="string">"Ben"</span>,<span class="keyword">password</span>=<span class="string">"456"</span>;</span></span><br></pre></td></tr></table></figure>
+<h1 id="单表更新记录UPDATE">单表更新记录UPDATE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> [<span class="keyword">LOW_PRIORITY</span>] [<span class="keyword">IGNORE</span>] table_reference <span class="keyword">SET</span> col_name1=&#123;expr1|<span class="keyword">DEFAULT</span>&#125;,[, col_name2=&#123;expr2|<span class="keyword">DEFAULT</span>&#125;]...[<span class="keyword">WHERE</span> where_condition]</span></span><br></pre></td></tr></table></figure>
+<h2 id="范例-1">范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">set</span> age=age+<span class="number">5</span>;</span></span><br></pre></td></tr></table></figure>
+<p>让users表中age加5.</p>
+<h2 id="范例2-更新多列">范例2-更新多列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age-<span class="keyword">id</span>,sex=<span class="number">0</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="指定记录更新">指定记录更新</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age+<span class="number">10</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>%<span class="number">2</span>=<span class="number">0</span>;</span></span><br></pre></td></tr></table></figure>
+<h1 id="单表删除记录DELETE">单表删除记录DELETE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tbl_name [<span class="keyword">WHERE</span> where_condition]</span></span><br></pre></td></tr></table></figure>
+<h1 id="范例-2">范例</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">5</span>;</span></span><br></pre></td></tr></table></figure>
+<p>删除后再插入一条记录 即使ID号不连续,那么新插入的id是已有的最大id+1</p>
+<h1 id="表达式解析">表达式解析</h1><h1 id="查找记录_SELECT">查找记录 SELECT</h1><h2 id="查找前两列">查找前两列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">id</span>,username <span class="keyword">FROM</span> <span class="keyword">users</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="别名">别名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">AS</span> userID,username <span class="keyword">AS</span> uname <span class="keyword">FROM</span> <span class="keyword">users</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="group_by_语句对查询结果分组">group by 语句对查询结果分组</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</span><br></pre></td></tr></table></figure>
+<p>对分组的结果进行分组</p>
+<h3 id="按照性别分组">按照性别分组</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> sex <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex;</span></span><br></pre></td></tr></table></figure>
+<h2 id="having语句设置分组条件">having语句设置分组条件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> sex,age <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex <span class="keyword">HAVING</span> <span class="keyword">count</span>(<span class="keyword">id</span>);</span></span><br></pre></td></tr></table></figure>
+<h2 id="order_by_语句对查询结果进行排序">order by 语句对查询结果进行排序</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|expr|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</span><br></pre></td></tr></table></figure>
+<h3 id="范例-3">范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> age <span class="keyword">ASC</span>,<span class="keyword">id</span> <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<p>如果age遇到了相同的 那么再进行id排序</p>
+<h2 id="LIMIT">LIMIT</h2><h3 id="范例-4">范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">2</span></span></span><br></pre></td></tr></table></figure>
+<p>返回两条记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">3</span>,<span class="number">2</span> //<span class="keyword">id</span> <span class="number">4</span>,<span class="number">5</span></span></span><br></pre></td></tr></table></figure>
+<p>从3开始向后截取两条记录<br>3非id,指的是结果集中的第三条语句.<br>数据库从0开始算,所以3会返回至id为4,5</p>
+<h2 id="插入记录">插入记录</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test1(</span><br><span class="line">        <span class="keyword">id</span> TINYINT <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">    );</span></span><br></pre></td></tr></table></figure>
+<h3 id="跨表写入数据">跨表写入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> test1(username) <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> age&gt;=<span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/05/mysql学习笔记2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql学习笔记2-</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mysql学习笔记3" data-title="mysql学习笔记3" data-url="http://emufan.com/2016/05/09/mysql学习笔记3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
