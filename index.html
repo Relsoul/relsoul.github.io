@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 18.33px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 
 				</section>
@@ -208,6 +208,97 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-laravel框架学习笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/23/laravel框架学习笔记-1/" class="article-date">
+  	<time datetime="2016-05-23T04:21:41.000Z" itemprop="datePublished">2016-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/23/laravel框架学习笔记-1/">laravel框架学习笔记-1</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学习php当中的感觉">学习php当中的感觉</h1><p>一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.<br>大概的感觉就是</p>
+<h2 id="语法">语法</h2><p>php不愧是世界上最好的语言(手动滑稽).<br>php内置了 ~~ 三个sx ~~ 大量的函数所以开发起来还是比较方便的<br>函数默认是按值传递而不是引用传递这点与js不同</p>
+<h2 id="win下的编码问题">win下的编码问题</h2><p>在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bug Unix大法好</p>
+<h2 id="nginx">nginx</h2><p>php的转发基本上靠这货了.为啥不是apache? 因为我喜欢nginx. 或者用nginx转发Apache也行 哈哈<br>nginx中涉及到大量的正则,正则是我的弱项.用了就忘- -还是得去反复使用</p>
+<h2 id="数据库操作">数据库操作</h2><p>千万不要用mysql直接操作数据库 用mysqli 并且用mysqli的prepare语句来进行数据库操作 否则会遇到SQL注入问题.<br>sqlmap表示 prepare是啥？</p>
+<h2 id="后端验证">后端验证</h2><p>在数据验证这块得做两个验证,前端一个,着重后端验证数据.否则出啥问题就GG了</p>
+<h1 id="为什么是laravel?">为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 ~~ 情怀 ~~ 还是因为这个框架是跟express比较相近的..</p>
+<!-- more -- >
+
+# 大概设计思路
+自己设计了个homePage并且要支持数据crud所以用php直接上了.
+整体架构采用
+vue.js+laravel+mysql
+并且使用restfulApi+token来进行前后端分离.
+
+# token设计
+token自己也没弄太懂,实现思路为
+用户登录
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Post</span> /<span class="tag">login</span></span><br><span class="line"></span><br><span class="line">成功返回:&#123;</span><br><span class="line">    <span class="attribute">token</span>:<span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attribute">name</span>:<span class="string">"xxx"</span>,</span><br><span class="line">    <span class="string">"role"</span>:xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中登录时候token包含了四个属性<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"name"</span>=&gt;<span class="variable">$user</span>[<span class="number">0</span>]-&gt;name,<span class="string">"time"</span>=&gt;time(),<span class="string">"exp"</span>=&gt;time()+<span class="variable">$exp</span>,<span class="string">"role"</span>=&gt;<span class="variable">$user</span>[<span class="number">0</span>]-&gt;role]</span><br></pre></td></tr></table></figure></p>
+<p>登录成功后把此次token添加进session</p>
+<p>在访问后台需要使用附带上token<br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get /<span class="literal">admin</span>/<span class="literal">user</span></span><br></pre></td></tr></table></figure></p>
+<p>并且使用当前的token与session中的token做一个对比 如果正确并且存在则放任通行, 如果不存在则返回false并且通知客户端跳转到登录页面重新登陆获取token</p>
+<h1 id="laravel目录">laravel目录</h1><p>config/app.php 环境目录与配置<br>app.php下aliases是用来给类引入别名的<br>如果需要使用app下的参数则需要使用函数<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$exp</span>=config(<span class="string">"app.jwtTime"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>通过.来引入</p>
+<p>app/Http/Controller 控制器目录<br>在写控制器的时候需要使用命名空间相应的命名 如果引入库的话需要使用use (话说是不是废话了- -)<br>class需要继承Controller</p>
+<p>默认 request是没有引入的 需要使用use Illuminate\Http\Request; 并且在function的时候注入依赖<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">function</span> register(Request <span class="variable">$request</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当在控制器中使用require时 如果需要new一个对象则需要使用命名空间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"geePath"</span>,realpath(<span class="keyword">__DIR__</span>.<span class="string">"/../../../vendor/gee-team/gt-php-sdk/"</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">require_once</span> (geePath.<span class="string">"/lib/class.geetestlib.php"</span>);</span><br><span class="line"><span class="keyword">require_once</span> (geePath.<span class="string">"/config/config.php"</span>);</span><br><span class="line"><span class="variable">$GtSdk</span> = <span class="keyword">new</span> \GeetestLib(CAPTCHA_ID, PRIVATE_KEY);<span class="comment">//使用命名空间</span></span><br></pre></td></tr></table></figure></p>
+<p>app/Http/Middleware 中间件目录<br>需要明确声明函数<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pubcli <span class="keyword">function</span> handle (<span class="variable">$request</span>,<span class="variable">$next</span>)&#123;</span><br><span class="line">     return <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>-这里就被坑了 需要明确的返回$next()</li>
+</ul>
+<h1 id="数据库迁移">数据库迁移</h1><p>迁移就是使用<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">php</span> <span class="tag">artisan</span> <span class="tag">make</span><span class="pseudo">:migration</span> <span class="tag">create_users_table</span></span><br></pre></td></tr></table></figure></p>
+<p>来创建一个迁移在/database/migrations 下<br>然后执行<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">php</span> artisan migrate</span><br></pre></td></tr></table></figure></p>
+<p>来运行迁移.</p>
+<p>迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常和Laravel的结构构建器结对从而可以很容易地构建应用的数据库表结构。<br>实际上就是把数据库做一层封装,方便Laravel来操控</p>
+<h1 id="数据库查询">数据库查询</h1><p>Laravel有自己的数据库查询 具体看手册就行了</p>
+<h1 id="坑待填">坑待填</h1>-->
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-mysql学习笔记3" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -761,68 +852,6 @@ var _hmt = _hmt || [];
         <p class="article-more-link">
           <a  href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-手撸页面笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/26/手撸页面笔记/" class="article-date">
-  	<time datetime="2016-03-25T16:42:11.000Z" itemprop="datePublished">2016-03-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/26/手撸页面笔记/">手撸页面笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算是一篇水文了..最近手撸了一个页面地址为<a href="http://relsoul.com/tajem_master/" target="_blank" rel="external">here</a>.<br>同时得出了一些笔记和一些疑问</p>
-<h1 id="笔记">笔记</h1><ol>
-<li>媒体查询不应该嵌套在内,应该放在外.</li>
-<li>wrap-center应该在内部嵌套一个div而不是直接放在外部div</li>
-<li>rest css然后基于rem设计</li>
-<li>媒体查询可以建立函数查询</li>
-</ol>
-<h1 id="疑问">疑问</h1><p>用sass写的时候 是否应该一直嵌套下去?<br>rem设计指的是整体rem还是文字rem?<br>媒体查询是600一个档次还是分多个档次查询？</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript笔记/">JavaScript笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>

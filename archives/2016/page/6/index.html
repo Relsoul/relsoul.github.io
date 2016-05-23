@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular中的cookie操作 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>Archives: 2016 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
-<meta property="og:type" content="article">
-<meta property="og:title" content="angular中的cookie操作">
-<meta property="og:url" content="http://emufan.com/2015/12/28/angular中的cookie操作/index.html">
+  <meta name="description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:url" content="http://emufan.com/archives/2016/page/6/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
-<meta property="og:updated_time" content="2015-12-28T09:08:31.105Z">
+<meta property="og:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular中的cookie操作">
-<meta name="twitter:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
+<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta name="twitter:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
   
@@ -208,113 +207,57 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular中的cookie操作" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/12/28/angular中的cookie操作/" class="article-date">
-  	<time datetime="2015-12-28T09:08:29.000Z" itemprop="datePublished">2015-12-28</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/01/01/angular解析属性中的特殊符号/" class="archive-article-date">
+  	<time datetime="2015-12-31T16:39:43.000Z" itemprop="datePublished">Jan 1</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      angular中的cookie操作
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/01/01/angular解析属性中的特殊符号/">angular解析属性中的特殊符号</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJs/">angularJs</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="angular1-4-8中的cookie操作">angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br><a id="more"></a><br>比如下面这段就是 <strong>行不通</strong> 的<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</span><br><span class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookieStore'</span>, <span class="keyword">function</span>(<span class="variable">$cookieStore</span>) &#123;</span><br><span class="line">  // Put cookie</span><br><span class="line">  <span class="variable">$cookieStore</span>.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</span><br><span class="line">  // Get cookie</span><br><span class="line">  var favoriteCookie = <span class="variable">$cookieStore</span>.get(<span class="string">'myFavorite'</span>);</span><br><span class="line">  // Removing a cookie</span><br><span class="line">  <span class="variable">$cookieStore</span>.remove(<span class="string">'myFavorite'</span>);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
-<p>利用$cookieStore操作cookie会报循环获取xxx错误具体大家试试就行了<br>只需要改一处地方代码就可以完美运行那就是把 <strong>$cookieStore</strong>改为<strong>$cookies</strong><br>其他操作方法不变<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</span><br><span class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookies'</span>, <span class="keyword">function</span>(<span class="variable">$cookies</span>) &#123;</span><br><span class="line">  // Put cookie</span><br><span class="line">  <span class="variable">$cookies</span>.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</span><br><span class="line">  // Get cookie</span><br><span class="line">  var favoriteCookie = <span class="variable">$cookies</span>.get(<span class="string">'myFavorite'</span>);</span><br><span class="line">  // Removing a cookie</span><br><span class="line">  <span class="variable">$cookies</span>.remove(<span class="string">'myFavorite'</span>);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/12/28/socket验证挂载session/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          socket.io验证挂载session
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/12/28/socket中的to与in/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">socket.io 1.0中的to与in</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="angular中的cookie操作" data-title="angular中的cookie操作" data-url="http://emufan.com/2015/12/28/angular中的cookie操作/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"relsoul"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2016/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2016/page/4/">4</a><a class="page-number" href="/archives/2016/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
@@ -340,8 +283,8 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

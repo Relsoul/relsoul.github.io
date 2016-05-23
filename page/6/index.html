@@ -130,7 +130,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/学习笔记/" style="font-size: 18.33px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
 					</div>
 
 				</section>
@@ -208,6 +208,65 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-angular解析属性中的特殊符号" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/01/angular解析属性中的特殊符号/" class="article-date">
+  	<time datetime="2015-12-31T16:39:43.000Z" itemprop="datePublished">2016-01-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/01/angular解析属性中的特殊符号/">angular解析属性中的特殊符号</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又掉入一个坑了…例子如下</p>
+<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
+<p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
+<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-socket验证挂载session" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -729,75 +788,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2015/12/16/自用七牛上传下载/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-gulp学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/13/gulp学习笔记/" class="article-date">
-  	<time datetime="2015-12-13T13:51:06.000Z" itemprop="datePublished">2015-12-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/13/gulp学习笔记/">gulp学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="gulp学习笔记">gulp学习笔记</h1><p>本渣渣来学习gulp了！为什么不用grunt？因为gulp他字短啊！字短..短…..</p>
-<h1 id="什么是gulp">什么是gulp</h1><p>在我看来gulp就是一个未完成的人,so.什么是人？有感情有思想的才是人.对了还有肉体.<br>但是这个”未完成的人”给我提供了四个工具</p>
-<ul>
-<li>gulp.src</li>
-<li>gulp.dest</li>
-<li>gulp.task</li>
-<li>gulp.watch</li>
-</ul>
-<p>有了这四个工具我就可以拿起锤子打造肉体，拿起斧头打造脑袋…<br>但是..你打造肉体总得有啥材料吧，你做个极品武器不是还要一堆稀有神器材料.<br>so.gulp开发者给我们提供了一大堆的材料,而且你只需要去找一位名叫nodejs的npc接一个名为安装的任务，<br>这位npc就会给你一个npm强化+13的神器.哦不对！是史诗.<br>所以,我们可以在npm找到很多跟gulp有关的插件.没有插件光有个gulp也没啥用啊.</p>
-<h1 id="人体实验——打造WEB开发人员">人体实验——打造WEB开发人员</h1><h2 id="安装gulp">安装gulp</h2><p>安装到办公室里:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> gulp</span></span><br></pre></td></tr></table></figure></p>
-<p>再把他安装到自己办公桌上:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span>  gulp</span><br></pre></td></tr></table></figure></p>
-<p>okay,现在可以在办公桌上进行人体实验了.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/13/gulp学习笔记/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
