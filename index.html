@@ -242,37 +242,6 @@ var _hmt = _hmt || [];
 <h2 id="数据库操作">数据库操作</h2><p>千万不要用mysql直接操作数据库 用mysqli 并且用mysqli的prepare语句来进行数据库操作 否则会遇到SQL注入问题.<br>sqlmap表示 prepare是啥？</p>
 <h2 id="后端验证">后端验证</h2><p>在数据验证这块得做两个验证,前端一个,着重后端验证数据.否则出啥问题就GG了</p>
 <h1 id="为什么是laravel?">为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 <del>情怀</del> 还是因为这个框架是跟express比较相近的..</p>
-<!-- more -- >
-
-# 大概设计思路
-自己设计了个homePage并且要支持数据crud所以用php直接上了.
-整体架构采用
-vue.js+laravel+mysql
-并且使用restfulApi+token来进行前后端分离.
-
-# token设计
-token自己也没弄太懂,实现思路为
-用户登录
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Post</span> /<span class="tag">login</span></span><br><span class="line"></span><br><span class="line">成功返回:&#123;</span><br><span class="line">    <span class="attribute">token</span>:<span class="string">"xxx"</span>,</span><br><span class="line">    <span class="attribute">name</span>:<span class="string">"xxx"</span>,</span><br><span class="line">    <span class="string">"role"</span>:xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中登录时候token包含了四个属性<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"name"</span>=&gt;<span class="variable">$user</span>[<span class="number">0</span>]-&gt;name,<span class="string">"time"</span>=&gt;time(),<span class="string">"exp"</span>=&gt;time()+<span class="variable">$exp</span>,<span class="string">"role"</span>=&gt;<span class="variable">$user</span>[<span class="number">0</span>]-&gt;role]</span><br></pre></td></tr></table></figure></p>
-<p>登录成功后把此次token添加进session</p>
-<p>在访问后台需要使用附带上token<br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get /<span class="literal">admin</span>/<span class="literal">user</span></span><br></pre></td></tr></table></figure></p>
-<p>并且使用当前的token与session中的token做一个对比 如果正确并且存在则放任通行, 如果不存在则返回false并且通知客户端跳转到登录页面重新登陆获取token</p>
-<h1 id="laravel目录">laravel目录</h1><p>config/app.php 环境目录与配置<br>app.php下aliases是用来给类引入别名的<br>如果需要使用app下的参数则需要使用函数<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$exp</span>=config(<span class="string">"app.jwtTime"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>通过.来引入</p>
-<p>app/Http/Controller 控制器目录<br>在写控制器的时候需要使用命名空间相应的命名 如果引入库的话需要使用use (话说是不是废话了- -)<br>class需要继承Controller</p>
-<p>默认 request是没有引入的 需要使用use Illuminate\Http\Request; 并且在function的时候注入依赖<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">function</span> register(Request <span class="variable">$request</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>当在控制器中使用require时 如果需要new一个对象则需要使用命名空间<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">"geePath"</span>,realpath(<span class="keyword">__DIR__</span>.<span class="string">"/../../../vendor/gee-team/gt-php-sdk/"</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">require_once</span> (geePath.<span class="string">"/lib/class.geetestlib.php"</span>);</span><br><span class="line"><span class="keyword">require_once</span> (geePath.<span class="string">"/config/config.php"</span>);</span><br><span class="line"><span class="variable">$GtSdk</span> = <span class="keyword">new</span> \GeetestLib(CAPTCHA_ID, PRIVATE_KEY);<span class="comment">//使用命名空间</span></span><br></pre></td></tr></table></figure></p>
-<p>app/Http/Middleware 中间件目录<br>需要明确声明函数<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pubcli <span class="keyword">function</span> handle (<span class="variable">$request</span>,<span class="variable">$next</span>)&#123;</span><br><span class="line">     return <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>-这里就被坑了 需要明确的返回$next()</li>
-</ul>
-<h1 id="数据库迁移">数据库迁移</h1><p>迁移就是使用<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">php</span> <span class="tag">artisan</span> <span class="tag">make</span><span class="pseudo">:migration</span> <span class="tag">create_users_table</span></span><br></pre></td></tr></table></figure></p>
-<p>来创建一个迁移在/database/migrations 下<br>然后执行<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">php</span> artisan migrate</span><br></pre></td></tr></table></figure></p>
-<p>来运行迁移.</p>
-<p>迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常和Laravel的结构构建器结对从而可以很容易地构建应用的数据库表结构。<br>实际上就是把数据库做一层封装,方便Laravel来操控</p>
-<h1 id="数据库查询">数据库查询</h1><p>Laravel有自己的数据库查询 具体看手册就行了</p>
-<h1 id="坑待填">坑待填</h1>-->
       
     </div>
     
@@ -285,6 +254,10 @@ token自己也没弄太懂,实现思路为
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/23/laravel框架学习笔记-1/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
