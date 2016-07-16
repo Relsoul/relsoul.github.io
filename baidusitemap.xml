@@ -4,6 +4,63 @@
 
     
   <url>
+    <loc>http://emufan.com/2016/03/29/gulp-webpack-vue-js%E6%89%93%E9%80%A0vue-js%E6%A1%86%E6%9E%B6%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
+    <lastmod>2016-07-16T10:27:33.620Z</lastmod>
+    <data>
+        <display>
+        <title>gulp+webpack+vue.js打造vue.js框架自动化</title>
+        <pubTime>2016-03-29T11:19:18.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/07/10/the7%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/</loc>
+    <lastmod>2016-07-10T15:34:19.185Z</lastmod>
+    <data>
+        <display>
+        <title>the7设计学习笔记-1</title>
+        <pubTime>2016-07-10T14:37:00.000Z</pubTime>
+        
+        <tag>the7</tag>
+         
+        <tag>wordpress</tag>
+         
+        <tag>学习笔记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/06/29/%E6%B5%85%E8%B0%88php%E4%B8%8EJavaScript%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2016-06-29T14:06:42.597Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈php与JavaScript中的设计模式之工厂模式</title>
+        <pubTime>2016-06-29T03:20:57.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>php</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://emufan.com/2016/05/23/laravel%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-1/</loc>
     <lastmod>2016-05-24T08:45:55.927Z</lastmod>
     <data>
@@ -169,21 +226,6 @@
         <display>
         <title>mongodb中的aggregate(聚合查询)</title>
         <pubTime>2016-03-31T15:25:12.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://emufan.com/2016/03/29/gulp-webpack-vue-js%E6%89%93%E9%80%A0vue-js%E6%A1%86%E6%9E%B6%E8%87%AA%E5%8A%A8%E5%8C%96/</loc>
-    <lastmod>2016-03-29T16:24:51.919Z</lastmod>
-    <data>
-        <display>
-        <title>gulp+webpack+vue.js打造vue.js框架自动化</title>
-        <pubTime>2016-03-29T11:19:18.000Z</pubTime>
         
          
            
