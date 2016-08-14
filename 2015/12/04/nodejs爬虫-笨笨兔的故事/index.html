@@ -34,7 +34,7 @@ async         //并">
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -132,7 +132,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -211,7 +211,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -258,17 +258,17 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>##起始<br>想找个笨笨兔的故事txt版的放kindle上 无奈网上都是pdf版的,不过倒是有在线阅读的<br><code>http://www.linuxidc.com/Linux/2010-12/30786.htm</code><br>于是打算自己用nodejs写个爬虫来爬一下网站内容生成txt传输到kindle<br>具体请参考我的<a href="https://github.com/Relsoul/bdwork/tree/master/soul/%E7%AC%A8%E5%85%94%E5%85%94%E7%9A%84%E6%95%85%E4%BA%8B%E7%88%AC%E8%99%AB" target="_blank" rel="external">github</a></p>
-<h2 id="开始编写">开始编写</h2><p>用到的库有</p>
+<h2 id="开始编写"><a href="#开始编写" class="headerlink" title="开始编写"></a>开始编写</h2><p>用到的库有</p>
 <ul>
 <li>superagent //request请求</li>
 <li>async         //并发(异步)流程控制库 用来控制并发数    </li>
 <li>cheerio    //nodejs的jquery</li>
 </ul>
 <a id="more"></a>
-<h3 id="引入库">引入库</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入request模块</span></span><br><span class="line"><span class="keyword">var</span> superagent=<span class="built_in">require</span>(<span class="string">"superagent"</span>);</span><br><span class="line"><span class="comment">//引入async并发模块</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">async</span>=<span class="built_in">require</span>(<span class="string">"async"</span>);</span><br><span class="line"><span class="comment">//引入DOM操作模块</span></span><br><span class="line"><span class="keyword">var</span> cheerio=<span class="built_in">require</span>(<span class="string">"cheerio"</span>);</span><br><span class="line"><span class="comment">//引入file模块</span></span><br><span class="line"><span class="keyword">var</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="初始化url">初始化url</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成url</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> host</span>=<span class="string">"http://www.linuxidc.com/Linux/2010-12/30786"</span>;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> urls</span>=[];</span><br><span class="line"><span class="comment">//urls初始化</span></span><br><span class="line">urls.push(host+<span class="string">".htm"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="variable"><span class="keyword">var</span> i</span>=<span class="number">2</span>;i<span class="type">&lt;=129;i++)&#123;</span><br><span class="line">    urls.push(host+"p"+i+".htm")</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="并发爬取url">并发爬取url</h3><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//并发扒取url</span><br><span class="line">async.mapLimit(urls,<span class="number">5</span>,function(url,callback)&#123;</span><br><span class="line">    //每次爬取urls获取html</span><br><span class="line">    superagent.get(url).<span class="keyword">end</span>(function(err,html)&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;console.log(err)&#125;</span><br><span class="line">        <span class="keyword">var</span> $=cheerio.load(html.text);</span><br><span class="line">        <span class="keyword">var</span> txt=$(<span class="string">"#content"</span>).text();</span><br><span class="line">        //爬去完毕后调用callback</span><br><span class="line">        callback(null,txt)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,function(err,<span class="literal">result</span>)&#123;</span><br><span class="line">    //<span class="literal">result</span>是<span class="number">129</span>个url爬去完毕后汇总的结果</span><br><span class="line">    console.log(<span class="literal">result</span>)</span><br><span class="line">    //fs.mkdir(<span class="string">"./txt"</span>);</span><br><span class="line">    <span class="literal">result</span>.forEach(function(e,i)&#123;</span><br><span class="line">        fs.writeFile(<span class="string">"./txt/笨兔兔的故事.txt"</span>,e+<span class="string">"\n\r"</span>,&#123;flag:<span class="string">"a"</span>,encoding:<span class="string">"utf8"</span>&#125;,function(err)&#123;&#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="结束">结束</h3><p>至此你就写好了一个爬虫,应该没啥技术难点吧<br>都用到了三个库当中的一部分功能</p>
+<h3 id="引入库"><a href="#引入库" class="headerlink" title="引入库"></a>引入库</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入request模块</span></div><div class="line"><span class="keyword">var</span> superagent=<span class="built_in">require</span>(<span class="string">"superagent"</span>);</div><div class="line"><span class="comment">//引入async并发模块</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">async</span>=<span class="built_in">require</span>(<span class="string">"async"</span>);</div><div class="line"><span class="comment">//引入DOM操作模块</span></div><div class="line"><span class="keyword">var</span> cheerio=<span class="built_in">require</span>(<span class="string">"cheerio"</span>);</div><div class="line"><span class="comment">//引入file模块</span></div><div class="line"><span class="keyword">var</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>)</div></pre></td></tr></table></figure>
+<h3 id="初始化url"><a href="#初始化url" class="headerlink" title="初始化url"></a>初始化url</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//生成url</span></div><div class="line"><span class="keyword">var</span> host=<span class="string">"http://www.linuxidc.com/Linux/2010-12/30786"</span>;</div><div class="line"><span class="keyword">var</span> urls=[];</div><div class="line"><span class="comment">//urls初始化</span></div><div class="line">urls.push(host+<span class="string">".htm"</span>);</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">2</span>;i&lt;=<span class="number">129</span>;i++)&#123;</div><div class="line">    urls.push(host+<span class="string">"p"</span>+i+<span class="string">".htm"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="并发爬取url"><a href="#并发爬取url" class="headerlink" title="并发爬取url"></a>并发爬取url</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//并发扒取url</span></div><div class="line"><span class="keyword">async</span>.mapLimit(urls,<span class="number">5</span>,<span class="function"><span class="keyword">function</span>(<span class="params">url,callback</span>)</span>&#123;</div><div class="line">    <span class="comment">//每次爬取urls获取html</span></div><div class="line">    superagent.get(url).end(<span class="function"><span class="keyword">function</span>(<span class="params">err,html</span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(err)&#123;<span class="built_in">console</span>.log(err)&#125;</div><div class="line">        <span class="keyword">var</span> $=cheerio.load(html.text);</div><div class="line">        <span class="keyword">var</span> txt=$(<span class="string">"#content"</span>).text();</div><div class="line">        <span class="comment">//爬去完毕后调用callback</span></div><div class="line">        callback(<span class="literal">null</span>,txt)</div><div class="line">    &#125;)</div><div class="line">&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">    <span class="comment">//result是129个url爬去完毕后汇总的结果</span></div><div class="line">    <span class="built_in">console</span>.log(result)</div><div class="line">    <span class="comment">//fs.mkdir("./txt");</span></div><div class="line">    result.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">e,i</span>)</span>&#123;</div><div class="line">        fs.writeFile(<span class="string">"./txt/笨兔兔的故事.txt"</span>,e+<span class="string">"\n\r"</span>,&#123;flag:<span class="string">"a"</span>,encoding:<span class="string">"utf8"</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;&#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><p>至此你就写好了一个爬虫,应该没啥技术难点吧<br>都用到了三个库当中的一部分功能</p>
 
       
     </div>
@@ -348,7 +348,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -364,8 +364,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

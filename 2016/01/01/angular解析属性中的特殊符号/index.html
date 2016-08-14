@@ -16,7 +16,7 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
 <meta property="og:description" content="又掉入一个坑了…例子如下
 ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope.usr=&quot;http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3&quot;
 上例的代码运行会爆插值错误也就是Error: $interpolate:interrInterpolation">
-<meta property="og:updated_time" content="2015-12-31T16:44:07.725Z">
+<meta property="og:updated_time" content="2015-12-31T16:44:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular解析属性中的特殊符号">
 <meta name="twitter:description" content="又掉入一个坑了…例子如下
@@ -28,7 +28,7 @@ ngSrc123&amp;lt;audio ng-src=&quot;usr&quot;&amp;gt;&amp;lt;/audio&amp;gt;$scope
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -126,7 +126,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -205,7 +205,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -252,9 +252,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>又掉入一个坑了…例子如下</p>
-<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
+<h1 id="ngSrc"><a href="#ngSrc" class="headerlink" title="ngSrc"></a>ngSrc</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">audio</span> ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</div><div class="line"></div><div class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></div></pre></td></tr></table></figure>
 <p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
-<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="sce"><a href="#sce" class="headerlink" title="$sce"></a>$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$scope.usr=$sce.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</div></pre></td></tr></table></figure></p>
 <p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
 
       
@@ -340,7 +340,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -356,8 +356,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

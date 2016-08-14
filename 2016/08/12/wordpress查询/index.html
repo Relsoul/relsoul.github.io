@@ -16,7 +16,7 @@
 <meta property="og:description" content="WP_Query
 获取当前页面内容123$now_id=get_the_ID();$now_post=get_post($now_id);$now_content=$now_post-&amp;gt;post_content;
 1234567891011121314151617181920/*       获取当前文章内容,根据文章内容来获取   */   $now_id=get_the_ID();">
-<meta property="og:updated_time" content="2016-08-12T12:07:42.106Z">
+<meta property="og:updated_time" content="2016-08-12T12:07:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wordpress查询">
 <meta name="twitter:description" content="WP_Query
@@ -28,7 +28,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -126,7 +126,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -205,7 +205,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -252,9 +252,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://codex.wordpress.org/Function_Reference/WP_Query" target="_blank" rel="external">WP_Query</a></p>
-<h1 id="获取当前页面内容">获取当前页面内容</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$now</span>_id=get_the_ID();</span><br><span class="line"><span class="variable">$now</span>_post=get_post(<span class="variable">$now</span>_id);</span><br><span class="line"><span class="variable">$now</span>_content=<span class="variable">$now</span>_post-&gt;post_content;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">       获取当前文章内容,根据文章内容来获取</span><br><span class="line">   */</span><br><span class="line">   <span class="variable">$now</span>_id=get_the_ID();</span><br><span class="line">   <span class="variable">$now</span>_post=get_post(<span class="variable">$now</span>_id);</span><br><span class="line">   <span class="variable">$now</span>_content=<span class="variable">$now</span>_post-&gt;post_content;</span><br><span class="line"></span><br><span class="line">   <span class="variable">$content</span>_json=json_decode(<span class="variable">$now</span>_content,<span class="literal">true</span>);</span><br><span class="line">   //print_r(<span class="variable">$content</span>_json);</span><br><span class="line">   <span class="variable">$text</span>_title=<span class="variable">$content</span>_json[<span class="string">"title"</span>];</span><br><span class="line">   <span class="variable">$text</span>_small=<span class="variable">$content</span>_json[<span class="string">"title-small"</span>];</span><br><span class="line">   <span class="variable">$category</span>_text=<span class="variable">$content</span>_json[<span class="string">"category"</span>];</span><br><span class="line">   <span class="variable">$args</span> = <span class="keyword">array</span>(</span><br><span class="line">       <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</span><br><span class="line">       <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</span><br><span class="line">       <span class="string">"category_name"</span>=&gt;<span class="variable">$category</span>_text,</span><br><span class="line">       <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</span><br><span class="line">       <span class="string">'paged'</span>    =&gt; <span class="variable">$paged</span>,</span><br><span class="line">   );</span><br><span class="line">   <span class="variable">$loop</span> = new WP_Query(<span class="variable">$args</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="查询说明">查询说明</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$args</span> = <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</span><br><span class="line">            <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</span><br><span class="line">            <span class="string">"category_name"</span>=&gt;<span class="variable">$category</span>_text,</span><br><span class="line">            <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</span><br><span class="line">            <span class="string">'paged'</span>    =&gt; <span class="variable">$paged</span>,</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<h1 id="获取当前页面内容"><a href="#获取当前页面内容" class="headerlink" title="获取当前页面内容"></a>获取当前页面内容</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$now_id</span>=get_the_ID();</div><div class="line"><span class="variable">$now_post</span>=get_post(<span class="variable">$now_id</span>);</div><div class="line"><span class="variable">$now_content</span>=<span class="variable">$now_post</span>-&gt;post_content;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">       获取当前文章内容,根据文章内容来获取</div><div class="line">   */</div><div class="line">   $now_id=get_the_ID();</div><div class="line">   $now_post=get_post($now_id);</div><div class="line">   $now_content=$now_post-&gt;post_content;</div><div class="line"></div><div class="line">   $content_json=json_decode($now_content,<span class="keyword">true</span>);</div><div class="line">   <span class="comment">//print_r($content_json);</span></div><div class="line">   $text_title=$content_json[<span class="string">"title"</span>];</div><div class="line">   $text_small=$content_json[<span class="string">"title-small"</span>];</div><div class="line">   $category_text=$content_json[<span class="string">"category"</span>];</div><div class="line">   $args = <span class="keyword">array</span>(</div><div class="line">       <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</div><div class="line">       <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</div><div class="line">       <span class="string">"category_name"</span>=&gt;$category_text,</div><div class="line">       <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</div><div class="line">       <span class="string">'paged'</span>    =&gt; $paged,</div><div class="line">   );</div><div class="line">   $loop = <span class="keyword">new</span> WP_Query($args);</div></pre></td></tr></table></figure>
+<h1 id="查询说明"><a href="#查询说明" class="headerlink" title="查询说明"></a>查询说明</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$args = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</div><div class="line">            <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</div><div class="line">            <span class="string">"category_name"</span>=&gt;$category_text,</div><div class="line">            <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</div><div class="line">            <span class="string">'paged'</span>    =&gt; $paged,</div><div class="line">        );</div></pre></td></tr></table></figure>
 <p>post_type为查询类型<br>category_name为文章的别名</p>
 <p>剩下的看API即可..以后会逐步更新</p>
 
@@ -265,6 +265,15 @@ var _hmt = _hmt || [];
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/08/14/mac安装lnmp环境/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          mac安装lnmp环境
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/18/mongodb3-0配置权限漏洞修复方案/" id="article-nav-older" class="article-nav-link-wrap">
@@ -332,7 +341,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -348,8 +357,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

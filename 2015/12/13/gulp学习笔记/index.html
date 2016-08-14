@@ -28,7 +28,7 @@ gulp.task
 gulp.watch
 
 有了这四个工具我就可以拿起锤子打造肉体，拿起斧头打造脑袋…但是..你打">
-<meta property="og:updated_time" content="2016-02-17T12:54:48.937Z">
+<meta property="og:updated_time" content="2016-02-17T12:54:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp学习笔记">
 <meta name="twitter:description" content="gulp学习笔记本渣渣来学习gulp了！为什么不用grunt？因为gulp他字短啊！字短..短…..
@@ -46,7 +46,7 @@ gulp.watch
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -144,7 +144,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -223,7 +223,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -269,8 +269,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="gulp学习笔记">gulp学习笔记</h1><p>本渣渣来学习gulp了！为什么不用grunt？因为gulp他字短啊！字短..短…..</p>
-<h1 id="什么是gulp">什么是gulp</h1><p>在我看来gulp就是一个未完成的人,so.什么是人？有感情有思想的才是人.对了还有肉体.<br>但是这个”未完成的人”给我提供了四个工具</p>
+        <h1 id="gulp学习笔记"><a href="#gulp学习笔记" class="headerlink" title="gulp学习笔记"></a>gulp学习笔记</h1><p>本渣渣来学习gulp了！为什么不用grunt？因为gulp他字短啊！字短..短…..</p>
+<h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h1><p>在我看来gulp就是一个未完成的人,so.什么是人？有感情有思想的才是人.对了还有肉体.<br>但是这个”未完成的人”给我提供了四个工具</p>
 <ul>
 <li>gulp.src</li>
 <li>gulp.dest</li>
@@ -278,20 +278,20 @@ var _hmt = _hmt || [];
 <li>gulp.watch</li>
 </ul>
 <p>有了这四个工具我就可以拿起锤子打造肉体，拿起斧头打造脑袋…<br>但是..你打造肉体总得有啥材料吧，你做个极品武器不是还要一堆稀有神器材料.<br>so.gulp开发者给我们提供了一大堆的材料,而且你只需要去找一位名叫nodejs的npc接一个名为安装的任务，<br>这位npc就会给你一个npm强化+13的神器.哦不对！是史诗.<br>所以,我们可以在npm找到很多跟gulp有关的插件.没有插件光有个gulp也没啥用啊.</p>
-<h1 id="人体实验——打造WEB开发人员">人体实验——打造WEB开发人员</h1><h2 id="安装gulp">安装gulp</h2><p>安装到办公室里:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> gulp</span></span><br></pre></td></tr></table></figure></p>
-<p>再把他安装到自己办公桌上:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span>  gulp</span><br></pre></td></tr></table></figure></p>
+<h1 id="人体实验——打造WEB开发人员"><a href="#人体实验——打造WEB开发人员" class="headerlink" title="人体实验——打造WEB开发人员"></a>人体实验——打造WEB开发人员</h1><h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><p>安装到办公室里:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> -g gulp</div></pre></td></tr></table></figure></p>
+<p>再把他安装到自己办公桌上:<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span>  gulp</div></pre></td></tr></table></figure></p>
 <p>okay,现在可以在办公桌上进行人体实验了.</p>
 <a id="more"></a>
-<h2 id="获取材料">获取材料</h2><h3 id="自动加载">自动加载</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> gulp-<span class="keyword">load</span>-plugins</span></span><br></pre></td></tr></table></figure>
+<h2 id="获取材料"><a href="#获取材料" class="headerlink" title="获取材料"></a>获取材料</h2><h3 id="自动加载"><a href="#自动加载" class="headerlink" title="自动加载"></a>自动加载</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> gulp-<span class="keyword">load</span>-plugins</div></pre></td></tr></table></figure>
 <p>顾名思义,这份材料可以把我们获得的材料全部放在一个仓库,以后有需要从这个仓库拿就行了,不用缺啥还得重新拿材料</p>
-<h3 id="Sass编译">Sass编译</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> gulp-ruby-sass</span><br></pre></td></tr></table></figure>
+<h3 id="Sass编译"><a href="#Sass编译" class="headerlink" title="Sass编译"></a>Sass编译</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> gulp-ruby-sass</div></pre></td></tr></table></figure>
 <p>我们在进行人体实验的时候要用到天使的翅膀(sass),但是这货是直接拿不下来的,所以我们要用一种名为sass的武器来拿下这对翅膀<br>然后安装到WEB开发人员身上(css)</p>
 <p>获得<a href="http://www.w3cplus.com/sassguide/install.html" target="_blank" rel="external">sass</a>武器还得做个任务才能拿到.</p>
-<h3 id="自动刷新">自动刷新</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> gulp-livereload</span><br></pre></td></tr></table></figure>
+<h3 id="自动刷新"><a href="#自动刷新" class="headerlink" title="自动刷新"></a>自动刷新</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> gulp-livereload</div></pre></td></tr></table></figure>
 <p>每次实验完毕后都需要按一下F5电击按钮才能发现打造后的效果,这样下来太麻烦了.<br>如果我们办公桌是chrome或者FF开发的还得去给办公桌装个(抽屉)[<a href="https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei?utm_source=chrome-app-launcher-info-dialog" target="_blank" rel="external">https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei?utm_source=chrome-app-launcher-info-dialog</a>]</p>
-<h3 id="重载">重载</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> gulp-nodemon</span><br></pre></td></tr></table></figure>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> gulp-nodemon</div></pre></td></tr></table></figure>
 <p>每次更改人体某个部件后都需要重新启动下人体的大脑.太麻烦了 不如自动启动</p>
-<h2 id="办公桌环境">办公桌环境</h2><p>我们办公桌的环境是这样的</p>
+<h2 id="办公桌环境"><a href="#办公桌环境" class="headerlink" title="办公桌环境"></a>办公桌环境</h2><p>我们办公桌的环境是这样的</p>
 <ul>
 <li>app</li>
 <li><ul>
@@ -313,13 +313,13 @@ var _hmt = _hmt || [];
 <li>gulpfile.js</li>
 </ul>
 <p>我们把办公桌分成几块<br>app这是一个大块<br>build是app这块中的一小块<br>dev是app这块中的一小块<br>app.js是这app中的大脑<br>index.html是这app中的贴膜(装饰办公桌桌面的)<br>gulpfile.js占了我们办公桌另一块</p>
-<h2 id="开始制作">开始制作</h2><h3 id="拿起gulp神器">拿起gulp神器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp=<span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="获取自动加载材料">获取自动加载材料</h3><p>要引用插件得通过 plugins.xxx这种形式 并且以驼峰式命名<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> plugins=<span class="built_in">require</span>(<span class="string">"gulp-load-plugins"</span>)();</span><br></pre></td></tr></table></figure></p>
-<h3 id="设置办公桌路径,让gulp能够找到需要打造的地点">设置办公桌路径,让gulp能够找到需要打造的地点</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置js文件路径</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> jsPath</span>=&#123;</span><br><span class="line">    dev:<span class="string">"app/dev/css/*.scss"</span>,</span><br><span class="line">    build:<span class="string">"app/build/css"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//设置自动加载文件路径</span></span><br><span class="line"><span class="variable"><span class="keyword">var</span> reloadMain</span>=<span class="string">"app/app.js"</span></span><br></pre></td></tr></table></figure>
-<h3 id="开始给gulp神器添加任务_让神器来自动完成">开始给gulp神器添加任务 让神器来自动完成</h3><p>在控制台不带用参数就单纯输入gulp默认会执行default任务<br>然后default任务又通知watchSass和reload让这两货起床<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.<span class="keyword">task</span>(<span class="string">"default"</span>,[<span class="string">"watchSass"</span>,<span class="string">"reload"</span>]);</span><br></pre></td></tr></table></figure></p>
-<h3 id="让Sass史诗武器来拿去天使翅膀">让Sass史诗武器来拿去天使翅膀</h3><p>监听”app/dev/css/*.scss”路径下所有.scss文件 一但有变动就调用sass:compile任务<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"watchSass"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//需要在监听文件之前调用一下livereload.listen();</span></span><br><span class="line">    plugins.livereload.listen();</span><br><span class="line">    gulp.watch(jsPath.dev,[<span class="string">"sass:compile"</span>])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="给Sass武器加上特效duang">给Sass武器加上特效duang</h3><p>调用sass编译功能<br>ruby.Sass(path,opt)<br>.pipe是武器中的骨架 你所输入的灵力都是通过骨架来传输的并且传输完毕后你的灵力不会消失<br>通俗来讲就是无限流,你可以创建多个pipe 第一个pipe用来处理你的灵力速度,第二个pipe用来处理你的灵力数量 压缩你的灵力<br>gulp.dest用来输出文件 你的灵力可以外放了！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"sass:compile"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//Sass编译 输出压缩后的style文件</span></span><br><span class="line">   plugins.rubySass(jsPath.dev,&#123;style:<span class="string">"compressed"</span>&#125;)</span><br><span class="line">       .on(<span class="string">"error"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;<span class="built_in">console</span>.log(err)&#125;)</span><br><span class="line">       .pipe(gulp.dest(jsPath.build))</span><br><span class="line">       <span class="comment">//自动重启浏览器 配合 chrome插件使用</span></span><br><span class="line">       .pipe(plugins.livereload())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="自动重载办公桌">自动重载办公桌</h3><p>当你更改办公桌某个重要的地方时,比如app.js,<br>你就可以利用nodemon这把武器来处理了<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当app.js文件变动自动重启</span></span><br><span class="line">gulp.task(<span class="string">"reload"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    plugins.nodemon(&#123;</span><br><span class="line">        script: reloadMain <span class="comment">//重启主文件</span></span><br><span class="line">        , ext: <span class="string">'js html'</span> <span class="comment">//附加监听文件类型</span></span><br><span class="line">        , env: &#123; <span class="string">'NODE_ENV'</span>: <span class="string">'development'</span> &#125;<span class="comment">//附加参数</span></span><br><span class="line">        , watch:[reloadMain]<span class="comment">//仅仅监听主文件变动</span></span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="开始制作"><a href="#开始制作" class="headerlink" title="开始制作"></a>开始制作</h2><h3 id="拿起gulp神器"><a href="#拿起gulp神器" class="headerlink" title="拿起gulp神器"></a>拿起gulp神器</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var gulp</span>=require(<span class="string">"gulp"</span>);</div></pre></td></tr></table></figure>
+<h3 id="获取自动加载材料"><a href="#获取自动加载材料" class="headerlink" title="获取自动加载材料"></a>获取自动加载材料</h3><p>要引用插件得通过 plugins.xxx这种形式 并且以驼峰式命名<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var plugins</span>=require(<span class="string">"gulp-load-plugins"</span>)();</div></pre></td></tr></table></figure></p>
+<h3 id="设置办公桌路径-让gulp能够找到需要打造的地点"><a href="#设置办公桌路径-让gulp能够找到需要打造的地点" class="headerlink" title="设置办公桌路径,让gulp能够找到需要打造的地点"></a>设置办公桌路径,让gulp能够找到需要打造的地点</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置js文件路径</span></div><div class="line"><span class="selector-tag">var</span> jsPath=&#123;</div><div class="line">    dev:<span class="string">"app/dev/css/*.scss"</span>,</div><div class="line">    build:<span class="string">"app/build/css"</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//设置自动加载文件路径</span></div><div class="line"><span class="selector-tag">var</span> reloadMain=<span class="string">"app/app.js"</span></div></pre></td></tr></table></figure>
+<h3 id="开始给gulp神器添加任务-让神器来自动完成"><a href="#开始给gulp神器添加任务-让神器来自动完成" class="headerlink" title="开始给gulp神器添加任务 让神器来自动完成"></a>开始给gulp神器添加任务 让神器来自动完成</h3><p>在控制台不带用参数就单纯输入gulp默认会执行default任务<br>然后default任务又通知watchSass和reload让这两货起床<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp<span class="selector-class">.task</span>(<span class="string">"default"</span>,[<span class="string">"watchSass"</span>,<span class="string">"reload"</span>]);</div></pre></td></tr></table></figure></p>
+<h3 id="让Sass史诗武器来拿去天使翅膀"><a href="#让Sass史诗武器来拿去天使翅膀" class="headerlink" title="让Sass史诗武器来拿去天使翅膀"></a>让Sass史诗武器来拿去天使翅膀</h3><p>监听”app/dev/css/*.scss”路径下所有.scss文件 一但有变动就调用sass:compile任务<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">"watchSass"</span>,function()&#123;</div><div class="line">    <span class="comment">//需要在监听文件之前调用一下livereload.listen();</span></div><div class="line">    plugins<span class="selector-class">.livereload</span><span class="selector-class">.listen</span>();</div><div class="line">    gulp<span class="selector-class">.watch</span>(jsPath.dev,[<span class="string">"sass:compile"</span>])</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="给Sass武器加上特效duang"><a href="#给Sass武器加上特效duang" class="headerlink" title="给Sass武器加上特效duang"></a>给Sass武器加上特效duang</h3><p>调用sass编译功能<br>ruby.Sass(path,opt)<br>.pipe是武器中的骨架 你所输入的灵力都是通过骨架来传输的并且传输完毕后你的灵力不会消失<br>通俗来讲就是无限流,你可以创建多个pipe 第一个pipe用来处理你的灵力速度,第二个pipe用来处理你的灵力数量 压缩你的灵力<br>gulp.dest用来输出文件 你的灵力可以外放了！<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">"sass:compile"</span>,function()&#123;</div><div class="line">    <span class="comment">//Sass编译 输出压缩后的style文件</span></div><div class="line">   <span class="selector-tag">plugins</span><span class="selector-class">.rubySass</span>(jsPath.dev,&#123;<span class="attribute">style</span>:<span class="string">"compressed"</span>&#125;)</div><div class="line">       <span class="selector-class">.on</span>(<span class="string">"error"</span>,function(err)&#123;console<span class="selector-class">.log</span>(err)&#125;)</div><div class="line">       <span class="selector-class">.pipe</span>(gulp.dest(jsPath.build))</div><div class="line">       <span class="comment">//自动重启浏览器 配合 chrome插件使用</span></div><div class="line">       <span class="selector-class">.pipe</span>(plugins.livereload())</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="自动重载办公桌"><a href="#自动重载办公桌" class="headerlink" title="自动重载办公桌"></a>自动重载办公桌</h3><p>当你更改办公桌某个重要的地方时,比如app.js,<br>你就可以利用nodemon这把武器来处理了<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当app.js文件变动自动重启</span></div><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">"reload"</span>,function()&#123;</div><div class="line">    <span class="selector-tag">plugins</span><span class="selector-class">.nodemon</span>(&#123;</div><div class="line">        <span class="attribute">script</span>: reloadMain <span class="comment">//重启主文件</span></div><div class="line">        , <span class="attribute">ext</span>: <span class="string">'js html'</span> <span class="comment">//附加监听文件类型</span></div><div class="line">        , <span class="attribute">env</span>: &#123; <span class="string">'NODE_ENV'</span>: <span class="string">'development'</span> &#125;<span class="comment">//附加参数</span></div><div class="line">        , <span class="attribute">watch</span>:[reloadMain]<span class="comment">//仅仅监听主文件变动</span></div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <p>#自此一个简单的Ver1.0版的WEB程序猿就打造完成了！</p>
 
       
@@ -405,7 +405,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -421,8 +421,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

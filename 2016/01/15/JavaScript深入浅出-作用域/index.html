@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://emufan.com/2016/01/15/JavaScript深入浅出-作用域/index.html">
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
 <meta property="og:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
-<meta property="og:updated_time" content="2016-01-15T11:44:15.426Z">
+<meta property="og:updated_time" content="2016-01-15T11:44:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入浅出-作用域">
 <meta name="twitter:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
@@ -22,7 +22,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -120,7 +120,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -245,12 +245,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="全局-函数,eval">全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </span><br><span class="line">&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</span><br></pre></td></tr></table></figure>
+        <h1 id="全局-函数-eval"><a href="#全局-函数-eval" class="headerlink" title="全局.函数,eval"></a>全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</div><div class="line">    <span class="built_in">console</span>.log(item)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</div></pre></td></tr></table></figure>
 <p>JavaScript无块级作用域,只有函数作用域.<br>如 匿名立即执行作用域</p>
 <a id="more"></a>
-<h1 id="作用域链">作用域链</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> local2=<span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">outer1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> local=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    outer1();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> global3=<span class="number">1</span>;</span><br><span class="line">outer2();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> func=<span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'console.log(typeof i)'</span>)</span></span>;</span><br><span class="line">    func();<span class="comment">//undefined</span></span><br><span class="line">&#125;</span><br><span class="line">outer()</span><br></pre></td></tr></table></figure>
+<h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer2</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> local2=<span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">outer1</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">var</span> local=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    outer1();</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> global3=<span class="number">1</span>;</div><div class="line">outer2();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> i=<span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> func=<span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'console.log(typeof i)'</span>)</span></span>;</div><div class="line">    func();<span class="comment">//undefined</span></div><div class="line">&#125;</div><div class="line">outer()</div></pre></td></tr></table></figure>
 <p>在outer1函数中可以访问到 outer2,global<br>用new Function去构造一个函数 实际上这个函数的作用域是全局作用域而非当前函数的作用域</p>
-<h1 id="利用函数作用域封装">利用函数作用域封装</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//do sth</span></span><br><span class="line">    <span class="keyword">var</span> a,b;</span><br><span class="line">&#125;)();</span><br><span class="line">!<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// do sth </span></span><br><span class="line">    <span class="keyword">var</span> a,b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="利用函数作用域封装"><a href="#利用函数作用域封装" class="headerlink" title="利用函数作用域封装"></a>利用函数作用域封装</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//do sth</span></div><div class="line">    <span class="keyword">var</span> a,b;</div><div class="line">&#125;)();</div><div class="line">!<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">// do sth </span></div><div class="line">    <span class="keyword">var</span> a,b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -335,7 +335,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -351,8 +351,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

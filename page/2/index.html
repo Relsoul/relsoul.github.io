@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -208,6 +208,71 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-promise学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/26/promise学习笔记/" class="article-date">
+  	<time datetime="2016-04-26T04:37:54.000Z" itemprop="datePublished">2016-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/26/promise学习笔记/">promise学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文大部分内容来自阮一峰的<a href="http://es6.ruanyifeng.com/#docs/promise">ES6入门</a> 这里针对个人所需记录的笔记,如需全面浏览请转自上述链接</p>
+<h1 id="Promise含义"><a href="#Promise含义" class="headerlink" title="Promise含义"></a>Promise含义</h1><p>Promise简单来说就是一种容器,里面保存着异步操作的结果.promise对象有以下两个特点</p>
+<ol>
+<li>对象的状态不受外界影响,Promise有三种状态,Pending(进行),Resolved(已完成),Rejected(已失败).只有异步操作的结果才能决定当前是哪一种状态,其他任何操作都无法改变这个状态</li>
+<li>一旦状态改变,就不会再改变.Promise状态的改变只有两种可能,从pending变为Resolved和从Pending变为Rejected.一旦这两种情况发生,状态就凝固了,会一直保持这个结果.就算在对Promise对象添加回调函数,也会立即得到这个结果</li>
+</ol>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>Promise对象是一个构造函数,用来生成Promise实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//...some code</span></div><div class="line">    <span class="keyword">if</span>(<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">        resolve(value);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        reject(error)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/26/promise学习笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-bootstrap实践笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -236,8 +301,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>长期更新,前辈总结的bootstrap经验</p>
-<h1 id="如何部署container与container-fluid">如何部署container与container-fluid</h1><p>为了方便更改,在body标签下部署container-fluid,因为container不能嵌套container原则,如果想内容居中则可以使用.limiter这个class.具体参考如下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container-fluid"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"limiter"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-12"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.limiter</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">max-width</span>:<span class="value"><span class="number">1170px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span> auto</span></span>; </span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="row与col之间的布局">row与col之间的布局</h1><p>原则上一个section应该只有一个row.一个row下面可以有多个(总数超过12列)的col,那么要实现col与col之间padding为0 应该用一个额外的class如.no-gutters来实现<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row .no-gutters"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span>  <span class="attr_selector">[class^="col-"]</span>,</span><br><span class="line"><span class="class">.row</span><span class="class">.no-gutters</span>  <span class="attr_selector">[class*=" col-"]</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding-left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="如何部署container与container-fluid"><a href="#如何部署container与container-fluid" class="headerlink" title="如何部署container与container-fluid"></a>如何部署container与container-fluid</h1><p>为了方便更改,在body标签下部署container-fluid,因为container不能嵌套container原则,如果想内容居中则可以使用.limiter这个class.具体参考如下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"limiter"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-12"</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line"><span class="selector-class">.limiter</span>&#123;</div><div class="line">    <span class="attribute">max-width</span>:<span class="number">1170px</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto; </div><div class="line">&#125;</div><div class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="row与col之间的布局"><a href="#row与col之间的布局" class="headerlink" title="row与col之间的布局"></a>row与col之间的布局</h1><p>原则上一个section应该只有一个row.一个row下面可以有多个(总数超过12列)的col,那么要实现col与col之间padding为0 应该用一个额外的class如.no-gutters来实现<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row .no-gutters"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line"><span class="selector-class">.row</span><span class="selector-class">.no-gutters</span> &#123;</div><div class="line">  <span class="attribute">margin-right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.row</span><span class="selector-class">.no-gutters</span>  <span class="selector-attr">[class^="col-"]</span>,</div><div class="line"><span class="selector-class">.row</span><span class="selector-class">.no-gutters</span>  <span class="selector-attr">[class*=" col-"]</span> &#123;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -292,7 +357,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文阅读资料来自<a href="http://es6.ruanyifeng.com/#docs/iterator">阮一峰ES6入门</a>自己仅仅根据自己需要整理了自己所阅读的笔记</p>
-<h1 id="Iterator">Iterator</h1><p>Iterator就是一个遍历器,可以手动控制遍历.在js中for循环都是直接遍历的,如果我们想手动控制遍历还得自己写函数包装.<br>阮一峰的Blog给出了一个模拟Iterator方法<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var it = makeIterator([<span class="string">'a'</span>, <span class="string">'b'</span>]);</span><br><span class="line"></span><br><span class="line">it.<span class="built_in">next</span>() // &#123; value: <span class="string">"a"</span>, done: <span class="keyword">false</span> &#125;</span><br><span class="line">it.<span class="built_in">next</span>() // &#123; value: <span class="string">"b"</span>, done: <span class="keyword">false</span> &#125;</span><br><span class="line">it.<span class="built_in">next</span>() // &#123; value: undefined, done: <span class="keyword">true</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeIterator</span><span class="params">(array)</span></span>&#123;</span><br><span class="line">  var nextIndex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="built_in">next</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> nextIndex &lt; array.length ?</span><br><span class="line">        &#123;value: array[nextIndex++], done: <span class="keyword">false</span>&#125; :</span><br><span class="line">        &#123;value: undefined, done: <span class="keyword">true</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h1><p>Iterator就是一个遍历器,可以手动控制遍历.在js中for循环都是直接遍历的,如果我们想手动控制遍历还得自己写函数包装.<br>阮一峰的Blog给出了一个模拟Iterator方法<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var it = makeIterator([<span class="string">'a'</span>, <span class="string">'b'</span>]);</div><div class="line"></div><div class="line">it.<span class="built_in">next</span>() // &#123; value: <span class="string">"a"</span>, done: <span class="keyword">false</span> &#125;</div><div class="line">it.<span class="built_in">next</span>() // &#123; value: <span class="string">"b"</span>, done: <span class="keyword">false</span> &#125;</div><div class="line">it.<span class="built_in">next</span>() // &#123; value: undefined, done: <span class="keyword">true</span> &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeIterator</span><span class="params">(array)</span></span>&#123;</div><div class="line">  var nextIndex = <span class="number">0</span>;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="built_in">next</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> nextIndex &lt; array.length ?</div><div class="line">        &#123;value: array[nextIndex++], done: <span class="keyword">false</span>&#125; :</div><div class="line">        &#123;value: undefined, done: <span class="keyword">true</span>&#125;;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -350,9 +415,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="什么是aggregate">什么是aggregate</h1><p>aggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..</p>
-<h1 id="文档">文档</h1><p><a href="http://www.runoob.com/mongodb/mongodb-aggregate.html">MongoDB聚合</a><br><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/">官方API</a><br><a href="http://www.tuicool.com/articles/eAFjUbB">MongoDB aggregate 运用篇 个人总结 - fycayy</a><br><a href="http://stackoverflow.com/questions/17744297/aggregate-request-mongodb">案例一</a><br><a href="https://jira.mongodb.org/browse/SERVER-14876">案例二</a><br><a href="http://stackoverflow.com/questions/18052594/elemmatch-dosent-work-after-unwind-in-mongodb-aggregation-framework">案例三</a></p>
-<h1 id="案例">案例</h1><p>那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合</p>
+        <h1 id="什么是aggregate"><a href="#什么是aggregate" class="headerlink" title="什么是aggregate"></a>什么是aggregate</h1><p>aggregate类似于pipe.拆分结果然后对结果进行分析求值然后再返回新结果..</p>
+<h1 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h1><p><a href="http://www.runoob.com/mongodb/mongodb-aggregate.html">MongoDB聚合</a><br><a href="https://docs.mongodb.org/v3.0/reference/operator/aggregation/">官方API</a><br><a href="http://www.tuicool.com/articles/eAFjUbB">MongoDB aggregate 运用篇 个人总结 - fycayy</a><br><a href="http://stackoverflow.com/questions/17744297/aggregate-request-mongodb">案例一</a><br><a href="https://jira.mongodb.org/browse/SERVER-14876">案例二</a><br><a href="http://stackoverflow.com/questions/18052594/elemmatch-dosent-work-after-unwind-in-mongodb-aggregation-framework">案例三</a></p>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>那么aggregate有什么作用呢？举个例子 testName文档中有如下几个集合</p>
       
     </div>
     
@@ -406,13 +471,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="安装Babel,Vue,Gulp,WebPack">安装Babel,Vue,Gulp,WebPack</h1><h2 id="Babel">Babel</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">npm</span> install <span class="keyword">babel-core </span><span class="keyword">babel-loader </span><span class="keyword">babel-plugin-transform-runtime </span><span class="keyword">babel-preset-es2015 </span><span class="keyword">babel-runtime </span>--save-dev</span><br></pre></td></tr></table></figure>
-<h2 id="Vue">Vue</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> vue-hot-reload-api vue-html-loader vue-loader vue-<span class="keyword">style</span>-loader css-loader <span class="keyword">file</span>-loader inject-loader <span class="keyword">template</span>-html-loader <span class="keyword">url</span>-loader <span class="comment">--save-dev</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="Gulp">Gulp</h2><p>Gulp我用了sass 并不在vue中写style..还是不太习惯 哈哈. 并且用gulp-livereload做服务端 而不用webpack自带的<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp gulp-livereload gulp-sass gulp-webpack --<span class="built_in">save</span>-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="WebPack">WebPack</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> webpack</span><br></pre></td></tr></table></figure>
-<h1 id="-babelrc">.babelrc</h1><p>这个文件很重要 如果不在项目根目录添加这个文件夹会导致webpack loader的时候报错<br>文件内容为<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">presets</span>": <span class="value">[<span class="string">"es2015"</span>]</span>,</span><br><span class="line">  "<span class="attribute">plugins</span>": <span class="value">[<span class="string">"transform-runtime"</span>]</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="安装Babel-Vue-Gulp-WebPack"><a href="#安装Babel-Vue-Gulp-WebPack" class="headerlink" title="安装Babel,Vue,Gulp,WebPack"></a>安装Babel,Vue,Gulp,WebPack</h1><h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install </span><span class="keyword">babel-core </span><span class="keyword">babel-loader </span><span class="keyword">babel-plugin-transform-runtime </span><span class="keyword">babel-preset-es2015 </span><span class="keyword">babel-runtime </span>--save-dev</div></pre></td></tr></table></figure>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> vue-hot-reload-api vue-html-loader vue-loader vue-<span class="keyword">style</span>-loader css-loader <span class="keyword">file</span>-loader inject-loader <span class="keyword">template</span>-html-loader <span class="keyword">url</span>-loader <span class="comment">--save-dev</span></div></pre></td></tr></table></figure>
+<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><p>Gulp我用了sass 并不在vue中写style..还是不太习惯 哈哈. 并且用gulp-livereload做服务端 而不用webpack自带的<br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp gulp-livereload gulp-sass gulp-webpack --<span class="built_in">save</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure></p>
+<h2 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack</div></pre></td></tr></table></figure>
+<h1 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h1><p>这个文件很重要 如果不在项目根目录添加这个文件夹会导致webpack loader的时候报错<br>文件内容为<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [<span class="string">"es2015"</span>],</div><div class="line">  <span class="attr">"plugins"</span>: [<span class="string">"transform-runtime"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>意思就是转es2015并且加载插件</p>
-<h2 id="项目地址">项目地址</h2><p><a href="https://github.com/Relsoul/gulp-webpack-demo">github</a><br><a href="https://github.com/Relsoul/gulp-webpack-demo">参考其他vue项目</a></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/Relsoul/gulp-webpack-demo">github</a><br><a href="https://github.com/Relsoul/gulp-webpack-demo">参考其他vue项目</a></p>
       
     </div>
     
@@ -467,13 +532,13 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>算是一篇水文了..最近手撸了一个页面地址为<a href="http://relsoul.com/tajem_master/" target="_blank" rel="external">here</a>.<br>同时得出了一些笔记和一些疑问</p>
-<h1 id="笔记">笔记</h1><ol>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><ol>
 <li>媒体查询不应该嵌套在内,应该放在外.</li>
 <li>wrap-center应该在内部嵌套一个div而不是直接放在外部div</li>
 <li>rest css然后基于rem设计</li>
 <li>媒体查询可以建立函数查询</li>
 </ol>
-<h1 id="疑问">疑问</h1><p>用sass写的时候 是否应该一直嵌套下去?<br>rem设计指的是整体rem还是文字rem?<br>媒体查询是600一个档次还是分多个档次查询？</p>
+<h1 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h1><p>用sass写的时候 是否应该一直嵌套下去?<br>rem设计指的是整体rem还是文字rem?<br>媒体查询是600一个档次还是分多个档次查询？</p>
 
       
     </div>
@@ -528,8 +593,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="参考文章">参考文章</h1><p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html">React 入门实例教程-阮一峰</a><br><a href="http://www.imooc.com/learn/504">React入门-慕课网</a><br><a href="http://reactjs.cn/react/docs/getting-started.html">React文档-中文</a></p>
-<h1 id="github">github</h1><p><a href="https://github.com/Relsoul/react-study">github</a></p>
+        <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html">React 入门实例教程-阮一峰</a><br><a href="http://www.imooc.com/learn/504">React入门-慕课网</a><br><a href="http://reactjs.cn/react/docs/getting-started.html">React文档-中文</a></p>
+<h1 id="github"><a href="#github" class="headerlink" title="github"></a>github</h1><p><a href="https://github.com/Relsoul/react-study">github</a></p>
 <hr>
       
     </div>
@@ -588,7 +653,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="最常见的装饰者模式">最常见的装饰者模式</h1><p>比如我们要给onload增加新的方法,我们又不能改动内部的代码,如果改动了那么就违反了开放-封闭原则<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> _onload=<span class="built_in">window</span>.onload||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    _onload();</span><br><span class="line">    alert(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="最常见的装饰者模式"><a href="#最常见的装饰者模式" class="headerlink" title="最常见的装饰者模式"></a>最常见的装饰者模式</h1><p>比如我们要给onload增加新的方法,我们又不能改动内部的代码,如果改动了那么就违反了开放-封闭原则<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="number">1</span>)</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> _onload=<span class="built_in">window</span>.onload||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    _onload();</div><div class="line">    alert(<span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -646,9 +711,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="对象关联">对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
-<h2 id="创建关联">创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=&#123;</span><br><span class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</span><br><span class="line">bar.something();<span class="comment">//tell me</span></span><br></pre></td></tr></table></figure>
+        <h1 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象关联"><a href="#对象关联" class="headerlink" title="对象关联"></a>对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
+<h2 id="创建关联"><a href="#创建关联" class="headerlink" title="创建关联"></a>创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo=&#123;</div><div class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</div><div class="line">bar.something();<span class="comment">//tell me</span></div></pre></td></tr></table></figure>
 <p>Object.create会创建一个新对象(bar)并且把它关联到我们指定的对象(foo).<br>Object.create(null)会创建一个null[[prototype]]链接的对象,由于这个对象没有原型链,所以用instanceof无法进行判断,总是会返回false.这样无[[prototype]]的对象通常被称为”字典”,它们完全不会受到原型链的干扰,因此非常适合用来存储数据.</p>
       
     </div>
@@ -707,8 +772,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="对象">对象</h1><h2 id="类型">类型</h2><p>JavaScript有六种主要类型</p>
+        <h1 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>JavaScript有六种主要类型</p>
 <ul>
 <li>string</li>
 <li>number</li>
@@ -718,7 +783,7 @@ var _hmt = _hmt || [];
 <li>object</li>
 </ul>
 <p>简单基本类型(string,number,boolean,null,undefined)本身并不是对象,null有时候会被当做一种对象类型,但其实这是一个语言本身的bug,typeof null 的时候会返回字符串”object”,实际上null本身是基本类型.<br>JavaScript万物并不都是对象.<br>JavaScript本身有许多特殊的对象子类型,我们可以称之为复杂基本类型.<br>函数就是对象的一个子类型.数组也是对象的一种类型,具备一些额外的行为.</p>
-<h3 id="JavaScript内置对象">JavaScript内置对象</h3><p>JavaScript还有一些对象子类型,通常被称为内置对象</p>
+<h3 id="JavaScript内置对象"><a href="#JavaScript内置对象" class="headerlink" title="JavaScript内置对象"></a>JavaScript内置对象</h3><p>JavaScript还有一些对象子类型,通常被称为内置对象</p>
 <ul>
 <li>String</li>
 <li>Number</li>
@@ -762,69 +827,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-你不知道的JavaScript-上卷 读书笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/" class="article-date">
-  	<time datetime="2016-03-03T15:52:42.000Z" itemprop="datePublished">2016-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/">你不知道的JavaScript-上卷 读书笔记-part1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="书评">书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="作用域">作用域</h1><h2 id="编译器原理简释">编译器原理简释</h2><p><code>var a=2</code><br>当我们看到var a=2的时候引擎和编译器会做什么呢?</p>
-<ol>
-<li>遇到var a,编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的合集中.如果是.编译器会忽略该声明,继续进行编译.否则它会要求作用域在当前的作用域合集中声明一个新的变量,并且命名为a.</li>
-<li>接下来编译器会为这个引擎生成运行时所需的代码,这些代码被用来处理a = 2这个赋值操作.引擎运行时会首先询问作用域,在当前的作用域合集中是否存在一个叫a的变量,如果否,引擎就会使用这个变量;如果不是,引擎就会继续查找该变量.</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -845,7 +847,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -861,8 +863,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

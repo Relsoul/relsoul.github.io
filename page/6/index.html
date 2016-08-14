@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -208,6 +208,65 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-一次有意思的JavaScript试验题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/13/一次有意思的JavaScript试验题/" class="article-date">
+  	<time datetime="2016-01-13T14:20:48.000Z" itemprop="datePublished">2016-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/一次有意思的JavaScript试验题/">一次有意思的JavaScript试验题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天群里的朋友发了一段代码,问最后的结果<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> b=&#123;</div><div class="line">    a:<span class="number">2</span>,</div><div class="line">    b:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.a);</div><div class="line">    &#125;(),</div><div class="line">    f:<span class="keyword">this</span>.f=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.a);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="number">3</span>);</div><div class="line">&#125;   </div><div class="line">f();</div><div class="line">b.f();</div><div class="line">(b.f)();</div><div class="line">(<span class="number">0</span>, b.f)();</div></pre></td></tr></table></figure></p>
+<p>在浏览器中运行的结果是1,1,2,2,1<br>跟我自己脑补的不一样…可能是技术还不够吧…于是在浏览器中运行并且分析了下.</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/13/一次有意思的JavaScript试验题/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-web全栈开发工程师笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -347,18 +406,18 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>又掉了一个坑<br>这里来说说ng-value=”xxx”与value=<br>闲话少说,看范例<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"choice_category"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">ng-model</span>=<span class="value">"current_category"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">""</span>&gt;</span>---Please select---<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- not selected / blank option --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"</span></span></span><span class="expression">&#123;&#123;<span class="variable">category.</span>_<span class="variable">id</span>&#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span> <span class="attribute">ng-repeat</span>=<span class="value">"category in categorys"</span> &gt;</span></span><span class="expression">&#123;&#123;<span class="variable">category.name</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+        <p>又掉了一个坑<br>这里来说说ng-value=”xxx”与value=<br>闲话少说,看范例<br><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"choice_category"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">ng-model</span>=<span class="string">"current_category"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>---Please select---<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- not selected / blank option --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"</span></span><span class="template-variable">&#123;&#123;category._id&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">ng-repeat</span>=<span class="string">"category in categorys"</span> &gt;</span></span><span class="template-variable">&#123;&#123;category.name&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>理论上current_category会与categorys中的元素进行对比 然后select会选中对比成功的option<br>如果用ng-value=”category._id”那么神奇的事情发生了,option会平白无故的多出一条</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">"? string:123?"</span>&gt;&lt;/<span class="keyword">option</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">"? string:123?"</span>&gt;&lt;/<span class="keyword">option</span>&gt;</div></pre></td></tr></table></figure>
 <p>然后select选择的是空也就是上面那个option,因为上面呢个option没有任何的元素<br>其中详细的情况我也没去了解.个人理解如下</p>
-<h1 id="理解">理解</h1><p>因为current_category与categorys都是用ajax获取的,所以我设置了一个延迟来模拟网络的加载.</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="keyword">function</span>()&#123;</span><br><span class="line">    <span class="variable">$scope</span>.categorys=[&#123;</span><br><span class="line">        _id:<span class="string">"56896be6a43fa3e02695c01a"</span>,</span><br><span class="line">        name:<span class="string">"56896be6a43fa3e02695c01a"</span></span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        _id:<span class="string">"568a6237a807cee863a8eb52"</span>,</span><br><span class="line">        name:<span class="string">"568a6237a807cee863a8eb52"</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;,<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.current_category=<span class="string">"56896be6a43fa3e02695c01a"</span></span><br></pre></td></tr></table></figure>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>因为current_category与categorys都是用ajax获取的,所以我设置了一个延迟来模拟网络的加载.</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="keyword">function</span>()&#123;</div><div class="line">    $scope.categorys=[&#123;</div><div class="line">        _id:<span class="string">"56896be6a43fa3e02695c01a"</span>,</div><div class="line">        name:<span class="string">"56896be6a43fa3e02695c01a"</span></div><div class="line">    &#125;,&#123;</div><div class="line">        _id:<span class="string">"568a6237a807cee863a8eb52"</span>,</div><div class="line">        name:<span class="string">"568a6237a807cee863a8eb52"</span></div><div class="line">    &#125;]</div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line"></div><div class="line">$scope.current_category=<span class="string">"56896be6a43fa3e02695c01a"</span></div></pre></td></tr></table></figure>
 <p>这里我没用$timeout而用setTimeout一模拟发现情况是一模一样，<br>但是把ng-value改为value=””则不会出现这种情况<br>在这之前我还排查了是不是categorys数量太多而导致的,看来不是.下面就开始分析一下了</p>
-<h1 id="分析">分析</h1><p>简单来说就是current_category先更新了,categorys后更新并且没有$apply或者$apply在current_category复制更新的时候就调用了,<br>或者就是current_category先更新了ng-repeat并没有循环完毕之类的情况,等等等等</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>简单来说就是current_category先更新了,categorys后更新并且没有$apply或者$apply在current_category复制更新的时候就调用了,<br>或者就是current_category先更新了ng-repeat并没有循环完毕之类的情况,等等等等</p>
 <p>我也说不清具体是啥情况 只能猜了</p>
-<h2 id="情况1">情况1</h2><p>tcp是块传输的,那么是不是先到的块就先给赋值了,如果categorys数量太多那么这个块肯定就在后面<br>于是current_category块就先到了,于是angularJS就开始更新绑定的value然后ng-repeat循环并没有完成</p>
-<h2 id="情况2">情况2</h2><p>ng-repeat已经开始循环了,但是current_category并没有得到值,或者说在ng-repeat循环完毕或者循环到一半的时候<br>current_category就已经开始赋值了,但是ng-repeat并没有得到这个值,所以就选择不到那个option</p>
-<h2 id="情况3">情况3</h2><p>参照情况2,单纯的value=””是可以的,angularJS在编译模板的时候对于ng-value与value=””模板处理机制不同所导致的.</p>
+<h2 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h2><p>tcp是块传输的,那么是不是先到的块就先给赋值了,如果categorys数量太多那么这个块肯定就在后面<br>于是current_category块就先到了,于是angularJS就开始更新绑定的value然后ng-repeat循环并没有完成</p>
+<h2 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h2><p>ng-repeat已经开始循环了,但是current_category并没有得到值,或者说在ng-repeat循环完毕或者循环到一半的时候<br>current_category就已经开始赋值了,但是ng-repeat并没有得到这个值,所以就选择不到那个option</p>
+<h2 id="情况3"><a href="#情况3" class="headerlink" title="情况3"></a>情况3</h2><p>参照情况2,单纯的value=””是可以的,angularJS在编译模板的时候对于ng-value与value=””模板处理机制不同所导致的.</p>
 <p>个人觉得情况3比较可能…不过我也没去看源码深究,大家就看看吧~以后遇到这种情况可以换value=””试试</p>
 
       
@@ -414,7 +473,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="指令与服务">指令与服务</h1><p>因为音乐播放器需要操纵DOM元素,所以不应该在控制器中直接操控,于是可以利用服务和指令来实现.这里利用指令来实现</p>
+        <h1 id="指令与服务"><a href="#指令与服务" class="headerlink" title="指令与服务"></a>指令与服务</h1><p>因为音乐播放器需要操纵DOM元素,所以不应该在控制器中直接操控,于是可以利用服务和指令来实现.这里利用指令来实现</p>
       
     </div>
     
@@ -473,9 +532,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>又掉入一个坑了…例子如下</p>
-<h1 id="ngSrc">ngSrc</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></span><br></pre></td></tr></table></figure>
+<h1 id="ngSrc"><a href="#ngSrc" class="headerlink" title="ngSrc"></a>ngSrc</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">audio</span> ng-src=<span class="string">"usr"</span>&gt;&lt;/audio&gt;</div><div class="line"></div><div class="line"><span class="variable">$scope</span>.usr=<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span></div></pre></td></tr></table></figure>
 <p>上例的代码运行会爆插值错误<br>也就是Error: $interpolate:interr<br>Interpolation Error<br>于是你得用到一个插件angular-sanitize.min.js</p>
-<h1 id="$sce">$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.usr=<span class="variable">$sce</span>.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="sce"><a href="#sce" class="headerlink" title="$sce"></a>$sce</h1><p>引用了angular-sanitize.min.js插件后再运行就会发现还是会报错<br>WHY？因为你还没声明或者说转换<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$scope.usr=$sce.trustAsResourceUrl(<span class="string">"http://m2.music.126.net/9y-3IeHL6x1OLY0bO4QGxg==/7948369558839613.mp3"</span>)</div></pre></td></tr></table></figure></p>
 <p>这样就可以运行了,并且$sce与angular-sanitize.min.js两者缺一不可</p>
 
       
@@ -531,8 +590,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="socket-io_1-0验证挂载session">socket.io 1.0验证挂载session</h1><p>根据客户端的cookie中的connect.sid获取服务端中的session<br>服务端采用的是mongodb-session<br>获取失败返回callback(err,false);<br>获取成功返回callback(null,true);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//验证设置session</span></span><br><span class="line">   io.set(<span class="string">"authorization"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">handshakeData, callback</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//解析cookie</span></span><br><span class="line">       handshakeData.cookie = cookie.parse(handshakeData.headers.cookie)</span><br><span class="line">       <span class="built_in">console</span>.log(handshakeData.cookie)</span><br><span class="line">       <span class="keyword">var</span> sessionid = handshakeData.cookie[<span class="string">'connect.sid'</span>]</span><br><span class="line">       <span class="keyword">if</span> (sessionid) &#123;</span><br><span class="line">           <span class="keyword">var</span> sid = sessionid.split(<span class="string">':'</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>];</span><br><span class="line">           <span class="comment">//用mongodb查询语法</span></span><br><span class="line">           mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</span><br><span class="line">               collection.find(&#123;_id: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</span><br><span class="line">                   <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                       callback(err, <span class="literal">false</span>)</span><br><span class="line">                   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                       handshakeData.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</span><br><span class="line">                       <span class="built_in">console</span>.log(<span class="number">23</span>, handshakeData.session)</span><br><span class="line">                       callback(<span class="literal">null</span>, <span class="literal">true</span>)</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>注意其中的handshakeData.session = JSON.parse(results[0].session)<br>这段就是给socket挂载上一个session属性 这样是行得通的 但是要在socket获取不能采用<br>socket.handshake.session而要采用socket.request.session<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">io.sockets.on(<span class="string">"connection"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(socket)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">//获取用户session</span></span><br><span class="line">     <span class="keyword">var</span> _name=socket.request.session.user.name;</span><br><span class="line"></span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure></p>
+        <h1 id="socket-io-1-0验证挂载session"><a href="#socket-io-1-0验证挂载session" class="headerlink" title="socket.io 1.0验证挂载session"></a>socket.io 1.0验证挂载session</h1><p>根据客户端的cookie中的connect.sid获取服务端中的session<br>服务端采用的是mongodb-session<br>获取失败返回callback(err,false);<br>获取成功返回callback(null,true);<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//验证设置session</span></div><div class="line">   io.set(<span class="string">"authorization"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">handshakeData, callback</span>) </span>&#123;</div><div class="line">       <span class="comment">//解析cookie</span></div><div class="line">       handshakeData.cookie = cookie.parse(handshakeData.headers.cookie)</div><div class="line">       <span class="built_in">console</span>.log(handshakeData.cookie)</div><div class="line">       <span class="keyword">var</span> sessionid = handshakeData.cookie[<span class="string">'connect.sid'</span>]</div><div class="line">       <span class="keyword">if</span> (sessionid) &#123;</div><div class="line">           <span class="keyword">var</span> sid = sessionid.split(<span class="string">':'</span>)[<span class="number">1</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>];</div><div class="line">           <span class="comment">//用mongodb查询语法</span></div><div class="line">           mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</div><div class="line">               collection.find(&#123;_id: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</div><div class="line">                   <span class="keyword">if</span> (err) &#123;</div><div class="line">                       callback(err, <span class="literal">false</span>)</div><div class="line">                   &#125; <span class="keyword">else</span> &#123;</div><div class="line">                       handshakeData.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</div><div class="line">                       <span class="built_in">console</span>.log(<span class="number">23</span>, handshakeData.session)</div><div class="line">                       callback(<span class="literal">null</span>, <span class="literal">true</span>)</div><div class="line">                   &#125;</div><div class="line">               &#125;);</div><div class="line">           &#125;);</div><div class="line">       &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure></p>
+<p>注意其中的handshakeData.session = JSON.parse(results[0].session)<br>这段就是给socket挂载上一个session属性 这样是行得通的 但是要在socket获取不能采用<br>socket.handshake.session而要采用socket.request.session<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">io.sockets.on(<span class="string">"connection"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(socket)</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="comment">//获取用户session</span></div><div class="line">     <span class="keyword">var</span> _name=socket.request.session.user.name;</div><div class="line"></div><div class="line"> &#125;)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -587,7 +646,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="angular1-4-8中的cookie操作">angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br>
+        <h1 id="angular1-4-8中的cookie操作"><a href="#angular1-4-8中的cookie操作" class="headerlink" title="angular1.4.8中的cookie操作"></a>angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br>
       
     </div>
     
@@ -645,7 +704,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="socket_1-0中的to_与in">socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新建个房间</span></span><br><span class="line">io<span class="built_in">.</span>of(<span class="string">"/chat"</span>)<span class="built_in">.</span><span class="keyword">on</span>(<span class="string">"connection"</span>,function(socket)&#123;</span><br><span class="line">    <span class="comment">//针对chat发送hello事件</span></span><br><span class="line">    socket<span class="built_in">.</span>broadcast<span class="built_in">.</span><span class="keyword">to</span>(<span class="string">'chat'</span>)<span class="built_in">.</span>emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接到这个房间</span></span><br><span class="line">socket<span class="built_in">.</span><span class="keyword">join</span>(<span class="string">"chat"</span>)</span><br></pre></td></tr></table></figure></p>
+        <h1 id="socket-1-0中的to-与in"><a href="#socket-1-0中的to-与in" class="headerlink" title="socket 1.0中的to 与in"></a>socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//新建个房间</span></div><div class="line"><span class="selector-tag">io</span><span class="selector-class">.of</span>(<span class="string">"/chat"</span>)<span class="selector-class">.on</span>(<span class="string">"connection"</span>,function(socket)&#123;</div><div class="line">    <span class="comment">//针对chat发送hello事件</span></div><div class="line">    socket<span class="selector-class">.broadcast</span><span class="selector-class">.to</span>(<span class="string">'chat'</span>)<span class="selector-class">.emit</span>(<span class="string">'hello'</span>,data);</div><div class="line">  &#125;)</div><div class="line"></div><div class="line"><span class="comment">//连接到这个房间</span></div><div class="line"><span class="selector-tag">socket</span><span class="selector-class">.join</span>(<span class="string">"chat"</span>)</div></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -703,11 +762,11 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0x8e5e03fe是什么">0x8e5e03fe是什么</h1><p>谷歌翻墙了一下得出的结论是软件冲突,导致服务不能正常安装</p>
-<h1 id="NET3-5_0x8e5e03fe">NET3.5 0x8e5e03fe</h1><p>今天安装NET3.5的时候就报了这个错误,很纳闷,百度了一下得出的基本都是进行<a href="https://support.microsoft.com/zh-cn/kb/929135" target="_blank" rel="external">干净模式</a>然后安装<br>但是这个办法对我无效,重启后安装还是报0x8e5e03fe</p>
-<h1 id="解决">解决</h1><p><a href="http://answers.microsoft.com/en-us/windows/forum/all/problem-with-windows-update-windowsupdate8e5e03fe/fde9a1d4-02b5-4c20-be5c-1878565214cd" target="_blank" rel="external">这篇文章</a>有个解决方案,<br>以管理员模式运行cmd 然后输入以下的指令<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="winutils">net</span> stop wuauserv</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> stop cryptSvc</span><br><span class="line"> </span><br><span class="line"><span class="winutils">net</span> stop bits</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> stop msiserver</span><br><span class="line"></span><br><span class="line"><span class="winutils">ren</span> C:\Windows\SoftwareDistribution SoftwareDistribution.old</span><br><span class="line"></span><br><span class="line"><span class="winutils">ren</span> C:\Windows\System32\catroot2 catroot2.old</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> wuauserv</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> cryptSvc</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> bits</span><br><span class="line"></span><br><span class="line"><span class="winutils">net</span> <span class="built_in">start</span> msiserver</span><br></pre></td></tr></table></figure></p>
+        <h1 id="0x8e5e03fe是什么"><a href="#0x8e5e03fe是什么" class="headerlink" title="0x8e5e03fe是什么"></a>0x8e5e03fe是什么</h1><p>谷歌翻墙了一下得出的结论是软件冲突,导致服务不能正常安装</p>
+<h1 id="NET3-5-0x8e5e03fe"><a href="#NET3-5-0x8e5e03fe" class="headerlink" title="NET3.5 0x8e5e03fe"></a>NET3.5 0x8e5e03fe</h1><p>今天安装NET3.5的时候就报了这个错误,很纳闷,百度了一下得出的基本都是进行<a href="https://support.microsoft.com/zh-cn/kb/929135" target="_blank" rel="external">干净模式</a>然后安装<br>但是这个办法对我无效,重启后安装还是报0x8e5e03fe</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p><a href="http://answers.microsoft.com/en-us/windows/forum/all/problem-with-windows-update-windowsupdate8e5e03fe/fde9a1d4-02b5-4c20-be5c-1878565214cd" target="_blank" rel="external">这篇文章</a>有个解决方案,<br>以管理员模式运行cmd 然后输入以下的指令<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">net</span> stop wuauserv</div><div class="line"></div><div class="line"><span class="built_in">net</span> stop cryptSvc</div><div class="line"> </div><div class="line"><span class="built_in">net</span> stop bits</div><div class="line"></div><div class="line"><span class="built_in">net</span> stop msiserver</div><div class="line"></div><div class="line"><span class="built_in">ren</span> C:\Windows\SoftwareDistribution SoftwareDistribution.old</div><div class="line"></div><div class="line"><span class="built_in">ren</span> C:\Windows\System32\catroot2 catroot2.old</div><div class="line"></div><div class="line"><span class="built_in">net</span> <span class="built_in">start</span> wuauserv</div><div class="line"></div><div class="line"><span class="built_in">net</span> <span class="built_in">start</span> cryptSvc</div><div class="line"></div><div class="line"><span class="built_in">net</span> <span class="built_in">start</span> bits</div><div class="line"></div><div class="line"><span class="built_in">net</span> <span class="built_in">start</span> msiserver</div></pre></td></tr></table></figure></p>
 <p>我输入net stop msiserver的时候就报错 没有启动 Windows Installer 服务。<br>这时候我大致清楚了无法安装NET3.5的原因应该是Windows Installer 服务没启动 于是我仅仅启动了Windows Installer 服务然后安装NET3.5就okay了</p>
-<h1 id="NET3-5的离线安装">NET3.5的离线安装</h1><p><a href="http://jingyan.baidu.com/article/a501d80ceda2d5ec630f5eb3.html" target="_blank" rel="external">百度经验</a><br>下载win10原版ISO然后提取出sxs文件就行了</p>
+<h1 id="NET3-5的离线安装"><a href="#NET3-5的离线安装" class="headerlink" title="NET3.5的离线安装"></a>NET3.5的离线安装</h1><p><a href="http://jingyan.baidu.com/article/a501d80ceda2d5ec630f5eb3.html" target="_blank" rel="external">百度经验</a><br>下载win10原版ISO然后提取出sxs文件就行了</p>
 
       
     </div>
@@ -717,66 +776,6 @@ var _hmt = _hmt || [];
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/win10/">win10</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-MVC/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/angular学习笔记-MVC/">angular学习笔记-MVC</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="代码">代码</h1><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span> <span class="attribute">ng-app</span>=<span class="value">"app"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://apps.bdimg.com/libs/angular.js/1.4.0-beta.4/angular.min.js"</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-controller</span>=<span class="value">"myCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"msg"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">msg</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    <span class="keyword">var</span> app=angular.module(<span class="string">"app"</span>,[])</span><br><span class="line">    app.controller(<span class="string">"myCtrl"</span>,<span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</span><br><span class="line">        $scope.msg=<span class="string">"请输入"</span></span><br><span class="line">    &#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h1 id="M(modle)">M(modle)</h1><p>M层即为数据层也就是modle<br>上例代码中$scope.msg=”请输入”这个就是一个modle层</p>
-<p><input type="text" ng-model="msg"><br>这个msg也是modle层 因为angularJS为双向数据绑定<br>当输入框的文字变化,下面的div文字也会变化</p>
-<h1 id="V(view)">V(view)</h1><p>V层即为视图层.</p>
-<p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
-<h1 id="C(controller)">C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
 	</div>
 
       
@@ -816,7 +815,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -832,8 +831,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

@@ -13,17 +13,18 @@
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
 <meta property="og:description" content="例子12345678910111213141516171819202122232425262728function outer()&amp;#123;    var localVal=30;    return localVal;&amp;#125;outer()//30---function outer()&amp;#123;    var localVal=30;    return function()&amp;#123;">
 <meta property="og:image" content="http://cdn.emufan.com/img/JavaScript-闭包.png">
-<meta property="og:updated_time" content="2016-01-15T15:03:43.275Z">
+<meta property="og:updated_time" content="2016-01-15T15:03:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入浅出-闭包">
 <meta name="twitter:description" content="例子12345678910111213141516171819202122232425262728function outer()&amp;#123;    var localVal=30;    return localVal;&amp;#125;outer()//30---function outer()&amp;#123;    var localVal=30;    return function()&amp;#123;">
+<meta name="twitter:image" content="http://cdn.emufan.com/img/JavaScript-闭包.png">
   
     <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -121,7 +122,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -200,7 +201,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -246,17 +247,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="例子">例子</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> localVal;</span><br><span class="line">&#125;</span><br><span class="line">outer()<span class="comment">//30</span></span><br><span class="line">---</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> localVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func=outer();</span><br><span class="line">func();<span class="comment">//30;</span></span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">// all are 4!</span></span><br><span class="line">        &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;</span><br><span class="line">---</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            alert(i)<span class="comment">//随机1-4出现 因为异步的关系,但是并不是4</span></span><br><span class="line">        &#125;,<span class="number">1000</span>)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</div><div class="line">    <span class="keyword">return</span> localVal;</div><div class="line">&#125;</div><div class="line">outer()<span class="comment">//30</span></div><div class="line">---</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> localVal=<span class="number">30</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> localVal;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> func=outer();</div><div class="line">func();<span class="comment">//30;</span></div><div class="line">---</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">            alert(i)<span class="comment">// all are 4!</span></div><div class="line">        &#125;,<span class="number">500</span>)</div><div class="line">&#125;</div><div class="line">---</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span><span class="params">(i)</span></span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">            alert(i)<span class="comment">//随机1-4出现 因为异步的关系,但是并不是4</span></div><div class="line">        &#125;,<span class="number">1000</span>)</div><div class="line">    &#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>第一种当函数执行完毕后,垃圾回收机制会把局部变量给回收<br>第二种就是闭包了,当函数执行完毕后返回一个函数,因为作用域链的关系<br>window=&gt;outer=&gt;function()[匿名函数];</p>
-<h1 id="实例分析">实例分析</h1><p><img src="http://cdn.emufan.com/img/JavaScript-闭包.png" alt="闭包"><br>如图.</p>
-<h2 id="全局初始化阶段">全局初始化阶段</h2><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">AO</span>(global)&#123;</span><br><span class="line">    add:&lt;<span class="keyword">ref</span> to func 'add'&gt;,</span><br><span class="line">    f:undefined,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="全局执行阶段">全局执行阶段</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AO(<span class="keyword">global</span>)[f]= <span class="built_in">run</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="add初始化阶段">add初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">AO</span>(<span class="tag">add</span>)<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">i</span>:<span class="value">undefined,</span><br><span class="line"></span></span></span>&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="add执行阶段">add执行阶段</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AO(<span class="built_in">add</span>)[<span class="keyword">i</span>]=<span class="number">0</span>;</span><br><span class="line">AO(<span class="built_in">add</span>) <span class="keyword">return</span> <span class="keyword">go</span> <span class="keyword">to</span> <span class="keyword">global</span> <span class="built_in">and</span> <span class="keyword">set</span> <span class="keyword">global</span> <span class="keyword">f</span></span><br></pre></td></tr></table></figure>
-<h2 id="全局执行阶段-1">全局执行阶段-1</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span>[f]=anonymous function</span><br><span class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span> <span class="function"><span class="title">f</span><span class="params">()</span></span> run func <span class="string">'f'</span></span><br></pre></td></tr></table></figure>
-<h2 id="f初始化阶段">f初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">AO</span>(<span class="tag">f</span>)<span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">outer</span>:<span class="value">add</span><br><span class="line"></span></span></span>&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="f执行阶段">f执行阶段</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">AO</span><span class="params">(f)</span></span> <span class="function"><span class="title">alert</span><span class="params">(i++)</span></span> <span class="comment">// find to outer ... in func add</span></span><br></pre></td></tr></table></figure>
+<h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><p><img src="http://cdn.emufan.com/img/JavaScript-闭包.png" alt="闭包"><br>如图.</p>
+<h2 id="全局初始化阶段"><a href="#全局初始化阶段" class="headerlink" title="全局初始化阶段"></a>全局初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">AO</span>(<span class="selector-tag">global</span>)&#123;</div><div class="line">    <span class="attribute">add</span>:&lt;ref to func <span class="string">'add'</span>&gt;,</div><div class="line">    f:undefined,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="全局执行阶段"><a href="#全局执行阶段" class="headerlink" title="全局执行阶段"></a>全局执行阶段</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AO(<span class="keyword">global</span>)[f]= <span class="built_in">run</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span></span></div></pre></td></tr></table></figure>
+<h2 id="add初始化阶段"><a href="#add初始化阶段" class="headerlink" title="add初始化阶段"></a>add初始化阶段</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AO</span><span class="params">(add)</span></span>&#123;</div><div class="line">    <span class="selector-tag">i</span>:undefined,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="add执行阶段"><a href="#add执行阶段" class="headerlink" title="add执行阶段"></a>add执行阶段</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AO(<span class="keyword">add</span>)[i]=<span class="number">0</span>;</div><div class="line">AO(<span class="keyword">add</span>) return go <span class="keyword">to</span> <span class="keyword">global</span> <span class="keyword">and</span> <span class="keyword">set</span> <span class="keyword">global</span> f</div></pre></td></tr></table></figure>
+<h2 id="全局执行阶段-1"><a href="#全局执行阶段-1" class="headerlink" title="全局执行阶段-1"></a>全局执行阶段-1</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span>[f]=anonymous function</div><div class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span> f() run func <span class="string">'f'</span></div></pre></td></tr></table></figure>
+<h2 id="f初始化阶段"><a href="#f初始化阶段" class="headerlink" title="f初始化阶段"></a>f初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">AO</span>(<span class="selector-tag">f</span>)&#123;</div><div class="line">    <span class="attribute">outer</span>:add</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="f执行阶段"><a href="#f执行阶段" class="headerlink" title="f执行阶段"></a>f执行阶段</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AO(f) alert(i++) // find <span class="keyword">to</span> outer ... <span class="keyword">in</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span></span></div></pre></td></tr></table></figure>
 <p>在outer找到i</p>
 
       
@@ -277,7 +278,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">どうせあなたもわからないのか？ 反正你也不懂</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -342,7 +343,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -358,8 +359,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

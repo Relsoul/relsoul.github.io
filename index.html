@@ -21,7 +21,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -208,6 +208,56 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mac安装lnmp环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/14/mac安装lnmp环境/" class="article-date">
+  	<time datetime="2016-08-14T14:12:59.000Z" itemprop="datePublished">2016-08-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/14/mac安装lnmp环境/">mac安装lnmp环境</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-wordpress查询" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -236,9 +286,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://codex.wordpress.org/Function_Reference/WP_Query" target="_blank" rel="external">WP_Query</a></p>
-<h1 id="获取当前页面内容">获取当前页面内容</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$now</span>_id=get_the_ID();</span><br><span class="line"><span class="variable">$now</span>_post=get_post(<span class="variable">$now</span>_id);</span><br><span class="line"><span class="variable">$now</span>_content=<span class="variable">$now</span>_post-&gt;post_content;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">       获取当前文章内容,根据文章内容来获取</span><br><span class="line">   */</span><br><span class="line">   <span class="variable">$now</span>_id=get_the_ID();</span><br><span class="line">   <span class="variable">$now</span>_post=get_post(<span class="variable">$now</span>_id);</span><br><span class="line">   <span class="variable">$now</span>_content=<span class="variable">$now</span>_post-&gt;post_content;</span><br><span class="line"></span><br><span class="line">   <span class="variable">$content</span>_json=json_decode(<span class="variable">$now</span>_content,<span class="literal">true</span>);</span><br><span class="line">   //print_r(<span class="variable">$content</span>_json);</span><br><span class="line">   <span class="variable">$text</span>_title=<span class="variable">$content</span>_json[<span class="string">"title"</span>];</span><br><span class="line">   <span class="variable">$text</span>_small=<span class="variable">$content</span>_json[<span class="string">"title-small"</span>];</span><br><span class="line">   <span class="variable">$category</span>_text=<span class="variable">$content</span>_json[<span class="string">"category"</span>];</span><br><span class="line">   <span class="variable">$args</span> = <span class="keyword">array</span>(</span><br><span class="line">       <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</span><br><span class="line">       <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</span><br><span class="line">       <span class="string">"category_name"</span>=&gt;<span class="variable">$category</span>_text,</span><br><span class="line">       <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</span><br><span class="line">       <span class="string">'paged'</span>    =&gt; <span class="variable">$paged</span>,</span><br><span class="line">   );</span><br><span class="line">   <span class="variable">$loop</span> = new WP_Query(<span class="variable">$args</span>);</span><br></pre></td></tr></table></figure>
-<h1 id="查询说明">查询说明</h1><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$args</span> = <span class="keyword">array</span>(</span><br><span class="line">            <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</span><br><span class="line">            <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</span><br><span class="line">            <span class="string">"category_name"</span>=&gt;<span class="variable">$category</span>_text,</span><br><span class="line">            <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</span><br><span class="line">            <span class="string">'paged'</span>    =&gt; <span class="variable">$paged</span>,</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<h1 id="获取当前页面内容"><a href="#获取当前页面内容" class="headerlink" title="获取当前页面内容"></a>获取当前页面内容</h1><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$now_id</span>=get_the_ID();</div><div class="line"><span class="variable">$now_post</span>=get_post(<span class="variable">$now_id</span>);</div><div class="line"><span class="variable">$now_content</span>=<span class="variable">$now_post</span>-&gt;post_content;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">       获取当前文章内容,根据文章内容来获取</div><div class="line">   */</div><div class="line">   $now_id=get_the_ID();</div><div class="line">   $now_post=get_post($now_id);</div><div class="line">   $now_content=$now_post-&gt;post_content;</div><div class="line"></div><div class="line">   $content_json=json_decode($now_content,<span class="keyword">true</span>);</div><div class="line">   <span class="comment">//print_r($content_json);</span></div><div class="line">   $text_title=$content_json[<span class="string">"title"</span>];</div><div class="line">   $text_small=$content_json[<span class="string">"title-small"</span>];</div><div class="line">   $category_text=$content_json[<span class="string">"category"</span>];</div><div class="line">   $args = <span class="keyword">array</span>(</div><div class="line">       <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</div><div class="line">       <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</div><div class="line">       <span class="string">"category_name"</span>=&gt;$category_text,</div><div class="line">       <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</div><div class="line">       <span class="string">'paged'</span>    =&gt; $paged,</div><div class="line">   );</div><div class="line">   $loop = <span class="keyword">new</span> WP_Query($args);</div></pre></td></tr></table></figure>
+<h1 id="查询说明"><a href="#查询说明" class="headerlink" title="查询说明"></a>查询说明</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$args = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'post_type'</span> =&gt; <span class="string">'post'</span>,</div><div class="line">            <span class="string">'showposts'</span> =&gt; <span class="number">8</span>,</div><div class="line">            <span class="string">"category_name"</span>=&gt;$category_text,</div><div class="line">            <span class="string">'orderby'</span> =&gt; <span class="string">'date'</span>,</div><div class="line">            <span class="string">'paged'</span>    =&gt; $paged,</div><div class="line">        );</div></pre></td></tr></table></figure>
 <p>post_type为查询类型<br>category_name为文章的别名</p>
 <p>剩下的看API即可..以后会逐步更新</p>
 
@@ -295,8 +345,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="阿里云中的mongodb配置漏洞">阿里云中的mongodb配置漏洞</h1><p>在阿里云看到的mongodb配置漏洞其中的手动解决方案已经不适用于目前的3.x版本的mongodb.于是这边找了一下资料写一个简单的教程</p>
-<h1 id="原因">原因</h1><p>mongodb之所以会产生的原因还是在于平时我们启动mongodb都是直接mongod –dbpath启动的. 这种启动方式是没有用户名和密码验证的.所以会导致某些用户可以不经过授权直接访问数据库内容.解决方案也很简单 加上-auth即可</p>
+        <h1 id="阿里云中的mongodb配置漏洞"><a href="#阿里云中的mongodb配置漏洞" class="headerlink" title="阿里云中的mongodb配置漏洞"></a>阿里云中的mongodb配置漏洞</h1><p>在阿里云看到的mongodb配置漏洞其中的手动解决方案已经不适用于目前的3.x版本的mongodb.于是这边找了一下资料写一个简单的教程</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>mongodb之所以会产生的原因还是在于平时我们启动mongodb都是直接mongod –dbpath启动的. 这种启动方式是没有用户名和密码验证的.所以会导致某些用户可以不经过授权直接访问数据库内容.解决方案也很简单 加上-auth即可</p>
       
     </div>
     
@@ -354,7 +404,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="the7设计学习笔记-1">the7设计学习笔记-1</h1><ul>
+        <h1 id="the7设计学习笔记-1"><a href="#the7设计学习笔记-1" class="headerlink" title="the7设计学习笔记-1"></a>the7设计学习笔记-1</h1><ul>
 <li>每个页面的TOP与BOTTOM距离一致</li>
 <li>板块之间TOP与BOTTOM距离保持一致</li>
 <li>一般的首页布局为明暗-明暗的背景色布局,不能两个明也不能两个暗 //留白太多</li>
@@ -414,13 +464,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言">前言</h1><p>前段时间照抄了一大堆代码.结果发现自己根本没理解设计模式.最近也接触了php,正好把两者的设计模式给理解一下.<br>参考书籍《JavaScript设计模式-张容铭》,《learn php设计模式》,《JavaScript设计模式与开发实践-曾探》</p>
-<h1 id="何为工厂方法模式">何为工厂方法模式</h1><blockquote>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前段时间照抄了一大堆代码.结果发现自己根本没理解设计模式.最近也接触了php,正好把两者的设计模式给理解一下.<br>参考书籍《JavaScript设计模式-张容铭》,《learn php设计模式》,《JavaScript设计模式与开发实践-曾探》</p>
+<h1 id="何为工厂方法模式"><a href="#何为工厂方法模式" class="headerlink" title="何为工厂方法模式"></a>何为工厂方法模式</h1><blockquote>
 <blockquote>
 <p>定义了一个创建对象的接口，但由子类决定要实例化的类是哪一个。工厂方法让类把实例化推迟到子类<br>所谓的决定并不是批模式允许子类本身在运行时做决定，而是指在编写创建者类时，不需知道创建的产品是哪一下，选择了使用<br>哪个子类，就决定了实际创建的产品是什么。 from <a href="http://www.cnblogs.com/li-peng/archive/2013/02/17/2913568.html" target="_blank" rel="external">http://www.cnblogs.com/li-peng/archive/2013/02/17/2913568.html</a></p>
 </blockquote>
 </blockquote>
-<h1 id="JavaScript中的工厂模式">JavaScript中的工厂模式</h1>
+<h1 id="JavaScript中的工厂模式"><a href="#JavaScript中的工厂模式" class="headerlink" title="JavaScript中的工厂模式"></a>JavaScript中的工厂模式</h1>
       
     </div>
     
@@ -474,13 +524,13 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="学习php当中的感觉">学习php当中的感觉</h1><p>一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.<br>大概的感觉就是</p>
-<h2 id="语法">语法</h2><p>php不愧是世界上最好的语言(手动滑稽).<br>php内置了 <del>三个sx</del> 大量的函数所以开发起来还是比较方便的<br>函数默认是按值传递而不是引用传递这点与js不同</p>
-<h2 id="win下的编码问题">win下的编码问题</h2><p>在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bug Unix大法好</p>
-<h2 id="nginx">nginx</h2><p>php的转发基本上靠这货了.为啥不是apache? 因为我喜欢nginx. 或者用nginx转发Apache也行 哈哈<br>nginx中涉及到大量的正则,正则是我的弱项.用了就忘- -还是得去反复使用</p>
-<h2 id="数据库操作">数据库操作</h2><p>千万不要用mysql直接操作数据库 用mysqli 并且用mysqli的prepare语句来进行数据库操作 否则会遇到SQL注入问题.<br>sqlmap表示 prepare是啥？</p>
-<h2 id="后端验证">后端验证</h2><p>在数据验证这块得做两个验证,前端一个,着重后端验证数据.否则出啥问题就GG了</p>
-<h1 id="为什么是laravel?">为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 <del>情怀</del> 还是因为这个框架是跟express比较相近的..</p>
+        <h1 id="学习php当中的感觉"><a href="#学习php当中的感觉" class="headerlink" title="学习php当中的感觉"></a>学习php当中的感觉</h1><p>一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.<br>大概的感觉就是</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>php不愧是世界上最好的语言(手动滑稽).<br>php内置了 <del>三个sx</del> 大量的函数所以开发起来还是比较方便的<br>函数默认是按值传递而不是引用传递这点与js不同</p>
+<h2 id="win下的编码问题"><a href="#win下的编码问题" class="headerlink" title="win下的编码问题"></a>win下的编码问题</h2><p>在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bug Unix大法好</p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>php的转发基本上靠这货了.为啥不是apache? 因为我喜欢nginx. 或者用nginx转发Apache也行 哈哈<br>nginx中涉及到大量的正则,正则是我的弱项.用了就忘- -还是得去反复使用</p>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p>千万不要用mysql直接操作数据库 用mysqli 并且用mysqli的prepare语句来进行数据库操作 否则会遇到SQL注入问题.<br>sqlmap表示 prepare是啥？</p>
+<h2 id="后端验证"><a href="#后端验证" class="headerlink" title="后端验证"></a>后端验证</h2><p>在数据验证这块得做两个验证,前端一个,着重后端验证数据.否则出啥问题就GG了</p>
+<h1 id="为什么是laravel"><a href="#为什么是laravel" class="headerlink" title="为什么是laravel?"></a>为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 <del>情怀</del> 还是因为这个框架是跟express比较相近的..</p>
       
     </div>
     
@@ -538,36 +588,36 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="插入记录_INSERT">插入记录 INSERT</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name [(col_name,...)] &#123;<span class="keyword">VALUES</span>|<span class="keyword">VALUE</span>&#125; (&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...),(...),...</span></span><br></pre></td></tr></table></figure>
-<h2 id="插入记录-范例">插入记录-范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</span><br><span class="line">        <span class="keyword">id</span> <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">        <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">        age TINYINT <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span>,</span><br><span class="line">        sex <span class="built_in">BOOLEAN</span></span><br><span class="line">    );</span> </span><br><span class="line"></span><br><span class="line">//插入几条记录</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</span></span><br><span class="line">//写入多条记录</span><br><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"JOHN"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>),(<span class="literal">NULL</span>,<span class="string">"Rose"</span>,<span class="keyword">md5</span>(<span class="string">"123"</span>),<span class="keyword">DEFAULT</span>,<span class="number">0</span>);</span></span><br></pre></td></tr></table></figure>
+        <h1 id="插入记录-INSERT"><a href="#插入记录-INSERT" class="headerlink" title="插入记录 INSERT"></a>插入记录 INSERT</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">INSERT</span> <span class="selector-attr">[INTO]</span> <span class="selector-tag">tbl_name</span> <span class="selector-attr">[(col_name,...)]</span> &#123;<span class="selector-tag">VALUES</span>|<span class="selector-tag">VALUE</span>&#125; (&#123;expr|DEFAULT&#125;,...),(...),...</div></pre></td></tr></table></figure>
+<h2 id="插入记录-范例"><a href="#插入记录-范例" class="headerlink" title="插入记录-范例"></a>插入记录-范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</div><div class="line">        <span class="keyword">id</span> <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        age TINYINT <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span>,</div><div class="line">        sex <span class="built_in">BOOLEAN</span></div><div class="line">    ); </div><div class="line"></div><div class="line">//插入几条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line">//写入多条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"JOHN"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>),(<span class="literal">NULL</span>,<span class="string">"Rose"</span>,<span class="keyword">md5</span>(<span class="string">"123"</span>),<span class="keyword">DEFAULT</span>,<span class="number">0</span>);</div></pre></td></tr></table></figure>
 <p>如果想要id遵守默认的编号 只需要设置该列为NULL或者DEFAULT即可.<br>如果有字段设置过DEFAULT 那么该列可以添加DEFAULT;</p>
-<h1 id="插入记录,使用子查询">插入记录,使用子查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name <span class="keyword">SET</span> col_name=&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...</span></span><br></pre></td></tr></table></figure>
+<h1 id="插入记录-使用子查询"><a href="#插入记录-使用子查询" class="headerlink" title="插入记录,使用子查询"></a>插入记录,使用子查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name <span class="keyword">SET</span> col_name=&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...</div></pre></td></tr></table></figure>
 <p>只能一次性插入一条记录</p>
-<h2 id="范例">范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">SET</span> username=<span class="string">"Ben"</span>,<span class="keyword">password</span>=<span class="string">"456"</span>;</span></span><br></pre></td></tr></table></figure>
-<h1 id="单表更新记录UPDATE">单表更新记录UPDATE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> [<span class="keyword">LOW_PRIORITY</span>] [<span class="keyword">IGNORE</span>] table_reference <span class="keyword">SET</span> col_name1=&#123;expr1|<span class="keyword">DEFAULT</span>&#125;,[, col_name2=&#123;expr2|<span class="keyword">DEFAULT</span>&#125;]...[<span class="keyword">WHERE</span> where_condition]</span></span><br></pre></td></tr></table></figure>
-<h2 id="范例-1">范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">set</span> age=age+<span class="number">5</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">SET</span> username=<span class="string">"Ben"</span>,<span class="keyword">password</span>=<span class="string">"456"</span>;</div></pre></td></tr></table></figure>
+<h1 id="单表更新记录UPDATE"><a href="#单表更新记录UPDATE" class="headerlink" title="单表更新记录UPDATE"></a>单表更新记录UPDATE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> [<span class="keyword">LOW_PRIORITY</span>] [<span class="keyword">IGNORE</span>] table_reference <span class="keyword">SET</span> col_name1=&#123;expr1|<span class="keyword">DEFAULT</span>&#125;,[, col_name2=&#123;expr2|<span class="keyword">DEFAULT</span>&#125;]...[<span class="keyword">WHERE</span> where_condition]</div></pre></td></tr></table></figure>
+<h2 id="范例-1"><a href="#范例-1" class="headerlink" title="范例"></a>范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">set</span> age=age+<span class="number">5</span>;</div></pre></td></tr></table></figure>
 <p>让users表中age加5.</p>
-<h2 id="范例2-更新多列">范例2-更新多列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age-<span class="keyword">id</span>,sex=<span class="number">0</span>;</span></span><br></pre></td></tr></table></figure>
-<h2 id="指定记录更新">指定记录更新</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age+<span class="number">10</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>%<span class="number">2</span>=<span class="number">0</span>;</span></span><br></pre></td></tr></table></figure>
-<h1 id="单表删除记录DELETE">单表删除记录DELETE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tbl_name [<span class="keyword">WHERE</span> where_condition]</span></span><br></pre></td></tr></table></figure>
-<h1 id="范例-2">范例</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">5</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="范例2-更新多列"><a href="#范例2-更新多列" class="headerlink" title="范例2-更新多列"></a>范例2-更新多列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age-<span class="keyword">id</span>,sex=<span class="number">0</span>;</div></pre></td></tr></table></figure>
+<h2 id="指定记录更新"><a href="#指定记录更新" class="headerlink" title="指定记录更新"></a>指定记录更新</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age+<span class="number">10</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>%<span class="number">2</span>=<span class="number">0</span>;</div></pre></td></tr></table></figure>
+<h1 id="单表删除记录DELETE"><a href="#单表删除记录DELETE" class="headerlink" title="单表删除记录DELETE"></a>单表删除记录DELETE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tbl_name [<span class="keyword">WHERE</span> where_condition]</div></pre></td></tr></table></figure>
+<h1 id="范例-2"><a href="#范例-2" class="headerlink" title="范例"></a>范例</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">5</span>;</div></pre></td></tr></table></figure>
 <p>删除后再插入一条记录 即使ID号不连续,那么新插入的id是已有的最大id+1</p>
-<h1 id="表达式解析">表达式解析</h1><h1 id="查找记录_SELECT">查找记录 SELECT</h1><h2 id="查找前两列">查找前两列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">id</span>,username <span class="keyword">FROM</span> <span class="keyword">users</span>;</span></span><br></pre></td></tr></table></figure>
-<h2 id="别名">别名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">AS</span> userID,username <span class="keyword">AS</span> uname <span class="keyword">FROM</span> <span class="keyword">users</span>;</span></span><br></pre></td></tr></table></figure>
-<h2 id="group_by_语句对查询结果分组">group by 语句对查询结果分组</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</span><br></pre></td></tr></table></figure>
+<h1 id="表达式解析"><a href="#表达式解析" class="headerlink" title="表达式解析"></a>表达式解析</h1><h1 id="查找记录-SELECT"><a href="#查找记录-SELECT" class="headerlink" title="查找记录 SELECT"></a>查找记录 SELECT</h1><h2 id="查找前两列"><a href="#查找前两列" class="headerlink" title="查找前两列"></a>查找前两列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,username <span class="keyword">FROM</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">AS</span> userID,username <span class="keyword">AS</span> uname <span class="keyword">FROM</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure>
+<h2 id="group-by-语句对查询结果分组"><a href="#group-by-语句对查询结果分组" class="headerlink" title="group by 语句对查询结果分组"></a>group by 语句对查询结果分组</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</div></pre></td></tr></table></figure>
 <p>对分组的结果进行分组</p>
-<h3 id="按照性别分组">按照性别分组</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> sex <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex;</span></span><br></pre></td></tr></table></figure>
-<h2 id="having语句设置分组条件">having语句设置分组条件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> sex,age <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex <span class="keyword">HAVING</span> <span class="keyword">count</span>(<span class="keyword">id</span>);</span></span><br></pre></td></tr></table></figure>
-<h2 id="order_by_语句对查询结果进行排序">order by 语句对查询结果进行排序</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|expr|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</span><br></pre></td></tr></table></figure>
-<h3 id="范例-3">范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> age <span class="keyword">ASC</span>,<span class="keyword">id</span> <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<h3 id="按照性别分组"><a href="#按照性别分组" class="headerlink" title="按照性别分组"></a>按照性别分组</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> sex <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex;</div></pre></td></tr></table></figure>
+<h2 id="having语句设置分组条件"><a href="#having语句设置分组条件" class="headerlink" title="having语句设置分组条件"></a>having语句设置分组条件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> sex,age <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex <span class="keyword">HAVING</span> <span class="keyword">count</span>(<span class="keyword">id</span>);</div></pre></td></tr></table></figure>
+<h2 id="order-by-语句对查询结果进行排序"><a href="#order-by-语句对查询结果进行排序" class="headerlink" title="order by 语句对查询结果进行排序"></a>order by 语句对查询结果进行排序</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|expr|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</div></pre></td></tr></table></figure>
+<h3 id="范例-3"><a href="#范例-3" class="headerlink" title="范例"></a>范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> age <span class="keyword">ASC</span>,<span class="keyword">id</span> <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure>
 <p>如果age遇到了相同的 那么再进行id排序</p>
-<h2 id="LIMIT">LIMIT</h2><h3 id="范例-4">范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">2</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h2><h3 id="范例-4"><a href="#范例-4" class="headerlink" title="范例"></a>范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">2</span></div></pre></td></tr></table></figure>
 <p>返回两条记录</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">3</span>,<span class="number">2</span> //<span class="keyword">id</span> <span class="number">4</span>,<span class="number">5</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">3</span>,<span class="number">2</span> //<span class="keyword">id</span> <span class="number">4</span>,<span class="number">5</span></div></pre></td></tr></table></figure>
 <p>从3开始向后截取两条记录<br>3非id,指的是结果集中的第三条语句.<br>数据库从0开始算,所以3会返回至id为4,5</p>
-<h2 id="插入记录">插入记录</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test1(</span><br><span class="line">        <span class="keyword">id</span> TINYINT <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">    );</span></span><br></pre></td></tr></table></figure>
-<h3 id="跨表写入数据">跨表写入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">INSERT</span> test1(username) <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> age&gt;=<span class="number">10</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="插入记录"><a href="#插入记录" class="headerlink" title="插入记录"></a>插入记录</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test1(</div><div class="line">        <span class="keyword">id</span> TINYINT <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</div><div class="line">    );</div></pre></td></tr></table></figure>
+<h3 id="跨表写入数据"><a href="#跨表写入数据" class="headerlink" title="跨表写入数据"></a>跨表写入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> test1(username) <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> age&gt;=<span class="number">10</span>;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -621,12 +671,12 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="约束">约束</h1><ul>
+        <h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><ul>
 <li>约束保证数据的完整性与一致性</li>
 <li>约束分为表级约束和列级约束</li>
 <li>约束类型包括<br>– NOT NULL (非空约束)<br>– PRIMARY KEY (主键约束)<br>– UNIQUE KEY (唯一约束)<br>– DEFAULT (默认约束)<br>– FOREIGN KEY (外键约束)</li>
 </ul>
-<h1 id="外键约束的要求解析">外键约束的要求解析</h1><p>FOREIGN KEY<br>保证数据的一致性,完整性.<br>实现一对一或一对多关系</p>
+<h1 id="外键约束的要求解析"><a href="#外键约束的要求解析" class="headerlink" title="外键约束的要求解析"></a>外键约束的要求解析</h1><p>FOREIGN KEY<br>保证数据的一致性,完整性.<br>实现一对一或一对多关系</p>
 <ul>
 <li>父表与子表必须使用相同的存储引擎,而且禁止使用临时表.</li>
 <li>数据表的存储引擎只能为InnoDB</li>
@@ -690,15 +740,15 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="MYSQL规范">MYSQL规范</h1><ol>
+        <h1 id="MYSQL规范"><a href="#MYSQL规范" class="headerlink" title="MYSQL规范"></a>MYSQL规范</h1><ol>
 <li>关键字与函数名称全部大写</li>
 <li>数据库名称,表名称,字段名称全部小写</li>
 <li>SQL语句必须以分号结尾</li>
 </ol>
-<h1 id="连接数据库">连接数据库</h1><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">musql -u <span class="keyword">user</span> <span class="title">-p</span> userpassword [-P port -H serverLocation]</span><br></pre></td></tr></table></figure>
-<h1 id="创建数据库">创建数据库</h1><p>在mysql中DATABASE与SCHEMA是一样的<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> &#123;<span class="keyword">DATABASE</span>|<span class="keyword">SCHEMA</span>&#125; [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] db_name [<span class="keyword">DEFAULT</span>] <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> [=] charset_name</span></span><br></pre></td></tr></table></figure></p>
-<p>语法说明:花括号代表必须要有的 竖线代表选项(or) 中括号为可选项.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> t1;</span> //创建一个t1的数据库</span><br></pre></td></tr></table></figure></p>
-<p>如果当数据库存在的话再次添加相同的数据库将会报错.但是加上IF NOT EXISTS将会屏蔽掉这个错误信息<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> t1;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h1><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">musql -u <span class="keyword">user</span> <span class="title">-p</span> userpassword [-P port -H serverLocation]</div></pre></td></tr></table></figure>
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><p>在mysql中DATABASE与SCHEMA是一样的<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> &#123;<span class="keyword">DATABASE</span>|<span class="keyword">SCHEMA</span>&#125; [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] db_name [<span class="keyword">DEFAULT</span>] <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> [=] charset_name</div></pre></td></tr></table></figure></p>
+<p>语法说明:花括号代表必须要有的 竖线代表选项(or) 中括号为可选项.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> t1; //创建一个t1的数据库</div></pre></td></tr></table></figure></p>
+<p>如果当数据库存在的话再次添加相同的数据库将会报错.但是加上IF NOT EXISTS将会屏蔽掉这个错误信息<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> t1;</div></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -784,71 +834,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-promise学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/26/promise学习笔记/" class="article-date">
-  	<time datetime="2016-04-26T04:37:54.000Z" itemprop="datePublished">2016-04-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/26/promise学习笔记/">promise学习笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文大部分内容来自阮一峰的<a href="http://es6.ruanyifeng.com/#docs/promise">ES6入门</a> 这里针对个人所需记录的笔记,如需全面浏览请转自上述链接</p>
-<h1 id="Promise含义">Promise含义</h1><p>Promise简单来说就是一种容器,里面保存着异步操作的结果.promise对象有以下两个特点</p>
-<ol>
-<li>对象的状态不受外界影响,Promise有三种状态,Pending(进行),Resolved(已完成),Rejected(已失败).只有异步操作的结果才能决定当前是哪一种状态,其他任何操作都无法改变这个状态</li>
-<li>一旦状态改变,就不会再改变.Promise状态的改变只有两种可能,从pending变为Resolved和从Pending变为Rejected.一旦这两种情况发生,状态就凝固了,会一直保持这个结果.就算在对Promise对象添加回调函数,也会立即得到这个结果</li>
-</ol>
-<h1 id="基本用法">基本用法</h1><p>Promise对象是一个构造函数,用来生成Promise实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...some code</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="comment">/* 异步操作成功 */</span>)&#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        reject(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/26/promise学习笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -869,7 +854,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -885,8 +870,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

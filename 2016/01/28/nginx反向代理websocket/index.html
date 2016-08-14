@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
 <meta property="og:description" content="参考url
 123456789server &amp;#123;        ...        location /chat/ &amp;#123;            proxy_pass http://backend;            proxy_http_version 1.1;            proxy_set_header Upgrade $http_upgrade;">
-<meta property="og:updated_time" content="2016-01-27T17:20:01.325Z">
+<meta property="og:updated_time" content="2016-01-27T17:20:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx反向代理websocket">
 <meta name="twitter:description" content="参考url
@@ -25,7 +25,7 @@
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
 					        
 								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 					        
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
 			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
 			        
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="http://nginx.org/en/docs/http/websocket.html" target="_blank" rel="external">参考url</a></p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        location /chat/ &#123;</span><br><span class="line">            proxy_pass http://backend;</span><br><span class="line">            proxy_http_version <span class="number">1.1</span>;</span><br><span class="line">            proxy_set_header Upgrade <span class="variable">$http</span>_upgrade;</span><br><span class="line">            proxy_set_header Connection <span class="variable">$connection</span>_upgrade;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        ...</div><div class="line"></div><div class="line">        location <span class="regexp">/chat/</span> &#123;</div><div class="line">            proxy_pass http:<span class="regexp">//</span>backend;</div><div class="line">            proxy_http_version <span class="number">1.1</span>;</div><div class="line">            proxy_set_header Upgrade <span class="variable">$http_upgrade</span>;</div><div class="line">            proxy_set_header Connection <span class="variable">$connection_upgrade</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -334,7 +334,7 @@ var _hmt = _hmt || [];
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -350,8 +350,8 @@ var _hmt = _hmt || [];
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 
