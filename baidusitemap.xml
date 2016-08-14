@@ -5,11 +5,32 @@
     
   <url>
     <loc>http://emufan.com/2016/08/14/mac%E5%AE%89%E8%A3%85lnmp%E7%8E%AF%E5%A2%83/</loc>
-    <lastmod>2016-08-14T14:12:59.000Z</lastmod>
+    <lastmod>2016-08-14T16:19:33.000Z</lastmod>
     <data>
         <display>
         <title>mac安装lnmp环境</title>
         <pubTime>2016-08-14T14:12:59.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+        <tag>mac</tag>
+         
+        <tag>lnmp</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2016/08/15/MAC%E5%AE%89%E8%A3%85proxychains-ng%E5%AE%9E%E7%8E%B0terminal-socks5%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2016-08-14T16:14:13.000Z</lastmod>
+    <data>
+        <display>
+        <title>MAC安装proxychains-ng实现terminal-socks5代理</title>
+        <pubTime>2016-08-14T16:07:56.000Z</pubTime>
         
          
            
