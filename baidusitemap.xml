@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://emufan.com/2016/08/18/mac-laravel-failed-to-open-stream-Permission-denied/</loc>
+    <lastmod>2016-08-17T17:18:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>maclaravel failed to open stream Permission denied</title>
+        <pubTime>2016-08-17T17:11:37.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+        <tag>laravel</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://emufan.com/2016/08/14/mac%E5%AE%89%E8%A3%85lnmp%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2016-08-16T01:50:06.000Z</lastmod>
     <data>
@@ -11,11 +30,11 @@
         <title>mac安装lnmp环境</title>
         <pubTime>2016-08-14T14:12:59.000Z</pubTime>
         
+        <tag>php</tag>
+         
         <tag>mac</tag>
          
         <tag>lnmp</tag>
-         
-        <tag>php</tag>
          
          
            
@@ -155,9 +174,9 @@
         <title>laravel框架学习笔记-1</title>
         <pubTime>2016-05-23T04:21:41.000Z</pubTime>
         
-        <tag>学习笔记</tag>
-         
         <tag>php</tag>
+         
+        <tag>学习笔记</tag>
          
          
            
