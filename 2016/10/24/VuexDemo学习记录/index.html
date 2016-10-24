@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VuexDemo学习记录 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="VuexDemo学习记录Vuex官方提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解
+文件目录
+/
+main.js
+app.vue
+/vuex
+
+action.js
+
+
+
+getters.js
+
+
+
+store.js
+
+
+components
+
+Display.vue
+
+
+
+Increment.vue
+
+
+
+vuexvuex的数据流可以用三句话解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VuexDemo学习记录">
+<meta property="og:url" content="http://emufan.com/2016/10/24/VuexDemo学习记录/index.html">
+<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:description" content="VuexDemo学习记录Vuex官方提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解
+文件目录
+/
+main.js
+app.vue
+/vuex
+
+action.js
+
+
+
+getters.js
+
+
+
+store.js
+
+
+components
+
+Display.vue
+
+
+
+Increment.vue
+
+
+
+vuexvuex的数据流可以用三句话解">
+<meta property="og:image" content="http://vuex.vuejs.org/zh-cn/vuex.png">
+<meta property="og:updated_time" content="2016-10-24T15:31:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VuexDemo学习记录">
+<meta name="twitter:description" content="VuexDemo学习记录Vuex官方提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解
+文件目录
+/
+main.js
+app.vue
+/vuex
+
+action.js
+
+
+
+getters.js
+
+
+
+store.js
+
+
+components
+
+Display.vue
+
+
+
+Increment.vue
+
+
+
+vuexvuex的数据流可以用三句话解">
+<meta name="twitter:image" content="http://vuex.vuejs.org/zh-cn/vuex.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?55cc9e9476316d314198600cbf5b7c42";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/mac/" style="font-size: 11.67px;">mac</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 11.67px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/the7/" style="font-size: 10px;">the7</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/wordpress/" style="font-size: 11.67px;">wordpress</a> <a href="/tags/学习笔记/" style="font-size: 18.33px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-VuexDemo学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/24/VuexDemo学习记录/" class="article-date">
+  	<time datetime="2016-10-24T15:29:55.000Z" itemprop="datePublished">2016-10-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VuexDemo学习记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="VuexDemo学习记录"><a href="#VuexDemo学习记录" class="headerlink" title="VuexDemo学习记录"></a>VuexDemo学习记录</h1><p><a href="http://vuex.vuejs.org/zh-cn/tutorial.html" target="_blank" rel="external">Vuex官方</a>提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解</p>
+<h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><ul>
+<li>/</li>
+<li>main.js</li>
+<li>app.vue</li>
+<li>/vuex</li>
+<li><ul>
+<li>action.js</li>
+</ul>
+</li>
+<li><ul>
+<li>getters.js</li>
+</ul>
+</li>
+<li><ul>
+<li>store.js</li>
+</ul>
+</li>
+<li>components</li>
+<li><ul>
+<li>Display.vue</li>
+</ul>
+</li>
+<li><ul>
+<li>Increment.vue</li>
+</ul>
+</li>
+</ul>
+<h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><p>vuex的数据流可以用三句话解决</p>
+<blockquote>
+<p>用户在组件中的输入操作触发 action 调用；</p>
+<p>Actions 通过分发 mutations 来修改 store 实例的状态；</p>
+<p>Store 实例的状态变化反过来又通过 getters 被组件获知。</p>
+</blockquote>
+<h1 id="store"><a href="#store" class="headerlink" title="store"></a>store</h1><p>首先在store.js中声明 state以及mutations<br>其中state是用来放数据的,mutations则是用来放触发事件 当执行action的时候 action再去触发mutations</p>
+<h1 id="action"><a href="#action" class="headerlink" title="action"></a>action</h1><p>在actions.js则只声明了一个函数,这个函数的作用仅仅是用来调用mutaions 传递对应的参数给mcations</p>
+<h1 id="getter"><a href="#getter" class="headerlink" title="getter"></a>getter</h1><p>vue提供了getter方法,当需要显示数据的时候,首先是调用数据的getter方法.那么在获取数据之前就可以利用getter方法对数据进行处理方便后续开发.</p>
+<p>getter.js也仅仅是声明了一个函数 这个函数返回的是state中的内容.</p>
+<p>那么这个传递过来的state参数是哪来的?<br>其实getter不关心是谁引用了 只关心有没有state.xxx 这个属性.所以这个state是由父级(此例是APP.vue)的store属性来控制的</p>
+<h1 id="Display-Vue"><a href="#Display-Vue" class="headerlink" title="Display.Vue"></a>Display.Vue</h1><p>这个Vue组件仅仅做展示, 那么这里的展示就涉及到了一个共享数据 展示数据从哪里来？</p>
+<p>很显然,展示的数据是共享的,所以展示的数据是从state中拿的,那么涉及到拿数据,肯定就需要getter.js来帮忙处理了    </p>
+<h1 id="Increment-vue"><a href="#Increment-vue" class="headerlink" title="Increment.vue"></a>Increment.vue</h1><p>这个Vue组件是用来执行actions的.<br>也就是这里的函数会调用actions.js 再由actions来触发mutations中的事件.</p>
+<h1 id="APP-vue"><a href="#APP-vue" class="headerlink" title="APP.vue"></a>APP.vue</h1><p>这里的App.vue<br>也就是用来引入组件模块,同时用来控制 子组件到底引入那个store</p>
+<p>假如子组件在不同的父组件中,store也不可能一样吧.所以父组件就规定了store.</p>
+<p>那么子组件的子组件,store如何控制呢？</p>
+<p>实际上当父组件引用了a.store 子组件引用了b.store 其子组件显示的store是b.store 而不是a.</p>
+<h1 id="数据流图"><a href="#数据流图" class="headerlink" title="数据流图"></a>数据流图</h1><p><img src="http://vuex.vuejs.org/zh-cn/vuex.png" alt=""></p>
+<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
+<li>应用 state 存在于单个对象中；</li>
+<li>只有 mutation handlers 可以改变 state；</li>
+<li>Mutations 必须是同步的，它们做的应该仅仅是改变 state；</li>
+<li>所有类似数据获取的异步操作细节都应封装在 actions 里面。</li>
+<li>组件通过 getters 从 store 中获取 state，并通过调用 actions 来改变 state。</li>
+</ol>
+<p>Vuex actions 和 mutations 优雅的地方在于它们都只是一些函数。只需要遵循以上的准则，怎么组织代码就取决于你自己了。</p>
+<p><a href="http://vuex.vuejs.org/zh-cn/structure.html" target="_blank" rel="external">应用结构</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/24/邮箱发送html案例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          邮箱发送html案例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/25/mongoose使用原始mongodb带auth/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongoose使用原始mongodb带auth</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="VuexDemo学习记录" data-title="VuexDemo学习记录" data-url="http://emufan.com/2016/10/24/VuexDemo学习记录/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
