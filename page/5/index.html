@@ -209,6 +209,65 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaScript设计模式笔记-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/" class="article-date">
+  	<time datetime="2016-02-06T12:47:20.000Z" itemprop="datePublished">2016-02-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/">JavaScript设计模式笔记-迭代器模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表现.迭代器模式可以把迭代的过程从业务逻辑中分离出来,在使用迭代器模式之后,即时不关心对象的内部构造,也可以按照顺序访问其中的每个元素.</p>
+<h1 id="7-1-jquery中的迭代器"><a href="#7-1-jquery中的迭代器" class="headerlink" title="7.1 jquery中的迭代器"></a>7.1 jquery中的迭代器</h1><p>迭代器模式无非就是循环访问聚合对象中的各个元素.比如jquery的$.each函数 其中i为当前索引,n为当前元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.each([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">i,n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'当前下标为:'</span>+i)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'当前值为:'</span>+n)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Electron开发Minecraft启动器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -728,68 +787,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/01/27/JavaScript设计模式笔记-面向对象的JavaScript - 副本/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular-file-upload" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/20/angular-file-upload/" class="article-date">
-  	<time datetime="2016-01-20T14:56:55.000Z" itemprop="datePublished">2016-01-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/20/angular-file-upload/">angular-file-upload使用笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p><a href="https://github.com/danialfarid/ng-file-upload">github</a><br>Bower:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bower <span class="keyword">install</span> ng-<span class="keyword">file</span>-upload-shim <span class="comment">--save(for non html5 suppport)</span></div><div class="line">bower <span class="keyword">install</span> ng-<span class="keyword">file</span>-upload <span class="comment">--save</span></div></pre></td></tr></table></figure></p>
-<h1 id="构建表单"><a href="#构建表单" class="headerlink" title="构建表单"></a>构建表单</h1><figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;form <span class="built_in">name</span>=<span class="string">'test'</span>&gt;</div><div class="line">&lt;div class=<span class="string">"btn btn-default "</span> ngf-<span class="built_in">select</span> ng-model=<span class="string">"upload_img"</span></div><div class="line">     <span class="built_in">name</span>=<span class="string">"upload_img"</span> ngf-pattern=<span class="string">"'image/*'"</span> ngf-accept=<span class="string">"'image/*'"</span></div><div class="line">     ngf-<span class="built_in">max</span>-<span class="built_in">size</span>=<span class="string">"2MB"</span> ngf-<span class="built_in">min</span>-height=<span class="string">"100"</span>&gt;<span class="built_in">Select</span></div><div class="line">&lt;/div&gt;</div><div class="line">&lt;button ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</div><div class="line">&lt;/button&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-<p>在文档中看见,可以用input,button,div等方式来构建,但是我推荐用Button,因为可以自己设置样式.</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>其中div标签必须的是 ngf-select与ng-model和name这三个属性.其他的都是可选性,如果你上传的是图片,你可以用ngf-thumbnail来预览.<br>并且可以在ngf-thumbnail中嵌入其他数据<br>比如<br><figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img ngf-thumbnail=<span class="string">"upload_img||user_info.avatarUrl"</span> <span class="keyword">class</span>=<span class="string">""</span> alt=<span class="string">""</span> <span class="built_in">width</span>=<span class="string">"100"</span> <span class="built_in">height</span>=<span class="string">"100"</span>/&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="如何在controller获取到"><a href="#如何在controller获取到" class="headerlink" title="如何在controller获取到"></a>如何在controller获取到</h1><p>推荐在提交的时候传递参数,这里我已经躺了一个坑了,官方加了一个$号,我这里用$upload_img没用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;button ng-click=<span class="string">'submitForm(upload_img)'</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></div><div class="line"></div><div class="line">$scope.submitForm=<span class="function"><span class="keyword">function</span>(<span class="params">upload_img</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(upload_img)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/20/angular-file-upload/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

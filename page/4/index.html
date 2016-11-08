@@ -209,6 +209,62 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-bootstrap中的container与col" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/21/bootstrap中的container与col/" class="article-date">
+  	<time datetime="2016-02-21T12:29:20.000Z" itemprop="datePublished">2016-02-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/21/bootstrap中的container与col/">bootstrap中的container row与col</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>比较好奇bootstarp是如何写响应式的也就是container row col是怎么形成的.<br>先来看看container代码</p>
+<h1 id="container"><a href="#container" class="headerlink" title="container"></a>container</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: auto;</div><div class="line">  <span class="attribute">margin-left</span>: auto;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container-fluid</span> &#123;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: auto;</div><div class="line">  <span class="attribute">margin-left</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里是bootstrap中的container. 在正常的PC也就是大于1200px的情况下 container宽度是1170px  但是无论是1200px还是992,768px.这里都给container设置了一个margin-left,right:auto和paading-left,right:15px。 为什么? 先不急 我们来看看row是怎么写的</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/02/21/bootstrap中的container与col/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JavaScript设计模式笔记-职责链模式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -718,65 +774,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a  href="/2016/02/08/JavaScript设计模式笔记-发布-订阅模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript设计模式笔记-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/" class="article-date">
-  	<time datetime="2016-02-06T12:47:20.000Z" itemprop="datePublished">2016-02-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/">JavaScript设计模式笔记-迭代器模式</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>迭代器模式是指提供一种方法顺序访问一个聚合对象中的各个元素,而又不需要暴露该对象的内部表现.迭代器模式可以把迭代的过程从业务逻辑中分离出来,在使用迭代器模式之后,即时不关心对象的内部构造,也可以按照顺序访问其中的每个元素.</p>
-<h1 id="7-1-jquery中的迭代器"><a href="#7-1-jquery中的迭代器" class="headerlink" title="7.1 jquery中的迭代器"></a>7.1 jquery中的迭代器</h1><p>迭代器模式无非就是循环访问聚合对象中的各个元素.比如jquery的$.each函数 其中i为当前索引,n为当前元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.each([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="function"><span class="keyword">function</span>(<span class="params">i,n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'当前下标为:'</span>+i)</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'当前值为:'</span>+n)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/06/JavaScript设计模式笔记-迭代器模式/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
