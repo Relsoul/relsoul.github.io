@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
 <meta property="og:description" content="阿里云中的mongodb配置漏洞在阿里云看到的mongodb配置漏洞其中的手动解决方案已经不适用于目前的3.x版本的mongodb.于是这边找了一下资料写一个简单的教程
 原因mongodb之所以会产生的原因还是在于平时我们启动mongodb都是直接mongod –dbpath启动的. 这种启动方式是没有用户名和密码验证的.所以会导致某些用户可以不经过授权直接访问数据库内容.解决方案也很简单 加上-">
-<meta property="og:updated_time" content="2016-08-24T15:03:39.000Z">
+<meta property="og:updated_time" content="2016-11-10T15:45:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb3.0配置权限漏洞修复方案">
 <meta name="twitter:description" content="阿里云中的mongodb配置漏洞在阿里云看到的mongodb配置漏洞其中的手动解决方案已经不适用于目前的3.x版本的mongodb.于是这边找了一下资料写一个简单的教程
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
         <h1 id="阿里云中的mongodb配置漏洞"><a href="#阿里云中的mongodb配置漏洞" class="headerlink" title="阿里云中的mongodb配置漏洞"></a>阿里云中的mongodb配置漏洞</h1><p>在阿里云看到的mongodb配置漏洞其中的手动解决方案已经不适用于目前的3.x版本的mongodb.于是这边找了一下资料写一个简单的教程</p>
 <h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>mongodb之所以会产生的原因还是在于平时我们启动mongodb都是直接mongod –dbpath启动的. 这种启动方式是没有用户名和密码验证的.所以会导致某些用户可以不经过授权直接访问数据库内容.解决方案也很简单 加上-auth即可</p>
 <a id="more"></a>
-<h1 id="mongodb3-0添加auth用户"><a href="#mongodb3-0添加auth用户" class="headerlink" title="mongodb3.0添加auth用户"></a>mongodb3.0添加auth用户</h1><p>参考<a href="https://docs.mongodb.com/manual/tutorial/create-users/" target="_blank" rel="external">官方案例</a>和<a href="http://www.tuicool.com/articles/fMZbUzu" target="_blank" rel="external">推酷案例</a>的添加用户先添加一个用户.<br>因为我们这边只想单纯的添加一个root用户并且他拥有管理所有库的权限权力所以我们可以这样<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mongo</div><div class="line">use admin;</div><div class="line"><span class="selector-tag">db</span><span class="selector-class">.create</span>(&#123;</div><div class="line">        <span class="attribute">user</span>:<span class="string">"root"</span>,</div><div class="line">        <span class="attribute">pwd</span>:<span class="string">"rootpassword"</span>,</div><div class="line">        <span class="attribute">roles</span>:[&#123;<span class="attribute">role</span>:<span class="string">"root"</span>,<span class="attribute">db</span>:<span class="string">"admin"</span>&#125;]</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h1 id="mongodb3-0添加auth用户"><a href="#mongodb3-0添加auth用户" class="headerlink" title="mongodb3.0添加auth用户"></a>mongodb3.0添加auth用户</h1><p>参考<a href="https://docs.mongodb.com/manual/tutorial/create-users/" target="_blank" rel="external">官方案例</a>和<a href="http://www.tuicool.com/articles/fMZbUzu" target="_blank" rel="external">推酷案例</a>的添加用户先添加一个用户.<br>因为我们这边只想单纯的添加一个root用户并且他拥有管理所有库的权限权力所以我们可以这样<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mongo</div><div class="line">use admin;</div><div class="line"><span class="selector-tag">db</span><span class="selector-class">.createUser</span>(&#123;</div><div class="line">        <span class="attribute">user</span>:<span class="string">"root"</span>,</div><div class="line">        <span class="attribute">pwd</span>:<span class="string">"rootpassword"</span>,</div><div class="line">        <span class="attribute">roles</span>:[&#123;<span class="attribute">role</span>:<span class="string">"root"</span>,<span class="attribute">db</span>:<span class="string">"admin"</span>&#125;]</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
 <p>这样就创建了一个用户名为<strong>root</strong>密码为<strong>rootpassword</strong>的用户.<br>接下来我们就检查用户是否创建成功和重启下mongodb服务<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> users  <span class="comment">//如果创建成功这条语句会看到新创建的用户</span></div><div class="line">db.shutdownServer() <span class="comment">//重启服务器</span></div></pre></td></tr></table></figure></p>
 <h1 id="开启auth启动mongodb"><a href="#开启auth启动mongodb" class="headerlink" title="开启auth启动mongodb"></a>开启auth启动mongodb</h1><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod -auth <span class="comment">--dbpath=xxx</span></div></pre></td></tr></table></figure>
 <h1 id="输入用户账号密码来使用数据库"><a href="#输入用户账号密码来使用数据库" class="headerlink" title="输入用户账号密码来使用数据库"></a>输入用户账号密码来使用数据库</h1><p>因为我们开启了auth所以我们show dbs 等这些指令都需要认证使用.<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mongo</div><div class="line"></div><div class="line">db<span class="selector-class">.auth</span>(<span class="string">'root'</span>,<span class="string">'rootpassword'</span>);</div></pre></td></tr></table></figure></p>
@@ -339,6 +339,16 @@ var _hmt = _hmt || [];
       	</div>
     </div>
   </div>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?d3dc74e0385a92cbaf1996f3916648ed";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 </footer>
     </div>
     
