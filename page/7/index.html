@@ -625,6 +625,64 @@
 
 
   
+    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
+<h1 id="ngApp"><a href="#ngApp" class="headerlink" title="ngApp"></a>ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="angular-module"><a href="#angular-module" class="headerlink" title="angular.module"></a>angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=angular.<span class="keyword">module</span>(<span class="string">"hello"</span>,[])</div></pre></td></tr></table></figure></p>
+<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -657,64 +715,6 @@
 <h1 id="V-view"><a href="#V-view" class="headerlink" title="V(view)"></a>V(view)</h1><p>V层即为视图层.</p>
 <p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
 <h1 id="C-controller"><a href="#C-controller" class="headerlink" title="C(controller)"></a>C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp"><a href="#ngApp" class="headerlink" title="ngApp"></a>ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h1 id="angular-module"><a href="#angular-module" class="headerlink" title="angular.module"></a>angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=angular.<span class="keyword">module</span>(<span class="string">"hello"</span>,[])</div></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
 
       
     </div>
