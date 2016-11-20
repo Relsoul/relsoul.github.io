@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+  <meta name="description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:title" content="Soul,游荡的灵魂.">
 <meta property="og:url" content="http://emufan.com/page/5/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
+<meta property="og:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta name="twitter:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta name="twitter:title" content="Soul,游荡的灵魂.">
+<meta name="twitter:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,7 +52,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -176,7 +176,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -482,7 +482,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>代码模式是为一个对象提供一个代用品或者占位符,以便控制对它的访问.<br>比如最常见的就是生活中的经纪人与明星.<br>代理模式的关键在于,当客户不方便直接访问一个对象或者不满足需要的时候,提供一个替身对象来控制这个对象的访问,客户实际上访问的是替身对象。</p>
-<h1 id="6-1-第一个例子——小明追MM方式"><a href="#6-1-第一个例子——小明追MM方式" class="headerlink" title="6.1 第一个例子——小明追MM方式"></a>6.1 第一个例子——小明追MM方式</h1><p>因为小明胆子小不敢直接送花给MM于是让MM与他的的好友B来送给MM<br>先来看看不用代理模式的情况<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Flower=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> xiaoming=&#123;</div><div class="line">    sendFlower:<span class="function"><span class="keyword">function</span>(<span class="params">target</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> flower=<span class="keyword">new</span> Flower();</div><div class="line">        target.receiveFlower(flower)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> A=&#123;</div><div class="line">    receiveFlower:<span class="function"><span class="keyword">function</span>(<span class="params">flower</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'收到花'</span>+flower)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">xiaoming.sendFlower(A)</div></pre></td></tr></table></figure></p>
+<h1 id="6-1-第一个例子——小明追MM方式"><a href="#6-1-第一个例子——小明追MM方式" class="headerlink" title="6.1 第一个例子——小明追MM方式"></a>6.1 第一个例子——小明追MM方式</h1><p>因为小明胆子小不敢直接送花给MM于是让MM与他的的好友B来送给MM<br>先来看看不用代理模式的情况<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Flower=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> xiaoming=&#123;</div><div class="line">    <span class="attr">sendFlower</span>:<span class="function"><span class="keyword">function</span>(<span class="params">target</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> flower=<span class="keyword">new</span> Flower();</div><div class="line">        target.receiveFlower(flower)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> A=&#123;</div><div class="line">    <span class="attr">receiveFlower</span>:<span class="function"><span class="keyword">function</span>(<span class="params">flower</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'收到花'</span>+flower)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">xiaoming.sendFlower(A)</div></pre></td></tr></table></figure></p>
 <p>接下来我们引入代理B,既小明通过B来送给A花</p>
       
     </div>

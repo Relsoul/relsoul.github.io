@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>邮箱发送html案例 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>邮箱发送html案例 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="邮箱发送案例笔记今天在做邮箱发送案例的时候发现有一些问题需要处理
@@ -20,7 +20,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="邮箱发送html案例">
 <meta property="og:url" content="http://emufan.com/2016/10/24/邮箱发送html案例/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="邮箱发送案例笔记今天在做邮箱发送案例的时候发现有一些问题需要处理
 这里的邮箱指的是QQ邮箱
 
@@ -47,7 +47,7 @@
 1.则是因为邮箱在处理的时候会把不标准的css样式给屏蔽掉.所以导致*xxx 以后的样式全部无效.如果要用请把*xxx放在最后进行处理
 2.和4.可以先利">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -83,7 +83,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -207,7 +207,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -283,7 +283,7 @@
 </ol>
 <p>1.则是因为邮箱在处理的时候会把不标准的css样式给屏蔽掉.所以导致*xxx 以后的样式全部无效.如果要用请把*xxx放在最后进行处理</p>
 <p>2.和4.可以先利用选择器写好然后再利用gulp脚本自动生成,这里给出一段,所需模块已经require,需要的可以直接去npm进行下载</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gulp=<span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">const</span> inlineCss=<span class="built_in">require</span>(<span class="string">"gulp-inline-css"</span>);</div><div class="line"><span class="keyword">const</span> rename=<span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.task(<span class="string">"inlineCss"</span>,()=&gt;&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">"./dist/html/微信邀请函/*.html"</span>)</div><div class="line">            .pipe(inlineCss())</div><div class="line">            .pipe(rename((path)=&gt;&#123;</div><div class="line">                path.dirname=<span class="string">"./"</span>;</div><div class="line">                path.basename+=<span class="string">"-inline-css"</span>;</div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">"./dist/html/微信邀请函/inlineCss/"</span>))</div><div class="line">    &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gulp=<span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">const</span> inlineCss=<span class="built_in">require</span>(<span class="string">"gulp-inline-css"</span>);</div><div class="line"><span class="keyword">const</span> rename=<span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.task(<span class="string">"inlineCss"</span>,()=&gt;&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">"./dist/html/微信邀请函/*.html"</span>)</div><div class="line">            .pipe(inlineCss())</div><div class="line">            .pipe(rename(<span class="function">(<span class="params">path</span>)=&gt;</span>&#123;</div><div class="line">                path.dirname=<span class="string">"./"</span>;</div><div class="line">                path.basename+=<span class="string">"-inline-css"</span>;</div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">"./dist/html/微信邀请函/inlineCss/"</span>))</div><div class="line">    &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <ol>
 <li>则是因为避免不同屏幕大小下的问题.这里给出一个参考值650px</li>
 </ol>

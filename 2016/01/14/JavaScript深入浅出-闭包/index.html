@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript深入浅出-闭包 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>JavaScript深入浅出-闭包 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="例子12345678910111213141516171819202122232425262728function outer()&amp;#123;    var localVal=30;    return localVal;&amp;#125;outer()//30---function outer()&amp;#123;    var localVal=30;    return function()&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入浅出-闭包">
 <meta property="og:url" content="http://emufan.com/2016/01/14/JavaScript深入浅出-闭包/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="例子12345678910111213141516171819202122232425262728function outer()&amp;#123;    var localVal=30;    return localVal;&amp;#125;outer()//30---function outer()&amp;#123;    var localVal=30;    return function()&amp;#123;">
 <meta property="og:image" content="http://cdn.emufan.com/img/JavaScript-闭包.png">
 <meta property="og:updated_time" content="2016-01-15T15:03:43.000Z">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="例子12345678910111213141516171819202122232425262728function outer()&amp;#123;    var localVal=30;    return localVal;&amp;#125;outer()//30---function outer()&amp;#123;    var localVal=30;    return function()&amp;#123;">
 <meta name="twitter:image" content="http://cdn.emufan.com/img/JavaScript-闭包.png">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -55,7 +55,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -179,7 +179,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -255,7 +255,7 @@
 <h2 id="全局初始化阶段"><a href="#全局初始化阶段" class="headerlink" title="全局初始化阶段"></a>全局初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">AO</span>(<span class="selector-tag">global</span>)&#123;</div><div class="line">    <span class="attribute">add</span>:&lt;ref to func <span class="string">'add'</span>&gt;,</div><div class="line">    f:undefined,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="全局执行阶段"><a href="#全局执行阶段" class="headerlink" title="全局执行阶段"></a>全局执行阶段</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AO(<span class="keyword">global</span>)[f]= <span class="built_in">run</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span></span></div></pre></td></tr></table></figure>
 <h2 id="add初始化阶段"><a href="#add初始化阶段" class="headerlink" title="add初始化阶段"></a>add初始化阶段</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AO</span><span class="params">(add)</span></span>&#123;</div><div class="line">    <span class="selector-tag">i</span>:undefined,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="add执行阶段"><a href="#add执行阶段" class="headerlink" title="add执行阶段"></a>add执行阶段</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AO(<span class="keyword">add</span>)[i]=<span class="number">0</span>;</div><div class="line">AO(<span class="keyword">add</span>) return go <span class="keyword">to</span> <span class="keyword">global</span> <span class="keyword">and</span> <span class="keyword">set</span> <span class="keyword">global</span> f</div></pre></td></tr></table></figure>
+<h2 id="add执行阶段"><a href="#add执行阶段" class="headerlink" title="add执行阶段"></a>add执行阶段</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AO(<span class="keyword">add</span><span class="bash">)[i]=0;</span></div><div class="line">AO(<span class="keyword">add</span><span class="bash">) <span class="built_in">return</span> go to global and <span class="built_in">set</span> global f</span></div></pre></td></tr></table></figure>
 <h2 id="全局执行阶段-1"><a href="#全局执行阶段-1" class="headerlink" title="全局执行阶段-1"></a>全局执行阶段-1</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span>[f]=anonymous function</div><div class="line"><span class="function"><span class="title">AO</span><span class="params">(global)</span></span> f() run func <span class="string">'f'</span></div></pre></td></tr></table></figure>
 <h2 id="f初始化阶段"><a href="#f初始化阶段" class="headerlink" title="f初始化阶段"></a>f初始化阶段</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">AO</span>(<span class="selector-tag">f</span>)&#123;</div><div class="line">    <span class="attribute">outer</span>:add</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="f执行阶段"><a href="#f执行阶段" class="headerlink" title="f执行阶段"></a>f执行阶段</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AO(f) alert(i++) // find <span class="keyword">to</span> outer ... <span class="keyword">in</span> <span class="function"><span class="keyword">func</span> <span class="title">add</span></span></div></pre></td></tr></table></figure>

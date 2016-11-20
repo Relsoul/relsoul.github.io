@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>mysql学习笔记1——数据库的创建与查询 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>mysql学习笔记1——数据库的创建与查询 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="MYSQL规范
@@ -16,7 +16,7 @@ SQL语句必须以分号结尾
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql学习笔记1——数据库的创建与查询">
 <meta property="og:url" content="http://emufan.com/2016/05/04/mysql学习笔记/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="MYSQL规范
 关键字与函数名称全部大写
 数据库名称,表名称,字段名称全部小写
@@ -35,7 +35,7 @@ SQL语句必须以分号结尾
 连接数据库1musql -u user -p userpassword [-P port -H serverLocation]
 创建数据库在mysql中DATABASE与SCHEMA是一样的1CREATE &amp;#123;DATABASE|SCHEMA&amp;#125; [IF NOT EXISTS]">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -71,7 +71,7 @@ SQL语句必须以分号结尾
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -195,7 +195,7 @@ SQL语句必须以分号结尾
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -311,7 +311,7 @@ SQL语句必须以分号结尾
 <h2 id="查看数据表"><a href="#查看数据表" class="headerlink" title="查看数据表"></a>查看数据表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">TABLES</span> [<span class="keyword">FROM</span> db_name] [<span class="keyword">LIKE</span> <span class="string">"pattern"</span> | <span class="keyword">WHERE</span> expr ]</div></pre></td></tr></table></figure>
 <h2 id="查看数据表结构"><a href="#查看数据表结构" class="headerlink" title="查看数据表结构"></a>查看数据表结构</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> tbl_name</div></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SHOW</span> <span class="keyword">COLUMNS</span> <span class="keyword">FROM</span> tb1;</div></pre></td></tr></table></figure>
-<h2 id="记录插入与查找"><a href="#记录插入与查找" class="headerlink" title="记录插入与查找"></a>记录插入与查找</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT <span class="selector-attr">[INTO]</span> <span class="selector-tag">tbl_name</span> <span class="selector-attr">[(col_name,...)]</span> <span class="selector-tag">VALUES</span>(val,...)</div></pre></td></tr></table></figure>
+<h2 id="记录插入与查找"><a href="#记录插入与查找" class="headerlink" title="记录插入与查找"></a>记录插入与查找</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">INSERT</span> <span class="selector-attr">[INTO]</span> <span class="selector-tag">tbl_name</span> <span class="selector-attr">[(col_name,...)]</span> <span class="selector-tag">VALUES</span>(val,...)</div></pre></td></tr></table></figure>
 <p>省略掉列名称则为所有的字段赋值</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> tb1 <span class="keyword">VALUES</span>(<span class="string">"Tom"</span>,<span class="number">25</span>,<span class="number">7865.32</span>);</div></pre></td></tr></table></figure>
 <p>如果少写了一个列值 则会出现 Column count doesnt value count at row 1 列不匹配</p>

@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular中的cookie操作 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>angular中的cookie操作 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular中的cookie操作">
 <meta property="og:url" content="http://emufan.com/2015/12/28/angular中的cookie操作/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
 <meta property="og:updated_time" content="2015-12-28T09:08:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="angular中的cookie操作">
 <meta name="twitter:description" content="angular1.4.8中的cookie操作ngCookies版本也是1.4.8特别声明了版本号，希望后人不要入坑在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -177,7 +177,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -246,8 +246,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="angular1-4-8中的cookie操作"><a href="#angular1-4-8中的cookie操作" class="headerlink" title="angular1.4.8中的cookie操作"></a>angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br><a id="more"></a><br>比如下面这段就是 <strong>行不通</strong> 的<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">angular</span><span class="selector-class">.module</span>(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</div><div class="line"><span class="selector-class">.controller</span>(<span class="string">'ExampleController'</span>, [<span class="string">'$cookieStore'</span>, function($cookieStore) &#123;</div><div class="line">  <span class="comment">// Put cookie</span></div><div class="line">  $cookieStore<span class="selector-class">.put</span>(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</div><div class="line">  <span class="comment">// Get cookie</span></div><div class="line">  var favoriteCookie = $cookieStore<span class="selector-class">.get</span>(<span class="string">'myFavorite'</span>);</div><div class="line">  <span class="comment">// Removing a cookie</span></div><div class="line">  $cookieStore<span class="selector-class">.remove</span>(<span class="string">'myFavorite'</span>);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p>利用$cookieStore操作cookie会报循环获取xxx错误具体大家试试就行了<br>只需要改一处地方代码就可以完美运行那就是把 <strong>$cookieStore</strong>改为<strong>$cookies</strong><br>其他操作方法不变<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">angular</span><span class="selector-class">.module</span>(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</div><div class="line"><span class="selector-class">.controller</span>(<span class="string">'ExampleController'</span>, [<span class="string">'$cookies'</span>, function($cookies) &#123;</div><div class="line">  <span class="comment">// Put cookie</span></div><div class="line">  $cookies<span class="selector-class">.put</span>(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</div><div class="line">  <span class="comment">// Get cookie</span></div><div class="line">  var favoriteCookie = $cookies<span class="selector-class">.get</span>(<span class="string">'myFavorite'</span>);</div><div class="line">  <span class="comment">// Removing a cookie</span></div><div class="line">  $cookies<span class="selector-class">.remove</span>(<span class="string">'myFavorite'</span>);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
+        <h1 id="angular1-4-8中的cookie操作"><a href="#angular1-4-8中的cookie操作" class="headerlink" title="angular1.4.8中的cookie操作"></a>angular1.4.8中的cookie操作</h1><p>ngCookies版本也是1.4.8<br>特别声明了版本号，希望后人不要入坑<br>在angular1.4.8中引入ngcookie插件不能注入$cookieStore而改为注入$cookieStore,$cookies<br><a id="more"></a><br>比如下面这段就是 <strong>行不通</strong> 的<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</div><div class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookieStore'</span>, <span class="function"><span class="keyword">function</span><span class="params">($cookieStore)</span> </span>&#123;</div><div class="line">  <span class="comment">// Put cookie</span></div><div class="line">  $cookieStore.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</div><div class="line">  <span class="comment">// Get cookie</span></div><div class="line">  <span class="keyword">var</span> favoriteCookie = $cookieStore.get(<span class="string">'myFavorite'</span>);</div><div class="line">  <span class="comment">// Removing a cookie</span></div><div class="line">  $cookieStore.remove(<span class="string">'myFavorite'</span>);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
+<p>利用$cookieStore操作cookie会报循环获取xxx错误具体大家试试就行了<br>只需要改一处地方代码就可以完美运行那就是把 <strong>$cookieStore</strong>改为<strong>$cookies</strong><br>其他操作方法不变<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'cookieStoreExample'</span>, [<span class="string">'ngCookies'</span>])</div><div class="line">.controller(<span class="string">'ExampleController'</span>, [<span class="string">'$cookies'</span>, <span class="function"><span class="keyword">function</span><span class="params">($cookies)</span> </span>&#123;</div><div class="line">  <span class="comment">// Put cookie</span></div><div class="line">  $cookies.put(<span class="string">'myFavorite'</span>,<span class="string">'oatmeal'</span>);</div><div class="line">  <span class="comment">// Get cookie</span></div><div class="line">  <span class="keyword">var</span> favoriteCookie = $cookies.get(<span class="string">'myFavorite'</span>);</div><div class="line">  <span class="comment">// Removing a cookie</span></div><div class="line">  $cookies.remove(<span class="string">'myFavorite'</span>);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
 
       
     </div>

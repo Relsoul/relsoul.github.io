@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript深入浅出-作用域 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>JavaScript深入浅出-作用域 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入浅出-作用域">
 <meta property="og:url" content="http://emufan.com/2016/01/15/JavaScript深入浅出-作用域/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
 <meta property="og:updated_time" content="2016-01-15T11:44:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入浅出-作用域">
 <meta name="twitter:description" content="全局.函数,eval1234567891011var a=10;//全局作用域(function()&amp;#123;    var b=20;    &amp;#125;)();console.log(a);//10console.log(b);//error, b is not definedfor(var item in &amp;#123;a:1,b:2&amp;#125;)&amp;#123;    console.log(">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -177,7 +177,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -246,7 +246,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="全局-函数-eval"><a href="#全局-函数-eval" class="headerlink" title="全局.函数,eval"></a>全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;a:<span class="number">1</span>,b:<span class="number">2</span>&#125;)&#123;</div><div class="line">    <span class="built_in">console</span>.log(item)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</div></pre></td></tr></table></figure>
+        <h1 id="全局-函数-eval"><a href="#全局-函数-eval" class="headerlink" title="全局.函数,eval"></a>全局.函数,eval</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">10</span>;<span class="comment">//全局作用域</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> b=<span class="number">20</span>;    </div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//10</span></div><div class="line"><span class="built_in">console</span>.log(b);<span class="comment">//error, b is not defined</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> item <span class="keyword">in</span> &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;)&#123;</div><div class="line">    <span class="built_in">console</span>.log(item)</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(item)<span class="comment">// item still in scope</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var a=1; '</span>);</div></pre></td></tr></table></figure>
 <p>JavaScript无块级作用域,只有函数作用域.<br>如 匿名立即执行作用域</p>
 <a id="more"></a>
 <h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer2</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> local2=<span class="number">1</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">outer1</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">var</span> local=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    outer1();</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> global3=<span class="number">1</span>;</div><div class="line">outer2();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> i=<span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> func=<span class="keyword">new</span> <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'console.log(typeof i)'</span>)</span></span>;</div><div class="line">    func();<span class="comment">//undefined</span></div><div class="line">&#125;</div><div class="line">outer()</div></pre></td></tr></table></figure>

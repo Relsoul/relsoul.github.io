@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+  <meta name="description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:title" content="Soul,游荡的灵魂.">
 <meta property="og:url" content="http://emufan.com/page/3/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
+<meta property="og:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta name="twitter:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta name="twitter:title" content="Soul,游荡的灵魂.">
+<meta name="twitter:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,7 +52,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -176,7 +176,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -534,7 +534,7 @@
       
         <h1 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
 <h1 id="对象关联"><a href="#对象关联" class="headerlink" title="对象关联"></a>对象关联</h1><p>[[protorype]]机制就是存在于对象中的一个内部链接,它会引用其他对象.当在对象本身上未找到属性则会继续顺着[[prototype]]关系的对象上进行查找</p>
-<h2 id="创建关联"><a href="#创建关联" class="headerlink" title="创建关联"></a>创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo=&#123;</div><div class="line">    something:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</div><div class="line">bar.something();<span class="comment">//tell me</span></div></pre></td></tr></table></figure>
+<h2 id="创建关联"><a href="#创建关联" class="headerlink" title="创建关联"></a>创建关联</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo=&#123;</div><div class="line">    <span class="attr">something</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"tell me "</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bar=<span class="built_in">Object</span>.create(foo);</div><div class="line">bar.something();<span class="comment">//tell me</span></div></pre></td></tr></table></figure>
 <p>Object.create会创建一个新对象(bar)并且把它关联到我们指定的对象(foo).<br>Object.create(null)会创建一个null[[prototype]]链接的对象,由于这个对象没有原型链,所以用instanceof无法进行判断,总是会返回false.这样无[[prototype]]的对象通常被称为”字典”,它们完全不会受到原型链的干扰,因此非常适合用来存储数据.</p>
       
     </div>

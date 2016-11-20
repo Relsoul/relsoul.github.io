@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>socket.io 1.0中的to与in | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>socket.io 1.0中的to与in | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="socket.io 1.0中的to与in">
 <meta property="og:url" content="http://emufan.com/2015/12/28/socket中的to与in/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
 <meta property="og:updated_time" content="2015-12-28T09:08:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="socket.io 1.0中的to与in">
 <meta name="twitter:description" content="socket 1.0中的to 与in众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件比如12345678//新建个房间io.of(&quot;/chat&quot;).on(&quot;connection&quot;,function(socket)&amp;#123;    //针对chat发送hello事件    socket.broadcast.to(&apos;chat&apos;).emit(&apos;hello&apos;,data);">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -177,7 +177,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -246,11 +246,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="socket-1-0中的to-与in"><a href="#socket-1-0中的to-与in" class="headerlink" title="socket 1.0中的to 与in"></a>socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//新建个房间</span></div><div class="line"><span class="selector-tag">io</span><span class="selector-class">.of</span>(<span class="string">"/chat"</span>)<span class="selector-class">.on</span>(<span class="string">"connection"</span>,function(socket)&#123;</div><div class="line">    <span class="comment">//针对chat发送hello事件</span></div><div class="line">    socket<span class="selector-class">.broadcast</span><span class="selector-class">.to</span>(<span class="string">'chat'</span>)<span class="selector-class">.emit</span>(<span class="string">'hello'</span>,data);</div><div class="line">  &#125;)</div><div class="line"></div><div class="line"><span class="comment">//连接到这个房间</span></div><div class="line"><span class="selector-tag">socket</span><span class="selector-class">.join</span>(<span class="string">"chat"</span>)</div></pre></td></tr></table></figure></p>
+        <h1 id="socket-1-0中的to-与in"><a href="#socket-1-0中的to-与in" class="headerlink" title="socket 1.0中的to 与in"></a>socket 1.0中的to 与in</h1><p>众所周知socket.io有全局广播事件和针对某个房间(room)来发送事件<br>比如<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//新建个房间</span></div><div class="line">io.of(<span class="string">"/chat"</span>).<span class="keyword">on</span>(<span class="string">"connection"</span>,function(socket)&#123;</div><div class="line">    <span class="comment">//针对chat发送hello事件</span></div><div class="line">    socket.broadcast.<span class="keyword">to</span>(<span class="string">'chat'</span>).emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</div><div class="line">  &#125;)</div><div class="line"></div><div class="line"><span class="comment">//连接到这个房间</span></div><div class="line">socket.<span class="keyword">join</span>(<span class="string">"chat"</span>)</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>但是,我们一般都不会这么去做..如果有100个房间那么要处理100个room<br>所以一般都是一个总连接内直接分组不手动分组处理<br>比如<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">socket</span><span class="selector-class">.on</span>(<span class="string">"connection"</span>,function(socket)&#123;</div><div class="line">    <span class="comment">//加入hello房间 /分组到hello</span></div><div class="line">    socket<span class="selector-class">.join</span>(<span class="string">"hello"</span>)</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
-<p>现在坑的一步来了 在socket.io 1.0版本中或者所在所有版本中强烈推荐这样写不容易掉坑<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//给hello分组发送hello事件</span></div><div class="line">socket<span class="selector-class">.broadcast</span><span class="selector-class">.to</span>(<span class="string">'hello'</span>)<span class="selector-class">.emit</span>(<span class="string">'hello'</span>,data);</div></pre></td></tr></table></figure></p>
-<p>很抱歉上面那一步根本行不通！请相信一位因这个bug而找了一小时的资料的苦逼程序猿<br>所以推荐用这种写法<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io<span class="selector-class">.sockets</span><span class="selector-class">.to</span>(<span class="string">'hello'</span>)<span class="selector-class">.emit</span>(<span class="string">'hello'</span>,data);</div></pre></td></tr></table></figure></p>
+<p>但是,我们一般都不会这么去做..如果有100个房间那么要处理100个room<br>所以一般都是一个总连接内直接分组不手动分组处理<br>比如<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">socket</span>.on(<span class="string">"connection"</span>,<span class="function"><span class="keyword">function</span>(<span class="title">socket</span>)&#123;</span></div><div class="line">   <span class="comment"> //加入hello房间 /分组到hello</span></div><div class="line">    <span class="built_in">socket</span>.join(<span class="string">"hello"</span>)</div><div class="line">  &#125;)</div></pre></td></tr></table></figure></p>
+<p>现在坑的一步来了 在socket.io 1.0版本中或者所在所有版本中强烈推荐这样写不容易掉坑<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//给hello分组发送hello事件</span></div><div class="line">socket.broadcast.<span class="keyword">to</span>(<span class="string">'hello'</span>).emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</div></pre></td></tr></table></figure></p>
+<p>很抱歉上面那一步根本行不通！请相信一位因这个bug而找了一小时的资料的苦逼程序猿<br>所以推荐用这种写法<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">io.sockets.<span class="keyword">to</span>(<span class="string">'hello'</span>).emit(<span class="string">'hello'</span>,<span class="built_in">data</span>);</div></pre></td></tr></table></figure></p>
 <p>获取所有的连接然后找到hello这个分组发送hello事件<br>to和in是一样的意思 把to换成in也是一样的</p>
 
       

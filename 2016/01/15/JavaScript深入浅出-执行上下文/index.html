@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript深入浅出-执行上下文 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>JavaScript深入浅出-执行上下文 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="JavaScript作用域
@@ -17,7 +17,7 @@ eval
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入浅出-执行上下文">
 <meta property="og:url" content="http://emufan.com/2016/01/15/JavaScript深入浅出-执行上下文/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="JavaScript作用域
 全局
 函数
@@ -44,7 +44,7 @@ eval
 每次调用函数都是重新生成一个作用域">
 <meta name="twitter:image" content="http://cdn.emufan.com/img/JavaScript深入浅出-执行上下文-1.png">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -80,7 +80,7 @@ eval
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -204,7 +204,7 @@ eval
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -292,7 +292,7 @@ eval
 <p>浏览器中全局中的VO即等于global,全局下有个window指向global 所以能够window.window.window.Math;<br>在全局中调用与声明间接的与VO去接触,在函数中去拿一个变量实际上也去函数VO拿一个变量</p>
 <h1 id="函数中的激活对象"><a href="#函数中的激活对象" class="headerlink" title="函数中的激活对象"></a>函数中的激活对象</h1><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">VO(<span class="function"><span class="keyword">function</span><span class="title">Context</span>)===<span class="title">AO</span></span>;</div><div class="line">AO=&#123;</div><div class="line">    <span class="built_in">arguments</span>:&lt;Arg0&gt;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">arguments</span>=&#123;</div><div class="line">    callee,</div><div class="line">    length,</div><div class="line">    properties-indexes</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>可以理解为 不同执行阶段下的一个不同东西…<br>AO在函数调用的时候会有一个arguments,会放置在VO对象中,在arguments定义后AO就等于VO对象</p>
-<h1 id="变量初始化阶段"><a href="#变量初始化阶段" class="headerlink" title="变量初始化阶段"></a>变量初始化阶段</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> c=<span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    <span class="keyword">var</span> e=<span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">    b=<span class="number">20</span>;</div><div class="line">&#125;</div><div class="line">test(<span class="number">10</span>)</div><div class="line"></div><div class="line">AO(test)=&#123;</div><div class="line">    a:<span class="number">10</span>,</div><div class="line">    b:<span class="literal">undefined</span>,</div><div class="line">    c:<span class="literal">undefined</span>,</div><div class="line">    d:<span class="xml"><span class="tag">&lt;<span class="name">ref</span> <span class="attr">to</span> <span class="attr">func</span> '<span class="attr">d</span>'&gt;</span>,</span></div><div class="line">    e:undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="变量初始化阶段"><a href="#变量初始化阶段" class="headerlink" title="变量初始化阶段"></a>变量初始化阶段</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> c=<span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    <span class="keyword">var</span> e=<span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    (<span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">    b=<span class="number">20</span>;</div><div class="line">&#125;</div><div class="line">test(<span class="number">10</span>)</div><div class="line"></div><div class="line">AO(test)=&#123;</div><div class="line">    <span class="attr">a</span>:<span class="number">10</span>,</div><div class="line">    <span class="attr">b</span>:<span class="literal">undefined</span>,</div><div class="line">    <span class="attr">c</span>:<span class="literal">undefined</span>,</div><div class="line">    <span class="attr">d</span>:<span class="xml"><span class="tag">&lt;<span class="name">ref</span> <span class="attr">to</span> <span class="attr">func</span> '<span class="attr">d</span>'&gt;</span>,</span></div><div class="line">    e:undefined</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>对于函数来讲AO和VO是一个东西<br>第一个阶段是变量初始化阶段.<br>VO按照如下顺序填充</p>
 <ul>
 <li>函数参数(若未传入,初始化该参数值为undefined)</li>

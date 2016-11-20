@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>angular-file-upload使用笔记 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>angular-file-upload使用笔记 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="angular-file-upload使用笔记">
 <meta property="og:url" content="http://emufan.com/2016/01/20/angular-file-upload/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
 构建表单12345678&amp;lt;form name=&apos;test&apos;&amp;gt;&amp;lt;div class=&quot;btn btn-default &quot; ngf-select ng-m">
 <meta property="og:updated_time" content="2016-01-20T15:18:22.000Z">
@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="引入githubBower:12bower install ng-file-upload-shim --save(for non html5 suppport)bower install ng-file-upload --save
 构建表单12345678&amp;lt;form name=&apos;test&apos;&amp;gt;&amp;lt;div class=&quot;btn btn-default &quot; ngf-select ng-m">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -56,7 +56,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -180,7 +180,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -258,7 +258,7 @@
 <h1 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h1><p>这里只演示单文件上传,其实上传也挺简单的.采用POST上传<br>Upload需要在controller注入.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$scope.submitForm=<span class="function"><span class="keyword">function</span><span class="params">(_upload_img)</span></span>&#123;</div><div class="line">    Upload.upload(</div><div class="line">        &#123;</div><div class="line">            url: <span class="string">'/api/user/'</span>+$stateParams.id,</div><div class="line">            data: &#123;file: _upload_img, <span class="string">'user_info'</span>: $scope.user_info&#125;,</div><div class="line">            method:<span class="string">'POST'</span></div><div class="line">        &#125;).then(<span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</div><div class="line">            data=data.data</div><div class="line">            <span class="keyword">if</span>(data.err)&#123;</div><div class="line">                $scope.user_err=data.err</div><div class="line">                $timeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">                    $window.location.reload()</div><div class="line">                &#125;,<span class="number">1500</span>)</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                $scope.user_err=data.info</div><div class="line">                $timeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">                    $window.location.reload()</div><div class="line">                &#125;,<span class="number">1500</span>)</div><div class="line">            &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这里的url为post地址,后面的then可以接受几个function,第一个是成功,第二个是失败,第三个是事件触发,具体可以参考官网</p>
 <h1 id="nodejs获取"><a href="#nodejs获取" class="headerlink" title="nodejs获取"></a>nodejs获取</h1><p>这里顺便把这个坑给说了.</p>
-<h2 id="引入-multer"><a href="#引入-multer" class="headerlink" title="引入 multer"></a>引入 multer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>);</div><div class="line"><span class="keyword">var</span> storage = multer.diskStorage(&#123;</div><div class="line">    destination: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</div><div class="line">        cb(<span class="literal">null</span>, <span class="string">'./public/upload/avatar/'</span>)</div><div class="line">    &#125;,</div><div class="line">    filename: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</div><div class="line">        cb(<span class="literal">null</span>,<span class="built_in">Date</span>.now()+<span class="string">'-'</span>+file.originalname)</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">var</span> upload = multer(&#123; storage: storage &#125;)</div><div class="line"><span class="keyword">var</span> upload_avatar=upload.single(<span class="string">'file'</span>)</div></pre></td></tr></table></figure>
+<h2 id="引入-multer"><a href="#引入-multer" class="headerlink" title="引入 multer"></a>引入 multer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> multer  = <span class="built_in">require</span>(<span class="string">'multer'</span>);</div><div class="line"><span class="keyword">var</span> storage = multer.diskStorage(&#123;</div><div class="line">    <span class="attr">destination</span>: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</div><div class="line">        cb(<span class="literal">null</span>, <span class="string">'./public/upload/avatar/'</span>)</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">filename</span>: <span class="function"><span class="keyword">function</span> (<span class="params">req, file, cb</span>) </span>&#123;</div><div class="line">        cb(<span class="literal">null</span>,<span class="built_in">Date</span>.now()+<span class="string">'-'</span>+file.originalname)</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">var</span> upload = multer(&#123; <span class="attr">storage</span>: storage &#125;)</div><div class="line"><span class="keyword">var</span> upload_avatar=upload.single(<span class="string">'file'</span>)</div></pre></td></tr></table></figure>
 <p>具体的大家可以去看一下multer官网文档,这里简单说说.<br>storage是定义存储的一些相关信息,destination为存储地址,filename为存储名字<br>那么upload.single就比较重要了,这点就是定义需要解析的body段.<br>在upload上传的时候我们在其中附加了一个字段 也就是file：_upload_img,也就是file这个字段就需要被multer来解析,解析后我们就可以拿到file了</p>
 <h1 id="获取file"><a href="#获取file" class="headerlink" title="获取file"></a>获取file</h1><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.<span class="built_in">post</span>(<span class="string">"/api/xxxxxx"</span>,<span class="function"><span class="keyword">function</span>(<span class="title">req</span>,<span class="title">res</span>)&#123;</span></div><div class="line">    console.<span class="built_in">log</span>(req.<span class="built_in">file</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>即可以拿到里面的文件了.<br>目前就这么多吧.有坑再填</p>

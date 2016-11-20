@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>mongoose使用原始mongodb带auth | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>mongoose使用原始mongodb带auth | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="代码如下123456789101112131415161718var dbUrl=&quot;mongodb://username:pw@localhost:27017/dbname&quot;;var db=mongoose.createConnection(dbUrl);	db.on(&quot;open&quot;,function()&amp;#123;	 console.log(&quot;open&quot;);	    mongoose.connec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongoose使用原始mongodb带auth">
 <meta property="og:url" content="http://emufan.com/2016/08/25/mongoose使用原始mongodb带auth/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="代码如下123456789101112131415161718var dbUrl=&quot;mongodb://username:pw@localhost:27017/dbname&quot;;var db=mongoose.createConnection(dbUrl);	db.on(&quot;open&quot;,function()&amp;#123;	 console.log(&quot;open&quot;);	    mongoose.connec">
 <meta property="og:updated_time" content="2016-08-25T03:03:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongoose使用原始mongodb带auth">
 <meta name="twitter:description" content="代码如下123456789101112131415161718var dbUrl=&quot;mongodb://username:pw@localhost:27017/dbname&quot;;var db=mongoose.createConnection(dbUrl);	db.on(&quot;open&quot;,function()&amp;#123;	 console.log(&quot;open&quot;);	    mongoose.connec">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -177,7 +177,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -246,7 +246,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbUrl=<span class="string">"mongodb://username:pw@localhost:27017/dbname"</span>;</div><div class="line"><span class="keyword">var</span> db=mongoose.createConnection(dbUrl);</div><div class="line">	db.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	 <span class="built_in">console</span>.log(<span class="string">"open"</span>);</div><div class="line">	    mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">"is open db "</span>)</div><div class="line">	        collection.find(&#123;_id: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</div><div class="line">	            <span class="comment">//console.log('session',err,results)</span></div><div class="line">	            <span class="keyword">if</span> (!results.length||err) &#123;</div><div class="line">	                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">	            &#125; <span class="keyword">else</span> &#123;</div><div class="line">	                socket.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</div><div class="line">	                <span class="built_in">console</span>.log(<span class="number">23</span>, socket.session)</div><div class="line">	                next()</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">	    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbUrl=<span class="string">"mongodb://username:pw@localhost:27017/dbname"</span>;</div><div class="line"><span class="keyword">var</span> db=mongoose.createConnection(dbUrl);</div><div class="line">	db.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	 <span class="built_in">console</span>.log(<span class="string">"open"</span>);</div><div class="line">	    mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">"is open db "</span>)</div><div class="line">	        collection.find(&#123;<span class="attr">_id</span>: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</div><div class="line">	            <span class="comment">//console.log('session',err,results)</span></div><div class="line">	            <span class="keyword">if</span> (!results.length||err) &#123;</div><div class="line">	                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">	            &#125; <span class="keyword">else</span> &#123;</div><div class="line">	                socket.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</div><div class="line">	                <span class="built_in">console</span>.log(<span class="number">23</span>, socket.session)</div><div class="line">	                next()</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">	    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>剩下的跟mongodb原始查询语法一样. 需要在db.open以后再进行查询</p>
 
       

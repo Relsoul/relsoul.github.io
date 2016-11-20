@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+  <meta name="description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:title" content="Soul,游荡的灵魂.">
 <meta property="og:url" content="http://emufan.com/page/2/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta property="og:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
+<meta property="og:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
-<meta name="twitter:description" content="我是soul,一名爱好前端的学习者,此网站为我的个人BLOG,里面有我的前端学习笔记和前端个人实践资料分享.希望能够大家带来帮助~">
+<meta name="twitter:title" content="Soul,游荡的灵魂.">
+<meta name="twitter:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,7 +52,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -176,7 +176,7 @@
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -420,7 +420,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="插入记录-INSERT"><a href="#插入记录-INSERT" class="headerlink" title="插入记录 INSERT"></a>插入记录 INSERT</h1><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">INSERT</span> <span class="selector-attr">[INTO]</span> <span class="selector-tag">tbl_name</span> <span class="selector-attr">[(col_name,...)]</span> &#123;<span class="selector-tag">VALUES</span>|<span class="selector-tag">VALUE</span>&#125; (&#123;expr|DEFAULT&#125;,...),(...),...</div></pre></td></tr></table></figure>
+        <h1 id="插入记录-INSERT"><a href="#插入记录-INSERT" class="headerlink" title="插入记录 INSERT"></a>插入记录 INSERT</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name [(col_name,...)] &#123;<span class="keyword">VALUES</span>|<span class="keyword">VALUE</span>&#125; (&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...),(...),...</div></pre></td></tr></table></figure>
 <h2 id="插入记录-范例"><a href="#插入记录-范例" class="headerlink" title="插入记录-范例"></a>插入记录-范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</div><div class="line">        <span class="keyword">id</span> <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        age TINYINT <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span>,</div><div class="line">        sex <span class="built_in">BOOLEAN</span></div><div class="line">    ); </div><div class="line"></div><div class="line">//插入几条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line">//写入多条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"JOHN"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>),(<span class="literal">NULL</span>,<span class="string">"Rose"</span>,<span class="keyword">md5</span>(<span class="string">"123"</span>),<span class="keyword">DEFAULT</span>,<span class="number">0</span>);</div></pre></td></tr></table></figure>
 <p>如果想要id遵守默认的编号 只需要设置该列为NULL或者DEFAULT即可.<br>如果有字段设置过DEFAULT 那么该列可以添加DEFAULT;</p>
 <h1 id="插入记录-使用子查询"><a href="#插入记录-使用子查询" class="headerlink" title="插入记录,使用子查询"></a>插入记录,使用子查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name <span class="keyword">SET</span> col_name=&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...</div></pre></td></tr></table></figure>

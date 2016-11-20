@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>laravel框架学习笔记-1 | Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.</title>
+  <title>laravel框架学习笔记-1 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
   <meta name="description" content="学习php当中的感觉一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.大概的感觉就是
@@ -12,7 +12,7 @@ win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会�
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel框架学习笔记-1">
 <meta property="og:url" content="http://emufan.com/2016/05/23/laravel框架学习笔记-1/index.html">
-<meta property="og:site_name" content="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端.">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
 <meta property="og:description" content="学习php当中的感觉一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.大概的感觉就是
 语法php不愧是世界上最好的语言(手动滑稽).php内置了 三个sx 大量的函数所以开发起来还是比较方便的函数默认是按值传递而不是引用传递这点与js不同
 win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bu">
@@ -23,7 +23,7 @@ win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会�
 语法php不愧是世界上最好的语言(手动滑稽).php内置了 三个sx 大量的函数所以开发起来还是比较方便的函数默认是按值传递而不是引用传递这点与js不同
 win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bu">
   
-    <link rel="alternative" href="/atom.xml" title="Soul,灵魂,凌魂,零魂,前端学习者.热爱前端." type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -59,7 +59,7 @@ win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会�
 		</hgroup>
 
 		
-		<p class="header-subtitle">前端笔记</p>
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 		
 
 		
@@ -183,7 +183,7 @@ win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会�
 			  <h1 class="header-author">soul</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">前端笔记</p>
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -261,7 +261,7 @@ win下的编码问题在win下操控路径必须得用iconv来转gbk 否则会�
 <h1 id="为什么是laravel"><a href="#为什么是laravel" class="headerlink" title="为什么是laravel?"></a>为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 <del>情怀</del> 还是因为这个框架是跟express比较相近的..</p>
 <a id="more"></a>
 <h1 id="大概设计思路"><a href="#大概设计思路" class="headerlink" title="大概设计思路"></a>大概设计思路</h1><p>自己设计了个homePage并且要支持数据crud所以用php直接上了.<br>整体架构采用<br>vue.js+laravel+mysql<br>并且使用restfulApi+token来进行前后端分离.</p>
-<h1 id="token设计"><a href="#token设计" class="headerlink" title="token设计"></a>token设计</h1><p>token自己也没弄太懂,实现思路为<br>用户登录<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Post</span> /<span class="selector-tag">login</span></div><div class="line"></div><div class="line">成功返回:&#123;</div><div class="line">    <span class="attribute">token</span>:<span class="string">"xxx"</span>,</div><div class="line">    <span class="attribute">name</span>:<span class="string">"xxx"</span>,</div><div class="line">    <span class="string">"role"</span>:xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="token设计"><a href="#token设计" class="headerlink" title="token设计"></a>token设计</h1><p>token自己也没弄太懂,实现思路为<br>用户登录<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Post /login</div><div class="line"></div><div class="line">成功返回:&#123;</div><div class="line"><span class="symbol">    token:</span><span class="string">"xxx"</span>,</div><div class="line"><span class="symbol">    name:</span><span class="string">"xxx"</span>,</div><div class="line">    <span class="string">"role"</span>:xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>其中登录时候token包含了四个属性<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">"name"</span>=&gt;$user[<span class="number">0</span>]-&gt;name,<span class="string">"time"</span>=&gt;time(),<span class="string">"exp"</span>=&gt;time()+$exp,<span class="string">"role"</span>=&gt;$user[<span class="number">0</span>]-&gt;role]</div></pre></td></tr></table></figure></p>
 <p>登录成功后把此次token添加进session</p>
 <p>在访问后台需要使用附带上token<br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Get /<span class="literal">admin</span>/<span class="literal">user</span></div></pre></td></tr></table></figure></p>
