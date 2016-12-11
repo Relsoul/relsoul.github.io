@@ -210,6 +210,95 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-手把手教你如何利用nodejs-es6-co写一个爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/" class="article-date">
+  	<time datetime="2016-12-11T03:19:11.000Z" itemprop="datePublished">2016-12-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/">手把手教你如何利用nodejs+es6+co写一个爬虫</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h1><ol>
+<li><p>这里的爬虫不做太复杂的处理..</p>
+</li>
+<li><p>考虑到并发问题.这里的爬虫仅仅是爬完上一个后再爬下一个. 爬完当页后再去爬取下一页,效率虽然低..但是胜在不用同一时间发请大量请求避免被ban</p>
+</li>
+<li><p>本文以<a href="http://www.admin5.com/browse/19/list_1.shtml">admin5.com</a>为案例来爬取200页的文章title和content</p>
+</li>
+<li><p>本文涉及到的es6语法这里只会简单的说明一下.如果看不懂…来打我啊(笑)</p>
+</li>
+</ol>
+<h1 id="涉及框架"><a href="#涉及框架" class="headerlink" title="涉及框架"></a>涉及框架</h1><ul>
+<li><a href="https://github.com/bda-research/node-crawler">crawler</a></li>
+<li><a href="https://github.com/tj/co">co</a></li>
+<li><a href="https://github.com/cheeriojs/cheerio">cheerio</a></li>
+</ul>
+<p>crawler:为一个封装好的nodejs爬虫库,免去你用request框架发请请求然后处理一大堆的返回代码问题.本文只把crawler当做请求工具用.内容的处理将会用cheerio框架来完成</p>
+<p>co:能够把异步代码写成跟同步一样,号称es6的async.</p>
+<p>cheerio:nodejs版的jQuery</p>
+<h1 id="分析目标网站url"><a href="#分析目标网站url" class="headerlink" title="分析目标网站url"></a>分析目标网站url</h1><p>目标网站的url都是<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span>/<span class="regexp">/www.admin5.com/browse</span><span class="regexp">/19/list</span><span class="number">_</span><span class="variable">$&#123;</span>i&#125;.shtml</div></pre></td></tr></table></figure></p>
+<p>${i}&lt;=965</p>
+<p>那么这就好办了.生成965个链接然后每次去爬一个链接</p>
+<h1 id="分享目标网站DOM结构"><a href="#分享目标网站DOM结构" class="headerlink" title="分享目标网站DOM结构"></a>分享目标网站DOM结构</h1><p>目标网站的每篇文字的链接都在一个class为sherry_title的a标签里</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.admin5.com/article/20161209/700550.shtml"</span> <span class="attr">class</span>=<span class="string">"sherry_title"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>我是如何通过论坛推广产品的？<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>那么每次爬的时候获取当页的所有文章链接然后再去爬取</p>
+<h1 id="文章内容DOM结构"><a href="#文章内容DOM结构" class="headerlink" title="文章内容DOM结构"></a>文章内容DOM结构</h1><p>标题放在一个class为sherry_title的div下的h1标签中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sherry_title"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是如何通过论坛推广产品的？<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<p>内容则放在一个class为content的div标签中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'content'</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>那么内容中的图片如何爬取呢?<br>这个也简单…不过这篇文章暂时不说..哈哈哈哈哈</p>
+<h1 id="爬取分析"><a href="#爬取分析" class="headerlink" title="爬取分析"></a>爬取分析</h1><p>分析完目标网站后.那么就开始分析如何去爬.</p>
+<ol>
+<li>封装一个获取html的Promise函数</li>
+<li>封装一个获取目录的Promise函数</li>
+<li>获取一个获取文章内容的Promise函数</li>
+<li>开始爬取函数</li>
+</ol>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-爽爆天-加速翻墙-优化shadowsocks-让你的梯子飞起来" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -859,69 +948,6 @@
     <div class="article-info article-info-index">
       
       
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mac安装lnmp环境" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/14/mac安装lnmp环境/" class="article-date">
-  	<time datetime="2016-08-14T14:12:59.000Z" itemprop="datePublished">2016-08-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/mac安装lnmp环境/">mac安装lnmp环境</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://avnpc.com/pages/install-lnmp-on-osx" target="_blank" rel="external">参考教程</a></p>
-<h1 id="安装brew"><a href="#安装brew" class="headerlink" title="安装brew"></a>安装brew</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
-<h1 id="安装PHP5-6"><a href="#安装PHP5-6" class="headerlink" title="安装PHP5.6"></a>安装PHP5.6</h1><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">brew install php56 \</div><div class="line">-<span class="ruby">-without-snmp \</span></div><div class="line">-<span class="ruby">-without-apache \</span></div><div class="line">-<span class="ruby">-with-fpm \</span></div><div class="line">-<span class="ruby">-with-intl \</span></div><div class="line">-<span class="ruby">-with-homebrew-curl \</span></div><div class="line">-<span class="ruby">-with-homebrew-libxslt \</span></div><div class="line">-<span class="ruby">-with-homebrew-openssl \</span></div><div class="line">-<span class="ruby">-with-imap \</span></div><div class="line">-<span class="ruby">-with-mysql \</span></div><div class="line">-<span class="ruby">-with-tidy<span class="string">`</span></span></div></pre></td></tr></table></figure>
-<p>不要用–without-debug方式安装 否则会造成php扩展模块编译后与php不兼容</p>
-<h1 id="修改系统环境"><a href="#修改系统环境" class="headerlink" title="修改系统环境"></a>修改系统环境</h1><p>在~/.bash_profile中添加环境</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/bin:/usr/local/sbin:<span class="variable">$PATH</span>"</span></div></pre></td></tr></table></figure>
-<h1 id="安装php56扩展"><a href="#安装php56扩展" class="headerlink" title="安装php56扩展"></a>安装php56扩展</h1><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install php56-gearman php56-msgpack php56-memcache php56-memcached php56-mongo  php56-phalcon php56-redis php56-xdebug</div></pre></td></tr></table></figure>
-<h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span>nginx</div></pre></td></tr></table></figure>
-<p>剩下的请去<a href="http://avnpc.com/pages/install-lnmp-on-osx" target="_blank" rel="external">原博文</a>进行查看 只需要注意 编译的时候不要用debug模式编译</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lnmp/">lnmp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
-
       
 
       

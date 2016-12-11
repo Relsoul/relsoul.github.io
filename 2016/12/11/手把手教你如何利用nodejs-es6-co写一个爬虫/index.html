@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>手把手教你如何利用nodejs+es6+co写一个爬虫 | Soul,游荡的灵魂.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="注意事项:
+这里的爬虫不做太复杂的处理..
+
+考虑到并发问题.这里的爬虫仅仅是爬完上一个后再爬下一个. 爬完当页后再去爬取下一页,效率虽然低..但是胜在不用同一时间发请大量请求避免被ban
+
+本文以admin5.com为案例来爬取200页的文章title和content
+
+本文涉及到的es6语法这里只会简单的说明一下.如果看不懂…来打我啊(笑)
+
+
+涉及框架
+crawler
+co
+cheerio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你如何利用nodejs+es6+co写一个爬虫">
+<meta property="og:url" content="http://emufan.com/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/index.html">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
+<meta property="og:description" content="注意事项:
+这里的爬虫不做太复杂的处理..
+
+考虑到并发问题.这里的爬虫仅仅是爬完上一个后再爬下一个. 爬完当页后再去爬取下一页,效率虽然低..但是胜在不用同一时间发请大量请求避免被ban
+
+本文以admin5.com为案例来爬取200页的文章title和content
+
+本文涉及到的es6语法这里只会简单的说明一下.如果看不懂…来打我啊(笑)
+
+
+涉及框架
+crawler
+co
+cheerio">
+<meta property="og:updated_time" content="2016-12-11T05:36:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手把手教你如何利用nodejs+es6+co写一个爬虫">
+<meta name="twitter:description" content="注意事项:
+这里的爬虫不做太复杂的处理..
+
+考虑到并发问题.这里的爬虫仅仅是爬完上一个后再爬下一个. 爬完当页后再去爬取下一页,效率虽然低..但是胜在不用同一时间发请大量请求避免被ban
+
+本文以admin5.com为案例来爬取200页的文章title和content
+
+本文涉及到的es6语法这里只会简单的说明一下.如果看不懂…来打我啊(笑)
+
+
+涉及框架
+crawler
+co
+cheerio">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+        var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d3dc74e0385a92cbaf1996f3916648ed";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+
+  </script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.67px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 15px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/angularJS/" style="font-size: 16.67px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 13.33px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/mac/" style="font-size: 11.67px;">mac</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 11.67px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.67px;">socket.io</a> <a href="/tags/the7/" style="font-size: 10px;">the7</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/wordpress/" style="font-size: 11.67px;">wordpress</a> <a href="/tags/个人/" style="font-size: 10px;">个人</a> <a href="/tags/学习笔记/" style="font-size: 18.33px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/读书笔记/" style="font-size: 13.33px;">读书笔记</a> <a href="/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-手把手教你如何利用nodejs-es6-co写一个爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/" class="article-date">
+  	<time datetime="2016-12-11T03:19:11.000Z" itemprop="datePublished">2016-12-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      手把手教你如何利用nodejs+es6+co写一个爬虫
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项:"></a>注意事项:</h1><ol>
+<li><p>这里的爬虫不做太复杂的处理..</p>
+</li>
+<li><p>考虑到并发问题.这里的爬虫仅仅是爬完上一个后再爬下一个. 爬完当页后再去爬取下一页,效率虽然低..但是胜在不用同一时间发请大量请求避免被ban</p>
+</li>
+<li><p>本文以<a href="http://www.admin5.com/browse/19/list_1.shtml" target="_blank" rel="external">admin5.com</a>为案例来爬取200页的文章title和content</p>
+</li>
+<li><p>本文涉及到的es6语法这里只会简单的说明一下.如果看不懂…来打我啊(笑)</p>
+</li>
+</ol>
+<h1 id="涉及框架"><a href="#涉及框架" class="headerlink" title="涉及框架"></a>涉及框架</h1><ul>
+<li><a href="https://github.com/bda-research/node-crawler" target="_blank" rel="external">crawler</a></li>
+<li><a href="https://github.com/tj/co" target="_blank" rel="external">co</a></li>
+<li><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">cheerio</a></li>
+</ul>
+<p>crawler:为一个封装好的nodejs爬虫库,免去你用request框架发请请求然后处理一大堆的返回代码问题.本文只把crawler当做请求工具用.内容的处理将会用cheerio框架来完成</p>
+<p>co:能够把异步代码写成跟同步一样,号称es6的async.</p>
+<p>cheerio:nodejs版的jQuery</p>
+<h1 id="分析目标网站url"><a href="#分析目标网站url" class="headerlink" title="分析目标网站url"></a>分析目标网站url</h1><p>目标网站的url都是<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span>/<span class="regexp">/www.admin5.com/browse</span><span class="regexp">/19/list</span><span class="number">_</span><span class="variable">$&#123;</span>i&#125;.shtml</div></pre></td></tr></table></figure></p>
+<p>${i}&lt;=965</p>
+<p>那么这就好办了.生成965个链接然后每次去爬一个链接</p>
+<h1 id="分享目标网站DOM结构"><a href="#分享目标网站DOM结构" class="headerlink" title="分享目标网站DOM结构"></a>分享目标网站DOM结构</h1><p>目标网站的每篇文字的链接都在一个class为sherry_title的a标签里</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.admin5.com/article/20161209/700550.shtml"</span> <span class="attr">class</span>=<span class="string">"sherry_title"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>我是如何通过论坛推广产品的？<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>那么每次爬的时候获取当页的所有文章链接然后再去爬取</p>
+<h1 id="文章内容DOM结构"><a href="#文章内容DOM结构" class="headerlink" title="文章内容DOM结构"></a>文章内容DOM结构</h1><p>标题放在一个class为sherry_title的div下的h1标签中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"sherry_title"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是如何通过论坛推广产品的？<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<p>内容则放在一个class为content的div标签中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">'content'</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>那么内容中的图片如何爬取呢?<br>这个也简单…不过这篇文章暂时不说..哈哈哈哈哈</p>
+<h1 id="爬取分析"><a href="#爬取分析" class="headerlink" title="爬取分析"></a>爬取分析</h1><p>分析完目标网站后.那么就开始分析如何去爬.</p>
+<ol>
+<li>封装一个获取html的Promise函数</li>
+<li>封装一个获取目录的Promise函数</li>
+<li>获取一个获取文章内容的Promise函数</li>
+<li>开始爬取函数</li>
+</ol>
+<a id="more"></a>
+<h1 id="关于promise与co模块"><a href="#关于promise与co模块" class="headerlink" title="关于promise与co模块"></a>关于promise与co模块</h1><p>首先我们知道关于最初的解决异步方案是callback(回调),当异步请求完毕后再去通知你的callback然后我们只能在callback里去做数据处理.<br>这样很容易引起回调地狱.<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    b(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        c(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">            d(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>后来出现了promise.实际上也是改善了写法而已,promise会返回两种状态,成功(resolve)和失败(reject).就像你做事情一样,只有成功或者失败<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">id</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(id&gt;<span class="number">10</span>)&#123;</div><div class="line">                reject(id)</div><div class="line">            &#125;</div><div class="line">            resolve(id)</div><div class="line">        &#125;,<span class="number">1000</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">a(<span class="number">8</span>).then(<span class="function">(<span class="params">id</span>)=&gt;</span>&#123;</div><div class="line">    id+=<span class="number">10</span>;</div><div class="line">    <span class="keyword">return</span> a(id)</div><div class="line">&#125;)</div><div class="line">    .then(<span class="function">(<span class="params">id</span>)=&gt;</span>&#123;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">    .catch(<span class="function">(<span class="params">id</span>)=&gt;</span>&#123;</div><div class="line"></div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p>上述封装了一个a函数,这个a函数执行的时候不可能立即返回一个id给你,因为有个定时器,等一秒后才会返回. 这个就是很明显的异步.然后我们把他封装成promise</p>
+<p>当你调用a(id)的时候,实际上就已经开始执行这个函数了,不过因为我们a函数返回的是一个promise,这个promise会有个then方法.那么我们可以在then方法里面拿到1秒以后的id</p>
+<p>promise有个特性是,你可以返回无限的promise,然后一直then,then,then下去.这算是改善了一种写法.不过重点不在于此.因为后面的co模块和Generator函数都是基于promise来完成的</p>
+<p>Generator函数</p>
+<p>这个说起来太长…篇幅问题.下次再谈</p>
+<p>Co模块</p>
+<p>其实简单点,我们并不需要知道内部调用.我们最终想要的效果仅仅是 让异步的写法变得优雅最好能够变成同步函数.ok.co函数和未来的async可以满足你这个需求</p>
+<p>拿上述的a函数来说,在co中是这样处理的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">co(<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> id=<span class="keyword">yield</span> a(<span class="number">10</span>)</div><div class="line">    <span class="keyword">let</span> id1=<span class="keyword">yield</span> a(id);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>爽吧.只需要包裹在co里面,就可以达到同步写法的效果,那么这个yield后面的函数满足什么条件呢？</p>
+<p>很简单,yield后面的函数只要是promise函数即可.  上述我们说过,promise有两种状态,一种是成功,一种是拒绝<br>成功当然你就可以直接拿到let id=yield a(10);这个id值咯,假如失败如何监听呢？ 也很简单</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    <span class="keyword">let</span> id=<span class="function"><span class="keyword">yield</span> <span class="title">a</span>(<span class="params"><span class="number">10</span></span>)</span>;</div><div class="line">&#125;<span class="keyword">catch</span>(e)&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>用try,catch即可. 那么我没用try,catch 但是又返回了一个失败的状态.那错误在哪里？</p>
+<p>说实在话..你如果不去捕捉的话..你这个错误会消失..对..就会消失掉. 如果你某一天发现你的程序无论如何也run不起来.但是莫名其妙又没报错.<br>相信我兄弟..这锅promise绝对要背.. </p>
+<p>那我这种懒癌晚期的患者怎么办?不可能每次都要写try,catch吧？</p>
+<p>在nodejs中有两个事件,可以监听到未捕捉的报错信息 那就是</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'unhandledRejection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.error(err.stack);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">process.on(<span class="string">`uncaughtException`</span>, <span class="built_in">console</span>.error);</div></pre></td></tr></table></figure>
+<p>其实不用管这个事件是啥意思.你每次加上就行了..程序运行起来的时候有很多问题都是我们考虑不到的..但是错误又被吞了.我们又不能进一步处理.<br>这时候我们可以监听这两个事件.就算没写try catch 你都可以找到错误的源头.</p>
+<p>说多了.咋们继续爬虫</p>
+<h1 id="获取html的Promise函数"><a href="#获取html的Promise函数" class="headerlink" title="获取html的Promise函数"></a>获取html的Promise函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> c=<span class="keyword">new</span> Crawler(&#123;</div><div class="line">    <span class="attr">retries</span>:<span class="number">1</span>,          <span class="comment">//超时重试次数</span></div><div class="line">    retryTimeout:<span class="number">3000</span>   <span class="comment">//超时时间</span></div><div class="line">&#125;);</div><div class="line"><span class="keyword">let</span> contentJson=[];</div><div class="line"></div><div class="line"><span class="keyword">const</span> getHtml=co.wrap(<span class="function"><span class="keyword">function</span>*(<span class="params">html</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line">            c.queue(&#123;</div><div class="line">                <span class="attr">url</span>:html,</div><div class="line">                <span class="attr">forceUTF8</span>:<span class="literal">true</span>,</div><div class="line">                <span class="attr">callback</span>:<span class="function"><span class="keyword">function</span> (<span class="params">error,result,$</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span>(error||!result.body)&#123;</div><div class="line">                        errorCount++;</div><div class="line">                        <span class="keyword">return</span> resolve(&#123;<span class="attr">result</span>:<span class="literal">false</span>&#125;);</div><div class="line">                    &#125;</div><div class="line">                    result=result.body;</div><div class="line">                    resolve(&#123;error,result,$&#125;)</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;,<span class="number">2000</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这里的let c=new Crawler 为初始化爬虫引擎,返回的是这个爬虫引擎的实例.</p>
+<p>c.queue为爬取函数.</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    url:html, //爬取目标网站的url</div><div class="line">    forceUTF8:true, // 强制转码为UTF-8</div><div class="line">    callback:function (<span class="name">error</span>,result,$) &#123; //error为如果爬取超时或者返回错误HTTP代码时会出现</div><div class="line">        if(<span class="name">error</span>||!result.body)&#123;        </div><div class="line">            return resolve(&#123;result:false&#125;)<span class="comment">;</span></div><div class="line">        &#125;</div><div class="line">        result=result.body;</div><div class="line">        resolve(&#123;error,result,$&#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里的$是框架已经调用了cheerio.不过我们这里不用框架封装好的cheerio.</p>
+<h1 id="获取目录的Promise函数"><a href="#获取目录的Promise函数" class="headerlink" title="获取目录的Promise函数"></a>获取目录的Promise函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getSubHtml=co.wrap(<span class="function"><span class="keyword">function</span>*(<span class="params">body</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> $=cheerio.load(body);                           <span class="comment">//字符串转为DOM</span></div><div class="line">    <span class="keyword">let</span> UrlElems=$(<span class="string">"a.sherry_title"</span>);                   <span class="comment">//获取到目录中所有文章的url</span></div><div class="line">    <span class="keyword">let</span> subUrlList=[];                                  <span class="comment">//链接存储数组</span></div><div class="line">    UrlElems.each(<span class="function">(<span class="params">i,e</span>)=&gt;</span>&#123;                              <span class="comment">//循环获取链接并且存储起来</span></div><div class="line">        <span class="keyword">let</span> url=$(e).attr(<span class="string">'href'</span>);</div><div class="line">        <span class="keyword">let</span> href=<span class="string">`<span class="subst">$&#123;url&#125;</span>`</span>;</div><div class="line">        subUrlList.push(href);</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">of</span> subUrlList)&#123;                        </div><div class="line">        <span class="keyword">let</span> &#123;result&#125;=<span class="keyword">yield</span> getHtml(item);               <span class="comment">//获取每篇文章的body内容</span></div><div class="line">        <span class="keyword">if</span>(!result)&#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">let</span> &#123;title,content&#125;=<span class="keyword">yield</span> getContent(result);   <span class="comment">//获取标题和内容</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;title&#125;</span>获取完毕`</span>);</div><div class="line">        contentJson.push(&#123;                              <span class="comment">//最终存储到JSON数组中</span></div><div class="line">            title,</div><div class="line">            content</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="获取每篇文章内容的Promise函数"><a href="#获取每篇文章内容的Promise函数" class="headerlink" title="获取每篇文章内容的Promise函数"></a>获取每篇文章内容的Promise函数</h1><p>嗯..实际上这里并不是异步的.只是从DOM中去获取内容.但是为了保持好看一致..这里也就用co来封装了一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> getContent=co.wrap(<span class="function"><span class="keyword">function</span>*(<span class="params">body</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> $=cheerio.load(body);                           <span class="comment">//字符串转DOM</span></div><div class="line">    <span class="keyword">let</span> title=$(<span class="string">".sherry_title&gt;h1"</span>).text();             <span class="comment">//获取标题</span></div><div class="line">    <span class="keyword">let</span> content=$(<span class="string">".content"</span>).text();                   <span class="comment">//获取内容</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(&#123;title,content&#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="start函数"><a href="#start函数" class="headerlink" title="start函数"></a>start函数</h1><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> urlList=[];</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;=<span class="number">250</span>;i++)&#123;</div><div class="line">    urlList.push(<span class="string">`http://www.admin5.com/browse/19/list_<span class="subst">$&#123;i&#125;</span>.shtml`</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">co(<span class="function"><span class="keyword">function</span>*(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> <span class="built_in">url</span> <span class="keyword">of</span> urlList)&#123;</div><div class="line">        <span class="title">let</span> &#123;result&#125;=<span class="keyword">yield</span> getHtml(<span class="built_in">url</span>);   <span class="comment">//获取目录body </span></div><div class="line">        <span class="keyword">if</span>(!result)&#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//console.log("result",result);</span></div><div class="line">        <span class="comment">//获取当页所有SUB</span></div><div class="line">        <span class="keyword">yield</span> getSubHtml(result);          </div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.info(<span class="string">`全部爬取完毕`</span>,contentJson);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="添加全局错误监听函数"><a href="#添加全局错误监听函数" class="headerlink" title="添加全局错误监听函数"></a>添加全局错误监听函数</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">process.on(<span class="string">'unhandledRejection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.error(err.stack);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">process.on(<span class="string">`uncaughtException`</span>, <span class="built_in">console</span>.error);</div></pre></td></tr></table></figure>
+<h1 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h1><p><a href="http://cdn.emufan.com/upload/admin5-1481434023733.js" target="_blank" rel="external">down</a></p>
+<p>本文已经同步到</p>
+<ul>
+<li><a href="http://igeekbar.com/igeekbar/post/162.htm" target="_blank" rel="external">igeekbar</a></li>
+<li><a href="http://emufan.com/">soulBlog</a></li>
+<li><a href="http://www.jianshu.com/p/d97e5f3fff30" target="_blank" rel="external">简书</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/07/爽爆天-加速翻墙-优化shadowsocks-让你的梯子飞起来/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">爽爆天!加速翻墙,优化shadowsocks.让你的梯子飞起来</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="手把手教你如何利用nodejs-es6-co写一个爬虫" data-title="手把手教你如何利用nodejs+es6+co写一个爬虫" data-url="http://emufan.com/2016/12/11/手把手教你如何利用nodejs-es6-co写一个爬虫/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

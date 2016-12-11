@@ -210,6 +210,71 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-promise学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/26/promise学习笔记/" class="article-date">
+  	<time datetime="2016-04-26T04:37:54.000Z" itemprop="datePublished">2016-04-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/26/promise学习笔记/">promise学习笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文大部分内容来自阮一峰的<a href="http://es6.ruanyifeng.com/#docs/promise">ES6入门</a> 这里针对个人所需记录的笔记,如需全面浏览请转自上述链接</p>
+<h1 id="Promise含义"><a href="#Promise含义" class="headerlink" title="Promise含义"></a>Promise含义</h1><p>Promise简单来说就是一种容器,里面保存着异步操作的结果.promise对象有以下两个特点</p>
+<ol>
+<li>对象的状态不受外界影响,Promise有三种状态,Pending(进行),Resolved(已完成),Rejected(已失败).只有异步操作的结果才能决定当前是哪一种状态,其他任何操作都无法改变这个状态</li>
+<li>一旦状态改变,就不会再改变.Promise状态的改变只有两种可能,从pending变为Resolved和从Pending变为Rejected.一旦这两种情况发生,状态就凝固了,会一直保持这个结果.就算在对Promise对象添加回调函数,也会立即得到这个结果</li>
+</ol>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>Promise对象是一个构造函数,用来生成Promise实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    <span class="comment">//...some code</span></div><div class="line">    <span class="keyword">if</span>(<span class="comment">/* 异步操作成功 */</span>)&#123;</div><div class="line">        resolve(value);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        reject(error)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>resolve函数的作用是，将Promise对象的状态从“未完成”变为“成功”（即从Pending变为Resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject函数的作用是，将Promise对象的状态从“未完成”变为“失败”（即从Pending变为Rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">es6</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/26/promise学习笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-bootstrap实践笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -747,69 +812,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/04/你不知道的JavaScript-上卷-读书笔记-part2/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-你不知道的JavaScript-上卷 读书笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/" class="article-date">
-  	<time datetime="2016-03-03T15:52:42.000Z" itemprop="datePublished">2016-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/">你不知道的JavaScript-上卷 读书笔记-part1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h1><p><a href="https://book.douban.com/subject/26351021/">豆瓣</a><br>这本书很适合初级前端开发者上升至中级前端开发者,很好的阐述了JavaScript的闭包,原型,类,编译,赋值的问题.而且这还是上卷,还会有中卷,下卷,等等之类的.我会从这本书里选取一些比较重要的内容放在这篇文章当中(实际上这本书全部内容都重要). let’s do it</p>
-<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="编译器原理简释"><a href="#编译器原理简释" class="headerlink" title="编译器原理简释"></a>编译器原理简释</h2><p><code>var a=2</code><br>当我们看到var a=2的时候引擎和编译器会做什么呢?</p>
-<ol>
-<li>遇到var a,编译器会询问作用域是否已经有一个该名称的变量存在于同一个作用域的合集中.如果是.编译器会忽略该声明,继续进行编译.否则它会要求作用域在当前的作用域合集中声明一个新的变量,并且命名为a.</li>
-<li>接下来编译器会为这个引擎生成运行时所需的代码,这些代码被用来处理a = 2这个赋值操作.引擎运行时会首先询问作用域,在当前的作用域合集中是否存在一个叫a的变量,如果否,引擎就会使用这个变量;如果不是,引擎就会继续查找该变量.</li>
-</ol>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/03/你不知道的JavaScript-上卷 读书笔记-1/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

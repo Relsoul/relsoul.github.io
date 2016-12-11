@@ -210,6 +210,64 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-JavaScript设计模式笔记-闭包和高阶函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/29/JavaScript设计模式笔记-闭包和高阶函数/" class="article-date">
+  	<time datetime="2016-01-29T12:32:44.000Z" itemprop="datePublished">2016-01-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/29/JavaScript设计模式笔记-闭包和高阶函数/">JavaScript设计模式笔记-闭包和高阶函数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="3-1-闭包"><a href="#3-1-闭包" class="headerlink" title="3.1 闭包"></a>3.1 闭包</h1><h2 id="3-1变量作用域"><a href="#3-1变量作用域" class="headerlink" title="3.1变量作用域"></a>3.1变量作用域</h2><p>变量作用域指的是变量的有效范围.<br>JavaScript中是用函数来创建作用域的.在函数中声明一个变量没有带上关键词var那么这个变量会成为全局变量.带上var的情况下这个变量则会成为局部变量<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">    <span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">var</span> c = <span class="number">3</span>;</div><div class="line">        alert ( b ); <span class="comment">// 输出：2</span></div><div class="line">        alert ( a ); <span class="comment">// 输出：1</span></div><div class="line">    &#125;</div><div class="line">    func2();</div><div class="line">    alert ( c ); <span class="comment">// 输出：Uncaught ReferenceError: c is not defined</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">func1();</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript设计模式/">JavaScript设计模式</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/29/JavaScript设计模式笔记-闭包和高阶函数/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-nginx反向代理websocket" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -737,65 +795,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/01/13/どうせあなたもわからないのか？ 反正你也不懂/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-一次有意思的JavaScript试验题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/13/一次有意思的JavaScript试验题/" class="article-date">
-  	<time datetime="2016-01-13T14:20:48.000Z" itemprop="datePublished">2016-01-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/13/一次有意思的JavaScript试验题/">一次有意思的JavaScript试验题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天群里的朋友发了一段代码,问最后的结果<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> b=&#123;</div><div class="line">    a:<span class="number">2</span>,</div><div class="line">    b:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.a);</div><div class="line">    &#125;(),</div><div class="line">    f:<span class="keyword">this</span>.f=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        alert(<span class="keyword">this</span>.a);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="number">3</span>);</div><div class="line">&#125;   </div><div class="line">f();</div><div class="line">b.f();</div><div class="line">(b.f)();</div><div class="line">(<span class="number">0</span>, b.f)();</div></pre></td></tr></table></figure></p>
-<p>在浏览器中运行的结果是1,1,2,2,1<br>跟我自己脑补的不一样…可能是技术还不够吧…于是在浏览器中运行并且分析了下.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/13/一次有意思的JavaScript试验题/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
