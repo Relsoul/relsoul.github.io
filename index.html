@@ -210,6 +210,191 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-记一次nginx反向代理内网wordpress" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/18/记一次nginx反向代理内网wordpress/" class="article-date">
+  	<time datetime="2017-06-18T07:53:05.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/记一次nginx反向代理内网wordpress/">记一次nginx反向代理内网wordpress</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="记一次nginx反向代理内网wordpress"><a href="#记一次nginx反向代理内网wordpress" class="headerlink" title="记一次nginx反向代理内网wordpress"></a>记一次nginx反向代理内网wordpress</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://liruqi.wordpress.com/2011/02/26/reverse-proxy-for-wordpress/" target="_blank" rel="external">nginx反向代理wordpress</a></p>
+<p><a href="https://gist.github.com/shellexy/2686973" target="_blank" rel="external">nginx反向代理wordpress.conf</a></p>
+<p><a href="http://www.jianshu.com/p/cc5167032525" target="_blank" rel="external">Nginx proxy_set_header 理解</a></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>公网ip为 233.233.233.233<br>代理服务器内网ip为 10.10.10.10<br>wordpress内网服务器ip为 10.0.0.1<br>其中nginx代理服务器可以访问内网.<br>需要绑定的域名为abc.com,<br>但是目前域名未备案 所以只能绑定公网ip也就是233.233.233.233</p>
+<h3 id="第一种解决方案"><a href="#第一种解决方案" class="headerlink" title="第一种解决方案"></a>第一种解决方案</h3><p>不更改wordpress的home_url和site_url 这两个url保持原来的域名不变 在nginx代理服务器那层利用sub_filter 把域名进行替换</p>
+<h3 id="第二种解决方案"><a href="#第二种解决方案" class="headerlink" title="第二种解决方案"></a>第二种解决方案</h3><p>更改wordpress的home_url和site_url为新域名.并且传递正确的Host.</p>
+<p>这里采用的是第二种解决方案.第一种解决方案实际上可以看上述的参考</p>
+<p>代理服务器层 conf配置<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">location</span> /&#123;</div><div class="line">    <span class="attribute">proxy_pass</span> http://10.0.0.1:80;</div><div class="line">    <span class="attribute">proxy_set_header</span> Host <span class="number">233.233.233.233</span>; <span class="comment"># 这里必须要传递正确的公网ip   公网ip如果有端口的加上端口 比如 233.233.233.233:3030</span></div><div class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里值得注意的就是proxy_set_header Host 233.233.233.233;</p>
+<p>这里的Host如果用 <code>proxy_set_header Host $host:$proxy_port;</code></p>
+<p>那么这个$host:$proxy_port;解析后会变成10.10.10.10:80;</p>
+<p>然而在wordpress中 我们的home_url和site_url绑定的是233.233.233.233 所以 这里不能使用$host:$proxy_port;否则会造成绑定域名不匹配 从而导致一些问题出现.</p>
+<p>具体请参考Nginx proxy_set_header 理解</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-nodejs微服务设计笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/18/nodejs微服务设计笔记/" class="article-date">
+  	<time datetime="2017-06-18T07:52:32.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/nodejs微服务设计笔记/">nodejs微服务设计笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><a href="https://book.douban.com/subject/26937361/" target="_blank" rel="external">豆瓣读书</a></p>
+<p>这本书简单的介绍了如何使用nodejs来搭建微服务,一本实践与理论结合的书籍,如果对于微服务有比较深刻的了解就可以不用看这本书了,但是对于门外汉来说这本书还是有比较大的价值.</p>
+<h1 id="seneca"><a href="#seneca" class="headerlink" title="seneca"></a>seneca</h1><p><a href="https://github.com/senecajs/seneca" target="_blank" rel="external">github</a></p>
+<p>本书大半部分都围绕这个框架来写的. 这个框架就是实现微服务的一个工具罢了.<br>框架使用了匹配模式来触发函数,从而细粒化函数,比如.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">seneca.<span class="built_in">add</span>(&#123;role:<span class="string">"math"</span>,cmd:<span class="string">"sum"</span>&#125;,<span class="function"><span class="keyword">function</span><span class="params">(msg,res)</span>&#123;</span></div><div class="line">    var sum=msg.<span class="keyword">left</span>+msg.<span class="keyword">right</span></div><div class="line">    <span class="keyword">res</span>(null,sum)</div><div class="line">    </div><div class="line">&#125;)</div><div class="line"></div><div class="line">seneca.act(&#123;role:<span class="string">"math"</span>,cmd:<span class="string">"sum"</span>,lef<span class="variable">t:1</span>,righ<span class="variable">t:2</span>&#125;,console.<span class="built_in">log</span>)</div></pre></td></tr></table></figure>
+<p>add就是添加,act就是触发, 那么这个触发规则就是匹配模式了,越精确的就越优先匹配<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attribute">x</span>:<span class="number">1</span>,<span class="attribute">y</span>:<span class="number">1</span>&#125;<span class="comment">//func1</span></div><div class="line">&#123;<span class="attribute">x</span>:<span class="number">1</span>&#125;<span class="comment">//func2</span></div><div class="line"></div><div class="line"><span class="attribute">act</span>:&#123;<span class="attribute">x</span>:<span class="number">1</span>,<span class="attribute">y</span>:<span class="number">1</span>&#125;<span class="comment">//触发func1</span></div><div class="line"><span class="attribute">act</span>:&#123;<span class="attribute">x</span>:<span class="number">1</span>&#125;<span class="comment">//触发func2</span></div></pre></td></tr></table></figure></p>
+<p>这个也是这个框架的核心思想. 并且利用这个框架还可以使用plugin的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">math</span>(<span class="params">ops</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.add(&#123;<span class="attr">role</span>:<span class="string">"math"</span>,<span class="attr">cmd</span>:<span class="string">"sum"</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">msg,res</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> sum=msg.left+msg.right:</div><div class="line">        res(<span class="literal">null</span>,sum)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">require</span>(<span class="string">'seneca'</span>)().use(math).act(&#123;<span class="attr">role</span>:<span class="string">'math'</span>,<span class="attr">cmd</span>:<span class="string">'sum'</span>,<span class="attr">left</span>:<span class="number">1</span>,<span class="attr">right</span>:<span class="number">2</span>&#125;)</div></pre></td></tr></table></figure>
+<p>通过插件那么可以细粒化各种业务逻辑,封装成一个个函数.</p>
+<p>另一个seneca结合express也可以快速生成restfulApi</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//省略一些add代码</span></div><div class="line">seneca.add(&#123;role:<span class="string">"math"</span>,cmd:<span class="string">"sum"</span>&#125;,<span class="function"><span class="keyword">function</span><span class="params">(arg,res)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> sum=<span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> result=sum+arg.id;</div><div class="line">    res(<span class="literal">null</span>,result);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">seneca.add(&#123;role:<span class="string">"math"</span>,cmd:<span class="string">"print"</span>&#125;,<span class="function"><span class="keyword">function</span><span class="params">(arg,res)</span></span>&#123;</div><div class="line">    res(<span class="literal">null</span>,arg.printId)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">seneca.act(<span class="string">'role:web'</span>,&#123;</div><div class="line">    <span class="keyword">use</span>:&#123;</div><div class="line">        prefix:<span class="string">"/api"</span>, <span class="comment">//url前缀</span></div><div class="line">        pin:&#123;</div><div class="line">            role:<span class="string">"math"</span>, <span class="comment">//需要绑定哪个role分组</span></div><div class="line">            action:<span class="string">"*"</span>,<span class="comment">//设置为*的意思是可以触发role分组下的所有的cmd</span></div><div class="line">        &#125;,</div><div class="line">        map:&#123;</div><div class="line">            sum:&#123;</div><div class="line">                GET:<span class="literal">true</span>,</div><div class="line">                suffix:<span class="string">"/:id"</span> <span class="comment">//通过arg.id获取 同等也可以/:id/:xx/:xx</span></div><div class="line">            &#125;,</div><div class="line">            print:&#123;</div><div class="line">                GET:<span class="literal">true</span>,</div><div class="line">                POST:<span class="literal">true</span>,</div><div class="line">                suffix:<span class="string">"/:id"</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.use(seneca.export(<span class="string">'web'</span>));<span class="comment">//app为express实例</span></div></pre></td></tr></table></figure>
+<p>。。。果然技术更新都是飞快..上述的express绑定已经不适用于现在的seneca了.<br>使用上述代码会报错<code>app.use() requires middleware functions</code></p>
+<p>新版的绑定请参考<a href="http://senecajs.org/getting-started/" target="_blank" rel="external">官网start</a></p>
+<p>anyway,这个书至少给我打开了新世界的大门,hhhh 原来代码还可以这样玩.<br>当然这个框架还支持分布式服务 balabala的 具体就等大家去挖掘咯~</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-mac下-nvm-use-xxx后不生效" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/18/mac下-nvm-use-xxx后不生效/" class="article-date">
+  	<time datetime="2017-06-18T07:51:41.000Z" itemprop="datePublished">2017-06-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/mac下-nvm-use-xxx后不生效/">mac下 nvm use xxx后不生效</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>安装了iterm2和oh my zsh, nvm也添加进入了.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></div><div class="line">[ <span class="_">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></div></pre></td></tr></table></figure>
+<p>然后安装了nodejs 7.10.0版本后 新建iterm发现nodejs还是原来的v6.9版本…<br>试着删除了一下v6.9版本就报错了</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">N/A <span class="built_in">version</span> <span class="keyword">is</span> <span class="keyword">not</span> installed yet</div></pre></td></tr></table></figure>
+<p>解决这个问题的办法很简单<br><a href="https://github.com/creationix/nvm/issues/437" target="_blank" rel="external">github</a></p>
+<p>不想看github的话那么就执行下面这个命令</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias <span class="section">default</span> <span class="number">7.10</span><span class="number">.0</span></div></pre></td></tr></table></figure>
+<p>后面的7.10.0换成你的版本号.. 具体问题未深究….先解决再说</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-js开发总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -303,6 +488,83 @@
 <p>本文包含了nodejs和js.可能还含有一些其他语言的库</p>
 <p>详情的可以参考我<a href="https://github.com/Relsoul?tab=stars" target="_blank" rel="external">githubStart</a></p>
 <ul>
+<li>popper.js             : 鼠标移上去的tips气泡提示</li>
+<li>cleave.js             : 格式化数据输出</li>
+<li>http-proxy-middleware : express的http-proxy转发中间件</li>
+<li>toolbar           : 鼠标移上去的tips气泡提示</li>
+<li>lightgallery.js   : 画廊插件</li>
+<li>fancybox          : 画廊插件</li>
+<li>PhotoSwipe        : 画廊插件</li>
+<li>csurf             : express的csrf防御库</li>
+<li>js-xss            : 防止xss</li>
+<li>cookie-parser     : express的cookie解析</li>
+<li>fks               : 前端技能汇总</li>
+<li>smoothscroll      : 滚动插件 代替原生滚动</li>
+<li>OwlCarousel2      : 幻灯片插件</li>
+<li>localResizeIMG    : 前端本地客户端压缩图片，兼容IOS，Android，PC</li>
+<li>PhotoClip.js      : 一款手势驱动的裁图插件    </li>
+<li>toolbox           : 全栈工程师工具箱</li>
+<li>sweetalert        : alert的代替版提示框</li>
+<li>progressbar.js    : 加载进度条    </li>
+<li>pace              : 滚动进度条提示</li>
+<li>progress.js       : 进度条插件</li>
+<li>EaselJS           : canvas库</li>
+<li>TweenJS           : 动画库</li>
+<li>SoundJS           :  针对声音的操控库</li>
+<li>ios-imagefile-megapixel : ios图片压缩库</li>
+<li>select2           : 多选插件</li>
+<li>sticky            : jquery滚动固定插件</li>
+<li>validator.js      :  轻量级的js验证插件</li>
+<li>jquery-validation : jquery版的验证插件</li>
+<li>bootstrap-modal : bootstrap-modal框插件</li>
+<li>jQuery.mmenu    : 左侧jquery导航栏插件</li>
+<li>flexnav         : 自适应导航栏插件</li>
+<li>jQuery-menu-aim : jquery版的自适应导航栏插件</li>
+<li>okayNav         : 自适应导航栏插件</li>
+<li>ScrollMagic         : 视差滚动插件 比较强大 可制定化多</li>
+<li>jquery.localScroll ：jquery 视差滚动插件 参考域上和美</li>
+<li>serverspeeder   ： 锐速破解版</li>
+<li>gm              ： nodejs图形处理库</li>
+<li>responsive-nav.js: 同响应式导航栏 但是没SlickNav好用</li>
+<li>gulp-starter    ： gulp范例</li>
+<li>shelljs         ： nodejs可以执行linux指令</li>
+<li>fake2db         : python测试数据库 压力测试</li>
+<li>SlickNav        : 响应式导航栏插件</li>
+<li>notie           ： 屏幕内的通知插件</li>
+<li>Caporal.js      ： nodejs快速生成命令行工具 </li>
+<li>Slideout.js     ： 移动端/pc端侧滑插件</li>
+<li>node.bcrypt.js  ： nodejs加密插件</li>
+<li>cdnjs-importer  : 参考cdnjs.com这个库</li>
+<li>csshake     : css3抖动动画</li>
+<li>countUp.js  ： 数字加载动画插件</li>
+<li>bounce.js   :  js快速创建css3动画</li>
+<li>dynamics.js ： js物理引擎动画库</li>
+<li>remote_inspect_web_on_real_device 各种真机远程调试方法汇总——“真机远程调试”</li>
+<li>spy-debugger    ： 移动端手机调试插件</li>
+<li>ms              ：毫秒互换/ 转换成秒/分/时  插件</li>
+<li>web_js_css_frame    ： 前端框架合集介绍 –</li>
+<li>ScrollTrigger   ： 滚动现实 Inview插件 比如进入某个div div需要做什么现实</li>
+<li>Clusterize.js   ： 数据展示插件</li>
+<li>Clamp.js    ： 多行文本溢出省略</li>
+<li>dropload    ： 移动端上啦刷新 下拉加载插件</li>
+<li>mobiscroll  : 屌炸天的组件库…但是收费 价格忒贵</li>
+<li>flatpickr   : flat风格的日历选择插件,功能性比较强！</li>
+<li>perfect-scrollbar: 简约但完美的自定义滚动条插件</li>
+<li>Vconsole: weui的移动端console…某些特殊的环境下会出问题 比如某x付宝</li>
+<li>iview : vue的组件库..类型与vux</li>
+<li>weui.js :weui.io组件js库</li>
+<li>jQuery-Parallax: jquery的鼠标滚动 页面视差滚动</li>
+<li>jsdom: nodejs jsdom引擎</li>
+<li>qart.js：前端快速生成二维码</li>
+<li>cors: cors跨域处理问题</li>
+<li>gulp-flatten: gulp扁平化组件 取消gulp层级目录 比如dev/js/a/x1.js =&gt; /dist/js/x1.js</li>
+<li>iscroll: iscroll无限滚动库,注意其库只能有一个子组件 比如div&gt;div1 但是不能有 div&gt;div1+div2</li>
+<li>request-promise:request promise版</li>
+<li>VueCircleMenu: vue圆形菜单组件</li>
+<li>ityped: js打字机效果</li>
+<li>swagger-editor: api文档在线编写工具</li>
+<li>jquery-weui: 微信ui库 jquery版本 如果同时引入weui,那么需要jquery-weui.css 覆盖weui的样式. 如果使用rem布局(flex)请覆盖jquery-weui的html(font-size) 同时对某些jquery-weui组件进行调整</li>
+<li>weui: 微信ui库</li>
 <li>particles.js:前端粒子库</li>
 <li>normalizr:数据结构扁平化库</li>
 <li>docsify:写文档用的库</li>
@@ -336,7 +598,7 @@
 <li>loaders.css:纯css的加载动画 loading</li>
 <li>SpinKit:优雅高效的加载动画</li>
 <li>device.js:判断目前访问的浏览器</li>
-<li>stellar.js:单个视差滚动,Parallax.js可以支持多个div视差滚动</li>
+<li>stellar.js:4kstar的视差滚动 滚轮滚动</li>
 <li>scrollpath:视差滚动,滚轮滚动.</li>
 <li>WOW:滚动到某个div加载某个动画 依赖animate.css</li>
 <li>jquery_lazyload:jquery的懒加载 </li>
@@ -796,237 +1058,6 @@
     <div class="article-info article-info-index">
       
       
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-邮箱发送html案例" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/24/邮箱发送html案例/" class="article-date">
-  	<time datetime="2016-10-24T15:31:38.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/24/邮箱发送html案例/">邮箱发送html案例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="邮箱发送案例笔记"><a href="#邮箱发送案例笔记" class="headerlink" title="邮箱发送案例笔记"></a>邮箱发送案例笔记</h1><p>今天在做邮箱发送案例的时候发现有一些问题需要处理</p>
-<p>这里的邮箱指的是QQ邮箱</p>
-<ol>
-<li>避免使用*zoom,*display,*xxx</li>
-<li>避免使用css样式选择器</li>
-<li>规定宽度如650px 利用margin居中</li>
-<li>所有样式内联</li>
-<li>避免使用复杂样式</li>
-</ol>
-<p>1.则是因为邮箱在处理的时候会把不标准的css样式给屏蔽掉.所以导致*xxx 以后的样式全部无效.如果要用请把*xxx放在最后进行处理</p>
-<p>2.和4.可以先利用选择器写好然后再利用gulp脚本自动生成,这里给出一段,所需模块已经require,需要的可以直接去npm进行下载</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gulp=<span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">const</span> inlineCss=<span class="built_in">require</span>(<span class="string">"gulp-inline-css"</span>);</div><div class="line"><span class="keyword">const</span> rename=<span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.task(<span class="string">"inlineCss"</span>,()=&gt;&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">"./dist/html/微信邀请函/*.html"</span>)</div><div class="line">            .pipe(inlineCss())</div><div class="line">            .pipe(rename(<span class="function">(<span class="params">path</span>)=&gt;</span>&#123;</div><div class="line">                path.dirname=<span class="string">"./"</span>;</div><div class="line">                path.basename+=<span class="string">"-inline-css"</span>;</div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">"./dist/html/微信邀请函/inlineCss/"</span>))</div><div class="line">    &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<ol>
-<li>则是因为避免不同屏幕大小下的问题.这里给出一个参考值650px</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-VuexDemo学习记录" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/10/24/VuexDemo学习记录/" class="article-date">
-  	<time datetime="2016-10-24T15:29:55.000Z" itemprop="datePublished">2016-10-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/24/VuexDemo学习记录/">VuexDemo学习记录</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="VuexDemo学习记录"><a href="#VuexDemo学习记录" class="headerlink" title="VuexDemo学习记录"></a>VuexDemo学习记录</h1><p><a href="http://vuex.vuejs.org/zh-cn/tutorial.html" target="_blank" rel="external">Vuex官方</a>提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解</p>
-<h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><ul>
-<li>/</li>
-<li>main.js</li>
-<li>app.vue</li>
-<li>/vuex</li>
-<li><ul>
-<li>action.js</li>
-</ul>
-</li>
-<li><ul>
-<li>getters.js</li>
-</ul>
-</li>
-<li><ul>
-<li>store.js</li>
-</ul>
-</li>
-<li>components</li>
-<li><ul>
-<li>Display.vue</li>
-</ul>
-</li>
-<li><ul>
-<li>Increment.vue</li>
-</ul>
-</li>
-</ul>
-<h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><p>vuex的数据流可以用三句话解决</p>
-<blockquote>
-<p>用户在组件中的输入操作触发 action 调用；</p>
-<p>Actions 通过分发 mutations 来修改 store 实例的状态；</p>
-<p>Store 实例的状态变化反过来又通过 getters 被组件获知。</p>
-</blockquote>
-<h1 id="store"><a href="#store" class="headerlink" title="store"></a>store</h1><p>首先在store.js中声明 state以及mutations<br>其中state是用来放数据的,mutations则是用来放触发事件 当执行action的时候 action再去触发mutations</p>
-<h1 id="action"><a href="#action" class="headerlink" title="action"></a>action</h1><p>在actions.js则只声明了一个函数,这个函数的作用仅仅是用来调用mutaions 传递对应的参数给mcations</p>
-<h1 id="getter"><a href="#getter" class="headerlink" title="getter"></a>getter</h1><p>vue提供了getter方法,当需要显示数据的时候,首先是调用数据的getter方法.那么在获取数据之前就可以利用getter方法对数据进行处理方便后续开发.</p>
-<p>getter.js也仅仅是声明了一个函数 这个函数返回的是state中的内容.</p>
-<p>那么这个传递过来的state参数是哪来的?<br>其实getter不关心是谁引用了 只关心有没有state.xxx 这个属性.所以这个state是由父级(此例是APP.vue)的store属性来控制的</p>
-<h1 id="Display-Vue"><a href="#Display-Vue" class="headerlink" title="Display.Vue"></a>Display.Vue</h1><p>这个Vue组件仅仅做展示, 那么这里的展示就涉及到了一个共享数据 展示数据从哪里来？</p>
-<p>很显然,展示的数据是共享的,所以展示的数据是从state中拿的,那么涉及到拿数据,肯定就需要getter.js来帮忙处理了    </p>
-<h1 id="Increment-vue"><a href="#Increment-vue" class="headerlink" title="Increment.vue"></a>Increment.vue</h1><p>这个Vue组件是用来执行actions的.<br>也就是这里的函数会调用actions.js 再由actions来触发mutations中的事件.</p>
-<h1 id="APP-vue"><a href="#APP-vue" class="headerlink" title="APP.vue"></a>APP.vue</h1><p>这里的App.vue<br>也就是用来引入组件模块,同时用来控制 子组件到底引入那个store</p>
-<p>假如子组件在不同的父组件中,store也不可能一样吧.所以父组件就规定了store.</p>
-<p>那么子组件的子组件,store如何控制呢？</p>
-<p>实际上当父组件引用了a.store 子组件引用了b.store 其子组件显示的store是b.store 而不是a.</p>
-<h1 id="数据流图"><a href="#数据流图" class="headerlink" title="数据流图"></a>数据流图</h1><p><img src="http://vuex.vuejs.org/zh-cn/vuex.png" alt=""></p>
-<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
-<li>应用 state 存在于单个对象中；</li>
-<li>只有 mutation handlers 可以改变 state；</li>
-<li>Mutations 必须是同步的，它们做的应该仅仅是改变 state；</li>
-<li>所有类似数据获取的异步操作细节都应封装在 actions 里面。</li>
-<li>组件通过 getters 从 store 中获取 state，并通过调用 actions 来改变 state。</li>
-</ol>
-<p>Vuex actions 和 mutations 优雅的地方在于它们都只是一些函数。只需要遵循以上的准则，怎么组织代码就取决于你自己了。</p>
-<p><a href="http://vuex.vuejs.org/zh-cn/structure.html" target="_blank" rel="external">应用结构</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mongoose使用原始mongodb带auth" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/25/mongoose使用原始mongodb带auth/" class="article-date">
-  	<time datetime="2016-08-25T03:02:02.000Z" itemprop="datePublished">2016-08-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/25/mongoose使用原始mongodb带auth/">mongoose使用原始mongodb带auth</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbUrl=<span class="string">"mongodb://username:pw@localhost:27017/dbname"</span>;</div><div class="line"><span class="keyword">var</span> db=mongoose.createConnection(dbUrl);</div><div class="line">	db.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	 <span class="built_in">console</span>.log(<span class="string">"open"</span>);</div><div class="line">	    mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">"is open db "</span>)</div><div class="line">	        collection.find(&#123;<span class="attr">_id</span>: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</div><div class="line">	            <span class="comment">//console.log('session',err,results)</span></div><div class="line">	            <span class="keyword">if</span> (!results.length||err) &#123;</div><div class="line">	                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">	            &#125; <span class="keyword">else</span> &#123;</div><div class="line">	                socket.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</div><div class="line">	                <span class="built_in">console</span>.log(<span class="number">23</span>, socket.session)</div><div class="line">	                next()</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">	    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>剩下的跟mongodb原始查询语法一样. 需要在db.open以后再进行查询</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoose/">mongoose</a></li></ul>
-	</div>
-
       
 
       

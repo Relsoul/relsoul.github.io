@@ -210,6 +210,237 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-邮箱发送html案例" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/24/邮箱发送html案例/" class="article-date">
+  	<time datetime="2016-10-24T15:31:38.000Z" itemprop="datePublished">2016-10-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/24/邮箱发送html案例/">邮箱发送html案例</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="邮箱发送案例笔记"><a href="#邮箱发送案例笔记" class="headerlink" title="邮箱发送案例笔记"></a>邮箱发送案例笔记</h1><p>今天在做邮箱发送案例的时候发现有一些问题需要处理</p>
+<p>这里的邮箱指的是QQ邮箱</p>
+<ol>
+<li>避免使用*zoom,*display,*xxx</li>
+<li>避免使用css样式选择器</li>
+<li>规定宽度如650px 利用margin居中</li>
+<li>所有样式内联</li>
+<li>避免使用复杂样式</li>
+</ol>
+<p>1.则是因为邮箱在处理的时候会把不标准的css样式给屏蔽掉.所以导致*xxx 以后的样式全部无效.如果要用请把*xxx放在最后进行处理</p>
+<p>2.和4.可以先利用选择器写好然后再利用gulp脚本自动生成,这里给出一段,所需模块已经require,需要的可以直接去npm进行下载</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> gulp=<span class="built_in">require</span>(<span class="string">"gulp"</span>);</div><div class="line"><span class="keyword">const</span> inlineCss=<span class="built_in">require</span>(<span class="string">"gulp-inline-css"</span>);</div><div class="line"><span class="keyword">const</span> rename=<span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.task(<span class="string">"inlineCss"</span>,()=&gt;&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">"./dist/html/微信邀请函/*.html"</span>)</div><div class="line">            .pipe(inlineCss())</div><div class="line">            .pipe(rename(<span class="function">(<span class="params">path</span>)=&gt;</span>&#123;</div><div class="line">                path.dirname=<span class="string">"./"</span>;</div><div class="line">                path.basename+=<span class="string">"-inline-css"</span>;</div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">"./dist/html/微信邀请函/inlineCss/"</span>))</div><div class="line">    &#125;)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ol>
+<li>则是因为避免不同屏幕大小下的问题.这里给出一个参考值650px</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-VuexDemo学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/24/VuexDemo学习记录/" class="article-date">
+  	<time datetime="2016-10-24T15:29:55.000Z" itemprop="datePublished">2016-10-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/24/VuexDemo学习记录/">VuexDemo学习记录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="VuexDemo学习记录"><a href="#VuexDemo学习记录" class="headerlink" title="VuexDemo学习记录"></a>VuexDemo学习记录</h1><p><a href="http://vuex.vuejs.org/zh-cn/tutorial.html" target="_blank" rel="external">Vuex官方</a>提供了一个很简单的demo来演示vuex的数据流,这里先对Vuex的demo进行一个简单的分析和理解</p>
+<h1 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h1><ul>
+<li>/</li>
+<li>main.js</li>
+<li>app.vue</li>
+<li>/vuex</li>
+<li><ul>
+<li>action.js</li>
+</ul>
+</li>
+<li><ul>
+<li>getters.js</li>
+</ul>
+</li>
+<li><ul>
+<li>store.js</li>
+</ul>
+</li>
+<li>components</li>
+<li><ul>
+<li>Display.vue</li>
+</ul>
+</li>
+<li><ul>
+<li>Increment.vue</li>
+</ul>
+</li>
+</ul>
+<h1 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h1><p>vuex的数据流可以用三句话解决</p>
+<blockquote>
+<p>用户在组件中的输入操作触发 action 调用；</p>
+<p>Actions 通过分发 mutations 来修改 store 实例的状态；</p>
+<p>Store 实例的状态变化反过来又通过 getters 被组件获知。</p>
+</blockquote>
+<h1 id="store"><a href="#store" class="headerlink" title="store"></a>store</h1><p>首先在store.js中声明 state以及mutations<br>其中state是用来放数据的,mutations则是用来放触发事件 当执行action的时候 action再去触发mutations</p>
+<h1 id="action"><a href="#action" class="headerlink" title="action"></a>action</h1><p>在actions.js则只声明了一个函数,这个函数的作用仅仅是用来调用mutaions 传递对应的参数给mcations</p>
+<h1 id="getter"><a href="#getter" class="headerlink" title="getter"></a>getter</h1><p>vue提供了getter方法,当需要显示数据的时候,首先是调用数据的getter方法.那么在获取数据之前就可以利用getter方法对数据进行处理方便后续开发.</p>
+<p>getter.js也仅仅是声明了一个函数 这个函数返回的是state中的内容.</p>
+<p>那么这个传递过来的state参数是哪来的?<br>其实getter不关心是谁引用了 只关心有没有state.xxx 这个属性.所以这个state是由父级(此例是APP.vue)的store属性来控制的</p>
+<h1 id="Display-Vue"><a href="#Display-Vue" class="headerlink" title="Display.Vue"></a>Display.Vue</h1><p>这个Vue组件仅仅做展示, 那么这里的展示就涉及到了一个共享数据 展示数据从哪里来？</p>
+<p>很显然,展示的数据是共享的,所以展示的数据是从state中拿的,那么涉及到拿数据,肯定就需要getter.js来帮忙处理了    </p>
+<h1 id="Increment-vue"><a href="#Increment-vue" class="headerlink" title="Increment.vue"></a>Increment.vue</h1><p>这个Vue组件是用来执行actions的.<br>也就是这里的函数会调用actions.js 再由actions来触发mutations中的事件.</p>
+<h1 id="APP-vue"><a href="#APP-vue" class="headerlink" title="APP.vue"></a>APP.vue</h1><p>这里的App.vue<br>也就是用来引入组件模块,同时用来控制 子组件到底引入那个store</p>
+<p>假如子组件在不同的父组件中,store也不可能一样吧.所以父组件就规定了store.</p>
+<p>那么子组件的子组件,store如何控制呢？</p>
+<p>实际上当父组件引用了a.store 子组件引用了b.store 其子组件显示的store是b.store 而不是a.</p>
+<h1 id="数据流图"><a href="#数据流图" class="headerlink" title="数据流图"></a>数据流图</h1><p><img src="http://vuex.vuejs.org/zh-cn/vuex.png" alt=""></p>
+<h1 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h1><ol>
+<li>应用 state 存在于单个对象中；</li>
+<li>只有 mutation handlers 可以改变 state；</li>
+<li>Mutations 必须是同步的，它们做的应该仅仅是改变 state；</li>
+<li>所有类似数据获取的异步操作细节都应封装在 actions 里面。</li>
+<li>组件通过 getters 从 store 中获取 state，并通过调用 actions 来改变 state。</li>
+</ol>
+<p>Vuex actions 和 mutations 优雅的地方在于它们都只是一些函数。只需要遵循以上的准则，怎么组织代码就取决于你自己了。</p>
+<p><a href="http://vuex.vuejs.org/zh-cn/structure.html" target="_blank" rel="external">应用结构</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-mongoose使用原始mongodb带auth" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/25/mongoose使用原始mongodb带auth/" class="article-date">
+  	<time datetime="2016-08-25T03:02:02.000Z" itemprop="datePublished">2016-08-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/25/mongoose使用原始mongodb带auth/">mongoose使用原始mongodb带auth</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dbUrl=<span class="string">"mongodb://username:pw@localhost:27017/dbname"</span>;</div><div class="line"><span class="keyword">var</span> db=mongoose.createConnection(dbUrl);</div><div class="line">	db.on(<span class="string">"open"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	 <span class="built_in">console</span>.log(<span class="string">"open"</span>);</div><div class="line">	    mongoose.connection.db.collection(<span class="string">"sessions"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, collection</span>) </span>&#123;</div><div class="line">	        <span class="built_in">console</span>.log(<span class="string">"is open db "</span>)</div><div class="line">	        collection.find(&#123;<span class="attr">_id</span>: sid&#125;).toArray(<span class="function"><span class="keyword">function</span> (<span class="params">err, results</span>) </span>&#123;</div><div class="line">	            <span class="comment">//console.log('session',err,results)</span></div><div class="line">	            <span class="keyword">if</span> (!results.length||err) &#123;</div><div class="line">	                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">	            &#125; <span class="keyword">else</span> &#123;</div><div class="line">	                socket.session = <span class="built_in">JSON</span>.parse(results[<span class="number">0</span>].session)</div><div class="line">	                <span class="built_in">console</span>.log(<span class="number">23</span>, socket.session)</div><div class="line">	                next()</div><div class="line">	            &#125;</div><div class="line">	        &#125;);</div><div class="line">	    &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>剩下的跟mongodb原始查询语法一样. 需要在db.open以后再进行查询</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoose/">mongoose</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-mac-laravel-failed-to-open-stream-Permission-denied" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -610,222 +841,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-laravel框架学习笔记-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/23/laravel框架学习笔记-1/" class="article-date">
-  	<time datetime="2016-05-23T04:21:41.000Z" itemprop="datePublished">2016-05-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/23/laravel框架学习笔记-1/">laravel框架学习笔记-1</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学习php当中的感觉"><a href="#学习php当中的感觉" class="headerlink" title="学习php当中的感觉"></a>学习php当中的感觉</h1><p>一周就上手php了.从前端转来学php并没遇到太大的问题,毕竟都是弱类型语言,SQL这块因为是个新产物所以还得慢慢品尝.<br>大概的感觉就是</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>php不愧是世界上最好的语言(手动滑稽).<br>php内置了 <del>三个sx</del> 大量的函数所以开发起来还是比较方便的<br>函数默认是按值传递而不是引用传递这点与js不同</p>
-<h2 id="win下的编码问题"><a href="#win下的编码问题" class="headerlink" title="win下的编码问题"></a>win下的编码问题</h2><p>在win下操控路径必须得用iconv来转gbk 否则会遇到莫名其妙的bug Unix大法好</p>
-<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>php的转发基本上靠这货了.为啥不是apache? 因为我喜欢nginx. 或者用nginx转发Apache也行 哈哈<br>nginx中涉及到大量的正则,正则是我的弱项.用了就忘- -还是得去反复使用</p>
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p>千万不要用mysql直接操作数据库 用mysqli 并且用mysqli的prepare语句来进行数据库操作 否则会遇到SQL注入问题.<br>sqlmap表示 prepare是啥？</p>
-<h2 id="后端验证"><a href="#后端验证" class="headerlink" title="后端验证"></a>后端验证</h2><p>在数据验证这块得做两个验证,前端一个,着重后端验证数据.否则出啥问题就GG了</p>
-<h1 id="为什么是laravel"><a href="#为什么是laravel" class="headerlink" title="为什么是laravel?"></a>为什么是laravel?</h1><p>上手PHP后就直接去用laravel框架了..为了 <del>情怀</del> 还是因为这个框架是跟express比较相近的..</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/23/laravel框架学习笔记-1/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mysql学习笔记3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/09/mysql学习笔记3/" class="article-date">
-  	<time datetime="2016-05-09T10:02:43.000Z" itemprop="datePublished">2016-05-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/09/mysql学习笔记3/">mysql学习笔记3</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="插入记录-INSERT"><a href="#插入记录-INSERT" class="headerlink" title="插入记录 INSERT"></a>插入记录 INSERT</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name [(col_name,...)] &#123;<span class="keyword">VALUES</span>|<span class="keyword">VALUE</span>&#125; (&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...),(...),...</div></pre></td></tr></table></figure>
-<h2 id="插入记录-范例"><a href="#插入记录-范例" class="headerlink" title="插入记录-范例"></a>插入记录-范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">users</span>(</div><div class="line">        <span class="keyword">id</span> <span class="built_in">SMALLINT</span> <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">        age TINYINT <span class="keyword">UNSIGNED</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span>,</div><div class="line">        sex <span class="built_in">BOOLEAN</span></div><div class="line">    ); </div><div class="line"></div><div class="line">//插入几条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="literal">NULL</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"Tom"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>);</div><div class="line">//写入多条记录</div><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="keyword">DEFAULT</span>,<span class="string">"JOHN"</span>,<span class="string">"123"</span>,<span class="number">25</span>,<span class="number">1</span>),(<span class="literal">NULL</span>,<span class="string">"Rose"</span>,<span class="keyword">md5</span>(<span class="string">"123"</span>),<span class="keyword">DEFAULT</span>,<span class="number">0</span>);</div></pre></td></tr></table></figure>
-<p>如果想要id遵守默认的编号 只需要设置该列为NULL或者DEFAULT即可.<br>如果有字段设置过DEFAULT 那么该列可以添加DEFAULT;</p>
-<h1 id="插入记录-使用子查询"><a href="#插入记录-使用子查询" class="headerlink" title="插入记录,使用子查询"></a>插入记录,使用子查询</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> [<span class="keyword">INTO</span>] tbl_name <span class="keyword">SET</span> col_name=&#123;expr|<span class="keyword">DEFAULT</span>&#125;,...</div></pre></td></tr></table></figure>
-<p>只能一次性插入一条记录</p>
-<h2 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">users</span> <span class="keyword">SET</span> username=<span class="string">"Ben"</span>,<span class="keyword">password</span>=<span class="string">"456"</span>;</div></pre></td></tr></table></figure>
-<h1 id="单表更新记录UPDATE"><a href="#单表更新记录UPDATE" class="headerlink" title="单表更新记录UPDATE"></a>单表更新记录UPDATE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> [<span class="keyword">LOW_PRIORITY</span>] [<span class="keyword">IGNORE</span>] table_reference <span class="keyword">SET</span> col_name1=&#123;expr1|<span class="keyword">DEFAULT</span>&#125;,[, col_name2=&#123;expr2|<span class="keyword">DEFAULT</span>&#125;]...[<span class="keyword">WHERE</span> where_condition]</div></pre></td></tr></table></figure>
-<h2 id="范例-1"><a href="#范例-1" class="headerlink" title="范例"></a>范例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">set</span> age=age+<span class="number">5</span>;</div></pre></td></tr></table></figure>
-<p>让users表中age加5.</p>
-<h2 id="范例2-更新多列"><a href="#范例2-更新多列" class="headerlink" title="范例2-更新多列"></a>范例2-更新多列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age-<span class="keyword">id</span>,sex=<span class="number">0</span>;</div></pre></td></tr></table></figure>
-<h2 id="指定记录更新"><a href="#指定记录更新" class="headerlink" title="指定记录更新"></a>指定记录更新</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">UPDATE</span> <span class="keyword">users</span> <span class="keyword">SET</span> age=age+<span class="number">10</span> <span class="keyword">WHERE</span> <span class="keyword">id</span>%<span class="number">2</span>=<span class="number">0</span>;</div></pre></td></tr></table></figure>
-<h1 id="单表删除记录DELETE"><a href="#单表删除记录DELETE" class="headerlink" title="单表删除记录DELETE"></a>单表删除记录DELETE</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> tbl_name [<span class="keyword">WHERE</span> where_condition]</div></pre></td></tr></table></figure>
-<h1 id="范例-2"><a href="#范例-2" class="headerlink" title="范例"></a>范例</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">5</span>;</div></pre></td></tr></table></figure>
-<p>删除后再插入一条记录 即使ID号不连续,那么新插入的id是已有的最大id+1</p>
-<h1 id="表达式解析"><a href="#表达式解析" class="headerlink" title="表达式解析"></a>表达式解析</h1><h1 id="查找记录-SELECT"><a href="#查找记录-SELECT" class="headerlink" title="查找记录 SELECT"></a>查找记录 SELECT</h1><h2 id="查找前两列"><a href="#查找前两列" class="headerlink" title="查找前两列"></a>查找前两列</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,username <span class="keyword">FROM</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure>
-<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">AS</span> userID,username <span class="keyword">AS</span> uname <span class="keyword">FROM</span> <span class="keyword">users</span>;</div></pre></td></tr></table></figure>
-<h2 id="group-by-语句对查询结果分组"><a href="#group-by-语句对查询结果分组" class="headerlink" title="group by 语句对查询结果分组"></a>group by 语句对查询结果分组</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</div></pre></td></tr></table></figure>
-<p>对分组的结果进行分组</p>
-<h3 id="按照性别分组"><a href="#按照性别分组" class="headerlink" title="按照性别分组"></a>按照性别分组</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> sex <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex;</div></pre></td></tr></table></figure>
-<h2 id="having语句设置分组条件"><a href="#having语句设置分组条件" class="headerlink" title="having语句设置分组条件"></a>having语句设置分组条件</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> sex,age <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> sex <span class="keyword">HAVING</span> <span class="keyword">count</span>(<span class="keyword">id</span>);</div></pre></td></tr></table></figure>
-<h2 id="order-by-语句对查询结果进行排序"><a href="#order-by-语句对查询结果进行排序" class="headerlink" title="order by 语句对查询结果进行排序"></a>order by 语句对查询结果进行排序</h2><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="comment">&#123;col_name|expr|position&#125;</span> [<span class="keyword">ASC</span>|<span class="keyword">DESC</span>],...]</div></pre></td></tr></table></figure>
-<h3 id="范例-3"><a href="#范例-3" class="headerlink" title="范例"></a>范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> age <span class="keyword">ASC</span>,<span class="keyword">id</span> <span class="keyword">DESC</span>;</div></pre></td></tr></table></figure>
-<p>如果age遇到了相同的 那么再进行id排序</p>
-<h2 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h2><h3 id="范例-4"><a href="#范例-4" class="headerlink" title="范例"></a>范例</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">2</span></div></pre></td></tr></table></figure>
-<p>返回两条记录</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">LIMIT</span> <span class="number">3</span>,<span class="number">2</span> //<span class="keyword">id</span> <span class="number">4</span>,<span class="number">5</span></div></pre></td></tr></table></figure>
-<p>从3开始向后截取两条记录<br>3非id,指的是结果集中的第三条语句.<br>数据库从0开始算,所以3会返回至id为4,5</p>
-<h2 id="插入记录"><a href="#插入记录" class="headerlink" title="插入记录"></a>插入记录</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> test1(</div><div class="line">        <span class="keyword">id</span> TINYINT <span class="keyword">UNSIGNED</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</div><div class="line">        username <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</div><div class="line">    );</div></pre></td></tr></table></figure>
-<h3 id="跨表写入数据"><a href="#跨表写入数据" class="headerlink" title="跨表写入数据"></a>跨表写入数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> test1(username) <span class="keyword">SELECT</span> username <span class="keyword">FROM</span> <span class="keyword">users</span> <span class="keyword">WHERE</span> age&gt;=<span class="number">10</span>;</div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mysql学习笔记2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/05/mysql学习笔记2/" class="article-date">
-  	<time datetime="2016-05-05T14:31:50.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/mysql学习笔记2/">mysql学习笔记2-</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h1><ul>
-<li>约束保证数据的完整性与一致性</li>
-<li>约束分为表级约束和列级约束</li>
-<li>约束类型包括<br>– NOT NULL (非空约束)<br>– PRIMARY KEY (主键约束)<br>– UNIQUE KEY (唯一约束)<br>– DEFAULT (默认约束)<br>– FOREIGN KEY (外键约束)</li>
-</ul>
-<h1 id="外键约束的要求解析"><a href="#外键约束的要求解析" class="headerlink" title="外键约束的要求解析"></a>外键约束的要求解析</h1><p>FOREIGN KEY<br>保证数据的一致性,完整性.<br>实现一对一或一对多关系</p>
-<ul>
-<li>父表与子表必须使用相同的存储引擎,而且禁止使用临时表.</li>
-<li>数据表的存储引擎只能为InnoDB</li>
-<li>外键列和参照列必须具有相似的数据类型.其中数字的长度或者是否有符号位必须相同;而字符的长度则可以不同.</li>
-<li>外键列和参照列必须创建索引.如果外键列不存在索引的话,MySQL将自动创建索引</li>
-</ul>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/05/mysql学习笔记2/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

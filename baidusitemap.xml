@@ -4,6 +4,70 @@
 
     
   <url>
+    <loc>http://emufan.com/2017/01/04/%E5%B8%B8%E7%94%A8%E7%9A%84js-nodejs-%E5%BA%93%E6%95%B4%E7%90%86/</loc>
+    <lastmod>2017-06-18T07:54:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用的js(nodejs)库整理</title>
+        <pubTime>2017-01-04T13:25:01.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2017/06/18/%E8%AE%B0%E4%B8%80%E6%AC%A1nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%86%85%E7%BD%91wordpress/</loc>
+    <lastmod>2017-06-18T07:53:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>记一次nginx反向代理内网wordpress</title>
+        <pubTime>2017-06-18T07:53:05.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2017/06/18/nodejs%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-06-18T07:52:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>nodejs微服务设计笔记</title>
+        <pubTime>2017-06-18T07:52:32.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://emufan.com/2017/06/18/mac%E4%B8%8B-nvm-use-xxx%E5%90%8E%E4%B8%8D%E7%94%9F%E6%95%88/</loc>
+    <lastmod>2017-06-18T07:52:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>mac下 nvm use xxx后不生效</title>
+        <pubTime>2017-06-18T07:51:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://emufan.com/2017/01/17/js%E5%BC%80%E5%8F%91%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2017-01-17T14:31:22.000Z</lastmod>
     <data>
@@ -28,25 +92,6 @@
         <title>百度主动推送hexo生成的文章</title>
         <pubTime>2016-02-18T14:25:18.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://emufan.com/2017/01/04/%E5%B8%B8%E7%94%A8%E7%9A%84js-nodejs-%E5%BA%93%E6%95%B4%E7%90%86/</loc>
-    <lastmod>2017-01-04T13:25:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>常用的js(nodejs)库整理</title>
-        <pubTime>2017-01-04T13:25:01.000Z</pubTime>
-        
-        <tag>nodejs</tag>
-         
-        <tag>js</tag>
-         
          
            
         </display>
@@ -353,9 +398,9 @@
         <title>laravel框架学习笔记-1</title>
         <pubTime>2016-05-23T04:21:41.000Z</pubTime>
         
-        <tag>php</tag>
-         
         <tag>学习笔记</tag>
+         
+        <tag>php</tag>
          
          
            

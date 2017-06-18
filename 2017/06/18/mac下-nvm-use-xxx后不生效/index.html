@@ -3,19 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>可维护的JavaScript笔记 | Soul,游荡的灵魂.</title>
+  <title>mac下 nvm use xxx后不生效 | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
+  <meta name="description" content="说明安装了iterm2和oh my zsh, nvm也添加进入了.zshrc
+12export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm
+然后安装了nodejs 7.10.0版本后 新建iterm发现nodejs还是原来的v6.9版本…试着删除了一下v6.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可维护的JavaScript笔记">
-<meta property="og:url" content="http://emufan.com/2015/12/22/可维护的JavaScript笔记/index.html">
+<meta property="og:title" content="mac下 nvm use xxx后不生效">
+<meta property="og:url" content="http://emufan.com/2017/06/18/mac下-nvm-use-xxx后不生效/index.html">
 <meta property="og:site_name" content="Soul,游荡的灵魂.">
-<meta property="og:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
-<meta property="og:updated_time" content="2015-12-22T03:47:32.000Z">
+<meta property="og:description" content="说明安装了iterm2和oh my zsh, nvm也添加进入了.zshrc
+12export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm
+然后安装了nodejs 7.10.0版本后 新建iterm发现nodejs还是原来的v6.9版本…试着删除了一下v6.">
+<meta property="og:updated_time" content="2017-06-18T07:52:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可维护的JavaScript笔记">
-<meta name="twitter:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
+<meta name="twitter:title" content="mac下 nvm use xxx后不生效">
+<meta name="twitter:description" content="说明安装了iterm2和oh my zsh, nvm也添加进入了.zshrc
+12export NVM_DIR=&quot;$HOME/.nvm&quot;[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;amp;&amp;amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm
+然后安装了nodejs 7.10.0版本后 新建iterm发现nodejs还是原来的v6.9版本…试着删除了一下v6.">
   
     <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
@@ -209,11 +215,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-可维护的JavaScript笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mac下-nvm-use-xxx后不生效" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/可维护的JavaScript笔记/" class="article-date">
-  	<time datetime="2015-12-22T03:47:27.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2017/06/18/mac下-nvm-use-xxx后不生效/" class="article-date">
+  	<time datetime="2017-06-18T07:51:41.000Z" itemprop="datePublished">2017-06-18</time>
 </a>
     </div>
   
@@ -226,7 +232,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      可维护的JavaScript笔记
+      mac下 nvm use xxx后不生效
     </h1>
   
 
@@ -234,10 +240,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -246,7 +248,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>安装了iterm2和oh my zsh, nvm也添加进入了.zshrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></div><div class="line">[ <span class="_">-s</span> <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> ] &amp;&amp; . <span class="string">"<span class="variable">$NVM_DIR</span>/nvm.sh"</span> <span class="comment"># This loads nvm</span></div></pre></td></tr></table></figure>
+<p>然后安装了nodejs 7.10.0版本后 新建iterm发现nodejs还是原来的v6.9版本…<br>试着删除了一下v6.9版本就报错了</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">N/A <span class="built_in">version</span> <span class="keyword">is</span> <span class="keyword">not</span> installed yet</div></pre></td></tr></table></figure>
+<p>解决这个问题的办法很简单<br><a href="https://github.com/creationix/nvm/issues/437" target="_blank" rel="external">github</a></p>
+<p>不想看github的话那么就执行下面这个命令</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm alias <span class="section">default</span> <span class="number">7.10</span><span class="number">.0</span></div></pre></td></tr></table></figure>
+<p>后面的7.10.0换成你的版本号.. 具体问题未深究….先解决再说</p>
+
       
     </div>
     
@@ -255,18 +265,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/22/angular学习笔记-MVC/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/18/nodejs微服务设计笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          angular学习笔记-MVC
+          nodejs微服务设计笔记
         
       </div>
     </a>
   
   
-    <a href="/2015/12/22/mongoose连表查询与更改/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mongoose连表查询与更改</div>
+    <a href="/2017/01/17/js开发总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js开发总结</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -295,7 +305,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="可维护的JavaScript笔记" data-title="可维护的JavaScript笔记" data-url="http://emufan.com/2015/12/22/可维护的JavaScript笔记/"></div>
+	<div class="ds-thread" data-thread-key="mac下-nvm-use-xxx后不生效" data-title="mac下 nvm use xxx后不生效" data-url="http://emufan.com/2017/06/18/mac下-nvm-use-xxx后不生效/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

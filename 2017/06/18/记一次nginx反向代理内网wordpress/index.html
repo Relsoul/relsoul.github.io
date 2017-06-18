@@ -3,19 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>可维护的JavaScript笔记 | Soul,游荡的灵魂.</title>
+  <title>记一次nginx反向代理内网wordpress | Soul,游荡的灵魂.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
-  <meta name="description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
+  <meta name="description" content="记一次nginx反向代理内网wordpress参考nginx反向代理wordpress
+nginx反向代理wordpress.conf
+Nginx proxy_set_header 理解
+说明公网ip为 233.233.233.233代理服务器内网ip为 10.10.10.10wordpress内网服务器ip为 10.0.0.1其中nginx代理服务器可以访问内网.需要绑定的域名为abc.com,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可维护的JavaScript笔记">
-<meta property="og:url" content="http://emufan.com/2015/12/22/可维护的JavaScript笔记/index.html">
+<meta property="og:title" content="记一次nginx反向代理内网wordpress">
+<meta property="og:url" content="http://emufan.com/2017/06/18/记一次nginx反向代理内网wordpress/index.html">
 <meta property="og:site_name" content="Soul,游荡的灵魂.">
-<meta property="og:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
-<meta property="og:updated_time" content="2015-12-22T03:47:32.000Z">
+<meta property="og:description" content="记一次nginx反向代理内网wordpress参考nginx反向代理wordpress
+nginx反向代理wordpress.conf
+Nginx proxy_set_header 理解
+说明公网ip为 233.233.233.233代理服务器内网ip为 10.10.10.10wordpress内网服务器ip为 10.0.0.1其中nginx代理服务器可以访问内网.需要绑定的域名为abc.com,">
+<meta property="og:updated_time" content="2017-06-18T07:53:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="可维护的JavaScript笔记">
-<meta name="twitter:description" content="此为Soul的Blog,不定时的分享个人笔记,包括但不限于,前端开发,nodejs,php,SEO,linux(centos),macos,随想.">
+<meta name="twitter:title" content="记一次nginx反向代理内网wordpress">
+<meta name="twitter:description" content="记一次nginx反向代理内网wordpress参考nginx反向代理wordpress
+nginx反向代理wordpress.conf
+Nginx proxy_set_header 理解
+说明公网ip为 233.233.233.233代理服务器内网ip为 10.10.10.10wordpress内网服务器ip为 10.0.0.1其中nginx代理服务器可以访问内网.需要绑定的域名为abc.com,">
   
     <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
   
@@ -209,11 +218,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-可维护的JavaScript笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-记一次nginx反向代理内网wordpress" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/22/可维护的JavaScript笔记/" class="article-date">
-  	<time datetime="2015-12-22T03:47:27.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2017/06/18/记一次nginx反向代理内网wordpress/" class="article-date">
+  	<time datetime="2017-06-18T07:53:05.000Z" itemprop="datePublished">2017-06-18</time>
 </a>
     </div>
   
@@ -226,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      可维护的JavaScript笔记
+      记一次nginx反向代理内网wordpress
     </h1>
   
 
@@ -234,10 +243,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -246,7 +251,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="记一次nginx反向代理内网wordpress"><a href="#记一次nginx反向代理内网wordpress" class="headerlink" title="记一次nginx反向代理内网wordpress"></a>记一次nginx反向代理内网wordpress</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://liruqi.wordpress.com/2011/02/26/reverse-proxy-for-wordpress/" target="_blank" rel="external">nginx反向代理wordpress</a></p>
+<p><a href="https://gist.github.com/shellexy/2686973" target="_blank" rel="external">nginx反向代理wordpress.conf</a></p>
+<p><a href="http://www.jianshu.com/p/cc5167032525" target="_blank" rel="external">Nginx proxy_set_header 理解</a></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>公网ip为 233.233.233.233<br>代理服务器内网ip为 10.10.10.10<br>wordpress内网服务器ip为 10.0.0.1<br>其中nginx代理服务器可以访问内网.<br>需要绑定的域名为abc.com,<br>但是目前域名未备案 所以只能绑定公网ip也就是233.233.233.233</p>
+<h3 id="第一种解决方案"><a href="#第一种解决方案" class="headerlink" title="第一种解决方案"></a>第一种解决方案</h3><p>不更改wordpress的home_url和site_url 这两个url保持原来的域名不变 在nginx代理服务器那层利用sub_filter 把域名进行替换</p>
+<h3 id="第二种解决方案"><a href="#第二种解决方案" class="headerlink" title="第二种解决方案"></a>第二种解决方案</h3><p>更改wordpress的home_url和site_url为新域名.并且传递正确的Host.</p>
+<p>这里采用的是第二种解决方案.第一种解决方案实际上可以看上述的参考</p>
+<p>代理服务器层 conf配置<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">location</span> /&#123;</div><div class="line">    <span class="attribute">proxy_pass</span> http://10.0.0.1:80;</div><div class="line">    <span class="attribute">proxy_set_header</span> Host <span class="number">233.233.233.233</span>; <span class="comment"># 这里必须要传递正确的公网ip   公网ip如果有端口的加上端口 比如 233.233.233.233:3030</span></div><div class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里值得注意的就是proxy_set_header Host 233.233.233.233;</p>
+<p>这里的Host如果用 <code>proxy_set_header Host $host:$proxy_port;</code></p>
+<p>那么这个$host:$proxy_port;解析后会变成10.10.10.10:80;</p>
+<p>然而在wordpress中 我们的home_url和site_url绑定的是233.233.233.233 所以 这里不能使用$host:$proxy_port;否则会造成绑定域名不匹配 从而导致一些问题出现.</p>
+<p>具体请参考Nginx proxy_set_header 理解</p>
+
       
     </div>
     
@@ -255,18 +273,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/22/angular学习笔记-MVC/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          angular学习笔记-MVC
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/12/22/mongoose连表查询与更改/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mongoose连表查询与更改</div>
+    <a href="/2017/06/18/nodejs微服务设计笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nodejs微服务设计笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -295,7 +304,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="可维护的JavaScript笔记" data-title="可维护的JavaScript笔记" data-url="http://emufan.com/2015/12/22/可维护的JavaScript笔记/"></div>
+	<div class="ds-thread" data-thread-key="记一次nginx反向代理内网wordpress" data-title="记一次nginx反向代理内网wordpress" data-url="http://emufan.com/2017/06/18/记一次nginx反向代理内网wordpress/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
