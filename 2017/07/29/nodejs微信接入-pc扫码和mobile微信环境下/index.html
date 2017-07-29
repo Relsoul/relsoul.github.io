@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs微信接入(pc扫码和mobile微信环境下) | Soul,游荡的灵魂.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="SH4xN4Sso1GVTVJpiZrKCZUlL-IJ0VF70UbRIzqEpfs" />
+  <meta name="description" content="前言本次演示采用nodejs(&amp;gt;7.5)+express+request框架,需要有一定的基础.层级分为四层分别为
+
+路由层
+控制层
+请求层
+视图层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs微信接入(pc扫码和mobile微信环境下)">
+<meta property="og:url" content="http://emufan.com/2017/07/29/nodejs微信接入-pc扫码和mobile微信环境下/index.html">
+<meta property="og:site_name" content="Soul,游荡的灵魂.">
+<meta property="og:description" content="前言本次演示采用nodejs(&amp;gt;7.5)+express+request框架,需要有一定的基础.层级分为四层分别为
+
+路由层
+控制层
+请求层
+视图层">
+<meta property="og:updated_time" content="2017-07-29T15:48:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs微信接入(pc扫码和mobile微信环境下)">
+<meta name="twitter:description" content="前言本次演示采用nodejs(&amp;gt;7.5)+express+request框架,需要有一定的基础.层级分为四层分别为
+
+路由层
+控制层
+请求层
+视图层">
+  
+    <link rel="alternative" href="/atom.xml" title="Soul,游荡的灵魂." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+        var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?d3dc74e0385a92cbaf1996f3916648ed";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+
+  </script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">soul</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+				        
+							<li><a href="/googlesearch/">谷歌搜文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Electron/" style="font-size: 11.43px;">Electron</a> <a href="/tags/JavaScript/" style="font-size: 18.57px;">JavaScript</a> <a href="/tags/JavaScript深入浅出/" style="font-size: 14.29px;">JavaScript深入浅出</a> <a href="/tags/JavaScript笔记/" style="font-size: 10px;">JavaScript笔记</a> <a href="/tags/JavaScript设计模式/" style="font-size: 20px;">JavaScript设计模式</a> <a href="/tags/JavaScript设计模式笔记-代理模式/" style="font-size: 10px;">JavaScript设计模式笔记-代理模式</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/angularJS/" style="font-size: 15.71px;">angularJS</a> <a href="/tags/angularJs/" style="font-size: 10px;">angularJs</a> <a href="/tags/es6/" style="font-size: 12.86px;">es6</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/js/" style="font-size: 11.43px;">js</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/lnmp/" style="font-size: 10px;">lnmp</a> <a href="/tags/mac/" style="font-size: 11.43px;">mac</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 11.43px;">mongoose</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nodejs/" style="font-size: 17.14px;">nodejs</a> <a href="/tags/php/" style="font-size: 12.86px;">php</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/socket-io/" style="font-size: 11.43px;">socket.io</a> <a href="/tags/the7/" style="font-size: 10px;">the7</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/web全栈开发工程师笔记/" style="font-size: 10px;">web全栈开发工程师笔记</a> <a href="/tags/win10/" style="font-size: 10px;">win10</a> <a href="/tags/wordpress/" style="font-size: 11.43px;">wordpress</a> <a href="/tags/个人/" style="font-size: 10px;">个人</a> <a href="/tags/学习笔记/" style="font-size: 18.57px;">学习笔记</a> <a href="/tags/微博开发笔记/" style="font-size: 10px;">微博开发笔记</a> <a href="/tags/笔记/" style="font-size: 10px;">笔记</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/读书笔记/" style="font-size: 12.86px;">读书笔记</a> <a href="/tags/阿里云/" style="font-size: 10px;">阿里云</a> <a href="/tags/随笔/" style="font-size: 12.86px;">随笔</a>
+					</div>
+
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://emufan.com">soul</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/vbdfforever">梦回大神的BLOG</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">搜索采用&quot;谷歌搜索&quot;~请自备梯子~ 内容基本上都为自己原创的笔记~ 喜欢就分享一下吧~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">soul</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">soul</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">前端笔记,SEO笔记.随写.</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://oldblog.soulchat.cn/">老博客文章</a></li>
+		        
+					<li><a href="/googlesearch/">谷歌搜文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Relsoul" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/acgset/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/hun-soul" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-nodejs微信接入-pc扫码和mobile微信环境下" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/29/nodejs微信接入-pc扫码和mobile微信环境下/" class="article-date">
+  	<time datetime="2017-07-29T15:44:55.000Z" itemprop="datePublished">2017-07-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nodejs微信接入(pc扫码和mobile微信环境下)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本次演示采用nodejs(&gt;7.5)+express+request框架,需要有一定的基础.<br>层级分为四层分别为</p>
+<ul>
+<li>路由层</li>
+<li>控制层</li>
+<li>请求层</li>
+<li>视图层</li>
+</ul>
+<a id="more"></a>
+<h2 id="路由层"><a href="#路由层" class="headerlink" title="路由层"></a>路由层</h2><ul>
+<li>GET /login            # login登录页</li>
+<li>GET /login/wechat     # mobile微信跳转返回页</li>
+<li>GET /login/wechat-pc  # pc跳转返回页</li>
+</ul>
+<h2 id="控制层"><a href="#控制层" class="headerlink" title="控制层"></a>控制层</h2><ul>
+<li>getLogin        #对应GET /login 的控制器</li>
+<li>wechatLogin     #对应GET /login/wechat的控制器</li>
+<li>wechatPcLogin   #对应GET /login/wechat-pc的控制器</li>
+</ul>
+<p>这里为getLogin的控制器,比较简单就渲染一个简单的页面<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 用户登录页</div><div class="line"> * <span class="doctag">@param</span> req</div><div class="line"> * <span class="doctag">@param</span> res</div><div class="line"> * <span class="doctag">@return</span> &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> */</div><div class="line">exports.getlogin=async <span class="function"><span class="keyword">function</span> <span class="params">(req,res)</span> </span>&#123;</div><div class="line">    res.render(<span class="string">"jade-html/login"</span>)</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="请求层"><a href="#请求层" class="headerlink" title="请求层"></a>请求层</h2><ul>
+<li>getWeChatToken    #获取微信AccessToken</li>
+<li>getWeChatUserInfo #通过AccessToken获取用户信息</li>
+</ul>
+<p>其中的rq为request-promise库</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 获取微信accesstoken     <span class="doctag">@see</span> &#123;<span class="doctag">@link</span> https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842&#125;</div><div class="line"> * <span class="doctag">@param</span> code            微信授权后返回的code</div><div class="line"> * <span class="doctag">@param</span> appid           默认为微信mobile网页登录的appid</div><div class="line"> * <span class="doctag">@param</span> secret          默认为微信mobile网页登录secret,</div><div class="line"> * <span class="doctag">@return</span> &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> */</div><div class="line">exports.getWeChatToken=async <span class="function"><span class="keyword">function</span> <span class="params">(code,appid=global.conf.weChatAppId,secret=global.conf.weChatSecret)</span> </span>&#123;</div><div class="line">    <span class="comment">//https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&amp;secret=SECRET&amp;code=CODE&amp;grant_type=authorization_code</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> options=&#123;</div><div class="line">        uri: `https:<span class="comment">//api.weixin.qq.com/sns/oauth2/access_token`,</span></div><div class="line">        method:<span class="string">'get'</span>,</div><div class="line">        qs:&#123;</div><div class="line">            appid,</div><div class="line">            secret,</div><div class="line">            code,</div><div class="line">            grant_type:<span class="string">"authorization_code"</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> rq(options);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> *  获取微信用户信息              <span class="doctag">@see</span> &#123;<span class="doctag">@link</span> https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842&#125;</div><div class="line"> * <span class="doctag">@param</span> access_token          微信的access_token</div><div class="line"> * <span class="doctag">@param</span> openid                微信授权后返回的openid</div><div class="line"> * <span class="doctag">@return</span> &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> */</div><div class="line">exports.getWeChatUserInfo=async <span class="function"><span class="keyword">function</span> <span class="params">(access_token,openid)</span> </span>&#123;</div><div class="line">    <span class="comment">//https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&amp;openid=OPENID&amp;lang=zh_CN</span></div><div class="line">    <span class="keyword">let</span> options=&#123;</div><div class="line">        uri: `https:<span class="comment">//api.weixin.qq.com/sns/userinfo`,</span></div><div class="line">        method:<span class="string">'get'</span>,</div><div class="line">        qs:&#123;</div><div class="line">            access_token,</div><div class="line">            openid,</div><div class="line">            lang:<span class="string">"zh_CN"</span></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> rq(options);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h2><ul>
+<li>login.pug     #login登录页</li>
+</ul>
+<p>下面是视图层的代码 比较简单,自行引入jquery哈<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">button.js-wechat 微信登录</div><div class="line">script.</div><div class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="string">".js-wechat"</span>).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>($(<span class="built_in">window</span>).width()&gt;<span class="number">420</span>)&#123;</div><div class="line">            <span class="comment">//pc登录</span></div><div class="line"></div><div class="line">            <span class="keyword">let</span> srcPath=<span class="built_in">encodeURIComponent</span>(<span class="string">`<span class="subst">$&#123;<span class="built_in">window</span>.location.origin&#125;</span><span class="subst">$&#123;<span class="built_in">window</span>.conf.path&#125;</span>/login/wechat-pc`</span>);</div><div class="line"></div><div class="line">            <span class="keyword">let</span> src=<span class="string">`https://open.weixin.qq.com/connect/qrconnect?appid=APPID&amp;redirect_uri=<span class="subst">$&#123;srcPath&#125;</span>&amp;response_type=code&amp;scope=snsapi_login&amp;state=STATE#wechat_redirect`</span>;</div><div class="line"></div><div class="line">            <span class="keyword">let</span> $html=$(<span class="string">`&lt;iframe width="400px" height="400px" target="_top" src='<span class="subst">$&#123;src&#125;</span>'&gt;&lt;/iframe&gt;`</span>);</div><div class="line"></div><div class="line">            $(<span class="string">'body'</span>).append($html);</div><div class="line"></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">//mobile登录</span></div><div class="line">            <span class="keyword">let</span> currentUrl=<span class="built_in">encodeURIComponent</span>(<span class="string">`<span class="subst">$&#123;<span class="built_in">window</span>.location.origin&#125;</span><span class="subst">$&#123;<span class="built_in">window</span>.conf.path&#125;</span>/login/wechat`</span>);</div><div class="line">            <span class="built_in">window</span>.location.href=<span class="string">`https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&amp;redirect_uri=<span class="subst">$&#123;currentUrl&#125;</span>&amp;response_type=code&amp;scope=snsapi_userinfo&amp;state=STATE#wechat_redirect`</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;) </div><div class="line"></div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h1 id="微信PC登录"><a href="#微信PC登录" class="headerlink" title="微信PC登录"></a>微信PC登录</h1><p>微信PC登录一般是扫码登录,文档为<a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419316505&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">微信PC登录文档</a></p>
+<p>首先用户需要访问<code>/login</code>然后点击<code>微信登录</code>按钮,js做判断后直接跳转,注意pc跳转我是使用了iframe 并且特地加上了<strong>target=”_top”</strong> 这个target=top很重要.ok,从文档中可以得出比较重要的就是那个回调地址</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://open.weixin.qq.com/connect/qrconnect?appid=APPID&amp;redirect_uri=$&#123;srcPath&#125;&amp;response_type=code&amp;scope=snsapi_login&amp;<span class="keyword">state</span>=STATE<span class="comment">#wechat_redirect</span></div></pre></td></tr></table></figure>
+<p>也就是其中的redirect_uri 这里需要URI编码后才行 这里我使用的是 /login/wechat-pc, ok再来看看控制器层</p>
+<h2 id="微信PC登录之控制器层"><a href="#微信PC登录之控制器层" class="headerlink" title="微信PC登录之控制器层"></a>微信PC登录之控制器层</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="zephir"><span class="comment">/**</span></span></div><div class="line"> * 封装微信登录</div><div class="line"> * <span class="doctag">@param</span> data</div><div class="line"> * <span class="doctag">@param</span> data.code             微信的code</div><div class="line"> * <span class="doctag">@param</span> data.appid            微信的appid</div><div class="line"> * <span class="doctag">@param</span> data.secret           微信的secret</div><div class="line"> * <span class="doctag">@param</span> req</div><div class="line"> * <span class="doctag">@param</span> res</div><div class="line"> * <span class="doctag">@return</span> &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> * <span class="doctag">@private</span></div><div class="line"> */</div><div class="line">async <span class="function"><span class="keyword">function</span> <span class="title">__wechatLogin</span><span class="params">(data,req,res)</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> &#123;code,appid,secret&#125;=data;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!code)&#123;</div><div class="line">        <span class="keyword">return</span> res.redirect(`$&#123;<span class="keyword">global</span>.conf.path&#125;/login`);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//获取微信access,token</span></div><div class="line">    <span class="keyword">let</span> html=await userRequest.getWeChatToken(code,appid,secret);</div><div class="line">    html=JSON.parse(html);</div><div class="line">    <span class="keyword">let</span>&#123;access_token,openid&#125;=html;</div><div class="line"></div><div class="line">    <span class="comment">//获取用户信息</span></div><div class="line">    <span class="keyword">let</span> wechatUserInfo=await userRequest.getWeChatUserInfo(access_token,openid);</div><div class="line">    wechatUserInfo=JSON.parse(wechatUserInfo);</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(!wechatUserInfo||wechatUserInfo.errcode)&#123;</div><div class="line">        <span class="keyword">return</span> req.redirect(`$&#123;<span class="keyword">global</span>.conf.path&#125;/login`)</div><div class="line">    &#125;</div><div class="line">    res.redirect(`$&#123;<span class="keyword">global</span>.conf.path&#125;`);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 微信Pc扫码登录</div><div class="line"> * <span class="doctag">@return</span> &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> */</div><div class="line">exports.wechatPcLogin=async <span class="function"><span class="keyword">function</span> <span class="params">(req,res)</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span>&#123;query&#125;=req;</div><div class="line"></div><div class="line">    await __wechatLogin(&#123;code:query.code,appid:<span class="keyword">global</span>.conf.weChatPcAppId,secret:<span class="keyword">global</span>.conf.weChatPcSecret&#125;,req,res)</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>其中global.conf.path=””;这里只是为了方便加前缀 可以把global.conf.path设置为””就好</p>
+<p>当用户授权后 微信会跳回刚刚填写的redirect_uri 也就是/login/wechat-pc 这时候微信跳回的地址是这样的<code>xxx.com/login/wechat-pc?code=123456</code> 那么拿到这个code后就可以进行accessToken的替换了,拿到accessToken后就可以获取用户权限了</p>
+<h1 id="微信Mobile登录"><a href="#微信Mobile登录" class="headerlink" title="微信Mobile登录"></a>微信Mobile登录</h1><p>其实重点在于redirect_uri 那么对应的控制器为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 微信mobile登录</div><div class="line"> * @return &#123;Promise.&lt;void&gt;&#125;</div><div class="line"> */</div><div class="line">exports.wechatLogin=<span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span>&#123;query&#125;=req;</div><div class="line"></div><div class="line">    <span class="keyword">await</span> __wechatLogin(&#123;<span class="attr">code</span>:query.code&#125;,req,res)</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里我没有传递appid了 因为封装的方法默认会使用mobile的appid和secret<br>当授权成功后就会跳转到首页了 也就是这个 <code>res.redirect(</code>${global.conf.path}<code>);</code></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/18/记一次nginx反向代理内网wordpress/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记一次nginx反向代理内网wordpress</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="nodejs微信接入-pc扫码和mobile微信环境下" data-title="nodejs微信接入(pc扫码和mobile微信环境下)" data-url="http://emufan.com/2017/07/29/nodejs微信接入-pc扫码和mobile微信环境下/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"relsoul"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 soul
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

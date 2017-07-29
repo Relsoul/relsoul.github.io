@@ -210,6 +210,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-gulp-webpack-vue-js打造vue-js框架自动化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/" class="article-date">
+  	<time datetime="2016-03-29T11:19:18.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/">gulp+webpack+vue.js打造vue.js框架自动化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装Babel-Vue-Gulp-WebPack"><a href="#安装Babel-Vue-Gulp-WebPack" class="headerlink" title="安装Babel,Vue,Gulp,WebPack"></a>安装Babel,Vue,Gulp,WebPack</h1><h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install </span><span class="keyword">babel-core </span><span class="keyword">babel-loader </span><span class="keyword">babel-plugin-transform-runtime </span><span class="keyword">babel-preset-es2015 </span><span class="keyword">babel-runtime </span>--save-dev</div></pre></td></tr></table></figure>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> vue-hot-reload-api vue-html-loader vue-loader vue-<span class="keyword">style</span>-loader css-loader <span class="keyword">file</span>-loader inject-loader <span class="keyword">template</span>-html-loader <span class="keyword">url</span>-loader <span class="comment">--save-dev</span></div></pre></td></tr></table></figure>
+<h2 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h2><p>Gulp我用了sass 并不在vue中写style..还是不太习惯 哈哈. 并且用gulp-livereload做服务端 而不用webpack自带的<br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp gulp-livereload gulp-sass gulp-webpack --<span class="built_in">save</span>-<span class="built_in">dev</span></div></pre></td></tr></table></figure></p>
+<h2 id="WebPack"><a href="#WebPack" class="headerlink" title="WebPack"></a>WebPack</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> webpack</div></pre></td></tr></table></figure>
+<h1 id="babelrc"><a href="#babelrc" class="headerlink" title=".babelrc"></a>.babelrc</h1><p>这个文件很重要 如果不在项目根目录添加这个文件夹会导致webpack loader的时候报错<br>文件内容为<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [<span class="string">"es2015"</span>],</div><div class="line">  <span class="attr">"plugins"</span>: [<span class="string">"transform-runtime"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>意思就是转es2015并且加载插件</p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/Relsoul/gulp-webpack-demo">github</a><br><a href="https://github.com/Relsoul/gulp-webpack-demo">参考其他vue项目</a></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/29/gulp-webpack-vue-js打造vue-js框架自动化/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-手撸页面笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -766,62 +826,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/02/25/JavaScript设计模式笔记-中介者模式/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-bootstrap中的container与col" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/02/21/bootstrap中的container与col/" class="article-date">
-  	<time datetime="2016-02-21T12:29:20.000Z" itemprop="datePublished">2016-02-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/21/bootstrap中的container与col/">bootstrap中的container row与col</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>比较好奇bootstarp是如何写响应式的也就是container row col是怎么形成的.<br>先来看看container代码</p>
-<h1 id="container"><a href="#container" class="headerlink" title="container"></a>container</h1><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: auto;</div><div class="line">  <span class="attribute">margin-left</span>: auto;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">750px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">970px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) &#123;</div><div class="line">  <span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">1170px</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container-fluid</span> &#123;</div><div class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">margin-right</span>: auto;</div><div class="line">  <span class="attribute">margin-left</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里是bootstrap中的container. 在正常的PC也就是大于1200px的情况下 container宽度是1170px  但是无论是1200px还是992,768px.这里都给container设置了一个margin-left,right:auto和paading-left,right:15px。 为什么? 先不急 我们来看看row是怎么写的</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/02/21/bootstrap中的container与col/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
