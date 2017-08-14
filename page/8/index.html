@@ -210,6 +210,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-angular ng操控属性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/05/angular ng操控属性/" class="article-date">
+  	<time datetime="2016-01-04T17:01:59.000Z" itemprop="datePublished">2016-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/05/angular ng操控属性/">angular ng操控属性</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>又掉了一个坑<br>这里来说说ng-value=”xxx”与value=<br>闲话少说,看范例<br><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"choice_category"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">ng-model</span>=<span class="string">"current_category"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>---Please select---<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- not selected / blank option --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"</span></span><span class="template-variable">&#123;&#123;category._id&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">ng-repeat</span>=<span class="string">"category in categorys"</span> &gt;</span></span><span class="template-variable">&#123;&#123;category.name&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>理论上current_category会与categorys中的元素进行对比 然后select会选中对比成功的option<br>如果用ng-value=”category._id”那么神奇的事情发生了,option会平白无故的多出一条</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="keyword">option</span> <span class="keyword">value</span>=<span class="string">"? string:123?"</span>&gt;&lt;/<span class="keyword">option</span>&gt;</div></pre></td></tr></table></figure>
+<p>然后select选择的是空也就是上面那个option,因为上面呢个option没有任何的元素<br>其中详细的情况我也没去了解.个人理解如下</p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>因为current_category与categorys都是用ajax获取的,所以我设置了一个延迟来模拟网络的加载.</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="keyword">function</span>()&#123;</div><div class="line">    $scope.categorys=[&#123;</div><div class="line">        _id:<span class="string">"56896be6a43fa3e02695c01a"</span>,</div><div class="line">        name:<span class="string">"56896be6a43fa3e02695c01a"</span></div><div class="line">    &#125;,&#123;</div><div class="line">        _id:<span class="string">"568a6237a807cee863a8eb52"</span>,</div><div class="line">        name:<span class="string">"568a6237a807cee863a8eb52"</span></div><div class="line">    &#125;]</div><div class="line">&#125;,<span class="number">1000</span>)</div><div class="line"></div><div class="line">$scope.current_category=<span class="string">"56896be6a43fa3e02695c01a"</span></div></pre></td></tr></table></figure>
+<p>这里我没用$timeout而用setTimeout一模拟发现情况是一模一样，<br>但是把ng-value改为value=””则不会出现这种情况<br>在这之前我还排查了是不是categorys数量太多而导致的,看来不是.下面就开始分析一下了</p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>简单来说就是current_category先更新了,categorys后更新并且没有$apply或者$apply在current_category复制更新的时候就调用了,<br>或者就是current_category先更新了ng-repeat并没有循环完毕之类的情况,等等等等</p>
+<p>我也说不清具体是啥情况 只能猜了</p>
+<h2 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h2><p>tcp是块传输的,那么是不是先到的块就先给赋值了,如果categorys数量太多那么这个块肯定就在后面<br>于是current_category块就先到了,于是angularJS就开始更新绑定的value然后ng-repeat循环并没有完成</p>
+<h2 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h2><p>ng-repeat已经开始循环了,但是current_category并没有得到值,或者说在ng-repeat循环完毕或者循环到一半的时候<br>current_category就已经开始赋值了,但是ng-repeat并没有得到这个值,所以就选择不到那个option</p>
+<h2 id="情况3"><a href="#情况3" class="headerlink" title="情况3"></a>情况3</h2><p>参照情况2,单纯的value=””是可以的,angularJS在编译模板的时候对于ng-value与value=””模板处理机制不同所导致的.</p>
+<p>个人觉得情况3比较可能…不过我也没去看源码深究,大家就看看吧~以后遇到这种情况可以换value=””试试</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-angular做个简单的音乐播放器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -558,64 +625,6 @@
 
 
   
-    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
-  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
-<h1 id="ngApp"><a href="#ngApp" class="headerlink" title="ngApp"></a>ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h1 id="angular-module"><a href="#angular-module" class="headerlink" title="angular.module"></a>angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=angular.<span class="keyword">module</span>(<span class="string">"hello"</span>,[])</div></pre></td></tr></table></figure></p>
-<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-angular学习笔记-MVC" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -648,6 +657,64 @@
 <h1 id="V-view"><a href="#V-view" class="headerlink" title="V(view)"></a>V(view)</h1><p>V层即为视图层.</p>
 <p><div></div><br>这个msg即为视图层,目前还没有起到数据交换也就是M层渲染至V层<br>需要C层来进行控制</p>
 <h1 id="C-controller"><a href="#C-controller" class="headerlink" title="C(controller)"></a>C(controller)</h1><p>C层即为控制层<br>myCtrl就是一个控制器用来控制数据的交换</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angularJS/">angularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-angular学习笔记-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/22/angular学习笔记-简介/" class="article-date">
+  	<time datetime="2015-12-22T12:54:52.000Z" itemprop="datePublished">2015-12-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/22/angular学习笔记-简介/">angular学习笔记-简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>angularJS是一个MVVM框架,适合用来做单页应用,angularJS2比1变动比较大.这里的笔记针对angularJS1</p>
+<h1 id="ngApp"><a href="#ngApp" class="headerlink" title="ngApp"></a>ngApp</h1><p>在HTML文件的开始处声明一个ng-app=”xxx”这样就声明了一个angularJS的app<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="angular-module"><a href="#angular-module" class="headerlink" title="angular.module"></a>angular.module</h1><p>声明了app后就可以开始建立module了<br>其中module(name,[])后面数组留空会自动注入依赖<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app=angular.<span class="keyword">module</span>(<span class="string">"hello"</span>,[])</div></pre></td></tr></table></figure></p>
+<p>声明了module后就可以建立控制器，服务，自定义指令等等..</p>
 
       
     </div>
@@ -711,73 +778,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-mongoose连表查询与更改" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/22/mongoose连表查询与更改/" class="article-date">
-  	<time datetime="2015-12-22T03:30:46.000Z" itemprop="datePublished">2015-12-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/22/mongoose连表查询与更改/">mongoose连表查询与更改</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mongoose中的连表查询"><a href="#mongoose中的连表查询" class="headerlink" title="mongoose中的连表查询"></a>mongoose中的连表查询</h1><p><a href="https://github.com/Relsoul/readbook/tree/master/mongoose" target="_blank" rel="external">github地址</a><br><a href="http://mongoosejs.com/docs/populate.html" target="_blank" rel="external">population API</a></p>
-<h1 id="当找不到外链ID会跳过此ID"><a href="#当找不到外链ID会跳过此ID" class="headerlink" title="当找不到外链ID会跳过此ID"></a>当找不到外链ID会跳过此ID</h1><p>比如 Name1中有三个_id分别为<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">     <span class="attribute">test</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] ref:Name2</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Name2中以_id来索引表分别为<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attribute">_id</span>:<span class="number">1</span></div><div class="line">    name:<span class="number">1</span></div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">    <span class="attribute">_id</span>:<span class="number">2</span></div><div class="line">    name:<span class="number">2</span></div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">    <span class="attribute">_id</span>:<span class="number">3</span></div><div class="line">    name:<span class="number">3</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>现在删除Name2中的_id:2但是不删除Name1中的test外键中的_id:2<br>这样索引出来会索引出_id:1 _id:3并且不会报错.</p>
-<h2 id="建立关联表"><a href="#建立关联表" class="headerlink" title="建立关联表"></a>建立关联表</h2><p>表一:Name<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="type">ObjectId</span>=mongoose.<span class="type">Schema</span>.<span class="type">Types</span>.<span class="type">ObjectId</span></div><div class="line"><span class="keyword">var</span> <span class="type">NameSchema</span>=<span class="keyword">new</span> mongoose.<span class="type">Schema</span>(&#123;</div><div class="line">    name:<span class="type">String</span>,</div><div class="line">    age:&#123;<span class="class"><span class="keyword">type</span></span>:<span class="type">Number</span>,<span class="keyword">default</span>:<span class="number">18</span>&#125;,</div><div class="line">    classId:[&#123;<span class="class"><span class="keyword">type</span></span>:<span class="type">ObjectId</span>,ref:<span class="string">"ClassName"</span>&#125;]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>表二:ClassName<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ClassSchema=<span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">        className:&#123;</div><div class="line">            <span class="keyword">type</span>:<span class="built_in">String</span>,</div><div class="line">            unique:<span class="literal">true</span></div><div class="line">        &#125;,</div><div class="line">        credit:<span class="built_in">Number</span></div><div class="line">    &#125;</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<p>表一中有个字段为 classId 其中存储的类型是ObjectId,并且通过ref与ClassName表建立起关系</p>
-<h2 id="添加课程数据"><a href="#添加课程数据" class="headerlink" title="添加课程数据"></a>添加课程数据</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Class=<span class="keyword">new</span> ClassModel(&#123;</div><div class="line">    <span class="attr">className</span>:<span class="string">"数学"</span>,</div><div class="line">    <span class="attr">credit</span>:<span class="number">5</span></div><div class="line">&#125;)</div><div class="line">_Class.save(<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;<span class="built_in">console</span>.log(doc)&#125;)</div><div class="line"></div><div class="line"> _Class=<span class="keyword">new</span> ClassModel(&#123;</div><div class="line">    <span class="attr">className</span>:<span class="string">"语文"</span>,</div><div class="line">    <span class="attr">credit</span>:<span class="number">10</span></div><div class="line">&#125;)</div><div class="line">_Class.save(<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;<span class="built_in">console</span>.log(doc)&#125;)</div></pre></td></tr></table></figure>
-<h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">_Name=new NameModel(&#123;</div><div class="line">    <span class="keyword">name</span>:<span class="string">"小明"</span>,</div><div class="line">    age:<span class="number">20</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">_Name.<span class="keyword">save</span>(<span class="function"><span class="keyword">function</span><span class="params">(err,doc)</span></span>&#123;console.<span class="built_in">log</span>(doc)&#125;)</div><div class="line"></div><div class="line">_Name=new NameModel(&#123;</div><div class="line">    <span class="keyword">name</span>:<span class="string">"小红"</span>,</div><div class="line">    age:<span class="number">25</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">_Name.<span class="keyword">save</span>(<span class="function"><span class="keyword">function</span><span class="params">(err,doc)</span></span>&#123;console.<span class="built_in">log</span>(doc)&#125;)</div></pre></td></tr></table></figure>
-<h2 id="为用户添加课程"><a href="#为用户添加课程" class="headerlink" title="为用户添加课程"></a>为用户添加课程</h2><p>这里classId需要添加的是ClassName中的_id<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">NameModel.findOne(&#123;name:<span class="string">"小明"</span>&#125;,<span class="keyword">function</span>(err,<span class="meta">doc</span>)&#123;</div><div class="line">        console.log(<span class="number">57</span>,<span class="meta">doc</span>)</div><div class="line">        <span class="comment">//语文</span></div><div class="line">        <span class="meta">doc</span>.classId.push(<span class="string">"5678bd800c79fdf00e15b184"</span>)</div><div class="line">        <span class="meta">doc</span>.save()&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="连表查询"><a href="#连表查询" class="headerlink" title="连表查询"></a>连表查询</h2><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">NameModel.findOne(&#123;name:<span class="string">"小明"</span>&#125;,<span class="keyword">function</span>(err,<span class="meta">doc</span>)&#123;</div><div class="line">        console.log(<span class="number">57</span>,<span class="meta">doc</span>)</div><div class="line">        <span class="comment">//语文</span></div><div class="line">        <span class="meta">doc</span>.classId.push(<span class="string">"5678bd800c79fdf00e15b184"</span>)</div><div class="line">        <span class="meta">doc</span>.save()</div><div class="line">        <span class="comment">// 连表查询小明选择的课程</span></div><div class="line">        NameModel</div><div class="line">            .findOne(&#123;name:<span class="string">"小明"</span>&#125;)</div><div class="line">            .populate(<span class="string">"classId"</span>)</div><div class="line">            .exec(<span class="keyword">function</span>(err,<span class="meta">doc</span>)&#123;</div><div class="line">                console.log(<span class="number">69</span>,<span class="meta">doc</span>)</div><div class="line">                <span class="comment">/*</span></div><div class="line">                * &#123; age: 20,</div><div class="line">                * classId:</div><div class="line">                * [ &#123; __v: 0,</div><div class="line">                *   credit: 10,</div><div class="line">                *   className: '语文',</div><div class="line">                *   _id: 5678bd800c79fdf00e15b184 &#125; ],</div><div class="line">                * __v: 1,</div><div class="line">                * name: '小明',</div><div class="line">                * _id: 5678c36088fd47482e1df3de &#125;</div><div class="line">                *</div><div class="line">                *</div><div class="line">                * */</div><div class="line">            &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h1 id="查询与更改"><a href="#查询与更改" class="headerlink" title="查询与更改"></a>查询与更改</h1><p>比如我想要直接更改ClassName中的名字 把语文更改为物理..那么直接population后更改保存时不行的<br><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">NameModel.findOne(&#123;name:<span class="string">"小明"</span>&#125;,<span class="keyword">function</span>(err,<span class="meta">doc</span>)&#123;</div><div class="line">        console.log(<span class="number">57</span>,<span class="meta">doc</span>)</div><div class="line">        <span class="comment">//语文</span></div><div class="line">        <span class="meta">doc</span>.classId.push(<span class="string">"5678bd800c79fdf00e15b184"</span>)</div><div class="line">        <span class="meta">doc</span>.save()</div><div class="line">        <span class="comment">// 连表查询小明选择的课程</span></div><div class="line">        NameModel</div><div class="line">            .findOne(&#123;name:<span class="string">"小明"</span>&#125;)</div><div class="line">            .populate(<span class="string">"classId"</span>)</div><div class="line">            .exec(<span class="keyword">function</span>(err,<span class="meta">doc</span>)&#123;</div><div class="line">                console.log(<span class="number">69</span>,<span class="meta">doc</span>)</div><div class="line">                <span class="comment">/*</span></div><div class="line">                * &#123; age: 20,</div><div class="line">                * classId:</div><div class="line">                * [ &#123; __v: 0,</div><div class="line">                *   credit: 10,</div><div class="line">                *   className: '语文',</div><div class="line">                *   _id: 5678bd800c79fdf00e15b184 &#125; ],</div><div class="line">                * __v: 1,</div><div class="line">                * name: '小明',</div><div class="line">                * _id: 5678c36088fd47482e1df3de &#125;</div><div class="line">                *</div><div class="line">                *</div><div class="line">                * */</div><div class="line"></div><div class="line"></div><div class="line">                <span class="meta">doc</span>.classId[<span class="number">0</span>].name=<span class="string">"物理"</span></div><div class="line">                <span class="meta">doc</span>.save()</div><div class="line"></div><div class="line"></div><div class="line">            &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>更改后保存不会出错,但是,className数据库中的语文并不会更改…<br>只有用classnamemodel查询一次后更改了</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoose/">mongoose</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
 	</div>
 
       
